@@ -1,0 +1,19 @@
+{
+  "name": "jupiter_desktop",
+  "uniques": {
+    "jupiter": "65d963e0e9285243cbbe6116"
+  },
+  "present": [
+    "jupiter"
+  ],
+  "connect": [
+    "jupiter"
+  ],
+  "params": {
+    "router": null,
+    "ubid": null,
+    "mac": "1a:01:68:00:11:00",
+    "ip": null,
+    "label": null
+  }
+}

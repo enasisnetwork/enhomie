@@ -1,0 +1,15 @@
+---
+
+
+
+phue_bridges:
+
+  jupiter:
+    server: 192.168.1.10
+    token: XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX
+    ssl_verify: false
+
+  neptune:
+    server: 192.168.2.10
+    token: XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX
+    ssl_verify: false

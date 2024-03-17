@@ -1,0 +1,25 @@
+{
+  "name": "jupiter_button",
+  "unique": "8155e7b2-e89b-3b1d-80af-a937994d9a78",
+  "present": true,
+  "connect": true,
+  "changed": {
+    "button1": {
+      "stamp": "1970-01-01T00:00:00.000000+0000",
+      "since": "_/encommon_sample/__DURATION__/_"
+    },
+    "button2": {
+      "stamp": "_/encommon_sample/__STAMP_SUB__/_",
+      "since": "1h"
+    },
+    "button3": {
+      "stamp": "1970-01-01T00:00:00.000000+0000",
+      "since": "_/encommon_sample/__DURATION__/_"
+    }
+  },
+  "params": {
+    "bridge": "jupiter",
+    "phid": "8155e7b2-e89b-3b1d-80af-a937994d9a78",
+    "label": null
+  }
+}

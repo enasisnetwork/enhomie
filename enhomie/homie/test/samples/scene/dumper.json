@@ -1,0 +1,9 @@
+{
+  "name": "awake",
+  "present": true,
+  "phue_actual": "Awake",
+  "phue_unique": "5808a516-aab3-3ec3-8eee-4db5152b07b5",
+  "params": {
+    "phue_label": "Awake"
+  }
+}

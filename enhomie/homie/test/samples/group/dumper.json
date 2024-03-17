@@ -1,0 +1,13 @@
+{
+  "name": "jupiter_room",
+  "type": "room",
+  "present": true,
+  "phue_bridge": "jupiter",
+  "phue_actual": "Jupiter",
+  "phue_unique": "da9031f1-6229-3e2d-b143-64b2c8223915",
+  "params": {
+    "type": "room",
+    "phue_bridge": "jupiter",
+    "phue_label": "Jupiter"
+  }
+}

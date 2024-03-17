@@ -1,0 +1,85 @@
+---
+
+
+
+desires:
+
+
+  default:
+
+    scene: awake
+    groups:
+      - jupiter_room
+      - jupiter_zone
+      - neptune_room
+      - neptune_zone
+
+
+  delayed:
+
+    scene: relax
+    delay: 10
+    weight: 10
+    groups:
+      - jupiter_room
+      - jupiter_zone
+      - neptune_room
+      - neptune_zone
+
+
+  jupiter_absent:
+
+    scene: awaydark
+    groups:
+      - jupiter_room
+      - jupiter_zone
+
+    when:
+
+      - phue_change:
+          since: 900
+          devices:
+            - jupiter_button
+            - jupiter_motion
+          sensors:
+            - button1
+            - motion1
+
+      - ubiq_client:
+          since: 3600
+          routers: ['jupiter']
+          clients: ['phone']
+
+      - time_period:
+          start: -0d@d
+          stop: +1d@d
+          tzname: UTC
+
+
+  neptune_absent:
+
+    scene: awaydark
+    groups:
+      - neptune_room
+      - neptune_zone
+
+    when:
+
+      - phue_change:
+          since: 900
+          devices:
+            - neptune_button
+            - neptune_motion
+          sensors:
+            - button1
+            - motion1
+
+      - ubiq_client:
+          since: 3600
+          routers: ['neptune']
+          clients: ['phone']
+
+      - time_period:
+          start: -0d@d
+          stop: +1d@d
+          tzname: UTC

@@ -1,0 +1,11 @@
+{
+  "name": "jupiter",
+  "connect": true,
+  "params": {
+    "server": "192.168.1.10",
+    "timeout": 30,
+    "token": "***********************************",
+    "ssl_verify": false,
+    "ssl_capem": null
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "jupiter_absent",
+  "params": {
+    "groups": [
+      "jupiter_room",
+      "jupiter_zone"
+    ],
+    "scene": "awaydark",
+    "weight": 0,
+    "delay": 0,
+    "when": [
+      {
+        "negate": false,
+        "family": "default",
+        "time_period": null,
+        "phue_change": {
+          "devices": [
+            "jupiter_button",
+            "jupiter_motion"
+          ],
+          "sensors": [
+            "button1",
+            "motion1"
+          ],
+          "since": 900
+        },
+        "ubiq_client": null
+      },
+      {
+        "negate": false,
+        "family": "default",
+        "time_period": null,
+        "phue_change": null,
+        "ubiq_client": {
+          "routers": [
+            "jupiter"
+          ],
+          "clients": [
+            "phone"
+          ],
+          "since": 3600
+        }
+      },
+      {
+        "negate": false,
+        "family": "default",
+        "time_period": {
+          "start": "_/encommon_sample/__START_DAY__/_",
+          "stop": "_/encommon_sample/__STOP_DAY__/_",
+          "tzname": "UTC"
+        },
+        "phue_change": null,
+        "ubiq_client": null
+      }
+    ]
+  }
+}

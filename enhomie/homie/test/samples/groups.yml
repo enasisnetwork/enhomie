@@ -1,0 +1,27 @@
+---
+
+
+
+groups:
+
+
+  jupiter_room:
+    type: room
+    phue_bridge: jupiter
+    phue_label: Jupiter
+
+  jupiter_zone:
+    type: zone
+    phue_bridge: jupiter
+    phue_label: Jupiter
+
+
+  neptune_room:
+    type: room
+    phue_bridge: neptune
+    phue_label: Neptune
+
+  neptune_zone:
+    type: zone
+    phue_bridge: neptune
+    phue_label: Neptune
