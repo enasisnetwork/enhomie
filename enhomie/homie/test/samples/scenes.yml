@@ -1,0 +1,22 @@
+---
+
+
+
+scenes:
+
+
+  awaylite:
+    phue_label: Away Daytime
+
+  awaydark:
+    phue_label: Away Nightime
+
+
+  awake:
+    phue_label: Awake
+
+  relax:
+    phue_label: Relax
+
+  sleep:
+    phue_label: Sleep

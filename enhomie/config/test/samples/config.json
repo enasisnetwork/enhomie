@@ -1,0 +1,173 @@
+{
+  "enconfig": {
+    "paths": [
+      "_/encommon_sample/tmp_path/_",
+      "_/encommon_sample/project/_/homie/test/samples",
+      "_/encommon_sample/project/_/philipshue/test/samples",
+      "_/encommon_sample/project/_/ubiquiti/test/samples",
+      "_/encommon_sample/tmp_path/_",
+      "_/encommon_sample/project/_/homie/test/samples",
+      "_/encommon_sample/project/_/philipshue/test/samples",
+      "_/encommon_sample/project/_/ubiquiti/test/samples"
+    ]
+  },
+  "enlogger": {
+    "stdo_level": "info",
+    "file_level": null,
+    "file_path": null
+  },
+  "encrypts": null,
+  "groups": {
+    "jupiter_room": {
+      "type": "room",
+      "phue_bridge": "jupiter",
+      "phue_label": "jupiter_room"
+    },
+    "jupiter_zone": {
+      "type": "zone",
+      "phue_bridge": "jupiter",
+      "phue_label": "jupiter_zone"
+    },
+    "neptune_room": {
+      "type": "room",
+      "phue_bridge": "neptune",
+      "phue_label": "neptune_room"
+    },
+    "neptune_zone": {
+      "type": "zone",
+      "phue_bridge": "neptune",
+      "phue_label": "neptune_zone"
+    }
+  },
+  "scenes": {
+    "awaylite": {
+      "phue_label": "Away Daytime"
+    },
+    "awaydark": {
+      "phue_label": "Away Nightime"
+    },
+    "awake": {
+      "phue_label": "Awake"
+    },
+    "relax": {
+      "phue_label": "Relax"
+    },
+    "sleep": {
+      "phue_label": "Sleep"
+    }
+  },
+  "phue_bridges": {
+    "jupiter": {
+      "server": "192.168.1.10",
+      "token": "XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX",
+      "verify": false
+    },
+    "neptune": {
+      "server": "192.168.2.10",
+      "token": "XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX",
+      "verify": false
+    }
+  },
+  "phue_devices": {
+    "jupiter_button": {
+      "bridge": "jupiter",
+      "phid": "8155e7b2-e89b-3b1d-80af-a937994d9a78",
+      "label": null
+    },
+    "jupiter_motion": {
+      "bridge": "jupiter",
+      "phid": "1b434ba2-33d0-35f4-815e-890c2b1850f3",
+      "label": null
+    },
+    "jupiter_switch": {
+      "bridge": "jupiter",
+      "phid": "7f32d881-b83e-34ce-ba41-b5ce077c7619",
+      "label": null
+    },
+    "jupiter_light": {
+      "bridge": "jupiter",
+      "phid": "fceeb1d8-31f6-34a6-9d38-5b8a12564a02",
+      "label": null
+    },
+    "neptune_button": {
+      "bridge": "neptune",
+      "phid": "4495c332-10ee-44e8-99d0-8a01fd756c1b",
+      "label": null
+    },
+    "neptune_motion": {
+      "bridge": "neptune",
+      "phid": "c9f435ce-715f-47ba-b73c-f0d7fe5e0230",
+      "label": null
+    },
+    "neptune_switch": {
+      "bridge": "neptune",
+      "phid": "ac6e31e5-eb4b-4b07-b794-f49f647bed3b",
+      "label": null
+    },
+    "neptune_light": {
+      "bridge": "neptune",
+      "phid": "dfca773e-3ef8-4028-977a-f2cf99359882",
+      "label": null
+    }
+  },
+  "ubiq_routers": {
+    "jupiter": {
+      "server": "192.168.1.1",
+      "username": "username",
+      "password": "password",
+      "site": "default",
+      "verify": false
+    },
+    "neptune": {
+      "server": "192.168.2.1",
+      "username": "username",
+      "password": "password",
+      "site": "default",
+      "verify": false
+    }
+  },
+  "ubiq_clients": {
+    "jupiter_desktop": {
+      "router": null,
+      "ubid": null,
+      "mac": "1a:01:68:00:11:00",
+      "ip": null,
+      "label": null
+    },
+    "neptune_desktop": {
+      "router": null,
+      "ubid": null,
+      "mac": "1a:01:68:00:21:00",
+      "ip": null,
+      "label": null
+    },
+    "neptune_printer": {
+      "router": "neptune",
+      "ubid": "649511689c3e1931c5d484c1",
+      "mac": null,
+      "ip": null,
+      "label": null
+    },
+    "phone": {
+      "router": null,
+      "ubid": null,
+      "mac": "ce:db:ac:1a:bf:a5",
+      "ip": null,
+      "label": null
+    },
+    "tablet": {
+      "router": null,
+      "ubid": null,
+      "mac": "8a:18:9f:86:c8:ad",
+      "ip": null,
+      "label": null
+    },
+    "laptop": {
+      "router": null,
+      "ubid": null,
+      "mac": "74:a6:cd:da:74:83",
+      "ip": null,
+      "label": null
+    }
+  }
+}

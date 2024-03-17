@@ -1,0 +1,26 @@
+---
+
+
+
+ubiq_clients:
+
+
+  jupiter_desktop:
+    mac: 1a:01:68:00:11:00
+
+  neptune_desktop:
+    mac: 1a:01:68:00:21:00
+
+  neptune_printer:
+    router: neptune
+    ubid: 649511689c3e1931c5d484c1
+
+
+  phone:
+    mac: ce:db:ac:1a:bf:a5
+
+  tablet:
+    mac: 8a:18:9f:86:c8:ad
+
+  laptop:
+    mac: 74:a6:cd:da:74:83
