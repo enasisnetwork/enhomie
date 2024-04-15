@@ -1,6 +1,6 @@
 # Enasis Network Homie Automate
 
-> :warning: Initial version for this project has not been released.
+> :children_crossing: This project has not released its first major version.
 
 Define desired scenes for groups using flexible conditional plugins.
 
