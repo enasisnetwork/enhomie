@@ -22,9 +22,12 @@ from requests_mock import Mocker
 
 from .config import Config
 from .homie import Homie
-from .homie.test import SAMPLES as CORE_SAMPLES
-from .philipshue.test import SAMPLES as PHUE_SAMPLES
-from .ubiquiti.test import SAMPLES as UBIQ_SAMPLES
+from .homie.test import (
+    SAMPLES as CORE_SAMPLES)
+from .philipshue.test import (
+    SAMPLES as PHUE_SAMPLES)
+from .ubiquiti.test import (
+    SAMPLES as UBIQ_SAMPLES)
 
 
 
@@ -134,7 +137,7 @@ def homie_factory(  # noqa: CFQ001
     :returns: Newly constructed instance of related class.
     """
 
-    homie = Homie(config=config)
+    homie = Homie(config)
 
     bridges = homie.phue_bridges
     routers = homie.ubiq_routers
