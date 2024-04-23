@@ -3,7 +3,7 @@ Configuration Container
 
 .. autoclass:: enhomie.config.Config
    :members:
-   :inherited-members:
+   :show-inheritance:
    :noindex:
 
 Parameters Container
@@ -11,6 +11,7 @@ Parameters Container
 
 .. autoclass:: enhomie.config.Params
    :members:
+   :show-inheritance:
    :noindex:
 
 Homie Automate
@@ -18,7 +19,7 @@ Homie Automate
 
 .. autoclass:: enhomie.homie.Homie
    :members:
-   :inherited-members:
+   :show-inheritance:
    :noindex:
 
 Homie Desired State
@@ -26,11 +27,12 @@ Homie Desired State
 
 .. autoclass:: enhomie.homie.HomieDesire
    :members:
-   :inherited-members:
+   :show-inheritance:
    :noindex:
 
 .. autoclass:: enhomie.homie.HomieDesireParams
    :members:
+   :show-inheritance:
    :noindex:
 
 Homie Universal Group
@@ -38,11 +40,12 @@ Homie Universal Group
 
 .. autoclass:: enhomie.homie.HomieGroup
    :members:
-   :inherited-members:
+   :show-inheritance:
    :noindex:
 
 .. autoclass:: enhomie.homie.HomieGroupParams
    :members:
+   :show-inheritance:
    :noindex:
 
 Homie Universal Scene
@@ -50,11 +53,12 @@ Homie Universal Scene
 
 .. autoclass:: enhomie.homie.HomieScene
    :members:
-   :inherited-members:
+   :show-inheritance:
    :noindex:
 
 .. autoclass:: enhomie.homie.HomieSceneParams
    :members:
+   :show-inheritance:
    :noindex:
 
 Philips Hue Bridge
@@ -62,7 +66,7 @@ Philips Hue Bridge
 
 .. autoclass:: enhomie.philipshue.PhueBridge
    :members:
-   :inherited-members:
+   :show-inheritance:
    :noindex:
 
 Philips Hue Device
@@ -70,11 +74,12 @@ Philips Hue Device
 
 .. autoclass:: enhomie.philipshue.PhueDevice
    :members:
-   :inherited-members:
+   :show-inheritance:
    :noindex:
 
 .. autoclass:: enhomie.philipshue.PhueDeviceParams
    :members:
+   :show-inheritance:
    :noindex:
 
 Ubiquiti Router
@@ -82,7 +87,7 @@ Ubiquiti Router
 
 .. autoclass:: enhomie.ubiquiti.UbiqRouter
    :members:
-   :inherited-members:
+   :show-inheritance:
    :noindex:
 
 Ubiquiti Client
@@ -90,11 +95,12 @@ Ubiquiti Client
 
 .. autoclass:: enhomie.ubiquiti.UbiqClient
    :members:
-   :inherited-members:
+   :show-inheritance:
    :noindex:
 
 .. autoclass:: enhomie.ubiquiti.UbiqClientParams
    :members:
+   :show-inheritance:
    :noindex:
 
 Conditional Parameters
@@ -102,23 +108,27 @@ Conditional Parameters
 
 .. autoclass:: enhomie.homie.HomieWhen
    :members:
-   :inherited-members:
+   :show-inheritance:
    :noindex:
 
 .. autoclass:: enhomie.homie.HomieWhenParams
    :members:
+   :show-inheritance:
    :noindex:
 
 .. autoclass:: enhomie.builtins.WhenTimePeriodParams
    :members:
+   :show-inheritance:
    :noindex:
 
 .. autoclass:: enhomie.philipshue.WhenPhueChangeParams
    :members:
+   :show-inheritance:
    :noindex:
 
 .. autoclass:: enhomie.ubiquiti.WhenUbiqClientParams
    :members:
+   :show-inheritance:
    :noindex:
 
 Conditional Helpers

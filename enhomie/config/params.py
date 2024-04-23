@@ -37,7 +37,7 @@ _UBIQ_CLIENTS = dict[str, UbiqClientParams]
 
 class Params(_Params, extra='forbid'):
     """
-    Process and validate the Homie configuration parameters.
+    Process and validate the core configuration parameters.
 
     .. note::
        These parameters are in addition to those found in
