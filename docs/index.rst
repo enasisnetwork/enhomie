@@ -9,7 +9,7 @@ Configuration Container
 Parameters Container
 ====================
 
-.. autoclass:: enhomie.config.Params
+.. autopydantic_model:: enhomie.config.Params
    :members:
    :show-inheritance:
    :noindex:
@@ -30,7 +30,7 @@ Homie Desired State
    :show-inheritance:
    :noindex:
 
-.. autoclass:: enhomie.homie.HomieDesireParams
+.. autopydantic_model:: enhomie.homie.HomieDesireParams
    :members:
    :show-inheritance:
    :noindex:
@@ -43,7 +43,7 @@ Homie Universal Group
    :show-inheritance:
    :noindex:
 
-.. autoclass:: enhomie.homie.HomieGroupParams
+.. autopydantic_model:: enhomie.homie.HomieGroupParams
    :members:
    :show-inheritance:
    :noindex:
@@ -56,7 +56,7 @@ Homie Universal Scene
    :show-inheritance:
    :noindex:
 
-.. autoclass:: enhomie.homie.HomieSceneParams
+.. autopydantic_model:: enhomie.homie.HomieSceneParams
    :members:
    :show-inheritance:
    :noindex:
@@ -77,7 +77,7 @@ Philips Hue Device
    :show-inheritance:
    :noindex:
 
-.. autoclass:: enhomie.philipshue.PhueDeviceParams
+.. autopydantic_model:: enhomie.philipshue.PhueDeviceParams
    :members:
    :show-inheritance:
    :noindex:
@@ -98,7 +98,7 @@ Ubiquiti Client
    :show-inheritance:
    :noindex:
 
-.. autoclass:: enhomie.ubiquiti.UbiqClientParams
+.. autopydantic_model:: enhomie.ubiquiti.UbiqClientParams
    :members:
    :show-inheritance:
    :noindex:
@@ -111,22 +111,22 @@ Conditional Parameters
    :show-inheritance:
    :noindex:
 
-.. autoclass:: enhomie.homie.HomieWhenParams
+.. autopydantic_model:: enhomie.homie.HomieWhenParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autoclass:: enhomie.builtins.WhenTimePeriodParams
+.. autopydantic_model:: enhomie.builtins.WhenTimePeriodParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autoclass:: enhomie.philipshue.WhenPhueChangeParams
+.. autopydantic_model:: enhomie.philipshue.WhenPhueChangeParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autoclass:: enhomie.ubiquiti.WhenUbiqClientParams
+.. autopydantic_model:: enhomie.ubiquiti.WhenUbiqClientParams
    :members:
    :show-inheritance:
    :noindex:
