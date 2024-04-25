@@ -30,8 +30,8 @@ class HomieDesire:
     """
     Normalize the desired parameter across multiple products.
 
-    :param name: Name of the object within the Homie config.
     :param homie: Primary class instance for Homie Automate.
+    :param name: Name of the object within the Homie config.
     """
 
     __homie: 'Homie'

@@ -25,19 +25,6 @@ Documentation is on [Read the Docs](https://enhomie.readthedocs.io).
 Should you venture into the sections below you will be able to use the
 `sphinx` recipe to build documention in the `docs/html` directory.
 
-## Short-term future goals
-- Encrypting the values in the configuration files.
-- Deploying `enhomie` via the `sdmt` project.
-- Ability to send email when scene change is made.
-  - Requires `enconnect.stmp.Compose` class.
-  - Requires `scene_set` to be idempotent.
-
-## Long-term future goals
-- CRUD for groups and scenes in Philips Hue bridges.
-- Listener that can perform some basic actions.
-- Plugin using light level from Philips Hue devices.
-- Plugin checks current scene active for groups.
-
 ## Additional scripts
 - [dumper.py](desired.py) is useful for setting desired scenes.
 - [dumper.py](dumper.py) is useful for dumping configuration.

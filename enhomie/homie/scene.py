@@ -24,8 +24,8 @@ class HomieScene:
     """
     Normalize the scene parameter across multiple products.
 
-    :param name: Name of the object within the Homie config.
     :param homie: Primary class instance for Homie Automate.
+    :param name: Name of the object within the Homie config.
     """
 
     __homie: 'Homie'
@@ -202,6 +202,7 @@ class HomieScene:
            Scenes only exist within the groups on the bridge.
 
         :param group: Group from wherein the scene is located.
+        :returns: Boolean indicating whether the scene active.
         """
 
         bridge = group.phue_bridge
