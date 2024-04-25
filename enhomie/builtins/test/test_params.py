@@ -24,24 +24,24 @@ def test_WhenTimePeriodParams() -> None:
     start = anchor.shift('-1h@s')
     stop = anchor.shift('+1h@s')
 
-    when = WhenTimePeriodParams(
+    params = WhenTimePeriodParams(
         start=start,
         stop=stop)
 
-    assert when.start and when.stop
+    assert params.start and params.stop
 
-    assert when.start == start
-    assert when.stop == stop
+    assert params.start == start
+    assert params.stop == stop
 
 
     start = anchor.shift('-1h@s')
     stop = anchor.shift('-2h@s')
 
-    when = WhenTimePeriodParams(
+    params = WhenTimePeriodParams(
         start=start,
         stop=stop)
 
-    assert when.start and when.stop
+    assert params.start and params.stop
 
-    assert when.start == start
-    assert when.stop >= start
+    assert params.start == start
+    assert params.stop >= start

@@ -11,7 +11,7 @@ from typing import Any
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import TimerParams
 
 from .when import HomieWhen
 
@@ -236,14 +236,19 @@ class HomieDesire:
         homie = self.homie
         timers = homie.timers['desire']
 
+        children = timers.children
+
         unique = self.name
         delay = self.delay
 
-        started = Times() - delay
+        if unique not in children:
 
-        if unique not in timers.timers:
+            params = TimerParams(
+                timer=delay,
+                start=f'-{delay}s')
+
             timers.create(
-                unique, delay, started)
+                unique, params)
 
         return not timers.ready(
             unique, update=False)

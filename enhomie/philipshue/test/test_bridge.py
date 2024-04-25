@@ -48,8 +48,8 @@ def test_PhueBridge(
         '_PhueBridge__bridge',
         '_PhueBridge__name',
         '_PhueBridge__fetched',
-        '_PhueBridge__timers',
-        '_PhueBridge__merged']
+        '_PhueBridge__merged',
+        '_PhueBridge__timer']
 
 
     assert inrepr(

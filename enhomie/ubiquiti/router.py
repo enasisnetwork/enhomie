@@ -13,7 +13,7 @@ from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.times import Timers
+from encommon.times import Timer
 from encommon.times import Times
 from encommon.types import merge_dicts
 from encommon.types import striplower
@@ -54,7 +54,7 @@ class UbiqRouter:
     __name: str
 
     __fetched: Optional[dict[str, _FETCH]]
-    __timers: Timers
+    __timer: Timer
     __merged: Optional[_RAWDEV]
 
 
@@ -88,14 +88,12 @@ class UbiqRouter:
         self.__router = Router(params)
         self.__name = name
         self.__fetched = None
-        self.__timers = Timers()
         self.__merged = None
 
 
-        self.__timers.create(
-            unique='fetch',
-            minimum=60,
-            started='-60s')
+        self.__timer = Timer(
+            timer=60,
+            start='-60s')
 
 
         homie.log_d(
@@ -181,11 +179,11 @@ class UbiqRouter:
         """
 
         fetched = self.__fetched
-        timers = self.__timers
+        timer = self.__timer
         router = self.__router
         request = router.request_proxy
 
-        ready = timers.ready('fetch')
+        ready = timer.ready(False)
 
         if fetched and not ready:
             return deepcopy(fetched)
@@ -226,7 +224,7 @@ class UbiqRouter:
         self.__fetched = fetched
         self.__merged = None
 
-        timers.update('fetch')
+        timer.update()
 
         return deepcopy(fetched)
 
