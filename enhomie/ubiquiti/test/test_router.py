@@ -44,8 +44,8 @@ def test_UbiqRouter(
         '_UbiqRouter__router',
         '_UbiqRouter__name',
         '_UbiqRouter__fetched',
-        '_UbiqRouter__timers',
-        '_UbiqRouter__merged']
+        '_UbiqRouter__merged',
+        '_UbiqRouter__timer']
 
 
     assert inrepr(

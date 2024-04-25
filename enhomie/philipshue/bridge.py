@@ -12,7 +12,7 @@ from typing import Any
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.times import Timers
+from encommon.times import Timer
 from encommon.times import Times
 from encommon.types import striplower
 
@@ -44,7 +44,7 @@ class PhueBridge:
     __name: str
 
     __fetched: Optional[_FETCH]
-    __timers: Timers
+    __timer: Timer
     __merged: Optional[_RAWDEV]
 
 
@@ -78,14 +78,12 @@ class PhueBridge:
         self.__bridge = Bridge(params)
         self.__name = name
         self.__fetched = None
-        self.__timers = Timers()
         self.__merged = None
 
 
-        self.__timers.create(
-            unique='fetch',
-            minimum=60,
-            started='-60s')
+        self.__timer = Timer(
+            timer=60,
+            start='-60s')
 
 
         homie.log_d(
@@ -171,11 +169,11 @@ class PhueBridge:
         """
 
         fetched = self.__fetched
-        timers = self.__timers
+        timer = self.__timer
         bridge = self.__bridge
         request = bridge.request
 
-        ready = timers.ready('fetch')
+        ready = timer.ready(False)
 
         if fetched and not ready:
             return deepcopy(fetched)
@@ -205,7 +203,7 @@ class PhueBridge:
         self.__fetched = fetched
         self.__merged = None
 
-        timers.update('fetch')
+        timer.update()
 
         return deepcopy(fetched)
 
