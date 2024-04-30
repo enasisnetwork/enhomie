@@ -8,7 +8,6 @@ is permitted, for more information consult the project license file.
 
 
 from typing import Any
-from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
@@ -29,7 +28,6 @@ if TYPE_CHECKING:
 
 
 
-_TIMERS = Literal['desire']
 _DESCENES = dict[str, list[HomieDesire]]
 _DESIRED = dict[str, HomieDesire]
 
@@ -43,7 +41,7 @@ class Homie:
     """
 
     __config: 'Config'
-    __timers: dict[_TIMERS, Timers]
+    __timers: Timers
 
     __phue_bridges: dict[str, PhueBridge]
     __phue_devices: dict[str, PhueDevice]
@@ -64,7 +62,8 @@ class Homie:
         """
 
         self.__config = config
-        self.__timers = {}
+
+        self.__make_timers()
 
         self.__phue_bridges = {}
         self.__phue_devices = {}
@@ -80,8 +79,6 @@ class Homie:
             item='Homie',
             status='initial')
 
-
-        self.__make_timers()
 
         self.__make_phue_bridges()
         self.__make_phue_devices()
@@ -138,12 +135,9 @@ class Homie:
 
         cache = self.params.cache
 
-        desire = Timers(
-            file=cache,
-            table='timers_desire')
+        timers = Timers(store=cache)
 
-        self.__timers = {
-            'desire': desire}
+        self.__timers = timers
 
 
     def __make_groups(
@@ -420,14 +414,14 @@ class Homie:
     @property
     def timers(
         self,
-    ) -> dict[_TIMERS, Timers]:
+    ) -> Timers:
         """
         Return the timers instances defined within this instance.
 
         :returns: Timers instances defined within this instance.
         """
 
-        return dict(self.__timers)
+        return self.__timers
 
 
     @property

@@ -234,7 +234,7 @@ class HomieDesire:
         """
 
         homie = self.homie
-        timers = homie.timers['desire']
+        timers = homie.timers
 
         children = timers.children
 
@@ -262,7 +262,7 @@ class HomieDesire:
         """
 
         homie = self.homie
-        timers = homie.timers['desire']
+        timers = homie.timers
 
         timers.update(self.name, 'now')
 

@@ -82,8 +82,7 @@ class PhueBridge:
 
 
         self.__timer = Timer(
-            timer=60,
-            start='-60s')
+            60, start='-60s')
 
 
         homie.log_d(

@@ -46,8 +46,8 @@ class Params(_Params, extra='forbid'):
     :param groups: Dictionary of parameters for the groups.
     :param scenes: Dictionary of parameters for the scenes.
     :param desires: List of desired states and conditionals.
-    :param cache: Optional cache file but required if using
-        any delay within your desired condition conditonals.
+    :param cache: Optional cache file but required if state
+        between executions is required; when in production.
     :param phue_bridges: Paramters for the product bridges.
     :param phue_devices: Paramters for the product devices.
     :param ubiq_routers: Paramters for the product routers.
@@ -60,7 +60,7 @@ class Params(_Params, extra='forbid'):
     scenes: Optional[_SCENES] = None
     desires: Optional[_DESIRES] = None
 
-    cache: str = 'file::memory:?cache=shared'
+    cache: str = 'sqlite:///:memory:'
 
     phue_bridges: Optional[_PHUE_BRIDGES] = None
     phue_devices: Optional[_PHUE_DEVICES] = None
