@@ -93,7 +93,6 @@ def config_factory(
     save_text(
         f'{tmp_path}/config.yml',
         content=(
-            "cache: ':memory:'\n"
             'enconfig:\n'
             '  paths:\n'
             f'    - {tmp_path}\n'

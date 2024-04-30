@@ -190,7 +190,7 @@
       ]
     }
   },
-  "cache": ":memory:",
+  "cache": "sqlite:///:memory:",
   "phue_bridges": {
     "jupiter": {
       "server": "192.168.1.10",
