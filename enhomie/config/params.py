@@ -40,8 +40,7 @@ class Params(_Params, extra='forbid'):
     Process and validate the core configuration parameters.
 
     .. note::
-       These parameters are in addition to those found in
-       :class:`encommon.config.Params`.
+       Input parameters are not defined, check parent class.
 
     :param groups: Dictionary of parameters for the groups.
     :param scenes: Dictionary of parameters for the scenes.
