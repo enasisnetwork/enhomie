@@ -323,6 +323,8 @@ class PhueDevice:
 
             indices[_rtype] += 1
 
+            _changed: Optional[str] = None
+
             _source = service['_source']
 
             if _rtype == 'motion':
