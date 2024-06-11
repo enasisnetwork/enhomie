@@ -65,8 +65,11 @@ def launcher_main() -> None:
 
     homie = Homie(config)
 
-    group = args['group']
-    scene = args['scene']
+    groups = homie.groups
+    scenes = homie.scenes
+
+    group = groups[args['group']]
+    scene = scenes[args['scene']]
 
     homie.scene_set(group, scene)
 
