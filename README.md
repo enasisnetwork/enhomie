@@ -69,16 +69,33 @@ information found in the `htmlcov` folder in the root of the project.
 make -s pytest
 ```
 
-## Build and upload to PyPi
-Build the package.
-```
-make -s pypackage
-```
-Upload to the test PyPi.
-```
-make -s pypi-upload-test
-```
-Upload to the prod PyPi.
-```
-make -s pypi-upload-prod
-```
+## Version management
+:warning: Ensure that no changes are pending.
+
+1. Rebuild the environment.
+   ```
+   make -s check-revenv
+   ```
+
+1. Update the [version.txt](enhomie/version.txt) file.
+
+1. Push to the `main` branch.
+
+1. Create [repository](https://github.com/enasisnetwork/enhomie) release.
+
+1. Build the Python package.<br>
+   ```
+   make -s pypackage
+   ```
+
+1. Upload Python package to PyPi test.
+   ```
+   make -s pypi-upload-test
+   ```
+
+1. Upload Python package to PyPi prod.
+   ```
+   make -s pypi-upload-prod
+   ```
+
+1. Update [Read the Docs](https://enhomie.readthedocs.io) documentation.
