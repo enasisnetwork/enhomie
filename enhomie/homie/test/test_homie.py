@@ -38,7 +38,7 @@ def test_Homie(
     """
 
     desires = homie.desires
-    delayed = desires['delayed']
+    default = desires['default']
 
 
     attrs = list(homie.__dict__)
@@ -91,10 +91,10 @@ def test_Homie(
     assert len(homie.ubiq_clients) == 6
 
     assert homie.desired == {
-        'jupiter_room': delayed,
-        'jupiter_zone': delayed,
-        'neptune_room': delayed,
-        'neptune_zone': delayed}
+        'jupiter_room': default,
+        'jupiter_zone': default,
+        'neptune_room': default,
+        'neptune_zone': default}
 
 
     sample_path = (

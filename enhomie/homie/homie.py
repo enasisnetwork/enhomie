@@ -555,6 +555,8 @@ class Homie:
         Return the related desired scene for the desired groups.
         """
 
+        dryrun = self.params.dryrun
+
         desires: _DESCENES = {}
 
 
@@ -573,6 +575,10 @@ class Homie:
         for name, desire in items1:
 
             if desire.outcome is False:
+
+                if dryrun is False:
+                    desire.delete_timer()
+
                 continue
 
             if desire.delayed is True:

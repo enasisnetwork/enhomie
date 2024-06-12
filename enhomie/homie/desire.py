@@ -12,6 +12,7 @@ from typing import Optional
 from typing import TYPE_CHECKING
 
 from encommon.times import TimerParams
+from encommon.times.common import PARSABLE
 
 from .when import HomieWhen
 
@@ -238,14 +239,14 @@ class HomieDesire:
 
         children = timers.children
 
-        unique = self.name
+        name = self.name
         delay = self.delay
+
+        unique = f'desire_{name}'
 
         if unique not in children:
 
-            params = TimerParams(
-                timer=delay,
-                start=f'-{delay}s')
+            params = TimerParams(delay)
 
             timers.create(
                 unique, params)
@@ -256,6 +257,26 @@ class HomieDesire:
 
     def update_timer(
         self,
+        value: Optional[PARSABLE] = None,
+    ) -> None:
+        """
+        Update the existing timer from mapping within the cache.
+
+        :param value: Override the time updated for timer value.
+        """
+
+        homie = self.homie
+        timers = homie.timers
+
+        name = self.name
+        unique = f'desire_{name}'
+
+        timers.update(
+            unique, value or 'now')
+
+
+    def delete_timer(
+        self,
     ) -> None:
         """
         Update the existing timer from mapping within the cache.
@@ -264,7 +285,10 @@ class HomieDesire:
         homie = self.homie
         timers = homie.timers
 
-        timers.update(self.name, 'now')
+        name = self.name
+        unique = f'desire_{name}'
+
+        timers.delete(unique)
 
 
     @property

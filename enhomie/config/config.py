@@ -8,6 +8,7 @@ is permitted, for more information consult the project license file.
 
 
 from contextlib import suppress
+from typing import Any
 from typing import Optional
 
 from encommon.config import Config as _Config
@@ -23,12 +24,14 @@ class Config(_Config):
     Contain the configurations from the arguments and files.
 
     :param files: Complete or relative path to config files.
+    :param cargs: Configuration arguments in dictionary form,
+        which will override contents from the config files.
     """
-
 
     def __init__(
         self,
         files: Optional[PATHABLE] = None,
+        cargs: Optional[dict[str, Any]] = None,
     ) -> None:
         """
         Initialize instance for class using provided parameters.
@@ -36,6 +39,7 @@ class Config(_Config):
 
         super().__init__(
             files=files,
+            cargs=cargs,
             model=Params)
 
 
