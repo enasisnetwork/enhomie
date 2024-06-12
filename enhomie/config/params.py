@@ -47,6 +47,7 @@ class Params(_Params, extra='forbid'):
     :param desires: List of desired states and conditionals.
     :param cache: Optional cache file but required if state
         between executions is required; when in production.
+    :param dryrun: Determine we should not change anything.
     :param phue_bridges: Paramters for the product bridges.
     :param phue_devices: Paramters for the product devices.
     :param ubiq_routers: Paramters for the product routers.
@@ -60,6 +61,8 @@ class Params(_Params, extra='forbid'):
     desires: Optional[_DESIRES] = None
 
     cache: str = 'sqlite:///:memory:'
+
+    dryrun: bool = False
 
     phue_bridges: Optional[_PHUE_BRIDGES] = None
     phue_devices: Optional[_PHUE_DEVICES] = None

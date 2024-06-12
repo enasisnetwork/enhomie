@@ -52,7 +52,11 @@ def launcher_main() -> None:
 
     args = vars(launcher_args())
 
-    config = Config(args['config'])
+    dryrun = args['dry_run']
+
+    config = Config(
+        args['config'],
+        {'dryrun': dryrun})
 
     config.logger.start()
 
@@ -62,8 +66,6 @@ def launcher_main() -> None:
         status='merged')
 
     homie = Homie(config)
-
-    dryrun = args['dry_run']
 
     groups = homie.groups
     scenes = homie.scenes
@@ -99,6 +101,8 @@ def launcher_main() -> None:
         scene = scenes[desire.scene]
 
         homie.scene_set(group, scene)
+
+        desire.update_timer()
 
 
     config.logger.log_i(

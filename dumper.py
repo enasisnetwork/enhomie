@@ -383,7 +383,9 @@ def launcher_main() -> None:
 
     args = vars(launcher_args())
 
-    config = Config(args['config'])
+    config = Config(
+        args['config'],
+        {'dryrun': True})
 
     config.logger.start()
 
