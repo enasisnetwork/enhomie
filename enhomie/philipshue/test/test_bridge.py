@@ -15,7 +15,9 @@ from encommon.types import instr
 from encommon.utils import load_sample
 from encommon.utils import prep_sample
 
-from requests_mock import Mocker
+from httpx import Response
+
+from respx import MockRouter
 
 from . import SAMPLES
 from . import SCENE_PATHS
@@ -205,51 +207,54 @@ def test_PhueBridge_cover(
 
 def test_PhueBridge_scene(
     homie: 'Homie',
+    respx_mock: MockRouter,
 ) -> None:
     """
     Perform various tests associated with relevant routines.
 
     :param homie: Primary class instance for Homie Automate.
+    :param respx_mock: Object for mocking request operation.
     """
 
     groups = homie.groups
     bridges = homie.phue_bridges
 
 
-    with Mocker() as mocker:
+    for path in SCENE_PATHS:
 
-        for path in SCENE_PATHS:
-            mocker.put(path)
-
-
-        bridge = bridges['jupiter']
-        group = groups['jupiter_zone']
-
-        assert group.phue_unique
-
-        scene = bridge.scene_get(
-            group.phue_unique)
-
-        assert scene is not None
-        assert scene[:8] == '35ac3411'
-
-        bridge.scene_set(SCENE_PHIDS[0])
+        (respx_mock
+         .put(path)
+         .mock(Response(200)))
 
 
-        bridge = bridges['neptune']
-        group = groups['neptune_zone']
+    bridge = bridges['jupiter']
+    group = groups['jupiter_zone']
 
-        assert group.phue_unique
+    assert group.phue_unique
 
-        scene = bridge.scene_get(
-            group.phue_unique)
+    scene = bridge.scene_get(
+        group.phue_unique)
 
-        assert scene is not None
-        assert scene[:8] == 'd8bc6c89'
+    assert scene is not None
+    assert scene[:8] == '35ac3411'
 
-        bridge.scene_set(SCENE_PHIDS[1])
+    bridge.scene_set(SCENE_PHIDS[0])
 
 
-        scene = bridge.scene_get('dne')
+    bridge = bridges['neptune']
+    group = groups['neptune_zone']
 
-        assert scene is None
+    assert group.phue_unique
+
+    scene = bridge.scene_get(
+        group.phue_unique)
+
+    assert scene is not None
+    assert scene[:8] == 'd8bc6c89'
+
+    bridge.scene_set(SCENE_PHIDS[1])
+
+
+    scene = bridge.scene_get('dne')
+
+    assert scene is None

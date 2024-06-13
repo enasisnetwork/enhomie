@@ -9,16 +9,19 @@ is permitted, for more information consult the project license file.
 
 from json import loads
 from pathlib import Path
-from typing import Any
 
 from encommon.times import Duration
 from encommon.times import Times
+from encommon.types.strings import SEMPTY
 from encommon.utils import read_text
 from encommon.utils import save_text
 
+from httpx import Request
+from httpx import Response
+
 from pytest import fixture
 
-from requests_mock import Mocker
+from respx import MockRouter
 
 from .config import Config
 from .homie import Homie
@@ -80,6 +83,10 @@ REPLACES = {
 
 
 
+_REQGET = Request('get', SEMPTY)
+
+
+
 def config_factory(
     tmp_path: Path,
 ) -> Config:
@@ -124,6 +131,7 @@ def config(
 
 def homie_factory(  # noqa: CFQ001
     config: 'Config',
+    respx_mock: MockRouter,
 ) -> Homie:
     """
     Construct the instance for use in the downstream tests.
@@ -133,6 +141,7 @@ def homie_factory(  # noqa: CFQ001
        should be refactored and simplified in the future.
 
     :param config: Primary class instance for configuration.
+    :param respx_mock: Object for mocking request operation.
     :returns: Newly constructed instance of related class.
     """
 
@@ -188,7 +197,7 @@ def homie_factory(  # noqa: CFQ001
 
     def _replaces(
         path: str,
-    ) -> dict[str, Any]:
+    ) -> str:
 
         content = read_text(path)
 
@@ -204,74 +213,93 @@ def homie_factory(  # noqa: CFQ001
 
         assert isinstance(loaded, dict)
 
-        return loaded
+        return content
 
 
-    with Mocker() as mocker:
+    dumped = _replaces(phue_files[0])
+
+    (respx_mock
+     .get(phue_paths[0])
+     .mock(Response(
+         status_code=200,
+         content=dumped,
+         request=_REQGET)))
 
 
-        dumped = _replaces(phue_files[0])
+    dumped = _replaces(phue_files[1])
 
-        mocker.get(
-            url=phue_paths[0],
-            json=dumped)
-
-
-        dumped = _replaces(phue_files[1])
-
-        mocker.get(
-            url=phue_paths[1],
-            json=dumped)
+    (respx_mock
+     .get(phue_paths[1])
+     .mock(Response(
+         status_code=200,
+         content=dumped,
+         request=_REQGET)))
 
 
-        for bridge in bridges.values():
-            assert bridge.fetched
+    for bridge in bridges.values():
+        assert bridge.fetched
 
 
-        mocker.post(ubiq_paths[0])
+    (respx_mock
+     .post(ubiq_paths[0])
+     .mock(Response(
+         status_code=200,
+         request=_REQGET)))
 
 
-        dumped = _replaces(ubiq_files[0])
+    dumped = _replaces(ubiq_files[0])
 
-        mocker.register_uri(
-            method='get',
-            url=ubiq_paths[1],
-            response_list=[
-                {'json': dumped,
-                 'status_code': 401},
-                {'json': dumped}])
-
-
-        dumped = _replaces(ubiq_files[1])
-
-        mocker.get(
-            url=ubiq_paths[2],
-            json=dumped)
+    (respx_mock
+     .get(ubiq_paths[1])
+     .mock(side_effect=[
+         Response(401),
+         Response(
+             status_code=200,
+             content=dumped,
+             request=_REQGET)]))
 
 
-        mocker.post(ubiq_paths[3])
+    dumped = _replaces(ubiq_files[1])
+
+    (respx_mock
+     .get(ubiq_paths[2])
+     .mock(Response(
+         status_code=200,
+         content=dumped,
+         request=_REQGET)))
 
 
-        dumped = _replaces(ubiq_files[2])
-
-        mocker.register_uri(
-            method='get',
-            url=ubiq_paths[4],
-            response_list=[
-                {'json': dumped,
-                 'status_code': 401},
-                {'json': dumped}])
+    (respx_mock
+     .post(ubiq_paths[3])
+     .mock(Response(
+         status_code=200,
+         request=_REQGET)))
 
 
-        dumped = _replaces(ubiq_files[3])
+    dumped = _replaces(ubiq_files[2])
 
-        mocker.get(
-            url=ubiq_paths[5],
-            json=dumped)
+    (respx_mock
+     .get(ubiq_paths[4])
+     .mock(side_effect=[
+         Response(401),
+         Response(
+             status_code=200,
+             content=dumped,
+             request=_REQGET)]))
 
 
-        for router in routers.values():
-            assert router.fetched
+    dumped = _replaces(ubiq_files[3])
+
+    (respx_mock
+     .get(ubiq_paths[5])
+     .mock(Response(
+         status_code=200,
+         content=dumped,
+         request=_REQGET)))
+
+
+    for router in routers.values():
+        assert router.fetched
 
 
     return homie
@@ -281,12 +309,14 @@ def homie_factory(  # noqa: CFQ001
 @fixture
 def homie(
     config: 'Config',
+    respx_mock: MockRouter,
 ) -> Homie:
     """
     Construct the instance for use in the downstream tests.
 
     :param config: Primary class instance for configuration.
+    :param respx_mock: Object for mocking request operation.
     :returns: Newly constructed instance of related class.
     """
 
-    return homie_factory(config)
+    return homie_factory(config, respx_mock)

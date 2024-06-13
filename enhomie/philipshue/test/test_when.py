@@ -12,6 +12,8 @@ from typing import TYPE_CHECKING
 
 from encommon.utils import save_text
 
+from respx import MockRouter
+
 from ..params import WhenPhueChangeParams
 from ...conftest import config_factory
 from ...conftest import homie_factory
@@ -63,11 +65,13 @@ def test_when_phue_change(
 
 def test_when_phue_change_cover(
     tmp_path: Path,
+    respx_mock: MockRouter,
 ) -> None:
     """
     Perform various tests associated with relevant routines.
 
     :param tmp_path: pytest object for temporal filesystem.
+    :param respx_mock: Object for mocking request operation.
     """
 
     config = (
@@ -85,7 +89,8 @@ def test_when_phue_change_cover(
         content=config)
 
     homie = homie_factory(
-        config_factory(tmp_path))
+        config_factory(tmp_path),
+        respx_mock)
 
 
     phue_change = (
