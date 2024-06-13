@@ -17,7 +17,9 @@ from encommon.types import instr
 from encommon.utils import load_sample
 from encommon.utils import prep_sample
 
-from requests_mock import Mocker
+from httpx import Response
+
+from respx import MockRouter
 
 from . import SAMPLES
 from ..homie import Homie
@@ -38,7 +40,7 @@ def test_Homie(
     """
 
     desires = homie.desires
-    default = desires['default']
+    desire = desires['default']
 
 
     attrs = list(homie.__dict__)
@@ -91,10 +93,10 @@ def test_Homie(
     assert len(homie.ubiq_clients) == 6
 
     assert homie.desired == {
-        'jupiter_room': default,
-        'jupiter_zone': default,
-        'neptune_room': default,
-        'neptune_zone': default}
+        'jupiter_room': desire,
+        'jupiter_zone': desire,
+        'neptune_room': desire,
+        'neptune_zone': desire}
 
 
     sample_path = (
@@ -161,45 +163,49 @@ def test_Homie_logger(
 
 def test_Homie_scene(
     homie: Homie,
+    respx_mock: MockRouter,
 ) -> None:
     """
     Perform various tests associated with relevant routines.
 
     :param homie: Primary class instance for Homie Automate.
+    :param respx_mock: Object for mocking request operation.
     """
 
-    with Mocker() as mocker:
 
-        for path in PHUE_SCENE_PATHS:
-            mocker.put(path)
+    for path in PHUE_SCENE_PATHS:
 
-
-        scene = homie.scene_get(
-            homie.groups['jupiter_zone'])
-
-        assert scene is not None
-        assert scene.name == 'sleep'
-
-        homie.scene_set(
-            homie.groups['jupiter_room'],
-            homie.scenes['awake'])
+        (respx_mock
+         .put(path)
+         .mock(Response(200)))
 
 
-        scene = homie.scene_get(
-            homie.groups['neptune_zone'])
+    scene = homie.scene_get(
+        homie.groups['jupiter_zone'])
 
-        assert scene is not None
-        assert scene.name == 'sleep'
+    assert scene is not None
+    assert scene.name == 'sleep'
 
-        homie.scene_set(
-            homie.groups['neptune_room'],
-            homie.scenes['awake'])
+    homie.scene_set(
+        homie.groups['jupiter_room'],
+        homie.scenes['awake'])
 
 
-        scene = homie.scene_get(
-            homie.groups['jupiter_room'])
+    scene = homie.scene_get(
+        homie.groups['neptune_zone'])
 
-        assert scene is None
+    assert scene is not None
+    assert scene.name == 'sleep'
+
+    homie.scene_set(
+        homie.groups['neptune_room'],
+        homie.scenes['awake'])
+
+
+    scene = homie.scene_get(
+        homie.groups['jupiter_room'])
+
+    assert scene is None
 
 
 
