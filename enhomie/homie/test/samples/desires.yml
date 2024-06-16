@@ -6,7 +6,6 @@ desires:
 
 
   default:
-
     scene: awake
     groups:
       - jupiter_room
@@ -16,7 +15,6 @@ desires:
 
 
   delayed:
-
     scene: relax
     delay: 10
     weight: 10
@@ -28,7 +26,6 @@ desires:
 
 
   jupiter_absent:
-
     scene: awaydark
     groups:
       - jupiter_room
@@ -57,7 +54,6 @@ desires:
 
 
   neptune_absent:
-
     scene: awaydark
     groups:
       - neptune_room

@@ -55,8 +55,7 @@ class UbiqClient:
         """
 
         homie.log_d(
-            base='ubiquiti',
-            item='UbiqClient',
+            base='UbiqClient',
             name=name,
             status='initial')
 
@@ -80,8 +79,7 @@ class UbiqClient:
         self.__validate_params()
 
         homie.log_d(
-            base='ubiquiti',
-            item='UbiqClient',
+            base='UbiqClient',
             name=name,
             status='created')
 

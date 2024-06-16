@@ -8,14 +8,14 @@ is permitted, for more information consult the project license file.
 
 
 from argparse import ArgumentParser
-from argparse import Namespace
+from typing import Any
 
 from enhomie.config import Config
 from enhomie.homie import Homie
 
 
 
-def launcher_args() -> Namespace:
+def launcher_args() -> dict[str, Any]:
     """
     Construct the arguments that are associated with the file.
     """
@@ -43,7 +43,33 @@ def launcher_args() -> Namespace:
             'which Homie scnee the '
             'group will be updated'))
 
-    return parser.parse_args()
+    return vars(parser.parse_args())
+
+
+
+def operate_main(
+    homie: Homie,
+) -> None:
+    """
+    Perform whatever operations are associated with the file.
+
+    :param homie: Primary class instance for Homie Automate.
+    """
+
+    config = homie.config
+
+    groups = homie.groups
+    scenes = homie.scenes
+
+
+    _group = config.sargs['group']
+    _scene = config.sargs['scene']
+
+    group = groups[_group]
+    scene = scenes[_scene]
+
+
+    homie.scene_set(group, scene)
 
 
 
@@ -52,29 +78,28 @@ def launcher_main() -> None:
     Perform whatever operations are associated with the file.
     """
 
-    args = vars(launcher_args())
+    args = launcher_args()
 
-    config = Config(args['config'])
+    config = Config(
+        args['config'],
+        sargs=args)
 
     config.logger.start()
 
     config.logger.log_i(
-        base='project',
+        base='script',
         item='scener',
         status='merged')
 
+
     homie = Homie(config)
 
-    groups = homie.groups
-    scenes = homie.scenes
 
-    group = groups[args['group']]
-    scene = scenes[args['scene']]
+    operate_main(homie)
 
-    homie.scene_set(group, scene)
 
     config.logger.log_i(
-        base='project',
+        base='script',
         item='scener',
         status='stopped')
 

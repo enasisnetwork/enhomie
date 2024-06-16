@@ -29,8 +29,8 @@ def when_phue_change(
 
     assert params is not None
 
-    device_names = params.devices
-    sensor_names = params.sensors
+    _devices = params.devices
+    _sensors = params.sensors
     since = params.since
 
     devices = (
@@ -45,7 +45,7 @@ def when_phue_change(
 
         for key, value in items:
 
-            if key not in sensor_names:
+            if key not in _sensors:
                 continue
 
             if value is None:
@@ -61,7 +61,7 @@ def when_phue_change(
 
     outcomes: list[bool] = []
 
-    for name in device_names:
+    for name in _devices:
 
         device = devices[name]
         device.refresh_source()
@@ -107,7 +107,7 @@ def chck_phue_change(
         when.homie.phue_devices)
 
 
-    device_names = params.devices
+    _devices = params.devices
 
-    for name in device_names:
+    for name in _devices:
         assert name in devices

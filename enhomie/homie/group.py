@@ -46,8 +46,7 @@ class HomieGroup:
         """
 
         homie.log_d(
-            base='homie',
-            item='HomieGroup',
+            base='HomieGroup',
             name=name,
             status='initial')
 
@@ -68,8 +67,7 @@ class HomieGroup:
         self.__validate_params()
 
         homie.log_d(
-            base='homie',
-            item='HomieGroup',
+            base='HomieGroup',
             name=name,
             status='created')
 

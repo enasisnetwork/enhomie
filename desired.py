@@ -8,18 +8,16 @@ is permitted, for more information consult the project license file.
 
 
 from argparse import ArgumentParser
-from argparse import Namespace
-from typing import Optional
+from typing import Any
 
 from encommon.utils import print_ansi
 
 from enhomie.config import Config
 from enhomie.homie import Homie
-from enhomie.homie import HomieScene
 
 
 
-def launcher_args() -> Namespace:
+def launcher_args() -> dict[str, Any]:
     """
     Construct the arguments that are associated with the file.
     """
@@ -37,65 +35,55 @@ def launcher_args() -> Namespace:
         '--dry-run',
         action='store_true',
         default=False,
+        dest='dryrun',
         help=(
             'do not execute action '
             'and show what would do'))
 
-    return parser.parse_args()
+    return vars(parser.parse_args())
 
 
 
-def launcher_main() -> None:
+def operate_main(
+    homie: Homie,
+) -> None:
     """
     Perform whatever operations are associated with the file.
+
+    :param homie: Primary class instance for Homie Automate.
     """
 
-    args = vars(launcher_args())
-
-    dryrun = args['dry_run']
-
-    config = Config(
-        args['config'],
-        {'dryrun': dryrun})
-
-    config.logger.start()
-
-    config.logger.log_i(
-        base='project',
-        item='desired',
-        status='merged')
-
-    homie = Homie(config)
-
+    params = homie.params
     groups = homie.groups
     scenes = homie.scenes
 
 
     items = homie.desired.items()
 
-    for group_name, desire in items:
+    for name, desire in items:
 
-        group = groups[group_name]
-        scene: Optional[HomieScene] = None
+        group = groups[name]
 
+
+        active = 'unknown'
 
         if group.phue_unique:
-            scene = homie.scene_get(group)
 
-        current = (
-            f'<c96>{scene.name}<c0>'
-            if scene is not None
-            else '<c36>unknown<c0>')
+            _active = (
+                homie.scene_get(group))
+
+            if _active is not None:
+                active = _active.name
 
 
         print_ansi(
             f'<c96>{group.name}<c37>: '
             f'<c36>{desire.name}<c37>/'
             f'<c96>{desire.scene}<c37> '
-            f'(<c96>{current}<c37>)<c0>')
+            f'(<c96>{active}<c37>)<c0>')
 
 
-        if dryrun is True:
+        if params.dryrun is True:
             continue
 
         scene = scenes[desire.scene]
@@ -105,8 +93,35 @@ def launcher_main() -> None:
         desire.update_timer()
 
 
+
+def launcher_main() -> None:
+    """
+    Perform whatever operations are associated with the file.
+    """
+
+    args = launcher_args()
+
+    config = Config(
+        args['config'],
+        {'dryrun': args['dryrun']},
+        sargs=args)
+
+    config.logger.start()
+
     config.logger.log_i(
-        base='project',
+        base='script',
+        item='desired',
+        status='merged')
+
+
+    homie = Homie(config)
+
+
+    operate_main(homie)
+
+
+    config.logger.log_i(
+        base='script',
         item='desired',
         status='stopped')
 

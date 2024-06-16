@@ -12,11 +12,9 @@ from pathlib import Path
 
 from encommon.times import Duration
 from encommon.times import Times
-from encommon.types.strings import SEMPTY
 from encommon.utils import read_text
 from encommon.utils import save_text
 
-from httpx import Request
 from httpx import Response
 
 from pytest import fixture
@@ -83,10 +81,6 @@ REPLACES = {
 
 
 
-_REQGET = Request('get', SEMPTY)
-
-
-
 def config_factory(
     tmp_path: Path,
 ) -> Config:
@@ -110,7 +104,8 @@ def config_factory(
             '  stdo_level: info\n'))
 
     return Config(
-        f'{tmp_path}/config.yml')
+        f'{tmp_path}/config.yml',
+        sargs={'dryrun': False})
 
 
 
@@ -222,8 +217,7 @@ def homie_factory(  # noqa: CFQ001
      .get(phue_paths[0])
      .mock(Response(
          status_code=200,
-         content=dumped,
-         request=_REQGET)))
+         content=dumped)))
 
 
     dumped = _replaces(phue_files[1])
@@ -232,8 +226,7 @@ def homie_factory(  # noqa: CFQ001
      .get(phue_paths[1])
      .mock(Response(
          status_code=200,
-         content=dumped,
-         request=_REQGET)))
+         content=dumped)))
 
 
     for bridge in bridges.values():
@@ -243,8 +236,7 @@ def homie_factory(  # noqa: CFQ001
     (respx_mock
      .post(ubiq_paths[0])
      .mock(Response(
-         status_code=200,
-         request=_REQGET)))
+         status_code=200)))
 
 
     dumped = _replaces(ubiq_files[0])
@@ -255,8 +247,7 @@ def homie_factory(  # noqa: CFQ001
          Response(401),
          Response(
              status_code=200,
-             content=dumped,
-             request=_REQGET)]))
+             content=dumped)]))
 
 
     dumped = _replaces(ubiq_files[1])
@@ -265,15 +256,13 @@ def homie_factory(  # noqa: CFQ001
      .get(ubiq_paths[2])
      .mock(Response(
          status_code=200,
-         content=dumped,
-         request=_REQGET)))
+         content=dumped)))
 
 
     (respx_mock
      .post(ubiq_paths[3])
      .mock(Response(
-         status_code=200,
-         request=_REQGET)))
+         status_code=200)))
 
 
     dumped = _replaces(ubiq_files[2])
@@ -284,8 +273,7 @@ def homie_factory(  # noqa: CFQ001
          Response(401),
          Response(
              status_code=200,
-             content=dumped,
-             request=_REQGET)]))
+             content=dumped)]))
 
 
     dumped = _replaces(ubiq_files[3])
@@ -294,8 +282,7 @@ def homie_factory(  # noqa: CFQ001
      .get(ubiq_paths[5])
      .mock(Response(
          status_code=200,
-         content=dumped,
-         request=_REQGET)))
+         content=dumped)))
 
 
     for router in routers.values():

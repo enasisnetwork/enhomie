@@ -26,7 +26,7 @@ Should you venture into the sections below you will be able to use the
 `sphinx` recipe to build documention in the `docs/html` directory.
 
 ## Additional scripts
-- [dumper.py](desired.py) is useful for setting desired scenes.
+- [desired.py](desired.py) is useful for setting desired scenes.
 - [dumper.py](dumper.py) is useful for dumping configuration.
 - [scener.py](scener.py) is useful for setting scene on groups.
 

@@ -7,6 +7,7 @@ is permitted, for more information consult the project license file.
 
 
 
+from typing import Any
 from typing import Optional
 
 from encommon.config import Params as _Params
@@ -42,12 +43,13 @@ class Params(_Params, extra='forbid'):
     .. note::
        Input parameters are not defined, check parent class.
 
-    :param groups: Dictionary of parameters for the groups.
-    :param scenes: Dictionary of parameters for the scenes.
-    :param desires: List of desired states and conditionals.
     :param cache: Optional cache file but required if state
         between executions is required; when in production.
     :param dryrun: Determine we should not change anything.
+    :param sargs: Additional arguments on the command line.
+    :param groups: Dictionary of parameters for the groups.
+    :param scenes: Dictionary of parameters for the scenes.
+    :param desires: List of desired states and conditionals.
     :param phue_bridges: Paramters for the product bridges.
     :param phue_devices: Paramters for the product devices.
     :param ubiq_routers: Paramters for the product routers.
@@ -56,13 +58,15 @@ class Params(_Params, extra='forbid'):
         Parameter is picked up by autodoc, please ignore.
     """
 
-    groups: Optional[_GROUPS] = None
-    scenes: Optional[_SCENES] = None
-    desires: Optional[_DESIRES] = None
-
     cache: str = 'sqlite:///:memory:'
 
     dryrun: bool = False
+
+    sargs: Optional[dict[str, Any]] = None
+
+    groups: Optional[_GROUPS] = None
+    scenes: Optional[_SCENES] = None
+    desires: Optional[_DESIRES] = None
 
     phue_bridges: Optional[_PHUE_BRIDGES] = None
     phue_devices: Optional[_PHUE_DEVICES] = None

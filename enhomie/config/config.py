@@ -26,12 +26,14 @@ class Config(_Config):
     :param files: Complete or relative path to config files.
     :param cargs: Configuration arguments in dictionary form,
         which will override contents from the config files.
+    :param sargs: Additional arguments on the command line.
     """
 
     def __init__(
         self,
         files: Optional[PATHABLE] = None,
         cargs: Optional[dict[str, Any]] = None,
+        sargs: Optional[dict[str, Any]] = None,
     ) -> None:
         """
         Initialize instance for class using provided parameters.
@@ -40,6 +42,7 @@ class Config(_Config):
         super().__init__(
             files=files,
             cargs=cargs,
+            sargs=sargs,
             model=Params)
 
 
@@ -72,28 +75,26 @@ class Config(_Config):
             force=True)
 
 
-        update_params = False
+        update = False
 
         with suppress(AttributeError):
 
             _merged = self.paths.merged
 
-            for _merge in _merged.values():
+            values = _merged.values()
 
-                merge_dicts(
-                    dict1=merged,
-                    dict2=_merge,
-                    force=False)
+            for merge in values:
+                merge_dicts(merged, merge)
 
-            update_params = True
+            update = True
 
 
         params = self.model(**merged)
 
-
-        if update_params is True:
-            self.__params = params
-
         assert isinstance(params, Params)
+
+
+        if update is True:
+            self.__params = params
 
         return params

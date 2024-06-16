@@ -29,8 +29,8 @@ def when_ubiq_client(
 
     assert params is not None
 
-    router_names = params.routers
-    client_names = params.clients
+    _routers = params.routers
+    _clients = params.clients
     since = params.since
 
     routers = when.homie.ubiq_routers
@@ -40,7 +40,7 @@ def when_ubiq_client(
     def _append_outcome() -> None:
 
         _router_names = (
-            router_names or routers)
+            _routers or routers)
 
         assert connect is not False
         assert lseen is not None
@@ -59,7 +59,7 @@ def when_ubiq_client(
 
     outcomes: list[bool] = []
 
-    for name in client_names:
+    for name in _clients:
 
         client = clients[name]
         client.refresh_source()
@@ -101,8 +101,8 @@ def chck_ubiq_client(
         when.homie.ubiq_routers)
 
 
-    router_names = (
+    _routers = (
         params.routers or [])
 
-    for name in router_names:
+    for name in _routers:
         assert name in routers
