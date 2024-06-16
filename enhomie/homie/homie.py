@@ -568,7 +568,9 @@ class Homie:
         self,
     ) -> _DESIRED:
         """
-        Return the related desired scene for the desired groups.
+        Return the related desired state for the desired groups.
+
+        :returns: Related desired state for the desired groups.
         """
 
         params = self.params
