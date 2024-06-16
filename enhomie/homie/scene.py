@@ -44,8 +44,7 @@ class HomieScene:
         """
 
         homie.log_d(
-            base='homie',
-            item='HomieScene',
+            base='HomieScene',
             name=name,
             status='initial')
 
@@ -64,8 +63,7 @@ class HomieScene:
 
 
         homie.log_d(
-            base='homie',
-            item='HomieScene',
+            base='HomieScene',
             name=name,
             status='created')
 

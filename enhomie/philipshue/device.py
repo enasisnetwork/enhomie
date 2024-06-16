@@ -55,8 +55,7 @@ class PhueDevice:
         """
 
         homie.log_d(
-            base='philipshue',
-            item='PhueDevice',
+            base='PhueDevice',
             name=name,
             status='initial')
 
@@ -80,8 +79,7 @@ class PhueDevice:
         self.__validate_params()
 
         homie.log_d(
-            base='philipshue',
-            item='PhueDevice',
+            base='PhueDevice',
             name=name,
             status='created')
 

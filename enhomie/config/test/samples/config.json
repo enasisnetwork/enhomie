@@ -17,6 +17,9 @@
     "file_path": null
   },
   "encrypts": null,
+  "cache": "sqlite:///:memory:",
+  "dryrun": false,
+  "sargs": null,
   "groups": {
     "jupiter_room": {
       "type": "room",
@@ -190,8 +193,6 @@
       ]
     }
   },
-  "cache": "sqlite:///:memory:",
-  "dryrun": false,
   "phue_bridges": {
     "jupiter": {
       "server": "192.168.1.10",

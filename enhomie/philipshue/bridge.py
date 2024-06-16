@@ -58,8 +58,7 @@ class PhueBridge:
         """
 
         homie.log_d(
-            base='philipshue',
-            item='PhueBridge',
+            base='PhueBridge',
             name=name,
             status='initial')
 
@@ -86,8 +85,7 @@ class PhueBridge:
 
 
         homie.log_d(
-            base='philipshue',
-            item='PhueBridge',
+            base='PhueBridge',
             name=name,
             status='created')
 
@@ -191,8 +189,7 @@ class PhueBridge:
 
 
         self.homie.log_i(
-            base='philipshue',
-            item='PhueBridge',
+            base='PhueBridge',
             name=self.name,
             action='fetch',
             elapsed=runtime.since,
@@ -436,10 +433,9 @@ class PhueBridge:
         """
 
         self.homie.log_d(
-            base='philipshue',
-            item='PhueBridge',
+            base='PhueBridge',
             action='scene_set',
-            scene_phid=scene_phid,
+            scene=scene_phid,
             status='attempt')
 
         runtime = Times()
@@ -457,10 +453,9 @@ class PhueBridge:
             json=payload)
 
         self.homie.log_d(
-            base='philipshue',
-            item='PhueBridge',
+            base='PhueBridge',
             action='scene_set',
-            scene_phid=scene_phid,
+            scene=scene_phid,
             elapsed=runtime.since,
             status='success')
 

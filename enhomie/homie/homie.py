@@ -28,7 +28,7 @@ if TYPE_CHECKING:
 
 
 
-_DESCENES = dict[str, list[HomieDesire]]
+_DESCENE = dict[str, list[HomieDesire]]
 _DESIRED = dict[str, HomieDesire]
 
 
@@ -75,8 +75,7 @@ class Homie:
         self.__desires = {}
 
         self.log_d(
-            base='homie',
-            item='Homie',
+            base='Homie',
             status='initial')
 
 
@@ -92,9 +91,8 @@ class Homie:
 
         self.__validate_params()
 
-        config.logger.log_i(
-            base='homie',
-            item='Homie',
+        self.log_i(
+            base='Homie',
             status='created')
 
 
@@ -302,7 +300,10 @@ class Homie:
         :param kwargs: Keyword arguments for populating message.
         """
 
-        self.config.logger.log(*args, **kwargs)
+        config = self.config
+        logger = config.logger
+
+        logger.log(*args, **kwargs)
 
 
     def log_c(
@@ -318,7 +319,10 @@ class Homie:
         :param kwargs: Keyword arguments for populating message.
         """
 
-        self.config.logger.log_c(**kwargs)
+        config = self.config
+        logger = config.logger
+
+        logger.log_c(**kwargs)
 
 
     def log_d(
@@ -334,7 +338,10 @@ class Homie:
         :param kwargs: Keyword arguments for populating message.
         """
 
-        self.config.logger.log_d(**kwargs)
+        config = self.config
+        logger = config.logger
+
+        logger.log_d(**kwargs)
 
 
     def log_e(
@@ -350,7 +357,10 @@ class Homie:
         :param kwargs: Keyword arguments for populating message.
         """
 
-        self.config.logger.log_e(**kwargs)
+        config = self.config
+        logger = config.logger
+
+        logger.log_e(**kwargs)
 
 
     def log_i(
@@ -366,7 +376,10 @@ class Homie:
         :param kwargs: Keyword arguments for populating message.
         """
 
-        self.config.logger.log_i(**kwargs)
+        config = self.config
+        logger = config.logger
+
+        logger.log_i(**kwargs)
 
 
     def log_w(
@@ -382,7 +395,10 @@ class Homie:
         :param kwargs: Keyword arguments for populating message.
         """
 
-        self.config.logger.log_w(**kwargs)
+        config = self.config
+        logger = config.logger
+
+        logger.log_w(**kwargs)
 
 
     @property
@@ -555,9 +571,10 @@ class Homie:
         Return the related desired scene for the desired groups.
         """
 
-        dryrun = self.params.dryrun
+        params = self.params
+        dryrun = params.dryrun
 
-        desires: _DESCENES = {}
+        desires: _DESCENE = {}
 
 
         def _append_desire() -> None:
@@ -642,21 +659,19 @@ class Homie:
         """
 
         self.log_i(
-            base='homie',
-            item='Homie',
+            base='Homie',
             action='scene_set',
-            group_name=group.name,
-            scene_name=scene.name,
+            group=group.name,
+            scene=scene.name,
             status='attempt')
 
         group.scene_set(scene)
 
         self.log_i(
-            base='homie',
-            item='Homie',
+            base='Homie',
             action='scene_set',
-            group_name=group.name,
-            scene_name=scene.name,
+            group=group.name,
+            scene=scene.name,
             status='success')
 
 

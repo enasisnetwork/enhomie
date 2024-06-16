@@ -68,8 +68,7 @@ class UbiqRouter:
         """
 
         homie.log_d(
-            base='ubiquiti',
-            item='UbiqRouter',
+            base='UbiqRouter',
             name=name,
             status='initial')
 
@@ -96,8 +95,7 @@ class UbiqRouter:
 
 
         homie.log_d(
-            base='ubiquiti',
-            item='UbiqRouter',
+            base='UbiqRouter',
             name=name,
             status='created')
 
@@ -212,8 +210,7 @@ class UbiqRouter:
 
 
         self.homie.log_i(
-            base='ubiquiti',
-            item='UbiqRouter',
+            base='UbiqRouter',
             name=self.name,
             action='fetch',
             elapsed=runtime.since,

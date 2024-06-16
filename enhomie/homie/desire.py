@@ -53,8 +53,7 @@ class HomieDesire:
         """
 
         homie.log_d(
-            base='homie',
-            item='HomieDesire',
+            base='HomieDesire',
             name=name,
             status='initial')
 
@@ -82,8 +81,7 @@ class HomieDesire:
         self.__validate_params()
 
         homie.log_d(
-            base='homie',
-            item='HomieDesire',
+            base='HomieDesire',
             name=name,
             status='created')
 

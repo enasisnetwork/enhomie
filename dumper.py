@@ -8,7 +8,6 @@ is permitted, for more information consult the project license file.
 
 
 from argparse import ArgumentParser
-from argparse import Namespace
 from typing import Any
 from typing import Optional
 
@@ -21,7 +20,7 @@ from enhomie.homie import HomieGroup
 
 
 
-def launcher_args() -> Namespace:
+def launcher_args() -> dict[str, Any]:
     """
     Construct the arguments that are associated with the file.
     """
@@ -62,7 +61,7 @@ def launcher_args() -> Namespace:
             'group name for when '
             'dumping the scenes'))
 
-    return parser.parse_args()
+    return vars(parser.parse_args())
 
 
 
@@ -376,78 +375,100 @@ def print_ubiq_clients(
 
 
 
+
+
+
+def operate_main(
+    homie: Homie,
+) -> None:
+    """
+    Perform whatever operations are associated with the file.
+
+    :param homie: Primary class instance for Homie Automate.
+    """
+
+    config = homie.config
+
+
+    _scope = config.sargs['scope']
+    _group = config.sargs['group']
+
+    group: Optional[HomieGroup] = (
+        homie.groups[_group]
+        if _group else None)
+
+
+    if _scope == 'homie':
+        print_homie(homie)
+
+    if _scope == 'groups':
+        print_groups(homie)
+
+    if _scope == 'scenes':
+        print_scenes(homie, group)
+
+    if _scope == 'desires':
+        print_desires(homie)
+
+    if _scope == 'desired':
+        print_desired(homie)
+
+
+    if _scope == 'phue_fetched':
+        print_phue_fetched(homie)
+
+    if _scope == 'phue_merged':
+        print_phue_merged(homie)
+
+    if _scope == 'phue_bridges':
+        print_phue_bridges(homie)
+
+    if _scope == 'phue_devices':
+        print_phue_devices(homie)
+
+
+    if _scope == 'ubiq_fetched':
+        print_ubiq_fetched(homie)
+
+    if _scope == 'ubiq_merged':
+        print_ubiq_merged(homie)
+
+    if _scope == 'ubiq_routers':
+        print_ubiq_routers(homie)
+
+    if _scope == 'ubiq_clients':
+        print_ubiq_clients(homie)
+
+
+
 def launcher_main() -> None:
     """
     Perform whatever operations are associated with the file.
     """
 
-    args = vars(launcher_args())
+    args = launcher_args()
 
     config = Config(
         args['config'],
-        {'dryrun': True})
+        {'dryrun': True},
+        sargs=args)
 
     config.logger.start()
 
     config.logger.log_i(
-        base='project',
+        base='script',
         item='dumper',
         status='merged')
 
+
     homie = Homie(config)
 
-    scope = args['scope']
 
-    group: Optional[HomieGroup] = (
-        homie.groups[args['group']]
-        if args['group'] else None)
-
-
-    if scope == 'homie':
-        print_homie(homie)
-
-
-    if scope == 'phue_fetched':
-        print_phue_fetched(homie)
-
-    if scope == 'phue_merged':
-        print_phue_merged(homie)
-
-    if scope == 'phue_bridges':
-        print_phue_bridges(homie)
-
-    if scope == 'phue_devices':
-        print_phue_devices(homie)
-
-
-    if scope == 'ubiq_fetched':
-        print_ubiq_fetched(homie)
-
-    if scope == 'ubiq_merged':
-        print_ubiq_merged(homie)
-
-    if scope == 'ubiq_routers':
-        print_ubiq_routers(homie)
-
-    if scope == 'ubiq_clients':
-        print_ubiq_clients(homie)
-
-
-    if scope == 'groups':
-        print_groups(homie)
-
-    if scope == 'scenes':
-        print_scenes(homie, group)
-
-    if scope == 'desires':
-        print_desires(homie)
-
-    if scope == 'desired':
-        print_desired(homie)
+    operate_main(homie)
 
 
     config.logger.log_i(
-        base='project',
+        base='script',
         item='dumper',
         status='stopped')
 
