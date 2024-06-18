@@ -19,8 +19,13 @@
   "desires": [
     "default",
     "delayed",
-    "jupiter_absent",
-    "neptune_absent"
+    "jupiter",
+    "neptune"
+  ],
+  "actions": [
+    "default",
+    "jupiter",
+    "neptune"
   ],
   "phue_bridges": {
     "jupiter": {

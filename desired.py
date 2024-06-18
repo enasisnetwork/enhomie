@@ -10,6 +10,7 @@ is permitted, for more information consult the project license file.
 from argparse import ArgumentParser
 from typing import Any
 
+from encommon.utils import array_ansi
 from encommon.utils import print_ansi
 
 from enhomie.config import Config
@@ -40,6 +41,14 @@ def launcher_args() -> dict[str, Any]:
             'do not execute action '
             'and show what would do'))
 
+    parser.add_argument(
+        '--print',
+        action='store_true',
+        default=False,
+        help=(
+            'print out the events '
+            'that are received'))
+
     return vars(parser.parse_args())
 
 
@@ -54,11 +63,31 @@ def operate_main(
     """
 
     params = homie.params
+    config = homie.config
     groups = homie.groups
     scenes = homie.scenes
 
+    stdout = config.sargs['print']
 
-    items = homie.desired.items()
+
+    desired = homie.desired
+
+    dumped = {
+        k: v.homie_dumper()
+        for k, v
+        in desired.items()}
+
+    if len(dumped) == 0:
+        return
+
+    if stdout is True:
+        print_ansi(
+            f'<c31>{"-" * 64}<c0>\n'
+            f'{array_ansi(dumped)}\n'
+            f'<c31>{"-" * 64}<c0>')
+
+
+    items = desired.items()
 
     for name, desire in items:
 
@@ -75,12 +104,12 @@ def operate_main(
             if _active is not None:
                 active = _active.name
 
-
-        print_ansi(
-            f'<c96>{group.name}<c37>: '
-            f'<c36>{desire.name}<c37>/'
-            f'<c96>{desire.scene}<c37> '
-            f'(<c96>{active}<c37>)<c0>')
+        if stdout is True:
+            print_ansi(
+                f'<c96>{group.name}<c37>: '
+                f'<c36>{desire.name}<c37>/'
+                f'<c96>{desire.scene}<c37> '
+                f'(<c96>{active}<c37>)<c0>')
 
 
         if params.dryrun is True:

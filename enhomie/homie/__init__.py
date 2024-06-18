@@ -7,20 +7,26 @@ is permitted, for more information consult the project license file.
 
 
 
+from .action import HomieAction
 from .desire import HomieDesire
 from .group import HomieGroup
 from .homie import Homie
+from .params import HomieActionParams
 from .params import HomieDesireParams
 from .params import HomieGroupParams
 from .params import HomieSceneParams
+from .params import HomieWhatParams
 from .params import HomieWhenParams
 from .scene import HomieScene
+from .what import HomieWhat
 from .when import HomieWhen
 
 
 
 __all__ = [
     'Homie',
+    'HomieAction',
+    'HomieActionParams',
     'HomieDesire',
     'HomieDesireParams',
     'HomieGroup',
@@ -28,4 +34,6 @@ __all__ = [
     'HomieScene',
     'HomieSceneParams',
     'HomieWhen',
-    'HomieWhenParams']
+    'HomieWhenParams',
+    'HomieWhat',
+    'HomieWhatParams']

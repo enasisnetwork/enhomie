@@ -15,6 +15,7 @@ from typing import TYPE_CHECKING
 
 from encommon.times import Duration
 from encommon.times import Times
+from encommon.types import getate
 
 if TYPE_CHECKING:
     from .bridge import _FETCH
@@ -25,6 +26,7 @@ if TYPE_CHECKING:
 
 
 _CHANGED = dict[str, Times | None] | Literal[False]
+_SENSORS = Optional[dict[str, str]]
 
 
 
@@ -326,18 +328,18 @@ class PhueDevice:
             _source = service['_source']
 
             if _rtype == 'motion':
-                _changed = (
-                    _source['motion']
-                    .get('motion_report', {})
-                    .get('changed'))
+                _changed = getate(
+                    _source['motion'],
+                    'motion_report/changed')
 
             elif _rtype == 'button':
-                _changed = (
-                    _source['button']
-                    .get('button_report', {})
-                    .get('updated'))
+                _changed = getate(
+                    _source['button'],
+                    'button_report/updated')
 
-            key = f'{_rtype}{indices[_rtype]}'
+            index = indices[_rtype]
+
+            key = f'{_rtype}{index}'
 
             changed[key] = (
                 Times(_changed)
@@ -348,6 +350,49 @@ class PhueDevice:
         values = changed.values()
 
         return changed if any(values) else False
+
+
+    @property
+    def sensors(
+        self,
+    ) -> _SENSORS:
+        """
+        Return the mapping for sensor name to unique identifier.
+
+        :returns: Mapping for sensor name to unique identifier.
+        """
+
+        keys = ['button', 'motion']
+
+        source = self.__source
+
+        if source is None:
+            return None
+
+
+        services = source['services']
+
+        sensors: dict[str, str] = {}
+        indices = {x: 0 for x in keys}
+
+        for service in services:
+
+            _rid = service['rid']
+            _rtype = service['rtype']
+
+            if _rtype not in keys:
+                continue
+
+            indices[_rtype] += 1
+
+            index = indices[_rtype]
+
+            key = f'{_rtype}{index}'
+
+            sensors[key] = _rid
+
+
+        return sensors or None
 
 
     def homie_dumper(

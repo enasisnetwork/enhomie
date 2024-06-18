@@ -25,7 +25,7 @@ desires:
       - neptune_zone
 
 
-  jupiter_absent:
+  jupiter:
     scene: awaydark
     groups:
       - jupiter_room
@@ -53,7 +53,7 @@ desires:
           tzname: UTC
 
 
-  neptune_absent:
+  neptune:
     scene: awaydark
     groups:
       - neptune_room

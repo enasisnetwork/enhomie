@@ -54,7 +54,8 @@ def test_Homie(
         '_Homie__ubiq_clients',
         '_Homie__groups',
         '_Homie__scenes',
-        '_Homie__desires']
+        '_Homie__desires',
+        '_Homie__actions']
 
 
     assert inrepr(

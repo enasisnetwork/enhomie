@@ -15,15 +15,6 @@ from pydantic import BaseModel
 
 
 
-_SENSORS = Literal[
-    'button1',
-    'button2',
-    'button3',
-    'button4',
-    'motion1']
-
-
-
 class PhueDeviceParams(BaseModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
@@ -58,6 +49,49 @@ class PhueDeviceParams(BaseModel, extra='forbid'):
 
 
 
+class WhatPhueMotionParams(BaseModel, extra='forbid'):
+    """
+    Process and validate the Homie configuration parameters.
+
+    :param device: Name of device in scope for the operation.
+    :param sensor: Name of sensor in scope for the operation.
+    :param data: Keyword arguments passed to Pydantic model.
+        Parameter is picked up by autodoc, please ignore.
+    """
+
+    device: str
+
+    sensor: Literal[
+        'motion1']
+
+
+
+class WhatPhueButtonParams(BaseModel, extra='forbid'):
+    """
+    Process and validate the Homie configuration parameters.
+
+    :param device: Name of device in scope for the operation.
+    :param events: Name of event in scope for the operation.
+    :param sensor: Name of sensor in scope for the operation.
+    :param data: Keyword arguments passed to Pydantic model.
+        Parameter is picked up by autodoc, please ignore.
+    """
+
+    device: str
+
+    sensor: Literal[
+        'button1',
+        'button2',
+        'button3',
+        'button4']
+
+    events: list[Literal[
+        'initial_press',
+        'long_release',
+        'short_release']]
+
+
+
 class WhenPhueChangeParams(BaseModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
@@ -70,6 +104,7 @@ class WhenPhueChangeParams(BaseModel, extra='forbid'):
     """
 
     devices: list[str]
+
     sensors: list[Literal[
         'button1',
         'button2',

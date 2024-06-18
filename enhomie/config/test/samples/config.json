@@ -84,7 +84,7 @@
       "delay": 10,
       "when": null
     },
-    "jupiter_absent": {
+    "jupiter": {
       "groups": [
         "jupiter_room",
         "jupiter_zone"
@@ -138,7 +138,7 @@
         }
       ]
     },
-    "neptune_absent": {
+    "neptune": {
       "groups": [
         "neptune_room",
         "neptune_zone"
@@ -189,6 +189,126 @@
           },
           "phue_change": null,
           "ubiq_client": null
+        }
+      ]
+    }
+  },
+  "actions": {
+    "default": {
+      "groups": [
+        "jupiter_room",
+        "jupiter_zone",
+        "neptune_room",
+        "neptune_zone"
+      ],
+      "scene": "relax",
+      "weight": 0,
+      "pause": 5,
+      "what": [
+        {
+          "phue_button": null,
+          "phue_motion": {
+            "device": "jupiter_motion",
+            "sensor": "motion1"
+          }
+        },
+        {
+          "phue_button": null,
+          "phue_motion": {
+            "device": "neptune_motion",
+            "sensor": "motion1"
+          }
+        }
+      ],
+      "when": null
+    },
+    "jupiter": {
+      "groups": [
+        "jupiter_room",
+        "jupiter_zone"
+      ],
+      "scene": "awake",
+      "weight": 10,
+      "pause": 5,
+      "what": [
+        {
+          "phue_button": null,
+          "phue_motion": {
+            "device": "jupiter_motion",
+            "sensor": "motion1"
+          }
+        },
+        {
+          "phue_button": {
+            "device": "jupiter_button",
+            "sensor": "button1",
+            "events": [
+              "initial_press"
+            ]
+          },
+          "phue_motion": null
+        }
+      ],
+      "when": [
+        {
+          "negate": false,
+          "family": "default",
+          "time_period": null,
+          "phue_change": null,
+          "ubiq_client": {
+            "routers": [
+              "jupiter"
+            ],
+            "clients": [
+              "phone"
+            ],
+            "since": 300
+          }
+        }
+      ]
+    },
+    "neptune": {
+      "groups": [
+        "neptune_room",
+        "neptune_zone"
+      ],
+      "scene": "awake",
+      "weight": 10,
+      "pause": 5,
+      "what": [
+        {
+          "phue_button": null,
+          "phue_motion": {
+            "device": "neptune_motion",
+            "sensor": "motion1"
+          }
+        },
+        {
+          "phue_button": {
+            "device": "neptune_button",
+            "sensor": "button1",
+            "events": [
+              "initial_press"
+            ]
+          },
+          "phue_motion": null
+        }
+      ],
+      "when": [
+        {
+          "negate": false,
+          "family": "default",
+          "time_period": null,
+          "phue_change": null,
+          "ubiq_client": {
+            "routers": [
+              "neptune"
+            ],
+            "clients": [
+              "phone"
+            ],
+            "since": 300
+          }
         }
       ]
     }

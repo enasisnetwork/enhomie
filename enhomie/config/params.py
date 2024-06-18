@@ -17,6 +17,7 @@ from enconnect.philipshue import (
 from enconnect.ubiquiti import (
     RouterParams as UbiqRouterParams)
 
+from ..homie import HomieActionParams
 from ..homie import HomieDesireParams
 from ..homie import HomieGroupParams
 from ..homie import HomieSceneParams
@@ -28,6 +29,7 @@ from ..ubiquiti import UbiqClientParams
 _GROUPS = dict[str, HomieGroupParams]
 _SCENES = dict[str, HomieSceneParams]
 _DESIRES = dict[str, HomieDesireParams]
+_ACTIONS = dict[str, HomieActionParams]
 
 _PHUE_BRIDGES = dict[str, PhueBridgeParams]
 _PHUE_DEVICES = dict[str, PhueDeviceParams]
@@ -50,6 +52,7 @@ class Params(_Params, extra='forbid'):
     :param groups: Dictionary of parameters for the groups.
     :param scenes: Dictionary of parameters for the scenes.
     :param desires: List of desired states and conditionals.
+    :param actions: List of event actions and conditionals.
     :param phue_bridges: Paramters for the product bridges.
     :param phue_devices: Paramters for the product devices.
     :param ubiq_routers: Paramters for the product routers.
@@ -67,6 +70,7 @@ class Params(_Params, extra='forbid'):
     groups: Optional[_GROUPS] = None
     scenes: Optional[_SCENES] = None
     desires: Optional[_DESIRES] = None
+    actions: Optional[_ACTIONS] = None
 
     phue_bridges: Optional[_PHUE_BRIDGES] = None
     phue_devices: Optional[_PHUE_DEVICES] = None

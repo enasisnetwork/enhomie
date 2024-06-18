@@ -33,7 +33,7 @@ def test_HomieDesire(
     """
 
     desires = homie.desires
-    desire = desires['jupiter_absent']
+    desire = desires['jupiter']
 
 
     attrs = list(desire.__dict__)
@@ -60,7 +60,7 @@ def test_HomieDesire(
 
     assert desire.params is not None
 
-    assert desire.name == 'jupiter_absent'
+    assert desire.name == 'jupiter'
 
     assert len(desire.whens) == 3
 
@@ -85,7 +85,8 @@ def test_HomieDesire(
 
 
     sample_path = (
-        f'{SAMPLES}/desire/dumper.json')
+        f'{SAMPLES}/desire'
+        '/dumper.json')
 
     sample = load_sample(
         path=sample_path,
@@ -114,11 +115,13 @@ def test_HomieDesire_cover(
     delayed = desires['delayed']
     default = desires['default']
 
+
     assert homie.desired == {
         'jupiter_room': default,
         'jupiter_zone': default,
         'neptune_room': default,
         'neptune_zone': default}
+
 
     delayed.update_timer(
         f'-{delayed.delay}s')

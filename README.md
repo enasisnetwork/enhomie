@@ -13,6 +13,7 @@ Define desired scenes for groups using flexible conditional plugins.
 ## Configuration example
 Some basic configuration examples. See next section for more documentation.
 - [Homie Desires](enhomie/homie/test/samples/desires.yml)
+- [Homie Actions](enhomie/homie/test/samples/actions.yml)
 - [Homie Groups](enhomie/homie/test/samples/groups.yml)
 - [Homie Scenes](enhomie/homie/test/samples/scenes.yml)
 - [Philips Hue Bridges](enhomie/philipshue/test/samples/bridges.yml)
@@ -27,6 +28,7 @@ Should you venture into the sections below you will be able to use the
 
 ## Additional scripts
 - [desired.py](desired.py) is useful for setting desired scenes.
+- [actions.py](actions.py) is useful for acting on stream events.
 - [dumper.py](dumper.py) is useful for dumping configuration.
 - [scener.py](scener.py) is useful for setting scene on groups.
 

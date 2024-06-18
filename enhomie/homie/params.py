@@ -13,6 +13,8 @@ from typing import Optional
 from pydantic import BaseModel
 
 from ..builtins import WhenTimePeriodParams
+from ..philipshue import WhatPhueButtonParams
+from ..philipshue import WhatPhueMotionParams
 from ..philipshue import WhenPhueChangeParams
 from ..ubiquiti import WhenUbiqClientParams
 
@@ -110,4 +112,47 @@ class HomieDesireParams(BaseModel, extra='forbid'):
     weight: int = 0
     delay: int = 0
 
+    when: Optional[list[HomieWhenParams]] = None
+
+
+
+class HomieWhatParams(BaseModel, extra='forbid'):
+    """
+    Process and validate the Homie configuration parameters.
+
+    :param phue_button: Parameters for use in action plugin.
+    :param phue_motion: Parameters for use in action plugin.
+    :param data: Keyword arguments passed to Pydantic model.
+        Parameter is picked up by autodoc, please ignore.
+    """
+
+    phue_button: Optional[WhatPhueButtonParams] = None
+    phue_motion: Optional[WhatPhueMotionParams] = None
+
+
+
+class HomieActionParams(BaseModel, extra='forbid'):
+    """
+    Process and validate the Homie configuration parameters.
+
+    :param groups: Names of Homie groups which are in scope.
+    :param scene: Name of the Homie scene which is desired.
+    :param weight: Useful when other conditionals match one
+        of the provided groups, will determine precedence.
+    :param pause: Delay before performing the same action.
+        This depends on the state file being defined to work
+        between script executions, otherwise delay breaks.
+    :param what: List of events which can trigger operation.
+    :param when: List of conditionals for determining match.
+    :param data: Keyword arguments passed to Pydantic model.
+        Parameter is picked up by autodoc, please ignore.
+    """
+
+    groups: list[str]
+    scene: str
+
+    weight: int = 0
+    pause: int = 5
+
+    what: Optional[list[HomieWhatParams]] = None
     when: Optional[list[HomieWhenParams]] = None
