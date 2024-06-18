@@ -12,7 +12,9 @@ from typing import TYPE_CHECKING
 from ..builtins import chck_time_period
 from ..builtins import when_time_period
 from ..philipshue import chck_phue_change
+from ..philipshue import chck_phue_scene
 from ..philipshue import when_phue_change
+from ..philipshue import when_phue_scene
 from ..ubiquiti import chck_ubiq_client
 from ..ubiquiti import when_ubiq_client
 
@@ -61,6 +63,9 @@ class HomieWhen:
 
         if self.params.phue_change:
             chck_phue_change(self)
+
+        if self.params.phue_scene:
+            chck_phue_scene(self)
 
         if self.params.ubiq_client:
             chck_ubiq_client(self)
@@ -137,6 +142,10 @@ class HomieWhen:
         if self.params.phue_change:
             matched.append(
                 when_phue_change(self))
+
+        if self.params.phue_scene:
+            matched.append(
+                when_phue_scene(self))
 
         if self.params.ubiq_client:
             matched.append(

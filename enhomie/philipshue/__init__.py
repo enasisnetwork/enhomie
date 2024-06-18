@@ -13,12 +13,15 @@ from .params import PhueDeviceParams
 from .params import WhatPhueButtonParams
 from .params import WhatPhueMotionParams
 from .params import WhenPhueChangeParams
+from .params import WhenPhueSceneParams
 from .what import chck_phue_button
 from .what import chck_phue_motion
 from .what import what_phue_button
 from .what import what_phue_motion
 from .when import chck_phue_change
+from .when import chck_phue_scene
 from .when import when_phue_change
+from .when import when_phue_scene
 
 
 
@@ -29,9 +32,12 @@ __all__ = [
     'WhatPhueButtonParams',
     'WhatPhueMotionParams',
     'WhenPhueChangeParams',
+    'WhenPhueSceneParams',
     'chck_phue_change',
     'when_phue_change',
+    'chck_phue_scene',
+    'when_phue_scene',
     'chck_phue_button',
-    'chck_phue_motion',
     'what_phue_button',
+    'chck_phue_motion',
     'what_phue_motion']
