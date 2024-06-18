@@ -14,6 +14,7 @@ from typing import TYPE_CHECKING
 from encommon.times import Timers
 from encommon.types import sort_dict
 
+from .action import HomieAction
 from .desire import HomieDesire
 from .group import HomieGroup
 from .scene import HomieScene
@@ -28,8 +29,11 @@ if TYPE_CHECKING:
 
 
 
-_DESCENE = dict[str, list[HomieDesire]]
+_DESIRES = dict[str, list[HomieDesire]]
 _DESIRED = dict[str, HomieDesire]
+
+_ASPIRES = dict[str, list[HomieAction]]
+_ASPIRED = dict[str, HomieAction]
 
 
 
@@ -51,6 +55,7 @@ class Homie:
     __groups: dict[str, HomieGroup]
     __scenes: dict[str, HomieScene]
     __desires: dict[str, HomieDesire]
+    __actions: dict[str, HomieAction]
 
 
     def __init__(
@@ -73,6 +78,7 @@ class Homie:
         self.__groups = {}
         self.__scenes = {}
         self.__desires = {}
+        self.__actions = {}
 
         self.log_d(
             base='Homie',
@@ -87,6 +93,7 @@ class Homie:
         self.__make_groups()
         self.__make_scenes()
         self.__make_desires()
+        self.__make_actions()
 
 
         self.__validate_params()
@@ -199,6 +206,27 @@ class Homie:
 
             self.__desires |= {
                 desire.name: desire}
+
+
+    def __make_actions(
+        self,
+    ) -> None:
+        """
+        Construct instances using the configuration parameters.
+        """
+
+        params = self.params
+        actions = params.actions
+
+        if actions is None:
+            return
+
+        for name in actions.keys():
+
+            action = HomieAction(self, name)
+
+            self.__actions |= {
+                action.name: action}
 
 
     def __make_phue_bridges(
@@ -512,6 +540,19 @@ class Homie:
 
 
     @property
+    def actions(
+        self,
+    ) -> dict[str, HomieAction]:
+        """
+        Return the action instances defined within this instance.
+
+        :returns: Action instances defined within this instance.
+        """
+
+        return dict(self.__actions)
+
+
+    @property
     def phue_bridges(
         self,
     ) -> dict[str, PhueBridge]:
@@ -576,7 +617,7 @@ class Homie:
         params = self.params
         dryrun = params.dryrun
 
-        desires: _DESCENE = {}
+        desires: _DESIRES = {}
 
 
         def _append_desire() -> None:
@@ -625,6 +666,69 @@ class Homie:
 
 
         return sort_dict(desired)
+
+
+    def aspired(
+        self,
+        event: dict[str, Any],
+    ) -> _ASPIRED:
+        """
+        Return the related actions matching the provided event.
+
+        :param event: Event which was yielded from the stream.
+        :returns: Related actions matching the provided event.
+        """
+
+        aspires: _ASPIRES = {}
+
+
+        def _append_aspire() -> None:
+
+            if _name not in aspires:
+                aspires[_name] = []
+
+            target = aspires[_name]
+
+            target.append(action)
+
+
+        items1 = self.actions.items()
+
+        for name, action in items1:
+
+            if action.outcome is False:
+                continue
+
+            matched = action.match(event)
+
+            if matched is False:
+                continue
+
+            if action.paused is True:
+                continue
+
+            groups = action.groups
+
+            for _name in groups:
+                _append_aspire()
+
+
+        aspired: _ASPIRED = {}
+
+
+        items2 = aspires.items()
+
+        for key, value in items2:
+
+            value = sorted(
+                value,
+                key=lambda x: x.weight,
+                reverse=True)
+
+            aspired[key] = value[0]
+
+
+        return sort_dict(aspired)
 
 
     def scene_get(
@@ -691,7 +795,8 @@ class Homie:
                 'rooms': sorted(self.rooms),
                 'zones': sorted(self.zones)},
             'scenes': sorted(self.scenes),
-            'desires': sorted(self.desires)}
+            'desires': sorted(self.desires),
+            'actions': sorted(self.actions)}
 
         _dumped: dict[str, Any]
 

@@ -14,11 +14,13 @@ from typing import TYPE_CHECKING
 from encommon.times import TimerParams
 from encommon.times.common import PARSABLE
 
+from .what import HomieWhat
 from .when import HomieWhen
 
 if TYPE_CHECKING:
     from .homie import Homie
-    from .params import HomieDesireParams
+    from .params import HomieActionParams
+    from .params import HomieWhatParams
     from .params import HomieWhenParams
 
 
@@ -27,7 +29,7 @@ _OUTCOMES = dict[str, list[bool]]
 
 
 
-class HomieDesire:
+class HomieAction:
     """
     Normalize the desired parameter across multiple products.
 
@@ -36,10 +38,11 @@ class HomieDesire:
     """
 
     __homie: 'Homie'
-    __params: 'HomieDesireParams'
+    __params: 'HomieActionParams'
 
     __name: str
 
+    __what: list[HomieWhat]
     __when: list[HomieWhen]
 
 
@@ -53,22 +56,29 @@ class HomieDesire:
         """
 
         homie.log_d(
-            base='HomieDesire',
+            base='HomieAction',
             name=name,
             status='initial')
 
 
-        desires = (
-            homie.params.desires)
+        actions = (
+            homie.params.actions)
 
-        assert desires is not None
+        assert actions is not None
 
-        params = desires[name]
+        params = actions[name]
 
 
         self.__homie = homie
         self.__params = params
         self.__name = name
+
+
+        what = self.what or []
+
+        self.__what = [
+            HomieWhat(homie, x)
+            for x in what]
 
 
         when = self.when or []
@@ -81,7 +91,7 @@ class HomieDesire:
         self.__validate_params()
 
         homie.log_d(
-            base='HomieDesire',
+            base='HomieAction',
             name=name,
             status='created')
 
@@ -121,7 +131,7 @@ class HomieDesire:
     @property
     def params(
         self,
-    ) -> 'HomieDesireParams':
+    ) -> 'HomieActionParams':
         """
         Return the Pydantic model containing the configuration.
 
@@ -142,6 +152,19 @@ class HomieDesire:
         """
 
         return self.__name
+
+
+    @property
+    def whats(
+        self,
+    ) -> list[HomieWhat]:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return list(self.__what)
 
 
     @property
@@ -197,7 +220,7 @@ class HomieDesire:
 
 
     @property
-    def delay(
+    def pause(
         self,
     ) -> int:
         """
@@ -206,7 +229,20 @@ class HomieDesire:
         :returns: Value for the attribute from params instance.
         """
 
-        return self.params.delay
+        return self.params.pause
+
+
+    @property
+    def what(
+        self,
+    ) -> Optional[list['HomieWhatParams']]:
+        """
+        Return the value for the attribute from params instance.
+
+        :returns: Value for the attribute from params instance.
+        """
+
+        return self.params.what
 
 
     @property
@@ -223,13 +259,13 @@ class HomieDesire:
 
 
     @property
-    def delayed(
+    def paused(
         self,
     ) -> bool:
         """
-        Return the boolean indicating whether desire is delayed.
+        Return the boolean indicating whether action is paused.
 
-        :returns: Boolean indicating whether desire is delayed.
+        :returns: Boolean indicating whether action is paused.
         """
 
         homie = self.homie
@@ -238,14 +274,15 @@ class HomieDesire:
         children = timers.children
 
         name = self.name
-        delay = self.delay
+        pause = self.pause
 
 
-        unique = f'desire_{name}'
+        unique = f'action_{name}'
 
         if unique not in children:
 
-            params = TimerParams(delay)
+            params = TimerParams(
+                pause, f'-{pause}s')
 
             timers.create(
                 unique, params)
@@ -271,7 +308,7 @@ class HomieDesire:
         timers = homie.timers
 
         name = self.name
-        unique = f'desire_{name}'
+        unique = f'action_{name}'
 
         timers.update(
             unique, value or 'now')
@@ -288,7 +325,7 @@ class HomieDesire:
         timers = homie.timers
 
         name = self.name
-        unique = f'desire_{name}'
+        unique = f'action_{name}'
 
         timers.delete(unique)
 
@@ -301,7 +338,7 @@ class HomieDesire:
         Return the dictionaries of boolean groups from conditons.
 
         .. note::
-           This method is highly redundant to that in action.py.
+           This method is highly redundant to that in desire.py.
 
         :returns: Dictionaries of boolean groups from conditons.
         """
@@ -332,7 +369,7 @@ class HomieDesire:
         Return the boolean indicating whether conditions matched.
 
         .. note::
-           This method is highly redundant to that in action.py.
+           This method is highly redundant to that in desire.py.
 
         :returns: Boolean indicating whether conditions matched.
         """
@@ -360,6 +397,46 @@ class HomieDesire:
         return all(matched)
 
 
+    def matches(
+        self,
+        event: dict[str, Any],
+    ) -> list[bool]:
+        """
+        Return the boolean indicating whether conditions matched.
+
+        :param event: Event which was yielded from the stream.
+        :returns: Boolean indicating whether conditions matched.
+        """
+
+        matches: list[bool] = []
+
+
+        for what in self.__what:
+
+            match = what.match(event)
+
+            matches.append(match)
+
+
+        return matches
+
+
+    def match(
+        self,
+        event: dict[str, Any],
+    ) -> bool:
+        """
+        Return the boolean indicating whether conditions matched.
+
+        :param event: Event which was yielded from the stream.
+        :returns: Boolean indicating whether conditions matched.
+        """
+
+        matches = self.matches(event)
+
+        return any(matches)
+
+
     def homie_dumper(
         self,
     ) -> dict[str, Any]:
@@ -367,7 +444,7 @@ class HomieDesire:
         Return the content related to the project dumper script.
 
         .. note::
-           This method is highly redundant to that in action.py.
+           This method is highly redundant to that in desire.py.
 
         :returns: Content related to the project dumper script.
         """

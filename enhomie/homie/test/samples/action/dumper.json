@@ -1,0 +1,48 @@
+{
+  "name": "jupiter",
+  "params": {
+    "groups": [
+      "jupiter_room",
+      "jupiter_zone"
+    ],
+    "scene": "awake",
+    "weight": 10,
+    "pause": 5,
+    "what": [
+      {
+        "phue_button": null,
+        "phue_motion": {
+          "device": "jupiter_motion",
+          "sensor": "motion1"
+        }
+      },
+      {
+        "phue_button": {
+          "device": "jupiter_button",
+          "sensor": "button1",
+          "events": [
+            "initial_press"
+          ]
+        },
+        "phue_motion": null
+      }
+    ],
+    "when": [
+      {
+        "negate": false,
+        "family": "default",
+        "time_period": null,
+        "phue_change": null,
+        "ubiq_client": {
+          "routers": [
+            "jupiter"
+          ],
+          "clients": [
+            "phone"
+          ],
+          "since": 300
+        }
+      }
+    ]
+  }
+}

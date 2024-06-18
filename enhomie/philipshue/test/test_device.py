@@ -75,6 +75,8 @@ def test_PhueDevice(
 
     assert device.changed is False
 
+    assert device.sensors is None
+
 
     device.refresh_source()
 
@@ -140,6 +142,19 @@ def test_PhueDevice_cover(
     assert device.connect is True
     assert device.changed is not False
     assert len(device.changed) == 4
+    assert device.sensors == {
+        'button1': (
+            'd31f216f-a9d3-3a53-'
+            '913c-4060280dff75'),
+        'button2': (
+            '605aeecd-ad1e-34c2-'
+            'b8ad-d24bc2dd0899'),
+        'button3': (
+            'a3b57110-bebf-3a39-'
+            'bd21-4652f4a3d943'),
+        'button4': (
+            '4ab3f6fe-8773-36d9-'
+            '9cdf-e937208c1de7')}
 
     device.params.phid = None
     device.params.label = 'noexst'
@@ -151,3 +166,4 @@ def test_PhueDevice_cover(
     assert device.present is False
     assert device.connect is False
     assert device.changed is False
+    assert device.sensors is None

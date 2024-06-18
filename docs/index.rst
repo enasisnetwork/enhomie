@@ -151,3 +151,41 @@ Conditional Helpers
 
 .. autofunction:: enhomie.ubiquiti.when_ubiq_client
    :noindex:
+
+Operational Parameters
+======================
+
+.. autoclass:: enhomie.homie.HomieWhat
+   :members:
+   :show-inheritance:
+   :noindex:
+
+.. autopydantic_model:: enhomie.homie.HomieWhatParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
+.. autopydantic_model:: enhomie.philipshue.WhatPhueMotionParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
+.. autopydantic_model:: enhomie.philipshue.WhatPhueButtonParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
+Operational Helpers
+===================
+
+.. autofunction:: enhomie.philipshue.chck_phue_motion
+   :noindex:
+
+.. autofunction:: enhomie.philipshue.what_phue_motion
+   :noindex:
+
+.. autofunction:: enhomie.philipshue.chck_phue_button
+   :noindex:
+
+.. autofunction:: enhomie.philipshue.what_phue_button
+   :noindex:
