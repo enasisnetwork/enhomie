@@ -375,9 +375,6 @@ def print_ubiq_clients(
 
 
 
-
-
-
 def operate_main(
     homie: Homie,
 ) -> None:

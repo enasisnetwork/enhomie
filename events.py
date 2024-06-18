@@ -56,6 +56,23 @@ def launcher_args() -> dict[str, Any]:
             'path to config file'))
 
     parser.add_argument(
+        '--dry-run',
+        action='store_true',
+        default=False,
+        dest='dryrun',
+        help=(
+            'do not execute action '
+            'and show what would do'))
+
+    parser.add_argument(
+        '--print',
+        action='store_true',
+        default=False,
+        help=(
+            'print out the events '
+            'that are received'))
+
+    parser.add_argument(
         '--scope',
         required=True,
         choices=['phue_bridge'],
@@ -69,14 +86,6 @@ def launcher_args() -> dict[str, Any]:
         help=(
             'name of the object to '
             'stream events from'))
-
-    parser.add_argument(
-        '--print',
-        action='store_true',
-        default=False,
-        help=(
-            'print out the events '
-            'that are received'))
 
     parser.add_argument(
         '--timeout',
@@ -98,7 +107,63 @@ def launcher_args() -> dict[str, Any]:
 
 
 
-def iterate(
+class QueueThread(Thread):
+    """
+    Handle when exceptions occur within the thread routine.
+
+    :param homie: Primary class instance for Homie Automate.
+    """
+
+    __homie: 'Homie'
+
+
+    def __init__(
+        self,
+        homie: 'Homie',
+    ) -> None:
+        """
+        Initialize instance for class using provided parameters.
+        """
+
+        self.__homie = homie
+
+        super().__init__(
+            name='queue',
+            target=process,
+            args=[homie])
+
+
+    def run(
+        self,
+    ) -> None:
+        """
+        Perform whatever operations are associated with the file.
+        """
+
+        homie = self.__homie
+
+        try:
+
+            homie.log_i(
+                base='script',
+                item='events/queue/thread',
+                status='started')
+
+            super().run()
+
+        except Exception as reason:
+
+            homie.log_e(
+                base='script',
+                item='events/queue/thread',
+                status='exception',
+                exc_info=reason)
+
+            shutdown()
+
+
+
+def process(
     homie: Homie,
 ) -> None:
     """
@@ -107,11 +172,12 @@ def iterate(
     :param homie: Primary class instance for Homie Automate.
     """
 
+    params = homie.params
     config = homie.config
     groups = homie.groups
     scenes = homie.scenes
 
-    _print = config.sargs['print']
+    stdout = config.sargs['print']
     actions = config.sargs['actions']
 
 
@@ -129,34 +195,32 @@ def iterate(
         if len(dumped) == 0:
             return
 
-        if _print is True:
+        if stdout is True:
             print_ansi(
                 f'<c31>{"-" * 64}<c0>\n'
                 f'{array_ansi(dumped)}\n'
                 f'<c31>{"-" * 64}<c0>')
 
 
-        if actions is True:
+        items = aspired.items()
+
+        for name, action in items:
+
+            group = groups[name]
 
 
-            items = aspired.items()
+            active = 'unknown'
 
-            for name, action in items:
+            if group.phue_unique:
 
-                group = groups[name]
+                _active = (
+                    homie.scene_get(group))
 
-
-                active = 'unknown'
-
-                if group.phue_unique:
-
-                    _active = (
-                        homie.scene_get(group))
-
-                    if _active is not None:
-                        active = _active.name
+                if _active is not None:
+                    active = _active.name
 
 
+            if stdout is True:
                 print_ansi(
                     f'<c96>{group.name}<c37>: '
                     f'<c36>{action.name}<c37>/'
@@ -164,11 +228,14 @@ def iterate(
                     f'(<c96>{active}<c37>)<c0>')
 
 
-                scene = scenes[action.scene]
+            if params.dryrun is True:
+                continue
 
-                homie.scene_set(group, scene)
+            scene = scenes[action.scene]
 
-                action.update_timer()
+            homie.scene_set(group, scene)
+
+            action.update_timer()
 
 
     while True:
@@ -178,7 +245,7 @@ def iterate(
         if event is None:
             break
 
-        if _print is True:
+        if stdout is True:
             print_ansi(
                 f'<c36>{"-" * 64}<c0>\n'
                 f'{array_ansi(event)}\n'
@@ -189,7 +256,7 @@ def iterate(
 
 
 
-def streams(
+def stream(
     homie: Homie,
 ) -> None:
     """
@@ -204,48 +271,32 @@ def streams(
     name = config.sargs['name']
 
 
-    if scope == 'phue_bridge':
-
-        bridges = homie.phue_bridges
-        bridge = bridges[name]
-
-        homie.log_i(
-            base='script',
-            item='events/stream',
-            type='phue_bridge',
-            name=bridge.name,
-            status='running')
-
-        ALOOP.run_until_complete(
-            phue_stream(bridge))
-
-        homie.log_i(
-            base='script',
-            item='events/stream',
-            type='phue_bridge',
-            name=bridge.name,
-            status='complete')
+    assert scope == 'phue_bridge'
 
 
+    bridges = homie.phue_bridges
+    bridge = bridges[name]
 
-def shutdown(
-    *args: Any,  # noqa: ANN401
-    **kwargs: Any,  # noqa: ANN401
-) -> None:
-    """
-    Perform whatever operations are associated with the file.
-    """
+    homie.log_i(
+        base='script',
+        item='events/stream',
+        type='phue_bridge',
+        name=bridge.name,
+        status='running')
 
-    EVENT.set()
+    ALOOP.run_until_complete(
+        stream_phue_bridge(bridge))
 
-    tasks = asyncio.all_tasks(ALOOP)
-
-    for task in tasks:
-        task.cancel(True)
+    homie.log_i(
+        base='script',
+        item='events/stream',
+        type='phue_bridge',
+        name=bridge.name,
+        status='complete')
 
 
 
-async def phue_stream(
+async def stream_phue_bridge(
     bridge: PhueBridge,
 ) -> None:
     """
@@ -311,6 +362,23 @@ async def phue_stream(
 
 
 
+def shutdown(
+    *args: Any,  # noqa: ANN401
+    **kwargs: Any,  # noqa: ANN401
+) -> None:
+    """
+    Perform whatever operations are associated with the file.
+    """
+
+    EVENT.set()
+
+    tasks = asyncio.all_tasks(ALOOP)
+
+    for task in tasks:
+        task.cancel(True)
+
+
+
 def launcher_main() -> None:
     """
     Perform whatever operations are associated with the file.
@@ -322,6 +390,7 @@ def launcher_main() -> None:
 
     config = Config(
         args['config'],
+        {'dryrun': args['dryrun']},
         sargs=args)
 
     config.logger.start()
@@ -339,9 +408,7 @@ def launcher_main() -> None:
     signal(SIGHUP, shutdown)
 
 
-    thread = Thread(
-        target=iterate,
-        args=[homie])
+    thread = QueueThread(homie)
 
     thread.start()
 
@@ -352,7 +419,7 @@ def launcher_main() -> None:
 
 
     try:
-        streams(homie)
+        stream(homie)
 
     finally:
 
@@ -381,5 +448,4 @@ def launcher_main() -> None:
 
 
 if __name__ == '__main__':
-
     launcher_main()
