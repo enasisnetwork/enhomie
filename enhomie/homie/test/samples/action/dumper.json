@@ -33,6 +33,7 @@
         "family": "default",
         "time_period": null,
         "phue_change": null,
+        "phue_scene": null,
         "ubiq_client": {
           "routers": [
             "jupiter"

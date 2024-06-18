@@ -126,6 +126,11 @@ Conditional Parameters
    :show-inheritance:
    :noindex:
 
+.. autopydantic_model:: enhomie.philipshue.WhenPhueSceneParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
 .. autopydantic_model:: enhomie.ubiquiti.WhenUbiqClientParams
    :members:
    :show-inheritance:
@@ -144,6 +149,12 @@ Conditional Helpers
    :noindex:
 
 .. autofunction:: enhomie.philipshue.when_phue_change
+   :noindex:
+
+.. autofunction:: enhomie.philipshue.chck_phue_scene
+   :noindex:
+
+.. autofunction:: enhomie.philipshue.when_phue_scene
    :noindex:
 
 .. autofunction:: enhomie.ubiquiti.chck_ubiq_client

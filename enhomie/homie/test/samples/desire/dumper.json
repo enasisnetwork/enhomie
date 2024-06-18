@@ -24,6 +24,7 @@
           ],
           "since": 900
         },
+        "phue_scene": null,
         "ubiq_client": null
       },
       {
@@ -31,6 +32,7 @@
         "family": "default",
         "time_period": null,
         "phue_change": null,
+        "phue_scene": null,
         "ubiq_client": {
           "routers": [
             "jupiter"
@@ -50,6 +52,7 @@
           "tzname": "UTC"
         },
         "phue_change": null,
+        "phue_scene": null,
         "ubiq_client": null
       }
     ]

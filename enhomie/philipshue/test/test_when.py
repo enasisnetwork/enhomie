@@ -15,6 +15,7 @@ from encommon.utils import save_text
 from respx import MockRouter
 
 from ..params import WhenPhueChangeParams
+from ..params import WhenPhueSceneParams
 from ...conftest import config_factory
 from ...conftest import homie_factory
 from ...homie import HomieWhen
@@ -156,6 +157,43 @@ def test_when_phue_change_cover(
 
     params = HomieWhenParams(
         phue_change=phue_change)
+
+    when = HomieWhen(homie, params)
+
+    assert when.outcome is False
+
+
+
+def test_when_phue_scene(
+    homie: 'Homie',
+) -> None:
+    """
+    Perform various tests associated with relevant routines.
+
+    :param homie: Primary class instance for Homie Automate.
+    """
+
+
+    phue_scene = (
+        WhenPhueSceneParams(
+            group='jupiter_zone',
+            scenes=['sleep']))
+
+    params = HomieWhenParams(
+        phue_scene=phue_scene)
+
+    when = HomieWhen(homie, params)
+
+    assert when.outcome is True
+
+
+    phue_scene = (
+        WhenPhueSceneParams(
+            group='jupiter_room',
+            scenes=['sleep']))
+
+    params = HomieWhenParams(
+        phue_scene=phue_scene)
 
     when = HomieWhen(homie, params)
 

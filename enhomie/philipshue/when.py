@@ -111,3 +111,65 @@ def chck_phue_change(
 
     for name in _devices:
         assert name in devices
+
+
+
+def when_phue_scene(
+    when: 'HomieWhen',
+) -> bool:
+    """
+    Return the boolean indicating whether condition matched.
+
+    :param when: Primary class instance for the conditonal.
+    :returns: Boolean indicating whether condition matched.
+    """
+
+    homie = when.homie
+
+    params = (
+        when.params.phue_scene)
+
+    assert params is not None
+
+    _group = params.group
+    _scenes = params.scenes
+
+
+    scene = homie.scene_get(
+        homie.groups[_group])
+
+
+    if scene is None:
+        return False
+
+    return scene.name in _scenes
+
+
+
+def chck_phue_scene(
+    when: 'HomieWhen',
+) -> None:
+    """
+    Return the boolean indicating whether conditional valid.
+
+    :param when: Primary class instance for the conditonal.
+    """
+
+    params = (
+        when.params.phue_scene)
+
+    assert params is not None
+
+    groups = when.homie.groups
+    scenes = when.homie.scenes
+
+
+    _group = params.group
+
+    assert _group in groups
+
+
+    _scenes = params.scenes
+
+    for name in _scenes:
+        assert name in scenes

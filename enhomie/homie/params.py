@@ -16,6 +16,7 @@ from ..builtins import WhenTimePeriodParams
 from ..philipshue import WhatPhueButtonParams
 from ..philipshue import WhatPhueMotionParams
 from ..philipshue import WhenPhueChangeParams
+from ..philipshue import WhenPhueSceneParams
 from ..ubiquiti import WhenUbiqClientParams
 
 
@@ -76,6 +77,7 @@ class HomieWhenParams(BaseModel, extra='forbid'):
         `all` of the conditionals within must match `True`.
     :param time_period: Pamaters for the conditional plugin.
     :param phue_change: Pamaters for the conditional plugin.
+    :param phue_scene: Pamaters for the conditional plugin.
     :param ubiq_client: Pamaters for the conditional plugin.
     :param data: Keyword arguments passed to Pydantic model.
         Parameter is picked up by autodoc, please ignore.
@@ -86,6 +88,7 @@ class HomieWhenParams(BaseModel, extra='forbid'):
 
     time_period: Optional[WhenTimePeriodParams] = None
     phue_change: Optional[WhenPhueChangeParams] = None
+    phue_scene: Optional[WhenPhueSceneParams] = None
     ubiq_client: Optional[WhenUbiqClientParams] = None
 
 

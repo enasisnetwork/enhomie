@@ -113,3 +113,18 @@ class WhenPhueChangeParams(BaseModel, extra='forbid'):
         'motion1']]
 
     since: int = 0
+
+
+
+class WhenPhueSceneParams(BaseModel, extra='forbid'):
+    """
+    Process and validate the Homie configuration parameters.
+
+    :param group: Group from wherein the scene is located.
+    :param scenes: Name of the Homie scenes that will match.
+    :param data: Keyword arguments passed to Pydantic model.
+        Parameter is picked up by autodoc, please ignore.
+    """
+
+    group: str
+    scenes: list[str]
