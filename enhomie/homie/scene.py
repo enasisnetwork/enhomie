@@ -215,6 +215,10 @@ class HomieScene:
         scene_phid = (
             self.phue_unique(group))
 
+        if (crrnt_phid is None
+                or scene_phid is None):
+            return False
+
         return crrnt_phid == scene_phid
 
 

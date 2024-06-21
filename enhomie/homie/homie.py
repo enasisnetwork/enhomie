@@ -604,6 +604,45 @@ class Homie:
         return dict(self.__ubiq_clients)
 
 
+    def refresh(
+        self,
+    ) -> None:
+        """
+        Refresh the information for the relevant Homie objects.
+        """
+
+        self.log_d(
+            base='Homie',
+            action='refresh',
+            status='starting')
+
+        bridges = self.phue_bridges
+
+        for bridge in bridges.values():
+            bridge.fetched
+
+        devices = self.phue_devices
+
+        for device in devices.values():
+            device.refresh_source()
+
+        routers = self.ubiq_routers
+
+        for router in routers.values():
+            router.fetched
+
+        clients = self.ubiq_clients
+
+        for client in clients.values():
+            client.refresh_source()
+
+        self.log_d(
+            base='Homie',
+            action='refresh',
+            status='complete')
+
+
+
     @property
     def desired(
         self,

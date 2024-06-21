@@ -245,6 +245,8 @@ def process(
         if event is None:
             break
 
+        homie.refresh()
+
         if stdout is True:
             print_ansi(
                 f'<c36>{"-" * 64}<c0>\n'
