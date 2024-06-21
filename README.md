@@ -28,7 +28,7 @@ Should you venture into the sections below you will be able to use the
 
 ## Additional scripts
 - [desired.py](desired.py) is useful for setting desired scenes.
-- [actions.py](actions.py) is useful for acting on stream events.
+- [events.py](events.py) is useful for acting on stream events.
 - [dumper.py](dumper.py) is useful for dumping configuration.
 - [scener.py](scener.py) is useful for setting scene on groups.
 

@@ -100,6 +100,9 @@ def test_Homie(
         'neptune_zone': desire}
 
 
+    homie.refresh()
+
+
     sample_path = (
         f'{SAMPLES}/homie/dumper.json')
 
