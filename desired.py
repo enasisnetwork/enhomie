@@ -8,8 +8,10 @@ is permitted, for more information consult the project license file.
 
 
 from argparse import ArgumentParser
+from time import sleep
 from typing import Any
 
+from encommon.utils import array_ansi
 from encommon.utils import print_ansi
 
 from enhomie.config import Config
@@ -48,11 +50,20 @@ def launcher_args() -> dict[str, Any]:
             'print out the events '
             'that are received'))
 
+    parser.add_argument(
+        '--idempotent',
+        action='store_true',
+        default=False,
+        dest='idemp',
+        help=(
+            'do not make change if '
+            'would not change value'))
+
     return vars(parser.parse_args())
 
 
 
-def operate_main(
+def operate_main(  # noqa: CFQ001
     homie: Homie,
 ) -> None:
     """
@@ -66,7 +77,8 @@ def operate_main(
     groups = homie.groups
     scenes = homie.scenes
 
-    stdout = config.sargs['print']
+    _stdout = config.sargs['print']
+    _idemp = config.sargs['idemp']
 
 
     desired = homie.desired
@@ -80,35 +92,120 @@ def operate_main(
         return
 
 
+    def _state_set() -> None:
+
+        current = group.state_get()
+        desired = desire.state
+
+        assert desired is not None
+
+        changed = False
+
+        if (desired == current
+                and _idemp is True):
+            changed = False
+
+        elif params.dryrun is False:
+
+            homie.state_set(
+                group, desired)
+
+            sleep(1)
+
+            changed = True
+
+        status['state'] = {
+            'current': current,
+            'desired': desired,
+            'changed': changed}
+
+
+    def _level_set() -> None:
+
+        current = group.level_get()
+        desired = desire.level
+
+        assert desired is not None
+
+        changed = False
+
+        if (desired == current
+                and _idemp is True):
+            changed = False
+
+        elif params.dryrun is False:
+
+            homie.level_set(
+                group, desired)
+
+            sleep(1)
+
+            changed = True
+
+        status['level'] = {
+            'current': current,
+            'desired': desired,
+            'changed': changed}
+
+
+    def _scene_set() -> None:
+
+        assert desire.scene is not None
+
+        current = group.scene_get()
+        desired = scenes[desire.scene]
+
+        changed = False
+
+        if (desired == current
+                and _idemp is True):
+            changed = False
+
+        elif params.dryrun is False:
+
+            homie.scene_set(
+                group, desired)
+
+            sleep(1)
+
+            changed = True
+
+        _current = (
+            current.name
+            if current is not None
+            else None)
+
+        status['scene'] = {
+            'current': _current,
+            'desired': desired.name,
+            'changed': changed}
+
+
     items = desired.items()
 
     for name, desire in items:
 
         group = groups[name]
 
-        if stdout is True:
-            print_ansi(
-                f'<c96>{group.name}<c37>: '
-                f'<c36>{desire.name}<c37>/'
-                f'<c96>{desire.scene}<c37>/'
-                f'<c96>{desire.state}<c37>')
-
-        if params.dryrun is True:
-            continue
+        status: dict[str, Any] = {
+            'group': group.name}
 
         if desire.scene is not None:
-            scene = scenes[desire.scene]
-            homie.scene_set(group, scene)
+            _scene_set()
 
         if desire.level is not None:
-            level = desire.level
-            homie.level_set(group, level)
+            _level_set()
 
         if desire.state is not None:
-            state = desire.state
-            homie.state_set(group, state)
+            _state_set()
 
         desire.update_timer()
+
+        if _stdout is True:
+            print_ansi(
+                f'<c31>{"-" * 64}<c0>\n'
+                f'{array_ansi(status)}\n'
+                f'<c31>{"-" * 64}<c0>')
 
 
 
