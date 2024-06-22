@@ -78,6 +78,10 @@ def test_HomieAction(
 
     assert len(action.groups) == 2
 
+    assert action.state is None
+
+    assert action.level is None
+
     assert action.scene == 'awake'
 
     assert action.weight == 10

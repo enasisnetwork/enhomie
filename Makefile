@@ -392,10 +392,10 @@ mypy: \
 	@#
 	$(call MAKE_PR3NT,\
 		<c37>Executing <c90>mypy<c37> \
-		on <c90>scener.py<c37>..<c0>)
+		on <c90>update.py<c37>..<c0>)
 	@$(VENV_DEVELOP)/bin/mypy \
 		--no-error-summary \
-		$(mypy_args) scener.py
+		$(mypy_args) update.py
 	$(call MAKE_PR1NT,<cD>DONE<c0>)
 
 
@@ -449,8 +449,8 @@ flake8: \
 	@#
 	$(call MAKE_PR3NT,\
 		<c37>Executing <c90>flake8<c37> \
-		on <c90>scener.py<c37>..<c0>)
-	@$(VENV_DEVELOP)/bin/flake8 ./scener.py
+		on <c90>update.py<c37>..<c0>)
+	@$(VENV_DEVELOP)/bin/flake8 ./update.py
 	$(call MAKE_PR1NT,<cD>DONE<c0>)
 
 
@@ -521,9 +521,9 @@ pylint: \
 	@#
 	$(call MAKE_PR3NT,\
 		<c37>Executing <c90>pylint<c37> \
-		on <c90>scener.py<c37>..<c0>)
+		on <c90>update.py<c37>..<c0>)
 	@$(VENV_DEVELOP)/bin/pylint \
-		-E scener.py \
+		-E update.py \
 		--persistent=n \
 		-d duplicate-code
 	$(call MAKE_PR1NT,<cD>DONE<c0>)

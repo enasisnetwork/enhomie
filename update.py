@@ -34,13 +34,24 @@ def launcher_args() -> dict[str, Any]:
         required=True,
         help=(
             'which Homie group the '
-            'scene will be updated'))
+            'state will be updated'))
 
     parser.add_argument(
         '--scene',
-        required=True,
         help=(
-            'which Homie scnee the '
+            'which Homie scene the '
+            'group will be updated'))
+
+    parser.add_argument(
+        '--state',
+        help=(
+            'which state value the '
+            'group will be updated'))
+
+    parser.add_argument(
+        '--level',
+        help=(
+            'which level value the '
             'group will be updated'))
 
     return vars(parser.parse_args())
@@ -64,12 +75,23 @@ def operate_main(
 
     _group = config.sargs['group']
     _scene = config.sargs['scene']
+    _level = config.sargs['level']
+    _state = config.sargs['state']
 
     group = groups[_group]
-    scene = scenes[_scene]
 
 
-    homie.scene_set(group, scene)
+    if _scene is not None:
+        scene = scenes[_scene]
+        homie.scene_set(group, scene)
+
+    if _level is not None:
+        level = int(_level)
+        homie.level_set(group, level)
+
+    if _state is not None:
+        state = _state.strip()
+        homie.state_set(group, state)
 
 
 
@@ -88,7 +110,7 @@ def launcher_main() -> None:
 
     config.logger.log_i(
         base='script',
-        item='scener',
+        item='update',
         status='merged')
 
 
@@ -100,7 +122,7 @@ def launcher_main() -> None:
 
     config.logger.log_i(
         base='script',
-        item='scener',
+        item='update',
         status='stopped')
 
 

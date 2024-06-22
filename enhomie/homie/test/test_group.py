@@ -73,6 +73,8 @@ def test_HomieGroup(
 
     assert group.phue_actual == 'Jupiter'
 
+    assert group.phue_light is not None
+
 
     sample_path = (
         f'{SAMPLES}/group/dumper.json')
@@ -108,3 +110,4 @@ def test_HomieGroup_cover(
 
     assert not group.phue_actual
     assert not group.phue_unique
+    assert not group.phue_light

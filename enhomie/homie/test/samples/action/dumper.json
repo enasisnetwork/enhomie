@@ -5,6 +5,8 @@
       "jupiter_room",
       "jupiter_zone"
     ],
+    "state": null,
+    "level": null,
     "scene": "awake",
     "weight": 10,
     "pause": 5,

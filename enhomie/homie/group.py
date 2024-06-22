@@ -14,6 +14,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .homie import Homie
     from .params import GROUP_TYPES
+    from .params import HOMIE_STATE
     from .params import HomieGroupParams
     from .scene import HomieScene
     from ..philipshue import PhueBridge
@@ -218,14 +219,168 @@ class HomieGroup:
         return name
 
 
+    @property
+    def phue_light(
+        self,
+    ) -> Optional['PHUE_FETCH']:
+        """
+        Return the group light for the group within the bridge.
+
+        :returns: Group light for the group within the bridge.
+        """
+
+        lights: list['PHUE_FETCH'] = []
+
+        bridge = self.phue_bridge
+
+        source = self.phue_source
+
+        merged = bridge.merged
+
+        if source is None:
+            return None
+
+        assert isinstance(source, dict)
+
+        services = source['services']
+
+        for service in services:
+
+            _rid = service['rid']
+            _rtype = service['rtype']
+
+            if _rtype != 'grouped_light':
+                continue  # NOCVR
+
+            lights.append(merged[_rid])
+
+        assert len(lights) in [0, 1]
+
+        return (
+            lights[0] if lights
+            else None)
+
+
+    def state_get(
+        self,
+    ) -> Optional['HOMIE_STATE']:
+        # pylint: disable=E1136
+        """
+        Return the current state of the group within the bridge.
+
+        :returns: Current state of the group within the bridge.
+        """
+
+        bridge = self.phue_bridge
+
+        light = self.phue_light
+
+        assert light is not None
+
+        phid = light['id']
+
+        return bridge.state_get(phid)
+
+
+    def state_set(
+        self,
+        state: 'HOMIE_STATE',
+    ) -> None:
+        # pylint: disable=E1136
+        """
+        Update the current state of the group within the bridge.
+
+        :param state: Desired state for the lights within group.
+        """
+
+        bridge = self.phue_bridge
+
+        light = self.phue_light
+
+        assert light is not None
+
+        bridge.state_set(
+            light['id'], state)
+
+
+    def level_get(
+        self,
+    ) -> Optional[int]:
+        # pylint: disable=E1136
+        """
+        Return the current level of the group within the bridge.
+
+        :returns: Current level of the group within the bridge.
+        """
+
+        bridge = self.phue_bridge
+
+        light = self.phue_light
+
+        assert light is not None
+
+        phid = light['id']
+
+        return bridge.level_get(phid)
+
+
+    def level_set(
+        self,
+        level: int,
+    ) -> None:
+        # pylint: disable=E1136
+        """
+        Update the current level of the group within the bridge.
+
+        :param level: Desired level for the lights within group.
+        """
+
+        assert 100 >= level >= 0
+
+        bridge = self.phue_bridge
+
+        light = self.phue_light
+
+        assert light is not None
+
+        bridge.level_set(
+            light['id'], level)
+
+
+    def scene_get(
+        self,
+    ) -> Optional['HomieScene']:
+        """
+        Return the current scene of the group within the bridge.
+
+        :returns: Current scene of the group within the bridge.
+        """
+
+        homie = self.homie
+        scenes = homie.scenes
+
+        values = scenes.values()
+
+        for scene in values:
+
+            active = (
+                scene
+                .phue_active(self))
+
+            if active is True:
+                return scene
+
+        return None
+
+
     def scene_set(
         self,
         scene: 'HomieScene',
     ) -> None:
         """
-        Update the current group to activate the provided scene.
+        Update the current scene of the group within the bridge.
 
-        :param scene: Scene instance that will be used in match.
+        :param scene: Desired scene for the lights within group.
         """
 
         scene.scene_set(self)

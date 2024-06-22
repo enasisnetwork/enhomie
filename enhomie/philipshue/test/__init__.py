@@ -17,6 +17,44 @@ SAMPLES = (
 
 
 
+STATE_PHIDS = [
+
+    ('e693d3a2-f4ef-36de'
+     '-a583-e4fcc23f8f7c'),
+
+    ('da4c6a04-c9e8-4915'
+     '-9818-0f898029a1e8')]
+
+STATE_PATHS = [
+
+    ('https://192.168.1.10'
+     '/clip/v2/resource'
+     '/grouped_light'
+     f'/{STATE_PHIDS[0]}'),
+
+    ('https://192.168.2.10'
+     '/clip/v2/resource'
+     '/grouped_light'
+     f'/{STATE_PHIDS[1]}')]
+
+
+
+LEVEL_PHIDS = STATE_PHIDS
+
+LEVEL_PATHS = [
+
+    ('https://192.168.1.10'
+     '/clip/v2/resource'
+     '/grouped_light'
+     f'/{LEVEL_PHIDS[0]}'),
+
+    ('https://192.168.2.10'
+     '/clip/v2/resource'
+     '/grouped_light'
+     f'/{LEVEL_PHIDS[1]}')]
+
+
+
 SCENE_PHIDS = [
 
     ('5808a516-aab3-3ec3'

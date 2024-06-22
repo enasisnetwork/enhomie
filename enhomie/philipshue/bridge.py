@@ -14,13 +14,16 @@ from typing import TYPE_CHECKING
 
 from encommon.times import Timer
 from encommon.times import Times
+from encommon.types import setate
 from encommon.types import striplower
 
 from enconnect.philipshue import Bridge
 from enconnect.philipshue import BridgeParams
 
+
 if TYPE_CHECKING:
     from ..homie import Homie
+    from ..homie.params import HOMIE_STATE
 
 
 
@@ -388,16 +391,157 @@ class PhueBridge:
         return found[0] if found else None
 
 
+    def state_get(
+        self,
+        light_phid: str,
+    ) -> 'HOMIE_STATE':
+        """
+        Return the current state of the light within the bridge.
+
+        :param light_phid: Unique identifier of light in bridge.
+        :returns: Current state of the light within the bridge.
+        """
+
+        merged = self.merged
+
+        light = merged[light_phid]
+
+        state = light['on']['on']
+
+        return 'on' if state else 'off'
+
+
+    def state_set(
+        self,
+        light_phid: str,
+        state: 'HOMIE_STATE',
+    ) -> None:
+        """
+        Update the current state of the light within the bridge.
+
+        :param light_phid: Unique identifier of light in bridge.
+        :param state: Desired state for the lights within group.
+        """
+
+        self.homie.log_d(
+            base='PhueBridge',
+            action='state_set',
+            light=light_phid,
+            value=state,
+            status='attempt')
+
+        runtime = Times()
+
+
+        path = (
+            'resource/grouped_light'
+            f'/{light_phid}')
+
+
+        payload: dict[str, Any] = {}
+
+        key = 'on/on'
+        value = state == 'on'
+
+        setate(payload, key, value)
+
+
+        self.bridge.request(
+            method='put',
+            path=path,
+            json=payload)
+
+
+        self.homie.log_d(
+            base='PhueBridge',
+            action='state_set',
+            light=light_phid,
+            value=state,
+            elapsed=runtime.since,
+            status='success')
+
+
+    def level_get(
+        self,
+        light_phid: str,
+    ) -> int:
+        """
+        Return the current level of the light within the bridge.
+
+        :param light_phid: Unique identifier of light in bridge.
+        :returns: Current level of the light within the bridge.
+        """
+
+        merged = self.merged
+
+        light = merged[light_phid]
+
+        level = (
+            light['dimming']
+            ['brightness'])
+
+        return int(level)
+
+
+    def level_set(
+        self,
+        light_phid: str,
+        level: int,
+    ) -> None:
+        """
+        Update the current level of the light within the bridge.
+
+        :param light_phid: Unique identifier of light in bridge.
+        :param level: Desired level for the lights within group.
+        """
+
+        self.homie.log_d(
+            base='PhueBridge',
+            action='level_set',
+            light=light_phid,
+            value=level,
+            status='attempt')
+
+        runtime = Times()
+
+
+        path = (
+            'resource/grouped_light'
+            f'/{light_phid}')
+
+
+        payload: dict[str, Any] = {}
+
+        key = 'dimming/brightness'
+        value = int(level)
+
+        setate(payload, key, value)
+
+
+        self.bridge.request(
+            method='put',
+            path=path,
+            json=payload)
+
+
+        self.homie.log_d(
+            base='PhueBridge',
+            action='level_set',
+            light=light_phid,
+            value=level,
+            elapsed=runtime.since,
+            status='success')
+
+
     def scene_get(
         self,
         group_phid: str,
     ) -> Optional[str]:
-        # pylint: disable=E1133
         """
-        Return the current active scene when there is one active.
+        Return the current scene of the group within the bridge.
 
-        :param group_phid: Unique identifier of scene in bridge.
-        :returns: Current active scene when there is one active.
+        :param group_phid: Unique identifier of group in bridge.
+        :returns: Current scene of the group within the bridge.
         """
 
         items = self.merged.items()
@@ -427,35 +571,43 @@ class PhueBridge:
         scene_phid: str,
     ) -> None:
         """
-        Activate the provided scene unique identifier in bridge.
+        Update the current scene of the group within the bridge.
 
-        :param scene_phid: Unique identifier of scene in bridge.
+        :param scene_phid: Unique identifier of group in bridge.
         """
 
         self.homie.log_d(
             base='PhueBridge',
             action='scene_set',
-            scene=scene_phid,
+            value=scene_phid,
             status='attempt')
 
         runtime = Times()
+
 
         path = (
             'resource/scene'
             f'/{scene_phid}')
 
-        action = {'action': 'active'}
-        payload = {'recall': action}
+
+        payload: dict[str, Any] = {}
+
+        key = 'recall/action'
+        value = 'active'
+
+        setate(payload, key, value)
+
 
         self.bridge.request(
             method='put',
             path=path,
             json=payload)
 
+
         self.homie.log_d(
             base='PhueBridge',
             action='scene_set',
-            scene=scene_phid,
+            value=scene_phid,
             elapsed=runtime.since,
             status='success')
 

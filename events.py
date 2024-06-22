@@ -195,12 +195,6 @@ def process(
         if len(dumped) == 0:
             return
 
-        if stdout is True:
-            print_ansi(
-                f'<c31>{"-" * 64}<c0>\n'
-                f'{array_ansi(dumped)}\n'
-                f'<c31>{"-" * 64}<c0>')
-
 
         items = aspired.items()
 
@@ -208,32 +202,27 @@ def process(
 
             group = groups[name]
 
-
-            active = 'unknown'
-
-            if group.phue_unique:
-
-                _active = (
-                    homie.scene_get(group))
-
-                if _active is not None:
-                    active = _active.name
-
-
             if stdout is True:
                 print_ansi(
                     f'<c96>{group.name}<c37>: '
                     f'<c36>{action.name}<c37>/'
-                    f'<c96>{action.scene}<c37> '
-                    f'(<c96>{active}<c37>)<c0>')
-
+                    f'<c96>{action.scene}<c37>/'
+                    f'<c96>{action.state}<c37>')
 
             if params.dryrun is True:
                 continue
 
-            scene = scenes[action.scene]
+            if action.scene is not None:
+                scene = scenes[action.scene]
+                homie.scene_set(group, scene)
 
-            homie.scene_set(group, scene)
+            if action.level is not None:
+                level = action.level
+                homie.level_set(group, level)
+
+            if action.state is not None:
+                state = action.state
+                homie.state_set(group, state)
 
             action.update_timer()
 
@@ -245,13 +234,13 @@ def process(
         if event is None:
             break
 
-        homie.refresh()
-
         if stdout is True:
             print_ansi(
                 f'<c36>{"-" * 64}<c0>\n'
                 f'{array_ansi(event)}\n'
                 f'<c36>{"-" * 64}<c0>')
+
+        homie.refresh()
 
         if actions is True:
             _actions(event)

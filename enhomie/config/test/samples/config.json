@@ -67,6 +67,8 @@
         "neptune_room",
         "neptune_zone"
       ],
+      "state": null,
+      "level": null,
       "scene": "awake",
       "weight": 0,
       "delay": 0,
@@ -79,6 +81,8 @@
         "neptune_room",
         "neptune_zone"
       ],
+      "state": null,
+      "level": null,
       "scene": "relax",
       "weight": 10,
       "delay": 10,
@@ -89,6 +93,8 @@
         "jupiter_room",
         "jupiter_zone"
       ],
+      "state": null,
+      "level": null,
       "scene": "awaydark",
       "weight": 0,
       "delay": 0,
@@ -146,6 +152,8 @@
         "neptune_room",
         "neptune_zone"
       ],
+      "state": null,
+      "level": null,
       "scene": "awaydark",
       "weight": 0,
       "delay": 0,
@@ -207,6 +215,8 @@
         "neptune_room",
         "neptune_zone"
       ],
+      "state": null,
+      "level": null,
       "scene": "relax",
       "weight": 0,
       "pause": 5,
@@ -233,6 +243,8 @@
         "jupiter_room",
         "jupiter_zone"
       ],
+      "state": null,
+      "level": null,
       "scene": "awake",
       "weight": 10,
       "pause": 5,
@@ -279,6 +291,8 @@
         "neptune_room",
         "neptune_zone"
       ],
+      "state": null,
+      "level": null,
       "scene": "awake",
       "weight": 10,
       "pause": 5,

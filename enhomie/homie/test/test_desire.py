@@ -66,6 +66,10 @@ def test_HomieDesire(
 
     assert len(desire.groups) == 2
 
+    assert desire.state is None
+
+    assert desire.level is None
+
     assert desire.scene == 'awaydark'
 
     assert desire.weight == 0
