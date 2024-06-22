@@ -15,6 +15,7 @@ from signal import SIGINT
 from signal import SIGTERM
 from signal import signal
 from threading import Thread
+from time import sleep
 from typing import Any
 from typing import Optional
 
@@ -73,6 +74,15 @@ def launcher_args() -> dict[str, Any]:
             'that are received'))
 
     parser.add_argument(
+        '--idempotent',
+        action='store_true',
+        default=False,
+        dest='idemp',
+        help=(
+            'do not make change if '
+            'would not change value'))
+
+    parser.add_argument(
         '--scope',
         required=True,
         choices=['phue_bridge'],
@@ -94,14 +104,6 @@ def launcher_args() -> dict[str, Any]:
         help=(
             'period of time before '
             'reconnecting to server'))
-
-    parser.add_argument(
-        '--actions',
-        action='store_true',
-        default=False,
-        help=(
-            'perform the actions on '
-            'the received events'))
 
     return vars(parser.parse_args())
 
@@ -146,7 +148,7 @@ class QueueThread(Thread):
 
             homie.log_i(
                 base='script',
-                item='events/queue/thread',
+                item='aspired/queue/thread',
                 status='started')
 
             super().run()
@@ -155,7 +157,7 @@ class QueueThread(Thread):
 
             homie.log_e(
                 base='script',
-                item='events/queue/thread',
+                item='aspired/queue/thread',
                 status='exception',
                 exc_info=reason)
 
@@ -163,7 +165,7 @@ class QueueThread(Thread):
 
 
 
-def process(
+def process(  # noqa: CFQ001
     homie: Homie,
 ) -> None:
     """
@@ -177,11 +179,11 @@ def process(
     groups = homie.groups
     scenes = homie.scenes
 
-    stdout = config.sargs['print']
-    actions = config.sargs['actions']
+    _stdout = config.sargs['print']
+    _idemp = config.sargs['idemp']
 
 
-    def _actions(
+    def _process(  # noqa: CFQ001
         event: QITEM,
     ) -> None:
 
@@ -196,35 +198,120 @@ def process(
             return
 
 
+        def _state_set() -> None:
+
+            current = group.state_get()
+            aspired = action.state
+
+            assert aspired is not None
+
+            changed = False
+
+            if (aspired == current
+                    and _idemp is True):
+                changed = False
+
+            elif params.dryrun is False:
+
+                homie.state_set(
+                    group, aspired)
+
+                sleep(1)
+
+                changed = True
+
+            status['state'] = {
+                'current': current,
+                'aspired': aspired,
+                'changed': changed}
+
+
+        def _level_set() -> None:
+
+            current = group.level_get()
+            aspired = action.level
+
+            assert aspired is not None
+
+            changed = False
+
+            if (aspired == current
+                    and _idemp is True):
+                changed = False
+
+            elif params.dryrun is False:
+
+                homie.level_set(
+                    group, aspired)
+
+                sleep(1)
+
+                changed = True
+
+            status['level'] = {
+                'current': current,
+                'aspired': aspired,
+                'changed': changed}
+
+
+        def _scene_set() -> None:
+
+            assert action.scene is not None
+
+            current = group.scene_get()
+            aspired = scenes[action.scene]
+
+            changed = False
+
+            if (aspired == current
+                    and _idemp is True):
+                changed = False
+
+            elif params.dryrun is False:
+
+                homie.scene_set(
+                    group, aspired)
+
+                sleep(1)
+
+                changed = True
+
+            _current = (
+                current.name
+                if current is not None
+                else None)
+
+            status['scene'] = {
+                'current': _current,
+                'aspired': aspired.name,
+                'changed': changed}
+
+
         items = aspired.items()
 
         for name, action in items:
 
             group = groups[name]
 
-            if stdout is True:
-                print_ansi(
-                    f'<c96>{group.name}<c37>: '
-                    f'<c36>{action.name}<c37>/'
-                    f'<c96>{action.scene}<c37>/'
-                    f'<c96>{action.state}<c37>')
-
-            if params.dryrun is True:
-                continue
+            status: dict[str, Any] = {
+                'group': group.name}
 
             if action.scene is not None:
-                scene = scenes[action.scene]
-                homie.scene_set(group, scene)
+                _scene_set()
 
             if action.level is not None:
-                level = action.level
-                homie.level_set(group, level)
+                _level_set()
 
             if action.state is not None:
-                state = action.state
-                homie.state_set(group, state)
+                _state_set()
 
             action.update_timer()
+
+            if _stdout is True:
+                print_ansi(
+                    f'<c31>{"-" * 64}<c0>\n'
+                    f'{array_ansi(status)}\n'
+                    f'<c31>{"-" * 64}<c0>')
 
 
     while True:
@@ -234,7 +321,7 @@ def process(
         if event is None:
             break
 
-        if stdout is True:
+        if _stdout is True:
             print_ansi(
                 f'<c36>{"-" * 64}<c0>\n'
                 f'{array_ansi(event)}\n'
@@ -242,8 +329,7 @@ def process(
 
         homie.refresh()
 
-        if actions is True:
-            _actions(event)
+        _process(event)
 
 
 
@@ -270,7 +356,7 @@ def stream(
 
     homie.log_i(
         base='script',
-        item='events/stream',
+        item='aspired/stream',
         type='phue_bridge',
         name=bridge.name,
         status='running')
@@ -280,7 +366,7 @@ def stream(
 
     homie.log_i(
         base='script',
-        item='events/stream',
+        item='aspired/stream',
         type='phue_bridge',
         name=bridge.name,
         status='complete')
@@ -311,7 +397,7 @@ async def stream_phue_bridge(
 
         homie.log_i(
             base='script',
-            item='events/stream',
+            item='aspired/stream',
             type='phue_bridge',
             name=bridge.name,
             status='reading')
@@ -328,7 +414,7 @@ async def stream_phue_bridge(
 
             homie.log_i(
                 base='script',
-                item='events/stream',
+                item='aspired/stream',
                 type='phue_bridge',
                 name=bridge.name,
                 status='canceled')
@@ -339,7 +425,7 @@ async def stream_phue_bridge(
 
             homie.log_i(
                 base='script',
-                item='events/stream',
+                item='aspired/stream',
                 type='phue_bridge',
                 name=bridge.name,
                 status='timeout')
@@ -388,7 +474,7 @@ def launcher_main() -> None:
 
     config.logger.log_i(
         base='script',
-        item='events',
+        item='aspired',
         status='merged')
 
     homie = Homie(config)
@@ -405,7 +491,7 @@ def launcher_main() -> None:
 
     config.logger.log_i(
         base='script',
-        item='events/queue',
+        item='aspired/queue',
         status='started')
 
 
@@ -418,14 +504,14 @@ def launcher_main() -> None:
 
         homie.log_i(
             base='script',
-            item='events/queue',
+            item='aspired/queue',
             status='stopping')
 
         thread.join()
 
         homie.log_i(
             base='script',
-            item='events/queue',
+            item='aspired/queue',
             status='stopped')
 
         ALOOP.close()
@@ -433,7 +519,7 @@ def launcher_main() -> None:
 
     config.logger.log_i(
         base='script',
-        item='events',
+        item='aspired',
         status='stopped')
 
 
