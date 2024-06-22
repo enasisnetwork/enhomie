@@ -7,6 +7,7 @@ is permitted, for more information consult the project license file.
 
 
 
+from typing import Any
 from typing import Literal
 from typing import Optional
 
@@ -22,6 +23,7 @@ from ..ubiquiti import WhenUbiqClientParams
 
 
 GROUP_TYPES = Literal['room', 'zone']
+HOMIE_STATE = Literal['on', 'off']
 
 
 
@@ -98,6 +100,8 @@ class HomieDesireParams(BaseModel, extra='forbid'):
     Process and validate the Homie configuration parameters.
 
     :param groups: Names of Homie groups which are in scope.
+    :param state: Desired state for the lights within group.
+    :param level: Desired level for the lights within group.
     :param scene: Name of the Homie scene which is desired.
     :param weight: Useful when other conditionals match one
         of the provided groups, will determine precedence.
@@ -110,12 +114,35 @@ class HomieDesireParams(BaseModel, extra='forbid'):
     """
 
     groups: list[str]
-    scene: str
+
+    state: Optional[HOMIE_STATE] = None
+    level: Optional[int] = None
+    scene: Optional[str] = None
 
     weight: int = 0
     delay: int = 0
 
     when: Optional[list[HomieWhenParams]] = None
+
+
+    def __init__(
+        self,
+        **data: Any,
+    ) -> None:
+        """
+        Initialize instance for class using provided parameters.
+        """
+
+        state = data.get('state')
+        level = data.get('level')
+        scene = data.get('scene')
+
+        assert not (
+            state is None
+            and level is None
+            and scene is None)
+
+        super().__init__(**data)
 
 
 
@@ -139,6 +166,8 @@ class HomieActionParams(BaseModel, extra='forbid'):
     Process and validate the Homie configuration parameters.
 
     :param groups: Names of Homie groups which are in scope.
+    :param state: Desired state for the lights within group.
+    :param level: Desired level for the lights within group.
     :param scene: Name of the Homie scene which is desired.
     :param weight: Useful when other conditionals match one
         of the provided groups, will determine precedence.
@@ -152,10 +181,33 @@ class HomieActionParams(BaseModel, extra='forbid'):
     """
 
     groups: list[str]
-    scene: str
+
+    state: Optional[HOMIE_STATE] = None
+    level: Optional[int] = None
+    scene: Optional[str] = None
 
     weight: int = 0
     pause: int = 5
 
     what: Optional[list[HomieWhatParams]] = None
     when: Optional[list[HomieWhenParams]] = None
+
+
+    def __init__(
+        self,
+        **data: Any,
+    ) -> None:
+        """
+        Initialize instance for class using provided parameters.
+        """
+
+        state = data.get('state')
+        level = data.get('level')
+        scene = data.get('scene')
+
+        assert not (
+            state is None
+            and level is None
+            and scene is None)
+
+        super().__init__(**data)

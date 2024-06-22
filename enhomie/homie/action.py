@@ -19,6 +19,7 @@ from .when import HomieWhen
 
 if TYPE_CHECKING:
     from .homie import Homie
+    from .params import HOMIE_STATE
     from .params import HomieActionParams
     from .params import HomieWhatParams
     from .params import HomieWhenParams
@@ -194,9 +195,35 @@ class HomieAction:
 
 
     @property
+    def state(
+        self,
+    ) -> Optional['HOMIE_STATE']:
+        """
+        Return the value for the attribute from params instance.
+
+        :returns: Value for the attribute from params instance.
+        """
+
+        return self.params.state
+
+
+    @property
+    def level(
+        self,
+    ) -> Optional[int]:
+        """
+        Return the value for the attribute from params instance.
+
+        :returns: Value for the attribute from params instance.
+        """
+
+        return self.params.level
+
+
+    @property
     def scene(
         self,
-    ) -> str:
+    ) -> Optional[str]:
         """
         Return the value for the attribute from params instance.
 

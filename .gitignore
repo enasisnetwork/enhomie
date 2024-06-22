@@ -11,7 +11,7 @@
 !/events.py
 !/desired.py
 !/dumper.py
-!/scener.py
+!/update.py
 
 !/.github
 !/.yamllint

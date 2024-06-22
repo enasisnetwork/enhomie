@@ -24,6 +24,7 @@ from ..ubiquiti import UbiqClient
 from ..ubiquiti import UbiqRouter
 
 if TYPE_CHECKING:
+    from .params import HOMIE_STATE
     from ..config import Config
     from ..config import Params
 
@@ -770,25 +771,102 @@ class Homie:
         return sort_dict(aspired)
 
 
+    def state_get(
+        self,
+        group: HomieGroup,
+    ) -> Optional['HOMIE_STATE']:
+        """
+        Return the current state of the group within the bridge.
+
+        :param group: Group from wherein the scene is located.
+        :returns: Current state of the group within the bridge.
+        """
+
+        return group.state_get()
+
+
+    def state_set(
+        self,
+        group: HomieGroup,
+        state: 'HOMIE_STATE',
+    ) -> None:
+        """
+        Update the current state of the group within the bridge.
+
+        :param state: Desired state for the lights within group.
+        """
+
+        self.log_i(
+            base='Homie',
+            action='state_set',
+            group=group.name,
+            value=state,
+            status='attempt')
+
+        group.state_set(state)
+
+        self.log_i(
+            base='Homie',
+            action='state_set',
+            group=group.name,
+            value=state,
+            status='success')
+
+
+    def level_get(
+        self,
+        group: HomieGroup,
+    ) -> Optional[int]:
+        """
+        Return the current level of the group within the bridge.
+
+        :param group: Group from wherein the scene is located.
+        :returns: Current level of the group within the bridge.
+        """
+
+        return group.level_get()
+
+
+    def level_set(
+        self,
+        group: HomieGroup,
+        level: int,
+    ) -> None:
+        """
+        Update the current level of the group within the bridge.
+
+        :param level: Desired level for the lights within group.
+        """
+
+        self.log_i(
+            base='Homie',
+            action='level_set',
+            group=group.name,
+            value=level,
+            status='attempt')
+
+        group.level_set(level)
+
+        self.log_i(
+            base='Homie',
+            action='level_set',
+            group=group.name,
+            value=level,
+            status='success')
+
+
     def scene_get(
         self,
         group: HomieGroup,
     ) -> Optional[HomieScene]:
         """
-        Return the current active scene when there is one active.
+        Return the current scene of the group within the bridge.
 
         :param group: Group from wherein the scene is located.
-        :returns: Current active scene when there is one active.
+        :returns: Current scene of the group within the bridge.
         """
 
-        scenes = self.scenes
-
-        for scene in scenes.values():
-
-            if scene.phue_active(group):
-                return scene
-
-        return None
+        return group.scene_get()
 
 
     def scene_set(
@@ -797,17 +875,16 @@ class Homie:
         scene: HomieScene,
     ) -> None:
         """
-        Update the provided group to activate the provided scene.
+        Update the current scene of the group within the bridge.
 
-        :param group: Group from wherein the scene is located.
-        :param scene: Name of the Homie scene which is desired.
+        :param scene: Desired scene for the lights within group.
         """
 
         self.log_i(
             base='Homie',
             action='scene_set',
             group=group.name,
-            scene=scene.name,
+            value=scene.name,
             status='attempt')
 
         group.scene_set(scene)
@@ -816,7 +893,7 @@ class Homie:
             base='Homie',
             action='scene_set',
             group=group.name,
-            scene=scene.name,
+            value=scene.name,
             status='success')
 
 

@@ -18,6 +18,7 @@ from .when import HomieWhen
 
 if TYPE_CHECKING:
     from .homie import Homie
+    from .params import HOMIE_STATE
     from .params import HomieDesireParams
     from .params import HomieWhenParams
 
@@ -99,10 +100,12 @@ class HomieDesire:
         for name in _groups:
             assert name in groups
 
+
         scenes = self.homie.scenes
         _scene = self.params.scene
 
-        assert _scene in scenes
+        if _scene is not None:
+            assert _scene in scenes
 
 
     @property
@@ -171,9 +174,35 @@ class HomieDesire:
 
 
     @property
+    def state(
+        self,
+    ) -> Optional['HOMIE_STATE']:
+        """
+        Return the value for the attribute from params instance.
+
+        :returns: Value for the attribute from params instance.
+        """
+
+        return self.params.state
+
+
+    @property
+    def level(
+        self,
+    ) -> Optional[int]:
+        """
+        Return the value for the attribute from params instance.
+
+        :returns: Value for the attribute from params instance.
+        """
+
+        return self.params.level
+
+
+    @property
     def scene(
         self,
-    ) -> str:
+    ) -> Optional[str]:
         """
         Return the value for the attribute from params instance.
 

@@ -10,7 +10,6 @@ is permitted, for more information consult the project license file.
 from argparse import ArgumentParser
 from typing import Any
 
-from encommon.utils import array_ansi
 from encommon.utils import print_ansi
 
 from enhomie.config import Config
@@ -80,12 +79,6 @@ def operate_main(
     if len(dumped) == 0:
         return
 
-    if stdout is True:
-        print_ansi(
-            f'<c31>{"-" * 64}<c0>\n'
-            f'{array_ansi(dumped)}\n'
-            f'<c31>{"-" * 64}<c0>')
-
 
     items = desired.items()
 
@@ -93,31 +86,27 @@ def operate_main(
 
         group = groups[name]
 
-
-        active = 'unknown'
-
-        if group.phue_unique:
-
-            _active = (
-                homie.scene_get(group))
-
-            if _active is not None:
-                active = _active.name
-
         if stdout is True:
             print_ansi(
                 f'<c96>{group.name}<c37>: '
                 f'<c36>{desire.name}<c37>/'
-                f'<c96>{desire.scene}<c37> '
-                f'(<c96>{active}<c37>)<c0>')
-
+                f'<c96>{desire.scene}<c37>/'
+                f'<c96>{desire.state}<c37>')
 
         if params.dryrun is True:
             continue
 
-        scene = scenes[desire.scene]
+        if desire.scene is not None:
+            scene = scenes[desire.scene]
+            homie.scene_set(group, scene)
 
-        homie.scene_set(group, scene)
+        if desire.level is not None:
+            level = desire.level
+            homie.level_set(group, level)
+
+        if desire.state is not None:
+            state = desire.state
+            homie.state_set(group, state)
 
         desire.update_timer()
 

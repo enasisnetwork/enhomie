@@ -19,9 +19,13 @@ from httpx import Response
 
 from respx import MockRouter
 
+from . import LEVEL_PATHS
+from . import LEVEL_PHIDS
 from . import SAMPLES
 from . import SCENE_PATHS
 from . import SCENE_PHIDS
+from . import STATE_PATHS
+from . import STATE_PHIDS
 from ...conftest import REPLACES
 
 if TYPE_CHECKING:
@@ -202,6 +206,113 @@ def test_PhueBridge_cover(
     assert source is not None
     assert source['id'] == (
         scene.phue_unique(group))
+
+
+
+def test_PhueBridge_state(
+    homie: 'Homie',
+    respx_mock: MockRouter,
+) -> None:
+    """
+    Perform various tests associated with relevant routines.
+
+    :param homie: Primary class instance for Homie Automate.
+    :param respx_mock: Object for mocking request operation.
+    """
+
+    groups = homie.groups
+    bridges = homie.phue_bridges
+
+
+    for path in STATE_PATHS:
+
+        (respx_mock
+         .put(path)
+         .mock(Response(200)))
+
+
+    bridge = bridges['jupiter']
+    group = groups['jupiter_room']
+
+    assert group.phue_light
+
+    state = bridge.state_get(
+        group.phue_light['id'])
+
+    assert state is not None
+    assert state == 'off'
+
+    bridge.state_set(
+        STATE_PHIDS[0], 'on')
+
+
+    bridge = bridges['neptune']
+    group = groups['neptune_room']
+
+    assert group.phue_light
+
+    state = bridge.state_get(
+        group.phue_light['id'])
+
+    assert state is not None
+    assert state == 'off'
+
+    bridge.state_set(
+        STATE_PHIDS[1], 'on')
+
+
+
+def test_PhueBridge_level(
+    homie: 'Homie',
+    respx_mock: MockRouter,
+) -> None:
+    """
+    Perform various tests associated with relevant routines.
+
+    :param homie: Primary class instance for Homie Automate.
+    :param respx_mock: Object for mocking request operation.
+    """
+
+    groups = homie.groups
+    bridges = homie.phue_bridges
+
+
+    for path in LEVEL_PATHS:
+
+        (respx_mock
+         .put(path)
+         .mock(Response(200)))
+
+
+    bridge = bridges['jupiter']
+    group = groups['jupiter_room']
+
+    assert group.phue_light
+
+    level = bridge.level_get(
+        group.phue_light['id'])
+
+    assert level is not None
+    assert level == 0
+
+    bridge.level_set(
+        LEVEL_PHIDS[0], 100)
+
+
+    bridge = bridges['neptune']
+    group = groups['neptune_room']
+
+    assert group.phue_light
+
+    level = bridge.level_get(
+        group.phue_light['id'])
+
+    assert level is not None
+    assert level == 0
+
+    bridge.level_set(
+        LEVEL_PHIDS[1], 100)
+
 
 
 

@@ -26,7 +26,9 @@ from ..homie import Homie
 from ...config import Config
 from ...conftest import REPLACES
 from ...philipshue.test import (
-    SCENE_PATHS as PHUE_SCENE_PATHS)
+    LEVEL_PATHS as PHUE_LEVEL_PATHS,
+    SCENE_PATHS as PHUE_SCENE_PATHS,
+    STATE_PATHS as PHUE_STATE_PATHS)
 
 
 
@@ -162,6 +164,90 @@ def test_Homie_logger(
     output = caplog.record_tuples
 
     assert len(output) == 6
+
+
+
+def test_Homie_state(
+    homie: Homie,
+    respx_mock: MockRouter,
+) -> None:
+    """
+    Perform various tests associated with relevant routines.
+
+    :param homie: Primary class instance for Homie Automate.
+    :param respx_mock: Object for mocking request operation.
+    """
+
+    groups = homie.groups
+
+
+    for path in PHUE_STATE_PATHS:
+
+        (respx_mock
+         .put(path)
+         .mock(Response(200)))
+
+
+    group = groups['jupiter_room']
+
+    state = homie.state_get(group)
+
+    assert state is not None
+    assert state == 'off'
+
+    homie.state_set(group, 'on')
+
+
+    group = groups['neptune_room']
+
+    state = homie.state_get(group)
+
+    assert state is not None
+    assert state == 'off'
+
+    homie.state_set(group, 'on')
+
+
+
+def test_Homie_level(
+    homie: Homie,
+    respx_mock: MockRouter,
+) -> None:
+    """
+    Perform various tests associated with relevant routines.
+
+    :param homie: Primary class instance for Homie Automate.
+    :param respx_mock: Object for mocking request operation.
+    """
+
+    groups = homie.groups
+
+
+    for path in PHUE_LEVEL_PATHS:
+
+        (respx_mock
+         .put(path)
+         .mock(Response(200)))
+
+
+    group = groups['jupiter_room']
+
+    level = homie.level_get(group)
+
+    assert level is not None
+    assert level == 0
+
+    homie.level_set(group, 100)
+
+
+    group = groups['neptune_room']
+
+    level = homie.level_get(group)
+
+    assert level is not None
+    assert level == 0
+
+    homie.level_set(group, 100)
 
 
 
