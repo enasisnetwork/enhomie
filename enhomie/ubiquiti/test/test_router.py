@@ -67,7 +67,7 @@ def test_UbiqRouter(
 
     assert router.name == 'jupiter'
 
-    assert router.connect is False
+    assert router.connect is True
 
 
     sample_path = (

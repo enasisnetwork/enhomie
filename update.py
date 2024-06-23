@@ -8,11 +8,8 @@ is permitted, for more information consult the project license file.
 
 
 from argparse import ArgumentParser
-from time import sleep
+from time import sleep as block_sleep
 from typing import Any
-
-from encommon.utils import array_ansi
-from encommon.utils import print_ansi
 
 from enhomie.config import Config
 from enhomie.homie import Homie
@@ -41,14 +38,6 @@ def launcher_args() -> dict[str, Any]:
         help=(
             'do not execute action '
             'and show what would do'))
-
-    parser.add_argument(
-        '--print',
-        action='store_true',
-        default=False,
-        help=(
-            'print out the events '
-            'that are received'))
 
     parser.add_argument(
         '--idempotent',
@@ -97,27 +86,26 @@ def operate_main(  # noqa: CFQ001
     :param homie: Primary class instance for Homie Automate.
     """
 
-    params = homie.params
     config = homie.config
+    sargs = config.sargs
     groups = homie.groups
     scenes = homie.scenes
 
-    _stdout = config.sargs['print']
-    _idemp = config.sargs['idemp']
+    _idemp = sargs['idemp']
+    _dryrun = sargs['dryrun']
 
-    _group = config.sargs['group']
-    _scene = config.sargs['scene']
-    _level = config.sargs['level']
-    _state = config.sargs['state']
+    _group = sargs['group']
+    _scene = sargs['scene']
+    _level = sargs['level']
+    _state = sargs['state']
 
 
     group = groups[_group]
 
-    status: dict[str, Any] = {
-        'group': group.name}
-
 
     def _state_set() -> None:
+
+        # Based on service method
 
         current = group.state_get()
         desired = _state.strip()
@@ -128,22 +116,29 @@ def operate_main(  # noqa: CFQ001
                 and _idemp is True):
             changed = False
 
-        elif params.dryrun is False:
+        elif _dryrun is False:
 
             homie.state_set(
                 group, desired)
 
-            sleep(1)
+            block_sleep(1)
 
             changed = True
 
-        status['state'] = {
-            'current': current,
-            'desired': desired,
-            'changed': changed}
+        homie.log_i(
+            base='script',
+            action='state_set',
+            group=group.name,
+            current=current,
+            desired=desired,
+            status=(
+                'submit' if changed
+                else 'skipped'))
 
 
     def _level_set() -> None:
+
+        # Based on service method
 
         current = group.level_get()
         desired = int(_level)
@@ -154,22 +149,29 @@ def operate_main(  # noqa: CFQ001
                 and _idemp is True):
             changed = False
 
-        elif params.dryrun is False:
+        elif _dryrun is False:
 
             homie.level_set(
                 group, desired)
 
-            sleep(1)
+            block_sleep(1)
 
             changed = True
 
-        status['level'] = {
-            'current': current,
-            'desired': desired,
-            'changed': changed}
+        homie.log_i(
+            base='script',
+            action='level_set',
+            group=group.name,
+            current=current,
+            desired=desired,
+            status=(
+                'submit' if changed
+                else 'skipped'))
 
 
     def _scene_set() -> None:
+
+        # Based on service method
 
         current = group.scene_get()
         desired = scenes[_scene]
@@ -180,12 +182,12 @@ def operate_main(  # noqa: CFQ001
                 and _idemp is True):
             changed = False
 
-        elif params.dryrun is False:
+        elif _dryrun is False:
 
             homie.scene_set(
                 group, desired)
 
-            sleep(1)
+            block_sleep(1)
 
             changed = True
 
@@ -194,10 +196,17 @@ def operate_main(  # noqa: CFQ001
             if current is not None
             else None)
 
-        status['scene'] = {
-            'current': _current,
-            'desired': desired.name,
-            'changed': changed}
+        homie.log_i(
+            base='script',
+            action='scene_set',
+            group=group.name,
+            current=(
+                _current if _current
+                else 'unset'),
+            desired=desired.name,
+            status=(
+                'submit' if changed
+                else 'skipped'))
 
 
     if _scene is not None:
@@ -210,13 +219,6 @@ def operate_main(  # noqa: CFQ001
         _state_set()
 
 
-    if _stdout is True:
-        print_ansi(
-            f'<c31>{"-" * 64}<c0>\n'
-            f'{array_ansi(status)}\n'
-            f'<c31>{"-" * 64}<c0>')
-
-
 
 def launcher_main() -> None:
     """
@@ -227,7 +229,6 @@ def launcher_main() -> None:
 
     config = Config(
         args['config'],
-        {'dryrun': args['dryrun']},
         sargs=args)
 
     config.logger.start()
@@ -239,6 +240,8 @@ def launcher_main() -> None:
 
 
     homie = Homie(config)
+
+    homie.refresh_source()
 
 
     operate_main(homie)

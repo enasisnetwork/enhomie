@@ -27,10 +27,9 @@ Should you venture into the sections below you will be able to use the
 `sphinx` recipe to build documention in the `docs/html` directory.
 
 ## Additional scripts
-- [desired.py](desired.py) is useful for setting desired scenes.
-- [events.py](events.py) is useful for acting on stream events.
 - [dumper.py](dumper.py) is useful for dumping configuration.
-- [scener.py](scener.py) is useful for setting scene on groups.
+- [service.py](service.py) for desired state and stream actions.
+- [update.py](update.py) is useful for setting scene on groups.
 
 ## Useful and related links
 - https://ubntwiki.com/products/software/unifi-controller/api

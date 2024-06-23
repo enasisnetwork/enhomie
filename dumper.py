@@ -50,7 +50,8 @@ def launcher_args() -> dict[str, Any]:
             'groups',
             'scenes',
             'desires',
-            'desired'],
+            'desired',
+            'actions'],
         help=(
             'which kind of objects '
             'are dumped to console'))
@@ -71,6 +72,9 @@ def printer(
 ) -> None:
     """
     Print the contents for the object within Homie instance.
+
+    .. note::
+       Currently redundant between dumper.py and service.py.
 
     :param header: Additional information for output header.
     :param source: Content which will be shown after header.
@@ -107,11 +111,9 @@ def print_homie(
     :param homie: Primary class instance for Homie Automate.
     """
 
-    header = {'Homie': 'Root Instance'}
-
-    source = homie.homie_dumper()
-
-    printer(header, source)
+    printer(
+        {'Homie': 'Root Instance'},
+        homie.homie_dumper())
 
 
 
@@ -128,11 +130,9 @@ def print_groups(
 
     for group in groups.values():
 
-        header = {'Group': group.name}
-
-        source = group.homie_dumper()
-
-        printer(header, source)
+        printer(
+            {'Group': group.name},
+            group.homie_dumper())
 
 
 
@@ -151,11 +151,9 @@ def print_scenes(
 
     for scene in scenes.values():
 
-        header = {'Scene': scene.name}
-
-        source = scene.homie_dumper(group)
-
-        printer(header, source)
+        printer(
+            {'Scene': scene.name},
+            scene.homie_dumper(group))
 
 
 
@@ -172,11 +170,9 @@ def print_desires(
 
     for desire in desires.values():
 
-        header = {'Desire': desire.name}
-
-        source = desire.homie_dumper()
-
-        printer(header, source)
+        printer(
+            {'Desire': desire.name},
+            desire.homie_dumper())
 
 
 
@@ -199,11 +195,28 @@ def print_desired(
 
         kind = group.type.capitalize()
 
-        header = {kind: group.name}
+        printer(
+            {kind: group.name},
+            desire.homie_dumper())
 
-        source = desire.homie_dumper()
 
-        printer(header, source)
+
+def print_actions(
+    homie: Homie,
+) -> None:
+    """
+    Print the contents about the devices within Homie class.
+
+    :param homie: Primary class instance for Homie Automate.
+    """
+
+    actions = homie.actions
+
+    for action in actions.values():
+
+        printer(
+            {'Action': action.name},
+            action.homie_dumper())
 
 
 
@@ -220,11 +233,9 @@ def print_phue_fetched(
 
     for bridge in bridges.values():
 
-        header = {'Bridge': bridge.name}
-
-        source = bridge.fetched
-
-        printer(header, source)
+        printer(
+            {'Bridge': bridge.name},
+            bridge.fetched)
 
 
 
@@ -241,11 +252,9 @@ def print_phue_merged(
 
     for bridge in bridges.values():
 
-        header = {'Bridge': bridge.name}
-
-        source = bridge.merged
-
-        printer(header, source)
+        printer(
+            {'Bridge': bridge.name},
+            bridge.merged)
 
 
 
@@ -262,11 +271,9 @@ def print_phue_bridges(
 
     for bridge in bridges.values():
 
-        header = {'Bridge': bridge.name}
-
-        source = bridge.homie_dumper()
-
-        printer(header, source)
+        printer(
+            {'Bridge': bridge.name},
+            bridge.homie_dumper())
 
 
 
@@ -283,11 +290,9 @@ def print_phue_devices(
 
     for device in devices.values():
 
-        header = {'Device': device.name}
-
-        source = device.homie_dumper()
-
-        printer(header, source)
+        printer(
+            {'Device': device.name},
+            device.homie_dumper())
 
 
 
@@ -304,11 +309,9 @@ def print_ubiq_fetched(
 
     for router in routers.values():
 
-        header = {'Router': router.name}
-
-        source = router.fetched
-
-        printer(header, source)
+        printer(
+            {'Router': router.name},
+            router.fetched)
 
 
 
@@ -325,11 +328,9 @@ def print_ubiq_merged(
 
     for router in routers.values():
 
-        header = {'Router': router.name}
-
-        source = router.merged
-
-        printer(header, source)
+        printer(
+            {'Router': router.name},
+            router.merged)
 
 
 
@@ -346,11 +347,9 @@ def print_ubiq_routers(
 
     for router in routers.values():
 
-        header = {'Router': router.name}
-
-        source = router.homie_dumper()
-
-        printer(header, source)
+        printer(
+            {'Router': router.name},
+            router.homie_dumper())
 
 
 
@@ -367,11 +366,9 @@ def print_ubiq_clients(
 
     for client in clients.values():
 
-        header = {'Client': client.name}
-
-        source = client.homie_dumper()
-
-        printer(header, source)
+        printer(
+            {'Client': client.name},
+            client.homie_dumper())
 
 
 
@@ -409,6 +406,9 @@ def operate_main(
 
     if _scope == 'desired':
         print_desired(homie)
+
+    if _scope == 'actions':
+        print_actions(homie)
 
 
     if _scope == 'phue_fetched':
@@ -459,6 +459,8 @@ def launcher_main() -> None:
 
 
     homie = Homie(config)
+
+    homie.refresh_source()
 
 
     operate_main(homie)

@@ -39,6 +39,17 @@ class Config(_Config):
         Initialize instance for class using provided parameters.
         """
 
+
+        sargs = dict(sargs or {})
+
+        if 'dryrun' in sargs:
+
+            cargs = dict(cargs or {})
+
+            cargs['dryrun'] = (
+                sargs['dryrun'])
+
+
         super().__init__(
             files=files,
             cargs=cargs,

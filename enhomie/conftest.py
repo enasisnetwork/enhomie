@@ -230,7 +230,7 @@ def homie_factory(  # noqa: CFQ001
 
 
     for bridge in bridges.values():
-        assert bridge.fetched
+        bridge.refresh_source()
 
 
     (respx_mock
@@ -245,6 +245,9 @@ def homie_factory(  # noqa: CFQ001
      .get(ubiq_paths[1])
      .mock(side_effect=[
          Response(401),
+         Response(
+             status_code=200,
+             content=dumped),
          Response(
              status_code=200,
              content=dumped)]))
@@ -273,6 +276,9 @@ def homie_factory(  # noqa: CFQ001
          Response(401),
          Response(
              status_code=200,
+             content=dumped),
+         Response(
+             status_code=200,
              content=dumped)]))
 
 
@@ -286,7 +292,7 @@ def homie_factory(  # noqa: CFQ001
 
 
     for router in routers.values():
-        assert router.fetched
+        router.refresh_source()
 
 
     return homie

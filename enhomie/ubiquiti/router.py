@@ -165,6 +165,26 @@ class UbiqRouter:
         return bool(self.__merged)
 
 
+    def refresh_source(
+        self,
+    ) -> None:
+        """
+        Refresh the cached information for the remote upstream.
+        """
+
+        timer = self.__timer
+
+        timer.update(
+            f'-{int(timer.timer)}s')
+
+        assert timer.ready(False)
+
+        self.fetched
+        self.merged
+
+        assert not timer.ready()
+
+
     @property
     def fetched(
         self,
@@ -185,42 +205,56 @@ class UbiqRouter:
         if fetched and not ready:
             return deepcopy(fetched)
 
+
         runtime = Times()
 
+        try:
 
-        response = request(
-            'get', 'rest/user')
+            response = request(
+                'get', 'rest/user')
 
-        historic = response.json()
+            historic = response.json()
+
+            response = request(
+                'get', 'stat/sta')
+
+            realtime = response.json()
+
+            self.homie.log_i(
+                base='UbiqRouter',
+                name=self.name,
+                action='fetch',
+                elapsed=runtime.since,
+                status='success')
+
+        except Exception as reason:  # NOCVR
+
+            self.homie.log_e(
+                base='UbiqRouter',
+                name=self.name,
+                action='fetch',
+                elapsed=runtime.since,
+                status='failure',
+                exc_info=reason)
+
+            if fetched is None:
+                raise
+
+            return deepcopy(fetched)
+
 
         assert isinstance(historic, dict)
-
-
-        response = request(
-            'get', 'stat/sta')
-
-        realtime = response.json()
-
         assert isinstance(realtime, dict)
-
 
         fetched = {
             'historic': historic,
             'realtime': realtime}
 
 
-        self.homie.log_i(
-            base='UbiqRouter',
-            name=self.name,
-            action='fetch',
-            elapsed=runtime.since,
-            status='success')
-
-
         self.__fetched = fetched
         self.__merged = None
 
-        timer.update()
+        timer.update('now')
 
         return deepcopy(fetched)
 

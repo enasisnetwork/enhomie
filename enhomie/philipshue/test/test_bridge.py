@@ -77,7 +77,7 @@ def test_PhueBridge(
 
     assert bridge.name == 'jupiter'
 
-    assert bridge.connect is False
+    assert bridge.connect is True
 
 
     sample_path = (
