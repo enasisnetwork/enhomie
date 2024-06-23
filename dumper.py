@@ -50,7 +50,8 @@ def launcher_args() -> dict[str, Any]:
             'groups',
             'scenes',
             'desires',
-            'desired'],
+            'desired',
+            'actions'],
         help=(
             'which kind of objects '
             'are dumped to console'))
@@ -197,6 +198,25 @@ def print_desired(
         printer(
             {kind: group.name},
             desire.homie_dumper())
+
+
+
+def print_actions(
+    homie: Homie,
+) -> None:
+    """
+    Print the contents about the devices within Homie class.
+
+    :param homie: Primary class instance for Homie Automate.
+    """
+
+    actions = homie.actions
+
+    for action in actions.values():
+
+        printer(
+            {'Action': action.name},
+            action.homie_dumper())
 
 
 
@@ -386,6 +406,9 @@ def operate_main(
 
     if _scope == 'desired':
         print_desired(homie)
+
+    if _scope == 'actions':
+        print_actions(homie)
 
 
     if _scope == 'phue_fetched':
