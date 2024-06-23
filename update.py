@@ -241,6 +241,8 @@ def launcher_main() -> None:
 
     homie = Homie(config)
 
+    homie.refresh_source()
+
 
     operate_main(homie)
 

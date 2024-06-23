@@ -420,7 +420,7 @@ class HomieService(Thread):
         def _operate_routines() -> None:
 
             if timer.ready():
-                homie.refresh()
+                homie.refresh_source()
 
             if _watcher or _actions:
                 self.__operate_streams()
@@ -865,7 +865,10 @@ def launcher_main() -> None:
         item='service',
         status='merged')
 
+
     homie = Homie(config)
+
+    homie.refresh_source()
 
 
     signal(SIGINT, launcher_stop)
