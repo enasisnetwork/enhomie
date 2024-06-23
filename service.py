@@ -417,7 +417,7 @@ class HomieService(Thread):
             launcher_stop()
 
 
-        while not STOP_ACTION.is_set():
+        def _operate_routines() -> None:
 
             if timer.ready():
                 homie.refresh()
@@ -427,6 +427,23 @@ class HomieService(Thread):
 
             if _desires is True:
                 self.__operate_desires()
+
+
+        while not STOP_ACTION.is_set():
+
+            try:
+                _operate_routines()
+
+            except Exception as reason:
+
+                homie.log_e(
+                    base='script',
+                    item='service/thread',
+                    name=self.name,
+                    status='exception',
+                    exc_info=reason)
+
+                block_sleep(1)
 
             block_sleep(0.15)
 
@@ -701,7 +718,7 @@ class PhueStream(Thread):
 
             except Exception as reason:
 
-                homie.log_i(
+                homie.log_e(
                     base='script',
                     item='service/thread',
                     name=self.name,
