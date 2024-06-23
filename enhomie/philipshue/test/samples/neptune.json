@@ -1491,6 +1491,117 @@
       "state": "no_update",
       "problems": [],
       "type": "device_software_update"
+    },
+
+
+
+
+
+
+    {
+      "id": "f0bea486-5ca0-4f94-b241-03606d085849",
+      "product_data": {
+        "model_id": "SOC001",
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "product_name": "Hue secure contact sensor",
+        "product_archetype": "unknown_archetype",
+        "certified": true,
+        "software_version": "2.67.9",
+        "hardware_platform_type": "100b-125"
+      },
+      "metadata": {
+        "name": "Neptune Contact",
+        "archetype": "unknown_archetype"
+      },
+      "identify": {},
+      "services": [
+        {
+          "rid": "47786763-eba2-448d-8e75-39267f703196",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "e78dac24-027e-4dc1-8c0a-55c2b25547ce",
+          "rtype": "contact"
+        },
+        {
+          "rid": "2b442e71-5a4a-4024-9da0-43b3dc7f51bb",
+          "rtype": "tamper"
+        },
+        {
+          "rid": "9dd56de4-b023-47c4-b035-c7662aacf227",
+          "rtype": "device_power"
+        },
+        {
+          "rid": "b58da55e-dbe6-476f-8bfa-f953092dfd77",
+          "rtype": "device_software_update"
+        }
+      ],
+      "type": "device"
+    },
+
+    {
+      "id": "47786763-eba2-448d-8e75-39267f703196",
+      "owner": {
+        "rid": "f0bea486-5ca0-4f94-b241-03606d085849",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "mac_address": "00:17:88:01:0d:ce:ed:b0",
+      "type": "zigbee_connectivity"
+    },
+
+    {
+      "id": "e78dac24-027e-4dc1-8c0a-55c2b25547ce",
+      "owner": {
+        "rid": "f0bea486-5ca0-4f94-b241-03606d085849",
+        "rtype": "device"
+      },
+      "enabled": true,
+      "contact_report": {
+        "changed": "__STAMP_SMP__",
+        "state": "contact"
+      },
+      "type": "contact"
+    },
+
+    {
+      "id": "2b442e71-5a4a-4024-9da0-43b3dc7f51bb",
+      "owner": {
+        "rid": "f0bea486-5ca0-4f94-b241-03606d085849",
+        "rtype": "device"
+      },
+      "tamper_reports": [
+        {
+          "changed": "__STAMP_SMP__",
+          "source": "battery_door",
+          "state": "not_tampered"
+        }
+      ],
+      "type": "tamper"
+    },
+
+    {
+      "id": "9dd56de4-b023-47c4-b035-c7662aacf227",
+      "owner": {
+        "rid": "f0bea486-5ca0-4f94-b241-03606d085849",
+        "rtype": "device"
+      },
+      "power_state": {
+        "battery_state": "normal",
+        "battery_level": 100
+      },
+      "type": "device_power"
+    },
+
+    {
+      "id": "b58da55e-dbe6-476f-8bfa-f953092dfd77",
+      "owner": {
+        "rid": "f0bea486-5ca0-4f94-b241-03606d085849",
+        "rtype": "device"
+      },
+      "state": "no_update",
+      "problems": [],
+      "type": "device_software_update"
     }
 
 

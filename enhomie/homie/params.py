@@ -15,6 +15,7 @@ from pydantic import BaseModel
 
 from ..builtins import WhenTimePeriodParams
 from ..philipshue import WhatPhueButtonParams
+from ..philipshue import WhatPhueContactParams
 from ..philipshue import WhatPhueMotionParams
 from ..philipshue import WhenPhueChangeParams
 from ..philipshue import WhenPhueSceneParams
@@ -151,12 +152,14 @@ class HomieWhatParams(BaseModel, extra='forbid'):
     Process and validate the Homie configuration parameters.
 
     :param phue_button: Parameters for use in action plugin.
+    :param phue_contact: Parameters for use in action plugin.
     :param phue_motion: Parameters for use in action plugin.
     :param data: Keyword arguments passed to Pydantic model.
         Parameter is picked up by autodoc, please ignore.
     """
 
     phue_button: Optional[WhatPhueButtonParams] = None
+    phue_contact: Optional[WhatPhueContactParams] = None
     phue_motion: Optional[WhatPhueMotionParams] = None
 
 
@@ -187,7 +190,7 @@ class HomieActionParams(BaseModel, extra='forbid'):
     scene: Optional[str] = None
 
     weight: int = 0
-    pause: int = 5
+    pause: int = 7
 
     what: Optional[list[HomieWhatParams]] = None
     when: Optional[list[HomieWhenParams]] = None

@@ -9,10 +9,11 @@
     "level": null,
     "scene": "awake",
     "weight": 10,
-    "pause": 5,
+    "pause": 7,
     "what": [
       {
         "phue_button": null,
+        "phue_contact": null,
         "phue_motion": {
           "device": "jupiter_motion",
           "sensor": "motion1"
@@ -25,6 +26,15 @@
           "events": [
             "initial_press"
           ]
+        },
+        "phue_contact": null,
+        "phue_motion": null
+      },
+      {
+        "phue_button": null,
+        "phue_contact": {
+          "device": "jupiter_contact",
+          "sensor": "contact1"
         },
         "phue_motion": null
       }

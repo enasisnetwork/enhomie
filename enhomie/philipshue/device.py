@@ -27,6 +27,7 @@ if TYPE_CHECKING:
 
 _CHANGED = dict[str, Times | None] | Literal[False]
 _SENSORS = Optional[dict[str, str]]
+_REPORTS = ['button', 'contact', 'motion']
 
 
 
@@ -301,8 +302,6 @@ class PhueDevice:
         :returns: Related information for services have changed.
         """
 
-        keys = ['button', 'motion']
-
         source = self.__source
 
         if source is None:
@@ -312,13 +311,14 @@ class PhueDevice:
         services = source['services']
 
         changed: dict[str, Times | None] = {}
-        indices = {x: 0 for x in keys}
+        indices = {
+            x: 0 for x in _REPORTS}
 
         for service in services:
 
             _rtype = service['rtype']
 
-            if _rtype not in keys:
+            if _rtype not in _REPORTS:
                 continue
 
             indices[_rtype] += 1
@@ -336,6 +336,11 @@ class PhueDevice:
                 _changed = getate(
                     _source['button'],
                     'button_report/updated')
+
+            elif _rtype == 'contact':
+                _changed = getate(
+                    _source,
+                    'contact_report/changed')
 
             index = indices[_rtype]
 
@@ -362,8 +367,6 @@ class PhueDevice:
         :returns: Mapping for sensor name to unique identifier.
         """
 
-        keys = ['button', 'motion']
-
         source = self.__source
 
         if source is None:
@@ -373,14 +376,15 @@ class PhueDevice:
         services = source['services']
 
         sensors: dict[str, str] = {}
-        indices = {x: 0 for x in keys}
+        indices = {
+            x: 0 for x in _REPORTS}
 
         for service in services:
 
             _rid = service['rid']
             _rtype = service['rtype']
 
-            if _rtype not in keys:
+            if _rtype not in _REPORTS:
                 continue
 
             indices[_rtype] += 1

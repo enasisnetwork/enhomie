@@ -89,7 +89,7 @@ def test_Homie(
 
     assert len(homie.phue_bridges) == 2
 
-    assert len(homie.phue_devices) == 10
+    assert len(homie.phue_devices) == 12
 
     assert len(homie.ubiq_routers) == 2
 

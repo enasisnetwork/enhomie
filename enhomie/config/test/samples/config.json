@@ -106,10 +106,12 @@
           "phue_change": {
             "devices": [
               "jupiter_button",
+              "jupiter_contact",
               "jupiter_motion"
             ],
             "sensors": [
               "button1",
+              "contact1",
               "motion1"
             ],
             "since": 900
@@ -165,10 +167,12 @@
           "phue_change": {
             "devices": [
               "neptune_button",
+              "neptune_contact",
               "neptune_motion"
             ],
             "sensors": [
               "button1",
+              "contact1",
               "motion1"
             ],
             "since": 900
@@ -219,10 +223,11 @@
       "level": null,
       "scene": "relax",
       "weight": 0,
-      "pause": 5,
+      "pause": 7,
       "what": [
         {
           "phue_button": null,
+          "phue_contact": null,
           "phue_motion": {
             "device": "jupiter_motion",
             "sensor": "motion1"
@@ -230,6 +235,7 @@
         },
         {
           "phue_button": null,
+          "phue_contact": null,
           "phue_motion": {
             "device": "neptune_motion",
             "sensor": "motion1"
@@ -247,10 +253,11 @@
       "level": null,
       "scene": "awake",
       "weight": 10,
-      "pause": 5,
+      "pause": 7,
       "what": [
         {
           "phue_button": null,
+          "phue_contact": null,
           "phue_motion": {
             "device": "jupiter_motion",
             "sensor": "motion1"
@@ -263,6 +270,15 @@
             "events": [
               "initial_press"
             ]
+          },
+          "phue_contact": null,
+          "phue_motion": null
+        },
+        {
+          "phue_button": null,
+          "phue_contact": {
+            "device": "jupiter_contact",
+            "sensor": "contact1"
           },
           "phue_motion": null
         }
@@ -295,10 +311,11 @@
       "level": null,
       "scene": "awake",
       "weight": 10,
-      "pause": 5,
+      "pause": 7,
       "what": [
         {
           "phue_button": null,
+          "phue_contact": null,
           "phue_motion": {
             "device": "neptune_motion",
             "sensor": "motion1"
@@ -311,6 +328,15 @@
             "events": [
               "initial_press"
             ]
+          },
+          "phue_contact": null,
+          "phue_motion": null
+        },
+        {
+          "phue_button": null,
+          "phue_contact": {
+            "device": "neptune_contact",
+            "sensor": "contact1"
           },
           "phue_motion": null
         }
@@ -377,6 +403,11 @@
       "phid": "b9401957-a649-3247-bd9b-7592da402c6d",
       "label": null
     },
+    "jupiter_contact": {
+      "bridge": "jupiter",
+      "phid": "3b5467d3-f376-4203-b5ec-310195f94888",
+      "label": null
+    },
     "neptune_button": {
       "bridge": "neptune",
       "phid": "4495c332-10ee-44e8-99d0-8a01fd756c1b",
@@ -400,6 +431,11 @@
     "neptune_plug": {
       "bridge": "neptune",
       "phid": "096c0c5f-d3cf-30d9-95ea-362e1e46863e",
+      "label": null
+    },
+    "neptune_contact": {
+      "bridge": "neptune",
+      "phid": "f0bea486-5ca0-4f94-b241-03606d085849",
       "label": null
     }
   },

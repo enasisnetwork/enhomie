@@ -72,7 +72,7 @@ def test_HomieAction(
 
     assert action.name == 'jupiter'
 
-    assert len(action.whats) == 2
+    assert len(action.whats) == 3
 
     assert len(action.whens) == 1
 
@@ -101,7 +101,7 @@ def test_HomieAction(
 
     matches = action.matches(_events[0])
 
-    assert matches == [True, False]
+    assert matches == [True, False, False]
 
     match = action.match(_events[0])
 

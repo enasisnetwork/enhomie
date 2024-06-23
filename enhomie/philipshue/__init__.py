@@ -11,12 +11,15 @@ from .bridge import PhueBridge
 from .device import PhueDevice
 from .params import PhueDeviceParams
 from .params import WhatPhueButtonParams
+from .params import WhatPhueContactParams
 from .params import WhatPhueMotionParams
 from .params import WhenPhueChangeParams
 from .params import WhenPhueSceneParams
 from .what import chck_phue_button
+from .what import chck_phue_contact
 from .what import chck_phue_motion
 from .what import what_phue_button
+from .what import what_phue_contact
 from .what import what_phue_motion
 from .when import chck_phue_change
 from .when import chck_phue_scene
@@ -30,6 +33,7 @@ __all__ = [
     'PhueDevice',
     'PhueDeviceParams',
     'WhatPhueButtonParams',
+    'WhatPhueContactParams',
     'WhatPhueMotionParams',
     'WhenPhueChangeParams',
     'WhenPhueSceneParams',
@@ -39,5 +43,7 @@ __all__ = [
     'when_phue_scene',
     'chck_phue_button',
     'what_phue_button',
+    'chck_phue_contact',
+    'what_phue_contact',
     'chck_phue_motion',
     'what_phue_motion']

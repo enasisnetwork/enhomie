@@ -42,6 +42,10 @@ actions:
           sensor: button1
           events: ['initial_press']
 
+      - phue_contact:
+          device: jupiter_contact
+          sensor: contact1
+
     when:
 
       - ubiq_client:
@@ -67,6 +71,10 @@ actions:
           device: neptune_button
           sensor: button1
           events: ['initial_press']
+
+      - phue_contact:
+          device: neptune_contact
+          sensor: contact1
 
     when:
 

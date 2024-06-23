@@ -186,6 +186,11 @@ Operational Parameters
    :show-inheritance:
    :noindex:
 
+.. autopydantic_model:: enhomie.philipshue.WhatPhueContactParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
 Operational Helpers
 ===================
 
@@ -199,4 +204,10 @@ Operational Helpers
    :noindex:
 
 .. autofunction:: enhomie.philipshue.what_phue_button
+   :noindex:
+
+.. autofunction:: enhomie.philipshue.chck_phue_contact
+   :noindex:
+
+.. autofunction:: enhomie.philipshue.what_phue_contact
    :noindex:

@@ -37,9 +37,11 @@ desires:
           since: 900
           devices:
             - jupiter_button
+            - jupiter_contact
             - jupiter_motion
           sensors:
             - button1
+            - contact1
             - motion1
 
       - ubiq_client:
@@ -65,9 +67,11 @@ desires:
           since: 900
           devices:
             - neptune_button
+            - neptune_contact
             - neptune_motion
           sensors:
             - button1
+            - contact1
             - motion1
 
       - ubiq_client:
