@@ -18,10 +18,12 @@
         "phue_change": {
           "devices": [
             "jupiter_button",
+            "jupiter_contact",
             "jupiter_motion"
           ],
           "sensors": [
             "button1",
+            "contact1",
             "motion1"
           ],
           "since": 900

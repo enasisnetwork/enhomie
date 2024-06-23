@@ -305,7 +305,8 @@ def process(  # noqa: CFQ001
             if action.state is not None:
                 _state_set()
 
-            action.update_timer()
+            if params.dryrun is False:
+                action.update_timer()
 
             if _stdout is True:
                 print_ansi(

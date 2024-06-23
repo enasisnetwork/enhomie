@@ -11,8 +11,10 @@ from typing import Any
 from typing import TYPE_CHECKING
 
 from ..philipshue import chck_phue_button
+from ..philipshue import chck_phue_contact
 from ..philipshue import chck_phue_motion
 from ..philipshue import what_phue_button
+from ..philipshue import what_phue_contact
 from ..philipshue import what_phue_motion
 
 if TYPE_CHECKING:
@@ -55,11 +57,14 @@ class HomieWhat:
         Perform advanced validation on the parameters provided.
         """
 
-        if self.params.phue_motion:
-            chck_phue_motion(self)
-
         if self.params.phue_button:
             chck_phue_button(self)
+
+        if self.params.phue_contact:
+            chck_phue_contact(self)
+
+        if self.params.phue_motion:
+            chck_phue_motion(self)
 
 
     @property
@@ -101,13 +106,17 @@ class HomieWhat:
 
         matched: list[bool] = []
 
+        if self.params.phue_button:
+            matched.append(
+                what_phue_button(self, event))
+
         if self.params.phue_motion:
             matched.append(
                 what_phue_motion(self, event))
 
-        if self.params.phue_button:
+        if self.params.phue_contact:
             matched.append(
-                what_phue_button(self, event))
+                what_phue_contact(self, event))
 
         outcome = bool(
             matched and any(matched))

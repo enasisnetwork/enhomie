@@ -56,6 +56,10 @@
       "present": true,
       "connect": false
     },
+    "jupiter_contact": {
+      "present": true,
+      "connect": true
+    },
     "neptune_button": {
       "present": true,
       "connect": true
@@ -75,6 +79,10 @@
     "neptune_plug": {
       "present": true,
       "connect": false
+    },
+    "neptune_contact": {
+      "present": true,
+      "connect": true
     }
   },
   "ubiq_routers": {

@@ -61,8 +61,7 @@ class WhatPhueMotionParams(BaseModel, extra='forbid'):
 
     device: str
 
-    sensor: Literal[
-        'motion1']
+    sensor: Literal['motion1']
 
 
 
@@ -92,6 +91,22 @@ class WhatPhueButtonParams(BaseModel, extra='forbid'):
 
 
 
+class WhatPhueContactParams(BaseModel, extra='forbid'):
+    """
+    Process and validate the Homie configuration parameters.
+
+    :param device: Name of device in scope for the operation.
+    :param sensor: Name of sensor in scope for the operation.
+    :param data: Keyword arguments passed to Pydantic model.
+        Parameter is picked up by autodoc, please ignore.
+    """
+
+    device: str
+
+    sensor: Literal['contact1']
+
+
+
 class WhenPhueChangeParams(BaseModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
@@ -110,6 +125,7 @@ class WhenPhueChangeParams(BaseModel, extra='forbid'):
         'button2',
         'button3',
         'button4',
+        'contact1',
         'motion1']]
 
     since: int = 0

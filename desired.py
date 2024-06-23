@@ -199,7 +199,8 @@ def operate_main(  # noqa: CFQ001
         if desire.state is not None:
             _state_set()
 
-        desire.update_timer()
+        if params.dryrun is False:
+            desire.update_timer()
 
         if _stdout is True:
             print_ansi(

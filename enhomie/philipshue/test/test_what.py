@@ -18,6 +18,7 @@ from respx import MockRouter
 
 from . import SAMPLES
 from ..params import WhatPhueButtonParams
+from ..params import WhatPhueContactParams
 from ..params import WhatPhueMotionParams
 from ...conftest import config_factory
 from ...conftest import homie_factory
@@ -242,6 +243,112 @@ def test_what_phue_button_cover(
     assert not what.match(_events[0])
 
     assert not what.match(_events[1])
+
+
+    assert not what.match({})
+
+
+
+def test_what_phue_contact(
+    homie: 'Homie',
+) -> None:
+    """
+    Perform various tests associated with relevant routines.
+
+    :param homie: Primary class instance for Homie Automate.
+    """
+
+    _events = loads(
+        read_text(
+            f'{SAMPLES}/events'
+            '/source.json'))
+
+
+    phue_contact = (
+        WhatPhueContactParams(
+            device='jupiter_contact',
+            sensor='contact1'))
+
+    params = HomieWhatParams(
+        phue_contact=phue_contact)
+
+    what = HomieWhat(homie, params)
+
+    assert not what.match(_events[0])
+
+    assert not what.match(_events[1])
+
+    assert what.match(_events[2])
+
+
+
+def test_what_phue_contact_cover(
+    tmp_path: Path,
+    respx_mock: MockRouter,
+) -> None:
+    """
+    Perform various tests associated with relevant routines.
+
+    :param tmp_path: pytest object for temporal filesystem.
+    :param respx_mock: Object for mocking request operation.
+    """
+
+    _events = loads(
+        read_text(
+            f'{SAMPLES}/events'
+            '/source.json'))
+
+    config = (
+        'phue_devices:\n'
+        '  noexst:\n'
+        '    bridge: jupiter\n'
+        '    phid: noexst\n')
+
+
+    Path.mkdir(
+        tmp_path.joinpath('config'))
+
+    save_text(
+        f'{tmp_path}/config/test.yml',
+        content=config)
+
+    homie = homie_factory(
+        config_factory(tmp_path),
+        respx_mock)
+
+
+    phue_contact = (
+        WhatPhueContactParams(
+            device='noexst',
+            sensor='contact1'))
+
+    params = HomieWhatParams(
+        phue_contact=phue_contact)
+
+    what = HomieWhat(homie, params)
+
+    assert not what.match(_events[0])
+
+    assert not what.match(_events[1])
+
+    assert not what.match(_events[2])
+
+
+    phue_contact = (
+        WhatPhueContactParams(
+            device='neptune_contact',
+            sensor='contact1'))
+
+    params = HomieWhatParams(
+        phue_contact=phue_contact)
+
+    what = HomieWhat(homie, params)
+
+    assert not what.match(_events[0])
+
+    assert not what.match(_events[1])
+
+    assert not what.match(_events[2])
 
 
     assert not what.match({})

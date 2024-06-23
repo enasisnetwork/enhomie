@@ -25,6 +25,10 @@ phue_devices:
     bridge: jupiter
     phid: b9401957-a649-3247-bd9b-7592da402c6d
 
+  jupiter_contact:
+    bridge: jupiter
+    phid: 3b5467d3-f376-4203-b5ec-310195f94888
+
 
   neptune_button:
     bridge: neptune
@@ -45,3 +49,7 @@ phue_devices:
   neptune_plug:
     bridge: neptune
     phid: 096c0c5f-d3cf-30d9-95ea-362e1e46863e
+
+  neptune_contact:
+    bridge: neptune
+    phid: f0bea486-5ca0-4f94-b241-03606d085849

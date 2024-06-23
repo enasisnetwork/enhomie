@@ -206,3 +206,96 @@ def chck_phue_button(
     _device = params.device
 
     assert _device in devices
+
+
+
+def what_phue_contact(
+    what: 'HomieWhat',
+    event: dict[str, Any],
+) -> bool:
+    """
+    Return the boolean indicating whether condition matched.
+
+    :param what: Primary class instance for the conditonal.
+    :param event: Event which was yielded from the stream.
+    :returns: Boolean indicating whether condition matched.
+    """
+
+    params = (
+        what.params.phue_contact)
+
+    assert params is not None
+
+    _device = params.device
+    _sensor = params.sensor
+
+
+    devices = (
+        what.homie.phue_devices)
+
+    device = devices[_device]
+
+    if not device.unique:
+        device.refresh_source()
+
+    unique = device.unique
+
+    if unique is None:
+        return False
+
+
+    sensors = device.sensors
+
+    assert sensors is not None
+
+    sensor = sensors[_sensor]
+
+
+    matched: list[bool] = []
+
+
+    if 'data' not in event:
+        return False
+
+    for item in event['data']:
+
+        if 'contact_report' not in item:
+            continue
+
+        _sensor = item['id']
+        _unique = item['owner']['rid']
+
+        if unique != _unique:
+            continue
+
+        if sensor != _sensor:
+            continue  # NOCVR
+
+        matched.append(True)
+
+
+    return any(matched)
+
+
+
+def chck_phue_contact(
+    what: 'HomieWhat',
+) -> None:
+    """
+    Return the boolean indicating whether conditional valid.
+
+    :param what: Primary class instance for the conditonal.
+    """
+
+    params = (
+        what.params.phue_contact)
+
+    assert params is not None
+
+    devices = (
+        what.homie.phue_devices)
+
+
+    _device = params.device
+
+    assert _device in devices

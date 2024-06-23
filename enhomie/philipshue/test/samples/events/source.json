@@ -86,6 +86,42 @@
     ],
     "id": "4131bfaf-8e51-4755-87fc-52ca953abe36",
     "type": "update"
+  },
+
+
+  {
+    "creationtime": "_/encommon_sample/__STAMP_SMP__/_",
+    "data": [
+
+      {
+        "contact_report": {
+          "changed": "_/encommon_sample/__STAMP_SMP__/_",
+          "state": "no_contact"
+        },
+        "id": "e00ae26c-0008-47c0-b2f0-7887bb149db4",
+        "owner": {
+          "rid": "3b5467d3-f376-4203-b5ec-310195f94888",
+          "rtype": "device"
+        },
+        "type": "contact"
+      },
+
+      {
+        "contact_report": {
+          "changed": "_/encommon_sample/__STAMP_SMP__/_",
+          "state": "contact"
+        },
+        "id": "e00ae26c-0008-47c0-b2f0-7887bb149db4",
+        "owner": {
+          "rid": "3b5467d3-f376-4203-b5ec-310195f94888",
+          "rtype": "device"
+        },
+        "type": "contact"
+      }
+
+    ],
+    "id": "4131bfaf-8e51-4755-87fc-52ca953abe36",
+    "type": "update"
   }
 
 
