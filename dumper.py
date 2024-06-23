@@ -72,6 +72,9 @@ def printer(
     """
     Print the contents for the object within Homie instance.
 
+    .. note::
+       Currently redundant between dumper.py and service.py.
+
     :param header: Additional information for output header.
     :param source: Content which will be shown after header.
     """
@@ -447,7 +450,6 @@ def launcher_main() -> None:
 
     config = Config(
         args['config'],
-        {'dryrun': True},
         sargs=args)
 
     config.logger.start()

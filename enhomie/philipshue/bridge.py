@@ -560,7 +560,7 @@ class PhueBridge:
             status = fetch['status']
             active = status['active']
 
-            if active == 'static':
+            if active != 'inactive':
                 return phid
 
         return None

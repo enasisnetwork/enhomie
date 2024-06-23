@@ -27,7 +27,12 @@ from encommon.utils import print_ansi
 
 from enhomie.config import Config
 from enhomie.homie import Homie
+from enhomie.homie import HomieAction
+from enhomie.homie import HomieDesire
+from enhomie.homie import HomieGroup
 from enhomie.philipshue import PhueBridge
+
+from httpx import ReadTimeout
 
 AbstractEventLoop = asyncio.AbstractEventLoop
 AsyncEvent = asyncio.Event
@@ -44,14 +49,23 @@ THREADS: dict[str, Thread] = {}
 
 
 @dataclass
-class PhueStreamItem:
+class StreamItem:
+    """
+    Contain information about the event received from stream.
+    """
+
+    event: dict[str, Any]
+    times: Times
+
+
+
+@dataclass
+class PhueStreamItem(StreamItem):
     """
     Contain information about the event received from stream.
     """
 
     bridge: str
-    event: dict[str, Any]
-    times: Times
 
 
 
@@ -81,6 +95,15 @@ def launcher_args() -> dict[str, Any]:
         help=(
             'do not execute action '
             'and show what would do'))
+
+    parser.add_argument(
+        '--idempotent',
+        action='store_true',
+        default=False,
+        dest='idemp',
+        help=(
+            'do not make change if '
+            'would not change value'))
 
     parser.add_argument(
         '--actions',
@@ -116,7 +139,7 @@ def launcher_args() -> dict[str, Any]:
 
     parser.add_argument(
         '--pause',
-        type=float,
+        type=int,
         default=60,
         help=(
             'period of time before '
@@ -202,20 +225,113 @@ class HomieService(Thread):
             start=f'-{_pause}s')
 
 
-    def __operate_desire(
+    def __operate_desires(
         self,
     ) -> None:
         """
         Perform whatever operations are associated with the file.
         """
 
+        homie = self.__homie
         timer = self.__timer
 
         if not timer.ready():
             return
 
+        config = homie.config
+        groups = homie.groups
+        sargs = config.sargs
 
-    def __operate_stream(
+        _dryrun = sargs['dryrun']
+
+
+        desired = homie.desired
+
+        dumped = {
+            k: v.homie_dumper()
+            for k, v
+            in desired.items()}
+
+        if len(dumped) == 0:
+            return
+
+
+        items = desired.items()
+
+        for name, desire in items:
+
+            group = groups[name]
+
+            if desire.scene is not None:
+                self.__scene_set(
+                    group, desire)
+
+            if desire.level is not None:
+                self.__level_set(
+                    group, desire)
+
+            if desire.state is not None:
+                self.__state_set(
+                    group, desire)
+
+            if _dryrun is False:
+                desire.update_timer()
+
+
+    def __operate_actions(
+        self,
+        item: StreamItem,
+    ) -> None:
+        """
+        Perform whatever operations are associated with the file.
+
+        :param item: Queue item that was received from upstream.
+        """
+
+        homie = self.__homie
+        config = homie.config
+        groups = homie.groups
+        sargs = config.sargs
+
+        _dryrun = sargs['dryrun']
+
+
+        event = item.event
+
+        aspired = homie.aspired(event)
+
+        dumped = {
+            k: v.homie_dumper()
+            for k, v
+            in aspired.items()}
+
+        if len(dumped) == 0:
+            return
+
+
+        items = aspired.items()
+
+        for name, action in items:
+
+            group = groups[name]
+
+            if action.scene is not None:
+                self.__scene_set(
+                    group, action)
+
+            if action.level is not None:
+                self.__level_set(
+                    group, action)
+
+            if action.state is not None:
+                self.__state_set(
+                    group, action)
+
+            if _dryrun is False:
+                action.update_timer()
+
+
+    def __operate_streams(
         self,
     ) -> None:
         """
@@ -261,6 +377,9 @@ class HomieService(Thread):
             if _watcher is True:
                 _print_phue_event()
 
+            if _actions is True:
+                self.__operate_actions(item)
+
 
     def run(
         self,
@@ -296,10 +415,10 @@ class HomieService(Thread):
         while not STOP_ACTION.is_set():
 
             if _watcher or _actions:
-                self.__operate_stream()
+                self.__operate_streams()
 
             if _desires is True:
-                self.__operate_desire()
+                self.__operate_desires()
 
             block_sleep(0.15)
 
@@ -309,6 +428,170 @@ class HomieService(Thread):
             item='service/thread',
             name=self.name,
             status='stopped')
+
+
+    def __state_set(
+        self,
+        group: HomieGroup,
+        item: HomieDesire | HomieAction,
+    ) -> None:
+        """
+        Update the current state of the group within the bridge.
+
+        :param group: Another class instance for Homie Automate.
+        :param item: Another class instance for Homie Automate.
+        """
+
+        homie = self.__homie
+        config = homie.config
+        sargs = config.sargs
+
+        _dryrun = sargs['dryrun']
+        _idemp = sargs['idemp']
+
+
+        current = group.state_get()
+        desired = item.state
+
+        assert desired is not None
+
+
+        changed = False
+
+        if (desired == current
+                and _idemp is True):
+            changed = False
+
+        elif _dryrun is False:
+
+            homie.state_set(
+                group, desired)
+
+            block_sleep(1)
+
+            changed = True
+
+        homie.log_i(
+            base='script',
+            action='state_set',
+            group=group.name,
+            current=current,
+            desired=desired,
+            status=(
+                'submit' if changed
+                else 'skipped'))
+
+
+    def __level_set(
+        self,
+        group: HomieGroup,
+        item: HomieDesire | HomieAction,
+    ) -> None:
+        """
+        Update the current level of the group within the bridge.
+
+        :param group: Another class instance for Homie Automate.
+        :param item: Another class instance for Homie Automate.
+        """
+
+        homie = self.__homie
+        config = homie.config
+        sargs = config.sargs
+
+        _dryrun = sargs['dryrun']
+        _idemp = sargs['idemp']
+
+
+        current = group.level_get()
+        desired = item.level
+
+        assert desired is not None
+
+
+        changed = False
+
+        if (desired == current
+                and _idemp is True):
+            changed = False
+
+        elif _dryrun is False:
+
+            homie.level_set(
+                group, desired)
+
+            block_sleep(1)
+
+            changed = True
+
+        homie.log_i(
+            base='script',
+            action='level_set',
+            group=group.name,
+            current=current,
+            desired=desired,
+            status=(
+                'submit' if changed
+                else 'skipped'))
+
+
+    def __scene_set(
+        self,
+        group: HomieGroup,
+        item: HomieDesire | HomieAction,
+    ) -> None:
+        """
+        Update the current scene of the group within the bridge.
+
+        :param group: Another class instance for Homie Automate.
+        :param item: Another class instance for Homie Automate.
+        """
+
+        homie = self.__homie
+        config = homie.config
+        scenes = homie.scenes
+        sargs = config.sargs
+
+        _dryrun = sargs['dryrun']
+        _idemp = sargs['idemp']
+
+
+        assert item.scene is not None
+
+        current = group.scene_get()
+        desired = scenes[item.scene]
+
+
+        changed = False
+
+        if (desired == current
+                and _idemp is True):
+            changed = False
+
+        elif _dryrun is False:
+
+            homie.scene_set(
+                group, desired)
+
+            block_sleep(1)
+
+            changed = True
+
+        _current = (
+            current.name
+            if current is not None
+            else None)
+
+        homie.log_i(
+            base='script',
+            action='scene_set',
+            group=group.name,
+            current=(
+                _current if _current
+                else 'unset'),
+            desired=desired.name,
+            status=(
+                'submit' if changed
+                else 'skipped'))
 
 
 
@@ -360,20 +643,37 @@ class PhueStream(Thread):
         config = homie.config
         sargs = config.sargs
 
+        _timeout = sargs['timeout']
 
-        while not STOP_STREAM.is_set():
 
-            try:
+        def _process() -> None:
 
-                await asyncio.sleep(
-                    sargs['timeout'])
+            for data in datas:
 
                 item = PhueStreamItem(
                     bridge=bridge.name,
-                    event={'foo': 'bar'},
+                    event=data,
                     times=Times('now'))
 
                 PHUE_STREAM.put(item)
+
+
+        while not STOP_STREAM.is_set():
+
+            stream = (
+                bridge.bridge
+                .events_async(_timeout))
+
+            try:
+
+                homie.log_d(
+                    base='script',
+                    item='service/thread',
+                    name=self.name,
+                    status='reading')
+
+                async for datas in stream:
+                    _process()
 
             except CancelledError:
 
@@ -382,6 +682,14 @@ class PhueStream(Thread):
                     item='service/thread',
                     name=self.name,
                     status='canceled')
+
+            except ReadTimeout:
+
+                homie.log_d(
+                    base='script',
+                    item='service/thread',
+                    name=self.name,
+                    status='timeout')
 
             except Exception as reason:
 
