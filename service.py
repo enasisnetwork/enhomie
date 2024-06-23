@@ -196,7 +196,8 @@ class HomieService(Thread):
     __homie: Homie
     __name: str
 
-    __timer: Timer
+    __refresh: Timer
+    __desires: Timer
 
 
     def __init__(
@@ -213,14 +214,17 @@ class HomieService(Thread):
 
         _name = f'service/{name}'
 
+        super().__init__(name=_name)
+
+
         config = homie.config
         sargs = config.sargs
 
         _pause = sargs['pause']
 
-        super().__init__(name=_name)
+        self.__refresh = Timer(15)
 
-        self.__timer = Timer(
+        self.__desires = Timer(
             _pause,
             start=f'-{_pause}s')
 
@@ -233,7 +237,7 @@ class HomieService(Thread):
         """
 
         homie = self.__homie
-        timer = self.__timer
+        timer = self.__desires
 
         if not timer.ready():
             return
@@ -391,6 +395,7 @@ class HomieService(Thread):
         homie = self.__homie
         config = homie.config
         sargs = config.sargs
+        timer = self.__refresh
 
         _desires = sargs['desires']
         _actions = sargs['actions']
@@ -413,6 +418,9 @@ class HomieService(Thread):
 
 
         while not STOP_ACTION.is_set():
+
+            if timer.ready():
+                homie.refresh()
 
             if _watcher or _actions:
                 self.__operate_streams()
