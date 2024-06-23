@@ -74,10 +74,34 @@ def launcher_args() -> dict[str, Any]:
             'path to config file'))
 
     parser.add_argument(
-        '--print_events',
+        '--dry-run',
         action='store_true',
         default=False,
-        dest='stdoute',
+        dest='dryrun',
+        help=(
+            'do not execute action '
+            'and show what would do'))
+
+    parser.add_argument(
+        '--actions',
+        action='store_true',
+        default=False,
+        help=(
+            'iterate through actions '
+            'operating the objects'))
+
+    parser.add_argument(
+        '--desires',
+        action='store_true',
+        default=False,
+        help=(
+            'iterate through desires '
+            'operating the objects'))
+
+    parser.add_argument(
+        '--watcher',
+        action='store_true',
+        default=False,
         help=(
             'print out the events '
             'that are received'))
@@ -198,9 +222,15 @@ class HomieService(Thread):
         Perform whatever operations are associated with the file.
         """
 
+        if PHUE_STREAM.empty():
+            return
+
         homie = self.__homie
         config = homie.config
         sargs = config.sargs
+
+        _watcher = sargs['watcher']
+        _actions = sargs['actions']
 
 
         def _print_phue_event() -> None:
@@ -228,7 +258,7 @@ class HomieService(Thread):
             phue_bridge = (
                 phue_bridges[item.bridge])
 
-            if sargs['stdoute']:
+            if _watcher is True:
                 _print_phue_event()
 
 
@@ -240,6 +270,12 @@ class HomieService(Thread):
         """
 
         homie = self.__homie
+        config = homie.config
+        sargs = config.sargs
+
+        _desires = sargs['desires']
+        _actions = sargs['actions']
+        _watcher = sargs['watcher']
 
         homie.log_i(
             base='script',
@@ -247,12 +283,26 @@ class HomieService(Thread):
             name=self.name,
             status='started')
 
+
+        enabled = any([
+            _desires,
+            _actions,
+            _watcher])
+
+        if enabled is False:
+            launcher_stop()
+
+
         while not STOP_ACTION.is_set():
+
+            if _watcher or _actions:
+                self.__operate_stream()
+
+            if _desires is True:
+                self.__operate_desire()
 
             block_sleep(0.15)
 
-            self.__operate_desire()
-            self.__operate_stream()
 
         homie.log_i(
             base='script',
@@ -360,6 +410,7 @@ class PhueStream(Thread):
             name=self.name,
             status='started')
 
+
         loop = asyncio.new_event_loop()
 
         asyncio.set_event_loop(loop)
@@ -370,6 +421,7 @@ class PhueStream(Thread):
             self.__operate_stream())
 
         loop.close()
+
 
         homie.log_i(
             base='script',
@@ -387,6 +439,12 @@ def operate_main(
 
     :param homie: Primary class instance for Homie Automate.
     """
+
+    config = homie.config
+    sargs = config.sargs
+
+    _actions = sargs['actions']
+    _watcher = sargs['watcher']
 
 
     def _homie_service() -> None:
@@ -417,9 +475,10 @@ def operate_main(
             THREADS[name] = thread
 
 
-    _phue_streams()
-
     _homie_service()
+
+    if _actions or _watcher:
+        _phue_streams()
 
 
 
@@ -463,6 +522,7 @@ def launcher_main() -> None:
 
     config = Config(
         args['config'],
+        {'dryrun': args['dryrun']},
         sargs=args)
 
     config.logger.start()
