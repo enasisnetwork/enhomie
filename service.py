@@ -9,6 +9,7 @@ is permitted, for more information consult the project license file.
 
 import asyncio
 from argparse import ArgumentParser
+from dataclasses import dataclass
 from queue import Queue
 from signal import SIGHUP
 from signal import SIGINT
@@ -17,7 +18,12 @@ from signal import signal
 from threading import Thread
 from time import sleep as block_sleep
 from typing import Any
-from typing import Optional
+
+from encommon.times import Duration
+from encommon.times import Timer
+from encommon.times import Times
+from encommon.utils import array_ansi
+from encommon.utils import print_ansi
 
 from enhomie.config import Config
 from enhomie.homie import Homie
@@ -25,17 +31,31 @@ from enhomie.philipshue import PhueBridge
 
 AbstractEventLoop = asyncio.AbstractEventLoop
 AsyncEvent = asyncio.Event
+CancelledError = asyncio.CancelledError
 
 
 
-QITEM = dict[str, Any]
-STREAM: Queue[QITEM] = Queue()
-
-STOPSTREAM = AsyncEvent()
-STOPACTION = AsyncEvent()
+STOP_STREAM = AsyncEvent()
+STOP_ACTION = AsyncEvent()
 
 ALOOPS: dict[str, AbstractEventLoop] = {}
 THREADS: dict[str, Thread] = {}
+
+
+
+@dataclass
+class PhueStreamItem:
+    """
+    Contain information about the event received from stream.
+    """
+
+    bridge: str
+    event: dict[str, Any]
+    times: Times
+
+
+
+PHUE_STREAM: Queue[PhueStreamItem] = Queue()
 
 
 
@@ -53,7 +73,68 @@ def launcher_args() -> dict[str, Any]:
             'complete or relative '
             'path to config file'))
 
+    parser.add_argument(
+        '--print_events',
+        action='store_true',
+        default=False,
+        dest='stdoute',
+        help=(
+            'print out the events '
+            'that are received'))
+
+    parser.add_argument(
+        '--timeout',
+        type=float,
+        default=60,
+        help=(
+            'period of time before '
+            'reconnecting to server'))
+
+    parser.add_argument(
+        '--pause',
+        type=float,
+        default=60,
+        help=(
+            'period of time before '
+            'reprocessing desired'))
+
     return vars(parser.parse_args())
+
+
+
+def printer(
+    header: dict[str, Any],
+    source: dict[str, Any],
+) -> None:
+    """
+    Print the contents for the object within Homie instance.
+
+    .. note::
+       Currently redundant between dumper.py and service.py.
+
+    :param header: Additional information for output header.
+    :param source: Content which will be shown after header.
+    """
+
+    print_ansi(
+        f'\n<c96>┍{"━" * 63}<c0>')
+
+    items = header.items()
+
+    for key, value in items:
+
+        print_ansi(
+            f'<c96>│ <c36;1>{key}'
+            f'<c37>: <c0>{value}')
+
+    print_ansi(
+        f'<c96>├{"─" * 63}<c0>\n')
+
+    print(array_ansi(
+        source, indent=2))
+
+    print_ansi(
+        f'\n<c96>┕{"━" * 63}<c0>\n')
 
 
 
@@ -67,6 +148,8 @@ class HomieService(Thread):
 
     __homie: Homie
     __name: str
+
+    __timer: Timer
 
 
     def __init__(
@@ -83,7 +166,16 @@ class HomieService(Thread):
 
         _name = f'service/{name}'
 
+        config = homie.config
+        sargs = config.sargs
+
+        _pause = sargs['pause']
+
         super().__init__(name=_name)
+
+        self.__timer = Timer(
+            _pause,
+            start=f'-{_pause}s')
 
 
     def __operate_desire(
@@ -93,13 +185,51 @@ class HomieService(Thread):
         Perform whatever operations are associated with the file.
         """
 
+        timer = self.__timer
 
-    def __operate_action(
+        if not timer.ready():
+            return
+
+
+    def __operate_stream(
         self,
     ) -> None:
         """
         Perform whatever operations are associated with the file.
         """
+
+        homie = self.__homie
+        config = homie.config
+        sargs = config.sargs
+
+
+        def _print_phue_event() -> None:
+
+            timestamp = item.times.human
+
+            duration = Duration(
+                item.times.since)
+
+            header = {
+                'Source': 'Philips Hue',
+                'Bridge': phue_bridge.name,
+                'Timestamp': timestamp,
+                'Elapsed': duration}
+
+            printer(header, item.event)
+
+
+        phue_bridges = homie.phue_bridges
+
+        while not PHUE_STREAM.empty():
+
+            item = PHUE_STREAM.get()
+
+            phue_bridge = (
+                phue_bridges[item.bridge])
+
+            if sargs['stdoute']:
+                _print_phue_event()
 
 
     def run(
@@ -117,12 +247,12 @@ class HomieService(Thread):
             name=self.name,
             status='started')
 
-        while not STOPACTION.is_set():
-
-            self.__operate_desire()
-            self.__operate_action()
+        while not STOP_ACTION.is_set():
 
             block_sleep(0.15)
+
+            self.__operate_desire()
+            self.__operate_stream()
 
         homie.log_i(
             base='script',
@@ -175,9 +305,42 @@ class PhueStream(Thread):
         Perform whatever operations are associated with the file.
         """
 
-        while not STOPSTREAM.is_set():
+        homie = self.__homie
+        bridge = self.__bridge
+        config = homie.config
+        sargs = config.sargs
 
-            await asyncio.sleep(1)
+
+        while not STOP_STREAM.is_set():
+
+            try:
+
+                await asyncio.sleep(
+                    sargs['timeout'])
+
+                item = PhueStreamItem(
+                    bridge=bridge.name,
+                    event={'foo': 'bar'},
+                    times=Times('now'))
+
+                PHUE_STREAM.put(item)
+
+            except CancelledError:
+
+                homie.log_i(
+                    base='script',
+                    item='service/thread',
+                    name=self.name,
+                    status='canceled')
+
+            except Exception as reason:
+
+                homie.log_i(
+                    base='script',
+                    item='service/thread',
+                    name=self.name,
+                    status='exception',
+                    exc_info=reason)
 
         await asyncio.sleep(0)
 
@@ -268,7 +431,7 @@ def launcher_stop(
     Perform whatever operations are associated with the file.
     """
 
-    STOPSTREAM.set()
+    STOP_STREAM.set()
 
 
     for loop in ALOOPS.values():
@@ -285,7 +448,7 @@ def launcher_stop(
             block_sleep(1)
 
 
-    STOPACTION.set()
+    STOP_ACTION.set()
 
 
 
@@ -325,7 +488,6 @@ def launcher_main() -> None:
         threads = THREADS.values()
 
         for thread in threads:
-
             thread.join()
 
 
