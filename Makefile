@@ -392,6 +392,14 @@ mypy: \
 	@#
 	$(call MAKE_PR3NT,\
 		<c37>Executing <c90>mypy<c37> \
+		on <c90>service.py<c37>..<c0>)
+	@$(VENV_DEVELOP)/bin/mypy \
+		--no-error-summary \
+		$(mypy_args) service.py
+	$(call MAKE_PR1NT,<cD>DONE<c0>)
+	@#
+	$(call MAKE_PR3NT,\
+		<c37>Executing <c90>mypy<c37> \
 		on <c90>update.py<c37>..<c0>)
 	@$(VENV_DEVELOP)/bin/mypy \
 		--no-error-summary \
@@ -445,6 +453,12 @@ flake8: \
 		<c37>Executing <c90>flake8<c37> \
 		on <c90>dumper.py<c37>..<c0>)
 	@$(VENV_DEVELOP)/bin/flake8 ./dumper.py
+	$(call MAKE_PR1NT,<cD>DONE<c0>)
+	@#
+	$(call MAKE_PR3NT,\
+		<c37>Executing <c90>flake8<c37> \
+		on <c90>service.py<c37>..<c0>)
+	@$(VENV_DEVELOP)/bin/flake8 ./service.py
 	$(call MAKE_PR1NT,<cD>DONE<c0>)
 	@#
 	$(call MAKE_PR3NT,\
@@ -515,6 +529,15 @@ pylint: \
 		on <c90>dumper.py<c37>..<c0>)
 	@$(VENV_DEVELOP)/bin/pylint \
 		-E dumper.py \
+		--persistent=n \
+		-d duplicate-code
+	$(call MAKE_PR1NT,<cD>DONE<c0>)
+	@#
+	$(call MAKE_PR3NT,\
+		<c37>Executing <c90>pylint<c37> \
+		on <c90>service.py<c37>..<c0>)
+	@$(VENV_DEVELOP)/bin/pylint \
+		-E service.py \
 		--persistent=n \
 		-d duplicate-code
 	$(call MAKE_PR1NT,<cD>DONE<c0>)
