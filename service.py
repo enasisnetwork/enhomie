@@ -130,6 +130,14 @@ def launcher_args() -> dict[str, Any]:
             'that are received'))
 
     parser.add_argument(
+        '--refresh',
+        type=int,
+        default=15,
+        help=(
+            'period of time before '
+            'refreshing the objects'))
+
+    parser.add_argument(
         '--timeout',
         type=float,
         default=60,
@@ -220,9 +228,10 @@ class HomieService(Thread):
         config = homie.config
         sargs = config.sargs
 
-        _pause = sargs['pause']
+        self.__refresh = Timer(
+            sargs['refresh'])
 
-        self.__refresh = Timer(15)
+        _pause = sargs['pause']
 
         self.__desires = Timer(
             _pause,

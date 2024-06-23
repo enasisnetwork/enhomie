@@ -80,11 +80,21 @@ class HomieGroup:
         Perform advanced validation on the parameters provided.
         """
 
-        bridges = self.homie.phue_bridges
-        bridge_name = self.params.phue_bridge
 
-        assert bridges is not None
-        assert bridge_name in bridges
+        def _phue_bridge() -> None:
+
+            bridges = (
+                self.homie.phue_bridges)
+
+            assert bridges is not None
+
+            name = (
+                self.params.phue_bridge)
+
+            assert name in bridges
+
+
+        _phue_bridge()
 
 
     @property
@@ -150,11 +160,12 @@ class HomieGroup:
         """
 
         bridges = self.homie.phue_bridges
-        bridge_name = self.params.phue_bridge
 
         assert bridges is not None
 
-        return bridges[bridge_name]
+        name = self.params.phue_bridge
+
+        return bridges[name]
 
 
     @property

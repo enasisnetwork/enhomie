@@ -112,12 +112,13 @@ class Homie:
         """
 
         groups = self.groups
-        phue_bridges = self.phue_bridges
 
 
-        def _validate_groups() -> None:
+        def _phue_bridge() -> None:
 
-            assert phue_bridges is not None
+            bridges = self.phue_bridges
+
+            assert bridges is not None
 
             for group in groups.values():
 
@@ -125,11 +126,11 @@ class Homie:
 
                 name = params.phue_bridge
 
-                assert name in phue_bridges
+                assert name in bridges
 
 
         if groups is not None:
-            _validate_groups()
+            _phue_bridge()
 
 
     def __make_timers(
