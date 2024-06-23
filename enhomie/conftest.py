@@ -142,9 +142,6 @@ def homie_factory(  # noqa: CFQ001
 
     homie = Homie(config)
 
-    bridges = homie.phue_bridges
-    routers = homie.ubiq_routers
-
 
     phue_paths = [
         ('https://192.168.1.10'
@@ -229,8 +226,12 @@ def homie_factory(  # noqa: CFQ001
          content=dumped)))
 
 
-    for bridge in bridges.values():
-        bridge.refresh_source()
+    phue_bridges = (
+        homie.phue_bridges
+        .values())
+
+    for phue_bridge in phue_bridges:
+        phue_bridge.refresh_source()
 
 
     (respx_mock
@@ -291,8 +292,12 @@ def homie_factory(  # noqa: CFQ001
          content=dumped)))
 
 
-    for router in routers.values():
-        router.refresh_source()
+    ubiq_routers = (
+        homie.ubiq_routers
+        .values())
+
+    for ubiq_router in ubiq_routers:
+        ubiq_router.refresh_source()
 
 
     return homie

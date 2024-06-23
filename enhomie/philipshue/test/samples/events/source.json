@@ -2,7 +2,7 @@
 
 
   {
-    "creationtime": "_/encommon_sample/__STAMP_SMP__/_",
+    "creationtime": "__STAMP_SMP__",
     "data": [
 
       {
@@ -11,7 +11,7 @@
         "motion": {
           "motion": true,
           "motion_report": {
-            "changed": "_/encommon_sample/__STAMP_SMP__/_",
+            "changed": "__STAMP_SMP__",
             "motion": true
           },
           "motion_valid": true
@@ -28,7 +28,7 @@
         "motion": {
           "motion": false,
           "motion_report": {
-            "changed": "_/encommon_sample/__STAMP_SMP__/_",
+            "changed": "__STAMP_SMP__",
             "motion": false
           },
           "motion_valid": true
@@ -47,7 +47,7 @@
 
 
   {
-    "creationtime": "_/encommon_sample/__STAMP_SMP__/_",
+    "creationtime": "__STAMP_SMP__",
     "data": [
 
       {
@@ -56,7 +56,7 @@
         "button": {
           "button_report": {
             "event": "initial_press",
-            "updated": "_/encommon_sample/__STAMP_SMP__/_"
+            "updated": "__STAMP_SMP__"
           },
           "last_event": "initial_press"
         },
@@ -72,7 +72,7 @@
         "button": {
           "button_report": {
             "event": "long_release",
-            "updated": "_/encommon_sample/__STAMP_SMP__/_"
+            "updated": "__STAMP_SMP__"
           },
           "last_event": "long_release"
         },
@@ -90,12 +90,12 @@
 
 
   {
-    "creationtime": "_/encommon_sample/__STAMP_SMP__/_",
+    "creationtime": "__STAMP_SMP__",
     "data": [
 
       {
         "contact_report": {
-          "changed": "_/encommon_sample/__STAMP_SMP__/_",
+          "changed": "__STAMP_SMP__",
           "state": "no_contact"
         },
         "id": "e00ae26c-0008-47c0-b2f0-7887bb149db4",
@@ -108,7 +108,7 @@
 
       {
         "contact_report": {
-          "changed": "_/encommon_sample/__STAMP_SMP__/_",
+          "changed": "__STAMP_SMP__",
           "state": "contact"
         },
         "id": "e00ae26c-0008-47c0-b2f0-7887bb149db4",
