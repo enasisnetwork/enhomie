@@ -29,9 +29,12 @@ AsyncEvent = asyncio.Event
 
 
 QITEM = dict[str, Any]
-STREAM: Queue[Optional[QITEM]] = Queue()
+STREAM: Queue[QITEM] = Queue()
 
-SHUTDOWN = AsyncEvent()
+STOPSTREAM = AsyncEvent()
+STOPACTION = AsyncEvent()
+
+ALOOPS: dict[str, AbstractEventLoop] = {}
 THREADS: dict[str, Thread] = {}
 
 
@@ -90,11 +93,6 @@ class HomieService(Thread):
         Perform whatever operations are associated with the file.
         """
 
-        if SHUTDOWN.is_set():
-            return
-
-        block_sleep(1)
-
 
     def __operate_action(
         self,
@@ -102,11 +100,6 @@ class HomieService(Thread):
         """
         Perform whatever operations are associated with the file.
         """
-
-        if SHUTDOWN.is_set():
-            return
-
-        block_sleep(1)
 
 
     def run(
@@ -124,9 +117,12 @@ class HomieService(Thread):
             name=self.name,
             status='started')
 
-        while not SHUTDOWN.is_set():
+        while not STOPACTION.is_set():
+
             self.__operate_desire()
             self.__operate_action()
+
+            block_sleep(0.15)
 
         homie.log_i(
             base='script',
@@ -179,7 +175,7 @@ class PhueStream(Thread):
         Perform whatever operations are associated with the file.
         """
 
-        while not SHUTDOWN.is_set():
+        while not STOPSTREAM.is_set():
 
             await asyncio.sleep(1)
 
@@ -204,6 +200,8 @@ class PhueStream(Thread):
         loop = asyncio.new_event_loop()
 
         asyncio.set_event_loop(loop)
+
+        ALOOPS[self.name] = loop
 
         loop.run_until_complete(
             self.__operate_stream())
@@ -270,7 +268,24 @@ def launcher_stop(
     Perform whatever operations are associated with the file.
     """
 
-    SHUTDOWN.set()
+    STOPSTREAM.set()
+
+
+    for loop in ALOOPS.values():
+
+        tasks = asyncio.all_tasks(loop)
+
+        for task in tasks:
+            task.cancel(True)
+
+
+    for loop in ALOOPS.values():
+
+        while loop.is_running():
+            block_sleep(1)
+
+
+    STOPACTION.set()
 
 
 
