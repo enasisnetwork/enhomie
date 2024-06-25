@@ -54,7 +54,7 @@ class UbiqRouter:
     __name: str
 
     __fetched: Optional[dict[str, _FETCH]]
-    __timer: Timer
+    __refresh: Timer
     __merged: Optional[_RAWDEV]
 
 
@@ -90,7 +90,7 @@ class UbiqRouter:
         self.__merged = None
 
 
-        self.__timer = Timer(
+        self.__refresh = Timer(
             60, start='-60s')
 
 
@@ -172,7 +172,7 @@ class UbiqRouter:
         Refresh the cached information for the remote upstream.
         """
 
-        timer = self.__timer
+        timer = self.__refresh
 
         timer.update(
             f'-{int(timer.timer)}s')
@@ -196,7 +196,7 @@ class UbiqRouter:
         """
 
         fetched = self.__fetched
-        timer = self.__timer
+        timer = self.__refresh
         router = self.__router
         request = router.request_proxy
 

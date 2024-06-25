@@ -47,7 +47,7 @@ class PhueBridge:
     __name: str
 
     __fetched: Optional[_FETCH]
-    __timer: Timer
+    __refresh: Timer
     __merged: Optional[_RAWDEV]
 
 
@@ -83,7 +83,7 @@ class PhueBridge:
         self.__merged = None
 
 
-        self.__timer = Timer(
+        self.__refresh = Timer(
             60, start='-60s')
 
 
@@ -165,7 +165,7 @@ class PhueBridge:
         Refresh the cached information for the remote upstream.
         """
 
-        timer = self.__timer
+        timer = self.__refresh
 
         timer.update(
             f'-{int(timer.timer)}s')
@@ -189,7 +189,7 @@ class PhueBridge:
         """
 
         fetched = self.__fetched
-        timer = self.__timer
+        timer = self.__refresh
         bridge = self.__bridge
         request = bridge.request
 

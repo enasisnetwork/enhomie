@@ -447,9 +447,9 @@ class Service(Thread):
         """
 
         homie = self.__homie
+        timer = self.__refresh
         config = homie.config
         sargs = config.sargs
-        timer = self.__refresh
 
         _desires = sargs['desires']
         _actions = sargs['actions']
@@ -472,7 +472,7 @@ class Service(Thread):
 
             homie.log_e(
                 base='Service',
-                name=self.name,
+                name=self.name[8:],
                 status='exception',
                 exc_info=reason)
 
@@ -492,7 +492,7 @@ class Service(Thread):
 
         homie.log_i(
             base='Service',
-            name=self.name,
+            name=self.name[8:],
             status='started')
 
 
@@ -514,7 +514,7 @@ class Service(Thread):
 
         homie.log_i(
             base='Service',
-            name=self.name,
+            name=self.name[8:],
             status='stopped')
 
 
@@ -583,7 +583,7 @@ class Service(Thread):
         homie.log(
             level=level,
             base='Service',
-            name=self.name,
+            name=self.name[8:],
             item='state/set',
             origin=origin,
             group=group.name,
@@ -657,7 +657,7 @@ class Service(Thread):
         homie.log(
             level=level,
             base='Service',
-            name=self.name,
+            name=self.name[8:],
             item='level/set',
             origin=origin,
             group=group.name,
@@ -737,7 +737,7 @@ class Service(Thread):
         homie.log(
             level=level,
             base='Service',
-            name=self.name,
+            name=self.name[8:],
             item='scene/set',
             origin=origin,
             group=group.name,
@@ -820,7 +820,7 @@ class PhueStream(Thread):
 
                 homie.log_d(
                     base='PhueStream',
-                    name=self.name,
+                    name=self.name[12:],
                     status='reading')
 
                 async for datas in stream:
@@ -830,21 +830,21 @@ class PhueStream(Thread):
 
                 homie.log_i(
                     base='PhueStream',
-                    name=self.name,
+                    name=self.name[12:],
                     status='canceled')
 
             except ReadTimeout:
 
                 homie.log_d(
                     base='PhueStream',
-                    name=self.name,
+                    name=self.name[12:],
                     status='timeout')
 
             except Exception as reason:
 
                 homie.log_e(
                     base='PhueStream',
-                    name=self.name,
+                    name=self.name[12:],
                     status='exception',
                     exc_info=reason)
 
@@ -862,7 +862,7 @@ class PhueStream(Thread):
 
         homie.log_i(
             base='PhueStream',
-            name=self.name,
+            name=self.name[12:],
             status='started')
 
 
@@ -885,7 +885,7 @@ class PhueStream(Thread):
 
         homie.log_i(
             base='PhueStream',
-            name=self.name,
+            name=self.name[12:],
             status='stopped')
 
 
