@@ -121,17 +121,19 @@ class HomieScene:
         :returns: Dictionary containing the source from bridge.
         """
 
+        params = self.params
+
         bridge = group.phue_bridge
 
-        label = self.params.phue_label
-        group_phid = group.phue_unique
+        label = params.phue_label
+        _group = group.phue_unique
 
-        assert group_phid is not None
+        assert _group is not None
 
         return bridge.get_source(
             label=label,
             type='scene',
-            grid=group_phid)
+            grid=_group)
 
 
     def phue_unique(
@@ -205,21 +207,21 @@ class HomieScene:
 
         bridge = group.phue_bridge
 
-        group_phid = group.phue_unique
+        _group = group.phue_unique
 
-        assert group_phid is not None
+        assert _group is not None
 
-        crrnt_phid = (
-            bridge.scene_get(group_phid))
+        current = (
+            bridge.scene_get(_group))
 
-        scene_phid = (
+        scene = (
             self.phue_unique(group))
 
-        if (crrnt_phid is None
-                or scene_phid is None):
+        if (current is None
+                or scene is None):
             return False
 
-        return crrnt_phid == scene_phid
+        return current == scene
 
 
     def scene_set(
@@ -234,12 +236,12 @@ class HomieScene:
 
         bridge = group.phue_bridge
 
-        scene_phid = (
+        scene = (
             self.phue_unique(group))
 
-        assert scene_phid is not None
+        assert scene is not None
 
-        bridge.scene_set(scene_phid)
+        bridge.scene_set(scene)
 
 
     def homie_dumper(
