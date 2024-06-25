@@ -100,7 +100,7 @@ class UbiqClient:
             or router_name is None)
 
 
-    def refresh_source(
+    def refresh(
         self,
     ) -> None:
         """
@@ -357,7 +357,7 @@ class UbiqClient:
         params = (
             self.params.model_dump())
 
-        self.refresh_source()
+        self.refresh()
 
         return {
             'name': self.name,

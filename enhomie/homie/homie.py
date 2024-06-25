@@ -613,6 +613,17 @@ class Homie:
         Refresh the information for the relevant Homie objects.
         """
 
+        self.refresh_source()
+        self.refresh_object()
+
+
+    def refresh_source(
+        self,
+    ) -> None:
+        """
+        Refresh the information for the relevant Homie objects.
+        """
+
 
         def _refresh_phue() -> None:
 
@@ -621,14 +632,7 @@ class Homie:
                 .values())
 
             for bridge in bridges:
-                bridge.refresh_source()
-
-            devices = (
-                self.phue_devices
-                .values())
-
-            for device in devices:
-                device.refresh_source()
+                bridge.refresh()
 
 
         def _refresh_ubiq() -> None:
@@ -638,14 +642,40 @@ class Homie:
                 .values())
 
             for router in routers:
-                router.refresh_source()
+                router.refresh()
+
+
+        _refresh_phue()
+
+        _refresh_ubiq()
+
+
+    def refresh_object(
+        self,
+    ) -> None:
+        """
+        Refresh the information for the relevant Homie objects.
+        """
+
+
+        def _refresh_phue() -> None:
+
+            devices = (
+                self.phue_devices
+                .values())
+
+            for device in devices:
+                device.refresh()
+
+
+        def _refresh_ubiq() -> None:
 
             clients = (
                 self.ubiq_clients
                 .values())
 
             for client in clients:
-                client.refresh_source()
+                client.refresh()
 
 
         _refresh_phue()
@@ -943,7 +973,6 @@ class Homie:
         _dumped = {}
 
         for device in phue_devices:
-            device.refresh_source()
             _dumped[device.name] = {
                 'present': device.present,
                 'connect': device.connect}
@@ -969,7 +998,6 @@ class Homie:
         _dumped = {}
 
         for client in ubiq_clients:
-            client.refresh_source()
             _dumped[client.name] = {
                 'present': client.present,
                 'connect': client.connect}

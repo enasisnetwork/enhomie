@@ -145,6 +145,17 @@ def operate_main(  # noqa: CFQ001
             changed = True
 
 
+        if changed is True:
+
+            phue_bridge = (
+                group.phue_bridge)
+
+            if phue_bridge is not None:
+                phue_bridge.refresh()
+
+            homie.refresh_object()
+
+
         status = (
             'issued'
             if changed is True
@@ -184,6 +195,17 @@ def operate_main(  # noqa: CFQ001
             changed = True
 
 
+        if changed is True:
+
+            phue_bridge = (
+                group.phue_bridge)
+
+            if phue_bridge is not None:
+                phue_bridge.refresh()
+
+            homie.refresh_object()
+
+
         status = (
             'issued'
             if changed is True
@@ -221,6 +243,17 @@ def operate_main(  # noqa: CFQ001
             block_sleep(1)
 
             changed = True
+
+
+        if changed is True:
+
+            phue_bridge = (
+                group.phue_bridge)
+
+            if phue_bridge is not None:
+                phue_bridge.refresh()
+
+            homie.refresh_object()
 
 
         _current = (

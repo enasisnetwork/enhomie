@@ -571,9 +571,19 @@ class Service(Thread):
             level = 'info'
 
 
+        if changed is True:
+
+            phue_bridge = (
+                group.phue_bridge)
+
+            if phue_bridge is not None:
+                phue_bridge.refresh()
+
+            homie.refresh_object()
+
+
         origin = (
-            f'{item.type}/'
-            f'{item.name}')
+            f'{item.type}/{item.name}')
 
         status = (
             'issued'
@@ -645,9 +655,19 @@ class Service(Thread):
             level = 'info'
 
 
+        if changed is True:
+
+            phue_bridge = (
+                group.phue_bridge)
+
+            if phue_bridge is not None:
+                phue_bridge.refresh()
+
+            homie.refresh_object()
+
+
         origin = (
-            f'{item.type}/'
-            f'{item.name}')
+            f'{item.type}/{item.name}')
 
         status = (
             'issued'
@@ -720,9 +740,19 @@ class Service(Thread):
             level = 'info'
 
 
+        if changed is True:
+
+            phue_bridge = (
+                group.phue_bridge)
+
+            if phue_bridge is not None:
+                phue_bridge.refresh()
+
+            homie.refresh_object()
+
+
         origin = (
-            f'{item.type}/'
-            f'{item.name}')
+            f'{item.type}/{item.name}')
 
         _current = (
             'unset'

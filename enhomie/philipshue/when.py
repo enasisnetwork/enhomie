@@ -64,7 +64,6 @@ def when_phue_change(
     for name in _devices:
 
         device = devices[name]
-        device.refresh_source()
 
         present = device.present
         connect = device.connect

@@ -39,6 +39,8 @@ def test_what_phue_motion(
     :param homie: Primary class instance for Homie Automate.
     """
 
+    homie.refresh()
+
     _events = loads(
         read_text(
             f'{SAMPLES}/events'
@@ -95,6 +97,8 @@ def test_what_phue_motion_cover(
         config_factory(tmp_path),
         respx_mock)
 
+    homie.refresh()
+
 
     phue_motion = (
         WhatPhueMotionParams(
@@ -138,6 +142,8 @@ def test_what_phue_button(
 
     :param homie: Primary class instance for Homie Automate.
     """
+
+    homie.refresh()
 
     _events = loads(
         read_text(
@@ -195,6 +201,8 @@ def test_what_phue_button_cover(
     homie = homie_factory(
         config_factory(tmp_path),
         respx_mock)
+
+    homie.refresh()
 
 
     phue_button = (
@@ -258,6 +266,8 @@ def test_what_phue_contact(
     :param homie: Primary class instance for Homie Automate.
     """
 
+    homie.refresh()
+
     _events = loads(
         read_text(
             f'{SAMPLES}/events'
@@ -315,6 +325,8 @@ def test_what_phue_contact_cover(
     homie = homie_factory(
         config_factory(tmp_path),
         respx_mock)
+
+    homie.refresh()
 
 
     phue_contact = (

@@ -158,7 +158,7 @@ class PhueBridge:
         return bool(self.__merged)
 
 
-    def refresh_source(
+    def refresh(
         self,
     ) -> None:
         """

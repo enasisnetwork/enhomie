@@ -97,17 +97,17 @@ def test_HomieAction(
     assert action.paused is False
 
     assert action.outcomes == {
-        'default': [True]}
+        'default': [False]}
 
-    assert action.outcome is True
+    assert action.outcome is False
 
     matches = action.matches(_events[0])
 
-    assert matches == [True, False, False]
+    assert matches == [False, False, False]
 
     match = action.match(_events[0])
 
-    assert match is True
+    assert match is False
 
 
     sample_path = (
@@ -136,6 +136,8 @@ def test_HomieAction_cover(
 
     :param homie: Primary class instance for Homie Automate.
     """
+
+    homie.refresh()
 
     actions = homie.actions
     jupiter = actions['jupiter']

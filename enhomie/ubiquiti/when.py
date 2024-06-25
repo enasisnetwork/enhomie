@@ -62,7 +62,6 @@ def when_ubiq_client(
     for name in _clients:
 
         client = clients[name]
-        client.refresh_source()
 
         present = client.present
         connect = client.connect

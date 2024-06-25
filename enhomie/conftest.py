@@ -236,7 +236,7 @@ def homie_factory(  # noqa: CFQ001
         .values())
 
     for phue_bridge in phue_bridges:
-        phue_bridge.refresh_source()
+        phue_bridge.refresh()
 
 
     (respx_mock
@@ -302,7 +302,7 @@ def homie_factory(  # noqa: CFQ001
         .values())
 
     for ubiq_router in ubiq_routers:
-        ubiq_router.refresh_source()
+        ubiq_router.refresh()
 
 
     return homie
