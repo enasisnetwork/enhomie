@@ -72,6 +72,8 @@ def test_HomieAction(
 
     assert action.name == 'jupiter'
 
+    assert action.type == 'action'
+
     assert len(action.whats) == 3
 
     assert len(action.whens) == 1

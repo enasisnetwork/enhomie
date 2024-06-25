@@ -8,11 +8,13 @@ is permitted, for more information consult the project license file.
 
 
 from contextlib import suppress
+from copy import deepcopy
 from typing import Any
 from typing import Optional
 
 from encommon.config import Config as _Config
 from encommon.types import merge_dicts
+from encommon.types import setate
 from encommon.utils.common import PATHABLE
 
 from .params import Params
@@ -39,16 +41,28 @@ class Config(_Config):
         Initialize instance for class using provided parameters.
         """
 
-
-        sargs = dict(sargs or {})
+        sargs = deepcopy(sargs or {})
+        cargs = deepcopy(cargs or {})
 
         if 'dryrun' in sargs:
+            dryrun = sargs['dryrun']
+            cargs['dryrun'] = dryrun
 
-            cargs = dict(cargs or {})
+        if 'idempt' in sargs:
+            idempt = sargs['idempt']
+            cargs['idempt'] = idempt
 
-            cargs['dryrun'] = (
-                sargs['dryrun'])
+        if 'quiet' in sargs:
+            quiet = sargs['quiet']
+            cargs['quiet'] = quiet
 
+        if sargs.get('console'):
+            key = 'enlogger/stdo_level'
+            setate(cargs, key, 'info')
+
+        if sargs.get('debug'):
+            key = 'enlogger/stdo_level'
+            setate(cargs, key, 'debug')
 
         super().__init__(
             files=files,

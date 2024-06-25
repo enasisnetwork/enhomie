@@ -210,10 +210,10 @@ class PhueBridge:
 
             fetched = response.json()
 
-            self.homie.log_i(
+            self.homie.log_d(
                 base='PhueBridge',
                 name=self.name,
-                action='fetch',
+                item='fetch',
                 elapsed=runtime.since,
                 status='success')
 
@@ -222,7 +222,7 @@ class PhueBridge:
             self.homie.log_e(
                 base='PhueBridge',
                 name=self.name,
-                action='fetch',
+                item='fetch',
                 elapsed=runtime.since,
                 status='failure',
                 exc_info=reason)
@@ -430,40 +430,40 @@ class PhueBridge:
 
     def state_get(
         self,
-        light_phid: str,
+        light: str,
     ) -> 'HOMIE_STATE':
         """
         Return the current state of the light within the bridge.
 
-        :param light_phid: Unique identifier of light in bridge.
+        :param light: Unique identifier of light within bridge.
         :returns: Current state of the light within the bridge.
         """
 
-        merged = self.merged
+        state = (
+            self.merged[light]
+            ['on']['on'])
 
-        light = merged[light_phid]
-
-        state = light['on']['on']
-
-        return 'on' if state else 'off'
+        return (
+            'on' if state
+            else 'off')
 
 
     def state_set(
         self,
-        light_phid: str,
+        light: str,
         state: 'HOMIE_STATE',
     ) -> None:
         """
         Update the current state of the light within the bridge.
 
-        :param light_phid: Unique identifier of light in bridge.
+        :param light: Unique identifier of light within bridge.
         :param state: Desired state for the lights within group.
         """
 
         self.homie.log_d(
             base='PhueBridge',
-            action='state_set',
-            light=light_phid,
+            item='state/set',
+            light=light,
             value=state,
             status='attempt')
 
@@ -472,7 +472,7 @@ class PhueBridge:
 
         path = (
             'resource/grouped_light'
-            f'/{light_phid}')
+            f'/{light}')
 
 
         payload: dict[str, Any] = {}
@@ -491,8 +491,8 @@ class PhueBridge:
 
         self.homie.log_d(
             base='PhueBridge',
-            action='state_set',
-            light=light_phid,
+            item='state/set',
+            light=light,
             value=state,
             elapsed=runtime.since,
             status='success')
@@ -500,42 +500,37 @@ class PhueBridge:
 
     def level_get(
         self,
-        light_phid: str,
+        light: str,
     ) -> int:
         """
         Return the current level of the light within the bridge.
 
-        :param light_phid: Unique identifier of light in bridge.
+        :param light: Unique identifier of light within bridge.
         :returns: Current level of the light within the bridge.
         """
 
-        merged = self.merged
-
-        light = merged[light_phid]
-
-        level = (
-            light['dimming']
+        return int(
+            self.merged[light]
+            ['dimming']
             ['brightness'])
-
-        return int(level)
 
 
     def level_set(
         self,
-        light_phid: str,
+        light: str,
         level: int,
     ) -> None:
         """
         Update the current level of the light within the bridge.
 
-        :param light_phid: Unique identifier of light in bridge.
+        :param light: Unique identifier of light within bridge.
         :param level: Desired level for the lights within group.
         """
 
         self.homie.log_d(
             base='PhueBridge',
-            action='level_set',
-            light=light_phid,
+            item='level/set',
+            light=light,
             value=level,
             status='attempt')
 
@@ -544,7 +539,7 @@ class PhueBridge:
 
         path = (
             'resource/grouped_light'
-            f'/{light_phid}')
+            f'/{light}')
 
 
         payload: dict[str, Any] = {}
@@ -563,8 +558,8 @@ class PhueBridge:
 
         self.homie.log_d(
             base='PhueBridge',
-            action='level_set',
-            light=light_phid,
+            action='level/set',
+            light=light,
             value=level,
             elapsed=runtime.since,
             status='success')
@@ -572,12 +567,12 @@ class PhueBridge:
 
     def scene_get(
         self,
-        group_phid: str,
+        group: str,
     ) -> Optional[str]:
         """
         Return the current scene of the group within the bridge.
 
-        :param group_phid: Unique identifier of group in bridge.
+        :param group: Unique identifier of group in bridge.
         :returns: Current scene of the group within the bridge.
         """
 
@@ -591,7 +586,7 @@ class PhueBridge:
             _group = fetch['group']
             _phid = _group['rid']
 
-            if _phid != group_phid:
+            if _phid != group:
                 continue
 
             status = fetch['status']
@@ -605,18 +600,18 @@ class PhueBridge:
 
     def scene_set(
         self,
-        scene_phid: str,
+        scene: str,
     ) -> None:
         """
         Update the current scene of the group within the bridge.
 
-        :param scene_phid: Unique identifier of group in bridge.
+        :param scene: Unique identifier of group within bridge.
         """
 
         self.homie.log_d(
             base='PhueBridge',
-            action='scene_set',
-            value=scene_phid,
+            item='scene/set',
+            value=scene,
             status='attempt')
 
         runtime = Times()
@@ -624,7 +619,7 @@ class PhueBridge:
 
         path = (
             'resource/scene'
-            f'/{scene_phid}')
+            f'/{scene}')
 
 
         payload: dict[str, Any] = {}
@@ -643,8 +638,8 @@ class PhueBridge:
 
         self.homie.log_d(
             base='PhueBridge',
-            action='scene_set',
-            value=scene_phid,
+            item='scene/set',
+            value=scene,
             elapsed=runtime.since,
             status='success')
 

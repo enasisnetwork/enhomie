@@ -156,6 +156,19 @@ class HomieAction:
 
 
     @property
+    def type(
+        self,
+    ) -> str:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return 'action'
+
+
+    @property
     def whats(
         self,
     ) -> list[HomieWhat]:

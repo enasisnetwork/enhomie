@@ -12,13 +12,15 @@
     ]
   },
   "enlogger": {
-    "stdo_level": "info",
+    "stdo_level": "debug",
     "file_level": null,
     "file_path": null
   },
   "encrypts": null,
   "cache": "sqlite:///:memory:",
   "dryrun": false,
+  "idempt": false,
+  "quiet": false,
   "sargs": null,
   "groups": {
     "jupiter_room": {

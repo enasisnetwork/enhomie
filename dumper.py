@@ -35,6 +35,29 @@ def launcher_args() -> dict[str, Any]:
             'path to config file'))
 
     parser.add_argument(
+        '--console',
+        # Argument not like other files
+        action='store_true',
+        default=True,
+        help='always true for script')
+
+    parser.add_argument(
+        '--debug',
+        action='store_true',
+        default=False,
+        help=(
+            'increase logging level '
+            'for standard output'))
+
+    parser.add_argument(
+        '--dry-run',
+        action='store_true',
+        # Argument not like other files
+        default=True,
+        dest='dryrun',
+        help='always true for script')
+
+    parser.add_argument(
         '--scope',
         required=True,
         choices=[
@@ -187,7 +210,9 @@ def print_desired(
 
     groups = homie.groups
 
-    items = homie.desired.items()
+    desired = homie.desired(False)
+
+    items = desired.items()
 
     for group_name, desire in items:
 
@@ -447,20 +472,18 @@ def launcher_main() -> None:
 
     config = Config(
         args['config'],
-        {'dryrun': True},
         sargs=args)
 
     config.logger.start()
 
     config.logger.log_i(
         base='script',
-        item='dumper',
-        status='merged')
+        status='started')
 
 
     homie = Homie(config)
 
-    homie.refresh_source()
+    homie.refresh()
 
 
     operate_main(homie)
@@ -468,7 +491,6 @@ def launcher_main() -> None:
 
     config.logger.log_i(
         base='script',
-        item='dumper',
         status='stopped')
 
 
