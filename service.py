@@ -40,8 +40,8 @@ CancelledError = asyncio.CancelledError
 
 
 
-STOP_STREAM = AsyncEvent()
-STOP_ACTION = AsyncEvent()
+NOSTREAM = AsyncEvent()
+NOACTION = AsyncEvent()
 
 ALOOPS: dict[str, AbstractEventLoop] = {}
 THREADS: dict[str, Thread] = {}
@@ -59,6 +59,10 @@ class StreamItem:
 
 
 
+STREAM: Queue[StreamItem] = Queue()
+
+
+
 @dataclass
 class PhueStreamItem(StreamItem):
     """
@@ -66,10 +70,6 @@ class PhueStreamItem(StreamItem):
     """
 
     bridge: str
-
-
-
-PHUE_STREAM: Queue[PhueStreamItem] = Queue()
 
 
 
@@ -104,6 +104,14 @@ def launcher_args() -> dict[str, Any]:
         help=(
             'do not make change if '
             'would not change value'))
+
+    parser.add_argument(
+        '--quiet',
+        action='store_true',
+        default=False,
+        help=(
+            'only log when changes '
+            'are made and different'))
 
     parser.add_argument(
         '--actions',
@@ -193,7 +201,7 @@ def printer(
 
 
 
-class HomieService(Thread):
+class Service(Thread):
     """
     Handle when exceptions occur within the thread routine.
 
@@ -228,8 +236,10 @@ class HomieService(Thread):
         config = homie.config
         sargs = config.sargs
 
+
         self.__refresh = Timer(
             sargs['refresh'])
+
 
         _pause = sargs['pause']
 
@@ -238,7 +248,7 @@ class HomieService(Thread):
             start=f'-{_pause}s')
 
 
-    def __operate_desires(
+    def __desired(
         self,
     ) -> None:
         """
@@ -248,7 +258,9 @@ class HomieService(Thread):
         homie = self.__homie
         timer = self.__desires
 
-        if not timer.ready():
+        ready = timer.ready()
+
+        if ready is False:
             return
 
         config = homie.config
@@ -291,7 +303,7 @@ class HomieService(Thread):
                 desire.update_timer()
 
 
-    def __operate_actions(
+    def __aspired(
         self,
         item: StreamItem,
     ) -> None:
@@ -344,14 +356,14 @@ class HomieService(Thread):
                 action.update_timer()
 
 
-    def __operate_streams(
+    def __streams(
         self,
     ) -> None:
         """
         Perform whatever operations are associated with the file.
         """
 
-        if PHUE_STREAM.empty():
+        if STREAM.empty():
             return
 
         homie = self.__homie
@@ -362,39 +374,56 @@ class HomieService(Thread):
         _actions = sargs['actions']
 
 
-        def _print_phue_event() -> None:
+        def _phue_stream(
+            item: StreamItem,
+        ) -> None:
 
-            timestamp = item.times.human
+            related = isinstance(
+                item, PhueStreamItem)
 
-            duration = Duration(
-                item.times.since)
+            if related is False:
+                return
+
+            if _actions is True:
+                self.__aspired(item)
+
+            if _watcher is True:
+                _phue_print(item)
+
+
+        def _phue_print(
+            item: StreamItem,
+        ) -> None:
+
+            assert isinstance(
+                item, PhueStreamItem)
+
+            stamp = item.times.human
+            since = item.times.since
+
+            duration = Duration(since)
+
+            bridge = (
+                homie.phue_bridges
+                [item.bridge])
 
             header = {
                 'Source': 'Philips Hue',
-                'Bridge': phue_bridge.name,
-                'Timestamp': timestamp,
+                'Bridge': bridge.name,
+                'Timestamp': stamp,
                 'Elapsed': duration}
 
             printer(header, item.event)
 
 
-        phue_bridges = homie.phue_bridges
+        while not STREAM.empty():
 
-        while not PHUE_STREAM.empty():
+            item = STREAM.get()
 
-            item = PHUE_STREAM.get()
-
-            phue_bridge = (
-                phue_bridges[item.bridge])
-
-            if _watcher is True:
-                _print_phue_event()
-
-            if _actions is True:
-                self.__operate_actions(item)
+            _phue_stream(item)
 
 
-    def run(
+    def __operate(
         self,
     ) -> None:
         """
@@ -410,56 +439,65 @@ class HomieService(Thread):
         _actions = sargs['actions']
         _watcher = sargs['watcher']
 
+        try:
+
+            ready = timer.ready()
+
+            if ready is True:
+                homie.refresh()
+
+            if _watcher or _actions:
+                self.__streams()
+
+            if _desires is True:
+                self.__desired()
+
+        except Exception as reason:
+
+            homie.log_e(
+                base='Service',
+                name=self.name,
+                status='exception',
+                exc_info=reason)
+
+            block_sleep(1)
+
+
+    def run(
+        self,
+    ) -> None:
+        """
+        Perform whatever operations are associated with the file.
+        """
+
+        homie = self.__homie
+        config = homie.config
+        sargs = config.sargs
+
         homie.log_i(
-            base='script',
-            item='service/thread',
+            base='Service',
             name=self.name,
             status='started')
 
 
         enabled = any([
-            _desires,
-            _actions,
-            _watcher])
+            sargs['desires'],
+            sargs['actions'],
+            sargs['watcher']])
 
         if enabled is False:
-            launcher_stop()
+            shutdown()
 
 
-        def _operate_routines() -> None:
+        while not NOACTION.is_set():
 
-            if timer.ready():
-                homie.refresh_source()
-
-            if _watcher or _actions:
-                self.__operate_streams()
-
-            if _desires is True:
-                self.__operate_desires()
-
-
-        while not STOP_ACTION.is_set():
-
-            try:
-                _operate_routines()
-
-            except Exception as reason:
-
-                homie.log_e(
-                    base='script',
-                    item='service/thread',
-                    name=self.name,
-                    status='exception',
-                    exc_info=reason)
-
-                block_sleep(1)
+            self.__operate()
 
             block_sleep(0.15)
 
 
         homie.log_i(
-            base='script',
-            item='service/thread',
+            base='Service',
             name=self.name,
             status='stopped')
 
@@ -482,6 +520,7 @@ class HomieService(Thread):
 
         _dryrun = sargs['dryrun']
         _idemp = sargs['idemp']
+        _quiet = sargs['quiet']
 
 
         current = group.state_get()
@@ -489,11 +528,12 @@ class HomieService(Thread):
 
         assert desired is not None
 
+        same = desired == current
+
 
         changed = False
 
-        if (desired == current
-                and _idemp is True):
+        if same and _idemp:
             changed = False
 
         elif _dryrun is False:
@@ -505,15 +545,35 @@ class HomieService(Thread):
 
             changed = True
 
-        homie.log_i(
-            base='script',
-            action='state_set',
+
+        level = 'debug'
+
+        if same and not _quiet:
+            level = 'info'
+
+        if desired != current:
+            level = 'info'
+
+
+        origin = (
+            f'{item.type}/'
+            f'{item.name}')
+
+        status = (
+            'issued'
+            if changed is True
+            else 'skipped')
+
+        homie.log(
+            level=level,
+            base='Service',
+            name=self.name,
+            item='state/set',
+            origin=origin,
             group=group.name,
             current=current,
             desired=desired,
-            status=(
-                'submit' if changed
-                else 'skipped'))
+            status=status)
 
 
     def __level_set(
@@ -534,6 +594,7 @@ class HomieService(Thread):
 
         _dryrun = sargs['dryrun']
         _idemp = sargs['idemp']
+        _quiet = sargs['quiet']
 
 
         current = group.level_get()
@@ -541,11 +602,12 @@ class HomieService(Thread):
 
         assert desired is not None
 
+        same = desired == current
+
 
         changed = False
 
-        if (desired == current
-                and _idemp is True):
+        if same and _idemp:
             changed = False
 
         elif _dryrun is False:
@@ -557,15 +619,35 @@ class HomieService(Thread):
 
             changed = True
 
-        homie.log_i(
-            base='script',
-            action='level_set',
+
+        level = 'debug'
+
+        if same and not _quiet:
+            level = 'info'
+
+        if desired != current:
+            level = 'info'
+
+
+        origin = (
+            f'{item.type}/'
+            f'{item.name}')
+
+        status = (
+            'issued'
+            if changed is True
+            else 'skipped')
+
+        homie.log(
+            level=level,
+            base='Service',
+            name=self.name,
+            item='level/set',
+            origin=origin,
             group=group.name,
             current=current,
             desired=desired,
-            status=(
-                'submit' if changed
-                else 'skipped'))
+            status=status)
 
 
     def __scene_set(
@@ -587,6 +669,7 @@ class HomieService(Thread):
 
         _dryrun = sargs['dryrun']
         _idemp = sargs['idemp']
+        _quiet = sargs['quiet']
 
 
         assert item.scene is not None
@@ -594,11 +677,12 @@ class HomieService(Thread):
         current = group.scene_get()
         desired = scenes[item.scene]
 
+        same = desired == current
+
 
         changed = False
 
-        if (desired == current
-                and _idemp is True):
+        if same and _idemp:
             changed = False
 
         elif _dryrun is False:
@@ -610,22 +694,40 @@ class HomieService(Thread):
 
             changed = True
 
-        _current = (
-            current.name
-            if current is not None
-            else None)
 
-        homie.log_i(
-            base='script',
-            action='scene_set',
+        level = 'debug'
+
+        if same and not _quiet:
+            level = 'info'
+
+        if desired != current:
+            level = 'info'
+
+
+        origin = (
+            f'{item.type}/'
+            f'{item.name}')
+
+        _current = (
+            'unset'
+            if current is None
+            else current.name)
+
+        status = (
+            'issued'
+            if changed is True
+            else 'skipped')
+
+        homie.log(
+            level=level,
+            base='Service',
+            name=self.name,
+            item='scene/set',
+            origin=origin,
             group=group.name,
-            current=(
-                _current if _current
-                else 'unset'),
+            current=_current,
             desired=desired.name,
-            status=(
-                'submit' if changed
-                else 'skipped'))
+            status=status)
 
 
 
@@ -665,7 +767,7 @@ class PhueStream(Thread):
         super().__init__(name=_name)
 
 
-    async def __operate_stream(
+    async def __operate(
         self,
     ) -> None:
         """
@@ -689,10 +791,10 @@ class PhueStream(Thread):
                     event=data,
                     times=Times('now'))
 
-                PHUE_STREAM.put(item)
+                STREAM.put(item)
 
 
-        while not STOP_STREAM.is_set():
+        while not NOSTREAM.is_set():
 
             stream = (
                 bridge.bridge
@@ -701,8 +803,7 @@ class PhueStream(Thread):
             try:
 
                 homie.log_d(
-                    base='script',
-                    item='service/thread',
+                    base='PhueStream',
                     name=self.name,
                     status='reading')
 
@@ -712,24 +813,21 @@ class PhueStream(Thread):
             except CancelledError:
 
                 homie.log_i(
-                    base='script',
-                    item='service/thread',
+                    base='PhueStream',
                     name=self.name,
                     status='canceled')
 
             except ReadTimeout:
 
                 homie.log_d(
-                    base='script',
-                    item='service/thread',
+                    base='PhueStream',
                     name=self.name,
                     status='timeout')
 
             except Exception as reason:
 
                 homie.log_e(
-                    base='script',
-                    item='service/thread',
+                    base='PhueStream',
                     name=self.name,
                     status='exception',
                     exc_info=reason)
@@ -747,27 +845,30 @@ class PhueStream(Thread):
         homie = self.__homie
 
         homie.log_i(
-            base='script',
-            item='service/thread',
+            base='PhueStream',
             name=self.name,
             status='started')
 
 
-        loop = asyncio.new_event_loop()
+        ALOOPS[self.name] = (
+            asyncio
+            .new_event_loop())
 
-        asyncio.set_event_loop(loop)
 
-        ALOOPS[self.name] = loop
+        loop = ALOOPS[self.name]
+
+        (asyncio
+         .set_event_loop(loop))
 
         loop.run_until_complete(
-            self.__operate_stream())
+            self.__operate())
+
 
         loop.close()
 
 
         homie.log_i(
-            base='script',
-            item='service/thread',
+            base='PhueStream',
             name=self.name,
             status='stopped')
 
@@ -791,7 +892,7 @@ def operate_main(
 
     def _homie_service() -> None:
 
-        thread = HomieService(homie)
+        thread = Service(homie)
 
         thread.start()
 
@@ -802,11 +903,11 @@ def operate_main(
 
     def _phue_streams() -> None:
 
-        bridges = homie.phue_bridges
+        bridges = (
+            homie.phue_bridges
+            .values())
 
-        values = bridges.values()
-
-        for bridge in values:
+        for bridge in bridges:
 
             thread = PhueStream(bridge)
 
@@ -817,14 +918,34 @@ def operate_main(
             THREADS[name] = thread
 
 
-    _homie_service()
+    try:
 
-    if _actions or _watcher:
-        _phue_streams()
+        _homie_service()
+
+        if _actions or _watcher:
+            _phue_streams()
+
+    finally:
+
+        threads = THREADS.values()
+
+        for thread in threads:
+
+            homie.log_i(
+                base='script',
+                thread=thread.name,
+                status='joining')
+
+            thread.join()
+
+            homie.log_i(
+                base='script',
+                thread=thread.name,
+                status='joined')
 
 
 
-def launcher_stop(
+def shutdown(
     *args: Any,  # noqa: ANN401
     **kwargs: Any,  # noqa: ANN401
 ) -> None:
@@ -832,12 +953,14 @@ def launcher_stop(
     Perform whatever operations are associated with the file.
     """
 
-    STOP_STREAM.set()
+    NOSTREAM.set()
 
 
     for loop in ALOOPS.values():
 
-        tasks = asyncio.all_tasks(loop)
+        tasks = (
+            asyncio
+            .all_tasks(loop))
 
         for task in tasks:
             task.cancel(True)
@@ -846,10 +969,10 @@ def launcher_stop(
     for loop in ALOOPS.values():
 
         while loop.is_running():
-            block_sleep(1)
+            block_sleep(0.5)
 
 
-    STOP_ACTION.set()
+    NOACTION.set()
 
 
 
@@ -864,41 +987,30 @@ def launcher_main() -> None:
 
     config = Config(
         args['config'],
-        {'dryrun': args['dryrun']},
         sargs=args)
 
     config.logger.start()
 
     config.logger.log_i(
         base='script',
-        item='service',
-        status='merged')
+        status='started')
 
 
     homie = Homie(config)
 
-    homie.refresh_source()
+    homie.refresh()
 
 
-    signal(SIGINT, launcher_stop)
-    signal(SIGTERM, launcher_stop)
-    signal(SIGHUP, launcher_stop)
+    signal(SIGINT, shutdown)
+    signal(SIGTERM, shutdown)
+    signal(SIGHUP, shutdown)
 
 
-    try:
-        operate_main(homie)
-
-    finally:
-
-        threads = THREADS.values()
-
-        for thread in threads:
-            thread.join()
+    operate_main(homie)
 
 
     config.logger.log_i(
         base='script',
-        item='service',
         status='stopped')
 
 

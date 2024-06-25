@@ -110,10 +110,12 @@ def operate_main(  # noqa: CFQ001
         current = group.state_get()
         desired = _state.strip()
 
+        same = desired == current
+
+
         changed = False
 
-        if (desired == current
-                and _idemp is True):
+        if same and _idemp:
             changed = False
 
         elif _dryrun is False:
@@ -125,15 +127,19 @@ def operate_main(  # noqa: CFQ001
 
             changed = True
 
+
+        status = (
+            'issued'
+            if changed is True
+            else 'skipped')
+
         homie.log_i(
             base='script',
-            action='state_set',
+            item='state/set',
             group=group.name,
             current=current,
             desired=desired,
-            status=(
-                'submit' if changed
-                else 'skipped'))
+            status=status)
 
 
     def _level_set() -> None:
@@ -143,10 +149,12 @@ def operate_main(  # noqa: CFQ001
         current = group.level_get()
         desired = int(_level)
 
+        same = desired == current
+
+
         changed = False
 
-        if (desired == current
-                and _idemp is True):
+        if same and _idemp:
             changed = False
 
         elif _dryrun is False:
@@ -158,15 +166,19 @@ def operate_main(  # noqa: CFQ001
 
             changed = True
 
+
+        status = (
+            'issued'
+            if changed is True
+            else 'skipped')
+
         homie.log_i(
             base='script',
-            action='level_set',
+            item='level/set',
             group=group.name,
             current=current,
             desired=desired,
-            status=(
-                'submit' if changed
-                else 'skipped'))
+            status=status)
 
 
     def _scene_set() -> None:
@@ -176,10 +188,12 @@ def operate_main(  # noqa: CFQ001
         current = group.scene_get()
         desired = scenes[_scene]
 
+        same = desired == current
+
+
         changed = False
 
-        if (desired == current
-                and _idemp is True):
+        if same and _idemp:
             changed = False
 
         elif _dryrun is False:
@@ -191,22 +205,24 @@ def operate_main(  # noqa: CFQ001
 
             changed = True
 
+
         _current = (
-            current.name
-            if current is not None
-            else None)
+            'unset'
+            if current is None
+            else current.name)
+
+        status = (
+            'issued'
+            if changed is True
+            else 'skipped')
 
         homie.log_i(
             base='script',
-            action='scene_set',
+            item='scene/set',
             group=group.name,
-            current=(
-                _current if _current
-                else 'unset'),
+            current=_current,
             desired=desired.name,
-            status=(
-                'submit' if changed
-                else 'skipped'))
+            status=status)
 
 
     if _scene is not None:
@@ -235,13 +251,10 @@ def launcher_main() -> None:
 
     config.logger.log_i(
         base='script',
-        item='update',
-        status='merged')
+        status='started')
 
 
     homie = Homie(config)
-
-    homie.refresh_source()
 
 
     operate_main(homie)
@@ -249,7 +262,6 @@ def launcher_main() -> None:
 
     config.logger.log_i(
         base='script',
-        item='update',
         status='stopped')
 
 

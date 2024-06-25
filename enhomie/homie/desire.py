@@ -148,6 +148,19 @@ class HomieDesire:
 
 
     @property
+    def type(
+        self,
+    ) -> str:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return 'desire'
+
+
+    @property
     def whens(
         self,
     ) -> list[HomieWhen]:

@@ -62,6 +62,8 @@ def test_HomieDesire(
 
     assert desire.name == 'jupiter'
 
+    assert desire.type == 'desire'
+
     assert len(desire.whens) == 3
 
     assert len(desire.groups) == 2

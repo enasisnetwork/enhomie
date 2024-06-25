@@ -220,10 +220,10 @@ class UbiqRouter:
 
             realtime = response.json()
 
-            self.homie.log_i(
+            self.homie.log_d(
                 base='UbiqRouter',
                 name=self.name,
-                action='fetch',
+                item='fetch',
                 elapsed=runtime.since,
                 status='success')
 
@@ -232,7 +232,7 @@ class UbiqRouter:
             self.homie.log_e(
                 base='UbiqRouter',
                 name=self.name,
-                action='fetch',
+                item='fetch',
                 elapsed=runtime.since,
                 status='failure',
                 exc_info=reason)

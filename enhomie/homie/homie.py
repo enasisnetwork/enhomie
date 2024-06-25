@@ -606,7 +606,7 @@ class Homie:
         return dict(self.__ubiq_clients)
 
 
-    def refresh_source(
+    def refresh(
         self,
     ) -> None:
         """
@@ -805,18 +805,18 @@ class Homie:
         :param state: Desired state for the lights within group.
         """
 
-        self.log_i(
+        self.log_d(
             base='Homie',
-            action='state_set',
+            item='state/set',
             group=group.name,
             value=state,
             status='attempt')
 
         group.state_set(state)
 
-        self.log_i(
+        self.log_d(
             base='Homie',
-            action='state_set',
+            item='state/set',
             group=group.name,
             value=state,
             status='success')
@@ -847,18 +847,18 @@ class Homie:
         :param level: Desired level for the lights within group.
         """
 
-        self.log_i(
+        self.log_d(
             base='Homie',
-            action='level_set',
+            item='level/set',
             group=group.name,
             value=level,
             status='attempt')
 
         group.level_set(level)
 
-        self.log_i(
+        self.log_d(
             base='Homie',
-            action='level_set',
+            item='level/set',
             group=group.name,
             value=level,
             status='success')
@@ -889,18 +889,18 @@ class Homie:
         :param scene: Desired scene for the lights within group.
         """
 
-        self.log_i(
+        self.log_d(
             base='Homie',
-            action='scene_set',
+            item='scene/set',
             group=group.name,
             value=scene.name,
             status='attempt')
 
         group.scene_set(scene)
 
-        self.log_i(
+        self.log_d(
             base='Homie',
-            action='scene_set',
+            item='scene/set',
             group=group.name,
             value=scene.name,
             status='success')

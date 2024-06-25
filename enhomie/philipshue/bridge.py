@@ -210,10 +210,10 @@ class PhueBridge:
 
             fetched = response.json()
 
-            self.homie.log_i(
+            self.homie.log_d(
                 base='PhueBridge',
                 name=self.name,
-                action='fetch',
+                item='fetch',
                 elapsed=runtime.since,
                 status='success')
 
@@ -222,7 +222,7 @@ class PhueBridge:
             self.homie.log_e(
                 base='PhueBridge',
                 name=self.name,
-                action='fetch',
+                item='fetch',
                 elapsed=runtime.since,
                 status='failure',
                 exc_info=reason)
@@ -462,7 +462,7 @@ class PhueBridge:
 
         self.homie.log_d(
             base='PhueBridge',
-            action='state_set',
+            item='state/set',
             light=light_phid,
             value=state,
             status='attempt')
@@ -491,7 +491,7 @@ class PhueBridge:
 
         self.homie.log_d(
             base='PhueBridge',
-            action='state_set',
+            item='state/set',
             light=light_phid,
             value=state,
             elapsed=runtime.since,
@@ -534,7 +534,7 @@ class PhueBridge:
 
         self.homie.log_d(
             base='PhueBridge',
-            action='level_set',
+            item='level/set',
             light=light_phid,
             value=level,
             status='attempt')
@@ -615,7 +615,7 @@ class PhueBridge:
 
         self.homie.log_d(
             base='PhueBridge',
-            action='scene_set',
+            item='scene/set',
             value=scene_phid,
             status='attempt')
 
@@ -643,7 +643,7 @@ class PhueBridge:
 
         self.homie.log_d(
             base='PhueBridge',
-            action='scene_set',
+            item='scene/set',
             value=scene_phid,
             elapsed=runtime.since,
             status='success')

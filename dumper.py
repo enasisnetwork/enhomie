@@ -454,13 +454,12 @@ def launcher_main() -> None:
 
     config.logger.log_i(
         base='script',
-        item='dumper',
-        status='merged')
+        status='started')
 
 
     homie = Homie(config)
 
-    homie.refresh_source()
+    homie.refresh()
 
 
     operate_main(homie)
@@ -468,7 +467,6 @@ def launcher_main() -> None:
 
     config.logger.log_i(
         base='script',
-        item='dumper',
         status='stopped')
 
 

@@ -102,7 +102,7 @@ def test_Homie(
         'neptune_zone': desire}
 
 
-    homie.refresh_source()
+    homie.refresh()
 
 
     sample_path = (
