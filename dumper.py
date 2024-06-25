@@ -35,6 +35,22 @@ def launcher_args() -> dict[str, Any]:
             'path to config file'))
 
     parser.add_argument(
+        '--console',
+        action='store_true',
+        default=False,
+        help=(
+            'write log messages '
+            'to standard output'))
+
+    parser.add_argument(
+        '--debug',
+        action='store_true',
+        default=False,
+        help=(
+            'increase logging level '
+            'for standard output'))
+
+    parser.add_argument(
         '--scope',
         required=True,
         choices=[

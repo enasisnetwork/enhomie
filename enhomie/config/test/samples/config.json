@@ -12,7 +12,7 @@
     ]
   },
   "enlogger": {
-    "stdo_level": "info",
+    "stdo_level": "debug",
     "file_level": null,
     "file_path": null
   },
