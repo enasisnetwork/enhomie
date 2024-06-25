@@ -48,6 +48,8 @@ class Params(_Params, extra='forbid'):
     :param cache: Optional cache file but required if state
         between executions is required; when in production.
     :param dryrun: Determine we should not change anything.
+    :param idempt: Changes will be analyzed for idempotency.
+    :param quiet: Change messages only logged if different.
     :param sargs: Additional arguments on the command line.
     :param groups: Dictionary of parameters for the groups.
     :param scenes: Dictionary of parameters for the scenes.
@@ -64,6 +66,8 @@ class Params(_Params, extra='forbid'):
     cache: str = 'sqlite:///:memory:'
 
     dryrun: bool = False
+    idempt: bool = False
+    quiet: bool = False
 
     sargs: Optional[dict[str, Any]] = None
 

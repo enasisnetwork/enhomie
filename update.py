@@ -59,7 +59,7 @@ def launcher_args() -> dict[str, Any]:
         '--idempotent',
         action='store_true',
         default=False,
-        dest='idemp',
+        dest='idempt',
         help=(
             'do not make change if '
             'would not change value'))
@@ -103,12 +103,13 @@ def operate_main(  # noqa: CFQ001
     """
 
     config = homie.config
+    params = config.params
     sargs = config.sargs
     groups = homie.groups
     scenes = homie.scenes
 
-    _idemp = sargs['idemp']
-    _dryrun = sargs['dryrun']
+    _idempt = params.idempt
+    _dryrun = params.dryrun
 
     _group = sargs['group']
     _scene = sargs['scene']
@@ -131,7 +132,7 @@ def operate_main(  # noqa: CFQ001
 
         changed = False
 
-        if same and _idemp:
+        if same and _idempt:
             changed = False
 
         elif _dryrun is False:
@@ -170,7 +171,7 @@ def operate_main(  # noqa: CFQ001
 
         changed = False
 
-        if same and _idemp:
+        if same and _idempt:
             changed = False
 
         elif _dryrun is False:
@@ -209,7 +210,7 @@ def operate_main(  # noqa: CFQ001
 
         changed = False
 
-        if same and _idemp:
+        if same and _idempt:
             changed = False
 
         elif _dryrun is False:

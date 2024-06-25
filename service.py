@@ -116,7 +116,7 @@ def launcher_args() -> dict[str, Any]:
         '--idempotent',
         action='store_true',
         default=False,
-        dest='idemp',
+        dest='idempt',
         help=(
             'do not make change if '
             'would not change value'))
@@ -280,13 +280,14 @@ class Service(Thread):
             return
 
         config = homie.config
+        params = config.params
         groups = homie.groups
-        sargs = config.sargs
 
-        _dryrun = sargs['dryrun']
+        _dryrun = params.dryrun
 
 
-        desired = homie.desired
+        desired = homie.desired(
+            reset=not _dryrun)
 
         dumped = {
             k: v.homie_dumper()
@@ -331,15 +332,14 @@ class Service(Thread):
 
         homie = self.__homie
         config = homie.config
+        params = config.params
         groups = homie.groups
-        sargs = config.sargs
 
-        _dryrun = sargs['dryrun']
+        _dryrun = params.dryrun
 
 
-        event = item.event
-
-        aspired = homie.aspired(event)
+        aspired = homie.aspired(
+            event=item.event)
 
         dumped = {
             k: v.homie_dumper()
@@ -532,11 +532,11 @@ class Service(Thread):
 
         homie = self.__homie
         config = homie.config
-        sargs = config.sargs
+        params = config.params
 
-        _dryrun = sargs['dryrun']
-        _idemp = sargs['idemp']
-        _quiet = sargs['quiet']
+        _dryrun = params.dryrun
+        _idempt = params.idempt
+        _quiet = params.quiet
 
 
         current = group.state_get()
@@ -549,7 +549,7 @@ class Service(Thread):
 
         changed = False
 
-        if same and _idemp:
+        if same and _idempt:
             changed = False
 
         elif _dryrun is False:
@@ -606,11 +606,11 @@ class Service(Thread):
 
         homie = self.__homie
         config = homie.config
-        sargs = config.sargs
+        params = config.params
 
-        _dryrun = sargs['dryrun']
-        _idemp = sargs['idemp']
-        _quiet = sargs['quiet']
+        _dryrun = params.dryrun
+        _idempt = params.idempt
+        _quiet = params.quiet
 
 
         current = group.level_get()
@@ -623,7 +623,7 @@ class Service(Thread):
 
         changed = False
 
-        if same and _idemp:
+        if same and _idempt:
             changed = False
 
         elif _dryrun is False:
@@ -680,12 +680,12 @@ class Service(Thread):
 
         homie = self.__homie
         config = homie.config
+        params = config.params
         scenes = homie.scenes
-        sargs = config.sargs
 
-        _dryrun = sargs['dryrun']
-        _idemp = sargs['idemp']
-        _quiet = sargs['quiet']
+        _dryrun = params.dryrun
+        _idempt = params.idempt
+        _quiet = params.quiet
 
 
         assert item.scene is not None
@@ -698,7 +698,7 @@ class Service(Thread):
 
         changed = False
 
-        if same and _idemp:
+        if same and _idempt:
             changed = False
 
         elif _dryrun is False:

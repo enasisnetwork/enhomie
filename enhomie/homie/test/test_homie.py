@@ -95,7 +95,10 @@ def test_Homie(
 
     assert len(homie.ubiq_clients) == 6
 
-    assert homie.desired == {
+
+    desired = homie.desired(True)
+
+    assert desired == {
         'jupiter_room': desire,
         'jupiter_zone': desire,
         'neptune_room': desire,

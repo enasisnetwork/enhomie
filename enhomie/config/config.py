@@ -48,6 +48,14 @@ class Config(_Config):
             dryrun = sargs['dryrun']
             cargs['dryrun'] = dryrun
 
+        if 'idempt' in sargs:
+            idempt = sargs['idempt']
+            cargs['idempt'] = idempt
+
+        if 'quiet' in sargs:
+            quiet = sargs['quiet']
+            cargs['quiet'] = quiet
+
         if sargs.get('console'):
             key = 'enlogger/stdo_level'
             setate(cargs, key, 'info')

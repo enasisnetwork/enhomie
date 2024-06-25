@@ -19,6 +19,8 @@
   "encrypts": null,
   "cache": "sqlite:///:memory:",
   "dryrun": false,
+  "idempt": false,
+  "quiet": false,
   "sargs": null,
   "groups": {
     "jupiter_room": {

@@ -122,7 +122,9 @@ def test_HomieDesire_cover(
     default = desires['default']
 
 
-    assert homie.desired == {
+    desired = homie.desired(False)
+
+    assert desired == {
         'jupiter_room': default,
         'jupiter_zone': default,
         'neptune_room': default,
@@ -132,7 +134,9 @@ def test_HomieDesire_cover(
     delayed.update_timer(
         f'-{delayed.delay}s')
 
-    assert homie.desired == {
+    desired = homie.desired(False)
+
+    assert desired == {
         'jupiter_room': delayed,
         'jupiter_zone': delayed,
         'neptune_room': delayed,

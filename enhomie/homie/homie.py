@@ -653,18 +653,17 @@ class Homie:
         _refresh_ubiq()
 
 
-    @property
     def desired(
         self,
+        reset: bool = True,
     ) -> _DESIRED:
         """
         Return the related desired state for the desired groups.
 
+        :param reset: Determine if the desire timers used for
+            delay are reset when conditional outcomes are false.
         :returns: Related desired state for the desired groups.
         """
-
-        params = self.params
-        dryrun = params.dryrun
 
         desires: _DESIRES = {}
 
@@ -685,7 +684,7 @@ class Homie:
 
             if desire.outcome is False:
 
-                if dryrun is False:
+                if reset is True:
                     desire.delete_timer()
 
                 continue

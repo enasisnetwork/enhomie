@@ -107,6 +107,8 @@ def config_factory(
         f'{tmp_path}/config.yml',
         sargs={
             'dryrun': False,
+            'idempt': False,
+            'quiet': False,
             'console': True,
             'debug': True})
 
