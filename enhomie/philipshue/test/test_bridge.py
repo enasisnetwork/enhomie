@@ -54,8 +54,7 @@ def test_PhueBridge(
         '_PhueBridge__bridge',
         '_PhueBridge__name',
         '_PhueBridge__fetched',
-        '_PhueBridge__merged',
-        '_PhueBridge__refresh']
+        '_PhueBridge__merged']
 
 
     assert inrepr(
@@ -104,6 +103,22 @@ def test_PhueBridge(
         update=ENPYRWS,
         content=bridge.merged,
         replace=REPLACES)
+
+    expect = prep_sample(
+        content=bridge.merged,
+        replace=REPLACES)
+
+    assert sample == expect
+
+    setattr(
+        bridge,
+        '_PhueBridge__fetched',
+        None)
+
+    setattr(
+        bridge,
+        '_PhueBridge__merged',
+        None)
 
     expect = prep_sample(
         content=bridge.merged,

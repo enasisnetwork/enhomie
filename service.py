@@ -164,7 +164,7 @@ def launcher_args() -> dict[str, Any]:  # noqa: CFQ001
     parser.add_argument(
         '--timer_refresh',
         type=int,
-        default=15,
+        default=300,
         dest='trefresh',
         help=(
             'period of time before '
@@ -287,7 +287,6 @@ class Service(Thread):
         timers = self.__timers
 
         tdesires = timers['desires']
-        trefresh = timers['refresh']
 
         ready = tdesires.ready()
 
@@ -299,11 +298,6 @@ class Service(Thread):
         groups = homie.groups
 
         _dryrun = params.dryrun
-
-
-        homie.refresh()
-
-        trefresh.update()
 
 
         desired = homie.desired(
@@ -355,9 +349,6 @@ class Service(Thread):
         params = config.params
         groups = homie.groups
 
-        timers = self.__timers
-        trefresh = timers['refresh']
-
         _dryrun = params.dryrun
 
 
@@ -366,12 +357,6 @@ class Service(Thread):
 
         if len(aspired) == 0:
             return
-
-
-        ready = trefresh.ready()
-
-        if ready is True:
-            homie.refresh()
 
 
         aspired = homie.aspired(
@@ -408,9 +393,6 @@ class Service(Thread):
                 action.update_timer()
 
 
-        block_sleep(1)
-
-
     def __streams(
         self,
     ) -> None:
@@ -439,11 +421,39 @@ class Service(Thread):
             if related is False:
                 return
 
+            _phue_update(item)
+
             if _actions is True:
                 self.__aspired(item)
 
             if _watcher is True:
                 _phue_print(item)
+
+
+        def _phue_update(
+            item: StreamItem,
+        ) -> None:
+
+            assert isinstance(
+                item, PhueStreamItem)
+
+            bridge = (
+                homie.phue_bridges
+                [item.bridge])
+
+            items = item.event['data']
+
+            updated: list[bool] = []
+
+            for _item in items:
+
+                updated.append(
+                    bridge.update(_item))
+
+            if not any(updated):
+                return
+
+            homie.refresh_object()
 
 
         def _phue_print(
@@ -488,12 +498,18 @@ class Service(Thread):
         homie = self.__homie
         config = homie.config
         sargs = config.sargs
+        timers = self.__timers
+
+        trefresh = timers['refresh']
 
         _desires = sargs['desires']
         _actions = sargs['actions']
         _watcher = sargs['watcher']
 
         try:
+
+            if trefresh.ready():
+                homie.refresh()
 
             if _watcher or _actions:
                 self.__streams()
@@ -590,7 +606,7 @@ class Service(Thread):
             homie.state_set(
                 group, desired)
 
-            block_sleep(1)
+            block_sleep(0.5)
 
             changed = True
 
@@ -602,17 +618,6 @@ class Service(Thread):
 
         if desired != current:
             level = 'info'
-
-
-        if changed is True:
-
-            phue_bridge = (
-                group.phue_bridge)
-
-            if phue_bridge is not None:
-                phue_bridge.refresh()
-
-            homie.refresh_object()
 
 
         origin = (
@@ -674,7 +679,7 @@ class Service(Thread):
             homie.level_set(
                 group, desired)
 
-            block_sleep(1)
+            block_sleep(0.5)
 
             changed = True
 
@@ -686,17 +691,6 @@ class Service(Thread):
 
         if desired != current:
             level = 'info'
-
-
-        if changed is True:
-
-            phue_bridge = (
-                group.phue_bridge)
-
-            if phue_bridge is not None:
-                phue_bridge.refresh()
-
-            homie.refresh_object()
 
 
         origin = (
@@ -759,7 +753,7 @@ class Service(Thread):
             homie.scene_set(
                 group, desired)
 
-            block_sleep(1)
+            block_sleep(0.5)
 
             changed = True
 
@@ -771,17 +765,6 @@ class Service(Thread):
 
         if desired != current:
             level = 'info'
-
-
-        if changed is True:
-
-            phue_bridge = (
-                group.phue_bridge)
-
-            if phue_bridge is not None:
-                phue_bridge.refresh()
-
-            homie.refresh_object()
 
 
         origin = (

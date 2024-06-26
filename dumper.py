@@ -36,10 +36,11 @@ def launcher_args() -> dict[str, Any]:
 
     parser.add_argument(
         '--console',
-        # Argument not like other files
         action='store_true',
-        default=True,
-        help='always true for script')
+        default=False,
+        help=(
+            'write log messages '
+            'to standard output'))
 
     parser.add_argument(
         '--debug',

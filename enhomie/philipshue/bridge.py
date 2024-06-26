@@ -12,8 +12,8 @@ from typing import Any
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.times import Timer
 from encommon.times import Times
+from encommon.types import getate
 from encommon.types import setate
 from encommon.types import striplower
 
@@ -47,7 +47,6 @@ class PhueBridge:
     __name: str
 
     __fetched: Optional[_FETCH]
-    __refresh: Timer
     __merged: Optional[_RAWDEV]
 
 
@@ -81,10 +80,6 @@ class PhueBridge:
         self.__name = name
         self.__fetched = None
         self.__merged = None
-
-
-        self.__refresh = Timer(
-            60, start='-60s')
 
 
         homie.log_d(
@@ -155,7 +150,7 @@ class PhueBridge:
         :returns: Boolean indicating connection is established.
         """
 
-        return bool(self.__merged)
+        return bool(self.__fetched)
 
 
     def refresh(
@@ -165,39 +160,8 @@ class PhueBridge:
         Refresh the cached information for the remote upstream.
         """
 
-        timer = self.__refresh
-
-        timer.update(
-            f'-{int(timer.timer)}s')
-
-        assert timer.ready(False)
-
-        self.fetched
-        self.merged
-
-        assert not timer.ready()
-
-
-    @property
-    def fetched(
-        self,
-    ) -> _FETCH:
-        """
-        Collect the complete dump of all resources within bridge.
-
-        :returns: Complete dump of all resources within bridge.
-        """
-
-        fetched = self.__fetched
-        timer = self.__refresh
         bridge = self.__bridge
         request = bridge.request
-
-        ready = timer.ready(False)
-
-        if fetched and not ready:
-            return deepcopy(fetched)
-
 
         runtime = Times()
 
@@ -209,6 +173,11 @@ class PhueBridge:
             response.raise_for_status()
 
             fetched = response.json()
+
+            assert isinstance(fetched, dict)
+
+            self.__fetched = fetched
+            self.__merged = None
 
             self.homie.log_d(
                 base='PhueBridge',
@@ -227,19 +196,27 @@ class PhueBridge:
                 status='failure',
                 exc_info=reason)
 
-            if fetched is None:
-                raise
 
+    @property
+    def fetched(
+        self,
+    ) -> _FETCH:
+        """
+        Collect the complete dump of all resources within bridge.
+
+        :returns: Complete dump of all resources within bridge.
+        """
+
+        fetched = self.__fetched
+
+        if fetched is not None:
             return deepcopy(fetched)
 
+        self.refresh()
+
+        fetched = self.__fetched
 
         assert isinstance(fetched, dict)
-
-
-        self.__fetched = fetched
-        self.__merged = None
-
-        timer.update('now')
 
         return deepcopy(fetched)
 
@@ -297,6 +274,171 @@ class PhueBridge:
         self.__merged = source
 
         return deepcopy(source)
+
+
+    def update(  # noqa: CFQ001,CFQ004
+        # NOCVR
+        self,
+        event: dict[str, Any],
+    ) -> bool:
+        """
+        Handle various supported events seen within the stream.
+
+        :param event: Event which was yielded from the stream.
+        :returns: Boolean indicating if the update was related.
+        """
+
+        fetched = self.__fetched
+
+        assert fetched is not None
+
+        updated = False
+
+
+        def _update_state() -> bool:
+
+            _type = fetch['type']
+
+            if _type != 'grouped_light':
+                return False
+
+            _update('on/on')
+
+            return True
+
+
+        def _update_level() -> bool:
+
+            _type = fetch['type']
+
+            if _type != 'grouped_light':
+                return False
+
+            _update(
+                'dimming/brightness')
+
+            return True
+
+
+        def _update_scene() -> bool:
+
+            _type = fetch['type']
+
+            if _type != 'scene':
+                return False
+
+            _update('status/active')
+
+            return True
+
+
+        def _update_button() -> bool:
+
+            _type = fetch['type']
+
+            if _type != 'button':
+                return False
+
+            _update(
+                'button/button_'
+                'report/updated')
+
+            _update(
+                'button/button_'
+                'report/event')
+
+            _update(
+                'button/last_event')
+
+            return True
+
+
+        def _update_contact() -> bool:
+
+            _type = fetch['type']
+
+            if _type != 'contact':
+                return False
+
+            _update(
+                'contact_report'
+                '/changed')
+
+            _update(
+                'contact_report'
+                '/state')
+
+            return True
+
+
+        def _update_motion() -> bool:
+
+            _type = fetch['type']
+
+            if _type != 'motion':
+                return False
+
+            _update(
+                'motion/motion')
+
+            _update(
+                'motion/motion_'
+                'report/changed')
+
+            _update(
+                'motion/motion_'
+                'report/event')
+
+            _update(
+                'motion/motion_valid')
+
+            return True
+
+
+        def _update(
+            target: str,
+        ) -> None:
+
+            value = getate(event, target)
+
+            if value is None:
+                return
+
+            setate(fetch, target, value)
+
+
+        phid = event['id']
+
+        for fetch in fetched['data']:
+
+            _phid = fetch['id']
+
+            if phid != _phid:
+                continue
+
+            if _update_state():
+                updated = True
+
+            if _update_level():
+                updated = True
+
+            if _update_scene():
+                updated = True
+
+            if _update_button():
+                updated = True
+
+            if _update_contact():
+                updated = True
+
+            if _update_motion():
+                updated = True
+
+
+        if updated is True:
+            self.__merged = None
+
+        return updated
 
 
     def get_source(

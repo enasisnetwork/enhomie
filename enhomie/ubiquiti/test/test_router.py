@@ -44,8 +44,7 @@ def test_UbiqRouter(
         '_UbiqRouter__router',
         '_UbiqRouter__name',
         '_UbiqRouter__fetched',
-        '_UbiqRouter__merged',
-        '_UbiqRouter__refresh']
+        '_UbiqRouter__merged']
 
 
     assert inrepr(
@@ -94,6 +93,22 @@ def test_UbiqRouter(
         update=ENPYRWS,
         content=router.merged,
         replace=REPLACES)
+
+    expect = prep_sample(
+        content=router.merged,
+        replace=REPLACES)
+
+    assert sample == expect
+
+    setattr(
+        router,
+        '_UbiqRouter__fetched',
+        None)
+
+    setattr(
+        router,
+        '_UbiqRouter__merged',
+        None)
 
     expect = prep_sample(
         content=router.merged,
