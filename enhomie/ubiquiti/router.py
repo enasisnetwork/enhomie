@@ -13,7 +13,6 @@ from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.times import Timer
 from encommon.times import Times
 from encommon.types import merge_dicts
 from encommon.types import striplower
@@ -54,7 +53,6 @@ class UbiqRouter:
     __name: str
 
     __fetched: Optional[dict[str, _FETCH]]
-    __refresh: Timer
     __merged: Optional[_RAWDEV]
 
 
@@ -88,10 +86,6 @@ class UbiqRouter:
         self.__name = name
         self.__fetched = None
         self.__merged = None
-
-
-        self.__refresh = Timer(
-            60, start='-60s')
 
 
         homie.log_d(
@@ -162,7 +156,7 @@ class UbiqRouter:
         :returns: Boolean indicating connection is established.
         """
 
-        return bool(self.__merged)
+        return bool(self.__fetched)
 
 
     def refresh(
@@ -172,39 +166,8 @@ class UbiqRouter:
         Refresh the cached information for the remote upstream.
         """
 
-        timer = self.__refresh
-
-        timer.update(
-            f'-{int(timer.timer)}s')
-
-        assert timer.ready(False)
-
-        self.fetched
-        self.merged
-
-        assert not timer.ready()
-
-
-    @property
-    def fetched(
-        self,
-    ) -> _FETCH:
-        """
-        Collect the complete dump of all known clients in router.
-
-        :returns: Complete dump of all known clients in router.
-        """
-
-        fetched = self.__fetched
-        timer = self.__refresh
         router = self.__router
         request = router.request_proxy
-
-        ready = timer.ready(False)
-
-        if fetched and not ready:
-            return deepcopy(fetched)
-
 
         runtime = Times()
 
@@ -219,6 +182,16 @@ class UbiqRouter:
                 'get', 'stat/sta')
 
             realtime = response.json()
+
+            assert isinstance(historic, dict)
+            assert isinstance(realtime, dict)
+
+            fetched = {
+                'historic': historic,
+                'realtime': realtime}
+
+            self.__fetched = fetched
+            self.__merged = None
 
             self.homie.log_d(
                 base='UbiqRouter',
@@ -237,24 +210,27 @@ class UbiqRouter:
                 status='failure',
                 exc_info=reason)
 
-            if fetched is None:
-                raise
 
+    @property
+    def fetched(
+        self,
+    ) -> _FETCH:
+        """
+        Collect the complete dump of all known clients in router.
+
+        :returns: Complete dump of all known clients in router.
+        """
+
+        fetched = self.__fetched
+
+        if fetched is not None:
             return deepcopy(fetched)
 
+        self.refresh()
 
-        assert isinstance(historic, dict)
-        assert isinstance(realtime, dict)
+        fetched = self.__fetched
 
-        fetched = {
-            'historic': historic,
-            'realtime': realtime}
-
-
-        self.__fetched = fetched
-        self.__merged = None
-
-        timer.update('now')
+        assert isinstance(fetched, dict)
 
         return deepcopy(fetched)
 
