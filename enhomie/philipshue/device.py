@@ -101,7 +101,7 @@ class PhueDevice:
         assert bridge_name in bridges
 
 
-    def refresh_source(
+    def refresh(
         self,
     ) -> None:
         """
@@ -411,7 +411,7 @@ class PhueDevice:
         params = (
             self.params.model_dump())
 
-        self.refresh_source()
+        self.refresh()
 
         changed: dict[str, Any] = {}
 

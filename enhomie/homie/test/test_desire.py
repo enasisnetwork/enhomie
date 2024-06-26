@@ -85,7 +85,7 @@ def test_HomieDesire(
     assert desire.delayed is False
 
     assert desire.outcomes == {
-        'default': [False, True, True]}
+        'default': [False, False, True]}
 
     assert desire.outcome is False
 
@@ -116,6 +116,8 @@ def test_HomieDesire_cover(
 
     :param homie: Primary class instance for Homie Automate.
     """
+
+    homie.refresh()
 
     desires = homie.desires
     delayed = desires['delayed']

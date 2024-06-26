@@ -55,7 +55,7 @@ def test_PhueBridge(
         '_PhueBridge__name',
         '_PhueBridge__fetched',
         '_PhueBridge__merged',
-        '_PhueBridge__timer']
+        '_PhueBridge__refresh']
 
 
     assert inrepr(

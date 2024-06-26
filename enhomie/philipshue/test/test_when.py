@@ -35,6 +35,8 @@ def test_when_phue_change(
     :param homie: Primary class instance for Homie Automate.
     """
 
+    homie.refresh()
+
 
     phue_change = (
         WhenPhueChangeParams(
@@ -92,6 +94,8 @@ def test_when_phue_change_cover(
     homie = homie_factory(
         config_factory(tmp_path),
         respx_mock)
+
+    homie.refresh()
 
 
     phue_change = (

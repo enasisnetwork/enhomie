@@ -105,6 +105,12 @@ def test_Homie(
         'neptune_zone': desire}
 
 
+    aspired = homie.aspired(
+        {'foo': 'bar'}, False)
+
+    assert len(aspired) == 0
+
+
     homie.refresh()
 
 

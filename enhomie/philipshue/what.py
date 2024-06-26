@@ -43,9 +43,6 @@ def what_phue_motion(
 
     device = devices[_device]
 
-    if not device.unique:
-        device.refresh_source()
-
     unique = device.unique
 
     if unique is None:
@@ -136,9 +133,6 @@ def what_phue_button(
         what.homie.phue_devices)
 
     device = devices[_device]
-
-    if not device.unique:
-        device.refresh_source()
 
     unique = device.unique
 
@@ -234,9 +228,6 @@ def what_phue_contact(
         what.homie.phue_devices)
 
     device = devices[_device]
-
-    if not device.unique:
-        device.refresh_source()
 
     unique = device.unique
 

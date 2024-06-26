@@ -76,7 +76,7 @@ def test_UbiqClient(
     assert client.lastseen is None
 
 
-    client.refresh_source()
+    client.refresh()
 
 
     sample_path = (
@@ -132,7 +132,7 @@ def test_UbiqClient_cover(
     client.params.ip = None
     client.params.label = None
 
-    client.refresh_source()
+    client.refresh()
 
     assert client.routers is not None
     assert client.sources is not None
@@ -148,7 +148,7 @@ def test_UbiqClient_cover(
     client.params.mac = None
     client.params.label = None
 
-    client.refresh_source()
+    client.refresh()
 
     assert client.routers is not None
     assert client.sources is not None
@@ -164,7 +164,7 @@ def test_UbiqClient_cover(
     client.params.mac = None
     client.params.ip = None
 
-    client.refresh_source()
+    client.refresh()
 
     assert client.routers is not None
     assert client.sources is not None
@@ -180,7 +180,7 @@ def test_UbiqClient_cover(
     client.params.mac = None
     client.params.ip = None
 
-    client.refresh_source()
+    client.refresh()
 
     assert client.routers is None
     assert client.sources is None
@@ -190,7 +190,7 @@ def test_UbiqClient_cover(
 
     client.params.router = 'noexst'
 
-    client.refresh_source()
+    client.refresh()
 
     assert client.routers is None
     assert client.sources is None

@@ -78,7 +78,7 @@ def test_PhueDevice(
     assert device.sensors is None
 
 
-    device.refresh_source()
+    device.refresh()
 
     assert device.unique == (
         '8155e7b2-e89b-3b1d'
@@ -134,7 +134,7 @@ def test_PhueDevice_cover(
     device.params.phid = None
     device.params.label = 'Jupiter Button'
 
-    device.refresh_source()
+    device.refresh()
 
     assert device.bridge is not None
     assert device.source is not None
@@ -159,7 +159,7 @@ def test_PhueDevice_cover(
     device.params.phid = None
     device.params.label = 'noexst'
 
-    device.refresh_source()
+    device.refresh()
 
     assert device.bridge is None
     assert device.source is None

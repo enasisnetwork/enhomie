@@ -34,6 +34,8 @@ def test_when_ubiq_client(
     :param homie: Primary class instance for Homie Automate.
     """
 
+    homie.refresh()
+
 
     ubiq_client = (
         WhenUbiqClientParams(
@@ -94,6 +96,8 @@ def test_when_ubiq_client_cover(
     homie = homie_factory(
         config_factory(tmp_path),
         respx_mock)
+
+    homie.refresh()
 
 
     ubiq_client = (
