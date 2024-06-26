@@ -749,11 +749,13 @@ class Homie:
     def aspired(
         self,
         event: dict[str, Any],
+        whens: bool = True,
     ) -> _ASPIRED:
         """
         Return the related actions matching the provided event.
 
         :param event: Event which was yielded from the stream.
+        :param whens: Override if the conditional are performed.
         :returns: Related actions matching the provided event.
         """
 
@@ -770,11 +772,19 @@ class Homie:
             target.append(action)
 
 
+        def _outcome() -> bool:
+
+            if whens is False:
+                return True
+
+            return action.outcome
+
+
         items1 = self.actions.items()
 
         for name, action in items1:
 
-            if action.outcome is False:
+            if _outcome() is False:
                 continue
 
             matched = action.match(event)

@@ -73,7 +73,7 @@ class PhueStreamItem(StreamItem):
 
 
 
-def launcher_args() -> dict[str, Any]:
+def launcher_args() -> dict[str, Any]:  # noqa: CFQ001
     """
     Construct the arguments that are associated with the file.
     """
@@ -154,14 +154,6 @@ def launcher_args() -> dict[str, Any]:
             'that are received'))
 
     parser.add_argument(
-        '--refresh',
-        type=int,
-        default=15,
-        help=(
-            'period of time before '
-            'refreshing the objects'))
-
-    parser.add_argument(
         '--timeout',
         type=float,
         default=60,
@@ -170,9 +162,19 @@ def launcher_args() -> dict[str, Any]:
             'reconnecting to server'))
 
     parser.add_argument(
-        '--pause',
+        '--timer_refresh',
+        type=int,
+        default=15,
+        dest='trefresh',
+        help=(
+            'period of time before '
+            'refreshing the objects'))
+
+    parser.add_argument(
+        '--timer_desires',
         type=int,
         default=60,
+        dest='tdesires',
         help=(
             'period of time before '
             'reprocessing desired'))
@@ -228,8 +230,7 @@ class Service(Thread):
     __homie: Homie
     __name: str
 
-    __refresh: Timer
-    __desires: Timer
+    __timers: dict[str, Timer]
 
 
     def __init__(
@@ -244,24 +245,35 @@ class Service(Thread):
         self.__homie = homie
         self.__name = name
 
-        _name = f'service/{name}'
+        self.__make_timers()
 
-        super().__init__(name=_name)
+        super().__init__(
+            name=f'service/{name}')
 
 
+    def __make_timers(
+        self,
+    ) -> None:
+        """
+        Construct instances using the configuration parameters.
+        """
+
+        homie = self.__homie
         config = homie.config
         sargs = config.sargs
 
+        _refresh = sargs['trefresh']
+        _desires = sargs['tdesires']
 
-        self.__refresh = Timer(
-            sargs['refresh'])
+        refresh = Timer(
+            _refresh, start=0)
 
+        desires = Timer(
+            _desires, start=0)
 
-        _pause = sargs['pause']
-
-        self.__desires = Timer(
-            _pause,
-            start=f'-{_pause}s')
+        self.__timers = {
+            'refresh': refresh,
+            'desires': desires}
 
 
     def __desired(
@@ -272,9 +284,12 @@ class Service(Thread):
         """
 
         homie = self.__homie
-        timer = self.__desires
+        timers = self.__timers
 
-        ready = timer.ready()
+        tdesires = timers['desires']
+        trefresh = timers['refresh']
+
+        ready = tdesires.ready()
 
         if ready is False:
             return
@@ -284,6 +299,11 @@ class Service(Thread):
         groups = homie.groups
 
         _dryrun = params.dryrun
+
+
+        homie.refresh()
+
+        trefresh.update()
 
 
         desired = homie.desired(
@@ -335,7 +355,23 @@ class Service(Thread):
         params = config.params
         groups = homie.groups
 
+        timers = self.__timers
+        trefresh = timers['refresh']
+
         _dryrun = params.dryrun
+
+
+        aspired = homie.aspired(
+            item.event, False)
+
+        if len(aspired) == 0:
+            return
+
+
+        ready = trefresh.ready()
+
+        if ready is True:
+            homie.refresh()
 
 
         aspired = homie.aspired(
@@ -370,6 +406,9 @@ class Service(Thread):
 
             if _dryrun is False:
                 action.update_timer()
+
+
+        block_sleep(1)
 
 
     def __streams(
@@ -447,7 +486,6 @@ class Service(Thread):
         """
 
         homie = self.__homie
-        timer = self.__refresh
         config = homie.config
         sargs = config.sargs
 
@@ -456,11 +494,6 @@ class Service(Thread):
         _watcher = sargs['watcher']
 
         try:
-
-            ready = timer.ready()
-
-            if ready is True:
-                homie.refresh()
 
             if _watcher or _actions:
                 self.__streams()
@@ -806,11 +839,8 @@ class PhueStream(Thread):
 
         self.__bridge = bridge
 
-        _name = (
-            'stream/phue/'
-            f'bridge/{name}')
-
-        super().__init__(name=_name)
+        super().__init__(
+            name=f'stream/{name}')
 
 
     async def __operate(
@@ -850,7 +880,7 @@ class PhueStream(Thread):
 
                 homie.log_d(
                     base='PhueStream',
-                    name=self.name[12:],
+                    name=self.name[7:],
                     status='reading')
 
                 async for datas in stream:
@@ -860,21 +890,21 @@ class PhueStream(Thread):
 
                 homie.log_i(
                     base='PhueStream',
-                    name=self.name[12:],
+                    name=self.name[7:],
                     status='canceled')
 
             except ReadTimeout:
 
                 homie.log_d(
                     base='PhueStream',
-                    name=self.name[12:],
+                    name=self.name[7:],
                     status='timeout')
 
             except Exception as reason:
 
                 homie.log_e(
                     base='PhueStream',
-                    name=self.name[12:],
+                    name=self.name[7:],
                     status='exception',
                     exc_info=reason)
 
@@ -892,7 +922,7 @@ class PhueStream(Thread):
 
         homie.log_i(
             base='PhueStream',
-            name=self.name[12:],
+            name=self.name[7:],
             status='started')
 
 
@@ -915,7 +945,7 @@ class PhueStream(Thread):
 
         homie.log_i(
             base='PhueStream',
-            name=self.name[12:],
+            name=self.name[7:],
             status='stopped')
 
 
@@ -1043,8 +1073,6 @@ def launcher_main() -> None:
 
 
     homie = Homie(config)
-
-    homie.refresh()
 
 
     signal(SIGINT, shutdown)
