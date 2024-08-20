@@ -13,7 +13,7 @@ from typing import Any
 from typing import Literal
 from typing import Optional
 
-from encommon.config import ParamsModel
+from encommon.types import BaseModel
 
 from pydantic import Field
 
@@ -34,7 +34,7 @@ _TIMERGXP = compile(
 
 
 
-class DriverBltnPeriodParams(ParamsModel, extra='forbid'):
+class DriverBltnPeriodParams(BaseModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

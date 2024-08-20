@@ -167,16 +167,16 @@ class HomieConfig(Config):
             return params
 
 
-        source = self.source
+        basic = self.basic
         update = False
 
         with suppress(AttributeError):
-            source = self.merged
+            basic = self.merge
             update = True
 
 
         params = (
-            self.model(**source))
+            self.model(**basic))
 
         assert isinstance(
             params,

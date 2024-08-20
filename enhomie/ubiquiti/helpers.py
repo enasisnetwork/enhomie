@@ -12,8 +12,8 @@ from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon import NCFalse
 from encommon.types import DictStrAny
+from encommon.types import NCFalse
 from encommon.types import merge_dicts
 from encommon.types import strplwr
 

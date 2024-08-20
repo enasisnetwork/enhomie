@@ -11,7 +11,7 @@ from typing import Annotated
 from typing import Optional
 
 from encommon.config import Params
-from encommon.config import ParamsModel
+from encommon.types import BaseModel
 
 from pydantic import Field
 
@@ -25,7 +25,7 @@ from .service import HomieServiceParams
 
 
 
-class HomiePrinterParams(ParamsModel, extra='forbid'):
+class HomiePrinterParams(BaseModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """
@@ -57,7 +57,7 @@ class HomiePrinterParams(ParamsModel, extra='forbid'):
 
 
 
-class HomieParams(Params, ParamsModel, extra='forbid'):
+class HomieParams(Params, BaseModel, extra='forbid'):
     """
     Process and validate the core configuration parameters.
     """

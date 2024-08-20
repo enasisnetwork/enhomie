@@ -12,8 +12,8 @@ from typing import Any
 from typing import TYPE_CHECKING
 from typing import Union
 
-from encommon import NCNone
 from encommon.times import Timer
+from encommon.types import NCNone
 
 from .thread import HomieThread
 from .thread import HomieThreadItem

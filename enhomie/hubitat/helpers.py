@@ -14,10 +14,10 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from urllib.parse import quote_plus
 
+from encommon.colors import Colors
 from encommon.types import DictStrAny
 from encommon.types import getate
 from encommon.types import strplwr
-from encommon.colors import Colors
 
 from httpx import Response
 

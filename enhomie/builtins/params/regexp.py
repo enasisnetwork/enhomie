@@ -10,13 +10,13 @@ is permitted, for more information consult the project license file.
 from typing import Annotated
 from typing import Any
 
-from encommon.config import ParamsModel
+from encommon.types import BaseModel
 
 from pydantic import Field
 
 
 
-class DriverBltnRegexpParams(ParamsModel, extra='forbid'):
+class DriverBltnRegexpParams(BaseModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

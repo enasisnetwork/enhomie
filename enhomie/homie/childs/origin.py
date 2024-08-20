@@ -12,8 +12,8 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from typing import Union
 
-from encommon.types import DictStrAny
 from encommon.colors import Colors
+from encommon.types import DictStrAny
 
 from .child import HomieChild
 from ..models import HomieModels

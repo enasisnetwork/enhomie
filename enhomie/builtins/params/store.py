@@ -11,7 +11,7 @@ from typing import Annotated
 from typing import Literal
 from typing import Optional
 
-from encommon.config import ParamsModel
+from encommon.types import BaseModel
 
 from pydantic import Field
 
@@ -20,7 +20,7 @@ from ...homie.addons import HomiePersistValue
 
 
 
-class DriverBltnStoreParams(ParamsModel, extra='forbid'):
+class DriverBltnStoreParams(BaseModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

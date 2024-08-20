@@ -11,7 +11,7 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from typing import Type
 
-from encommon import NCNone
+from encommon.types import NCNone
 
 from .member import HomieMember
 from ...hubitat import HubiUpdate

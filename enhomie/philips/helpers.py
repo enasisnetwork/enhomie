@@ -12,13 +12,13 @@ from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon import NCFalse
-from encommon import NCNone
+from encommon.colors import Colors
 from encommon.types import DictStrAny
+from encommon.types import NCFalse
+from encommon.types import NCNone
 from encommon.types import getate
 from encommon.types import setate
 from encommon.types import strplwr
-from encommon.colors import Colors
 
 from httpx import Response
 

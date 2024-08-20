@@ -11,7 +11,7 @@ from typing import Literal
 from typing import TYPE_CHECKING
 from typing import get_args
 
-from encommon import NCFalse
+from encommon.types import NCFalse
 from encommon.types import getate
 
 from .helpers import phue_sensors

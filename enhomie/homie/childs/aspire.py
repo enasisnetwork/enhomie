@@ -10,9 +10,9 @@ is permitted, for more information consult the project license file.
 from typing import Literal
 from typing import TYPE_CHECKING
 
-from encommon import NCFalse
 from encommon.times import Timer
 from encommon.times import Times
+from encommon.types import NCFalse
 
 from .child import HomieChild
 from .helpers import occurd

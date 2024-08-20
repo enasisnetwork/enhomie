@@ -15,9 +15,9 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from typing import Union
 
+from encommon.colors import Colors
 from encommon.times import Times
 from encommon.types import DictStrAny
-from encommon.colors import Colors
 
 from enconnect.philips import Bridge
 

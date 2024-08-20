@@ -172,8 +172,13 @@ class HomieScene(HomieChild):
 
         def _override() -> None:
 
+            assert device and devices
+
+            config = devices[
+                device.name]
+
             _pruned = (
-                devices[name]
+                config
                 .model_pruned)
 
             _pruned = deepcopy(_pruned)

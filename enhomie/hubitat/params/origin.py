@@ -9,7 +9,7 @@ is permitted, for more information consult the project license file.
 
 from typing import Annotated
 
-from encommon.config import ParamsModel
+from encommon.types import BaseModel
 
 from enconnect.hubitat import BridgeParams
 
@@ -17,7 +17,7 @@ from pydantic import Field
 
 
 
-class HubiOriginParams(ParamsModel, extra='forbid'):
+class HubiOriginParams(BaseModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

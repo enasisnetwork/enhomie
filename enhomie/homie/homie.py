@@ -10,8 +10,8 @@ is permitted, for more information consult the project license file.
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon import NCNone
 from encommon.types import DictStrAny
+from encommon.types import NCNone
 from encommon.types import clsname
 from encommon.types import sort_dict
 from encommon.utils import array_ansi
