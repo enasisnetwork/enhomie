@@ -1,0 +1,101 @@
+---
+
+
+
+aspires:
+
+
+  ####################
+  ## Neptune Active ##
+  ####################
+  neptune_active:
+
+    groups: halimede
+    devices:
+      - neptune_special
+
+    scene: active
+
+    stage:
+      state: poweron
+      level: 100
+
+    pause: 1
+
+    store:
+
+      - unique: neptune_aspire
+        value: active
+
+    occurs:
+
+      - philips_contact:
+          device: neptune_contact
+          states: no_contact
+
+      - philips_button:
+          device: neptune_button
+          sensor: button1
+          events: short_release
+
+      - philips_button:
+          device: neptune_switch
+          sensor: button1
+          events: short_release
+
+      - philips_motion:
+          device: neptune_motion
+          states: motion
+
+      - philips_scene:
+          scene: active
+          group: halimede
+          states: active
+
+      - builtins_regexp:
+          patterns: '\S+foo.+?bar\S+'
+
+    wheres:
+
+      - builtins_store:
+          unique: neptune_aspire
+          value: active
+          operator: neq
+
+
+  #####################
+  ## Neptune Standby ##
+  #####################
+  neptune_standby:
+
+    groups: halimede
+    devices:
+      - neptune_special
+
+    scene: standby
+
+    pause: 1
+
+    store:
+
+      - unique: neptune_aspire
+        value: standby
+
+    occurs:
+
+      - philips_button:
+          device: neptune_button
+          sensor: button1
+          events: short_release
+
+      - philips_button:
+          device: neptune_switch
+          sensor: button1
+          events: short_release
+
+    wheres:
+
+      - builtins_store:
+          unique: neptune_aspire
+          value: active
+          operator: eq

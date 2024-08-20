@@ -1,0 +1,29 @@
+---
+
+
+
+origins:
+
+
+  ####################
+  ## Jupiter Bridge ##
+  ####################
+  jupiter_hubitat:
+    hubitat:
+      bridge:
+        server: 192.168.1.11
+        appid: 69
+        token: XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX
+        ssl_verify: false
+
+
+  ####################
+  ## Neptune Bridge ##
+  ####################
+  neptune_hubitat:
+    hubitat:
+      bridge:
+        server: 192.168.2.11
+        appid: 69
+        token: XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX
+        ssl_verify: false

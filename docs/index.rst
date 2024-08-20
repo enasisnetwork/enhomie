@@ -1,7 +1,7 @@
 Configuration Container
 =======================
 
-.. autoclass:: enhomie.config.Config
+.. autoclass:: enhomie.homie.HomieConfig
    :members:
    :show-inheritance:
    :noindex:
@@ -9,205 +9,126 @@ Configuration Container
 Parameters Container
 ====================
 
-.. autopydantic_model:: enhomie.config.Params
+.. autopydantic_model:: enhomie.homie.params.HomieParams
    :members:
    :show-inheritance:
    :noindex:
 
-Homie Automate
+Homie Children
 ==============
 
-.. autoclass:: enhomie.homie.Homie
+.. autopydantic_model:: enhomie.homie.params.HomieOriginParams
    :members:
    :show-inheritance:
    :noindex:
 
-Homie Desired State
+.. autopydantic_model:: enhomie.homie.params.HomieDeviceParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
+.. autopydantic_model:: enhomie.homie.params.HomieGroupParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
+.. autopydantic_model:: enhomie.homie.params.HomieSceneParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
+.. autopydantic_model:: enhomie.homie.params.HomieDesireParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
+.. autopydantic_model:: enhomie.homie.params.HomieAspireParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
+Multithread Service
 ===================
 
-.. autoclass:: enhomie.homie.HomieDesire
+.. autopydantic_model:: enhomie.homie.params.HomieServiceParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autopydantic_model:: enhomie.homie.HomieDesireParams
+Hubitat Origin
+==============
+
+.. autopydantic_model:: enhomie.hubitat.params.HubiOriginParams
    :members:
    :show-inheritance:
    :noindex:
 
-Homie Universal Group
-=====================
+Philips Origin
+==============
 
-.. autoclass:: enhomie.homie.HomieGroup
+.. autopydantic_model:: enhomie.philips.params.PhueOriginParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autopydantic_model:: enhomie.homie.HomieGroupParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-Homie Universal Scene
-=====================
-
-.. autoclass:: enhomie.homie.HomieScene
-   :members:
-   :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.homie.HomieSceneParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-Philips Hue Bridge
-==================
-
-.. autoclass:: enhomie.philipshue.PhueBridge
-   :members:
-   :show-inheritance:
-   :noindex:
-
-Philips Hue Device
-==================
-
-.. autoclass:: enhomie.philipshue.PhueDevice
-   :members:
-   :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.philipshue.PhueDeviceParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-Ubiquiti Router
+Ubiquiti Origin
 ===============
 
-.. autoclass:: enhomie.ubiquiti.UbiqRouter
+.. autopydantic_model:: enhomie.ubiquiti.params.UbiqOriginParams
    :members:
    :show-inheritance:
    :noindex:
 
-Ubiquiti Client
+Builtin Plugins
 ===============
 
-.. autoclass:: enhomie.ubiquiti.UbiqClient
+.. autopydantic_model:: enhomie.builtins.params.DriverBltnPeriodParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autopydantic_model:: enhomie.ubiquiti.UbiqClientParams
+.. autopydantic_model:: enhomie.builtins.params.DriverBltnRegexpParams
    :members:
    :show-inheritance:
    :noindex:
 
-Conditional Parameters
-======================
-
-.. autoclass:: enhomie.homie.HomieWhen
+.. autopydantic_model:: enhomie.builtins.params.DriverBltnStoreParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autopydantic_model:: enhomie.homie.HomieWhenParams
+Philips Plugins
+===============
+
+.. autopydantic_model:: enhomie.philips.params.DriverPhueButtonParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autopydantic_model:: enhomie.builtins.WhenTimePeriodParams
+.. autopydantic_model:: enhomie.philips.params.DriverPhueChangeParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autopydantic_model:: enhomie.philipshue.WhenPhueChangeParams
+.. autopydantic_model:: enhomie.philips.params.DriverPhueContactParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autopydantic_model:: enhomie.philipshue.WhenPhueSceneParams
+.. autopydantic_model:: enhomie.philips.params.DriverPhueMotionParams
    :members:
    :show-inheritance:
    :noindex:
 
-.. autopydantic_model:: enhomie.ubiquiti.WhenUbiqClientParams
+.. autopydantic_model:: enhomie.philips.params.DriverPhueSceneParams
    :members:
    :show-inheritance:
    :noindex:
 
-Conditional Helpers
-===================
+Ubiquiti Plugins
+================
 
-.. autofunction:: enhomie.builtins.chck_time_period
-   :noindex:
-
-.. autofunction:: enhomie.builtins.when_time_period
-   :noindex:
-
-.. autofunction:: enhomie.philipshue.chck_phue_change
-   :noindex:
-
-.. autofunction:: enhomie.philipshue.when_phue_change
-   :noindex:
-
-.. autofunction:: enhomie.philipshue.chck_phue_scene
-   :noindex:
-
-.. autofunction:: enhomie.philipshue.when_phue_scene
-   :noindex:
-
-.. autofunction:: enhomie.ubiquiti.chck_ubiq_client
-   :noindex:
-
-.. autofunction:: enhomie.ubiquiti.when_ubiq_client
-   :noindex:
-
-Operational Parameters
-======================
-
-.. autoclass:: enhomie.homie.HomieWhat
+.. autopydantic_model:: enhomie.ubiquiti.params.DriverUbiqClientParams
    :members:
    :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.homie.HomieWhatParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.philipshue.WhatPhueMotionParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.philipshue.WhatPhueButtonParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.philipshue.WhatPhueContactParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-Operational Helpers
-===================
-
-.. autofunction:: enhomie.philipshue.chck_phue_motion
-   :noindex:
-
-.. autofunction:: enhomie.philipshue.what_phue_motion
-   :noindex:
-
-.. autofunction:: enhomie.philipshue.chck_phue_button
-   :noindex:
-
-.. autofunction:: enhomie.philipshue.what_phue_button
-   :noindex:
-
-.. autofunction:: enhomie.philipshue.chck_phue_contact
-   :noindex:
-
-.. autofunction:: enhomie.philipshue.what_phue_contact
    :noindex:

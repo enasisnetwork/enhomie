@@ -7,314 +7,212 @@ is permitted, for more information consult the project license file.
 
 
 
-from pathlib import Path
+from typing import TYPE_CHECKING
 
-from _pytest.logging import LogCaptureFixture
-
-from encommon import ENPYRWS
+from encommon.types import DictStrAny
 from encommon.types import inrepr
 from encommon.types import instr
+from encommon.types import lattrs
 from encommon.utils import load_sample
 from encommon.utils import prep_sample
-
-from httpx import Response
-
-from respx import MockRouter
+from encommon.utils.sample import ENPYRWS
 
 from . import SAMPLES
+from ..config import HomieConfig
 from ..homie import Homie
-from ...config import Config
-from ...conftest import REPLACES
-from ...philipshue.test import (
-    LEVEL_PATHS as PHUE_LEVEL_PATHS,
-    SCENE_PATHS as PHUE_SCENE_PATHS,
-    STATE_PATHS as PHUE_STATE_PATHS)
+from ..threads import HomieThreadItem
+
+if TYPE_CHECKING:
+    from ...utils import TestBodies
 
 
 
 def test_Homie(
     homie: Homie,
+    replaces: DictStrAny,
 ) -> None:
     """
     Perform various tests associated with relevant routines.
 
     :param homie: Primary class instance for Homie Automate.
+    :param replaces: Mapping of what to replace in samples.
     """
 
-    desires = homie.desires
-    desire = desires['default']
 
-
-    attrs = list(homie.__dict__)
+    attrs = lattrs(homie)
 
     assert attrs == [
         '_Homie__config',
-        '_Homie__timers',
-        '_Homie__phue_bridges',
-        '_Homie__phue_devices',
-        '_Homie__ubiq_routers',
-        '_Homie__ubiq_clients',
-        '_Homie__groups',
-        '_Homie__scenes',
-        '_Homie__desires',
-        '_Homie__actions']
+        '_Homie__logger',
+        '_Homie__persist',
+        '_Homie__childs',
+        '_Homie__desired',
+        '_Homie__aspired']
 
 
     assert inrepr(
-        'homie.Homie object',
+        'homie.Homie',
         homie)
 
     assert hash(homie) > 0
 
     assert instr(
-        'homie.Homie object',
+        'homie.Homie',
         homie)
 
 
-    assert homie.config is not None
+    assert homie.config
 
-    assert homie.params is not None
+    assert homie.logger
 
-    assert homie.timers is not None
+    assert homie.persist
 
-    assert len(homie.groups) == 4
+    assert homie.childs
 
-    assert len(homie.rooms) == 2
+    assert homie.params
 
-    assert len(homie.zones) == 2
+    assert homie.desired
 
-    assert len(homie.scenes) == 5
-
-    assert len(homie.desires) == 4
-
-    assert len(homie.phue_bridges) == 2
-
-    assert len(homie.phue_devices) == 12
-
-    assert len(homie.ubiq_routers) == 2
-
-    assert len(homie.ubiq_clients) == 6
+    assert homie.aspired
 
 
-    desired = homie.desired(True)
-
-    assert desired == {
-        'jupiter_room': desire,
-        'jupiter_zone': desire,
-        'neptune_room': desire,
-        'neptune_zone': desire}
-
-
-    aspired = homie.aspired(
-        {'foo': 'bar'}, False)
-
-    assert len(aspired) == 0
-
-
-    homie.refresh()
+    assert homie.refresh()
 
 
     sample_path = (
-        f'{SAMPLES}/homie/dumper.json')
+        SAMPLES / 'dumped.json')
 
     sample = load_sample(
         path=sample_path,
         update=ENPYRWS,
-        content=homie.homie_dumper(),
-        replace=REPLACES)
+        content=homie.dumped,
+        replace=replaces)
 
     expect = prep_sample(
-        content=homie.homie_dumper(),
-        replace=REPLACES)
+        content=homie.dumped,
+        replace=replaces)
 
-    assert sample == expect
+    assert expect == sample
 
 
 
-def test_Homie_logger(
+def test_Homie_actions(
     homie: Homie,
-    caplog: LogCaptureFixture,
+    bodies: 'TestBodies',
 ) -> None:
     """
     Perform various tests associated with relevant routines.
 
     :param homie: Primary class instance for Homie Automate.
-    :param caplog: pytest object for capturing log message.
+    :param bodies: Locations and groups for use in testing.
     """
 
-    logger = homie.config.logger
+    childs = homie.childs
+    devices = childs.devices
+    groups = childs.groups
 
 
-    logger.start()
-
-    homie.log_d(message='pytest')
-    homie.log_c(message='pytest')
-    homie.log_e(message='pytest')
-    homie.log_i(message='pytest')
-    homie.log_w(message='pytest')
-
-    homie.log(
-        level='debug',
-        message='custom')
-
-    logger.stop()
-
-    output = caplog.record_tuples
-
-    assert len(output) == 6
+    assert homie.refresh()
 
 
-    homie.log_d(message='pytest')
-    homie.log_c(message='pytest')
-    homie.log_e(message='pytest')
-    homie.log_i(message='pytest')
-    homie.log_w(message='pytest')
+    moons = (
+        dict(bodies.moons)
+        .items())
 
-    output = caplog.record_tuples
-
-    assert len(output) == 6
+    for planet, moon in moons:
 
 
+        device = devices[
+            f'{planet}_light2']
 
-def test_Homie_state(
+        aitems = (
+            homie.get_actions(
+                target=device,
+                state='poweron',
+                color='ff00cc',
+                level=69))
+
+        assert len(aitems) == 1
+
+        assert homie.set_actions(
+            aitems, force=True)
+
+        assert homie.set_actions(
+            aitems, change=False)
+
+
+        device = devices[
+            f'{planet}_light1']
+
+        aitems = (
+            homie.get_actions(
+                target=device,
+                state='nopower',
+                color='ff00cc',
+                level=100))
+
+        assert len(aitems) == 1
+
+        assert homie.set_actions(
+            aitems, force=True)
+
+        assert homie.set_actions(
+            aitems, change=False)
+
+
+        group = groups[moon]
+
+        aitems = (
+            homie.get_actions(
+                target=group,
+                state='poweron',
+                color='ff00cc',
+                level=69))
+
+        assert len(aitems) == 2
+
+        assert homie.set_actions(
+            aitems, force=True)
+
+        assert homie.set_actions(
+            aitems, change=False)
+
+
+        aitems = (
+            homie
+            .get_actions(group))
+
+        assert len(aitems) == 0
+
+
+
+def test_Homie_printer(
     homie: Homie,
-    respx_mock: MockRouter,
 ) -> None:
     """
     Perform various tests associated with relevant routines.
 
     :param homie: Primary class instance for Homie Automate.
-    :param respx_mock: Object for mocking request operation.
     """
 
-    groups = homie.groups
+    childs = homie.childs
+    origins = childs.origins
 
+    origin = origins[
+        'jupiter_philips']
 
-    for path in PHUE_STATE_PATHS:
+    model = HomieThreadItem
 
-        (respx_mock
-         .put(path)
-         .mock(Response(200)))
+    item = model(origin)
 
-
-    group = groups['jupiter_room']
-
-    state = homie.state_get(group)
-
-    assert state is not None
-    assert state == 'off'
-
-    homie.state_set(group, 'on')
-
-
-    group = groups['neptune_room']
-
-    state = homie.state_get(group)
-
-    assert state is not None
-    assert state == 'off'
-
-    homie.state_set(group, 'on')
-
-
-
-def test_Homie_level(
-    homie: Homie,
-    respx_mock: MockRouter,
-) -> None:
-    """
-    Perform various tests associated with relevant routines.
-
-    :param homie: Primary class instance for Homie Automate.
-    :param respx_mock: Object for mocking request operation.
-    """
-
-    groups = homie.groups
-
-
-    for path in PHUE_LEVEL_PATHS:
-
-        (respx_mock
-         .put(path)
-         .mock(Response(200)))
-
-
-    group = groups['jupiter_room']
-
-    level = homie.level_get(group)
-
-    assert level is not None
-    assert level == 0
-
-    homie.level_set(group, 100)
-
-
-    group = groups['neptune_room']
-
-    level = homie.level_get(group)
-
-    assert level is not None
-    assert level == 0
-
-    homie.level_set(group, 100)
-
-
-
-def test_Homie_scene(
-    homie: Homie,
-    respx_mock: MockRouter,
-) -> None:
-    """
-    Perform various tests associated with relevant routines.
-
-    :param homie: Primary class instance for Homie Automate.
-    :param respx_mock: Object for mocking request operation.
-    """
-
-
-    for path in PHUE_SCENE_PATHS:
-
-        (respx_mock
-         .put(path)
-         .mock(Response(200)))
-
-
-    scene = homie.scene_get(
-        homie.groups['jupiter_zone'])
-
-    assert scene is not None
-    assert scene.name == 'sleep'
-
-    homie.scene_set(
-        homie.groups['jupiter_room'],
-        homie.scenes['awake'])
-
-
-    scene = homie.scene_get(
-        homie.groups['neptune_zone'])
-
-    assert scene is not None
-    assert scene.name == 'sleep'
-
-    homie.scene_set(
-        homie.groups['neptune_room'],
-        homie.scenes['awake'])
-
-
-    scene = homie.scene_get(
-        homie.groups['jupiter_room'])
-
-    assert scene is None
+    homie.printer(item)
 
 
 
 def test_Homie_cover(
-    tmp_path: Path,
 ) -> None:
     """
     Perform various tests associated with relevant routines.
-
-    :param tmp_path: pytest object for temporal filesystem.
     """
 
-    Homie(Config())
+    Homie(HomieConfig())

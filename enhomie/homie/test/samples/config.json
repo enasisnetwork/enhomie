@@ -1,0 +1,970 @@
+{
+  "enconfig": {
+    "paths": [
+      "_/encommon_sample/PROJECT/_/examples",
+      "_/encommon_sample/TMPPATH/_/homie"
+    ]
+  },
+  "enlogger": {
+    "stdo_level": "debug",
+    "file_level": null,
+    "file_path": null
+  },
+  "encrypts": null,
+  "database": "sqlite:///_/encommon_sample/TMPPATH/_/db",
+  "dryrun": false,
+  "potent": true,
+  "printer": {
+    "action": true,
+    "update": true,
+    "stream": true,
+    "desire": true,
+    "aspire": true
+  },
+  "service": {
+    "respite": {
+      "desire": 1,
+      "update": 1,
+      "health": 1
+    },
+    "timeout": {
+      "action": 1,
+      "update": 1,
+      "stream": 1
+    }
+  },
+  "origins": {
+    "jupiter_hubitat": {
+      "hubitat": {
+        "bridge": {
+          "server": "192.168.1.11",
+          "timeout": 30,
+          "appid": 69,
+          "token": "XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX",
+          "ssl_verify": false,
+          "ssl_capem": null
+        }
+      },
+      "philips": null,
+      "ubiquiti": null
+    },
+    "neptune_hubitat": {
+      "hubitat": {
+        "bridge": {
+          "server": "192.168.2.11",
+          "timeout": 30,
+          "appid": 69,
+          "token": "XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX",
+          "ssl_verify": false,
+          "ssl_capem": null
+        }
+      },
+      "philips": null,
+      "ubiquiti": null
+    },
+    "jupiter_philips": {
+      "hubitat": null,
+      "philips": {
+        "bridge": {
+          "server": "192.168.1.10",
+          "timeout": 30,
+          "token": "XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX",
+          "ssl_verify": false,
+          "ssl_capem": null
+        }
+      },
+      "ubiquiti": null
+    },
+    "neptune_philips": {
+      "hubitat": null,
+      "philips": {
+        "bridge": {
+          "server": "192.168.2.10",
+          "timeout": 30,
+          "token": "XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX",
+          "ssl_verify": false,
+          "ssl_capem": null
+        }
+      },
+      "ubiquiti": null
+    },
+    "jupiter_ubiquiti": {
+      "hubitat": null,
+      "philips": null,
+      "ubiquiti": {
+        "router": {
+          "server": "192.168.1.1",
+          "timeout": 30,
+          "username": "username",
+          "password": "XxXXXxXxXXxXXXx",
+          "site": "default",
+          "ssl_verify": false,
+          "ssl_capem": null
+        }
+      }
+    },
+    "neptune_ubiquiti": {
+      "hubitat": null,
+      "philips": null,
+      "ubiquiti": {
+        "router": {
+          "server": "192.168.2.1",
+          "timeout": 30,
+          "username": "username",
+          "password": "XxXXXxXxXXxXXXx",
+          "site": "default",
+          "ssl_verify": false,
+          "ssl_capem": null
+        }
+      }
+    }
+  },
+  "devices": {
+    "jupiter_light2": {
+      "origin": "jupiter_hubitat",
+      "label": "Jupiter Light",
+      "unique": null
+    },
+    "jupiter_special": {
+      "origin": "jupiter_hubitat",
+      "label": "Jupiter Special",
+      "unique": null
+    },
+    "neptune_light2": {
+      "origin": "neptune_hubitat",
+      "label": "Neptune Light",
+      "unique": null
+    },
+    "neptune_special": {
+      "origin": "neptune_hubitat",
+      "label": "Neptune Special",
+      "unique": null
+    },
+    "jupiter_button": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Button",
+      "unique": null
+    },
+    "jupiter_motion": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Motion",
+      "unique": null
+    },
+    "jupiter_switch": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Switch",
+      "unique": null
+    },
+    "jupiter_contact": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Contact",
+      "unique": null
+    },
+    "jupiter_plug": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Plug",
+      "unique": null
+    },
+    "jupiter_light1": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Light",
+      "unique": null
+    },
+    "neptune_button": {
+      "origin": "neptune_philips",
+      "label": "Neptune Button",
+      "unique": null
+    },
+    "neptune_motion": {
+      "origin": "neptune_philips",
+      "label": "Neptune Motion",
+      "unique": null
+    },
+    "neptune_switch": {
+      "origin": "neptune_philips",
+      "label": "Neptune Switch",
+      "unique": null
+    },
+    "neptune_contact": {
+      "origin": "neptune_philips",
+      "label": "Neptune Contact",
+      "unique": null
+    },
+    "neptune_plug": {
+      "origin": "neptune_philips",
+      "label": "Neptune Plug",
+      "unique": null
+    },
+    "neptune_light1": {
+      "origin": "neptune_philips",
+      "label": "Neptune Light",
+      "unique": null
+    },
+    "jupiter_phone": {
+      "origin": "jupiter_ubiquiti",
+      "label": "Phone",
+      "unique": null
+    },
+    "jupiter_tablet": {
+      "origin": "jupiter_ubiquiti",
+      "label": null,
+      "unique": "1a:01:68:00:11:01"
+    },
+    "neptune_phone": {
+      "origin": "neptune_ubiquiti",
+      "label": "Phone",
+      "unique": null
+    },
+    "neptune_tablet": {
+      "origin": "neptune_ubiquiti",
+      "label": null,
+      "unique": "1a:01:68:00:21:01"
+    }
+  },
+  "groups": {
+    "jupiter": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter",
+      "devices": null
+    },
+    "ganymede": {
+      "origin": "jupiter_philips",
+      "label": "Ganymede",
+      "devices": [
+        "jupiter_light2"
+      ]
+    },
+    "neptune": {
+      "origin": "neptune_philips",
+      "label": "Neptune",
+      "devices": null
+    },
+    "halimede": {
+      "origin": "neptune_philips",
+      "label": "Halimede",
+      "devices": [
+        "neptune_light2"
+      ]
+    }
+  },
+  "scenes": {
+    "active": {
+      "label": "Active",
+      "stage": {
+        "state": "poweron",
+        "color": "fff6b0",
+        "level": 80
+      },
+      "devices": null
+    },
+    "standby": {
+      "label": "Standby",
+      "stage": {
+        "state": "poweron",
+        "color": "003333",
+        "level": 80
+      },
+      "devices": {
+        "jupiter_light2": {
+          "state": null,
+          "color": null,
+          "level": 20
+        },
+        "neptune_light2": {
+          "state": null,
+          "color": null,
+          "level": 20
+        }
+      }
+    },
+    "absent": {
+      "label": "Absent",
+      "stage": {
+        "state": "poweron",
+        "color": "99925c",
+        "level": 30
+      },
+      "devices": null
+    }
+  },
+  "desires": {
+    "jupiter_active": {
+      "devices": [
+        "jupiter_special"
+      ],
+      "groups": [
+        "ganymede"
+      ],
+      "stage": {
+        "state": "poweron",
+        "color": null,
+        "level": 100
+      },
+      "scene": "active",
+      "store": [
+        {
+          "unique": "jupiter_desire",
+          "value": "active",
+          "expire": "1d"
+        }
+      ],
+      "wheres": [
+        {
+          "negate": false,
+          "family": "active",
+          "builtins_store": {
+            "unique": "jupiter_aspire",
+            "operator": "eq",
+            "value": "active"
+          },
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": null
+        },
+        {
+          "negate": true,
+          "family": "active",
+          "builtins_store": null,
+          "builtins_period": null,
+          "philips_change": {
+            "devices": [
+              "jupiter_motion",
+              "jupiter_button",
+              "jupiter_contact",
+              "jupiter_switch"
+            ],
+            "sensors": [
+              "motion"
+            ],
+            "since": 900
+          },
+          "ubiquiti_client": null
+        },
+        {
+          "negate": false,
+          "family": "default",
+          "builtins_store": {
+            "unique": "jupiter_aspire",
+            "operator": "neq",
+            "value": "standby"
+          },
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": null
+        },
+        {
+          "negate": false,
+          "family": "schedule",
+          "builtins_store": null,
+          "builtins_period": {
+            "start": "00:00",
+            "stop": "07:00",
+            "days": null,
+            "tzname": "US/Central"
+          },
+          "philips_change": null,
+          "ubiquiti_client": null
+        },
+        {
+          "negate": false,
+          "family": "schedule",
+          "builtins_store": null,
+          "builtins_period": {
+            "start": "07:00",
+            "stop": null,
+            "days": null,
+            "tzname": "US/Central"
+          },
+          "philips_change": null,
+          "ubiquiti_client": null
+        }
+      ],
+      "pause": 1,
+      "delay": true,
+      "weight": 0
+    },
+    "jupiter_standby": {
+      "devices": [
+        "jupiter_special"
+      ],
+      "groups": [
+        "ganymede"
+      ],
+      "stage": null,
+      "scene": "standby",
+      "store": [
+        {
+          "unique": "jupiter_desire",
+          "value": "standby",
+          "expire": "1d"
+        }
+      ],
+      "wheres": [
+        {
+          "negate": false,
+          "family": "default",
+          "builtins_store": {
+            "unique": "jupiter_aspire",
+            "operator": "eq",
+            "value": "standby"
+          },
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": null
+        }
+      ],
+      "pause": 1,
+      "delay": true,
+      "weight": 10
+    },
+    "jupiter_absent": {
+      "devices": [
+        "jupiter_special"
+      ],
+      "groups": [
+        "ganymede"
+      ],
+      "stage": null,
+      "scene": "absent",
+      "store": [
+        {
+          "unique": "jupiter_desire",
+          "value": "absent",
+          "expire": "1d"
+        }
+      ],
+      "wheres": [
+        {
+          "negate": false,
+          "family": "default",
+          "builtins_store": null,
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": {
+            "clients": [
+              "jupiter_phone",
+              "jupiter_tablet"
+            ],
+            "since": 600
+          }
+        }
+      ],
+      "pause": 1,
+      "delay": true,
+      "weight": 20
+    },
+    "neptune_active": {
+      "devices": [
+        "neptune_special"
+      ],
+      "groups": [
+        "halimede"
+      ],
+      "stage": {
+        "state": "poweron",
+        "color": null,
+        "level": 100
+      },
+      "scene": "active",
+      "store": [
+        {
+          "unique": "neptune_desire",
+          "value": "active",
+          "expire": "1d"
+        }
+      ],
+      "wheres": [
+        {
+          "negate": false,
+          "family": "active",
+          "builtins_store": {
+            "unique": "neptune_aspire",
+            "operator": "eq",
+            "value": "active"
+          },
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": null
+        },
+        {
+          "negate": true,
+          "family": "active",
+          "builtins_store": null,
+          "builtins_period": null,
+          "philips_change": {
+            "devices": [
+              "neptune_motion",
+              "neptune_button",
+              "neptune_contact",
+              "neptune_switch"
+            ],
+            "sensors": [
+              "motion"
+            ],
+            "since": 900
+          },
+          "ubiquiti_client": null
+        },
+        {
+          "negate": false,
+          "family": "default",
+          "builtins_store": {
+            "unique": "neptune_aspire",
+            "operator": "neq",
+            "value": "standby"
+          },
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": null
+        },
+        {
+          "negate": false,
+          "family": "schedule",
+          "builtins_store": null,
+          "builtins_period": {
+            "start": "00:00",
+            "stop": "07:00",
+            "days": null,
+            "tzname": "US/Central"
+          },
+          "philips_change": null,
+          "ubiquiti_client": null
+        },
+        {
+          "negate": false,
+          "family": "schedule",
+          "builtins_store": null,
+          "builtins_period": {
+            "start": "07:00",
+            "stop": null,
+            "days": null,
+            "tzname": "US/Central"
+          },
+          "philips_change": null,
+          "ubiquiti_client": null
+        }
+      ],
+      "pause": 1,
+      "delay": true,
+      "weight": 0
+    },
+    "neptune_standby": {
+      "devices": [
+        "neptune_special"
+      ],
+      "groups": [
+        "halimede"
+      ],
+      "stage": null,
+      "scene": "standby",
+      "store": [
+        {
+          "unique": "neptune_desire",
+          "value": "standby",
+          "expire": "1d"
+        }
+      ],
+      "wheres": [
+        {
+          "negate": false,
+          "family": "default",
+          "builtins_store": {
+            "unique": "neptune_aspire",
+            "operator": "eq",
+            "value": "standby"
+          },
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": null
+        }
+      ],
+      "pause": 1,
+      "delay": true,
+      "weight": 10
+    },
+    "neptune_absent": {
+      "devices": [
+        "neptune_special"
+      ],
+      "groups": [
+        "halimede"
+      ],
+      "stage": null,
+      "scene": "absent",
+      "store": [
+        {
+          "unique": "neptune_desire",
+          "value": "absent",
+          "expire": "1d"
+        }
+      ],
+      "wheres": [
+        {
+          "negate": false,
+          "family": "default",
+          "builtins_store": null,
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": {
+            "clients": [
+              "neptune_phone",
+              "neptune_tablet"
+            ],
+            "since": 600
+          }
+        }
+      ],
+      "pause": 1,
+      "delay": true,
+      "weight": 20
+    }
+  },
+  "aspires": {
+    "jupiter_active": {
+      "devices": [
+        "jupiter_special"
+      ],
+      "groups": [
+        "ganymede"
+      ],
+      "stage": {
+        "state": "poweron",
+        "color": null,
+        "level": 100
+      },
+      "scene": "active",
+      "store": [
+        {
+          "unique": "jupiter_aspire",
+          "value": "active",
+          "expire": "1d"
+        }
+      ],
+      "occurs": [
+        {
+          "builtins_regexp": null,
+          "philips_button": null,
+          "philips_contact": {
+            "device": "jupiter_contact",
+            "states": [
+              "no_contact"
+            ]
+          },
+          "philips_motion": null,
+          "philips_scene": null
+        },
+        {
+          "builtins_regexp": null,
+          "philips_button": {
+            "device": "jupiter_button",
+            "events": [
+              "short_release"
+            ],
+            "sensor": "button1"
+          },
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": null
+        },
+        {
+          "builtins_regexp": null,
+          "philips_button": {
+            "device": "jupiter_switch",
+            "events": [
+              "short_release"
+            ],
+            "sensor": "button1"
+          },
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": null
+        },
+        {
+          "builtins_regexp": null,
+          "philips_button": null,
+          "philips_contact": null,
+          "philips_motion": {
+            "device": "jupiter_motion",
+            "states": [
+              "motion"
+            ]
+          },
+          "philips_scene": null
+        },
+        {
+          "builtins_regexp": null,
+          "philips_button": null,
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": {
+            "scene": "active",
+            "group": "ganymede",
+            "states": [
+              "active"
+            ]
+          }
+        },
+        {
+          "builtins_regexp": {
+            "patterns": [
+              "\\S+foo.+?bar\\S+"
+            ],
+            "complete": false
+          },
+          "philips_button": null,
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": null
+        }
+      ],
+      "wheres": [
+        {
+          "negate": false,
+          "family": "default",
+          "builtins_store": {
+            "unique": "jupiter_aspire",
+            "operator": "neq",
+            "value": "active"
+          },
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": null
+        }
+      ],
+      "pause": 1
+    },
+    "jupiter_standby": {
+      "devices": [
+        "jupiter_special"
+      ],
+      "groups": [
+        "ganymede"
+      ],
+      "stage": null,
+      "scene": "standby",
+      "store": [
+        {
+          "unique": "jupiter_aspire",
+          "value": "standby",
+          "expire": "1d"
+        }
+      ],
+      "occurs": [
+        {
+          "builtins_regexp": null,
+          "philips_button": {
+            "device": "jupiter_button",
+            "events": [
+              "short_release"
+            ],
+            "sensor": "button1"
+          },
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": null
+        },
+        {
+          "builtins_regexp": null,
+          "philips_button": {
+            "device": "jupiter_switch",
+            "events": [
+              "short_release"
+            ],
+            "sensor": "button1"
+          },
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": null
+        }
+      ],
+      "wheres": [
+        {
+          "negate": false,
+          "family": "default",
+          "builtins_store": {
+            "unique": "jupiter_aspire",
+            "operator": "eq",
+            "value": "active"
+          },
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": null
+        }
+      ],
+      "pause": 1
+    },
+    "neptune_active": {
+      "devices": [
+        "neptune_special"
+      ],
+      "groups": [
+        "halimede"
+      ],
+      "stage": {
+        "state": "poweron",
+        "color": null,
+        "level": 100
+      },
+      "scene": "active",
+      "store": [
+        {
+          "unique": "neptune_aspire",
+          "value": "active",
+          "expire": "1d"
+        }
+      ],
+      "occurs": [
+        {
+          "builtins_regexp": null,
+          "philips_button": null,
+          "philips_contact": {
+            "device": "neptune_contact",
+            "states": [
+              "no_contact"
+            ]
+          },
+          "philips_motion": null,
+          "philips_scene": null
+        },
+        {
+          "builtins_regexp": null,
+          "philips_button": {
+            "device": "neptune_button",
+            "events": [
+              "short_release"
+            ],
+            "sensor": "button1"
+          },
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": null
+        },
+        {
+          "builtins_regexp": null,
+          "philips_button": {
+            "device": "neptune_switch",
+            "events": [
+              "short_release"
+            ],
+            "sensor": "button1"
+          },
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": null
+        },
+        {
+          "builtins_regexp": null,
+          "philips_button": null,
+          "philips_contact": null,
+          "philips_motion": {
+            "device": "neptune_motion",
+            "states": [
+              "motion"
+            ]
+          },
+          "philips_scene": null
+        },
+        {
+          "builtins_regexp": null,
+          "philips_button": null,
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": {
+            "scene": "active",
+            "group": "halimede",
+            "states": [
+              "active"
+            ]
+          }
+        },
+        {
+          "builtins_regexp": {
+            "patterns": [
+              "\\S+foo.+?bar\\S+"
+            ],
+            "complete": false
+          },
+          "philips_button": null,
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": null
+        }
+      ],
+      "wheres": [
+        {
+          "negate": false,
+          "family": "default",
+          "builtins_store": {
+            "unique": "neptune_aspire",
+            "operator": "neq",
+            "value": "active"
+          },
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": null
+        }
+      ],
+      "pause": 1
+    },
+    "neptune_standby": {
+      "devices": [
+        "neptune_special"
+      ],
+      "groups": [
+        "halimede"
+      ],
+      "stage": null,
+      "scene": "standby",
+      "store": [
+        {
+          "unique": "neptune_aspire",
+          "value": "standby",
+          "expire": "1d"
+        }
+      ],
+      "occurs": [
+        {
+          "builtins_regexp": null,
+          "philips_button": {
+            "device": "neptune_button",
+            "events": [
+              "short_release"
+            ],
+            "sensor": "button1"
+          },
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": null
+        },
+        {
+          "builtins_regexp": null,
+          "philips_button": {
+            "device": "neptune_switch",
+            "events": [
+              "short_release"
+            ],
+            "sensor": "button1"
+          },
+          "philips_contact": null,
+          "philips_motion": null,
+          "philips_scene": null
+        }
+      ],
+      "wheres": [
+        {
+          "negate": false,
+          "family": "default",
+          "builtins_store": {
+            "unique": "neptune_aspire",
+            "operator": "eq",
+            "value": "active"
+          },
+          "builtins_period": null,
+          "philips_change": null,
+          "ubiquiti_client": null
+        }
+      ],
+      "pause": 1
+    }
+  }
+}

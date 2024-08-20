@@ -7,83 +7,32 @@ is permitted, for more information consult the project license file.
 
 
 
-from json import loads
+from copy import deepcopy
 from pathlib import Path
 
-from encommon.times import Duration
-from encommon.times import Times
-from encommon.utils import read_text
+from encommon.types import DictStrAny
 from encommon.utils import save_text
-
-from httpx import Response
 
 from pytest import fixture
 
 from respx import MockRouter
 
-from .config import Config
+from . import EXAMPLES
+from . import PROJECT
 from .homie import Homie
-from .homie.test import (
-    SAMPLES as CORE_SAMPLES)
-from .philipshue.test import (
-    SAMPLES as PHUE_SAMPLES)
-from .ubiquiti.test import (
-    SAMPLES as UBIQ_SAMPLES)
-
-
-
-_ANCHOR = Times('-0s@s')
-
-REPLACES = {
-
-
-    '__STAMP_SMP__': (
-        _ANCHOR.shift('-1h').simple),
-
-    '__STAMP_SUB__': (
-        _ANCHOR.shift('-1h').subsec),
-
-    '__DURATION__': (
-        str(Duration(
-            Times(0).since,
-            groups=2))),
-
-
-    '__FSEEN_CUR__': (
-        str(int(_ANCHOR.shift('-9d')))),
-
-    '__LSEEN_CUR__': (
-        str(int(_ANCHOR.shift('-1d')))),
-
-    '__FSEEN_OLD__': (
-        str(int(_ANCHOR.shift('-9d')))),
-
-    '__LSEEN_OLD__': (
-        str(int(_ANCHOR.shift('-1d')))),
-
-
-    '__ASSOC_TIME__': (
-        str(int(_ANCHOR.shift('-2d')))),
-
-
-    '__DISCO_CUR__': (
-        str(int(_ANCHOR.shift('-3h')))),
-
-    '__DISCO_OLD__': (
-        str(int(_ANCHOR.shift('-1d')))),
-
-
-    '__START_DAY__': (
-        _ANCHOR.shift('-0d@d').simple),
-
-    '__STOP_DAY__': (
-        _ANCHOR.shift('+1d@d').simple)}
+from .homie import HomieConfig
+from .homie import HomieService
+from .hubitat.test import mock_hubi
+from .philips.test import mock_phue
+from .ubiquiti.test import mock_ubiq
+from .utils import TestBodies
+from .utils import TestTimes
 
 
 
 def config_factory(
     tmp_path: Path,
-) -> Config:
+) -> HomieConfig:
     """
     Construct the instance for use in the downstream tests.
 
@@ -91,33 +40,54 @@ def config_factory(
     :returns: Newly constructed instance of related class.
     """
 
-    save_text(
-        f'{tmp_path}/config.yml',
-        content=(
-            'enconfig:\n'
-            '  paths:\n'
-            f'    - {tmp_path}\n'
-            f'    - {CORE_SAMPLES}\n'
-            f'    - {PHUE_SAMPLES}\n'
-            f'    - {UBIQ_SAMPLES}\n'
-            'enlogger:\n'
-            '  stdo_level: info\n'))
+    content = (
+        f"""
 
-    return Config(
-        f'{tmp_path}/config.yml',
-        sargs={
-            'dryrun': False,
-            'idempt': False,
-            'quiet': False,
-            'console': True,
-            'debug': True})
+        enconfig:
+          paths:
+            - {EXAMPLES}
+            - {tmp_path}/homie
+
+        enlogger:
+          stdo_level: info
+
+        database: >-
+            sqlite:///{tmp_path}/db
+
+        """)  # noqa: LIT003
+
+    config_path = (
+        tmp_path / 'config.yml')
+
+    save_text(
+        config_path, content)
+
+    sargs = {
+        'config': config_path,
+        'dryrun': False,
+        'potent': True,
+        'console': True,
+        'debug': True,
+        'idesire': 1,
+        'iupdate': 1,
+        'ihealth': 1,
+        'atimeout': 1,
+        'utimeout': 1,
+        'stimeout': 1,
+        'paction': True,
+        'pupdate': True,
+        'pstream': True,
+        'paspire': True,
+        'pdesire': True}
+
+    return HomieConfig(sargs)
 
 
 
 @fixture
 def config(
     tmp_path: Path,
-) -> Config:
+) -> HomieConfig:
     """
     Construct the instance for use in the downstream tests.
 
@@ -129,189 +99,114 @@ def config(
 
 
 
-def homie_factory(  # noqa: CFQ001
-    config: 'Config',
+@fixture
+def times() -> TestTimes:
+    """
+    Return the simple mapping of what to replace in sample.
+
+    :returns: Simple mapping of what to replace in sample.
+    """
+
+    return TestTimes()
+
+
+
+@fixture
+def bodies() -> TestBodies:
+    """
+    Return the simple mapping of what to replace in sample.
+
+    :returns: Simple mapping of what to replace in sample.
+    """
+
+    return TestBodies()
+
+
+
+def replaces_factory() -> DictStrAny:
+    """
+    Return the complete mapping of what to replace in sample.
+
+    :returns: Complete mapping of what to replace in sample.
+    """
+
+    times = TestTimes()
+
+    replaces = {
+
+        'PROJECT': PROJECT,
+
+        '__TIMESTAMP_START__': (
+            times.start.simple),
+
+        '__TIMESTAMP_MIDDLE__': (
+            times.middle.simple),
+
+        '__TIMESTAMP_FINAL__': (
+            times.final.simple),
+
+        '__TIMESTAMP_CRRNT__': (
+            times.current.simple),
+
+        '__UNIXEPOCH_START__': (
+            times.start.spoch),
+
+        '__UNIXEPOCH_MIDDLE__': (
+            times.middle.spoch),
+
+        '__UNIXEPOCH_FINAL__': (
+            times.final.spoch),
+
+        '__UNIXEPOCH_CRRNT__': (
+            times.current.spoch)}
+
+    return deepcopy(replaces)
+
+
+
+@fixture
+def replaces(
+    tmp_path: Path,
+) -> DictStrAny:
+    """
+    Return the complete mapping of what replaced in sample.
+
+    :param tmp_path: pytest object for temporal filesystem.
+    :returns: Complete mapping of what replaced in sample.
+    """
+
+    replaces = replaces_factory()
+
+    return replaces | {
+        'TMPPATH': tmp_path}
+
+
+
+def homie_factory(
+    config: HomieConfig,
     respx_mock: MockRouter,
 ) -> Homie:
     """
     Construct the instance for use in the downstream tests.
-
-    .. note::
-       Function has slowly evolved and grown over time, but
-       should be refactored and simplified in the future.
 
     :param config: Primary class instance for configuration.
     :param respx_mock: Object for mocking request operation.
     :returns: Newly constructed instance of related class.
     """
 
-    homie = Homie(config)
+    replaces = replaces_factory()
 
+    mock_hubi(respx_mock, replaces)
+    mock_phue(respx_mock, replaces)
+    mock_ubiq(respx_mock, replaces)
 
-    phue_paths = [
-        ('https://192.168.1.10'
-         '/clip/v2/resource'),
-        ('https://192.168.2.10'
-         '/clip/v2/resource')]
-
-    phue_files = [
-        f'{PHUE_SAMPLES}/jupiter.json',
-        f'{PHUE_SAMPLES}/neptune.json']
-
-
-    ubiq_paths = [
-
-        ('https://192.168.1.1'
-         '/api/auth/login'),
-        ('https://192.168.1.1'
-         '/proxy/network'
-         '/api/s/default/rest/user'),
-        ('https://192.168.1.1'
-         '/proxy/network'
-         '/api/s/default/stat/sta'),
-
-        ('https://192.168.2.1'
-         '/api/auth/login'),
-        ('https://192.168.2.1'
-         '/proxy/network'
-         '/api/s/default/rest/user'),
-        ('https://192.168.2.1'
-         '/proxy/network'
-         '/api/s/default/stat/sta')]
-
-    ubiq_files = [
-
-        (f'{UBIQ_SAMPLES}/jupiter'
-         '/historic.json'),
-        (f'{UBIQ_SAMPLES}/jupiter'
-         '/realtime.json'),
-
-        (f'{UBIQ_SAMPLES}/neptune'
-         '/historic.json'),
-        (f'{UBIQ_SAMPLES}/neptune'
-         '/realtime.json')]
-
-
-    def _replaces(
-        path: str,
-    ) -> str:
-
-        content = read_text(path)
-
-        items = REPLACES.items()
-
-        for key, new in items:
-
-            content = (
-                content
-                .replace(key, new))
-
-        loaded = loads(content)
-
-        assert isinstance(loaded, dict)
-
-        return content
-
-
-    dumped = _replaces(phue_files[0])
-
-    (respx_mock
-     .get(phue_paths[0])
-     .mock(Response(
-         status_code=200,
-         content=dumped)))
-
-
-    dumped = _replaces(phue_files[1])
-
-    (respx_mock
-     .get(phue_paths[1])
-     .mock(Response(
-         status_code=200,
-         content=dumped)))
-
-
-    phue_bridges = (
-        homie.phue_bridges
-        .values())
-
-    for phue_bridge in phue_bridges:
-        phue_bridge.refresh()
-
-
-    (respx_mock
-     .post(ubiq_paths[0])
-     .mock(Response(
-         status_code=200)))
-
-
-    dumped = _replaces(ubiq_files[0])
-
-    (respx_mock
-     .get(ubiq_paths[1])
-     .mock(side_effect=[
-         Response(401),
-         Response(
-             status_code=200,
-             content=dumped),
-         Response(
-             status_code=200,
-             content=dumped)]))
-
-
-    dumped = _replaces(ubiq_files[1])
-
-    (respx_mock
-     .get(ubiq_paths[2])
-     .mock(Response(
-         status_code=200,
-         content=dumped)))
-
-
-    (respx_mock
-     .post(ubiq_paths[3])
-     .mock(Response(
-         status_code=200)))
-
-
-    dumped = _replaces(ubiq_files[2])
-
-    (respx_mock
-     .get(ubiq_paths[4])
-     .mock(side_effect=[
-         Response(401),
-         Response(
-             status_code=200,
-             content=dumped),
-         Response(
-             status_code=200,
-             content=dumped)]))
-
-
-    dumped = _replaces(ubiq_files[3])
-
-    (respx_mock
-     .get(ubiq_paths[5])
-     .mock(Response(
-         status_code=200,
-         content=dumped)))
-
-
-    ubiq_routers = (
-        homie.ubiq_routers
-        .values())
-
-    for ubiq_router in ubiq_routers:
-        ubiq_router.refresh()
-
-
-    return homie
+    return Homie(config)
 
 
 
 @fixture
 def homie(
-    config: 'Config',
+    config: HomieConfig,
     respx_mock: MockRouter,
 ) -> Homie:
     """
@@ -322,4 +217,39 @@ def homie(
     :returns: Newly constructed instance of related class.
     """
 
-    return homie_factory(config, respx_mock)
+    return homie_factory(
+        config, respx_mock)
+
+
+
+def service_factory(
+    homie: Homie,
+    respx_mock: MockRouter,
+) -> HomieService:
+    """
+    Construct the instance for use in the downstream tests.
+
+    :param homie: Primary class instance for Homie Automate.
+    :param respx_mock: Object for mocking request operation.
+    :returns: Newly constructed instance of related class.
+    """
+
+    return HomieService(homie)
+
+
+
+@fixture
+def service(
+    homie: Homie,
+    respx_mock: MockRouter,
+) -> HomieService:
+    """
+    Construct the instance for use in the downstream tests.
+
+    :param homie: Primary class instance for Homie Automate.
+    :param respx_mock: Object for mocking request operation.
+    :returns: Newly constructed instance of related class.
+    """
+
+    return service_factory(
+        homie, respx_mock)

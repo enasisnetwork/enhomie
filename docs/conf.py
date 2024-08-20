@@ -44,4 +44,5 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None)}
 
 nitpick_ignore = [
-    ('py:class', 'pydantic.main.BaseModel')]
+    ('py:class', 'pydantic.main.BaseModel'),
+    ('py:class', 'respx.router.MockRouter')]
