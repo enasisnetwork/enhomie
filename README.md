@@ -10,28 +10,13 @@ Define desired scenes for groups using flexible conditional plugins.
 [![](https://img.shields.io/pypi/v/enhomie.svg?style=flat-square&label=PyPi%20version)](https://pypi.org/project/enhomie)<br>
 [![](https://img.shields.io/pypi/dm/enhomie?style=flat-square&label=PyPi%20downloads)](https://pypi.org/project/enhomie)
 
-## Configuration example
-Some basic configuration examples. See next section for more documentation.
-- [Homie Desires](enhomie/homie/test/samples/desires.yml)
-- [Homie Actions](enhomie/homie/test/samples/actions.yml)
-- [Homie Groups](enhomie/homie/test/samples/groups.yml)
-- [Homie Scenes](enhomie/homie/test/samples/scenes.yml)
-- [Philips Hue Bridges](enhomie/philipshue/test/samples/bridges.yml)
-- [Philips Hue Devices](enhomie/philipshue/test/samples/devices.yml)
-- [Ubiquiti Routers](enhomie/ubiquiti/test/samples/routers.yml)
-- [Ubiquiti Clients](enhomie/ubiquiti/test/samples/clients.yml)
-
 ## Documentation
 Documentation is on [Read the Docs](https://enhomie.readthedocs.io).
 Should you venture into the sections below you will be able to use the
 `sphinx` recipe to build documention in the `docs/html` directory.
 
-## Additional scripts
-- [dumper.py](dumper.py) is useful for dumping configuration.
-- [service.py](service.py) for desired state and stream actions.
-- [update.py](update.py) is useful for setting scene on groups.
-
 ## Useful and related links
+- https://developers.meethue.com/develop/hue-api-v2/api-reference
 - https://ubntwiki.com/products/software/unifi-controller/api
 
 ## Installing the package

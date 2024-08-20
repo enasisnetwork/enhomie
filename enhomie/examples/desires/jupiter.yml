@@ -1,0 +1,117 @@
+---
+
+
+
+desires:
+
+
+  ####################
+  ## Jupiter Active ##
+  ####################
+  jupiter_active:
+
+    groups: ganymede
+    devices:
+      - jupiter_special
+
+    scene: active
+
+    stage:
+      state: poweron
+      level: 100
+
+    pause: 1
+
+    store:
+
+      - unique: jupiter_desire
+        value: active
+
+    wheres:
+
+      - builtins_store:
+          unique: jupiter_aspire
+          value: active
+          operator: eq
+        family: active
+      - philips_change:
+          devices:
+            - jupiter_motion
+            - jupiter_button
+            - jupiter_contact
+            - jupiter_switch
+          sensors: motion
+          since: 900
+        negate: true
+        family: active
+
+      - builtins_store:
+          unique: jupiter_aspire
+          value: standby
+          operator: neq
+
+      - builtins_period:
+          start: '00:00'
+          stop: '07:00'
+          tzname: US/Central
+        family: schedule
+      - builtins_period:
+          start: '07:00'
+          tzname: US/Central
+        family: schedule
+
+
+
+  #####################
+  ## Jupiter Standby ##
+  #####################
+  jupiter_standby:
+
+    groups: ganymede
+    devices:
+      - jupiter_special
+
+    scene: standby
+
+    weight: 10
+    pause: 1
+
+    store:
+
+      - unique: jupiter_desire
+        value: standby
+
+    wheres:
+
+      - builtins_store:
+          unique: jupiter_aspire
+          value: standby
+          operator: eq
+
+
+  ####################
+  ## Jupiter Absent ##
+  ####################
+  jupiter_absent:
+
+    groups: ganymede
+    devices:
+      - jupiter_special
+
+    scene: absent
+
+    weight: 20
+    pause: 1
+
+    store:
+
+      - unique: jupiter_desire
+        value: absent
+
+    wheres:
+
+      - ubiquiti_client:
+          clients:
+            - jupiter_phone
+            - jupiter_tablet
+          since: 600

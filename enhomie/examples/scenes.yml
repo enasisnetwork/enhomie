@@ -1,0 +1,43 @@
+---
+
+
+
+scenes:
+
+
+  ############
+  ## Active ##
+  ############
+  active:
+    label: Active
+    stage:
+      state: poweron
+      color: 'fff6b0'
+      level: 80
+
+
+  #############
+  ## Standby ##
+  #############
+  standby:
+    label: Standby
+    stage:
+      state: poweron
+      color: '003333'
+      level: 80
+    devices:
+      jupiter_light2:
+        level: 20
+      neptune_light2:
+        level: 20
+
+
+  ############
+  ## Absent ##
+  ############
+  absent:
+    label: Absent
+    stage:
+      state: poweron
+      color: '99925c'
+      level: 30

@@ -1,0 +1,29 @@
+---
+
+
+
+groups:
+
+
+  ####################
+  ## Jupiter Groups ##
+  ####################
+  jupiter:
+    origin: jupiter_philips
+    label: Jupiter
+  ganymede:
+    origin: jupiter_philips
+    label: Ganymede
+    devices: jupiter_light2
+
+
+  ####################
+  ## Neptune Groups ##
+  ####################
+  neptune:
+    origin: neptune_philips
+    label: Neptune
+  halimede:
+    origin: neptune_philips
+    label: Halimede
+    devices: neptune_light2

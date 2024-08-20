@@ -1,0 +1,27 @@
+---
+
+
+
+devices:
+
+
+  #####################
+  ## Jupiter Devices ##
+  #####################
+  jupiter_light2:
+    origin: jupiter_hubitat
+    label: Jupiter Light
+  jupiter_special:
+    origin: jupiter_hubitat
+    label: Jupiter Special
+
+
+  #####################
+  ## Neptune Devices ##
+  #####################
+  neptune_light2:
+    origin: neptune_hubitat
+    label: Neptune Light
+  neptune_special:
+    origin: neptune_hubitat
+    label: Neptune Special

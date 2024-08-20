@@ -1,0 +1,27 @@
+---
+
+
+
+origins:
+
+
+  ####################
+  ## Jupiter Bridge ##
+  ####################
+  jupiter_philips:
+    philips:
+      bridge:
+        server: 192.168.1.10
+        token: XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX
+        ssl_verify: false
+
+
+  ####################
+  ## Neptune Bridge ##
+  ####################
+  neptune_philips:
+    philips:
+      bridge:
+        server: 192.168.2.10
+        token: XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX
+        ssl_verify: false

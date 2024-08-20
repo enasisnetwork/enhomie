@@ -1,0 +1,51 @@
+---
+
+
+
+devices:
+
+
+  #####################
+  ## Jupiter Devices ##
+  #####################
+  jupiter_button:
+    origin: jupiter_philips
+    label: Jupiter Button
+  jupiter_motion:
+    origin: jupiter_philips
+    label: Jupiter Motion
+  jupiter_switch:
+    origin: jupiter_philips
+    label: Jupiter Switch
+  jupiter_contact:
+    origin: jupiter_philips
+    label: Jupiter Contact
+  jupiter_plug:
+    origin: jupiter_philips
+    label: Jupiter Plug
+  jupiter_light1:
+    origin: jupiter_philips
+    label: Jupiter Light
+
+
+  #####################
+  ## Neptune Devices ##
+  #####################
+  neptune_button:
+    origin: neptune_philips
+    label: Neptune Button
+  neptune_motion:
+    origin: neptune_philips
+    label: Neptune Motion
+  neptune_switch:
+    origin: neptune_philips
+    label: Neptune Switch
+  neptune_contact:
+    origin: neptune_philips
+    label: Neptune Contact
+  neptune_plug:
+    origin: neptune_philips
+    label: Neptune Plug
+  neptune_light1:
+    origin: neptune_philips
+    label: Neptune Light
