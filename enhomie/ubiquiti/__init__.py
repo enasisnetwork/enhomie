@@ -7,19 +7,17 @@ is permitted, for more information consult the project license file.
 
 
 
-from .client import UbiqClient
-from .params import UbiqClientParams
-from .params import WhenUbiqClientParams
-from .router import UbiqRouter
-from .when import chck_ubiq_client
-from .when import when_ubiq_client
+from .device import UbiqDevice
+from .models import UbiqModels
+from .origin import UbiqOrigin
+from .plugins import DriverUbiqClient
+from .update import UbiqUpdate
 
 
 
 __all__ = [
-    'UbiqClient',
-    'UbiqClientParams',
-    'UbiqRouter',
-    'WhenUbiqClientParams',
-    'chck_ubiq_client',
-    'when_ubiq_client']
+    'UbiqOrigin',
+    'UbiqDevice',
+    'UbiqUpdate',
+    'UbiqModels',
+    'DriverUbiqClient']

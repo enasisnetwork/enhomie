@@ -1,0 +1,27 @@
+---
+
+
+
+devices:
+
+
+  #####################
+  ## Jupiter Devices ##
+  #####################
+  jupiter_phone:
+    origin: jupiter_ubiquiti
+    label: Phone
+  jupiter_tablet:
+    origin: jupiter_ubiquiti
+    unique: 1a:01:68:00:11:01
+
+
+  #####################
+  ## Neptune Devices ##
+  #####################
+  neptune_phone:
+    origin: neptune_ubiquiti
+    label: Phone
+  neptune_tablet:
+    origin: neptune_ubiquiti
+    unique: 1a:01:68:00:21:01

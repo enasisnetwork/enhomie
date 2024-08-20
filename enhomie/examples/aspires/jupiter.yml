@@ -1,0 +1,101 @@
+---
+
+
+
+aspires:
+
+
+  ####################
+  ## Jupiter Active ##
+  ####################
+  jupiter_active:
+
+    groups: ganymede
+    devices:
+      - jupiter_special
+
+    scene: active
+
+    stage:
+      state: poweron
+      level: 100
+
+    pause: 1
+
+    store:
+
+      - unique: jupiter_aspire
+        value: active
+
+    occurs:
+
+      - philips_contact:
+          device: jupiter_contact
+          states: no_contact
+
+      - philips_button:
+          device: jupiter_button
+          sensor: button1
+          events: short_release
+
+      - philips_button:
+          device: jupiter_switch
+          sensor: button1
+          events: short_release
+
+      - philips_motion:
+          device: jupiter_motion
+          states: motion
+
+      - philips_scene:
+          scene: active
+          group: ganymede
+          states: active
+
+      - builtins_regexp:
+          patterns: '\S+foo.+?bar\S+'
+
+    wheres:
+
+      - builtins_store:
+          unique: jupiter_aspire
+          value: active
+          operator: neq
+
+
+  #####################
+  ## Jupiter Standby ##
+  #####################
+  jupiter_standby:
+
+    groups: ganymede
+    devices:
+      - jupiter_special
+
+    scene: standby
+
+    pause: 1
+
+    store:
+
+      - unique: jupiter_aspire
+        value: standby
+
+    occurs:
+
+      - philips_button:
+          device: jupiter_button
+          sensor: button1
+          events: short_release
+
+      - philips_button:
+          device: jupiter_switch
+          sensor: button1
+          events: short_release
+
+    wheres:
+
+      - builtins_store:
+          unique: jupiter_aspire
+          value: active
+          operator: eq
