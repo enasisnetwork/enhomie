@@ -15,8 +15,8 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from typing import Union
 
-from encommon.colors import Colors
-from encommon.times import Times
+from encommon.colors import Color
+from encommon.times import Time
 from encommon.types import DictStrAny
 
 from enconnect.philips import Bridge
@@ -167,7 +167,7 @@ class PhueOrigin(HomieOrigin):
         bridge = self.__bridge
         request = bridge.request
 
-        runtime = Times()
+        runtime = Time()
 
         try:
 
@@ -217,7 +217,7 @@ class PhueOrigin(HomieOrigin):
         target: 'HomieActionNode',
         *,
         state: Optional['HomieState'] = None,
-        color: Optional[str | Colors] = None,
+        color: Optional[str | Color] = None,
         level: Optional[int] = None,
         scene: Optional[Union[str, 'HomieScene']] = None,
     ) -> 'HomieActionItem':
@@ -244,7 +244,7 @@ class PhueOrigin(HomieOrigin):
             .action())
 
         if isinstance(color, str):
-            color = Colors(color)
+            color = Color(color)
 
         if isinstance(scene, str):
             scene = scenes[scene]
@@ -280,7 +280,7 @@ class PhueOrigin(HomieOrigin):
         childs = homie.childs
         scenes = childs.scenes
 
-        runtime = Times()
+        runtime = Time()
 
         thread = current_thread()
 

@@ -10,7 +10,7 @@ is permitted, for more information consult the project license file.
 from typing import Literal
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import Time
 
 from .helpers import ubiq_latest
 from ..models import UbiqModels
@@ -123,7 +123,7 @@ class DriverUbiqClient(HomieDriver):
 
     def where(
         self,
-        time: Times,
+        time: Time,
     ) -> bool:
         """
         Return the boolean indicating the conditional outcomes.

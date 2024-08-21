@@ -9,7 +9,7 @@ is permitted, for more information consult the project license file.
 
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import Time
 
 from ...utils import UnexpectedCondition
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
 
 def ubiq_latest(
     source: 'UbiqFetch',
-) -> Times:
+) -> Time:
     """
     Return the timestamp for client association with router.
 
@@ -39,7 +39,7 @@ def ubiq_latest(
 
     if (gwsecs is not None
             or apsecs is not None):
-        return Times()
+        return Time()
 
 
     laseen = (
@@ -47,7 +47,7 @@ def ubiq_latest(
         .get('last_seen'))
 
     if laseen is not None:
-        return Times(laseen[0])
+        return Time(laseen[0])
 
 
     raise UnexpectedCondition

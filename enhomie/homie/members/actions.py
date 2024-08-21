@@ -11,8 +11,8 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from typing import Type
 
+from encommon.times import Time
 from encommon.times import Timer
-from encommon.times import Times
 
 from .member import HomieMember
 from ...hubitat import HubiAction
@@ -131,7 +131,7 @@ class HomieActions(HomieMember):
             item='desired',
             status='started')
 
-        time = Times('now')
+        time = Time('now')
 
         aitems = (
             desired.items(time))

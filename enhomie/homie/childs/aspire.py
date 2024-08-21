@@ -10,8 +10,8 @@ is permitted, for more information consult the project license file.
 from typing import Literal
 from typing import TYPE_CHECKING
 
+from encommon.times import Time
 from encommon.times import Timer
-from encommon.times import Times
 from encommon.types import NCFalse
 
 from .child import HomieChild
@@ -288,7 +288,7 @@ class HomieAspire(HomieChild):
 
         homie = self.homie
 
-        time = Times('now')
+        time = Time('now')
 
 
         def _whered() -> bool:

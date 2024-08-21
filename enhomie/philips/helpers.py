@@ -12,7 +12,7 @@ from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.colors import Colors
+from encommon.colors import Color
 from encommon.types import DictStrAny
 from encommon.types import NCFalse
 from encommon.types import NCNone
@@ -58,7 +58,7 @@ _ASTATES = Literal[
 
 _AVALUES = Optional[
     _ASTATES
-    | int | Colors]
+    | int | Color]
 
 
 
@@ -245,7 +245,7 @@ def request_action(  # noqa: CFQ001,CFQ002,CFQ004
     target: 'HomieActionNode',
     *,
     state: Optional['HomieState'] = None,
-    color: Optional[str | Colors] = None,
+    color: Optional[str | Color] = None,
     level: Optional[int] = None,
     scene: Optional['HomieScene'] = None,
     force: bool = False,
@@ -313,7 +313,7 @@ def request_action(  # noqa: CFQ001,CFQ002,CFQ004
 
 
     if isinstance(color, str):
-        color = Colors(color)
+        color = Color(color)
 
 
     def _set_scene() -> None:
@@ -425,7 +425,7 @@ def action_request(  # noqa: CFQ001,CFQ002,CFQ004
     unique: str,
     *,
     state: Optional[_ASTATES] = None,
-    color: Optional[Colors] = None,
+    color: Optional[Color] = None,
     level: Optional[int] = None,
     force: bool = False,
     change: bool = True,

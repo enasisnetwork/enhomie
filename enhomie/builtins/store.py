@@ -10,7 +10,7 @@ is permitted, for more information consult the project license file.
 from typing import Literal
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import Time
 
 from .models import BltnModels
 from ..homie.plugins import HomieDriver
@@ -113,7 +113,7 @@ class DriverBltnStore(HomieDriver):
 
     def where(  # noqa: CFQ004
         self,
-        time: Times,
+        time: Time,
     ) -> bool:
         """
         Return the boolean indicating the conditional outcomes.

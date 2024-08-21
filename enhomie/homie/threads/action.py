@@ -12,7 +12,7 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from typing import Union
 
-from encommon.colors import Colors
+from encommon.colors import Color
 
 from .thread import HomieThread
 from .thread import HomieThreadItem
@@ -45,7 +45,7 @@ class HomieActionItem(HomieThreadItem):
     device: Optional[str] = None
 
     state: Optional['HomieState'] = None
-    color: Optional[Colors] = None
+    color: Optional[Color] = None
     level: Optional[int] = None
     scene: Optional[str] = None
 
@@ -56,7 +56,7 @@ class HomieActionItem(HomieThreadItem):
         target: HomieActionNode,
         *,
         state: Optional['HomieState'] = None,
-        color: Optional[str | Colors] = None,
+        color: Optional[str | Color] = None,
         level: Optional[int] = None,
         scene: Optional['HomieScene'] = None,
     ) -> None:
@@ -65,7 +65,7 @@ class HomieActionItem(HomieThreadItem):
         """
 
         if isinstance(color, str):
-            color = Colors(color)
+            color = Color(color)
 
         name = target.name
         kind = target.kind

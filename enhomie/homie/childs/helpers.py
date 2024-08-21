@@ -10,7 +10,7 @@ is permitted, for more information consult the project license file.
 from typing import TYPE_CHECKING
 from typing import Union
 
-from encommon.times import Times
+from encommon.times import Time
 
 if TYPE_CHECKING:
     from .aspire import HomieAspire
@@ -28,7 +28,7 @@ _WHERE_WHENL = dict[str, list[bool]]
 
 def whered(
     desire: Union['HomieDesire', 'HomieAspire'],
-    time: Times,
+    time: Time,
 ) -> tuple[bool, ...]:
     """
     Return the boolean indicating the conditional outcomes.

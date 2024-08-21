@@ -13,7 +13,7 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from typing import Union
 
-from encommon.colors import Colors
+from encommon.colors import Color
 from encommon.utils.stdout import ANSIARRAY
 
 if TYPE_CHECKING:
@@ -48,14 +48,14 @@ class HomieStage:
     """
 
     state: Optional[HomieState] = None
-    color: Optional[Colors] = None
+    color: Optional[Color] = None
     level: Optional[int] = None
 
 
     def __init__(
         self,
         state: Optional[HomieState] = None,
-        color: Optional[str | Colors] = None,
+        color: Optional[str | Color] = None,
         level: Optional[int] = None,
     ) -> None:
         """
@@ -63,7 +63,7 @@ class HomieStage:
         """
 
         if isinstance(color, str):
-            color = Colors(color)
+            color = Color(color)
 
         self.state = state
         self.color = color

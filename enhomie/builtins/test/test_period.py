@@ -10,7 +10,7 @@ is permitted, for more information consult the project license file.
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import Time
 from encommon.types import inrepr
 from encommon.types import instr
 from encommon.types import lattrs
@@ -89,7 +89,7 @@ def test_DriverBltnPeriod(
         assert driver.params
 
 
-        time = Times('05:00')
+        time = Time('05:00')
 
         assert driver.where(time)
 
@@ -158,10 +158,10 @@ def test_DriverBltnPeriod_cover(  # noqa: CFQ001
         .drivers[0])
 
     asserts = [
-        (Times('00:00'), True),
-        (Times('11:00'), True),
-        (Times('13:00'), False),
-        (Times('23:00'), False)]
+        (Time('00:00'), True),
+        (Time('11:00'), True),
+        (Time('13:00'), False),
+        (Time('23:00'), False)]
 
     assert all(
         driver.where(x) is y
@@ -173,10 +173,10 @@ def test_DriverBltnPeriod_cover(  # noqa: CFQ001
         .drivers[0])
 
     asserts = [
-        (Times('00:00'), False),
-        (Times('11:00'), False),
-        (Times('13:00'), True),
-        (Times('23:00'), True)]
+        (Time('00:00'), False),
+        (Time('11:00'), False),
+        (Time('13:00'), True),
+        (Time('23:00'), True)]
 
     assert all(
         driver.where(x) is y
@@ -188,10 +188,10 @@ def test_DriverBltnPeriod_cover(  # noqa: CFQ001
         .drivers[0])
 
     assert driver.where(
-        Times('Monday 12:00'))
+        Time('Monday 12:00'))
 
     assert not driver.where(
-        Times('Friday 12:00'))
+        Time('Friday 12:00'))
 
 
     driver = (
@@ -199,9 +199,9 @@ def test_DriverBltnPeriod_cover(  # noqa: CFQ001
         .drivers[0])
 
     asserts = [
-        (Times('16:30'), False),
-        (Times('19:00'), True),
-        (Times('23:30'), False)]
+        (Time('16:30'), False),
+        (Time('19:00'), True),
+        (Time('23:30'), False)]
 
     assert all(
         driver.where(x) is y
@@ -213,10 +213,10 @@ def test_DriverBltnPeriod_cover(  # noqa: CFQ001
         .drivers[0])
 
     asserts = [
-        (Times('04:30'), False),
-        (Times('05:30'), True),
-        (Times('18:30'), False),
-        (Times('23:30'), False)]
+        (Time('04:30'), False),
+        (Time('05:30'), True),
+        (Time('18:30'), False),
+        (Time('23:30'), False)]
 
     assert all(
         driver.where(x) is y
@@ -228,8 +228,8 @@ def test_DriverBltnPeriod_cover(  # noqa: CFQ001
         .drivers[0])
 
     asserts = [
-        (Times('02:00'), True),
-        (Times('07:00'), False)]
+        (Time('02:00'), True),
+        (Time('07:00'), False)]
 
     assert all(
         driver.where(x) is y

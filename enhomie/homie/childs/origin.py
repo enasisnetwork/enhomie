@@ -12,7 +12,7 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from typing import Union
 
-from encommon.colors import Colors
+from encommon.colors import Color
 from encommon.types import DictStrAny
 
 from .child import HomieChild
@@ -133,7 +133,7 @@ class HomieOrigin(HomieChild):
         target: 'HomieActionNode',
         *,
         state: Optional['HomieState'] = None,
-        color: Optional[str | Colors] = None,
+        color: Optional[str | Color] = None,
         level: Optional[int] = None,
         scene: Optional[Union[str, 'HomieScene']] = None,
     ) -> 'HomieActionItem':
@@ -179,7 +179,7 @@ class HomieOrigin(HomieChild):
         target: 'HomieActionNode',
         *,
         state: Optional['HomieState'] = None,
-        color: Optional[str | Colors] = None,
+        color: Optional[str | Color] = None,
         level: Optional[int] = None,
         scene: Optional[Union[str, 'HomieScene']] = None,
     ) -> None:

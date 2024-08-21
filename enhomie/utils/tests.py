@@ -11,11 +11,11 @@ from dataclasses import dataclass
 from typing import Literal
 from typing import get_args
 
-from encommon.times import Times
+from encommon.times import Time
 
 
 
-STARTED = Times('now')
+STARTED = Time('now')
 
 
 
@@ -48,10 +48,10 @@ class TestTimes:
     Contain the times used within various tests in project.
     """
 
-    start: Times = STARTED.shift('-1w@h')
-    middle: Times = STARTED.shift('-1d@h')
-    final: Times = STARTED.shift('-1h@h')
-    current: Times = STARTED.shift('-1m')
+    start: Time = STARTED.shift('-1w@h')
+    middle: Time = STARTED.shift('-1d@h')
+    final: Time = STARTED.shift('-1h@h')
+    current: Time = STARTED.shift('-1m')
 
 
 

@@ -13,7 +13,7 @@ from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import Time
 from encommon.types import DictStrAny
 
 from enconnect.ubiquiti import Router
@@ -157,7 +157,7 @@ class UbiqOrigin(HomieOrigin):
         router = self.__router
         request = router.reqroxy
 
-        runtime = Times()
+        runtime = Time()
 
         try:
 
