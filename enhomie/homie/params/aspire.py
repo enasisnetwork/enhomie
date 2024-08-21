@@ -77,6 +77,7 @@ class HomieAspireParams(HomieChildParams, extra='forbid'):
     def __init__(
         # NOCVR
         self,
+        /,
         **data: Any,
     ) -> None:
         """

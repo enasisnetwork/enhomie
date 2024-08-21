@@ -144,12 +144,12 @@ class PhueOrigin(HomieOrigin):
         if fetch is None:
             return None
 
-        merged = (
+        merge = (
             merge_fetch(fetch))
 
-        self.__merge = merged
+        self.__merge = merge
 
-        return deepcopy(merged)
+        return deepcopy(merge)
 
 
     def refresh(
