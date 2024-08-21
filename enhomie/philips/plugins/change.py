@@ -11,7 +11,7 @@ from typing import Literal
 from typing import TYPE_CHECKING
 from typing import get_args
 
-from encommon.times import Times
+from encommon.times import Time
 
 from .helpers import phue_changed
 from ..models import PhueModels
@@ -137,7 +137,7 @@ class DriverPhueChange(HomieDriver):
 
     def where(  # noqa: CFQ004
         self,
-        time: Times,
+        time: Time,
     ) -> bool:
         """
         Return the boolean indicating the conditional outcomes.

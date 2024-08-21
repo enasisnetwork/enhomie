@@ -13,7 +13,7 @@ from typing import Generic
 from typing import TYPE_CHECKING
 from typing import TypeVar
 
-from encommon.times import Times
+from encommon.times import Time
 
 if TYPE_CHECKING:
     from .homie import Homie
@@ -30,7 +30,7 @@ class HomieQueueItem:
     Contain information for sharing using the Python queue.
     """
 
-    time: Times
+    time: Time
 
 
     def __init__(
@@ -40,7 +40,7 @@ class HomieQueueItem:
         Initialize instance for class using provided parameters.
         """
 
-        self.time = Times()
+        self.time = Time()
 
 
 

@@ -13,7 +13,7 @@ from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import Time
 from encommon.types import DictStrAny
 
 from enconnect.ubiquiti import Router
@@ -134,12 +134,12 @@ class UbiqOrigin(HomieOrigin):
         if fetch is None:
             return None
 
-        merged = (
+        merge = (
             merge_fetch(fetch))
 
-        self.__merge = merged
+        self.__merge = merge
 
-        return deepcopy(merged)
+        return deepcopy(merge)
 
 
     def refresh(
@@ -157,7 +157,7 @@ class UbiqOrigin(HomieOrigin):
         router = self.__router
         request = router.reqroxy
 
-        runtime = Times()
+        runtime = Time()
 
         try:
 

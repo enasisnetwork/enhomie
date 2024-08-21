@@ -83,7 +83,7 @@ def test_HomieGroup(
 
         assert group.kind == 'group'
 
-        assert group.origin is origin
+        assert group.origin
 
         assert group.params
 

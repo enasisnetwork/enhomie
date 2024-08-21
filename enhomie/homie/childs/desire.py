@@ -11,10 +11,10 @@ from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
+from encommon.times import Time
 from encommon.times import TimerParams
 from encommon.times import Timers
 from encommon.times import TimersParams
-from encommon.times import Times
 from encommon.times.params import _TIMERS
 
 from .child import HomieChild
@@ -295,7 +295,7 @@ class HomieDesire(HomieChild):
 
     def when(
         self,
-        time: Times,
+        time: Time,
     ) -> bool:
         """
         Return the boolean indicating the conditional outcomes.

@@ -14,7 +14,7 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from typing import Union
 
-from encommon.times import Times
+from encommon.times import Time
 from encommon.times import unitime
 
 from sqlalchemy import Column
@@ -157,7 +157,7 @@ class HomiePersist:
 
         assert isinstance(expire, int)
 
-        update = Times().spoch
+        update = Time().spoch
         expire = update + expire
 
 
@@ -268,7 +268,7 @@ class HomiePersist:
 
         with lock, sess as session:
 
-            now = Times().spoch
+            now = Time().spoch
 
             (session.query(table)
              .filter(expire < now)

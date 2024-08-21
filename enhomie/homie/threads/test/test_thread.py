@@ -9,7 +9,7 @@ is permitted, for more information consult the project license file.
 
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import Time
 
 if TYPE_CHECKING:
     from ...service import HomieService
@@ -51,7 +51,7 @@ def test_HomieThread_cover(
 
         uitem = origin.get_update()
 
-        uitem.time = Times('-1h')
+        uitem.time = Time('-1h')
 
         expired = (
             thread.expired(uitem))

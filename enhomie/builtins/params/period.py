@@ -60,13 +60,14 @@ class DriverBltnPeriodParams(BaseModel, extra='forbid'):
     tzname: Annotated[
         str,
         Field('UTC',
-              description='Timezone parsed with Times',
+              description='Timezone parsed with Time',
               min_length=1)]
 
 
     def __init__(
         # NOCVR
         self,
+        /,
         **data: Any,
     ) -> None:
         """

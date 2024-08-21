@@ -24,7 +24,8 @@ class DriverBltnRegexpParams(BaseModel, extra='forbid'):
     patterns: Annotated[
         list[str],
         Field(...,
-              description='Regular expression match')]
+              description='Regular expression match',
+              min_length=1)]
 
     complete: Annotated[
         bool,
@@ -35,6 +36,7 @@ class DriverBltnRegexpParams(BaseModel, extra='forbid'):
     def __init__(
         # NOCVR
         self,
+        /,
         **data: Any,
     ) -> None:
         """

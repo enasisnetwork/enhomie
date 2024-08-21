@@ -24,7 +24,7 @@ from respx import MockRouter
 
 SAMPLES = (
     Path(__file__).parent
-    .joinpath('samples'))
+    / 'samples')
 
 
 

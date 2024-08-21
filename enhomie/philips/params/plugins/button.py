@@ -46,6 +46,7 @@ class DriverPhueButtonParams(BaseModel, extra='forbid'):
     def __init__(
         # NOCVR
         self,
+        /,
         **data: Any,
     ) -> None:
         """

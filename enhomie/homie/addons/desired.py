@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import Time
 
 if TYPE_CHECKING:
     from ..childs import HomieDesire
@@ -219,7 +219,7 @@ class HomieDesired:
 
     def items(  # noqa: CFQ001
         self,
-        time: Times,
+        time: Time,
     ) -> _DESIRED:
         """
         Return the action state objects for the related targets.

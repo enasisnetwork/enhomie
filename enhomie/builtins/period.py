@@ -11,7 +11,7 @@ from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import Time
 from encommon.times import findtz
 
 from .models import BltnModels
@@ -114,7 +114,7 @@ class DriverBltnPeriod(HomieDriver):
 
     def where(  # noqa: CFQ004
         self,
-        time: Times,
+        time: Time,
     ) -> bool:
         """
         Return the boolean indicating the conditional outcomes.
@@ -126,14 +126,14 @@ class DriverBltnPeriod(HomieDriver):
         params = self.params
         tzname = params.tzname
 
-        start: Optional[Times] = None
-        stop: Optional[Times] = None
+        start: Optional[Time] = None
+        stop: Optional[Time] = None
 
         if tzname is not None:
             time = time.shifz(tzname)
 
 
-        _time = Times(
+        _time = Time(
             time.stamp('%H:%M'))
 
         today = time.stamp('%A')
@@ -141,11 +141,11 @@ class DriverBltnPeriod(HomieDriver):
 
         if params.start:
 
-            start = Times(
+            start = Time(
                 params.start,
                 tzname=tzname)
 
-            _start = Times(
+            _start = Time(
                 start.stamp('%H:%M'))
 
             if _time < _start:
@@ -153,11 +153,11 @@ class DriverBltnPeriod(HomieDriver):
 
         if params.stop:
 
-            stop = Times(
+            stop = Time(
                 params.stop,
                 tzname=tzname)
 
-            _stop = Times(
+            _stop = Time(
                 stop.stamp('%H:%M'))
 
             if _time > _stop:

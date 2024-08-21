@@ -11,7 +11,7 @@ from typing import Literal
 from typing import TYPE_CHECKING
 from typing import Type
 
-from encommon.times import Times
+from encommon.times import Time
 
 from .plugin import HomiePlugin
 from ..models import HomieModels
@@ -133,7 +133,7 @@ class HomieWhere(HomiePlugin):
 
     def when(
         self,
-        time: Times,
+        time: Time,
     ) -> bool:
         """
         Return the boolean indicating the conditional outcomes.

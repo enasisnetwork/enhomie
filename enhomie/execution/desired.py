@@ -11,7 +11,7 @@ from argparse import ArgumentParser
 from sys import argv as sys_argv
 from typing import Optional
 
-from encommon.times import Times
+from encommon.times import Time
 from encommon.types import DictStrAny
 
 from ..homie import Homie
@@ -98,7 +98,7 @@ def operation(
 
     assert homie.refresh()
 
-    time = Times('now')
+    time = Time('now')
 
     aitems = (
         homie.desired

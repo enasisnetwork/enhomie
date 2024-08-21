@@ -14,7 +14,7 @@ from typing import Optional
 from typing import TYPE_CHECKING
 from urllib.parse import quote_plus
 
-from encommon.colors import Colors
+from encommon.colors import Color
 from encommon.types import DictStrAny
 from encommon.types import getate
 from encommon.types import strplwr
@@ -52,7 +52,7 @@ _ASTATES = Literal[
 
 _AVALUES = Optional[
     _ASTATES
-    | int | Colors]
+    | int | Color]
 
 
 
@@ -169,7 +169,7 @@ def request_action(  # noqa: CFQ001,CFQ002,CFQ004
     target: 'HomieActionNode',
     *,
     state: Optional['HomieState'] = None,
-    color: Optional[str | Colors] = None,
+    color: Optional[str | Color] = None,
     level: Optional[int] = None,
     scene: Optional['HomieScene'] = None,
     force: bool = False,
@@ -234,7 +234,7 @@ def request_action(  # noqa: CFQ001,CFQ002,CFQ004
 
 
     if isinstance(color, str):
-        color = Colors(color)
+        color = Color(color)
 
 
     def _set_state() -> None:
@@ -415,7 +415,7 @@ def action_request(  # noqa: CFQ001,CFQ002,CFQ004
     def _set_color() -> _RESPONSE:
 
         assert isinstance(
-            value, Colors)
+            value, Color)
 
         hsl = list(value.hsl)
 

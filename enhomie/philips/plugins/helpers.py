@@ -10,7 +10,7 @@ is permitted, for more information consult the project license file.
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.times import Times
+from encommon.times import Time
 from encommon.types import getate
 from encommon.types import sort_dict
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
 
 
-_CHANGED = dict[str, Optional[Times]]
+_CHANGED = dict[str, Optional[Time]]
 
 _SENSORS = dict[str, str]
 
@@ -76,7 +76,7 @@ def phue_changed(
             rtype += str(index)
 
         changed[rtype] = (
-            Times(time)
+            Time(time)
             if time is not None
             else None)
 
