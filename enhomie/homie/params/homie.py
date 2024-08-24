@@ -57,7 +57,7 @@ class HomiePrinterParams(BaseModel, extra='forbid'):
 
 
 
-class HomieParams(Params, BaseModel, extra='forbid'):
+class HomieParams(Params, extra='forbid'):
     """
     Process and validate the core configuration parameters.
     """
@@ -91,35 +91,35 @@ class HomieParams(Params, BaseModel, extra='forbid'):
     origins: Annotated[
         Optional[dict[str, HomieOriginParams]],
         Field(None,
-              description='Parameters for Homie Automate',
+              description='Parameters for Homie origins',
               min_length=1)]
 
     devices: Annotated[
         Optional[dict[str, HomieDeviceParams]],
         Field(None,
-              description='Parameters for Homie Automate',
+              description='Parameters for Homie devices',
               min_length=1)]
 
     groups: Annotated[
         Optional[dict[str, HomieGroupParams]],
         Field(None,
-              description='Parameters for Homie Automate',
+              description='Parameters for Homie groups',
               min_length=1)]
 
     scenes: Annotated[
         Optional[dict[str, HomieSceneParams]],
         Field(None,
-              description='Parameters for Homie Automate',
+              description='Parameters for Homie scenes',
               min_length=1)]
 
     desires: Annotated[
         Optional[dict[str, HomieDesireParams]],
         Field(None,
-              description='Parameters for Homie Automate',
+              description='Parameters for Homie desires',
               min_length=1)]
 
     aspires: Annotated[
         Optional[dict[str, HomieAspireParams]],
         Field(None,
-              description='Parameters for Homie Automate',
+              description='Parameters for Homie aspires',
               min_length=1)]

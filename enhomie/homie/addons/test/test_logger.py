@@ -17,7 +17,7 @@ from encommon.types import instr
 from encommon.types import lattrs
 
 if TYPE_CHECKING:
-    from ..homie import Homie
+    from ...homie import Homie
 
 
 
@@ -119,5 +119,6 @@ def test_HomieLogger_cover(
 
     logger.log_i(base=thread)
     logger.log_i(item=thread)
+    logger.log_i(base=homie)
     logger.log_i(item=homie)
     logger.log_i(name=device)

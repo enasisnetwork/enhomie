@@ -1,0 +1,675 @@
+{
+  "database": "sqlite:///_/encommon_sample/TMPPATH/_/db",
+  "enconfig": {
+    "paths": [
+      "_/encommon_sample/PROJECT/_/examples",
+      "_/encommon_sample/TMPPATH/_/homie"
+    ]
+  },
+  "enlogger": {
+    "stdo_level": "debug"
+  },
+  "dryrun": false,
+  "potent": true,
+  "service": {
+    "respite": {
+      "desire": 1,
+      "update": 1,
+      "health": 1
+    },
+    "timeout": {
+      "action": 1,
+      "update": 1,
+      "stream": 1
+    }
+  },
+  "printer": {
+    "action": true,
+    "update": true,
+    "stream": true,
+    "desire": true,
+    "aspire": true
+  },
+  "aspires": {
+    "jupiter_active": {
+      "groups": "ganymede",
+      "devices": [
+        "jupiter_special"
+      ],
+      "scene": "active",
+      "stage": {
+        "state": "poweron",
+        "level": 100
+      },
+      "pause": 1,
+      "store": [
+        {
+          "unique": "jupiter_aspire",
+          "value": "active"
+        }
+      ],
+      "occurs": [
+        {
+          "philips_contact": {
+            "device": "jupiter_contact",
+            "states": "no_contact"
+          }
+        },
+        {
+          "philips_button": {
+            "device": "jupiter_button",
+            "sensor": "button1",
+            "events": "short_release"
+          }
+        },
+        {
+          "philips_button": {
+            "device": "jupiter_switch",
+            "sensor": "button1",
+            "events": "short_release"
+          }
+        },
+        {
+          "philips_motion": {
+            "device": "jupiter_motion",
+            "states": "motion"
+          }
+        },
+        {
+          "philips_scene": {
+            "scene": "active",
+            "group": "ganymede",
+            "states": "active"
+          }
+        },
+        {
+          "builtins_regexp": {
+            "patterns": "\\S+foo.+?bar\\S+"
+          }
+        }
+      ],
+      "wheres": [
+        {
+          "builtins_store": {
+            "unique": "jupiter_aspire",
+            "value": "active",
+            "operator": "neq"
+          }
+        }
+      ]
+    },
+    "jupiter_standby": {
+      "groups": "ganymede",
+      "devices": [
+        "jupiter_special"
+      ],
+      "scene": "standby",
+      "pause": 1,
+      "store": [
+        {
+          "unique": "jupiter_aspire",
+          "value": "standby"
+        }
+      ],
+      "occurs": [
+        {
+          "philips_button": {
+            "device": "jupiter_button",
+            "sensor": "button1",
+            "events": "short_release"
+          }
+        },
+        {
+          "philips_button": {
+            "device": "jupiter_switch",
+            "sensor": "button1",
+            "events": "short_release"
+          }
+        }
+      ],
+      "wheres": [
+        {
+          "builtins_store": {
+            "unique": "jupiter_aspire",
+            "value": "active",
+            "operator": "eq"
+          }
+        }
+      ]
+    },
+    "neptune_active": {
+      "groups": "halimede",
+      "devices": [
+        "neptune_special"
+      ],
+      "scene": "active",
+      "stage": {
+        "state": "poweron",
+        "level": 100
+      },
+      "pause": 1,
+      "store": [
+        {
+          "unique": "neptune_aspire",
+          "value": "active"
+        }
+      ],
+      "occurs": [
+        {
+          "philips_contact": {
+            "device": "neptune_contact",
+            "states": "no_contact"
+          }
+        },
+        {
+          "philips_button": {
+            "device": "neptune_button",
+            "sensor": "button1",
+            "events": "short_release"
+          }
+        },
+        {
+          "philips_button": {
+            "device": "neptune_switch",
+            "sensor": "button1",
+            "events": "short_release"
+          }
+        },
+        {
+          "philips_motion": {
+            "device": "neptune_motion",
+            "states": "motion"
+          }
+        },
+        {
+          "philips_scene": {
+            "scene": "active",
+            "group": "halimede",
+            "states": "active"
+          }
+        },
+        {
+          "builtins_regexp": {
+            "patterns": "\\S+foo.+?bar\\S+"
+          }
+        }
+      ],
+      "wheres": [
+        {
+          "builtins_store": {
+            "unique": "neptune_aspire",
+            "value": "active",
+            "operator": "neq"
+          }
+        }
+      ]
+    },
+    "neptune_standby": {
+      "groups": "halimede",
+      "devices": [
+        "neptune_special"
+      ],
+      "scene": "standby",
+      "pause": 1,
+      "store": [
+        {
+          "unique": "neptune_aspire",
+          "value": "standby"
+        }
+      ],
+      "occurs": [
+        {
+          "philips_button": {
+            "device": "neptune_button",
+            "sensor": "button1",
+            "events": "short_release"
+          }
+        },
+        {
+          "philips_button": {
+            "device": "neptune_switch",
+            "sensor": "button1",
+            "events": "short_release"
+          }
+        }
+      ],
+      "wheres": [
+        {
+          "builtins_store": {
+            "unique": "neptune_aspire",
+            "value": "active",
+            "operator": "eq"
+          }
+        }
+      ]
+    }
+  },
+  "desires": {
+    "jupiter_active": {
+      "groups": "ganymede",
+      "devices": [
+        "jupiter_special"
+      ],
+      "scene": "active",
+      "stage": {
+        "state": "poweron",
+        "level": 100
+      },
+      "pause": 1,
+      "store": [
+        {
+          "unique": "jupiter_desire",
+          "value": "active"
+        }
+      ],
+      "wheres": [
+        {
+          "builtins_store": {
+            "unique": "jupiter_aspire",
+            "value": "active",
+            "operator": "eq"
+          },
+          "family": "active"
+        },
+        {
+          "philips_change": {
+            "devices": [
+              "jupiter_motion",
+              "jupiter_button",
+              "jupiter_contact",
+              "jupiter_switch"
+            ],
+            "sensors": "motion",
+            "since": 900
+          },
+          "negate": true,
+          "family": "active"
+        },
+        {
+          "builtins_store": {
+            "unique": "jupiter_aspire",
+            "value": "standby",
+            "operator": "neq"
+          }
+        },
+        {
+          "builtins_period": {
+            "start": "00:00",
+            "stop": "07:00",
+            "tzname": "US/Central"
+          },
+          "family": "schedule"
+        },
+        {
+          "builtins_period": {
+            "start": "07:00",
+            "tzname": "US/Central"
+          },
+          "family": "schedule"
+        }
+      ]
+    },
+    "jupiter_standby": {
+      "groups": "ganymede",
+      "devices": [
+        "jupiter_special"
+      ],
+      "scene": "standby",
+      "weight": 10,
+      "pause": 1,
+      "store": [
+        {
+          "unique": "jupiter_desire",
+          "value": "standby"
+        }
+      ],
+      "wheres": [
+        {
+          "builtins_store": {
+            "unique": "jupiter_aspire",
+            "value": "standby",
+            "operator": "eq"
+          }
+        }
+      ]
+    },
+    "jupiter_absent": {
+      "groups": "ganymede",
+      "devices": [
+        "jupiter_special"
+      ],
+      "scene": "absent",
+      "weight": 20,
+      "pause": 1,
+      "store": [
+        {
+          "unique": "jupiter_desire",
+          "value": "absent"
+        }
+      ],
+      "wheres": [
+        {
+          "ubiquiti_client": {
+            "clients": [
+              "jupiter_phone",
+              "jupiter_tablet"
+            ],
+            "since": 600
+          }
+        }
+      ]
+    },
+    "neptune_active": {
+      "groups": "halimede",
+      "devices": [
+        "neptune_special"
+      ],
+      "scene": "active",
+      "stage": {
+        "state": "poweron",
+        "level": 100
+      },
+      "pause": 1,
+      "store": [
+        {
+          "unique": "neptune_desire",
+          "value": "active"
+        }
+      ],
+      "wheres": [
+        {
+          "builtins_store": {
+            "unique": "neptune_aspire",
+            "value": "active",
+            "operator": "eq"
+          },
+          "family": "active"
+        },
+        {
+          "philips_change": {
+            "devices": [
+              "neptune_motion",
+              "neptune_button",
+              "neptune_contact",
+              "neptune_switch"
+            ],
+            "sensors": "motion",
+            "since": 900
+          },
+          "negate": true,
+          "family": "active"
+        },
+        {
+          "builtins_store": {
+            "unique": "neptune_aspire",
+            "value": "standby",
+            "operator": "neq"
+          }
+        },
+        {
+          "builtins_period": {
+            "start": "00:00",
+            "stop": "07:00",
+            "tzname": "US/Central"
+          },
+          "family": "schedule"
+        },
+        {
+          "builtins_period": {
+            "start": "07:00",
+            "tzname": "US/Central"
+          },
+          "family": "schedule"
+        }
+      ]
+    },
+    "neptune_standby": {
+      "groups": "halimede",
+      "devices": [
+        "neptune_special"
+      ],
+      "scene": "standby",
+      "weight": 10,
+      "pause": 1,
+      "store": [
+        {
+          "unique": "neptune_desire",
+          "value": "standby"
+        }
+      ],
+      "wheres": [
+        {
+          "builtins_store": {
+            "unique": "neptune_aspire",
+            "value": "standby",
+            "operator": "eq"
+          }
+        }
+      ]
+    },
+    "neptune_absent": {
+      "groups": "halimede",
+      "devices": [
+        "neptune_special"
+      ],
+      "scene": "absent",
+      "weight": 20,
+      "pause": 1,
+      "store": [
+        {
+          "unique": "neptune_desire",
+          "value": "absent"
+        }
+      ],
+      "wheres": [
+        {
+          "ubiquiti_client": {
+            "clients": [
+              "neptune_phone",
+              "neptune_tablet"
+            ],
+            "since": 600
+          }
+        }
+      ]
+    }
+  },
+  "devices": {
+    "jupiter_light2": {
+      "origin": "jupiter_hubitat",
+      "label": "Jupiter Light"
+    },
+    "jupiter_special": {
+      "origin": "jupiter_hubitat",
+      "label": "Jupiter Special"
+    },
+    "neptune_light2": {
+      "origin": "neptune_hubitat",
+      "label": "Neptune Light"
+    },
+    "neptune_special": {
+      "origin": "neptune_hubitat",
+      "label": "Neptune Special"
+    },
+    "jupiter_button": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Button"
+    },
+    "jupiter_motion": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Motion"
+    },
+    "jupiter_switch": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Switch"
+    },
+    "jupiter_contact": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Contact"
+    },
+    "jupiter_plug": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Plug"
+    },
+    "jupiter_light1": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter Light"
+    },
+    "neptune_button": {
+      "origin": "neptune_philips",
+      "label": "Neptune Button"
+    },
+    "neptune_motion": {
+      "origin": "neptune_philips",
+      "label": "Neptune Motion"
+    },
+    "neptune_switch": {
+      "origin": "neptune_philips",
+      "label": "Neptune Switch"
+    },
+    "neptune_contact": {
+      "origin": "neptune_philips",
+      "label": "Neptune Contact"
+    },
+    "neptune_plug": {
+      "origin": "neptune_philips",
+      "label": "Neptune Plug"
+    },
+    "neptune_light1": {
+      "origin": "neptune_philips",
+      "label": "Neptune Light"
+    },
+    "jupiter_phone": {
+      "origin": "jupiter_ubiquiti",
+      "label": "Phone"
+    },
+    "jupiter_tablet": {
+      "origin": "jupiter_ubiquiti",
+      "unique": "1a:01:68:00:11:01"
+    },
+    "neptune_phone": {
+      "origin": "neptune_ubiquiti",
+      "label": "Phone"
+    },
+    "neptune_tablet": {
+      "origin": "neptune_ubiquiti",
+      "unique": "1a:01:68:00:21:01"
+    }
+  },
+  "groups": {
+    "jupiter": {
+      "origin": "jupiter_philips",
+      "label": "Jupiter"
+    },
+    "ganymede": {
+      "origin": "jupiter_philips",
+      "label": "Ganymede",
+      "devices": "jupiter_light2"
+    },
+    "neptune": {
+      "origin": "neptune_philips",
+      "label": "Neptune"
+    },
+    "halimede": {
+      "origin": "neptune_philips",
+      "label": "Halimede",
+      "devices": "neptune_light2"
+    }
+  },
+  "origins": {
+    "jupiter_hubitat": {
+      "hubitat": {
+        "bridge": {
+          "server": "192.168.1.11",
+          "appid": 69,
+          "token": "XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX",
+          "ssl_verify": false
+        }
+      }
+    },
+    "neptune_hubitat": {
+      "hubitat": {
+        "bridge": {
+          "server": "192.168.2.11",
+          "appid": 69,
+          "token": "XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX",
+          "ssl_verify": false
+        }
+      }
+    },
+    "jupiter_philips": {
+      "philips": {
+        "bridge": {
+          "server": "192.168.1.10",
+          "token": "XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX",
+          "ssl_verify": false
+        }
+      }
+    },
+    "neptune_philips": {
+      "philips": {
+        "bridge": {
+          "server": "192.168.2.10",
+          "token": "XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX",
+          "ssl_verify": false
+        }
+      }
+    },
+    "jupiter_ubiquiti": {
+      "ubiquiti": {
+        "router": {
+          "server": "192.168.1.1",
+          "username": "username",
+          "password": "XxXXXxXxXXxXXXx",
+          "site": "default",
+          "ssl_verify": false
+        }
+      }
+    },
+    "neptune_ubiquiti": {
+      "ubiquiti": {
+        "router": {
+          "server": "192.168.2.1",
+          "username": "username",
+          "password": "XxXXXxXxXXxXXXx",
+          "site": "default",
+          "ssl_verify": false
+        }
+      }
+    }
+  },
+  "scenes": {
+    "active": {
+      "label": "Active",
+      "stage": {
+        "state": "poweron",
+        "color": "fff6b0",
+        "level": 80
+      }
+    },
+    "standby": {
+      "label": "Standby",
+      "stage": {
+        "state": "poweron",
+        "color": "003333",
+        "level": 80
+      },
+      "devices": {
+        "jupiter_light2": {
+          "level": 20
+        },
+        "neptune_light2": {
+          "level": 20
+        }
+      }
+    },
+    "absent": {
+      "label": "Absent",
+      "stage": {
+        "state": "poweron",
+        "color": "99925c",
+        "level": 30
+      }
+    }
+  }
+}

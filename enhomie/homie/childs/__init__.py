@@ -9,7 +9,6 @@ is permitted, for more information consult the project license file.
 
 from .aspire import HomieAspire
 from .child import HomieChild
-from .common import HomieChildKinds
 from .desire import HomieDesire
 from .device import HomieDevice
 from .group import HomieGroup
@@ -21,7 +20,6 @@ from .scene import HomieScene
 
 __all__ = [
     'HomieChild',
-    'HomieChildKinds',
     'HomieChilds',
     'HomieOrigin',
     'HomieDevice',

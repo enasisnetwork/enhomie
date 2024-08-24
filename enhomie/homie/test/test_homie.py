@@ -71,6 +71,10 @@ def test_Homie(
 
     assert homie.params
 
+    assert not homie.dryrun
+
+    assert homie.potent
+
     assert homie.desired
 
     assert homie.aspired

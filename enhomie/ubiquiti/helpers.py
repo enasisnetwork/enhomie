@@ -18,7 +18,7 @@ from encommon.types import merge_dicts
 from encommon.types import strplwr
 
 if TYPE_CHECKING:
-    from ..homie.childs import HomieChildKinds
+    from ..homie.common import HomieKinds
 
 
 
@@ -127,7 +127,7 @@ def merge_fetch(
 
 def merge_find(  # noqa: CFQ004
     merge: UbiqMerge,
-    kind: Optional['HomieChildKinds'] = None,
+    kind: Optional['HomieKinds'] = None,
     unique: Optional[str] = None,
     label: Optional[str] = None,
 ) -> list[DictStrAny]:

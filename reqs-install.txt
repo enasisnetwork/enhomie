@@ -1,3 +1,3 @@
-encommon>=0.15
-enconnect>=0.10.0
+encommon>=0.16
+enconnect>=0.11
 urllib3

@@ -1,0 +1,33 @@
+{
+  "database": "sqlite:///_/encommon_sample/TMPPATH/_/db",
+  "enconfig": {
+    "paths": [
+      "_/encommon_sample/PROJECT/_/examples",
+      "_/encommon_sample/TMPPATH/_/homie"
+    ]
+  },
+  "enlogger": {
+    "stdo_level": "debug"
+  },
+  "dryrun": false,
+  "potent": true,
+  "service": {
+    "respite": {
+      "desire": 1,
+      "update": 1,
+      "health": 1
+    },
+    "timeout": {
+      "action": 1,
+      "update": 1,
+      "stream": 1
+    }
+  },
+  "printer": {
+    "action": true,
+    "update": true,
+    "stream": true,
+    "desire": true,
+    "aspire": true
+  }
+}

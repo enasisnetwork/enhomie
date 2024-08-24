@@ -17,7 +17,7 @@ from encommon.types import clsname
 from .queue import HomieQueueItem
 
 if TYPE_CHECKING:
-    from .homie import Homie
+    from ..homie import Homie
 
 
 

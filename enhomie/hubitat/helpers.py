@@ -27,7 +27,7 @@ from ..utils import UnexpectedCondition
 
 if TYPE_CHECKING:
     from .origin import HubiOrigin
-    from ..homie.childs import HomieChildKinds
+    from ..homie.common import HomieKinds
     from ..homie.common import HomieState
     from ..homie.childs import HomieScene
     from ..homie.threads import HomieActionNode
@@ -81,7 +81,7 @@ def merge_fetch(
 
 def merge_find(  # noqa: CFQ004
     merge: HubiMerge,
-    kind: Optional['HomieChildKinds'] = None,
+    kind: Optional['HomieKinds'] = None,
     unique: Optional[str] = None,
     label: Optional[str] = None,
 ) -> list[DictStrAny]:

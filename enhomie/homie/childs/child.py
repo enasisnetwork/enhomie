@@ -12,8 +12,8 @@ from typing import TYPE_CHECKING
 from encommon.types import DictStrAny
 
 if TYPE_CHECKING:
-    from .common import HomieChildKinds
     from ..common import HomieFamily
+    from ..common import HomieKinds
     from ..homie import Homie
     from ..params import HomieChildParams
 
@@ -141,7 +141,7 @@ class HomieChild:
     @property
     def kind(
         self,
-    ) -> 'HomieChildKinds':
+    ) -> 'HomieKinds':
         """
         Return the value for the attribute from class instance.
 
@@ -175,12 +175,10 @@ class HomieChild:
         """
 
         params = self.__params
-
-        params_dump = (
-            params.model_dump())
+        dumped = params.endumped
 
         return {
             'name': self.name,
             'family': self.family,
             'kind': self.kind,
-            'params': params_dump}
+            'params': dumped}

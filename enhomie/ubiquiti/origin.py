@@ -27,7 +27,7 @@ from ..homie.childs import HomieOrigin
 from ..utils import MultipleSource
 
 if TYPE_CHECKING:
-    from ..homie.childs import HomieChildKinds
+    from ..homie.common import HomieKinds
     from ..homie.threads import HomieActionNode
     from ..homie.threads import HomieUpdateItem
     from ..homie.threads import HomieUpdateBase
@@ -269,7 +269,7 @@ class UbiqOrigin(HomieOrigin):
 
     def source(
         self,
-        kind: Optional['HomieChildKinds'] = None,
+        kind: Optional['HomieKinds'] = None,
         unique: Optional[str] = None,
         label: Optional[str] = None,
         relate: Optional['HomieActionNode'] = None,

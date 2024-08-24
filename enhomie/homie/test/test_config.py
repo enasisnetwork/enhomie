@@ -28,9 +28,42 @@ def test_HomieConfig(
     Perform various tests associated with relevant routines.
 
     :param tmp_path: pytest object for temporal filesystem.
-    :param replaces: Mapping of what to replace in samples.
     :param config: Primary class instance for configuration.
+    :param replaces: Mapping of what to replace in samples.
     """
+
+
+    sample_path = (
+        SAMPLES / 'basic.json')
+
+    sample = load_sample(
+        path=sample_path,
+        update=ENPYRWS,
+        content=config.basic,
+        replace=replaces)
+
+    expect = prep_sample(
+        content=config.basic,
+        replace=replaces)
+
+    assert expect == sample
+
+
+    sample_path = (
+        SAMPLES / 'merge.json')
+
+    sample = load_sample(
+        path=sample_path,
+        update=ENPYRWS,
+        content=config.merge,
+        replace=replaces)
+
+    expect = prep_sample(
+        content=config.merge,
+        replace=replaces)
+
+    assert expect == sample
+
 
     sample_path = (
         SAMPLES / 'config.json')
