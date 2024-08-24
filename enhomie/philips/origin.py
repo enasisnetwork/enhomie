@@ -34,7 +34,7 @@ from ..utils import MultipleSource
 
 if TYPE_CHECKING:
     from ..homie.childs import HomieScene
-    from ..homie.childs import HomieChildKinds
+    from ..homie.common import HomieKinds
     from ..homie.common import HomieState
     from ..homie.threads import HomieActionNode
     from ..homie.threads import HomieActionItem
@@ -443,7 +443,7 @@ class PhueOrigin(HomieOrigin):
 
     def source(
         self,
-        kind: Optional['HomieChildKinds'] = None,
+        kind: Optional['HomieKinds'] = None,
         unique: Optional[str] = None,
         label: Optional[str] = None,
         relate: Optional['HomieActionNode'] = None,

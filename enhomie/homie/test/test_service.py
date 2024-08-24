@@ -90,10 +90,10 @@ def test_HomieService(
     service.soft()
 
     while service.congest:
-        thread.join(0.1)
+        thread.join(0.1)  # NOCVR
 
     while service.running:
-        thread.join(0.1)
+        thread.join(0.1)  # NOCVR
 
     service.stop()
 
@@ -141,10 +141,10 @@ def test_HomieService_dryrun(
     service.soft()
 
     while service.congest:
-        thread.join(0.1)
+        thread.join(0.1)  # NOCVR
 
     while service.running:
-        thread.join(0.1)
+        thread.join(0.1)  # NOCVR
 
     service.stop()
 

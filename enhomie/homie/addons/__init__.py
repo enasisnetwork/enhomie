@@ -11,13 +11,19 @@ from .aspired import HomieAspired
 from .aspired import HomieAspiredItem
 from .desired import HomieDesired
 from .desired import HomieDesiredItem
+from .logger import HomieLogger
 from .persist import HomiePersist
 from .persist import HomiePersistExpire
 from .persist import HomiePersistValue
+from .queue import HomieQueue
+from .queue import HomieQueueItem
 
 
 
 __all__ = [
+    'HomieLogger',
+    'HomieQueue',
+    'HomieQueueItem',
     'HomieAspired',
     'HomieAspiredItem',
     'HomieDesired',

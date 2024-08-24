@@ -165,7 +165,7 @@ class HomieScene(HomieChild):
 
         pruned = (
             stage
-            .model_pruned)
+            .enpruned)
 
         pruned = deepcopy(pruned)
 
@@ -179,7 +179,7 @@ class HomieScene(HomieChild):
 
             _pruned = (
                 config
-                .model_pruned)
+                .enpruned)
 
             _pruned = deepcopy(_pruned)
 

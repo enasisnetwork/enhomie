@@ -30,7 +30,7 @@ class HomieConfig(Config):
     """
 
 
-    def __init__(
+    def __init__(  # noqa: CFQ001
         self,
         sargs: Optional[DictStrAny] = None,
         files: Optional[PATHABLE] = None,
@@ -44,8 +44,30 @@ class HomieConfig(Config):
         cargs = dict(cargs or {})
 
 
-        _dryrun = sargs.get('dryrun')
-        _potent = sargs.get('potent')
+        _console = (
+            sargs.get('console'))
+
+        _debug = (
+            sargs.get('debug'))
+
+        key = 'enlogger/stdo_level'
+
+        if _console is True:
+            cargs[key] = 'info'
+
+        if _debug is True:
+            cargs[key] = 'debug'
+
+
+        if 'config' in sargs:
+            files = sargs['config']
+
+
+        _dryrun = (
+            sargs.get('dryrun'))
+
+        _potent = (
+            sargs.get('potent'))
 
         if _dryrun is not None:
             cargs['dryrun'] = _dryrun
@@ -54,9 +76,14 @@ class HomieConfig(Config):
             cargs['potent'] = _potent
 
 
-        _idesire = sargs.get('idesire')
-        _iupdate = sargs.get('iupdate')
-        _ihealth = sargs.get('ihealth')
+        _idesire = (
+            sargs.get('idesire'))
+
+        _iupdate = (
+            sargs.get('iupdate'))
+
+        _ihealth = (
+            sargs.get('ihealth'))
 
         prefix = 'service/respite'
 
@@ -73,9 +100,14 @@ class HomieConfig(Config):
             cargs[key] = _ihealth
 
 
-        _atimeout = sargs.get('atimeout')
-        _utimeout = sargs.get('utimeout')
-        _stimeout = sargs.get('stimeout')
+        _atimeout = (
+            sargs.get('atimeout'))
+
+        _utimeout = (
+            sargs.get('utimeout'))
+
+        _stimeout = (
+            sargs.get('stimeout'))
 
         prefix = 'service/timeout'
 
@@ -91,11 +123,21 @@ class HomieConfig(Config):
             key = f'{prefix}/stream'
             cargs[key] = _stimeout
 
-        _paction = sargs.get('paction')
-        _pupdate = sargs.get('pupdate')
-        _pstream = sargs.get('pstream')
-        _pdesire = sargs.get('pdesire')
-        _paspire = sargs.get('paspire')
+
+        _paction = (
+            sargs.get('paction'))
+
+        _pupdate = (
+            sargs.get('pupdate'))
+
+        _pstream = (
+            sargs.get('pstream'))
+
+        _pdesire = (
+            sargs.get('pdesire'))
+
+        _paspire = (
+            sargs.get('paspire'))
 
         if _paction is not None:
             key = 'printer/action'
@@ -116,22 +158,6 @@ class HomieConfig(Config):
         if _paspire is not None:
             key = 'printer/aspire'
             cargs[key] = _paspire
-
-
-        _debug = sargs.get('debug')
-        _console = sargs.get('console')
-
-        key = 'enlogger/stdo_level'
-
-        if _console is True:
-            cargs[key] = 'info'
-
-        if _debug is True:
-            cargs[key] = 'debug'
-
-
-        if 'config' in sargs:
-            files = sargs['config']
 
 
         super().__init__(
@@ -161,8 +187,7 @@ class HomieConfig(Config):
         if params is not None:
 
             assert isinstance(
-                params,
-                HomieParams)
+                params, HomieParams)
 
             return params
 
@@ -179,8 +204,7 @@ class HomieConfig(Config):
             self.model(**basic))
 
         assert isinstance(
-            params,
-            HomieParams)
+            params, HomieParams)
 
 
         if update is True:

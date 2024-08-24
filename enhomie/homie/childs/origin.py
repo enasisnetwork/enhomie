@@ -16,14 +16,14 @@ from encommon.colors import Color
 from encommon.types import DictStrAny
 
 from .child import HomieChild
+from ..addons import HomieQueue
 from ..models import HomieModels
-from ..queue import HomieQueue
 from ...utils import InvalidParam
 
 if TYPE_CHECKING:
-    from .common import HomieChildKinds
     from .scene import HomieScene
     from ..common import HomieFamily
+    from ..common import HomieKinds
     from ..common import HomieState
     from ..params import HomieOriginParams
     from ..threads import HomieActionItem
@@ -281,7 +281,7 @@ class HomieOrigin(HomieChild):
 
     def source(
         self,
-        kind: Optional['HomieChildKinds'] = None,
+        kind: Optional['HomieKinds'] = None,
         unique: Optional[str] = None,
         label: Optional[str] = None,
         relate: Optional['HomieActionNode'] = None,

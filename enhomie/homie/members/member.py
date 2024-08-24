@@ -14,7 +14,7 @@ from typing import Type
 
 from encommon.types import clsname
 
-from ..queue import HomieQueue
+from ..addons import HomieQueue
 
 if TYPE_CHECKING:
     from ..childs import HomieOrigin

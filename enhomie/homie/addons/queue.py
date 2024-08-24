@@ -16,7 +16,7 @@ from typing import TypeVar
 from encommon.times import Time
 
 if TYPE_CHECKING:
-    from .homie import Homie
+    from ..homie import Homie
 
 
 

@@ -29,6 +29,14 @@ HomieFamily = Literal[
     'philips',
     'ubiquiti']
 
+HomieKinds = Literal[
+    'origin',
+    'device',
+    'group',
+    'scene',
+    'aspire',
+    'desire']
+
 HomieState = Literal[
     'poweron',
     'nopower']

@@ -13,6 +13,7 @@ from typing import Type
 if TYPE_CHECKING:
     from .addons import HomieAspiredItem
     from .addons import HomieDesiredItem
+    from .addons import HomieQueueItem
     from .common import HomieStage
     from .params import HomieParams
     from .params import HomiePrinterParams
@@ -27,7 +28,6 @@ if TYPE_CHECKING:
     from .params import HomieOccurParams
     from .params import HomieWhereParams
     from .params import HomieServiceParams
-    from .queue import HomieQueueItem
     from .threads import HomieActionItem
     from .threads import HomieStreamItem
     from .threads import HomieThreadItem
@@ -344,7 +344,7 @@ class HomieModels:
         :returns: Class object that was imported within method.
         """
 
-        from .queue import (
+        from .addons import (
             HomieQueueItem)
 
         return HomieQueueItem

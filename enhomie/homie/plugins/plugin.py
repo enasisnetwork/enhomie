@@ -24,7 +24,7 @@ class HomiePlugin:
     Match specific conditions for determining desired state.
 
     :param homie: Primary class instance for Homie Automate.
-    :param params: Parameter options for plugins operations.
+    :param params: Parameters used to instantiate the class.
     """
 
     __homie: 'Homie'

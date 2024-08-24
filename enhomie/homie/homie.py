@@ -7,6 +7,7 @@ is permitted, for more information consult the project license file.
 
 
 
+from copy import deepcopy
 from typing import Optional
 from typing import TYPE_CHECKING
 
@@ -19,9 +20,9 @@ from encommon.utils import print_ansi
 
 from .addons import HomieAspired
 from .addons import HomieDesired
+from .addons import HomieLogger
 from .addons import HomiePersist
 from .childs import HomieChilds
-from .logger import HomieLogger
 from .models import HomieModels
 
 if TYPE_CHECKING:
@@ -48,6 +49,7 @@ class Homie:
 
     __logger: HomieLogger
     __persist: HomiePersist
+
     __childs: HomieChilds
 
 
@@ -114,32 +116,6 @@ class Homie:
 
 
     @property
-    def dryrun(
-        self,
-    ) -> bool:
-        """
-        Return the value for the attribute from class instance.
-
-        :returns: Value for the attribute from class instance.
-        """
-
-        return self.params.dryrun
-
-
-    @property
-    def potent(
-        self,
-    ) -> bool:
-        """
-        Return the value for the attribute from class instance.
-
-        :returns: Value for the attribute from class instance.
-        """
-
-        return self.params.potent
-
-
-    @property
     def persist(
         self,
     ) -> HomiePersist:
@@ -178,6 +154,58 @@ class Homie:
         return self.config.params
 
 
+    @property
+    def dryrun(
+        self,
+    ) -> bool:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return self.params.dryrun
+
+
+    @property
+    def potent(
+        self,
+    ) -> bool:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return self.params.potent
+
+
+    @property
+    def desired(
+        self,
+    ) -> HomieDesired:
+        """
+        Return the related actions matching the provided event.
+
+        :returns: Related actions matching the provided event.
+        """
+
+        return self.__desired
+
+
+    @property
+    def aspired(
+        self,
+    ) -> HomieAspired:
+        """
+        Return the related desired state for the desired groups.
+
+        :returns: Related desired state for the desired groups.
+        """
+
+        return self.__aspired
+
+
     def refresh(
         self,
         timeout: Optional[int] = None,
@@ -208,32 +236,6 @@ class Homie:
 
 
         return all(refresh)
-
-
-    @property
-    def desired(
-        self,
-    ) -> HomieDesired:
-        """
-        Return the related actions matching the provided event.
-
-        :returns: Related actions matching the provided event.
-        """
-
-        return self.__desired
-
-
-    @property
-    def aspired(
-        self,
-    ) -> HomieAspired:
-        """
-        Return the related desired state for the desired groups.
-
-        :returns: Related desired state for the desired groups.
-        """
-
-        return self.__aspired
 
 
     def printer(  # noqa: CFQ001,CFQ004
@@ -397,7 +399,18 @@ class Homie:
         :returns: Facts about the attributes from the instance.
         """
 
-        return self.childs.dumped
+        params = deepcopy(
+            self.params.endumped)
+
+        childs = deepcopy(
+            self.childs.dumped)
+
+        items = childs.items()
+
+        for key, value in items:
+            params[key] = value
+
+        return params
 
 
     def get_actions(  # noqa: CFQ002

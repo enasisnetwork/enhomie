@@ -25,7 +25,7 @@ class HomieDriver:
     Match specific conditions for determining desired state.
 
     :param plugin: Plugin class instance for Homie Automate.
-    :param params: Parameter options for drivers operations.
+    :param params: Parameters used to instantiate the class.
     """
 
     __plugin: 'HomiePlugin'
