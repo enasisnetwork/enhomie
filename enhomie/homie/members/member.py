@@ -133,8 +133,10 @@ class HomieMember:
             if thread is None:
                 continue
 
-            threads[name] = (
-                thread(self, origin))
+            object = thread(
+                self, origin)
+
+            threads[name] = object
 
 
         self.__threads = threads

@@ -269,7 +269,6 @@ class HomieModels:
         return HomieAspireParams
 
 
-
     @classmethod
     def plugin(
         cls,

@@ -119,11 +119,11 @@ def execution(
 
     config.logger.start()
 
-    homie = Homie(config)
-
     config.logger.log_i(
         base='execution/backup',
         status='started')
+
+    homie = Homie(config)
 
     operation(homie)
 

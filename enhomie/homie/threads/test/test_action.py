@@ -14,6 +14,8 @@ from encommon.types import inrepr
 from encommon.types import instr
 from encommon.types import lattrs
 
+from pytest import raises
+
 from ..action import HomieActionItem
 
 if TYPE_CHECKING:
@@ -76,6 +78,20 @@ def test_HomieActionItem(
             'time']
 
 
+        assert inrepr(
+            'HomieActionItem',
+            item)
+
+        with raises(TypeError):
+            assert hash(item) > 0
+
+        assert instr(
+            'HomieActionItem',
+            item)
+
+
+        assert item.time.since > 0
+
         assert item.origin == origin.name
 
         assert item.group == group.name
@@ -126,7 +142,7 @@ def test_HomieAction(
 
         attrs = lattrs(thread)
 
-        # Family class inheritence
+        # Inherits Thread class
 
         assert inlist(
             '_HomieThread__member',
@@ -134,6 +150,18 @@ def test_HomieAction(
 
         assert inlist(
             '_HomieThread__origin',
+            attrs)
+
+        assert inlist(
+            '_HomieThread__aqueue',
+            attrs)
+
+        assert inlist(
+            '_HomieThread__uqueue',
+            attrs)
+
+        assert inlist(
+            '_HomieThread__squeue',
             attrs)
 
 
@@ -159,3 +187,5 @@ def test_HomieAction(
         assert thread.uqueue
 
         assert thread.squeue
+
+        assert not thread.congest

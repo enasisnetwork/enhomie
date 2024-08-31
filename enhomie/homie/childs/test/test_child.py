@@ -23,4 +23,17 @@ def test_HomieChild_cover(
     :param homie: Primary class instance for Homie Automate.
     """
 
-    # Remove if not needed
+    childs = homie.childs
+    origins = childs.origins
+
+    child1 = origins[
+        'neptune_philips']
+
+    child2 = origins[
+        'jupiter_philips']
+
+
+    sort = [child1, child2]
+
+    assert sorted(sort) == [
+        child2, child1]

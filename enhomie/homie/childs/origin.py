@@ -128,6 +128,44 @@ class HomieOrigin(HomieChild):
         raise NotImplementedError
 
 
+    def source(
+        self,
+        kind: Optional['HomieKinds'] = None,
+        unique: Optional[str] = None,
+        label: Optional[str] = None,
+        relate: Optional['HomieActionNode'] = None,
+    ) -> Optional[DictStrAny]:
+        """
+        Return the content related to the item in parent system.
+
+        :param kind: Which kind of Homie object will be located.
+        :param unique: Unique identifier within parents system.
+        :param label: Friendly name or label within the parent.
+        :param relate: Child class instance for Homie Automate.
+        :returns: Content related to the item in parent system.
+        """
+
+        raise NotImplementedError
+
+
+    @property
+    def dumped(
+        self,
+    ) -> DictStrAny:
+        """
+        Return the facts about the attributes from the instance.
+
+        :returns: Facts about the attributes from the instance.
+        """
+
+        dumped = super().dumped
+
+        present = bool(self.source)
+
+        return dumped | {
+            'present': present}
+
+
     def get_action(
         self,
         target: 'HomieActionNode',
@@ -277,41 +315,3 @@ class HomieOrigin(HomieChild):
             .get_stream(event))
 
         squeue.put(stream)
-
-
-    def source(
-        self,
-        kind: Optional['HomieKinds'] = None,
-        unique: Optional[str] = None,
-        label: Optional[str] = None,
-        relate: Optional['HomieActionNode'] = None,
-    ) -> Optional[DictStrAny]:
-        """
-        Return the content related to the item in parent system.
-
-        :param kind: Which kind of Homie object will be located.
-        :param unique: Unique identifier within parents system.
-        :param label: Friendly name or label within the parent.
-        :param relate: Child class instance for Homie Automate.
-        :returns: Content related to the item in parent system.
-        """
-
-        raise NotImplementedError
-
-
-    @property
-    def dumped(
-        self,
-    ) -> DictStrAny:
-        """
-        Return the facts about the attributes from the instance.
-
-        :returns: Facts about the attributes from the instance.
-        """
-
-        dumped = super().dumped
-
-        present = bool(self.source)
-
-        return dumped | {
-            'present': present}
