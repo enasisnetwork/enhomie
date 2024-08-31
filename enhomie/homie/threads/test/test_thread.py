@@ -51,6 +51,11 @@ def test_HomieThread_cover(
 
         uitem = origin.get_update()
 
+        expired = (
+            thread.expired(uitem))
+
+        assert expired is False
+
         uitem.time = Time('-1h')
 
         expired = (

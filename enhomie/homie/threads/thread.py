@@ -205,6 +205,36 @@ class HomieThread(Thread):
         return self.__squeue
 
 
+    def expired(
+        self,
+        item: HomieThreadItem,
+    ) -> bool:
+        """
+        Return the boolean indicating whether the item expired.
+
+        :param item: Item containing information for operation.
+        :returns: Boolean indicating whether the item expired.
+        """
+
+        member = self.member
+        homie = member.homie
+
+        since = item.time.since
+        origin = item.origin
+
+        if since < 60:
+            return False
+
+        homie.logger.log_w(
+            base=self,
+            item=item,
+            origin=origin,
+            status='expired',
+            age=int(since))
+
+        return True
+
+
     @property
     def congest(
         self,
@@ -250,36 +280,6 @@ class HomieThread(Thread):
 
 
         return sorted(congest)
-
-
-    def expired(
-        self,
-        item: HomieThreadItem,
-    ) -> bool:
-        """
-        Return the boolean indicating whether the item expired.
-
-        :param item: Item containing information for operation.
-        :returns: Boolean indicating whether the item expired.
-        """
-
-        member = self.member
-        homie = member.homie
-
-        since = item.time.since
-        origin = item.origin
-
-        if since < 60:
-            return False
-
-        homie.logger.log_w(
-            base=self,
-            item=item,
-            origin=origin,
-            status='expired',
-            age=int(since))
-
-        return True
 
 
     def run(

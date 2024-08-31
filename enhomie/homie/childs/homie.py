@@ -40,6 +40,8 @@ HomieDesires = dict[str, HomieDesire]
 class HomieChilds:
     """
     Contain the object instances for related Homie children.
+
+    :param homie: Primary class instance for Homie Automate.
     """
 
     __homie: 'Homie'
@@ -445,6 +447,52 @@ class HomieChilds:
         return dict(aspires)
 
 
+    @property
+    def dumped(
+        self,
+    ) -> DictStrAny:
+        """
+        Return the facts about the attributes from the instance.
+
+        :returns: Facts about the attributes from the instance.
+        """
+
+        origins = self.origins
+        devices = self.devices
+        groups = self.groups
+        scenes = self.scenes
+        desires = self.desires
+        aspires = self.aspires
+
+        dumped: DictStrAny = {
+
+            'origins': {
+                k: v.dumped for k, v
+                in origins.items()},
+
+            'devices': {
+                k: v.dumped for k, v
+                in devices.items()},
+
+            'groups': {
+                k: v.dumped for k, v
+                in groups.items()},
+
+            'scenes': {
+                k: v.dumped for k, v
+                in scenes.items()},
+
+            'desires': {
+                k: v.dumped for k, v
+                in desires.items()},
+
+            'aspires': {
+                k: v.dumped for k, v
+                in aspires.items()}}
+
+        return deepcopy(dumped)
+
+
     def get_origin(
         self,
         name: str,
@@ -530,49 +578,3 @@ class HomieChilds:
 
         raise InvalidChild(
             name, phase='initial')
-
-
-    @property
-    def dumped(
-        self,
-    ) -> DictStrAny:
-        """
-        Return the facts about the attributes from the instance.
-
-        :returns: Facts about the attributes from the instance.
-        """
-
-        origins = self.origins
-        devices = self.devices
-        groups = self.groups
-        scenes = self.scenes
-        desires = self.desires
-        aspires = self.aspires
-
-        dumped: DictStrAny = {
-
-            'origins': {
-                k: v.dumped for k, v
-                in origins.items()},
-
-            'devices': {
-                k: v.dumped for k, v
-                in devices.items()},
-
-            'groups': {
-                k: v.dumped for k, v
-                in groups.items()},
-
-            'scenes': {
-                k: v.dumped for k, v
-                in scenes.items()},
-
-            'desires': {
-                k: v.dumped for k, v
-                in desires.items()},
-
-            'aspires': {
-                k: v.dumped for k, v
-                in aspires.items()}}
-
-        return deepcopy(dumped)

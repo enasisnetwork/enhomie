@@ -14,6 +14,8 @@ from encommon.types import inrepr
 from encommon.types import instr
 from encommon.types import lattrs
 
+from pytest import raises
+
 from ..update import HomieUpdateItem
 
 if TYPE_CHECKING:
@@ -58,6 +60,20 @@ def test_HomieUpdateItem(
             'time']
 
 
+        assert inrepr(
+            'HomieUpdateItem',
+            item)
+
+        with raises(TypeError):
+            assert hash(item) > 0
+
+        assert instr(
+            'HomieUpdateItem',
+            item)
+
+
+        assert item.time.since > 0
+
         assert item.origin == origin.name
 
 
@@ -87,7 +103,7 @@ def test_HomieUpdate(
 
         attrs = lattrs(thread)
 
-        # Family class inheritence
+        # Inherits Thread class
 
         assert inlist(
             '_HomieThread__member',
@@ -120,3 +136,5 @@ def test_HomieUpdate(
         assert thread.uqueue
 
         assert thread.squeue
+
+        assert not thread.congest

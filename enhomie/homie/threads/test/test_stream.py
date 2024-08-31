@@ -14,6 +14,8 @@ from encommon.types import inrepr
 from encommon.types import instr
 from encommon.types import lattrs
 
+from pytest import raises
+
 from ..stream import HomieStreamItem
 
 if TYPE_CHECKING:
@@ -62,6 +64,20 @@ def test_HomieStreamItem(
             'time']
 
 
+        assert inrepr(
+            'HomieStreamItem',
+            item)
+
+        with raises(TypeError):
+            assert hash(item) > 0
+
+        assert instr(
+            'HomieStreamItem',
+            item)
+
+
+        assert item.time.since > 0
+
         assert item.origin == origin.name
 
         assert item.event == event
@@ -93,7 +109,7 @@ def test_HomieStream(
 
         attrs = lattrs(thread)
 
-        # Family class inheritence
+        # Inherits Thread class
 
         assert inlist(
             '_HomieThread__member',
@@ -126,3 +142,5 @@ def test_HomieStream(
         assert thread.uqueue
 
         assert thread.squeue
+
+        assert not thread.congest

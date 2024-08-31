@@ -238,6 +238,30 @@ class Homie:
         return all(refresh)
 
 
+    @property
+    def dumped(
+        self,
+    ) -> DictStrAny:
+        """
+        Return the facts about the attributes from the instance.
+
+        :returns: Facts about the attributes from the instance.
+        """
+
+        params = deepcopy(
+            self.params.endumped)
+
+        childs = deepcopy(
+            self.childs.dumped)
+
+        items = childs.items()
+
+        for key, value in items:
+            params[key] = value
+
+        return params
+
+
     def printer(  # noqa: CFQ001,CFQ004
         self,
         source: 'HomiePrint',
@@ -389,30 +413,6 @@ class Homie:
             f'{"━" * 63}<c0>\n')
 
 
-    @property
-    def dumped(
-        self,
-    ) -> DictStrAny:
-        """
-        Return the facts about the attributes from the instance.
-
-        :returns: Facts about the attributes from the instance.
-        """
-
-        params = deepcopy(
-            self.params.endumped)
-
-        childs = deepcopy(
-            self.childs.dumped)
-
-        items = childs.items()
-
-        for key, value in items:
-            params[key] = value
-
-        return params
-
-
     def get_actions(  # noqa: CFQ002
         self,
         target: 'HomieActionNode',
@@ -542,9 +542,9 @@ class Homie:
 
         for target, aitem in items:
 
-            origin = target.origin
+            assert target.origin
 
-            assert origin is not None
+            origin = target.origin
 
             result = (
                 origin.set_action(
