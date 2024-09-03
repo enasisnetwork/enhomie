@@ -144,3 +144,5 @@ def test_HomieStream(
         assert thread.squeue
 
         assert not thread.congest
+
+        assert not thread.enqueue

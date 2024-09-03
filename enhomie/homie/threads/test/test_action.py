@@ -189,3 +189,5 @@ def test_HomieAction(
         assert thread.squeue
 
         assert not thread.congest
+
+        assert not thread.enqueue
