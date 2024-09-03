@@ -15,6 +15,8 @@ from encommon.types import inrepr
 from encommon.types import instr
 from encommon.types import lattrs
 
+from ..threads import HomieUpdateItem
+
 if TYPE_CHECKING:
     from ..service import HomieService
 
@@ -89,7 +91,7 @@ def test_HomieService(
 
     service.soft()
 
-    while service.congest:
+    while service.enqueue:
         thread.join(0.1)  # NOCVR
 
     while service.running:
@@ -102,6 +104,8 @@ def test_HomieService(
     assert service.zombies
 
     assert not service.congest
+
+    assert not service.enqueue
 
 
 
@@ -140,7 +144,7 @@ def test_HomieService_dryrun(
 
     service.soft()
 
-    while service.congest:
+    while service.enqueue:
         thread.join(0.1)  # NOCVR
 
     while service.running:
@@ -154,8 +158,48 @@ def test_HomieService_dryrun(
 
     assert not service.congest
 
+    assert not service.enqueue
+
 
     block_sleep(1.1)
+
+    service.operate_healths()
+
+
+
+def test_HomieService_healths(
+    service: 'HomieService',
+) -> None:
+    """
+    Perform various tests associated with relevant routines.
+
+    :param service: Ancilary Homie Automate class instance.
+    """
+
+    homie = service.homie
+    childs = homie.childs
+    origins = childs.origins
+    member = service.updates
+    threads = member.threads
+
+    origin = origins[
+        'jupiter_philips']
+
+    thread = threads[
+        'jupiter_philips']
+
+    uqueue = thread.uqueue
+
+    model = HomieUpdateItem
+
+    item = model(origin)
+
+
+    for _ in range(6):
+        uqueue.put(item)
+
+
+    assert service.congest
 
     service.operate_healths()
 

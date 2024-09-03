@@ -138,3 +138,5 @@ def test_HomieUpdate(
         assert thread.squeue
 
         assert not thread.congest
+
+        assert not thread.enqueue

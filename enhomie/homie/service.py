@@ -253,6 +253,34 @@ class HomieService:
         return sorted(congest)
 
 
+    @property
+    def enqueue(
+        self,
+    ) -> _CONGEST:
+        """
+        Return the list of congested threads and members queues.
+
+        :returns: List of congested threads and members queues.
+        """
+
+        enqueue: _CONGEST = []
+
+        actions = self.__actions
+        updates = self.__updates
+        streams = self.__streams
+
+        enqueue.extend(
+            actions.enqueue)
+
+        enqueue.extend(
+            updates.enqueue)
+
+        enqueue.extend(
+            streams.enqueue)
+
+        return sorted(enqueue)
+
+
     def start(
         self,
     ) -> None:

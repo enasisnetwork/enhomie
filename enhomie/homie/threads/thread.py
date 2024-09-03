@@ -282,6 +282,53 @@ class HomieThread(Thread):
         return sorted(congest)
 
 
+    @property
+    def enqueue(
+        self,
+    ) -> _CONGEST:
+        """
+        Return the list of congested threads and members queues.
+
+        :returns: List of congested threads and members queues.
+        """
+
+        enqueue: _CONGEST = []
+
+        name = self.name
+
+        aqueue = self.aqueue
+        uqueue = self.uqueue
+        squeue = self.squeue
+
+
+        if aqueue.qsize > 0:
+
+            append = (
+                f'{name}/aqueue',
+                aqueue.qsize)
+
+            enqueue.append(append)
+
+        if uqueue.qsize > 0:
+
+            append = (
+                f'{name}/uqueue',
+                uqueue.qsize)
+
+            enqueue.append(append)
+
+        if squeue.qsize > 0:
+
+            append = (
+                f'{name}/squeue',
+                squeue.qsize)
+
+            enqueue.append(append)
+
+
+        return sorted(enqueue)
+
+
     def run(
         self,
     ) -> None:
@@ -306,11 +353,11 @@ class HomieThread(Thread):
             if cancel.is_set():
                 return False
 
-            congest = bool(
-                self.congest)
+            enqueue = bool(
+                self.enqueue)
 
             if vacate.is_set():
-                return congest
+                return enqueue
 
             return True
 
