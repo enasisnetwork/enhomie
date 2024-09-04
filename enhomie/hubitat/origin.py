@@ -204,7 +204,7 @@ class HubiOrigin(HomieOrigin):
                 name=self,
                 item='refresh',
                 elapsed=runtime,
-                status='failure',
+                status='exception',
                 exc_info=reason)
 
             return False
@@ -330,7 +330,7 @@ class HubiOrigin(HomieOrigin):
                 target=target.name,
                 thread=thread.name,
                 elapsed=runtime,
-                status='failure',
+                status='exception',
                 exc_info=reason)
 
             return False

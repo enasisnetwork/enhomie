@@ -322,7 +322,7 @@ class HomieDesire(HomieChild):
             homie.logger.log_e(
                 base=self,
                 name=self,
-                status='failure',
+                status='exception',
                 exc_info=reason)
 
         return False

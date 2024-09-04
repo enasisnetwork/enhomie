@@ -77,7 +77,7 @@ class HomieActions(HomieMember):
             homie.logger.log_e(
                 base=self,
                 item='desired',
-                status='failure',
+                status='exception',
                 exc_info=reason)
 
 
@@ -90,7 +90,7 @@ class HomieActions(HomieMember):
             homie.logger.log_e(
                 base=self,
                 item='aspired',
-                status='failure',
+                status='exception',
                 exc_info=reason)
 
 
@@ -105,7 +105,7 @@ class HomieActions(HomieMember):
         desired = homie.desired
         timer = self.__timer
 
-        if not timer.ready():
+        if timer.pause():
             return None
 
         vacate = self.vacate

@@ -325,7 +325,7 @@ class HomieAspire(HomieChild):
             homie.logger.log_e(
                 base=self,
                 name=self,
-                status='failure',
+                status='exception',
                 exc_info=reason)
 
         return NCFalse
@@ -346,9 +346,7 @@ class HomieAspire(HomieChild):
 
         timer = self.__timer
 
-        ready = timer.ready(False)
-
-        return not ready
+        return timer.pause(False)
 
 
     def matched(

@@ -97,7 +97,7 @@ class HomieUpdate(HomieThread):
         timer = self.__timer
         vacate = member.vacate
 
-        if not timer.ready():
+        if timer.pause():
             return None
 
         if vacate.is_set():

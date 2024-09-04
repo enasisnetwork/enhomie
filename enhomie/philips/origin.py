@@ -206,7 +206,7 @@ class PhueOrigin(HomieOrigin):
                 name=self,
                 item='refresh',
                 elapsed=runtime,
-                status='failure',
+                status='exception',
                 exc_info=reason)
 
             return False
@@ -332,7 +332,7 @@ class PhueOrigin(HomieOrigin):
                 target=target.name,
                 thread=thread.name,
                 elapsed=runtime,
-                status='failure',
+                status='exception',
                 exc_info=reason)
 
             return False

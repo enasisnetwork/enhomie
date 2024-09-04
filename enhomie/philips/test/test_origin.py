@@ -31,17 +31,21 @@ if TYPE_CHECKING:
 
 def test_PhueOrigin(
     homie: 'Homie',
+    replaces: DictStrAny,
     bodies: 'TestBodies',
 ) -> None:
     """
     Perform various tests associated with relevant routines.
 
     :param homie: Primary class instance for Homie Automate.
+    :param replaces: Mapping of what to replace in samples.
     :param bodies: Locations and groups for use in testing.
     """
 
     childs = homie.childs
     origins = childs.origins
+
+    samples = SAMPLES / 'origin'
 
 
     planets = bodies.planets
@@ -96,6 +100,40 @@ def test_PhueOrigin(
         assert origin.fetch
 
         assert origin.merge
+
+
+        sample_path = (
+            f'{samples}/fetch'
+            f'/{planet}.json')
+
+        sample = load_sample(
+            path=sample_path,
+            update=ENPYRWS,
+            content=origin.fetch,
+            replace=replaces)
+
+        expect = prep_sample(
+            content=origin.fetch,
+            replace=replaces)
+
+        assert expect == sample
+
+
+        sample_path = (
+            f'{samples}/merge'
+            f'/{planet}.json')
+
+        sample = load_sample(
+            path=sample_path,
+            update=ENPYRWS,
+            content=origin.merge,
+            replace=replaces)
+
+        expect = prep_sample(
+            content=origin.merge,
+            replace=replaces)
+
+        assert expect == sample
 
 
 
@@ -322,73 +360,6 @@ def test_PhueOrigin_stream(
 
 
     assert squeue.qsize == 2
-
-
-
-def test_PhueOrigin_samples(
-    homie: 'Homie',
-    replaces: DictStrAny,
-    bodies: 'TestBodies',
-) -> None:
-    """
-    Perform various tests associated with relevant routines.
-
-    :param homie: Primary class instance for Homie Automate.
-    :param replaces: Mapping of what to replace in samples.
-    :param bodies: Locations and groups for use in testing.
-    """
-
-    childs = homie.childs
-    origins = childs.origins
-
-    samples = SAMPLES / 'origin'
-
-
-    planets = bodies.planets
-
-    for planet in planets:
-
-        origin = origins[
-            f'{planet}_philips']
-
-        assert isinstance(
-            origin, PhueOrigin)
-
-        assert origin.refresh()
-
-
-        sample_path = (
-            f'{samples}/fetch'
-            f'/{planet}.json')
-
-        sample = load_sample(
-            path=sample_path,
-            update=ENPYRWS,
-            content=origin.fetch,
-            replace=replaces)
-
-        expect = prep_sample(
-            content=origin.fetch,
-            replace=replaces)
-
-        assert expect == sample
-
-
-        sample_path = (
-            f'{samples}/merge'
-            f'/{planet}.json')
-
-        sample = load_sample(
-            path=sample_path,
-            update=ENPYRWS,
-            content=origin.merge,
-            replace=replaces)
-
-        expect = prep_sample(
-            content=origin.merge,
-            replace=replaces)
-
-        assert expect == sample
 
 
 
