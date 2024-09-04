@@ -28,17 +28,21 @@ if TYPE_CHECKING:
 
 def test_HubiOrigin(
     homie: 'Homie',
+    replaces: DictStrAny,
     bodies: 'TestBodies',
 ) -> None:
     """
     Perform various tests associated with relevant routines.
 
     :param homie: Primary class instance for Homie Automate.
+    :param replaces: Mapping of what to replace in samples.
     :param bodies: Locations and groups for use in testing.
     """
 
     childs = homie.childs
     origins = childs.origins
+
+    samples = SAMPLES / 'origin'
 
 
     planets = bodies.planets
@@ -93,6 +97,40 @@ def test_HubiOrigin(
         assert origin.fetch
 
         assert origin.merge
+
+
+        sample_path = (
+            f'{samples}/fetch'
+            f'/{planet}.json')
+
+        sample = load_sample(
+            path=sample_path,
+            update=ENPYRWS,
+            content=origin.fetch,
+            replace=replaces)
+
+        expect = prep_sample(
+            content=origin.fetch,
+            replace=replaces)
+
+        assert expect == sample
+
+
+        sample_path = (
+            f'{samples}/merge'
+            f'/{planet}.json')
+
+        sample = load_sample(
+            path=sample_path,
+            update=ENPYRWS,
+            content=origin.merge,
+            replace=replaces)
+
+        expect = prep_sample(
+            content=origin.merge,
+            replace=replaces)
+
+        assert expect == sample
 
 
 
@@ -238,73 +276,6 @@ def test_HubiOrigin_update(
 
 
     assert uqueue.qsize == 2
-
-
-
-def test_HubiOrigin_samples(
-    homie: 'Homie',
-    replaces: DictStrAny,
-    bodies: 'TestBodies',
-) -> None:
-    """
-    Perform various tests associated with relevant routines.
-
-    :param homie: Primary class instance for Homie Automate.
-    :param replaces: Mapping of what to replace in samples.
-    :param bodies: Locations and groups for use in testing.
-    """
-
-    childs = homie.childs
-    origins = childs.origins
-
-    samples = SAMPLES / 'origin'
-
-
-    planets = bodies.planets
-
-    for planet in planets:
-
-        origin = origins[
-            f'{planet}_hubitat']
-
-        assert isinstance(
-            origin, HubiOrigin)
-
-        assert origin.refresh()
-
-
-        sample_path = (
-            f'{samples}/fetch'
-            f'/{planet}.json')
-
-        sample = load_sample(
-            path=sample_path,
-            update=ENPYRWS,
-            content=origin.fetch,
-            replace=replaces)
-
-        expect = prep_sample(
-            content=origin.fetch,
-            replace=replaces)
-
-        assert expect == sample
-
-
-        sample_path = (
-            f'{samples}/merge'
-            f'/{planet}.json')
-
-        sample = load_sample(
-            path=sample_path,
-            update=ENPYRWS,
-            content=origin.merge,
-            replace=replaces)
-
-        expect = prep_sample(
-            content=origin.merge,
-            replace=replaces)
-
-        assert expect == sample
 
 
 
