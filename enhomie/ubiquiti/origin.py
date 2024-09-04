@@ -211,7 +211,7 @@ class UbiqOrigin(HomieOrigin):
                 name=self,
                 item='refresh',
                 elapsed=runtime,
-                status='failure',
+                status='exception',
                 exc_info=reason)
 
             return False
