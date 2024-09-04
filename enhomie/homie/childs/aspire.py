@@ -346,9 +346,7 @@ class HomieAspire(HomieChild):
 
         timer = self.__timer
 
-        ready = timer.ready(False)
-
-        return not ready
+        return timer.pause(False)
 
 
     def matched(

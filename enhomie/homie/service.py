@@ -435,7 +435,7 @@ class HomieService:
 
         timer = self.__timer
 
-        if not timer.ready():
+        if timer.pause():
             return None
 
         vacate = self.__vacate
