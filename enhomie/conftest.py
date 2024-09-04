@@ -134,8 +134,6 @@ def replaces_factory() -> DictStrAny:
 
     replaces = {
 
-        'PROJECT': PROJECT,
-
         '__TIMESTAMP_START__': (
             times.start.simple),
 
@@ -178,6 +176,7 @@ def replaces(
     replaces = replaces_factory()
 
     return replaces | {
+        'PROJECT': PROJECT,
         'TMPPATH': tmp_path}
 
 
