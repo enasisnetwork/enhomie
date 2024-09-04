@@ -73,15 +73,14 @@ def test_HomieService(
 
     service.start()
 
-    operate = service.operate
 
     thread = Thread(
-        target=operate)
+        target=service.operate)
 
     thread.start()
 
-    for _ in range(50):
-        thread.join(0.1)
+
+    block_sleep(10)
 
     assert service.running
 
@@ -92,10 +91,10 @@ def test_HomieService(
     service.soft()
 
     while service.enqueue:
-        thread.join(0.1)  # NOCVR
+        block_sleep(1)  # NOCVR
 
     while service.running:
-        thread.join(0.1)  # NOCVR
+        block_sleep(1)  # NOCVR
 
     service.stop()
 
@@ -126,15 +125,14 @@ def test_HomieService_dryrun(
 
     service.start()
 
-    operate = service.operate
 
     thread = Thread(
-        target=operate)
+        target=service.operate)
 
     thread.start()
 
-    for _ in range(50):
-        thread.join(0.1)
+
+    block_sleep(10)
 
     assert service.running
 
@@ -145,10 +143,10 @@ def test_HomieService_dryrun(
     service.soft()
 
     while service.enqueue:
-        thread.join(0.1)  # NOCVR
+        block_sleep(1)  # NOCVR
 
     while service.running:
-        thread.join(0.1)  # NOCVR
+        block_sleep(1)  # NOCVR
 
     service.stop()
 
