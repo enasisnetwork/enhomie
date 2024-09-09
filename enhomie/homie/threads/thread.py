@@ -368,7 +368,7 @@ class HomieThread(Thread):
 
             self.operate()
 
-            block_sleep(0.15)
+            block_sleep(0.1)
 
 
         homie.logger.log_i(
