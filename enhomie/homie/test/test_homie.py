@@ -100,6 +100,29 @@ def test_Homie(
 
 
 
+def test_Homie_printer(
+    homie: Homie,
+) -> None:
+    """
+    Perform various tests associated with relevant routines.
+
+    :param homie: Primary class instance for Homie Automate.
+    """
+
+    childs = homie.childs
+    origins = childs.origins
+
+    origin = origins[
+        'jupiter_philips']
+
+    model = HomieThreadItem
+
+    item = model(origin)
+
+    homie.printer(item)
+
+
+
 def test_Homie_actions(
     homie: Homie,
     bodies: 'TestBodies',
@@ -187,29 +210,6 @@ def test_Homie_actions(
             .get_actions(group))
 
         assert len(aitems) == 0
-
-
-
-def test_Homie_printer(
-    homie: Homie,
-) -> None:
-    """
-    Perform various tests associated with relevant routines.
-
-    :param homie: Primary class instance for Homie Automate.
-    """
-
-    childs = homie.childs
-    origins = childs.origins
-
-    origin = origins[
-        'jupiter_philips']
-
-    model = HomieThreadItem
-
-    item = model(origin)
-
-    homie.printer(item)
 
 
 

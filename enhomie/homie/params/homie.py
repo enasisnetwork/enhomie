@@ -71,7 +71,7 @@ class HomieParams(Params, extra='forbid'):
     dryrun: Annotated[
         bool,
         Field(False,
-              description='Determine if changes are made')]
+              description='Determine if changes applied')]
 
     potent: Annotated[
         bool,
