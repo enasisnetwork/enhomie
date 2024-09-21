@@ -31,13 +31,18 @@ class InvalidParam(Exception):
     """
     Exception for after invalid parameters are encountered.
 
+    .. note::
+       Similar or identical to classes in other projects.
+
     :param error: Simple code describing the invalid error.
+    :param about: Additional information for the exception.
     :param child: Child class instance for Homie Automate.
     :param param: Name of the parameter which is not valid.
     :param value: Value if any specified for the parameter.
     """
 
     error: _ERROR
+    about: Optional[str] = None
     child: Optional['HomieChild'] = None
     param: Optional[str] = None
     value: Optional[Any] = None
@@ -46,6 +51,7 @@ class InvalidParam(Exception):
     def __init__(
         self,
         error: _ERROR,
+        about: Optional[str] = None,
         *,
         child: Optional['HomieChild'] = None,
         param: Optional[str] = None,
@@ -78,7 +84,13 @@ class InvalidParam(Exception):
                 f' child ({name})')
 
 
+        if about is not None:
+            message += (
+                f' ({about})')
+
+
         self.error = error
+        self.about = about
         self.child = child
         self.param = param
         self.value = value
