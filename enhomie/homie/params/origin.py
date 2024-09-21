@@ -66,8 +66,9 @@ class HomieOriginParams(HomieChildParams, extra='forbid'):
                 if not data.get(key):
                     continue
 
-                data[key] |= {
-                    '_parse': _parse}
+                item = data[key]
+
+                item['_parse'] = _parse
 
 
         super().__init__(**data)
