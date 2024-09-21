@@ -38,6 +38,7 @@ def test_InvalidParam(
 
     raises = InvalidParam(
         error='invalid',
+        about='about',
         child=device,
         param='param',
         value='value')
@@ -47,6 +48,7 @@ def test_InvalidParam(
 
     assert attrs == [
         'error',
+        'about',
         'child',
         'param',
         'value']
@@ -68,4 +70,5 @@ def test_InvalidParam(
         'param (param) '
         'value (value) child '
         '(PhueDevice'
-        '/jupiter_motion)')
+        '/jupiter_motion)'
+        ' (about)')

@@ -12,6 +12,7 @@ from typing import Optional
 
 from encommon.config import Config
 from encommon.config import Params
+from encommon.parse import Jinja2
 from encommon.types import DictStrAny
 from encommon.utils.common import PATHABLE
 
@@ -200,8 +201,14 @@ class HomieConfig(Config):
             update = True
 
 
-        params = (
-            self.model(**basic))
+        jinja2 = Jinja2({
+            'source': basic,
+            'config': self})
+
+        parse = jinja2.parse
+
+        params = self.model(
+            parse, **basic)
 
         assert isinstance(
             params, HomieParams)

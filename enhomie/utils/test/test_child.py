@@ -32,7 +32,9 @@ def test_InvalidChild() -> None:
 
     attrs = lattrs(raises)
 
-    assert attrs == ['child']
+    assert attrs == [
+        'child',
+        'about']
 
 
     assert inrepr(
@@ -71,10 +73,12 @@ def test_InvalidChild_cover(
 
     raises = InvalidChild(
         child=device,
-        phase='runtime')
+        phase='runtime',
+        about='about')
 
+    name = device.name
 
     assert str(raises) == (
-        'Child (jupiter_motion) '
-        'invalid within '
-        'phase (runtime)')
+        f'Child ({name}) '
+        'invalid within phase '
+        '(runtime) (about)')
