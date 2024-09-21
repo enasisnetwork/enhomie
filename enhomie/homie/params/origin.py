@@ -8,6 +8,8 @@ is permitted, for more information consult the project license file.
 
 
 from typing import Annotated
+from typing import Any
+from typing import Callable
 from typing import Optional
 
 from pydantic import Field
@@ -38,3 +40,35 @@ class HomieOriginParams(HomieChildParams, extra='forbid'):
         Optional[UbiqOriginParams],
         Field(None,
               description='Connection specific parameters')]
+
+
+    def __init__(
+        # NOCVR
+        self,
+        /,
+        _parse: Optional[Callable[..., Any]] = None,
+        **data: Any,
+    ) -> None:
+        """
+        Initialize instance for class using provided parameters.
+        """
+
+
+        if _parse is not None:
+
+            parsable = [
+                'hubitat',
+                'philips',
+                'ubiquiti']
+
+            for key in parsable:
+
+                if not data.get(key):
+                    continue
+
+                item = data[key]
+
+                item['_parse'] = _parse
+
+
+        super().__init__(**data)

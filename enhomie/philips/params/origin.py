@@ -8,6 +8,9 @@ is permitted, for more information consult the project license file.
 
 
 from typing import Annotated
+from typing import Any
+from typing import Callable
+from typing import Optional
 
 from encommon.types import BaseModel
 
@@ -26,3 +29,24 @@ class PhueOriginParams(BaseModel, extra='forbid'):
         BridgeParams,
         Field(...,
               description='Connection specific parameters')]
+
+
+    def __init__(
+        # NOCVR
+        self,
+        /,
+        _parse: Optional[Callable[..., Any]] = None,
+        **data: Any,
+    ) -> None:
+        """
+        Initialize instance for class using provided parameters.
+        """
+
+
+        if _parse is not None:
+
+            data['bridge'] = _parse(
+                data['bridge'])
+
+
+        super().__init__(**data)

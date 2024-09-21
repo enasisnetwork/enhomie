@@ -8,6 +8,9 @@ is permitted, for more information consult the project license file.
 
 
 from typing import Annotated
+from typing import Any
+from typing import Callable
+from typing import Optional
 
 from encommon.types import BaseModel
 
@@ -26,3 +29,24 @@ class UbiqOriginParams(BaseModel, extra='forbid'):
         RouterParams,
         Field(...,
               description='Connection specific parameters')]
+
+
+    def __init__(
+        # NOCVR
+        self,
+        /,
+        _parse: Optional[Callable[..., Any]] = None,
+        **data: Any,
+    ) -> None:
+        """
+        Initialize instance for class using provided parameters.
+        """
+
+
+        if _parse is not None:
+
+            data['router'] = _parse(
+                data['router'])
+
+
+        super().__init__(**data)

@@ -7,7 +7,6 @@ is permitted, for more information consult the project license file.
 
 
 
-from contextlib import suppress
 from typing import Optional
 
 from encommon.config import Config
@@ -167,6 +166,8 @@ class HomieConfig(Config):
             sargs=sargs,
             model=HomieParams)
 
+        self.merge_params()
+
 
     @property
     def params(
@@ -194,30 +195,57 @@ class HomieConfig(Config):
 
 
         basic = self.basic
-        update = False
 
-        with suppress(AttributeError):
-            basic = self.merge
-            update = True
+        enconfig = (
+            basic.get('enconfig'))
 
+        enlogger = (
+            basic.get('enlogger'))
 
-        jinja2 = Jinja2({
-            'source': basic,
-            'config': self})
+        encrypts = (
+            basic.get('encrypts'))
 
-        parse = jinja2.parse
+        basic = {
+            'enconfig': enconfig,
+            'enlogger': enlogger,
+            'encrypts': encrypts}
 
-        params = self.model(
-            parse, **basic)
+        params = (
+            self.model(**basic))
 
         assert isinstance(
             params, HomieParams)
 
 
-        if update is True:
-            self.__params = params
+        self.__params = params
 
-        return params
+        return self.__params
+
+
+    def merge_params(
+        self,
+    ) -> None:
+        """
+        Update the Pydantic model containing the configuration.
+        """
+
+        merge = self.merge
+
+
+        jinja2 = Jinja2({
+            'source': merge,
+            'config': self})
+
+        parse = jinja2.parse
+
+        params = self.model(
+            parse, **merge)
+
+        assert isinstance(
+            params, HomieParams)
+
+
+        self.__params = params
 
 
     @property
