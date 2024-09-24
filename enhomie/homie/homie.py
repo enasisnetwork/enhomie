@@ -398,9 +398,11 @@ class Homie:
                 'scene': scene}
 
 
+        line: str = '━'
+
         print_ansi(
             f'\n<c9{color}>┍'
-            f'{"━" * 63}<c0>')
+            f'{line * 63}<c0>')
 
         dumped = array_ansi(
             source, indent=2)
@@ -410,7 +412,7 @@ class Homie:
 
         print_ansi(
             f'\n<c9{color}>┕'
-            f'{"━" * 63}<c0>\n')
+            f'{line * 63}<c0>\n')
 
 
     def get_actions(  # noqa: CFQ002
