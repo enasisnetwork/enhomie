@@ -54,7 +54,7 @@ def config_factory(
         database: >-
             sqlite:///{tmp_path}/db
 
-        """)  # noqa: LIT003
+        """)
 
     config_path = (
         tmp_path / 'config.yml')

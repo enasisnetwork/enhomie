@@ -16,8 +16,8 @@ Should you venture into the sections below you will be able to use the
 `sphinx` recipe to build documention in the `docs/html` directory.
 
 ## Useful and related links
-- https://developers.meethue.com/develop/hue-api-v2/api-reference
-- https://ubntwiki.com/products/software/unifi-controller/api
+- [Philips Hue API](https://developers.meethue.com/develop/hue-api-v2/api-reference)
+- [Ubiquiti API](https://ubntwiki.com/products/software/unifi-controller/api)
 
 ## Installing the package
 Installing stable from the PyPi repository
@@ -55,8 +55,42 @@ information found in the `htmlcov` folder in the root of the project.
 make -s pytest
 ```
 
+## Running the service
+There are several command line arguments, see them all here.
+```
+python -m enhomie.execution.service --help
+```
+Here is an example of running the service from inside the project folder
+within the [Workspace](https://github.com/enasisnetwork/workspace) project.
+```
+python -m enhomie.execution.service \
+  --config ../../Persistent/enhomie-prod.yml \
+  --console \
+  --debug \
+  --respite_update 120 \
+  --respite_desire 15 \
+  --timeout_stream 120 \
+  --idempotent \
+  --print_desire \
+  --print_aspire
+```
+Replace `../../Persistent/enhomie-prod.yml` with your configuration file.
+
+## Deploying the service
+It is possible to deploy the project with the Ansible roles located within
+the [Orchestro](https://github.com/enasisnetwork/orchestro) project! Below
+is an example of what you might run from that project to deploy this one.
+However there is a bit to consider here as this requires some configuration.
+```
+make -s \
+  limit=all \
+  orche_files=../../Persistent/orchestro-prod.yml \
+  ansible_args=" --diff" \
+  enhomie-install
+```
+
 ## Version management
-:warning: Ensure that no changes are pending.
+> :warning: Ensure that no changes are pending.
 
 1. Rebuild the environment.
    ```
