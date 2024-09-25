@@ -12,15 +12,15 @@ from typing import Any
 from typing import Callable
 from typing import Optional
 
-from encommon.types import BaseModel
-
 from enconnect.hubitat import BridgeParams
 
 from pydantic import Field
 
+from ...homie.params.common import HomieParamsModel
 
 
-class HubiOriginParams(BaseModel, extra='forbid'):
+
+class HubiOriginParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

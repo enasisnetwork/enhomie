@@ -11,15 +11,14 @@ from typing import Annotated
 from typing import Any
 from typing import Optional
 
-from encommon.types import BaseModel
-
 from pydantic import Field
 
 from ...plugins.contact import PhueContactState
+from ....homie.params.common import HomieParamsModel
 
 
 
-class DriverPhueContactParams(BaseModel, extra='forbid'):
+class DriverPhueContactParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

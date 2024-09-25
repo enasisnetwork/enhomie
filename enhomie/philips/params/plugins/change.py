@@ -11,15 +11,14 @@ from typing import Annotated
 from typing import Any
 from typing import Optional
 
-from encommon.types import BaseModel
-
 from pydantic import Field
 
 from ...plugins.change import PhueChangeSensor
+from ....homie.params.common import HomieParamsModel
 
 
 
-class DriverPhueChangeParams(BaseModel, extra='forbid'):
+class DriverPhueChangeParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

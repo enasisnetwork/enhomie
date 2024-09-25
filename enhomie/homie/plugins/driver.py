@@ -10,7 +10,8 @@ is permitted, for more information consult the project license file.
 from typing import TYPE_CHECKING
 
 from encommon.times import Time
-from encommon.types import BaseModel
+
+from ..params.common import HomieParamsModel
 
 if TYPE_CHECKING:
     from .common import HomiePluginKinds
@@ -30,13 +31,13 @@ class HomieDriver:
 
     __plugin: 'HomiePlugin'
 
-    __params: BaseModel
+    __params: HomieParamsModel
 
 
     def __init__(
         self,
         plugin: 'HomiePlugin',
-        params: BaseModel,
+        params: HomieParamsModel,
     ) -> None:
         """
         Initialize instance for class using provided parameters.
@@ -108,7 +109,7 @@ class HomieDriver:
     @property
     def params(
         self,
-    ) -> BaseModel:
+    ) -> HomieParamsModel:
         """
         Return the Pydantic model containing the configuration.
 

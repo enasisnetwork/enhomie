@@ -11,15 +11,14 @@ from typing import Annotated
 from typing import Any
 from typing import Optional
 
-from encommon.types import BaseModel
-
 from pydantic import Field
 
 from ...plugins.motion import PhueMotionState
+from ....homie.params.common import HomieParamsModel
 
 
 
-class DriverPhueMotionParams(BaseModel, extra='forbid'):
+class DriverPhueMotionParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

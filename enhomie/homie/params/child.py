@@ -11,11 +11,11 @@ from typing import Any
 from typing import Callable
 from typing import Optional
 
-from encommon.types import BaseModel
+from .common import HomieParamsModel
 
 
 
-class HomieChildParams(BaseModel, extra='forbid'):
+class HomieChildParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

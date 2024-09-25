@@ -9,13 +9,13 @@ is permitted, for more information consult the project license file.
 
 from typing import Annotated
 
-from encommon.types import BaseModel
-
 from pydantic import Field
 
+from .common import HomieParamsModel
 
 
-class HomieServiceTimeoutParams(BaseModel, extra='forbid'):
+
+class HomieServiceTimeoutParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """
@@ -40,7 +40,7 @@ class HomieServiceTimeoutParams(BaseModel, extra='forbid'):
 
 
 
-class HomieServiceRespiteParams(BaseModel, extra='forbid'):
+class HomieServiceRespiteParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """
@@ -65,7 +65,7 @@ class HomieServiceRespiteParams(BaseModel, extra='forbid'):
 
 
 
-class HomieServiceParams(BaseModel, extra='forbid'):
+class HomieServiceParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

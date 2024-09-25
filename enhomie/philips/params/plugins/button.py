@@ -11,16 +11,15 @@ from typing import Annotated
 from typing import Any
 from typing import Optional
 
-from encommon.types import BaseModel
-
 from pydantic import Field
 
 from ...plugins.button import PhueButtonEvent
 from ...plugins.button import PhueButtonSensor
+from ....homie.params.common import HomieParamsModel
 
 
 
-class DriverPhueButtonParams(BaseModel, extra='forbid'):
+class DriverPhueButtonParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """
