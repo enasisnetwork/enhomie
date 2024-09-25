@@ -51,7 +51,8 @@ def test_HomieScene(
         'scene.HomieScene',
         scene)
 
-    assert hash(scene) > 0
+    assert isinstance(
+        hash(scene), int)
 
     assert instr(
         'scene.HomieScene',

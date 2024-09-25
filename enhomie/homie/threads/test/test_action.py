@@ -83,7 +83,7 @@ def test_HomieActionItem(
             item)
 
         with raises(TypeError):
-            assert hash(item) > 0
+            hash(item)
 
         assert instr(
             'HomieActionItem',
@@ -169,7 +169,8 @@ def test_HomieAction(
             'Action(PhueAction',
             thread)
 
-        assert hash(thread) > 0
+        assert isinstance(
+            hash(thread), int)
 
         assert instr(
             'Action(PhueAction',

@@ -73,7 +73,8 @@ def test_DriverBltnStore(
             'store.DriverBltnStore',
             driver)
 
-        assert hash(driver) > 0
+        assert isinstance(
+            hash(driver), int)
 
         assert instr(
             'store.DriverBltnStore',

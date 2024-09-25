@@ -12,15 +12,15 @@ from typing import Any
 from typing import Callable
 from typing import Optional
 
-from encommon.types import BaseModel
-
 from enconnect.philips import BridgeParams
 
 from pydantic import Field
 
+from ...homie.params.common import HomieParamsModel
 
 
-class PhueOriginParams(BaseModel, extra='forbid'):
+
+class PhueOriginParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

@@ -65,7 +65,8 @@ def test_HomieAspire(
             'aspire.HomieAspire',
             aspire)
 
-        assert hash(aspire) > 0
+        assert isinstance(
+            hash(aspire), int)
 
         assert instr(
             'aspire.HomieAspire',

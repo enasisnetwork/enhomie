@@ -7,11 +7,11 @@ is permitted, for more information consult the project license file.
 
 
 
-from .common import HomieParamsModel
+from encommon.types import BaseModel
 
 
 
-class HomiePluginParams(HomieParamsModel, extra='forbid'):
+class HomieParamsModel(BaseModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

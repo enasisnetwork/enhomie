@@ -84,7 +84,8 @@ def test_DriverPhueScene(
             'scene.DriverPhueScene',
             driver)
 
-        assert hash(driver) > 0
+        assert isinstance(
+            hash(driver), int)
 
         assert instr(
             'scene.DriverPhueScene',

@@ -66,7 +66,8 @@ def test_HomieGroup(
             'group.HomieGroup',
             group)
 
-        assert hash(group) > 0
+        assert isinstance(
+            hash(group), int)
 
         assert instr(
             'group.HomieGroup',

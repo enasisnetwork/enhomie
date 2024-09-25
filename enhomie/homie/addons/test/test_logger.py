@@ -43,7 +43,8 @@ def test_HomieLogger(
         'logger.HomieLogger',
         logger)
 
-    assert hash(logger) > 0
+    assert isinstance(
+        hash(logger), int)
 
     assert instr(
         'logger.HomieLogger',

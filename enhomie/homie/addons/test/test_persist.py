@@ -44,7 +44,8 @@ def test_HomiePersist(
         'persist.HomiePersist',
         persist)
 
-    assert hash(persist) > 0
+    assert isinstance(
+        hash(persist), int)
 
     assert instr(
         'persist.HomiePersist',

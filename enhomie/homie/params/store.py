@@ -11,16 +11,16 @@ from typing import Annotated
 from typing import Any
 
 from encommon.times import unitime
-from encommon.types import BaseModel
 
 from pydantic import Field
 
+from .common import HomieParamsModel
 from ..addons import HomiePersistExpire
 from ..addons import HomiePersistValue
 
 
 
-class HomieStoreParams(BaseModel, extra='forbid'):
+class HomieStoreParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

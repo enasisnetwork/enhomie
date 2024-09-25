@@ -13,11 +13,11 @@ from typing import Callable
 from typing import Optional
 
 from encommon.config import Params
-from encommon.types import BaseModel
 
 from pydantic import Field
 
 from .aspire import HomieAspireParams
+from .common import HomieParamsModel
 from .desire import HomieDesireParams
 from .device import HomieDeviceParams
 from .group import HomieGroupParams
@@ -27,7 +27,7 @@ from .service import HomieServiceParams
 
 
 
-class HomiePrinterParams(BaseModel, extra='forbid'):
+class HomiePrinterParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

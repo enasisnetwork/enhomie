@@ -121,7 +121,8 @@ def test_HomieDesired(
         'desired.HomieDesired',
         desired)
 
-    assert hash(desired) > 0
+    assert isinstance(
+        hash(desired), int)
 
     assert instr(
         'desired.HomieDesired',

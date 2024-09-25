@@ -12,15 +12,15 @@ from typing import Any
 from typing import Callable
 from typing import Optional
 
-from encommon.types import BaseModel
-
 from enconnect.ubiquiti import RouterParams
 
 from pydantic import Field
 
+from ...homie.params.common import HomieParamsModel
 
 
-class UbiqOriginParams(BaseModel, extra='forbid'):
+
+class UbiqOriginParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
     """

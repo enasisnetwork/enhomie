@@ -76,7 +76,8 @@ def test_DriverUbiqClient(
             'client.DriverUbiqClient',
             driver)
 
-        assert hash(driver) > 0
+        assert isinstance(
+            hash(driver), int)
 
         assert instr(
             'client.DriverUbiqClient',
