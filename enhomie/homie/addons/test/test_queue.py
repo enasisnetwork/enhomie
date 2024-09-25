@@ -62,7 +62,8 @@ def test_HomieQueue(
         'queue.HomieQueue',
         queue)
 
-    assert hash(queue) > 0
+    assert isinstance(
+        hash(queue), int)
 
     assert instr(
         'queue.HomieQueue',

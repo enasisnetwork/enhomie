@@ -71,7 +71,8 @@ def test_DriverBltnPeriod(
             'period.DriverBltnPeriod',
             driver)
 
-        assert hash(driver) > 0
+        assert isinstance(
+            hash(driver), int)
 
         assert instr(
             'period.DriverBltnPeriod',

@@ -59,7 +59,8 @@ def test_HomieWhere(
             'where.HomieWhere',
             plugin)
 
-        assert hash(plugin) > 0
+        assert isinstance(
+            hash(plugin), int)
 
         assert instr(
             'where.HomieWhere',

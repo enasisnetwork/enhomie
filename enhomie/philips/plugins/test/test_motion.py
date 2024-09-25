@@ -84,7 +84,8 @@ def test_DriverPhueMotion(
             'motion.DriverPhueMotion',
             driver)
 
-        assert hash(driver) > 0
+        assert isinstance(
+            hash(driver), int)
 
         assert instr(
             'motion.DriverPhueMotion',

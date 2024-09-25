@@ -67,7 +67,8 @@ def test_HomieDesire(
             'desire.HomieDesire',
             desire)
 
-        assert hash(desire) > 0
+        assert isinstance(
+            hash(desire), int)
 
         assert instr(
             'desire.HomieDesire',

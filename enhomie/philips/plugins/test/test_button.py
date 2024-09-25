@@ -84,7 +84,8 @@ def test_DriverPhueButton(
             'button.DriverPhueButton',
             driver)
 
-        assert hash(driver) > 0
+        assert isinstance(
+            hash(driver), int)
 
         assert instr(
             'button.DriverPhueButton',

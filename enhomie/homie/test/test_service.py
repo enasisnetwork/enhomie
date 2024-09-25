@@ -49,7 +49,8 @@ def test_HomieService(
         'service.HomieService',
         service)
 
-    assert hash(service) > 0
+    assert isinstance(
+        hash(service), int)
 
     assert instr(
         'service.HomieService',

@@ -46,7 +46,8 @@ def test_HomieStreams(
         'streams.HomieStreams',
         member)
 
-    assert hash(member) > 0
+    assert isinstance(
+        hash(member), int)
 
     assert instr(
         'streams.HomieStreams',

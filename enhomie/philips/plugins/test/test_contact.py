@@ -84,7 +84,8 @@ def test_DriverPhueContact(
             'contact.DriverPhueContact',
             driver)
 
-        assert hash(driver) > 0
+        assert isinstance(
+            hash(driver), int)
 
         assert instr(
             'contact.DriverPhueContact',

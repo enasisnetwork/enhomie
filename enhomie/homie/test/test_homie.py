@@ -54,7 +54,8 @@ def test_Homie(
         'homie.Homie',
         homie)
 
-    assert hash(homie) > 0
+    assert isinstance(
+        hash(homie), int)
 
     assert instr(
         'homie.Homie',

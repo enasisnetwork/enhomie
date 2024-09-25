@@ -76,7 +76,8 @@ def test_DriverPhueChange(
             'change.DriverPhueChange',
             driver)
 
-        assert hash(driver) > 0
+        assert isinstance(
+            hash(driver), int)
 
         assert instr(
             'change.DriverPhueChange',

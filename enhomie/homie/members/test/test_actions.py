@@ -47,7 +47,8 @@ def test_HomieActions(
         'actions.HomieActions',
         member)
 
-    assert hash(member) > 0
+    assert isinstance(
+        hash(member), int)
 
     assert instr(
         'actions.HomieActions',

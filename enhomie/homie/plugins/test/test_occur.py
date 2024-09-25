@@ -59,7 +59,8 @@ def test_HomieOccur(
             'occur.HomieOccur',
             plugin)
 
-        assert hash(plugin) > 0
+        assert isinstance(
+            hash(plugin), int)
 
         assert instr(
             'occur.HomieOccur',

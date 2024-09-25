@@ -73,7 +73,8 @@ def test_DriverBltnRegexp(
             'regexp.DriverBltnRegexp',
             driver)
 
-        assert hash(driver) > 0
+        assert isinstance(
+            hash(driver), int)
 
         assert instr(
             'regexp.DriverBltnRegexp',
