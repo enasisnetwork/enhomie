@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.homie.plugins package &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">enhomie.homie.plugins package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-enhomie.homie.plugins.common">enhomie.homie.plugins.common module</a></li>
+<li><a class="reference internal" href="#module-enhomie.homie.plugins.driver">enhomie.homie.plugins.driver module</a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver"><code class="docutils literal notranslate"><span class="pre">HomieDriver</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver.family"><code class="docutils literal notranslate"><span class="pre">HomieDriver.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver.kinds"><code class="docutils literal notranslate"><span class="pre">HomieDriver.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver.occur"><code class="docutils literal notranslate"><span class="pre">HomieDriver.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver.params"><code class="docutils literal notranslate"><span class="pre">HomieDriver.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver.plugin"><code class="docutils literal notranslate"><span class="pre">HomieDriver.plugin</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver.validate"><code class="docutils literal notranslate"><span class="pre">HomieDriver.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver.where"><code class="docutils literal notranslate"><span class="pre">HomieDriver.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.homie.plugins.occur">enhomie.homie.plugins.occur module</a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.occur.HomieOccur"><code class="docutils literal notranslate"><span class="pre">HomieOccur</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.occur.HomieOccur.get_drivers"><code class="docutils literal notranslate"><span class="pre">HomieOccur.get_drivers()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.occur.HomieOccur.kind"><code class="docutils literal notranslate"><span class="pre">HomieOccur.kind</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.occur.HomieOccur.params"><code class="docutils literal notranslate"><span class="pre">HomieOccur.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.occur.HomieOccur.validate"><code class="docutils literal notranslate"><span class="pre">HomieOccur.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.occur.HomieOccur.when"><code class="docutils literal notranslate"><span class="pre">HomieOccur.when()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.homie.plugins.plugin">enhomie.homie.plugins.plugin module</a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin"><code class="docutils literal notranslate"><span class="pre">HomiePlugin</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin.drivers"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.drivers</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin.family"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin.get_drivers"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.get_drivers()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin.homie"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.homie</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin.kind"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.kind</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin.params"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin.validate"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.homie.plugins.where">enhomie.homie.plugins.where module</a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.where.HomieWhere"><code class="docutils literal notranslate"><span class="pre">HomieWhere</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.where.HomieWhere.get_drivers"><code class="docutils literal notranslate"><span class="pre">HomieWhere.get_drivers()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.where.HomieWhere.kind"><code class="docutils literal notranslate"><span class="pre">HomieWhere.kind</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.where.HomieWhere.params"><code class="docutils literal notranslate"><span class="pre">HomieWhere.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.where.HomieWhere.validate"><code class="docutils literal notranslate"><span class="pre">HomieWhere.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.where.HomieWhere.when"><code class="docutils literal notranslate"><span class="pre">HomieWhere.when()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.homie.plugins">Module contents</a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver"><code class="docutils literal notranslate"><span class="pre">HomieDriver</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver.family"><code class="docutils literal notranslate"><span class="pre">HomieDriver.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver.kinds"><code class="docutils literal notranslate"><span class="pre">HomieDriver.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver.occur"><code class="docutils literal notranslate"><span class="pre">HomieDriver.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver.params"><code class="docutils literal notranslate"><span class="pre">HomieDriver.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver.plugin"><code class="docutils literal notranslate"><span class="pre">HomieDriver.plugin</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver.validate"><code class="docutils literal notranslate"><span class="pre">HomieDriver.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver.where"><code class="docutils literal notranslate"><span class="pre">HomieDriver.where()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieOccur"><code class="docutils literal notranslate"><span class="pre">HomieOccur</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieOccur.get_drivers"><code class="docutils literal notranslate"><span class="pre">HomieOccur.get_drivers()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieOccur.kind"><code class="docutils literal notranslate"><span class="pre">HomieOccur.kind</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieOccur.params"><code class="docutils literal notranslate"><span class="pre">HomieOccur.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieOccur.validate"><code class="docutils literal notranslate"><span class="pre">HomieOccur.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieOccur.when"><code class="docutils literal notranslate"><span class="pre">HomieOccur.when()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomiePlugin"><code class="docutils literal notranslate"><span class="pre">HomiePlugin</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomiePlugin.drivers"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.drivers</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomiePlugin.family"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomiePlugin.get_drivers"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.get_drivers()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomiePlugin.homie"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.homie</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomiePlugin.kind"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.kind</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomiePlugin.params"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomiePlugin.validate"><code class="docutils literal notranslate"><span class="pre">HomiePlugin.validate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieWhere"><code class="docutils literal notranslate"><span class="pre">HomieWhere</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieWhere.get_drivers"><code class="docutils literal notranslate"><span class="pre">HomieWhere.get_drivers()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieWhere.kind"><code class="docutils literal notranslate"><span class="pre">HomieWhere.kind</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieWhere.params"><code class="docutils literal notranslate"><span class="pre">HomieWhere.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieWhere.validate"><code class="docutils literal notranslate"><span class="pre">HomieWhere.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.plugins.HomieWhere.when"><code class="docutils literal notranslate"><span class="pre">HomieWhere.when()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">enhomie.homie.plugins package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enhomie.homie.plugins.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enhomie-homie-plugins-package">
+<h1>enhomie.homie.plugins package<a class="headerlink" href="#enhomie-homie-plugins-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.homie.plugins.test.html">enhomie.homie.plugins.test package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.plugins.test.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.plugins.test.html#module-enhomie.homie.plugins.test.test_driver">enhomie.homie.plugins.test.test_driver module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.plugins.test.html#enhomie.homie.plugins.test.test_driver.test_HomieDriver_cover"><code class="docutils literal notranslate"><span class="pre">test_HomieDriver_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.plugins.test.html#module-enhomie.homie.plugins.test.test_occur">enhomie.homie.plugins.test.test_occur module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.plugins.test.html#enhomie.homie.plugins.test.test_occur.test_HomieOccur"><code class="docutils literal notranslate"><span class="pre">test_HomieOccur()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.plugins.test.html#module-enhomie.homie.plugins.test.test_plugin">enhomie.homie.plugins.test.test_plugin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.plugins.test.html#enhomie.homie.plugins.test.test_plugin.test_HomiePlugin_cover"><code class="docutils literal notranslate"><span class="pre">test_HomiePlugin_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.plugins.test.html#module-enhomie.homie.plugins.test.test_where">enhomie.homie.plugins.test.test_where module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.plugins.test.html#enhomie.homie.plugins.test.test_where.test_HomieWhere"><code class="docutils literal notranslate"><span class="pre">test_HomieWhere()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.plugins.test.html#module-enhomie.homie.plugins.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-enhomie.homie.plugins.common">
+<span id="enhomie-homie-plugins-common-module"></span><h2>enhomie.homie.plugins.common module<a class="headerlink" href="#module-enhomie.homie.plugins.common" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+</section>
+<section id="module-enhomie.homie.plugins.driver">
+<span id="enhomie-homie-plugins-driver-module"></span><h2>enhomie.homie.plugins.driver module<a class="headerlink" href="#module-enhomie.homie.plugins.driver" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.driver.HomieDriver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.plugins.driver.</span></span><span class="sig-name descname"><span class="pre">HomieDriver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/plugins/driver.html#HomieDriver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.driver.HomieDriver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plugin</strong> – Plugin class instance for Homie Automate.</p></li>
+<li><p><strong>params</strong> – Parameters used to instantiate the class.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.driver.HomieDriver.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">HomieFamily</span></em><a class="headerlink" href="#enhomie.homie.plugins.driver.HomieDriver.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.driver.HomieDriver.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.plugins.driver.HomieDriver.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.driver.HomieDriver.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/driver.html#HomieDriver.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.driver.HomieDriver.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.driver.HomieDriver.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.driver.HomieDriver.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.driver.HomieDriver.plugin">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plugin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.driver.HomieDriver.plugin" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie instance to which this instance belongs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie instance to which this instance belongs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.driver.HomieDriver.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/driver.html#HomieDriver.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.driver.HomieDriver.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.driver.HomieDriver.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/driver.html#HomieDriver.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.driver.HomieDriver.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.homie.plugins.occur">
+<span id="enhomie-homie-plugins-occur-module"></span><h2>enhomie.homie.plugins.occur module<a class="headerlink" href="#module-enhomie.homie.plugins.occur" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.occur.HomieOccur">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.plugins.occur.</span></span><span class="sig-name descname"><span class="pre">HomieOccur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.plugin.HomiePluginParams" title="enhomie.homie.params.plugin.HomiePluginParams"><span class="pre">HomiePluginParams</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/plugins/occur.html#HomieOccur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.occur.HomieOccur" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomiePlugin</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.occur.HomieOccur.get_drivers">
+<span class="sig-name descname"><span class="pre">get_drivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><span class="pre">HomieDriver</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/occur.html#HomieOccur.get_drivers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.occur.HomieOccur.get_drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie class definition for its instantiation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie class definition for its instantiation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.occur.HomieOccur.kind">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'occur'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.plugins.occur.HomieOccur.kind" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.occur.HomieOccur.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.occur.HomieOccurParams" title="enhomie.homie.params.occur.HomieOccurParams"><span class="pre">HomieOccurParams</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.occur.HomieOccur.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.occur.HomieOccur.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/occur.html#HomieOccur.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.occur.HomieOccur.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.occur.HomieOccur.when">
+<span class="sig-name descname"><span class="pre">when</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/occur.html#HomieOccur.when"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.occur.HomieOccur.when" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Somewhat similar to same method within HomieWhere.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.homie.plugins.plugin">
+<span id="enhomie-homie-plugins-plugin-module"></span><h2>enhomie.homie.plugins.plugin module<a class="headerlink" href="#module-enhomie.homie.plugins.plugin" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.plugin.HomiePlugin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.plugins.plugin.</span></span><span class="sig-name descname"><span class="pre">HomiePlugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.plugin.HomiePluginParams" title="enhomie.homie.params.plugin.HomiePluginParams"><span class="pre">HomiePluginParams</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/plugins/plugin.html#HomiePlugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.plugin.HomiePlugin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>params</strong> – Parameters used to instantiate the class.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.plugin.HomiePlugin.drivers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">drivers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><span class="pre">HomieDriver</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.plugins.plugin.HomiePlugin.drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.plugin.HomiePlugin.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">HomieFamily</span></em><a class="headerlink" href="#enhomie.homie.plugins.plugin.HomiePlugin.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.plugin.HomiePlugin.get_drivers">
+<span class="sig-name descname"><span class="pre">get_drivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><span class="pre">HomieDriver</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/plugin.html#HomiePlugin.get_drivers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.plugin.HomiePlugin.get_drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie class definition for its instantiation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie class definition for its instantiation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.plugin.HomiePlugin.homie">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">homie</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.plugin.HomiePlugin.homie" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie instance to which this instance belongs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie instance to which this instance belongs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.plugin.HomiePlugin.kind">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">HomiePluginKinds</span></em><a class="headerlink" href="#enhomie.homie.plugins.plugin.HomiePlugin.kind" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.plugin.HomiePlugin.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.plugin.HomiePluginParams" title="enhomie.homie.params.plugin.HomiePluginParams"><span class="pre">HomiePluginParams</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.plugin.HomiePlugin.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.plugin.HomiePlugin.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/plugin.html#HomiePlugin.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.plugin.HomiePlugin.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.homie.plugins.where">
+<span id="enhomie-homie-plugins-where-module"></span><h2>enhomie.homie.plugins.where module<a class="headerlink" href="#module-enhomie.homie.plugins.where" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.where.HomieWhere">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.plugins.where.</span></span><span class="sig-name descname"><span class="pre">HomieWhere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.plugin.HomiePluginParams" title="enhomie.homie.params.plugin.HomiePluginParams"><span class="pre">HomiePluginParams</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/plugins/where.html#HomieWhere"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.where.HomieWhere" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomiePlugin</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.where.HomieWhere.get_drivers">
+<span class="sig-name descname"><span class="pre">get_drivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><span class="pre">HomieDriver</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/where.html#HomieWhere.get_drivers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.where.HomieWhere.get_drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie class definition for its instantiation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie class definition for its instantiation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.where.HomieWhere.kind">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'where'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.plugins.where.HomieWhere.kind" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.where.HomieWhere.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.where.HomieWhereParams" title="enhomie.homie.params.where.HomieWhereParams"><span class="pre">HomieWhereParams</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.where.HomieWhere.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.where.HomieWhere.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/where.html#HomieWhere.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.where.HomieWhere.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.where.HomieWhere.when">
+<span class="sig-name descname"><span class="pre">when</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/where.html#HomieWhere.when"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.where.HomieWhere.when" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Somewhat similar to same method within HomieOccur.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.homie.plugins">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-enhomie.homie.plugins" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieDriver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.plugins.</span></span><span class="sig-name descname"><span class="pre">HomieDriver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#enhomie.homie.plugins.HomiePlugin" title="enhomie.homie.plugins.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/plugins/driver.html#HomieDriver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieDriver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plugin</strong> – Plugin class instance for Homie Automate.</p></li>
+<li><p><strong>params</strong> – Parameters used to instantiate the class.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieDriver.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">HomieFamily</span></em><a class="headerlink" href="#enhomie.homie.plugins.HomieDriver.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieDriver.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.plugins.HomieDriver.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieDriver.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/driver.html#HomieDriver.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieDriver.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieDriver.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.HomieDriver.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieDriver.plugin">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plugin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#enhomie.homie.plugins.HomiePlugin" title="enhomie.homie.plugins.HomiePlugin"><span class="pre">HomiePlugin</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.HomieDriver.plugin" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie instance to which this instance belongs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie instance to which this instance belongs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieDriver.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/driver.html#HomieDriver.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieDriver.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieDriver.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/driver.html#HomieDriver.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieDriver.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieOccur">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.plugins.</span></span><span class="sig-name descname"><span class="pre">HomieOccur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.plugin.HomiePluginParams" title="enhomie.homie.params.plugin.HomiePluginParams"><span class="pre">HomiePluginParams</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/plugins/occur.html#HomieOccur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieOccur" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomiePlugin</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieOccur.get_drivers">
+<span class="sig-name descname"><span class="pre">get_drivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver" title="enhomie.homie.plugins.HomieDriver"><span class="pre">HomieDriver</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/occur.html#HomieOccur.get_drivers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieOccur.get_drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie class definition for its instantiation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie class definition for its instantiation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieOccur.kind">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'occur'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.plugins.HomieOccur.kind" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieOccur.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.occur.HomieOccurParams" title="enhomie.homie.params.occur.HomieOccurParams"><span class="pre">HomieOccurParams</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.HomieOccur.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieOccur.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/occur.html#HomieOccur.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieOccur.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieOccur.when">
+<span class="sig-name descname"><span class="pre">when</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/occur.html#HomieOccur.when"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieOccur.when" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Somewhat similar to same method within HomieWhere.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomiePlugin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.plugins.</span></span><span class="sig-name descname"><span class="pre">HomiePlugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.plugin.HomiePluginParams" title="enhomie.homie.params.plugin.HomiePluginParams"><span class="pre">HomiePluginParams</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/plugins/plugin.html#HomiePlugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomiePlugin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>params</strong> – Parameters used to instantiate the class.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomiePlugin.drivers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">drivers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver" title="enhomie.homie.plugins.HomieDriver"><span class="pre">HomieDriver</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.plugins.HomiePlugin.drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomiePlugin.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">HomieFamily</span></em><a class="headerlink" href="#enhomie.homie.plugins.HomiePlugin.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomiePlugin.get_drivers">
+<span class="sig-name descname"><span class="pre">get_drivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver" title="enhomie.homie.plugins.HomieDriver"><span class="pre">HomieDriver</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/plugin.html#HomiePlugin.get_drivers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomiePlugin.get_drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie class definition for its instantiation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie class definition for its instantiation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomiePlugin.homie">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">homie</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.HomiePlugin.homie" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie instance to which this instance belongs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie instance to which this instance belongs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomiePlugin.kind">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">HomiePluginKinds</span></em><a class="headerlink" href="#enhomie.homie.plugins.HomiePlugin.kind" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomiePlugin.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.plugin.HomiePluginParams" title="enhomie.homie.params.plugin.HomiePluginParams"><span class="pre">HomiePluginParams</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.HomiePlugin.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomiePlugin.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/plugin.html#HomiePlugin.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomiePlugin.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieWhere">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.plugins.</span></span><span class="sig-name descname"><span class="pre">HomieWhere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.plugin.HomiePluginParams" title="enhomie.homie.params.plugin.HomiePluginParams"><span class="pre">HomiePluginParams</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/plugins/where.html#HomieWhere"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieWhere" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomiePlugin</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieWhere.get_drivers">
+<span class="sig-name descname"><span class="pre">get_drivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.plugins.HomieDriver" title="enhomie.homie.plugins.HomieDriver"><span class="pre">HomieDriver</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/where.html#HomieWhere.get_drivers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieWhere.get_drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie class definition for its instantiation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie class definition for its instantiation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieWhere.kind">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'where'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.plugins.HomieWhere.kind" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieWhere.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.where.HomieWhereParams" title="enhomie.homie.params.where.HomieWhereParams"><span class="pre">HomieWhereParams</span></a></em><a class="headerlink" href="#enhomie.homie.plugins.HomieWhere.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieWhere.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/where.html#HomieWhere.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieWhere.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.plugins.HomieWhere.when">
+<span class="sig-name descname"><span class="pre">when</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/plugins/where.html#HomieWhere.when"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.plugins.HomieWhere.when" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Somewhat similar to same method within HomieOccur.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

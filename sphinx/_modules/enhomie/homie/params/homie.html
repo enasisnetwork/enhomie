@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.homie.params.homie &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">enhomie.homie.params.homie</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for enhomie.homie.params.homie</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
+
+<span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
+<span class="sd">is permitted, for more information consult the project license file.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Annotated</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">encommon.config</span> <span class="kn">import</span> <span class="n">Params</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">Field</span>
+
+<span class="kn">from</span> <span class="nn">.aspire</span> <span class="kn">import</span> <span class="n">HomieAspireParams</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">HomieParamsModel</span>
+<span class="kn">from</span> <span class="nn">.desire</span> <span class="kn">import</span> <span class="n">HomieDesireParams</span>
+<span class="kn">from</span> <span class="nn">.device</span> <span class="kn">import</span> <span class="n">HomieDeviceParams</span>
+<span class="kn">from</span> <span class="nn">.group</span> <span class="kn">import</span> <span class="n">HomieGroupParams</span>
+<span class="kn">from</span> <span class="nn">.origin</span> <span class="kn">import</span> <span class="n">HomieOriginParams</span>
+<span class="kn">from</span> <span class="nn">.scene</span> <span class="kn">import</span> <span class="n">HomieSceneParams</span>
+<span class="kn">from</span> <span class="nn">.service</span> <span class="kn">import</span> <span class="n">HomieServiceParams</span>
+
+
+
+<div class="viewcode-block" id="HomiePrinterParams">
+<a class="viewcode-back" href="../../../../enhomie.homie.params.html#enhomie.homie.params.homie.HomiePrinterParams">[docs]</a>
+<span class="k">class</span> <span class="nc">HomiePrinterParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Process and validate the Homie configuration parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">action</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the actions to console&#39;</span><span class="p">)]</span>
+
+    <span class="n">update</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the updates to console&#39;</span><span class="p">)]</span>
+
+    <span class="n">stream</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the streams to console&#39;</span><span class="p">)]</span>
+
+    <span class="n">desire</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the aspires to console&#39;</span><span class="p">)]</span>
+
+    <span class="n">aspire</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the aspires to console&#39;</span><span class="p">)]</span></div>
+
+
+
+
+<div class="viewcode-block" id="HomieParams">
+<a class="viewcode-back" href="../../../../index.html#enhomie.homie.params.homie.HomieParams">[docs]</a>
+<span class="k">class</span> <span class="nc">HomieParams</span><span class="p">(</span><span class="n">Params</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Process and validate the core configuration parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">database</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="s1">&#39;sqlite:///:memory:&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Database connection string&#39;</span><span class="p">,</span>
+              <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+    <span class="n">dryrun</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Determine if changes applied&#39;</span><span class="p">)]</span>
+
+    <span class="n">potent</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Ignore idempotency in change&#39;</span><span class="p">)]</span>
+
+    <span class="n">printer</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">HomiePrinterParams</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">HomiePrinterParams</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the stream to console&#39;</span><span class="p">)]</span>
+
+    <span class="n">service</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">HomieServiceParams</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">HomieServiceParams</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie Service&#39;</span><span class="p">)]</span>
+
+    <span class="n">origins</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieOriginParams</span><span class="p">]],</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie origins&#39;</span><span class="p">,</span>
+              <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+    <span class="n">devices</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieDeviceParams</span><span class="p">]],</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie devices&#39;</span><span class="p">,</span>
+              <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+    <span class="n">groups</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieGroupParams</span><span class="p">]],</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie groups&#39;</span><span class="p">,</span>
+              <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+    <span class="n">scenes</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieSceneParams</span><span class="p">]],</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie scenes&#39;</span><span class="p">,</span>
+              <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+    <span class="n">desires</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieDesireParams</span><span class="p">]],</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie desires&#39;</span><span class="p">,</span>
+              <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+    <span class="n">aspires</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieAspireParams</span><span class="p">]],</span>
+        <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie aspires&#39;</span><span class="p">,</span>
+              <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="c1"># NOCVR</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">/</span><span class="p">,</span>
+        <span class="n">_parse</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize instance for class using provided parameters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+
+        <span class="k">if</span> <span class="n">_parse</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">parsable</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s1">&#39;origins&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;devices&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;groups&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;scenes&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;desires&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;aspires&#39;</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">parsable</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+                    <span class="k">continue</span>
+
+                <span class="n">values</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                    <span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+                    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;_parse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_parse</span>
+
+
+            <span class="n">parsable</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s1">&#39;database&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;dryrun&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;potent&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;printer&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;service&#39;</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">parsable</span><span class="p">:</span>
+
+                <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="n">value</span> <span class="o">=</span> <span class="n">_parse</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+                <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

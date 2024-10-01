@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.ubiquiti package &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">enhomie.ubiquiti package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-enhomie.ubiquiti.device">enhomie.ubiquiti.device module</a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.device.UbiqDevice"><code class="docutils literal notranslate"><span class="pre">UbiqDevice</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.device.UbiqDevice.family"><code class="docutils literal notranslate"><span class="pre">UbiqDevice.family</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.ubiquiti.helpers">enhomie.ubiquiti.helpers module</a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.helpers.merge_fetch"><code class="docutils literal notranslate"><span class="pre">merge_fetch()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.helpers.merge_find"><code class="docutils literal notranslate"><span class="pre">merge_find()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.ubiquiti.models">enhomie.ubiquiti.models module</a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.models.UbiqDriverModels"><code class="docutils literal notranslate"><span class="pre">UbiqDriverModels</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.models.UbiqDriverModels.client"><code class="docutils literal notranslate"><span class="pre">UbiqDriverModels.client()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.models.UbiqModels"><code class="docutils literal notranslate"><span class="pre">UbiqModels</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.models.UbiqModels.drivers"><code class="docutils literal notranslate"><span class="pre">UbiqModels.drivers()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.models.UbiqModels.origin"><code class="docutils literal notranslate"><span class="pre">UbiqModels.origin()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.models.UbiqModels.update"><code class="docutils literal notranslate"><span class="pre">UbiqModels.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.ubiquiti.origin">enhomie.ubiquiti.origin module</a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.origin.UbiqOrigin"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.origin.UbiqOrigin.family"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.origin.UbiqOrigin.fetch"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.fetch</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.origin.UbiqOrigin.get_update"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.get_update()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.origin.UbiqOrigin.merge"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.merge</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.origin.UbiqOrigin.refresh"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.refresh()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.origin.UbiqOrigin.router"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.router</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.origin.UbiqOrigin.set_update"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.set_update()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.origin.UbiqOrigin.source"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.source()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.ubiquiti.update">enhomie.ubiquiti.update module</a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.update.UbiqUpdate"><code class="docutils literal notranslate"><span class="pre">UbiqUpdate</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.update.UbiqUpdateItem"><code class="docutils literal notranslate"><span class="pre">UbiqUpdateItem</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.update.UbiqUpdateItem.fetch"><code class="docutils literal notranslate"><span class="pre">UbiqUpdateItem.fetch</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.ubiquiti">Module contents</a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.DriverUbiqClient"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.DriverUbiqClient.family"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.DriverUbiqClient.kinds"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.DriverUbiqClient.params"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.DriverUbiqClient.validate"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.DriverUbiqClient.where"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.where()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqDevice"><code class="docutils literal notranslate"><span class="pre">UbiqDevice</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqDevice.family"><code class="docutils literal notranslate"><span class="pre">UbiqDevice.family</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqModels"><code class="docutils literal notranslate"><span class="pre">UbiqModels</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqModels.drivers"><code class="docutils literal notranslate"><span class="pre">UbiqModels.drivers()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqModels.origin"><code class="docutils literal notranslate"><span class="pre">UbiqModels.origin()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqModels.update"><code class="docutils literal notranslate"><span class="pre">UbiqModels.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqOrigin"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqOrigin.family"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqOrigin.fetch"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.fetch</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqOrigin.get_update"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.get_update()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqOrigin.merge"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.merge</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqOrigin.refresh"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.refresh()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqOrigin.router"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.router</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqOrigin.set_update"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.set_update()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqOrigin.source"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.source()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.UbiqUpdate"><code class="docutils literal notranslate"><span class="pre">UbiqUpdate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">enhomie.ubiquiti package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enhomie.ubiquiti.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enhomie-ubiquiti-package">
+<h1>enhomie.ubiquiti package<a class="headerlink" href="#enhomie-ubiquiti-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.ubiquiti.params.html">enhomie.ubiquiti.params package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.params.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.params.plugins.html">enhomie.ubiquiti.params.plugins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.plugins.html#module-enhomie.ubiquiti.params.plugins.client">enhomie.ubiquiti.params.plugins.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.plugins.html#module-enhomie.ubiquiti.params.plugins">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.params.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.params.html#module-enhomie.ubiquiti.params.origin">enhomie.ubiquiti.params.origin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.origin.UbiqOriginParams"><code class="docutils literal notranslate"><span class="pre">UbiqOriginParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.origin.UbiqOriginParams.router"><code class="docutils literal notranslate"><span class="pre">UbiqOriginParams.router</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.params.html#module-enhomie.ubiquiti.params">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.DriverUbiqClientParams"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClientParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.DriverUbiqClientParams.clients"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClientParams.clients</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.DriverUbiqClientParams.since"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClientParams.since</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.UbiqOriginParams"><code class="docutils literal notranslate"><span class="pre">UbiqOriginParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.UbiqOriginParams.router"><code class="docutils literal notranslate"><span class="pre">UbiqOriginParams.router</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.ubiquiti.plugins.html">enhomie.ubiquiti.plugins package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html">enhomie.ubiquiti.plugins.test package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#module-enhomie.ubiquiti.plugins.test.test_client">enhomie.ubiquiti.plugins.test.test_client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#module-enhomie.ubiquiti.plugins.test.test_helpers">enhomie.ubiquiti.plugins.test.test_helpers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#module-enhomie.ubiquiti.plugins.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#module-enhomie.ubiquiti.plugins.client">enhomie.ubiquiti.plugins.client module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.client.DriverUbiqClient"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.client.DriverUbiqClient.family"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.client.DriverUbiqClient.kinds"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.client.DriverUbiqClient.params"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.client.DriverUbiqClient.validate"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.validate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.client.DriverUbiqClient.where"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#module-enhomie.ubiquiti.plugins.helpers">enhomie.ubiquiti.plugins.helpers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.helpers.ubiq_latest"><code class="docutils literal notranslate"><span class="pre">ubiq_latest()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#module-enhomie.ubiquiti.plugins">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.DriverUbiqClient"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.DriverUbiqClient.family"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.DriverUbiqClient.kinds"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.DriverUbiqClient.params"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.DriverUbiqClient.validate"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.validate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.DriverUbiqClient.where"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.ubiquiti.test.html">enhomie.ubiquiti.test package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.test.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_device">enhomie.ubiquiti.test.test_device module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.test.html#enhomie.ubiquiti.test.test_device.test_UbiqDevice"><code class="docutils literal notranslate"><span class="pre">test_UbiqDevice()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_models">enhomie.ubiquiti.test.test_models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.test.html#enhomie.ubiquiti.test.test_models.test_UbiqModels_cover"><code class="docutils literal notranslate"><span class="pre">test_UbiqModels_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_origin">enhomie.ubiquiti.test.test_origin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.test.html#enhomie.ubiquiti.test.test_origin.test_UbiqOrigin"><code class="docutils literal notranslate"><span class="pre">test_UbiqOrigin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.test.html#enhomie.ubiquiti.test.test_origin.test_UbiqOrigin_source"><code class="docutils literal notranslate"><span class="pre">test_UbiqOrigin_source()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.test.html#enhomie.ubiquiti.test.test_origin.test_UbiqOrigin_update"><code class="docutils literal notranslate"><span class="pre">test_UbiqOrigin_update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_update">enhomie.ubiquiti.test.test_update module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.test.html#enhomie.ubiquiti.test.test_update.test_UbiqUpdateItem"><code class="docutils literal notranslate"><span class="pre">test_UbiqUpdateItem()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.test.html#enhomie.ubiquiti.test.mock_ubiq"><code class="docutils literal notranslate"><span class="pre">mock_ubiq()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-enhomie.ubiquiti.device">
+<span id="enhomie-ubiquiti-device-module"></span><h2>enhomie.ubiquiti.device module<a class="headerlink" href="#module-enhomie.ubiquiti.device" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.device.UbiqDevice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.device.</span></span><span class="sig-name descname"><span class="pre">UbiqDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.child.HomieChildParams" title="enhomie.homie.params.child.HomieChildParams"><span class="pre">HomieChildParams</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/ubiquiti/device.html#UbiqDevice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.device.UbiqDevice" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.device.HomieDevice" title="enhomie.homie.childs.device.HomieDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDevice</span></code></a></p>
+<p>Contain the relevant attributes from the related source.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.device.UbiqDevice.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ubiquiti'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.device.UbiqDevice.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.ubiquiti.helpers">
+<span id="enhomie-ubiquiti-helpers-module"></span><h2>enhomie.ubiquiti.helpers module<a class="headerlink" href="#module-enhomie.ubiquiti.helpers" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.helpers.merge_fetch">
+<span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.helpers.</span></span><span class="sig-name descname"><span class="pre">merge_fetch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fetch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/helpers.html#merge_fetch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.helpers.merge_fetch" title="Link to this definition"></a></dt>
+<dd><p>Return the content related to the item in parent system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fetch</strong> – Dictionary from the origin to be updated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Content related to the item in parent system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.helpers.merge_find">
+<span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.helpers.</span></span><span class="sig-name descname"><span class="pre">merge_find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">merge</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HomieKinds</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/helpers.html#merge_find"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.helpers.merge_find" title="Link to this definition"></a></dt>
+<dd><p>Return the content related to the item in parent system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>merge</strong> – Dictionary from the origin to be updated.</p></li>
+<li><p><strong>kind</strong> – Which kind of Homie object will be located.</p></li>
+<li><p><strong>unique</strong> – Unique identifier within parents system.</p></li>
+<li><p><strong>label</strong> – Friendly name or label within the parent.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Content related to the item in parent system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-enhomie.ubiquiti.models">
+<span id="enhomie-ubiquiti-models-module"></span><h2>enhomie.ubiquiti.models module<a class="headerlink" href="#module-enhomie.ubiquiti.models" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.models.UbiqDriverModels">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.models.</span></span><span class="sig-name descname"><span class="pre">UbiqDriverModels</span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/models.html#UbiqDriverModels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.models.UbiqDriverModels" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Return the class object that was imported within method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.models.UbiqDriverModels.client">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.DriverUbiqClientParams" title="enhomie.ubiquiti.params.DriverUbiqClientParams"><span class="pre">DriverUbiqClientParams</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/models.html#UbiqDriverModels.client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.models.UbiqDriverModels.client" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.models.UbiqModels">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.models.</span></span><span class="sig-name descname"><span class="pre">UbiqModels</span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/models.html#UbiqModels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.models.UbiqModels" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Return the class object that was imported within method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.models.UbiqModels.drivers">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">drivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.ubiquiti.models.UbiqDriverModels" title="enhomie.ubiquiti.models.UbiqDriverModels"><span class="pre">UbiqDriverModels</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/models.html#UbiqModels.drivers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.models.UbiqModels.drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.models.UbiqModels.origin">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">origin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.origin.UbiqOriginParams" title="enhomie.ubiquiti.params.origin.UbiqOriginParams"><span class="pre">UbiqOriginParams</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/models.html#UbiqModels.origin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.models.UbiqModels.origin" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.models.UbiqModels.update">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.ubiquiti.update.UbiqUpdateItem" title="enhomie.ubiquiti.update.UbiqUpdateItem"><span class="pre">UbiqUpdateItem</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/models.html#UbiqModels.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.models.UbiqModels.update" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.ubiquiti.origin">
+<span id="enhomie-ubiquiti-origin-module"></span><h2>enhomie.ubiquiti.origin module<a class="headerlink" href="#module-enhomie.ubiquiti.origin" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.origin.UbiqOrigin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.origin.</span></span><span class="sig-name descname"><span class="pre">UbiqOrigin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/ubiquiti/origin.html#UbiqOrigin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.origin.UbiqOrigin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieOrigin</span></code></a></p>
+<p>Contain the relevant attributes from the related source.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.origin.UbiqOrigin.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ubiquiti'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.origin.UbiqOrigin.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.origin.UbiqOrigin.fetch">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fetch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><a class="headerlink" href="#enhomie.ubiquiti.origin.UbiqOrigin.fetch" title="Link to this definition"></a></dt>
+<dd><p>Return the content related to the item in parent system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Content related to the item in parent system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.origin.UbiqOrigin.get_update">
+<span class="sig-name descname"><span class="pre">get_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdateItem" title="enhomie.homie.threads.update.HomieUpdateItem"><span class="pre">HomieUpdateItem</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/origin.html#UbiqOrigin.get_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.origin.UbiqOrigin.get_update" title="Link to this definition"></a></dt>
+<dd><p>Return the new item containing information for operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>New item containing information for operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.origin.UbiqOrigin.merge">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">merge</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><a class="headerlink" href="#enhomie.ubiquiti.origin.UbiqOrigin.merge" title="Link to this definition"></a></dt>
+<dd><p>Return the content related to the item in parent system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Content related to the item in parent system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.origin.UbiqOrigin.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/origin.html#UbiqOrigin.refresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.origin.UbiqOrigin.refresh" title="Link to this definition"></a></dt>
+<dd><p>Refresh the cached information for the remote upstream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timeout</strong> – Timeout waiting for the server response.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the success of the refresh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.origin.UbiqOrigin.router">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">router</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://enconnect.readthedocs.io/en/latest/enconnect.ubiquiti.html#enconnect.ubiquiti.router.Router" title="(in enconnect v0.16.3)"><span class="pre">Router</span></a></em><a class="headerlink" href="#enhomie.ubiquiti.origin.UbiqOrigin.router" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.origin.UbiqOrigin.set_update">
+<span class="sig-name descname"><span class="pre">set_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HomieUpdateBase</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/origin.html#UbiqOrigin.set_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.origin.UbiqOrigin.set_update" title="Link to this definition"></a></dt>
+<dd><p>Replace or update internal configuration with provided.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>uitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating whether or not was changed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.origin.UbiqOrigin.source">
+<span class="sig-name descname"><span class="pre">source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HomieKinds</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HomieActionNode</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/origin.html#UbiqOrigin.source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.origin.UbiqOrigin.source" title="Link to this definition"></a></dt>
+<dd><p>Return the content related to the item in parent system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is redundant with other origin classes.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kind</strong> – Which kind of Homie object will be located.</p></li>
+<li><p><strong>unique</strong> – Unique identifier within parents system.</p></li>
+<li><p><strong>label</strong> – Friendly name or label within the parent.</p></li>
+<li><p><strong>relate</strong> – Child class instance for Homie Automate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Content related to the item in parent system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.ubiquiti.update">
+<span id="enhomie-ubiquiti-update-module"></span><h2>enhomie.ubiquiti.update module<a class="headerlink" href="#module-enhomie.ubiquiti.update" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.update.UbiqUpdate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.update.</span></span><span class="sig-name descname"><span class="pre">UbiqUpdate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/ubiquiti/update.html#UbiqUpdate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.update.UbiqUpdate" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdate" title="enhomie.homie.threads.update.HomieUpdate"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieUpdate</span></code></a></p>
+<p>Common methods and routines for Homie Automate threads.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.update.UbiqUpdateItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.update.</span></span><span class="sig-name descname"><span class="pre">UbiqUpdateItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fetch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/ubiquiti/update.html#UbiqUpdateItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.update.UbiqUpdateItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdateItem" title="enhomie.homie.threads.update.HomieUpdateItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieUpdateItem</span></code></a></p>
+<p>Contain information for sharing using the Python queue.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.update.UbiqUpdateItem.fetch">
+<span class="sig-name descname"><span class="pre">fetch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.update.UbiqUpdateItem.fetch" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.ubiquiti">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-enhomie.ubiquiti" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.DriverUbiqClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.</span></span><span class="sig-name descname"><span class="pre">DriverUbiqClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/ubiquiti/plugins/client.html#DriverUbiqClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.DriverUbiqClient" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.DriverUbiqClient.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ubiquiti'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.DriverUbiqClient.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.DriverUbiqClient.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.DriverUbiqClient.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.DriverUbiqClient.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.DriverUbiqClientParams" title="enhomie.ubiquiti.params.DriverUbiqClientParams"><span class="pre">DriverUbiqClientParams</span></a></em><a class="headerlink" href="#enhomie.ubiquiti.DriverUbiqClient.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.DriverUbiqClient.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/plugins/client.html#DriverUbiqClient.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.DriverUbiqClient.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.DriverUbiqClient.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/plugins/client.html#DriverUbiqClient.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.DriverUbiqClient.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqDevice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.</span></span><span class="sig-name descname"><span class="pre">UbiqDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.child.HomieChildParams" title="enhomie.homie.params.child.HomieChildParams"><span class="pre">HomieChildParams</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/ubiquiti/device.html#UbiqDevice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqDevice" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.device.HomieDevice" title="enhomie.homie.childs.device.HomieDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDevice</span></code></a></p>
+<p>Contain the relevant attributes from the related source.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqDevice.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ubiquiti'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.UbiqDevice.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqModels">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.</span></span><span class="sig-name descname"><span class="pre">UbiqModels</span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/models.html#UbiqModels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqModels" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Return the class object that was imported within method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqModels.drivers">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">drivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.ubiquiti.models.UbiqDriverModels" title="enhomie.ubiquiti.models.UbiqDriverModels"><span class="pre">UbiqDriverModels</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/models.html#UbiqModels.drivers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqModels.drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqModels.origin">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">origin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.origin.UbiqOriginParams" title="enhomie.ubiquiti.params.origin.UbiqOriginParams"><span class="pre">UbiqOriginParams</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/models.html#UbiqModels.origin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqModels.origin" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqModels.update">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.ubiquiti.update.UbiqUpdateItem" title="enhomie.ubiquiti.update.UbiqUpdateItem"><span class="pre">UbiqUpdateItem</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/models.html#UbiqModels.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqModels.update" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqOrigin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.</span></span><span class="sig-name descname"><span class="pre">UbiqOrigin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/ubiquiti/origin.html#UbiqOrigin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqOrigin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieOrigin</span></code></a></p>
+<p>Contain the relevant attributes from the related source.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqOrigin.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ubiquiti'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.UbiqOrigin.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqOrigin.fetch">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fetch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><a class="headerlink" href="#enhomie.ubiquiti.UbiqOrigin.fetch" title="Link to this definition"></a></dt>
+<dd><p>Return the content related to the item in parent system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Content related to the item in parent system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqOrigin.get_update">
+<span class="sig-name descname"><span class="pre">get_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdateItem" title="enhomie.homie.threads.update.HomieUpdateItem"><span class="pre">HomieUpdateItem</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/origin.html#UbiqOrigin.get_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqOrigin.get_update" title="Link to this definition"></a></dt>
+<dd><p>Return the new item containing information for operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>New item containing information for operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqOrigin.merge">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">merge</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><a class="headerlink" href="#enhomie.ubiquiti.UbiqOrigin.merge" title="Link to this definition"></a></dt>
+<dd><p>Return the content related to the item in parent system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Content related to the item in parent system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqOrigin.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/origin.html#UbiqOrigin.refresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqOrigin.refresh" title="Link to this definition"></a></dt>
+<dd><p>Refresh the cached information for the remote upstream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timeout</strong> – Timeout waiting for the server response.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the success of the refresh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqOrigin.router">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">router</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://enconnect.readthedocs.io/en/latest/enconnect.ubiquiti.html#enconnect.ubiquiti.router.Router" title="(in enconnect v0.16.3)"><span class="pre">Router</span></a></em><a class="headerlink" href="#enhomie.ubiquiti.UbiqOrigin.router" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqOrigin.set_update">
+<span class="sig-name descname"><span class="pre">set_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HomieUpdateBase</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/origin.html#UbiqOrigin.set_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqOrigin.set_update" title="Link to this definition"></a></dt>
+<dd><p>Replace or update internal configuration with provided.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>uitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating whether or not was changed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqOrigin.source">
+<span class="sig-name descname"><span class="pre">source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HomieKinds</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HomieActionNode</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/origin.html#UbiqOrigin.source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqOrigin.source" title="Link to this definition"></a></dt>
+<dd><p>Return the content related to the item in parent system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is redundant with other origin classes.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kind</strong> – Which kind of Homie object will be located.</p></li>
+<li><p><strong>unique</strong> – Unique identifier within parents system.</p></li>
+<li><p><strong>label</strong> – Friendly name or label within the parent.</p></li>
+<li><p><strong>relate</strong> – Child class instance for Homie Automate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Content related to the item in parent system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.UbiqUpdate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.</span></span><span class="sig-name descname"><span class="pre">UbiqUpdate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/ubiquiti/update.html#UbiqUpdate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.UbiqUpdate" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdate" title="enhomie.homie.threads.update.HomieUpdate"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieUpdate</span></code></a></p>
+<p>Common methods and routines for Homie Automate threads.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

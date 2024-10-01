@@ -1,0 +1,35 @@
+enhomie package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   enhomie.builtins
+   enhomie.execution
+   enhomie.homie
+   enhomie.hubitat
+   enhomie.philips
+   enhomie.ubiquiti
+   enhomie.utils
+
+Submodules
+----------
+
+enhomie.conftest module
+-----------------------
+
+.. automodule:: enhomie.conftest
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.philips.plugins.test package &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">enhomie.philips.plugins.test package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.test.test_button">enhomie.philips.plugins.test.test_button module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_button.test_DriverPhueButton"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueButton()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_button.test_DriverPhueButton_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueButton_cover()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.test.test_change">enhomie.philips.plugins.test.test_change module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_change.test_DriverPhueChange"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueChange()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_change.test_DriverPhueChange_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueChange_cover()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.test.test_contact">enhomie.philips.plugins.test.test_contact module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_contact.test_DriverPhueContact"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueContact()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_contact.test_DriverPhueContact_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueContact_cover()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.test.test_helpers">enhomie.philips.plugins.test.test_helpers module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_helpers.test_phue_changed"><code class="docutils literal notranslate"><span class="pre">test_phue_changed()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_helpers.test_phue_sensors"><code class="docutils literal notranslate"><span class="pre">test_phue_sensors()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.test.test_motion">enhomie.philips.plugins.test.test_motion module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_motion.test_DriverPhueMotion"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueMotion()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_motion.test_DriverPhueMotion_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueMotion_cover()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.test.test_scene">enhomie.philips.plugins.test.test_scene module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_scene.test_DriverPhueScene"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueScene()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.test.test_scene.test_DriverPhueScene_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueScene_cover()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">enhomie.philips.plugins.test package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enhomie.philips.plugins.test.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enhomie-philips-plugins-test-package">
+<h1>enhomie.philips.plugins.test package<a class="headerlink" href="#enhomie-philips-plugins-test-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-enhomie.philips.plugins.test.test_button">
+<span id="enhomie-philips-plugins-test-test-button-module"></span><h2>enhomie.philips.plugins.test.test_button module<a class="headerlink" href="#module-enhomie.philips.plugins.test.test_button" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_button.test_DriverPhueButton">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_button.</span></span><span class="sig-name descname"><span class="pre">test_DriverPhueButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_button.html#test_DriverPhueButton"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_button.test_DriverPhueButton" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>replaces</strong> – Mapping of what to replace in samples.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_button.test_DriverPhueButton_cover">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_button.</span></span><span class="sig-name descname"><span class="pre">test_DriverPhueButton_cover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmp_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><span class="pre">Path</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">respx_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MockRouter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_button.html#test_DriverPhueButton_cover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_button.test_DriverPhueButton_cover" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tmp_path</strong> – pytest object for temporal filesystem.</p></li>
+<li><p><strong>respx_mock</strong> – Object for mocking request operation.</p></li>
+<li><p><strong>replaces</strong> – Mapping of what to replace in samples.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.test.test_change">
+<span id="enhomie-philips-plugins-test-test-change-module"></span><h2>enhomie.philips.plugins.test.test_change module<a class="headerlink" href="#module-enhomie.philips.plugins.test.test_change" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_change.test_DriverPhueChange">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_change.</span></span><span class="sig-name descname"><span class="pre">test_DriverPhueChange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestTimes" title="enhomie.utils.tests.TestTimes"><span class="pre">TestTimes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_change.html#test_DriverPhueChange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_change.test_DriverPhueChange" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+<li><p><strong>times</strong> – Times that are used with tests in project.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_change.test_DriverPhueChange_cover">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_change.</span></span><span class="sig-name descname"><span class="pre">test_DriverPhueChange_cover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmp_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><span class="pre">Path</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">respx_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MockRouter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestTimes" title="enhomie.utils.tests.TestTimes"><span class="pre">TestTimes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_change.html#test_DriverPhueChange_cover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_change.test_DriverPhueChange_cover" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tmp_path</strong> – pytest object for temporal filesystem.</p></li>
+<li><p><strong>respx_mock</strong> – Object for mocking request operation.</p></li>
+<li><p><strong>times</strong> – Times that are used with tests in project.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.test.test_contact">
+<span id="enhomie-philips-plugins-test-test-contact-module"></span><h2>enhomie.philips.plugins.test.test_contact module<a class="headerlink" href="#module-enhomie.philips.plugins.test.test_contact" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_contact.test_DriverPhueContact">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_contact.</span></span><span class="sig-name descname"><span class="pre">test_DriverPhueContact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_contact.html#test_DriverPhueContact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_contact.test_DriverPhueContact" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>replaces</strong> – Mapping of what to replace in samples.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_contact.test_DriverPhueContact_cover">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_contact.</span></span><span class="sig-name descname"><span class="pre">test_DriverPhueContact_cover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmp_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><span class="pre">Path</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">respx_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MockRouter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_contact.html#test_DriverPhueContact_cover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_contact.test_DriverPhueContact_cover" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tmp_path</strong> – pytest object for temporal filesystem.</p></li>
+<li><p><strong>respx_mock</strong> – Object for mocking request operation.</p></li>
+<li><p><strong>replaces</strong> – Mapping of what to replace in samples.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.test.test_helpers">
+<span id="enhomie-philips-plugins-test-test-helpers-module"></span><h2>enhomie.philips.plugins.test.test_helpers module<a class="headerlink" href="#module-enhomie.philips.plugins.test.test_helpers" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_helpers.test_phue_changed">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_helpers.</span></span><span class="sig-name descname"><span class="pre">test_phue_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_helpers.html#test_phue_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_helpers.test_phue_changed" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_helpers.test_phue_sensors">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_helpers.</span></span><span class="sig-name descname"><span class="pre">test_phue_sensors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_helpers.html#test_phue_sensors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_helpers.test_phue_sensors" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.test.test_motion">
+<span id="enhomie-philips-plugins-test-test-motion-module"></span><h2>enhomie.philips.plugins.test.test_motion module<a class="headerlink" href="#module-enhomie.philips.plugins.test.test_motion" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_motion.test_DriverPhueMotion">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_motion.</span></span><span class="sig-name descname"><span class="pre">test_DriverPhueMotion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_motion.html#test_DriverPhueMotion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_motion.test_DriverPhueMotion" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>replaces</strong> – Mapping of what to replace in samples.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_motion.test_DriverPhueMotion_cover">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_motion.</span></span><span class="sig-name descname"><span class="pre">test_DriverPhueMotion_cover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmp_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><span class="pre">Path</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">respx_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MockRouter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_motion.html#test_DriverPhueMotion_cover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_motion.test_DriverPhueMotion_cover" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tmp_path</strong> – pytest object for temporal filesystem.</p></li>
+<li><p><strong>respx_mock</strong> – Object for mocking request operation.</p></li>
+<li><p><strong>replaces</strong> – Mapping of what to replace in samples.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.test.test_scene">
+<span id="enhomie-philips-plugins-test-test-scene-module"></span><h2>enhomie.philips.plugins.test.test_scene module<a class="headerlink" href="#module-enhomie.philips.plugins.test.test_scene" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_scene.test_DriverPhueScene">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_scene.</span></span><span class="sig-name descname"><span class="pre">test_DriverPhueScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_scene.html#test_DriverPhueScene"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_scene.test_DriverPhueScene" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>replaces</strong> – Mapping of what to replace in samples.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.test.test_scene.test_DriverPhueScene_cover">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.test.test_scene.</span></span><span class="sig-name descname"><span class="pre">test_DriverPhueScene_cover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmp_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><span class="pre">Path</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">respx_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MockRouter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/test/test_scene.html#test_DriverPhueScene_cover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.test.test_scene.test_DriverPhueScene_cover" title="Link to this definition"></a></dt>
+<dd><p>Perform various tests associated with relevant routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tmp_path</strong> – pytest object for temporal filesystem.</p></li>
+<li><p><strong>respx_mock</strong> – Object for mocking request operation.</p></li>
+<li><p><strong>replaces</strong> – Mapping of what to replace in samples.</p></li>
+<li><p><strong>bodies</strong> – Locations and groups for use in testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.test">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-enhomie.philips.plugins.test" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

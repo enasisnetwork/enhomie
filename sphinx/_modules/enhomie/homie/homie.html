@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.homie.homie &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">enhomie.homie.homie</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for enhomie.homie.homie</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
+
+<span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
+<span class="sd">is permitted, for more information consult the project license file.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">DictStrAny</span>
+<span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">NCNone</span>
+<span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">clsname</span>
+<span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">sort_dict</span>
+<span class="kn">from</span> <span class="nn">encommon.utils</span> <span class="kn">import</span> <span class="n">array_ansi</span>
+<span class="kn">from</span> <span class="nn">encommon.utils</span> <span class="kn">import</span> <span class="n">print_ansi</span>
+
+<span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="n">HomieAspired</span>
+<span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="n">HomieDesired</span>
+<span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="n">HomieLogger</span>
+<span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="n">HomiePersist</span>
+<span class="kn">from</span> <span class="nn">.childs</span> <span class="kn">import</span> <span class="n">HomieChilds</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">HomieModels</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">HomiePrint</span>
+    <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">HomieState</span>
+    <span class="kn">from</span> <span class="nn">.childs</span> <span class="kn">import</span> <span class="n">HomieDevice</span>
+    <span class="kn">from</span> <span class="nn">.childs</span> <span class="kn">import</span> <span class="n">HomieGroup</span>
+    <span class="kn">from</span> <span class="nn">.childs</span> <span class="kn">import</span> <span class="n">HomieScene</span>
+    <span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="n">HomieConfig</span>
+    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieParams</span>
+    <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="n">HomieActionBase</span>
+    <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="n">HomieActionNode</span>
+
+
+
+<div class="viewcode-block" id="Homie">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.homie.Homie">[docs]</a>
+<span class="k">class</span> <span class="nc">Homie</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interact with supported devices to ensure desired state.</span>
+
+<span class="sd">    :param config: Primary class instance for configuration.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">__config</span><span class="p">:</span> <span class="s1">&#39;HomieConfig&#39;</span>
+
+    <span class="n">__logger</span><span class="p">:</span> <span class="n">HomieLogger</span>
+    <span class="n">__persist</span><span class="p">:</span> <span class="n">HomiePersist</span>
+
+    <span class="n">__childs</span><span class="p">:</span> <span class="n">HomieChilds</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">config</span><span class="p">:</span> <span class="s1">&#39;HomieConfig&#39;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize instance for class using provided parameters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
+            <span class="n">base</span><span class="o">=</span><span class="n">clsname</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span>
+            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;initial&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span> <span class="o">=</span> <span class="n">config</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__logger</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">HomieLogger</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__persist</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">HomiePersist</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__childs</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">HomieChilds</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">childs</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__desired</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">HomieDesired</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__aspired</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">HomieAspired</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+        <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
+            <span class="n">base</span><span class="o">=</span><span class="n">clsname</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span>
+            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;created&#39;</span><span class="p">)</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieConfig&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the Config instance containing the configuration.</span>
+
+<span class="sd">        :returns: Config instance containing the configuration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__config</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">logger</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieLogger</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the value for the attribute from class instance.</span>
+
+<span class="sd">        :returns: Value for the attribute from class instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__logger</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">persist</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomiePersist</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the value for the attribute from class instance.</span>
+
+<span class="sd">        :returns: Value for the attribute from class instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__persist</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">childs</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieChilds</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the value for the attribute from class instance.</span>
+
+<span class="sd">        :returns: Value for the attribute from class instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__childs</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">params</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieParams&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the Pydantic model containing the configuration.</span>
+
+<span class="sd">        :returns: Pydantic model containing the configuration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">params</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dryrun</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the value for the attribute from class instance.</span>
+
+<span class="sd">        :returns: Value for the attribute from class instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">dryrun</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">potent</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the value for the attribute from class instance.</span>
+
+<span class="sd">        :returns: Value for the attribute from class instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">potent</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">desired</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieDesired</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the related actions matching the provided event.</span>
+
+<span class="sd">        :returns: Related actions matching the provided event.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__desired</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">aspired</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieAspired</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the related desired state for the desired groups.</span>
+
+<span class="sd">        :returns: Related desired state for the desired groups.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__aspired</span>
+
+
+<div class="viewcode-block" id="Homie.refresh">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.homie.Homie.refresh">[docs]</a>
+    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Refresh the cached information for the remote upstream.</span>
+
+<span class="sd">        :param timeout: Timeout waiting for the server response.</span>
+<span class="sd">        :returns: Boolean indicating the success of the refresh.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">childs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">childs</span>
+
+        <span class="n">refresh</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="n">origins</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">childs</span><span class="o">.</span><span class="n">origins</span>
+            <span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+
+        <span class="k">for</span> <span class="n">origin</span> <span class="ow">in</span> <span class="n">origins</span><span class="p">:</span>
+
+            <span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">origin</span>
+                <span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">timeout</span><span class="p">))</span>
+
+            <span class="n">refresh</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+
+        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">refresh</span><span class="p">)</span></div>
+
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dumped</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the facts about the attributes from the instance.</span>
+
+<span class="sd">        :returns: Facts about the attributes from the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">params</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">endumped</span><span class="p">)</span>
+
+        <span class="n">childs</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">childs</span><span class="o">.</span><span class="n">dumped</span><span class="p">)</span>
+
+        <span class="n">items</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="k">return</span> <span class="n">params</span>
+
+
+<div class="viewcode-block" id="Homie.printer">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.homie.Homie.printer">[docs]</a>
+    <span class="k">def</span> <span class="nf">printer</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ004</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">source</span><span class="p">:</span> <span class="s1">&#39;HomiePrint&#39;</span><span class="p">,</span>
+        <span class="n">color</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print the contents for the object within Homie instance.</span>
+
+<span class="sd">        :param source: Content which will be shown after header.</span>
+<span class="sd">        :param color: Override the color used for box character.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+        <span class="n">printer</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">printer</span>
+
+        <span class="n">paction</span> <span class="o">=</span> <span class="n">printer</span><span class="o">.</span><span class="n">action</span>
+        <span class="n">pupdate</span> <span class="o">=</span> <span class="n">printer</span><span class="o">.</span><span class="n">update</span>
+        <span class="n">pstream</span> <span class="o">=</span> <span class="n">printer</span><span class="o">.</span><span class="n">stream</span>
+        <span class="n">pdesire</span> <span class="o">=</span> <span class="n">printer</span><span class="o">.</span><span class="n">desire</span>
+        <span class="n">paspire</span> <span class="o">=</span> <span class="n">printer</span><span class="o">.</span><span class="n">aspire</span>
+
+
+        <span class="n">HomieActionItem</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">HomieModels</span>
+            <span class="o">.</span><span class="n">action</span><span class="p">())</span>
+
+        <span class="n">HomieUpdateItem</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">HomieModels</span>
+            <span class="o">.</span><span class="n">update</span><span class="p">())</span>
+
+        <span class="n">HomieStreamItem</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">HomieModels</span>
+            <span class="o">.</span><span class="n">stream</span><span class="p">())</span>
+
+        <span class="n">HomieDesiredItem</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">HomieModels</span>
+            <span class="o">.</span><span class="n">desired</span><span class="p">())</span>
+
+        <span class="n">HomieAspiredItem</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">HomieModels</span>
+            <span class="o">.</span><span class="n">aspired</span><span class="p">())</span>
+
+
+        <span class="n">action</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">source</span><span class="p">,</span> <span class="n">HomieActionItem</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">action</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">paction</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">NCNone</span>
+
+
+        <span class="n">update</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">source</span><span class="p">,</span> <span class="n">HomieUpdateItem</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">update</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pupdate</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">NCNone</span>
+
+
+        <span class="n">stream</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">source</span><span class="p">,</span> <span class="n">HomieStreamItem</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">stream</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pstream</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">NCNone</span>
+
+
+        <span class="n">desired</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">source</span><span class="p">,</span> <span class="n">HomieDesiredItem</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">desired</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">pdesire</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">NCNone</span>
+
+            <span class="n">source</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">source</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+
+            <span class="n">_target</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+            <span class="n">_desire</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;desire&#39;</span><span class="p">]</span>
+            <span class="n">_scene</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">]</span>
+
+            <span class="n">target</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">_target</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">if</span> <span class="n">_target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">desire</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">_desire</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">if</span> <span class="n">_desire</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">scene</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">_scene</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">if</span> <span class="n">_scene</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">source</span> <span class="o">|=</span> <span class="p">{</span>
+                <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
+                <span class="s1">&#39;desire&#39;</span><span class="p">:</span> <span class="n">desire</span><span class="p">,</span>
+                <span class="s1">&#39;scene&#39;</span><span class="p">:</span> <span class="n">scene</span><span class="p">}</span>
+
+
+        <span class="n">aspired</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">source</span><span class="p">,</span> <span class="n">HomieAspiredItem</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">aspired</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">paspire</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">NCNone</span>
+
+            <span class="n">source</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">source</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+
+            <span class="n">_target</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+            <span class="n">_aspire</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;aspire&#39;</span><span class="p">]</span>
+            <span class="n">_scene</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">]</span>
+
+            <span class="n">target</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">_target</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">if</span> <span class="n">_target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">aspire</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">_aspire</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">if</span> <span class="n">_aspire</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">scene</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">_scene</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">if</span> <span class="n">_scene</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">source</span> <span class="o">|=</span> <span class="p">{</span>
+                <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
+                <span class="s1">&#39;aspire&#39;</span><span class="p">:</span> <span class="n">aspire</span><span class="p">,</span>
+                <span class="s1">&#39;scene&#39;</span><span class="p">:</span> <span class="n">scene</span><span class="p">}</span>
+
+
+        <span class="n">line</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;━&#39;</span>
+
+        <span class="n">print_ansi</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&lt;c9</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s1">&gt;┍&#39;</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">line</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">63</span><span class="si">}</span><span class="s1">&lt;c0&gt;&#39;</span><span class="p">)</span>
+
+        <span class="n">dumped</span> <span class="o">=</span> <span class="n">array_ansi</span><span class="p">(</span>
+            <span class="n">source</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span>  <span class="c1"># noqa: T201</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{</span><span class="n">dumped</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">print_ansi</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&lt;c9</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s1">&gt;┕&#39;</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">line</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">63</span><span class="si">}</span><span class="s1">&lt;c0&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Homie.get_actions">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.homie.Homie.get_actions">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_actions</span><span class="p">(</span>  <span class="c1"># noqa: CFQ002</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieState&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieScene&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">change</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieActionBase&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Insert the new item containing information for operation.</span>
+
+<span class="sd">        :param target: Device or group settings will be updated.</span>
+<span class="sd">        :param state: Determine the state related to the target.</span>
+<span class="sd">        :param color: Determine the color related to the target.</span>
+<span class="sd">        :param level: Determine the level related to the target.</span>
+<span class="sd">        :param scene: Determine the scene related to the target.</span>
+<span class="sd">        :param force: Override the default for full idempotency.</span>
+<span class="sd">        :param change: Determine whether the change is executed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">childs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">childs</span>
+        <span class="n">devices</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">devices</span>
+
+        <span class="n">aitems</span><span class="p">:</span> <span class="s1">&#39;HomieActionBase&#39;</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">something</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span>
+            <span class="n">state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">level</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">scene</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">something</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">aitems</span>
+
+
+        <span class="k">def</span> <span class="nf">_add_group</span><span class="p">(</span>
+            <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieGroup&#39;</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">origin</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">origin</span>
+
+            <span class="k">assert</span> <span class="n">origin</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+            <span class="n">aitem</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">origin</span><span class="o">.</span><span class="n">get_action</span><span class="p">(</span>
+                    <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+                    <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+                    <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
+                    <span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">))</span>
+
+            <span class="n">aitems</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="n">aitem</span>
+
+
+        <span class="k">def</span> <span class="nf">_add_devices</span><span class="p">(</span>
+            <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieGroup&#39;</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">params</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">params</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">devices</span>
+
+            <span class="k">assert</span> <span class="n">names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+
+                <span class="n">device</span> <span class="o">=</span> <span class="n">devices</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+                <span class="n">_add_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+
+        <span class="k">def</span> <span class="nf">_add_device</span><span class="p">(</span>
+            <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieDevice&#39;</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">origin</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">origin</span>
+
+            <span class="n">aitem</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">origin</span><span class="o">.</span><span class="n">get_action</span><span class="p">(</span>
+                    <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+                    <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+                    <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
+                    <span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">))</span>
+
+            <span class="n">aitems</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="n">aitem</span>
+
+
+        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span>
+
+            <span class="n">params</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">params</span>
+
+            <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">devices</span><span class="p">:</span>
+                <span class="n">_add_devices</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">origin</span><span class="p">:</span>
+                <span class="n">_add_group</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+
+        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span>
+            <span class="n">_add_device</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+
+        <span class="k">return</span> <span class="n">sort_dict</span><span class="p">(</span><span class="n">aitems</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Homie.set_actions">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.homie.Homie.set_actions">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_actions</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">aitems</span><span class="p">:</span> <span class="s1">&#39;HomieActionBase&#39;</span><span class="p">,</span>
+        <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">change</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Insert the new item containing information for operation.</span>
+
+<span class="sd">        :param aitems: Constructed action objects for operation.</span>
+<span class="sd">        :param force: Override the default for full idempotency.</span>
+<span class="sd">        :param change: Determine whether the change is executed.</span>
+<span class="sd">        :returns: Boolean indicating whether or not was changed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">changed</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="n">items</span> <span class="o">=</span> <span class="n">aitems</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">target</span><span class="p">,</span> <span class="n">aitem</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+
+            <span class="k">assert</span> <span class="n">target</span><span class="o">.</span><span class="n">origin</span>
+
+            <span class="n">origin</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">origin</span>
+
+            <span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">origin</span><span class="o">.</span><span class="n">set_action</span><span class="p">(</span>
+                    <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+                    <span class="n">aitem</span><span class="o">=</span><span class="n">aitem</span><span class="p">,</span>
+                    <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">,</span>
+                    <span class="n">change</span><span class="o">=</span><span class="n">change</span><span class="p">))</span>
+
+            <span class="n">changed</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">changed</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

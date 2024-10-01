@@ -1,0 +1,29 @@
+enhomie.ubiquiti.plugins.test package
+=====================================
+
+Submodules
+----------
+
+enhomie.ubiquiti.plugins.test.test\_client module
+-------------------------------------------------
+
+.. automodule:: enhomie.ubiquiti.plugins.test.test_client
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.ubiquiti.plugins.test.test\_helpers module
+--------------------------------------------------
+
+.. automodule:: enhomie.ubiquiti.plugins.test.test_helpers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.ubiquiti.plugins.test
+   :members:
+   :undoc-members:
+   :show-inheritance:

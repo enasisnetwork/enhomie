@@ -1,0 +1,29 @@
+enhomie.ubiquiti.params package
+===============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   enhomie.ubiquiti.params.plugins
+
+Submodules
+----------
+
+enhomie.ubiquiti.params.origin module
+-------------------------------------
+
+.. automodule:: enhomie.ubiquiti.params.origin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.ubiquiti.params
+   :members:
+   :undoc-members:
+   :show-inheritance:

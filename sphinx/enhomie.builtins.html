@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.builtins package &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">enhomie.builtins package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-enhomie.builtins.models">enhomie.builtins.models module</a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.models.BltnDriverModels"><code class="docutils literal notranslate"><span class="pre">BltnDriverModels</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.models.BltnDriverModels.period"><code class="docutils literal notranslate"><span class="pre">BltnDriverModels.period()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.models.BltnDriverModels.regexp"><code class="docutils literal notranslate"><span class="pre">BltnDriverModels.regexp()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.models.BltnDriverModels.store"><code class="docutils literal notranslate"><span class="pre">BltnDriverModels.store()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.builtins.models.BltnModels"><code class="docutils literal notranslate"><span class="pre">BltnModels</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.models.BltnModels.drivers"><code class="docutils literal notranslate"><span class="pre">BltnModels.drivers()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.builtins.period">enhomie.builtins.period module</a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.period.DriverBltnPeriod"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.period.DriverBltnPeriod.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.period.DriverBltnPeriod.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.period.DriverBltnPeriod.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.period.DriverBltnPeriod.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.period.DriverBltnPeriod.where"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.builtins.regexp">enhomie.builtins.regexp module</a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.regexp.DriverBltnRegexp"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.regexp.DriverBltnRegexp.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.regexp.DriverBltnRegexp.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.regexp.DriverBltnRegexp.occur"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.regexp.DriverBltnRegexp.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.regexp.DriverBltnRegexp.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.builtins.store">enhomie.builtins.store module</a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.store.DriverBltnStore"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.store.DriverBltnStore.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.store.DriverBltnStore.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.store.DriverBltnStore.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.store.DriverBltnStore.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.store.DriverBltnStore.where"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.builtins">Module contents</a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.BltnModels"><code class="docutils literal notranslate"><span class="pre">BltnModels</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.BltnModels.drivers"><code class="docutils literal notranslate"><span class="pre">BltnModels.drivers()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnPeriod"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnPeriod.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnPeriod.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnPeriod.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnPeriod.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnPeriod.where"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.where()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnRegexp"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnRegexp.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnRegexp.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnRegexp.occur"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnRegexp.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnRegexp.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.validate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnStore"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnStore.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnStore.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnStore.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnStore.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.builtins.DriverBltnStore.where"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">enhomie.builtins package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enhomie.builtins.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enhomie-builtins-package">
+<h1>enhomie.builtins package<a class="headerlink" href="#enhomie-builtins-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.builtins.params.html">enhomie.builtins.params package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.params.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.params.html#module-enhomie.builtins.params.period">enhomie.builtins.params.period module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriodParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams.days"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriodParams.days</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams.start"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriodParams.start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams.stop"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriodParams.stop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams.tzname"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriodParams.tzname</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.params.html#module-enhomie.builtins.params.regexp">enhomie.builtins.params.regexp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.regexp.DriverBltnRegexpParams"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexpParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.regexp.DriverBltnRegexpParams.complete"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexpParams.complete</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.regexp.DriverBltnRegexpParams.patterns"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexpParams.patterns</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.params.html#module-enhomie.builtins.params.store">enhomie.builtins.params.store module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.store.DriverBltnStoreParams"><code class="docutils literal notranslate"><span class="pre">DriverBltnStoreParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.store.DriverBltnStoreParams.operator"><code class="docutils literal notranslate"><span class="pre">DriverBltnStoreParams.operator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.store.DriverBltnStoreParams.unique"><code class="docutils literal notranslate"><span class="pre">DriverBltnStoreParams.unique</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.store.DriverBltnStoreParams.value"><code class="docutils literal notranslate"><span class="pre">DriverBltnStoreParams.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.params.html#module-enhomie.builtins.params">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnPeriodParams"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriodParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnPeriodParams.days"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriodParams.days</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnPeriodParams.start"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriodParams.start</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnPeriodParams.stop"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriodParams.stop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnPeriodParams.tzname"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriodParams.tzname</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnRegexpParams"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexpParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnRegexpParams.complete"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexpParams.complete</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnRegexpParams.patterns"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexpParams.patterns</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnStoreParams"><code class="docutils literal notranslate"><span class="pre">DriverBltnStoreParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnStoreParams.operator"><code class="docutils literal notranslate"><span class="pre">DriverBltnStoreParams.operator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnStoreParams.unique"><code class="docutils literal notranslate"><span class="pre">DriverBltnStoreParams.unique</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnStoreParams.value"><code class="docutils literal notranslate"><span class="pre">DriverBltnStoreParams.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.builtins.test.html">enhomie.builtins.test package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.test.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_models">enhomie.builtins.test.test_models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.test.html#enhomie.builtins.test.test_models.test_BltnModels_cover"><code class="docutils literal notranslate"><span class="pre">test_BltnModels_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_period">enhomie.builtins.test.test_period module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.test.html#enhomie.builtins.test.test_period.test_DriverBltnPeriod"><code class="docutils literal notranslate"><span class="pre">test_DriverBltnPeriod()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.test.html#enhomie.builtins.test.test_period.test_DriverBltnPeriod_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverBltnPeriod_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_regexp">enhomie.builtins.test.test_regexp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.test.html#enhomie.builtins.test.test_regexp.test_DriverBltnRegexp"><code class="docutils literal notranslate"><span class="pre">test_DriverBltnRegexp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_store">enhomie.builtins.test.test_store module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.test.html#enhomie.builtins.test.test_store.test_DriverBltnStore"><code class="docutils literal notranslate"><span class="pre">test_DriverBltnStore()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.test.html#enhomie.builtins.test.test_store.test_DriverBltnStore_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverBltnStore_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.test.html#module-enhomie.builtins.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-enhomie.builtins.models">
+<span id="enhomie-builtins-models-module"></span><h2>enhomie.builtins.models module<a class="headerlink" href="#module-enhomie.builtins.models" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.builtins.models.BltnDriverModels">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.builtins.models.</span></span><span class="sig-name descname"><span class="pre">BltnDriverModels</span></span><a class="reference internal" href="_modules/enhomie/builtins/models.html#BltnDriverModels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.models.BltnDriverModels" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Return the class object that was imported within method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.models.BltnDriverModels.period">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">period</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams" title="enhomie.builtins.params.period.DriverBltnPeriodParams"><span class="pre">DriverBltnPeriodParams</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/builtins/models.html#BltnDriverModels.period"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.models.BltnDriverModels.period" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.models.BltnDriverModels.regexp">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regexp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.regexp.DriverBltnRegexpParams" title="enhomie.builtins.params.regexp.DriverBltnRegexpParams"><span class="pre">DriverBltnRegexpParams</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/builtins/models.html#BltnDriverModels.regexp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.models.BltnDriverModels.regexp" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.models.BltnDriverModels.store">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">store</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.store.DriverBltnStoreParams" title="enhomie.builtins.params.store.DriverBltnStoreParams"><span class="pre">DriverBltnStoreParams</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/builtins/models.html#BltnDriverModels.store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.models.BltnDriverModels.store" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.builtins.models.BltnModels">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.builtins.models.</span></span><span class="sig-name descname"><span class="pre">BltnModels</span></span><a class="reference internal" href="_modules/enhomie/builtins/models.html#BltnModels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.models.BltnModels" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Return the class object that was imported within method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.models.BltnModels.drivers">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">drivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.builtins.models.BltnDriverModels" title="enhomie.builtins.models.BltnDriverModels"><span class="pre">BltnDriverModels</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/builtins/models.html#BltnModels.drivers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.models.BltnModels.drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.builtins.period">
+<span id="enhomie-builtins-period-module"></span><h2>enhomie.builtins.period module<a class="headerlink" href="#module-enhomie.builtins.period" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.builtins.period.DriverBltnPeriod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.builtins.period.</span></span><span class="sig-name descname"><span class="pre">DriverBltnPeriod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/builtins/period.html#DriverBltnPeriod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.period.DriverBltnPeriod" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.period.DriverBltnPeriod.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'builtins'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.period.DriverBltnPeriod.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.period.DriverBltnPeriod.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.period.DriverBltnPeriod.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.period.DriverBltnPeriod.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams" title="enhomie.builtins.params.period.DriverBltnPeriodParams"><span class="pre">DriverBltnPeriodParams</span></a></em><a class="headerlink" href="#enhomie.builtins.period.DriverBltnPeriod.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.period.DriverBltnPeriod.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/period.html#DriverBltnPeriod.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.period.DriverBltnPeriod.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.period.DriverBltnPeriod.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/period.html#DriverBltnPeriod.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.period.DriverBltnPeriod.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.builtins.regexp">
+<span id="enhomie-builtins-regexp-module"></span><h2>enhomie.builtins.regexp module<a class="headerlink" href="#module-enhomie.builtins.regexp" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.builtins.regexp.DriverBltnRegexp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.builtins.regexp.</span></span><span class="sig-name descname"><span class="pre">DriverBltnRegexp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/builtins/regexp.html#DriverBltnRegexp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.regexp.DriverBltnRegexp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.regexp.DriverBltnRegexp.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'builtins'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.regexp.DriverBltnRegexp.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.regexp.DriverBltnRegexp.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.regexp.DriverBltnRegexp.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.regexp.DriverBltnRegexp.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/regexp.html#DriverBltnRegexp.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.regexp.DriverBltnRegexp.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.regexp.DriverBltnRegexp.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.regexp.DriverBltnRegexpParams" title="enhomie.builtins.params.regexp.DriverBltnRegexpParams"><span class="pre">DriverBltnRegexpParams</span></a></em><a class="headerlink" href="#enhomie.builtins.regexp.DriverBltnRegexp.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.regexp.DriverBltnRegexp.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/regexp.html#DriverBltnRegexp.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.regexp.DriverBltnRegexp.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.builtins.store">
+<span id="enhomie-builtins-store-module"></span><h2>enhomie.builtins.store module<a class="headerlink" href="#module-enhomie.builtins.store" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.builtins.store.DriverBltnStore">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.builtins.store.</span></span><span class="sig-name descname"><span class="pre">DriverBltnStore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/builtins/store.html#DriverBltnStore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.store.DriverBltnStore" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.store.DriverBltnStore.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'builtins'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.store.DriverBltnStore.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.store.DriverBltnStore.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.store.DriverBltnStore.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.store.DriverBltnStore.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.store.DriverBltnStoreParams" title="enhomie.builtins.params.store.DriverBltnStoreParams"><span class="pre">DriverBltnStoreParams</span></a></em><a class="headerlink" href="#enhomie.builtins.store.DriverBltnStore.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.store.DriverBltnStore.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/store.html#DriverBltnStore.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.store.DriverBltnStore.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.store.DriverBltnStore.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/store.html#DriverBltnStore.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.store.DriverBltnStore.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.builtins">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-enhomie.builtins" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.builtins.BltnModels">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.builtins.</span></span><span class="sig-name descname"><span class="pre">BltnModels</span></span><a class="reference internal" href="_modules/enhomie/builtins/models.html#BltnModels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.BltnModels" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Return the class object that was imported within method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.BltnModels.drivers">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">drivers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.12)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.builtins.models.BltnDriverModels" title="enhomie.builtins.models.BltnDriverModels"><span class="pre">BltnDriverModels</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/builtins/models.html#BltnModels.drivers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.BltnModels.drivers" title="Link to this definition"></a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnPeriod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.builtins.</span></span><span class="sig-name descname"><span class="pre">DriverBltnPeriod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/builtins/period.html#DriverBltnPeriod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.DriverBltnPeriod" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnPeriod.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'builtins'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.DriverBltnPeriod.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnPeriod.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.DriverBltnPeriod.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnPeriod.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams" title="enhomie.builtins.params.period.DriverBltnPeriodParams"><span class="pre">DriverBltnPeriodParams</span></a></em><a class="headerlink" href="#enhomie.builtins.DriverBltnPeriod.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnPeriod.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/period.html#DriverBltnPeriod.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.DriverBltnPeriod.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnPeriod.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/period.html#DriverBltnPeriod.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.DriverBltnPeriod.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnRegexp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.builtins.</span></span><span class="sig-name descname"><span class="pre">DriverBltnRegexp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/builtins/regexp.html#DriverBltnRegexp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.DriverBltnRegexp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnRegexp.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'builtins'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.DriverBltnRegexp.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnRegexp.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.DriverBltnRegexp.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnRegexp.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/regexp.html#DriverBltnRegexp.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.DriverBltnRegexp.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnRegexp.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.regexp.DriverBltnRegexpParams" title="enhomie.builtins.params.regexp.DriverBltnRegexpParams"><span class="pre">DriverBltnRegexpParams</span></a></em><a class="headerlink" href="#enhomie.builtins.DriverBltnRegexp.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnRegexp.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/regexp.html#DriverBltnRegexp.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.DriverBltnRegexp.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnStore">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.builtins.</span></span><span class="sig-name descname"><span class="pre">DriverBltnStore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/builtins/store.html#DriverBltnStore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.DriverBltnStore" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnStore.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'builtins'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.DriverBltnStore.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnStore.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.builtins.DriverBltnStore.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnStore.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.builtins.params.html#enhomie.builtins.params.store.DriverBltnStoreParams" title="enhomie.builtins.params.store.DriverBltnStoreParams"><span class="pre">DriverBltnStoreParams</span></a></em><a class="headerlink" href="#enhomie.builtins.DriverBltnStore.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnStore.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/store.html#DriverBltnStore.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.DriverBltnStore.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.builtins.DriverBltnStore.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/builtins/store.html#DriverBltnStore.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.builtins.DriverBltnStore.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

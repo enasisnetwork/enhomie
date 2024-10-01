@@ -1,0 +1,45 @@
+enhomie.builtins.test package
+=============================
+
+Submodules
+----------
+
+enhomie.builtins.test.test\_models module
+-----------------------------------------
+
+.. automodule:: enhomie.builtins.test.test_models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.builtins.test.test\_period module
+-----------------------------------------
+
+.. automodule:: enhomie.builtins.test.test_period
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.builtins.test.test\_regexp module
+-----------------------------------------
+
+.. automodule:: enhomie.builtins.test.test_regexp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.builtins.test.test\_store module
+----------------------------------------
+
+.. automodule:: enhomie.builtins.test.test_store
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.builtins.test
+   :members:
+   :undoc-members:
+   :show-inheritance:

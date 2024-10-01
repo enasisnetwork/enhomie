@@ -1,0 +1,69 @@
+enhomie.philips.plugins package
+===============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   enhomie.philips.plugins.test
+
+Submodules
+----------
+
+enhomie.philips.plugins.button module
+-------------------------------------
+
+.. automodule:: enhomie.philips.plugins.button
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.plugins.change module
+-------------------------------------
+
+.. automodule:: enhomie.philips.plugins.change
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.plugins.contact module
+--------------------------------------
+
+.. automodule:: enhomie.philips.plugins.contact
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.plugins.helpers module
+--------------------------------------
+
+.. automodule:: enhomie.philips.plugins.helpers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.plugins.motion module
+-------------------------------------
+
+.. automodule:: enhomie.philips.plugins.motion
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.plugins.scene module
+------------------------------------
+
+.. automodule:: enhomie.philips.plugins.scene
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.philips.plugins
+   :members:
+   :undoc-members:
+   :show-inheritance:

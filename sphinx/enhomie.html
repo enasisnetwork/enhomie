@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie package &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">enhomie package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-enhomie.conftest">enhomie.conftest module</a><ul>
+<li><a class="reference internal" href="#enhomie.conftest.bodies"><code class="docutils literal notranslate"><span class="pre">bodies()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.conftest.config"><code class="docutils literal notranslate"><span class="pre">config()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.conftest.config_factory"><code class="docutils literal notranslate"><span class="pre">config_factory()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.conftest.homie"><code class="docutils literal notranslate"><span class="pre">homie()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.conftest.homie_factory"><code class="docutils literal notranslate"><span class="pre">homie_factory()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.conftest.replaces"><code class="docutils literal notranslate"><span class="pre">replaces()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.conftest.replaces_factory"><code class="docutils literal notranslate"><span class="pre">replaces_factory()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.conftest.service"><code class="docutils literal notranslate"><span class="pre">service()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.conftest.service_factory"><code class="docutils literal notranslate"><span class="pre">service_factory()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.conftest.times"><code class="docutils literal notranslate"><span class="pre">times()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">enhomie package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enhomie.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enhomie-package">
+<h1>enhomie package<a class="headerlink" href="#enhomie-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.builtins.html">enhomie.builtins package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.params.html">enhomie.builtins.params package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#module-enhomie.builtins.params.period">enhomie.builtins.params.period module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#module-enhomie.builtins.params.regexp">enhomie.builtins.params.regexp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#module-enhomie.builtins.params.store">enhomie.builtins.params.store module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.params.html#module-enhomie.builtins.params">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.test.html">enhomie.builtins.test package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.test.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_models">enhomie.builtins.test.test_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_period">enhomie.builtins.test.test_period module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_regexp">enhomie.builtins.test.test_regexp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_store">enhomie.builtins.test.test_store module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.test.html#module-enhomie.builtins.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.html#module-enhomie.builtins.models">enhomie.builtins.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.models.BltnDriverModels"><code class="docutils literal notranslate"><span class="pre">BltnDriverModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.models.BltnDriverModels.period"><code class="docutils literal notranslate"><span class="pre">BltnDriverModels.period()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.models.BltnDriverModels.regexp"><code class="docutils literal notranslate"><span class="pre">BltnDriverModels.regexp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.models.BltnDriverModels.store"><code class="docutils literal notranslate"><span class="pre">BltnDriverModels.store()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.models.BltnModels"><code class="docutils literal notranslate"><span class="pre">BltnModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.models.BltnModels.drivers"><code class="docutils literal notranslate"><span class="pre">BltnModels.drivers()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.html#module-enhomie.builtins.period">enhomie.builtins.period module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.period.DriverBltnPeriod"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.period.DriverBltnPeriod.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.period.DriverBltnPeriod.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.period.DriverBltnPeriod.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.period.DriverBltnPeriod.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.validate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.period.DriverBltnPeriod.where"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.html#module-enhomie.builtins.regexp">enhomie.builtins.regexp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp.occur"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.occur()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.html#module-enhomie.builtins.store">enhomie.builtins.store module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.store.DriverBltnStore"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.store.DriverBltnStore.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.store.DriverBltnStore.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.store.DriverBltnStore.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.store.DriverBltnStore.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.validate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.store.DriverBltnStore.where"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.builtins.html#module-enhomie.builtins">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.BltnModels"><code class="docutils literal notranslate"><span class="pre">BltnModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.BltnModels.drivers"><code class="docutils literal notranslate"><span class="pre">BltnModels.drivers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.validate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod.where"><code class="docutils literal notranslate"><span class="pre">DriverBltnPeriod.where()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp.occur"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.occur()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnRegexp.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore.family"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore.kinds"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore.params"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore.validate"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.validate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore.where"><code class="docutils literal notranslate"><span class="pre">DriverBltnStore.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.execution.html">enhomie.execution package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.test.html">enhomie.execution.test package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.execution.test.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.execution.test.html#module-enhomie.execution.test.test_action">enhomie.execution.test.test_action module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.execution.test.html#module-enhomie.execution.test.test_backup">enhomie.execution.test.test_backup module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.execution.test.html#module-enhomie.execution.test.test_config">enhomie.execution.test.test_config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.execution.test.html#module-enhomie.execution.test.test_crypts">enhomie.execution.test.test_crypts module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.execution.test.html#module-enhomie.execution.test.test_desired">enhomie.execution.test.test_desired module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.execution.test.html#module-enhomie.execution.test.test_dumped">enhomie.execution.test.test_dumped module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.execution.test.html#module-enhomie.execution.test.test_persist">enhomie.execution.test.test_persist module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.execution.test.html#module-enhomie.execution.test.test_service">enhomie.execution.test.test_service module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.execution.test.html#module-enhomie.execution.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#module-enhomie.execution.action">enhomie.execution.action module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.action.arguments"><code class="docutils literal notranslate"><span class="pre">arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.action.execution"><code class="docutils literal notranslate"><span class="pre">execution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.action.operation"><code class="docutils literal notranslate"><span class="pre">operation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#module-enhomie.execution.backup">enhomie.execution.backup module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.backup.arguments"><code class="docutils literal notranslate"><span class="pre">arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.backup.execution"><code class="docutils literal notranslate"><span class="pre">execution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.backup.operation"><code class="docutils literal notranslate"><span class="pre">operation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#module-enhomie.execution.config">enhomie.execution.config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.config.arguments"><code class="docutils literal notranslate"><span class="pre">arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.config.execution"><code class="docutils literal notranslate"><span class="pre">execution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.config.operation"><code class="docutils literal notranslate"><span class="pre">operation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#module-enhomie.execution.crypts">enhomie.execution.crypts module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.crypts.arguments"><code class="docutils literal notranslate"><span class="pre">arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.crypts.execution"><code class="docutils literal notranslate"><span class="pre">execution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.crypts.operation"><code class="docutils literal notranslate"><span class="pre">operation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#module-enhomie.execution.desired">enhomie.execution.desired module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.desired.arguments"><code class="docutils literal notranslate"><span class="pre">arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.desired.execution"><code class="docutils literal notranslate"><span class="pre">execution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.desired.operation"><code class="docutils literal notranslate"><span class="pre">operation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#module-enhomie.execution.dumped">enhomie.execution.dumped module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.dumped.arguments"><code class="docutils literal notranslate"><span class="pre">arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.dumped.execution"><code class="docutils literal notranslate"><span class="pre">execution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.dumped.operation"><code class="docutils literal notranslate"><span class="pre">operation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#module-enhomie.execution.persist">enhomie.execution.persist module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.persist.arguments"><code class="docutils literal notranslate"><span class="pre">arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.persist.execution"><code class="docutils literal notranslate"><span class="pre">execution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.persist.operation"><code class="docutils literal notranslate"><span class="pre">operation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#module-enhomie.execution.service">enhomie.execution.service module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.service.arguments"><code class="docutils literal notranslate"><span class="pre">arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.service.execution"><code class="docutils literal notranslate"><span class="pre">execution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.execution.html#enhomie.execution.service.operation"><code class="docutils literal notranslate"><span class="pre">operation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.execution.html#module-enhomie.execution">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.homie.html">enhomie.homie package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.addons.html">enhomie.homie.addons package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.addons.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.addons.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.addons.html#module-enhomie.homie.addons.aspired">enhomie.homie.addons.aspired module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.addons.html#module-enhomie.homie.addons.desired">enhomie.homie.addons.desired module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.addons.html#module-enhomie.homie.addons.logger">enhomie.homie.addons.logger module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.addons.html#module-enhomie.homie.addons.persist">enhomie.homie.addons.persist module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.addons.html#module-enhomie.homie.addons.queue">enhomie.homie.addons.queue module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.addons.html#module-enhomie.homie.addons">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.childs.html">enhomie.homie.childs package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#module-enhomie.homie.childs.aspire">enhomie.homie.childs.aspire module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#module-enhomie.homie.childs.child">enhomie.homie.childs.child module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#module-enhomie.homie.childs.desire">enhomie.homie.childs.desire module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#module-enhomie.homie.childs.device">enhomie.homie.childs.device module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#module-enhomie.homie.childs.group">enhomie.homie.childs.group module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#module-enhomie.homie.childs.helpers">enhomie.homie.childs.helpers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#module-enhomie.homie.childs.homie">enhomie.homie.childs.homie module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#module-enhomie.homie.childs.origin">enhomie.homie.childs.origin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#module-enhomie.homie.childs.scene">enhomie.homie.childs.scene module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.childs.html#module-enhomie.homie.childs">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.members.html">enhomie.homie.members package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.members.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.members.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.members.html#module-enhomie.homie.members.actions">enhomie.homie.members.actions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.members.html#module-enhomie.homie.members.member">enhomie.homie.members.member module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.members.html#module-enhomie.homie.members.streams">enhomie.homie.members.streams module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.members.html#module-enhomie.homie.members.updates">enhomie.homie.members.updates module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.members.html#module-enhomie.homie.members">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.params.html">enhomie.homie.params package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.aspire">enhomie.homie.params.aspire module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.child">enhomie.homie.params.child module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.common">enhomie.homie.params.common module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.desire">enhomie.homie.params.desire module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.device">enhomie.homie.params.device module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.group">enhomie.homie.params.group module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.homie">enhomie.homie.params.homie module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.occur">enhomie.homie.params.occur module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.origin">enhomie.homie.params.origin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.plugin">enhomie.homie.params.plugin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.scene">enhomie.homie.params.scene module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.service">enhomie.homie.params.service module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.stage">enhomie.homie.params.stage module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.store">enhomie.homie.params.store module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params.where">enhomie.homie.params.where module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.params.html#module-enhomie.homie.params">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.plugins.html">enhomie.homie.plugins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.plugins.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.plugins.html#module-enhomie.homie.plugins.common">enhomie.homie.plugins.common module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.plugins.html#module-enhomie.homie.plugins.driver">enhomie.homie.plugins.driver module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.plugins.html#module-enhomie.homie.plugins.occur">enhomie.homie.plugins.occur module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.plugins.html#module-enhomie.homie.plugins.plugin">enhomie.homie.plugins.plugin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.plugins.html#module-enhomie.homie.plugins.where">enhomie.homie.plugins.where module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.plugins.html#module-enhomie.homie.plugins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.test.html">enhomie.homie.test package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.test.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.test.html#module-enhomie.homie.test.test_config">enhomie.homie.test.test_config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.test.html#module-enhomie.homie.test.test_homie">enhomie.homie.test.test_homie module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.test.html#module-enhomie.homie.test.test_models">enhomie.homie.test.test_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.test.html#module-enhomie.homie.test.test_service">enhomie.homie.test.test_service module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.test.html#module-enhomie.homie.test">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.threads.html">enhomie.homie.threads package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.threads.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.threads.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.threads.html#module-enhomie.homie.threads.action">enhomie.homie.threads.action module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.threads.html#module-enhomie.homie.threads.stream">enhomie.homie.threads.stream module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.threads.html#module-enhomie.homie.threads.thread">enhomie.homie.threads.thread module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.threads.html#module-enhomie.homie.threads.update">enhomie.homie.threads.update module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.threads.html#module-enhomie.homie.threads">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.html#module-enhomie.homie.common">enhomie.homie.common module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.common.HomieStage"><code class="docutils literal notranslate"><span class="pre">HomieStage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.common.HomieStage.color"><code class="docutils literal notranslate"><span class="pre">HomieStage.color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.common.HomieStage.level"><code class="docutils literal notranslate"><span class="pre">HomieStage.level</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.common.HomieStage.state"><code class="docutils literal notranslate"><span class="pre">HomieStage.state</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.html#module-enhomie.homie.config">enhomie.homie.config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.config.HomieConfig"><code class="docutils literal notranslate"><span class="pre">HomieConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.config.HomieConfig.merge_params"><code class="docutils literal notranslate"><span class="pre">HomieConfig.merge_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.config.HomieConfig.params"><code class="docutils literal notranslate"><span class="pre">HomieConfig.params</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.html#module-enhomie.homie.homie">enhomie.homie.homie module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie"><code class="docutils literal notranslate"><span class="pre">Homie</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.aspired"><code class="docutils literal notranslate"><span class="pre">Homie.aspired</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.childs"><code class="docutils literal notranslate"><span class="pre">Homie.childs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.config"><code class="docutils literal notranslate"><span class="pre">Homie.config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.desired"><code class="docutils literal notranslate"><span class="pre">Homie.desired</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.dryrun"><code class="docutils literal notranslate"><span class="pre">Homie.dryrun</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.dumped"><code class="docutils literal notranslate"><span class="pre">Homie.dumped</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.get_actions"><code class="docutils literal notranslate"><span class="pre">Homie.get_actions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.logger"><code class="docutils literal notranslate"><span class="pre">Homie.logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.params"><code class="docutils literal notranslate"><span class="pre">Homie.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.persist"><code class="docutils literal notranslate"><span class="pre">Homie.persist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.potent"><code class="docutils literal notranslate"><span class="pre">Homie.potent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.printer"><code class="docutils literal notranslate"><span class="pre">Homie.printer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.refresh"><code class="docutils literal notranslate"><span class="pre">Homie.refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie.set_actions"><code class="docutils literal notranslate"><span class="pre">Homie.set_actions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.html#module-enhomie.homie.models">enhomie.homie.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels"><code class="docutils literal notranslate"><span class="pre">HomieModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.action"><code class="docutils literal notranslate"><span class="pre">HomieModels.action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.aspire"><code class="docutils literal notranslate"><span class="pre">HomieModels.aspire()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.aspired"><code class="docutils literal notranslate"><span class="pre">HomieModels.aspired()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.builtins"><code class="docutils literal notranslate"><span class="pre">HomieModels.builtins()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.child"><code class="docutils literal notranslate"><span class="pre">HomieModels.child()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.desire"><code class="docutils literal notranslate"><span class="pre">HomieModels.desire()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.desired"><code class="docutils literal notranslate"><span class="pre">HomieModels.desired()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.device"><code class="docutils literal notranslate"><span class="pre">HomieModels.device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.group"><code class="docutils literal notranslate"><span class="pre">HomieModels.group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.homie"><code class="docutils literal notranslate"><span class="pre">HomieModels.homie()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.hubitat"><code class="docutils literal notranslate"><span class="pre">HomieModels.hubitat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.occur"><code class="docutils literal notranslate"><span class="pre">HomieModels.occur()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.origin"><code class="docutils literal notranslate"><span class="pre">HomieModels.origin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.philips"><code class="docutils literal notranslate"><span class="pre">HomieModels.philips()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.plugin"><code class="docutils literal notranslate"><span class="pre">HomieModels.plugin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.printer"><code class="docutils literal notranslate"><span class="pre">HomieModels.printer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.queue"><code class="docutils literal notranslate"><span class="pre">HomieModels.queue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.scene"><code class="docutils literal notranslate"><span class="pre">HomieModels.scene()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.service"><code class="docutils literal notranslate"><span class="pre">HomieModels.service()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.stage"><code class="docutils literal notranslate"><span class="pre">HomieModels.stage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.stream"><code class="docutils literal notranslate"><span class="pre">HomieModels.stream()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.thread"><code class="docutils literal notranslate"><span class="pre">HomieModels.thread()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.ubiquiti"><code class="docutils literal notranslate"><span class="pre">HomieModels.ubiquiti()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.update"><code class="docutils literal notranslate"><span class="pre">HomieModels.update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.models.HomieModels.where"><code class="docutils literal notranslate"><span class="pre">HomieModels.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.html#module-enhomie.homie.service">enhomie.homie.service module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService"><code class="docutils literal notranslate"><span class="pre">HomieService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.actions"><code class="docutils literal notranslate"><span class="pre">HomieService.actions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.check_congest"><code class="docutils literal notranslate"><span class="pre">HomieService.check_congest()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.check_zombies"><code class="docutils literal notranslate"><span class="pre">HomieService.check_zombies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.congest"><code class="docutils literal notranslate"><span class="pre">HomieService.congest</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.enqueue"><code class="docutils literal notranslate"><span class="pre">HomieService.enqueue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.homie"><code class="docutils literal notranslate"><span class="pre">HomieService.homie</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.operate"><code class="docutils literal notranslate"><span class="pre">HomieService.operate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.operate_healths"><code class="docutils literal notranslate"><span class="pre">HomieService.operate_healths()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.operate_streams"><code class="docutils literal notranslate"><span class="pre">HomieService.operate_streams()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.operate_updates"><code class="docutils literal notranslate"><span class="pre">HomieService.operate_updates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.params"><code class="docutils literal notranslate"><span class="pre">HomieService.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.running"><code class="docutils literal notranslate"><span class="pre">HomieService.running</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.soft"><code class="docutils literal notranslate"><span class="pre">HomieService.soft()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.start"><code class="docutils literal notranslate"><span class="pre">HomieService.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.stop"><code class="docutils literal notranslate"><span class="pre">HomieService.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.streams"><code class="docutils literal notranslate"><span class="pre">HomieService.streams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.updates"><code class="docutils literal notranslate"><span class="pre">HomieService.updates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService.zombies"><code class="docutils literal notranslate"><span class="pre">HomieService.zombies</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.html#module-enhomie.homie">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie"><code class="docutils literal notranslate"><span class="pre">Homie</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.aspired"><code class="docutils literal notranslate"><span class="pre">Homie.aspired</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.childs"><code class="docutils literal notranslate"><span class="pre">Homie.childs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.config"><code class="docutils literal notranslate"><span class="pre">Homie.config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.desired"><code class="docutils literal notranslate"><span class="pre">Homie.desired</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.dryrun"><code class="docutils literal notranslate"><span class="pre">Homie.dryrun</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.dumped"><code class="docutils literal notranslate"><span class="pre">Homie.dumped</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.get_actions"><code class="docutils literal notranslate"><span class="pre">Homie.get_actions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.logger"><code class="docutils literal notranslate"><span class="pre">Homie.logger</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.params"><code class="docutils literal notranslate"><span class="pre">Homie.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.persist"><code class="docutils literal notranslate"><span class="pre">Homie.persist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.potent"><code class="docutils literal notranslate"><span class="pre">Homie.potent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.printer"><code class="docutils literal notranslate"><span class="pre">Homie.printer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.refresh"><code class="docutils literal notranslate"><span class="pre">Homie.refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.Homie.set_actions"><code class="docutils literal notranslate"><span class="pre">Homie.set_actions()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieConfig"><code class="docutils literal notranslate"><span class="pre">HomieConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieConfig.merge_params"><code class="docutils literal notranslate"><span class="pre">HomieConfig.merge_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieConfig.params"><code class="docutils literal notranslate"><span class="pre">HomieConfig.params</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService"><code class="docutils literal notranslate"><span class="pre">HomieService</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.actions"><code class="docutils literal notranslate"><span class="pre">HomieService.actions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.check_congest"><code class="docutils literal notranslate"><span class="pre">HomieService.check_congest()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.check_zombies"><code class="docutils literal notranslate"><span class="pre">HomieService.check_zombies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.congest"><code class="docutils literal notranslate"><span class="pre">HomieService.congest</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.enqueue"><code class="docutils literal notranslate"><span class="pre">HomieService.enqueue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.homie"><code class="docutils literal notranslate"><span class="pre">HomieService.homie</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.operate"><code class="docutils literal notranslate"><span class="pre">HomieService.operate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.operate_healths"><code class="docutils literal notranslate"><span class="pre">HomieService.operate_healths()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.operate_streams"><code class="docutils literal notranslate"><span class="pre">HomieService.operate_streams()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.operate_updates"><code class="docutils literal notranslate"><span class="pre">HomieService.operate_updates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.params"><code class="docutils literal notranslate"><span class="pre">HomieService.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.running"><code class="docutils literal notranslate"><span class="pre">HomieService.running</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.soft"><code class="docutils literal notranslate"><span class="pre">HomieService.soft()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.start"><code class="docutils literal notranslate"><span class="pre">HomieService.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.stop"><code class="docutils literal notranslate"><span class="pre">HomieService.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.streams"><code class="docutils literal notranslate"><span class="pre">HomieService.streams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.updates"><code class="docutils literal notranslate"><span class="pre">HomieService.updates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.HomieService.zombies"><code class="docutils literal notranslate"><span class="pre">HomieService.zombies</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.hubitat.html">enhomie.hubitat package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.hubitat.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.params.html">enhomie.hubitat.params package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.params.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.params.html#module-enhomie.hubitat.params.origin">enhomie.hubitat.params.origin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.params.html#module-enhomie.hubitat.params">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.test.html">enhomie.hubitat.test package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.test.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_action">enhomie.hubitat.test.test_action module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_device">enhomie.hubitat.test.test_device module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_helpers">enhomie.hubitat.test.test_helpers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_models">enhomie.hubitat.test.test_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_origin">enhomie.hubitat.test.test_origin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_update">enhomie.hubitat.test.test_update module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.test.html#module-enhomie.hubitat.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.hubitat.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.hubitat.html#module-enhomie.hubitat.action">enhomie.hubitat.action module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.action.HubiAction"><code class="docutils literal notranslate"><span class="pre">HubiAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.action.HubiAction.execute"><code class="docutils literal notranslate"><span class="pre">HubiAction.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.action.HubiActionItem"><code class="docutils literal notranslate"><span class="pre">HubiActionItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.hubitat.html#module-enhomie.hubitat.device">enhomie.hubitat.device module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.device.HubiDevice"><code class="docutils literal notranslate"><span class="pre">HubiDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.device.HubiDevice.family"><code class="docutils literal notranslate"><span class="pre">HubiDevice.family</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.hubitat.html#module-enhomie.hubitat.helpers">enhomie.hubitat.helpers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.helpers.action_request"><code class="docutils literal notranslate"><span class="pre">action_request()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.helpers.merge_fetch"><code class="docutils literal notranslate"><span class="pre">merge_fetch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.helpers.merge_find"><code class="docutils literal notranslate"><span class="pre">merge_find()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.helpers.request_action"><code class="docutils literal notranslate"><span class="pre">request_action()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.hubitat.html#module-enhomie.hubitat.models">enhomie.hubitat.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.models.HubiModels"><code class="docutils literal notranslate"><span class="pre">HubiModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.models.HubiModels.action"><code class="docutils literal notranslate"><span class="pre">HubiModels.action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.models.HubiModels.origin"><code class="docutils literal notranslate"><span class="pre">HubiModels.origin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.models.HubiModels.update"><code class="docutils literal notranslate"><span class="pre">HubiModels.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.hubitat.html#module-enhomie.hubitat.origin">enhomie.hubitat.origin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin"><code class="docutils literal notranslate"><span class="pre">HubiOrigin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.bridge"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.bridge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.family"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.fetch"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.fetch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.get_action"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.get_action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.get_update"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.get_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.merge"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.merge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.refresh"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.set_action"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.set_action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.set_update"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.set_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.source"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.source()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.hubitat.html#module-enhomie.hubitat.update">enhomie.hubitat.update module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.update.HubiUpdate"><code class="docutils literal notranslate"><span class="pre">HubiUpdate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.update.HubiUpdateItem"><code class="docutils literal notranslate"><span class="pre">HubiUpdateItem</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.update.HubiUpdateItem.fetch"><code class="docutils literal notranslate"><span class="pre">HubiUpdateItem.fetch</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.hubitat.html#module-enhomie.hubitat">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiAction"><code class="docutils literal notranslate"><span class="pre">HubiAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiAction.execute"><code class="docutils literal notranslate"><span class="pre">HubiAction.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiDevice"><code class="docutils literal notranslate"><span class="pre">HubiDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiDevice.family"><code class="docutils literal notranslate"><span class="pre">HubiDevice.family</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiModels"><code class="docutils literal notranslate"><span class="pre">HubiModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiModels.action"><code class="docutils literal notranslate"><span class="pre">HubiModels.action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiModels.origin"><code class="docutils literal notranslate"><span class="pre">HubiModels.origin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiModels.update"><code class="docutils literal notranslate"><span class="pre">HubiModels.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin"><code class="docutils literal notranslate"><span class="pre">HubiOrigin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.bridge"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.bridge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.family"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.fetch"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.fetch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.get_action"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.get_action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.get_update"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.get_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.merge"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.merge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.refresh"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.set_action"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.set_action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.set_update"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.set_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.source"><code class="docutils literal notranslate"><span class="pre">HubiOrigin.source()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.hubitat.html#enhomie.hubitat.HubiUpdate"><code class="docutils literal notranslate"><span class="pre">HubiUpdate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.philips.html">enhomie.philips package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.params.html">enhomie.philips.params package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.params.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.params.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.params.html#module-enhomie.philips.params.origin">enhomie.philips.params.origin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.params.html#module-enhomie.philips.params">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.html">enhomie.philips.plugins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.plugins.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.button">enhomie.philips.plugins.button module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.change">enhomie.philips.plugins.change module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.contact">enhomie.philips.plugins.contact module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.helpers">enhomie.philips.plugins.helpers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.motion">enhomie.philips.plugins.motion module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.scene">enhomie.philips.plugins.scene module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.plugins.html#module-enhomie.philips.plugins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.test.html">enhomie.philips.test package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.test.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.test.html#module-enhomie.philips.test.test_action">enhomie.philips.test.test_action module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.test.html#module-enhomie.philips.test.test_device">enhomie.philips.test.test_device module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.test.html#module-enhomie.philips.test.test_helpers">enhomie.philips.test.test_helpers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.test.html#module-enhomie.philips.test.test_models">enhomie.philips.test.test_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.test.html#module-enhomie.philips.test.test_origin">enhomie.philips.test.test_origin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.test.html#module-enhomie.philips.test.test_stream">enhomie.philips.test.test_stream module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.test.html#module-enhomie.philips.test.test_surgeon">enhomie.philips.test.test_surgeon module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.test.html#module-enhomie.philips.test.test_update">enhomie.philips.test.test_update module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.test.html#module-enhomie.philips.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#module-enhomie.philips.action">enhomie.philips.action module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.action.PhueAction"><code class="docutils literal notranslate"><span class="pre">PhueAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.action.PhueAction.execute"><code class="docutils literal notranslate"><span class="pre">PhueAction.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.action.PhueActionItem"><code class="docutils literal notranslate"><span class="pre">PhueActionItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#module-enhomie.philips.device">enhomie.philips.device module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.device.PhueDevice"><code class="docutils literal notranslate"><span class="pre">PhueDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.device.PhueDevice.family"><code class="docutils literal notranslate"><span class="pre">PhueDevice.family</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#module-enhomie.philips.helpers">enhomie.philips.helpers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.helpers.action_request"><code class="docutils literal notranslate"><span class="pre">action_request()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.helpers.merge_fetch"><code class="docutils literal notranslate"><span class="pre">merge_fetch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.helpers.merge_find"><code class="docutils literal notranslate"><span class="pre">merge_find()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.helpers.request_action"><code class="docutils literal notranslate"><span class="pre">request_action()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#module-enhomie.philips.models">enhomie.philips.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueDriverModels"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueDriverModels.button"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.button()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueDriverModels.change"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.change()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueDriverModels.contact"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.contact()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueDriverModels.motion"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.motion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueDriverModels.scene"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.scene()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueModels"><code class="docutils literal notranslate"><span class="pre">PhueModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueModels.action"><code class="docutils literal notranslate"><span class="pre">PhueModels.action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueModels.drivers"><code class="docutils literal notranslate"><span class="pre">PhueModels.drivers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueModels.origin"><code class="docutils literal notranslate"><span class="pre">PhueModels.origin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueModels.stream"><code class="docutils literal notranslate"><span class="pre">PhueModels.stream()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.models.PhueModels.update"><code class="docutils literal notranslate"><span class="pre">PhueModels.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#module-enhomie.philips.origin">enhomie.philips.origin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin"><code class="docutils literal notranslate"><span class="pre">PhueOrigin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.bridge"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.bridge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.family"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.fetch"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.fetch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.get_action"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.get_action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.get_stream"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.get_stream()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.get_update"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.get_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.merge"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.merge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.refresh"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.set_action"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.set_action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.set_update"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.set_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.source"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.source()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#module-enhomie.philips.stream">enhomie.philips.stream module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.stream.PhueStream"><code class="docutils literal notranslate"><span class="pre">PhueStream</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.stream.PhueStream.operate_streams"><code class="docutils literal notranslate"><span class="pre">PhueStream.operate_streams()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.stream.PhueStreamItem"><code class="docutils literal notranslate"><span class="pre">PhueStreamItem</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.stream.PhueStreamItem.event"><code class="docutils literal notranslate"><span class="pre">PhueStreamItem.event</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#module-enhomie.philips.surgeon">enhomie.philips.surgeon module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.surgeon.surgeon"><code class="docutils literal notranslate"><span class="pre">surgeon()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#module-enhomie.philips.update">enhomie.philips.update module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.update.PhueUpdate"><code class="docutils literal notranslate"><span class="pre">PhueUpdate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.update.PhueUpdateItem"><code class="docutils literal notranslate"><span class="pre">PhueUpdateItem</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.update.PhueUpdateItem.fetch"><code class="docutils literal notranslate"><span class="pre">PhueUpdateItem.fetch</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.html#module-enhomie.philips">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueButton"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueButton.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueButton.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueButton.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.occur()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueButton.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueButton.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueChange"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueChange.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueChange.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueChange.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueChange.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.validate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueChange.where"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.where()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueContact"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueContact.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueContact.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueContact.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.occur()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueContact.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueContact.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueMotion"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueMotion.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueMotion.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueMotion.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.occur()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueMotion.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueMotion.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueScene"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueScene.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueScene.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueScene.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.occur()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueScene.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.DriverPhueScene.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueAction"><code class="docutils literal notranslate"><span class="pre">PhueAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueAction.execute"><code class="docutils literal notranslate"><span class="pre">PhueAction.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueDevice"><code class="docutils literal notranslate"><span class="pre">PhueDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueDevice.family"><code class="docutils literal notranslate"><span class="pre">PhueDevice.family</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueModels"><code class="docutils literal notranslate"><span class="pre">PhueModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueModels.action"><code class="docutils literal notranslate"><span class="pre">PhueModels.action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueModels.drivers"><code class="docutils literal notranslate"><span class="pre">PhueModels.drivers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueModels.origin"><code class="docutils literal notranslate"><span class="pre">PhueModels.origin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueModels.stream"><code class="docutils literal notranslate"><span class="pre">PhueModels.stream()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueModels.update"><code class="docutils literal notranslate"><span class="pre">PhueModels.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin"><code class="docutils literal notranslate"><span class="pre">PhueOrigin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.bridge"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.bridge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.family"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.fetch"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.fetch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.get_action"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.get_action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.get_stream"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.get_stream()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.get_update"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.get_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.merge"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.merge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.refresh"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.set_action"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.set_action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.set_update"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.set_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueOrigin.source"><code class="docutils literal notranslate"><span class="pre">PhueOrigin.source()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueStream"><code class="docutils literal notranslate"><span class="pre">PhueStream</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueStream.operate_streams"><code class="docutils literal notranslate"><span class="pre">PhueStream.operate_streams()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.html#enhomie.philips.PhueUpdate"><code class="docutils literal notranslate"><span class="pre">PhueUpdate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.ubiquiti.html">enhomie.ubiquiti package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.params.html">enhomie.ubiquiti.params package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.html#module-enhomie.ubiquiti.params.origin">enhomie.ubiquiti.params.origin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.params.html#module-enhomie.ubiquiti.params">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.plugins.html">enhomie.ubiquiti.plugins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#module-enhomie.ubiquiti.plugins.client">enhomie.ubiquiti.plugins.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#module-enhomie.ubiquiti.plugins.helpers">enhomie.ubiquiti.plugins.helpers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.plugins.html#module-enhomie.ubiquiti.plugins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.test.html">enhomie.ubiquiti.test package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.test.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_device">enhomie.ubiquiti.test.test_device module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_models">enhomie.ubiquiti.test.test_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_origin">enhomie.ubiquiti.test.test_origin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_update">enhomie.ubiquiti.test.test_update module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.html#module-enhomie.ubiquiti.device">enhomie.ubiquiti.device module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.device.UbiqDevice"><code class="docutils literal notranslate"><span class="pre">UbiqDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.device.UbiqDevice.family"><code class="docutils literal notranslate"><span class="pre">UbiqDevice.family</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.html#module-enhomie.ubiquiti.helpers">enhomie.ubiquiti.helpers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.helpers.merge_fetch"><code class="docutils literal notranslate"><span class="pre">merge_fetch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.helpers.merge_find"><code class="docutils literal notranslate"><span class="pre">merge_find()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.html#module-enhomie.ubiquiti.models">enhomie.ubiquiti.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.models.UbiqDriverModels"><code class="docutils literal notranslate"><span class="pre">UbiqDriverModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.models.UbiqDriverModels.client"><code class="docutils literal notranslate"><span class="pre">UbiqDriverModels.client()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.models.UbiqModels"><code class="docutils literal notranslate"><span class="pre">UbiqModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.models.UbiqModels.drivers"><code class="docutils literal notranslate"><span class="pre">UbiqModels.drivers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.models.UbiqModels.origin"><code class="docutils literal notranslate"><span class="pre">UbiqModels.origin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.models.UbiqModels.update"><code class="docutils literal notranslate"><span class="pre">UbiqModels.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.html#module-enhomie.ubiquiti.origin">enhomie.ubiquiti.origin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin.family"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin.fetch"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.fetch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin.get_update"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.get_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin.merge"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.merge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin.refresh"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin.router"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.router</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin.set_update"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.set_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin.source"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.source()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.html#module-enhomie.ubiquiti.update">enhomie.ubiquiti.update module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.update.UbiqUpdate"><code class="docutils literal notranslate"><span class="pre">UbiqUpdate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.update.UbiqUpdateItem"><code class="docutils literal notranslate"><span class="pre">UbiqUpdateItem</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.update.UbiqUpdateItem.fetch"><code class="docutils literal notranslate"><span class="pre">UbiqUpdateItem.fetch</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.html#module-enhomie.ubiquiti">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.DriverUbiqClient"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.DriverUbiqClient.family"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.DriverUbiqClient.kinds"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.kinds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.DriverUbiqClient.params"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.DriverUbiqClient.validate"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.validate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.DriverUbiqClient.where"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.where()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqDevice"><code class="docutils literal notranslate"><span class="pre">UbiqDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqDevice.family"><code class="docutils literal notranslate"><span class="pre">UbiqDevice.family</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqModels"><code class="docutils literal notranslate"><span class="pre">UbiqModels</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqModels.drivers"><code class="docutils literal notranslate"><span class="pre">UbiqModels.drivers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqModels.origin"><code class="docutils literal notranslate"><span class="pre">UbiqModels.origin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqModels.update"><code class="docutils literal notranslate"><span class="pre">UbiqModels.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqOrigin"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqOrigin.family"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqOrigin.fetch"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.fetch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqOrigin.get_update"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.get_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqOrigin.merge"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.merge</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqOrigin.refresh"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqOrigin.router"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.router</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqOrigin.set_update"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.set_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqOrigin.source"><code class="docutils literal notranslate"><span class="pre">UbiqOrigin.source()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqUpdate"><code class="docutils literal notranslate"><span class="pre">UbiqUpdate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.utils.html">enhomie.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.utils.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.test.html">enhomie.utils.test package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.test.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.test.html#module-enhomie.utils.test.test_child">enhomie.utils.test.test_child module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.test.html#module-enhomie.utils.test.test_param">enhomie.utils.test.test_param module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.test.html#module-enhomie.utils.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.utils.html#module-enhomie.utils.child">enhomie.utils.child module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.child.InvalidChild"><code class="docutils literal notranslate"><span class="pre">InvalidChild</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.child.InvalidChild.about"><code class="docutils literal notranslate"><span class="pre">InvalidChild.about</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.child.InvalidChild.child"><code class="docutils literal notranslate"><span class="pre">InvalidChild.child</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.child.InvalidChild.phase"><code class="docutils literal notranslate"><span class="pre">InvalidChild.phase</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.utils.html#module-enhomie.utils.param">enhomie.utils.param module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.param.InvalidParam"><code class="docutils literal notranslate"><span class="pre">InvalidParam</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.param.InvalidParam.about"><code class="docutils literal notranslate"><span class="pre">InvalidParam.about</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.param.InvalidParam.child"><code class="docutils literal notranslate"><span class="pre">InvalidParam.child</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.param.InvalidParam.error"><code class="docutils literal notranslate"><span class="pre">InvalidParam.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.param.InvalidParam.param"><code class="docutils literal notranslate"><span class="pre">InvalidParam.param</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.param.InvalidParam.value"><code class="docutils literal notranslate"><span class="pre">InvalidParam.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.utils.html#module-enhomie.utils.raises">enhomie.utils.raises module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.raises.Idempotent"><code class="docutils literal notranslate"><span class="pre">Idempotent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.raises.MultipleSource"><code class="docutils literal notranslate"><span class="pre">MultipleSource</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.raises.UnexpectedCondition"><code class="docutils literal notranslate"><span class="pre">UnexpectedCondition</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.utils.html#module-enhomie.utils.tests">enhomie.utils.tests module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies"><code class="docutils literal notranslate"><span class="pre">TestBodies</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies.moons"><code class="docutils literal notranslate"><span class="pre">TestBodies.moons</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies.planets"><code class="docutils literal notranslate"><span class="pre">TestBodies.planets</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestTimes"><code class="docutils literal notranslate"><span class="pre">TestTimes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestTimes.current"><code class="docutils literal notranslate"><span class="pre">TestTimes.current</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestTimes.final"><code class="docutils literal notranslate"><span class="pre">TestTimes.final</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestTimes.middle"><code class="docutils literal notranslate"><span class="pre">TestTimes.middle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestTimes.start"><code class="docutils literal notranslate"><span class="pre">TestTimes.start</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.utils.html#module-enhomie.utils">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.Idempotent"><code class="docutils literal notranslate"><span class="pre">Idempotent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.InvalidChild"><code class="docutils literal notranslate"><span class="pre">InvalidChild</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.InvalidChild.about"><code class="docutils literal notranslate"><span class="pre">InvalidChild.about</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.InvalidChild.child"><code class="docutils literal notranslate"><span class="pre">InvalidChild.child</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.InvalidChild.phase"><code class="docutils literal notranslate"><span class="pre">InvalidChild.phase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.InvalidParam"><code class="docutils literal notranslate"><span class="pre">InvalidParam</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.InvalidParam.about"><code class="docutils literal notranslate"><span class="pre">InvalidParam.about</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.InvalidParam.child"><code class="docutils literal notranslate"><span class="pre">InvalidParam.child</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.InvalidParam.error"><code class="docutils literal notranslate"><span class="pre">InvalidParam.error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.InvalidParam.param"><code class="docutils literal notranslate"><span class="pre">InvalidParam.param</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.InvalidParam.value"><code class="docutils literal notranslate"><span class="pre">InvalidParam.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.MultipleSource"><code class="docutils literal notranslate"><span class="pre">MultipleSource</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.TestBodies"><code class="docutils literal notranslate"><span class="pre">TestBodies</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.TestBodies.moons"><code class="docutils literal notranslate"><span class="pre">TestBodies.moons</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.TestBodies.planets"><code class="docutils literal notranslate"><span class="pre">TestBodies.planets</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.TestTimes"><code class="docutils literal notranslate"><span class="pre">TestTimes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.TestTimes.current"><code class="docutils literal notranslate"><span class="pre">TestTimes.current</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.TestTimes.final"><code class="docutils literal notranslate"><span class="pre">TestTimes.final</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.TestTimes.middle"><code class="docutils literal notranslate"><span class="pre">TestTimes.middle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.TestTimes.start"><code class="docutils literal notranslate"><span class="pre">TestTimes.start</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.UnexpectedCondition"><code class="docutils literal notranslate"><span class="pre">UnexpectedCondition</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-enhomie.conftest">
+<span id="enhomie-conftest-module"></span><h2>enhomie.conftest module<a class="headerlink" href="#module-enhomie.conftest" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.conftest.bodies">
+<span class="sig-prename descclassname"><span class="pre">enhomie.conftest.</span></span><span class="sig-name descname"><span class="pre">bodies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestBodies" title="enhomie.utils.tests.TestBodies"><span class="pre">TestBodies</span></a></span></span><a class="reference internal" href="_modules/enhomie/conftest.html#bodies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.conftest.bodies" title="Link to this definition"></a></dt>
+<dd><p>Return the simple mapping of what to replace in sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Simple mapping of what to replace in sample.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.conftest.config">
+<span class="sig-prename descclassname"><span class="pre">enhomie.conftest.</span></span><span class="sig-name descname"><span class="pre">config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmp_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><span class="pre">Path</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.config.HomieConfig" title="enhomie.homie.config.HomieConfig"><span class="pre">HomieConfig</span></a></span></span><a class="reference internal" href="_modules/enhomie/conftest.html#config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.conftest.config" title="Link to this definition"></a></dt>
+<dd><p>Construct the instance for use in the downstream tests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tmp_path</strong> – pytest object for temporal filesystem.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Newly constructed instance of related class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.conftest.config_factory">
+<span class="sig-prename descclassname"><span class="pre">enhomie.conftest.</span></span><span class="sig-name descname"><span class="pre">config_factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmp_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><span class="pre">Path</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.config.HomieConfig" title="enhomie.homie.config.HomieConfig"><span class="pre">HomieConfig</span></a></span></span><a class="reference internal" href="_modules/enhomie/conftest.html#config_factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.conftest.config_factory" title="Link to this definition"></a></dt>
+<dd><p>Construct the instance for use in the downstream tests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tmp_path</strong> – pytest object for temporal filesystem.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Newly constructed instance of related class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.conftest.homie">
+<span class="sig-prename descclassname"><span class="pre">enhomie.conftest.</span></span><span class="sig-name descname"><span class="pre">homie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.config.HomieConfig" title="enhomie.homie.config.HomieConfig"><span class="pre">HomieConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">respx_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MockRouter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></span><a class="reference internal" href="_modules/enhomie/conftest.html#homie"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.conftest.homie" title="Link to this definition"></a></dt>
+<dd><p>Construct the instance for use in the downstream tests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – Primary class instance for configuration.</p></li>
+<li><p><strong>respx_mock</strong> – Object for mocking request operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Newly constructed instance of related class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.conftest.homie_factory">
+<span class="sig-prename descclassname"><span class="pre">enhomie.conftest.</span></span><span class="sig-name descname"><span class="pre">homie_factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.config.HomieConfig" title="enhomie.homie.config.HomieConfig"><span class="pre">HomieConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">respx_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MockRouter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></span><a class="reference internal" href="_modules/enhomie/conftest.html#homie_factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.conftest.homie_factory" title="Link to this definition"></a></dt>
+<dd><p>Construct the instance for use in the downstream tests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – Primary class instance for configuration.</p></li>
+<li><p><strong>respx_mock</strong> – Object for mocking request operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Newly constructed instance of related class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.conftest.replaces">
+<span class="sig-prename descclassname"><span class="pre">enhomie.conftest.</span></span><span class="sig-name descname"><span class="pre">replaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmp_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><span class="pre">Path</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/conftest.html#replaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.conftest.replaces" title="Link to this definition"></a></dt>
+<dd><p>Return the complete mapping of what replaced in sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tmp_path</strong> – pytest object for temporal filesystem.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Complete mapping of what replaced in sample.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.conftest.replaces_factory">
+<span class="sig-prename descclassname"><span class="pre">enhomie.conftest.</span></span><span class="sig-name descname"><span class="pre">replaces_factory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/conftest.html#replaces_factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.conftest.replaces_factory" title="Link to this definition"></a></dt>
+<dd><p>Return the complete mapping of what to replace in sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Complete mapping of what to replace in sample.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.conftest.service">
+<span class="sig-prename descclassname"><span class="pre">enhomie.conftest.</span></span><span class="sig-name descname"><span class="pre">service</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">respx_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MockRouter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService" title="enhomie.homie.service.HomieService"><span class="pre">HomieService</span></a></span></span><a class="reference internal" href="_modules/enhomie/conftest.html#service"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.conftest.service" title="Link to this definition"></a></dt>
+<dd><p>Construct the instance for use in the downstream tests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>respx_mock</strong> – Object for mocking request operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Newly constructed instance of related class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.conftest.service_factory">
+<span class="sig-prename descclassname"><span class="pre">enhomie.conftest.</span></span><span class="sig-name descname"><span class="pre">service_factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">respx_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MockRouter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.service.HomieService" title="enhomie.homie.service.HomieService"><span class="pre">HomieService</span></a></span></span><a class="reference internal" href="_modules/enhomie/conftest.html#service_factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.conftest.service_factory" title="Link to this definition"></a></dt>
+<dd><p>Construct the instance for use in the downstream tests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>homie</strong> – Primary class instance for Homie Automate.</p></li>
+<li><p><strong>respx_mock</strong> – Object for mocking request operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Newly constructed instance of related class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.conftest.times">
+<span class="sig-prename descclassname"><span class="pre">enhomie.conftest.</span></span><span class="sig-name descname"><span class="pre">times</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="enhomie.utils.html#enhomie.utils.tests.TestTimes" title="enhomie.utils.tests.TestTimes"><span class="pre">TestTimes</span></a></span></span><a class="reference internal" href="_modules/enhomie/conftest.html#times"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.conftest.times" title="Link to this definition"></a></dt>
+<dd><p>Return the simple mapping of what to replace in sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Simple mapping of what to replace in sample.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-enhomie">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-enhomie" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

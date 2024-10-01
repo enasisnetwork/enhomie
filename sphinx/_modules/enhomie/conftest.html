@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.conftest &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">enhomie.conftest</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for enhomie.conftest</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
+
+<span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
+<span class="sd">is permitted, for more information consult the project license file.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">DictStrAny</span>
+<span class="kn">from</span> <span class="nn">encommon.utils</span> <span class="kn">import</span> <span class="n">save_text</span>
+
+<span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">fixture</span>
+
+<span class="kn">from</span> <span class="nn">respx</span> <span class="kn">import</span> <span class="n">MockRouter</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">EXAMPLES</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">PROJECT</span>
+<span class="kn">from</span> <span class="nn">.homie</span> <span class="kn">import</span> <span class="n">Homie</span>
+<span class="kn">from</span> <span class="nn">.homie</span> <span class="kn">import</span> <span class="n">HomieConfig</span>
+<span class="kn">from</span> <span class="nn">.homie</span> <span class="kn">import</span> <span class="n">HomieService</span>
+<span class="kn">from</span> <span class="nn">.hubitat.test</span> <span class="kn">import</span> <span class="n">mock_hubi</span>
+<span class="kn">from</span> <span class="nn">.philips.test</span> <span class="kn">import</span> <span class="n">mock_phue</span>
+<span class="kn">from</span> <span class="nn">.ubiquiti.test</span> <span class="kn">import</span> <span class="n">mock_ubiq</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">TestBodies</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">TestTimes</span>
+
+
+
+<div class="viewcode-block" id="config_factory">
+<a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.config_factory">[docs]</a>
+<span class="k">def</span> <span class="nf">config_factory</span><span class="p">(</span>
+    <span class="n">tmp_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct the instance for use in the downstream tests.</span>
+
+<span class="sd">    :param tmp_path: pytest object for temporal filesystem.</span>
+<span class="sd">    :returns: Newly constructed instance of related class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">content</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s2">        enconfig:</span>
+<span class="s2">          paths:</span>
+<span class="s2">            - </span><span class="si">{</span><span class="n">EXAMPLES</span><span class="si">}</span>
+<span class="s2">            - </span><span class="si">{</span><span class="n">tmp_path</span><span class="si">}</span><span class="s2">/homie</span>
+
+<span class="s2">        enlogger:</span>
+<span class="s2">          stdo_level: info</span>
+
+<span class="s2">        database: &gt;-</span>
+<span class="s2">            sqlite:///</span><span class="si">{</span><span class="n">tmp_path</span><span class="si">}</span><span class="s2">/db</span>
+
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
+
+    <span class="n">config_path</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">tmp_path</span> <span class="o">/</span> <span class="s1">&#39;config.yml&#39;</span><span class="p">)</span>
+
+    <span class="n">save_text</span><span class="p">(</span>
+        <span class="n">config_path</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+
+    <span class="n">sargs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="n">config_path</span><span class="p">,</span>
+        <span class="s1">&#39;dryrun&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;potent&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;console&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;debug&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;idesire&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;iupdate&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;ihealth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;atimeout&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;utimeout&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;stimeout&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;paction&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;pupdate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;pstream&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;paspire&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;pdesire&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">HomieConfig</span><span class="p">(</span><span class="n">sargs</span><span class="p">)</span></div>
+
+
+
+
+<div class="viewcode-block" id="config">
+<a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.config">[docs]</a>
+<span class="nd">@fixture</span>
+<span class="k">def</span> <span class="nf">config</span><span class="p">(</span>
+    <span class="n">tmp_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct the instance for use in the downstream tests.</span>
+
+<span class="sd">    :param tmp_path: pytest object for temporal filesystem.</span>
+<span class="sd">    :returns: Newly constructed instance of related class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">config_factory</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">)</span></div>
+
+
+
+
+<div class="viewcode-block" id="times">
+<a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.times">[docs]</a>
+<span class="nd">@fixture</span>
+<span class="k">def</span> <span class="nf">times</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">TestTimes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the simple mapping of what to replace in sample.</span>
+
+<span class="sd">    :returns: Simple mapping of what to replace in sample.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">TestTimes</span><span class="p">()</span></div>
+
+
+
+
+<div class="viewcode-block" id="bodies">
+<a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.bodies">[docs]</a>
+<span class="nd">@fixture</span>
+<span class="k">def</span> <span class="nf">bodies</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">TestBodies</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the simple mapping of what to replace in sample.</span>
+
+<span class="sd">    :returns: Simple mapping of what to replace in sample.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">TestBodies</span><span class="p">()</span></div>
+
+
+
+
+<div class="viewcode-block" id="replaces_factory">
+<a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.replaces_factory">[docs]</a>
+<span class="k">def</span> <span class="nf">replaces_factory</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the complete mapping of what to replace in sample.</span>
+
+<span class="sd">    :returns: Complete mapping of what to replace in sample.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">times</span> <span class="o">=</span> <span class="n">TestTimes</span><span class="p">()</span>
+
+    <span class="n">replaces</span> <span class="o">=</span> <span class="p">{</span>
+
+        <span class="s1">&#39;__TIMESTAMP_START__&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">times</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">simple</span><span class="p">),</span>
+
+        <span class="s1">&#39;__TIMESTAMP_MIDDLE__&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">times</span><span class="o">.</span><span class="n">middle</span><span class="o">.</span><span class="n">simple</span><span class="p">),</span>
+
+        <span class="s1">&#39;__TIMESTAMP_FINAL__&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">times</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">simple</span><span class="p">),</span>
+
+        <span class="s1">&#39;__TIMESTAMP_CRRNT__&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">times</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">simple</span><span class="p">),</span>
+
+        <span class="s1">&#39;__UNIXEPOCH_START__&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">times</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">spoch</span><span class="p">),</span>
+
+        <span class="s1">&#39;__UNIXEPOCH_MIDDLE__&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">times</span><span class="o">.</span><span class="n">middle</span><span class="o">.</span><span class="n">spoch</span><span class="p">),</span>
+
+        <span class="s1">&#39;__UNIXEPOCH_FINAL__&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">times</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">spoch</span><span class="p">),</span>
+
+        <span class="s1">&#39;__UNIXEPOCH_CRRNT__&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">times</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">spoch</span><span class="p">)}</span>
+
+    <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">replaces</span><span class="p">)</span></div>
+
+
+
+
+<div class="viewcode-block" id="replaces">
+<a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.replaces">[docs]</a>
+<span class="nd">@fixture</span>
+<span class="k">def</span> <span class="nf">replaces</span><span class="p">(</span>
+    <span class="n">tmp_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the complete mapping of what replaced in sample.</span>
+
+<span class="sd">    :param tmp_path: pytest object for temporal filesystem.</span>
+<span class="sd">    :returns: Complete mapping of what replaced in sample.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">replaces</span> <span class="o">=</span> <span class="n">replaces_factory</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">replaces</span> <span class="o">|</span> <span class="p">{</span>
+        <span class="s1">&#39;PROJECT&#39;</span><span class="p">:</span> <span class="n">PROJECT</span><span class="p">,</span>
+        <span class="s1">&#39;TMPPATH&#39;</span><span class="p">:</span> <span class="n">tmp_path</span><span class="p">}</span></div>
+
+
+
+
+<div class="viewcode-block" id="homie_factory">
+<a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.homie_factory">[docs]</a>
+<span class="k">def</span> <span class="nf">homie_factory</span><span class="p">(</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">HomieConfig</span><span class="p">,</span>
+    <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Homie</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct the instance for use in the downstream tests.</span>
+
+<span class="sd">    :param config: Primary class instance for configuration.</span>
+<span class="sd">    :param respx_mock: Object for mocking request operation.</span>
+<span class="sd">    :returns: Newly constructed instance of related class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">replaces</span> <span class="o">=</span> <span class="n">replaces_factory</span><span class="p">()</span>
+
+    <span class="n">mock_hubi</span><span class="p">(</span><span class="n">respx_mock</span><span class="p">,</span> <span class="n">replaces</span><span class="p">)</span>
+    <span class="n">mock_phue</span><span class="p">(</span><span class="n">respx_mock</span><span class="p">,</span> <span class="n">replaces</span><span class="p">)</span>
+    <span class="n">mock_ubiq</span><span class="p">(</span><span class="n">respx_mock</span><span class="p">,</span> <span class="n">replaces</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Homie</span><span class="p">(</span><span class="n">config</span><span class="p">)</span></div>
+
+
+
+
+<div class="viewcode-block" id="homie">
+<a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.homie">[docs]</a>
+<span class="nd">@fixture</span>
+<span class="k">def</span> <span class="nf">homie</span><span class="p">(</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">HomieConfig</span><span class="p">,</span>
+    <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Homie</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct the instance for use in the downstream tests.</span>
+
+<span class="sd">    :param config: Primary class instance for configuration.</span>
+<span class="sd">    :param respx_mock: Object for mocking request operation.</span>
+<span class="sd">    :returns: Newly constructed instance of related class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">homie_factory</span><span class="p">(</span>
+        <span class="n">config</span><span class="p">,</span> <span class="n">respx_mock</span><span class="p">)</span></div>
+
+
+
+
+<div class="viewcode-block" id="service_factory">
+<a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.service_factory">[docs]</a>
+<span class="k">def</span> <span class="nf">service_factory</span><span class="p">(</span>
+    <span class="n">homie</span><span class="p">:</span> <span class="n">Homie</span><span class="p">,</span>
+    <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieService</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct the instance for use in the downstream tests.</span>
+
+<span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
+<span class="sd">    :param respx_mock: Object for mocking request operation.</span>
+<span class="sd">    :returns: Newly constructed instance of related class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">HomieService</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span></div>
+
+
+
+
+<div class="viewcode-block" id="service">
+<a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.service">[docs]</a>
+<span class="nd">@fixture</span>
+<span class="k">def</span> <span class="nf">service</span><span class="p">(</span>
+    <span class="n">homie</span><span class="p">:</span> <span class="n">Homie</span><span class="p">,</span>
+    <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieService</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct the instance for use in the downstream tests.</span>
+
+<span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
+<span class="sd">    :param respx_mock: Object for mocking request operation.</span>
+<span class="sd">    :returns: Newly constructed instance of related class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">service_factory</span><span class="p">(</span>
+        <span class="n">homie</span><span class="p">,</span> <span class="n">respx_mock</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

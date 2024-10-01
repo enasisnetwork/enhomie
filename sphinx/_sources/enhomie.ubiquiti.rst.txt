@@ -1,0 +1,63 @@
+enhomie.ubiquiti package
+========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   enhomie.ubiquiti.params
+   enhomie.ubiquiti.plugins
+   enhomie.ubiquiti.test
+
+Submodules
+----------
+
+enhomie.ubiquiti.device module
+------------------------------
+
+.. automodule:: enhomie.ubiquiti.device
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.ubiquiti.helpers module
+-------------------------------
+
+.. automodule:: enhomie.ubiquiti.helpers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.ubiquiti.models module
+------------------------------
+
+.. automodule:: enhomie.ubiquiti.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.ubiquiti.origin module
+------------------------------
+
+.. automodule:: enhomie.ubiquiti.origin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.ubiquiti.update module
+------------------------------
+
+.. automodule:: enhomie.ubiquiti.update
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.ubiquiti
+   :members:
+   :undoc-members:
+   :show-inheritance:

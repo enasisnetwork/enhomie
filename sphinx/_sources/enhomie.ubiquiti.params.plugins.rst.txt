@@ -1,0 +1,21 @@
+enhomie.ubiquiti.params.plugins package
+=======================================
+
+Submodules
+----------
+
+enhomie.ubiquiti.params.plugins.client module
+---------------------------------------------
+
+.. automodule:: enhomie.ubiquiti.params.plugins.client
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.ubiquiti.params.plugins
+   :members:
+   :undoc-members:
+   :show-inheritance:

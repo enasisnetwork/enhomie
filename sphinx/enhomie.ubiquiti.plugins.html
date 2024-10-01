@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.ubiquiti.plugins package &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">enhomie.ubiquiti.plugins package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-enhomie.ubiquiti.plugins.client">enhomie.ubiquiti.plugins.client module</a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient.family"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient.kinds"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient.params"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient.validate"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient.where"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.ubiquiti.plugins.helpers">enhomie.ubiquiti.plugins.helpers module</a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.helpers.ubiq_latest"><code class="docutils literal notranslate"><span class="pre">ubiq_latest()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.ubiquiti.plugins">Module contents</a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.DriverUbiqClient"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.DriverUbiqClient.family"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.DriverUbiqClient.kinds"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.DriverUbiqClient.params"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.DriverUbiqClient.validate"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.ubiquiti.plugins.DriverUbiqClient.where"><code class="docutils literal notranslate"><span class="pre">DriverUbiqClient.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">enhomie.ubiquiti.plugins package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enhomie.ubiquiti.plugins.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enhomie-ubiquiti-plugins-package">
+<h1>enhomie.ubiquiti.plugins package<a class="headerlink" href="#enhomie-ubiquiti-plugins-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html">enhomie.ubiquiti.plugins.test package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#module-enhomie.ubiquiti.plugins.test.test_client">enhomie.ubiquiti.plugins.test.test_client module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#enhomie.ubiquiti.plugins.test.test_client.test_DriverUbiqClient"><code class="docutils literal notranslate"><span class="pre">test_DriverUbiqClient()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#enhomie.ubiquiti.plugins.test.test_client.test_DriverUbiqClient_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverUbiqClient_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#module-enhomie.ubiquiti.plugins.test.test_helpers">enhomie.ubiquiti.plugins.test.test_helpers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#enhomie.ubiquiti.plugins.test.test_helpers.test_ubiq_latest"><code class="docutils literal notranslate"><span class="pre">test_ubiq_latest()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.ubiquiti.plugins.test.html#module-enhomie.ubiquiti.plugins.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-enhomie.ubiquiti.plugins.client">
+<span id="enhomie-ubiquiti-plugins-client-module"></span><h2>enhomie.ubiquiti.plugins.client module<a class="headerlink" href="#module-enhomie.ubiquiti.plugins.client" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.client.DriverUbiqClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.plugins.client.</span></span><span class="sig-name descname"><span class="pre">DriverUbiqClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/ubiquiti/plugins/client.html#DriverUbiqClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.client.DriverUbiqClient.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ubiquiti'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.client.DriverUbiqClient.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.client.DriverUbiqClient.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.DriverUbiqClientParams" title="enhomie.ubiquiti.params.DriverUbiqClientParams"><span class="pre">DriverUbiqClientParams</span></a></em><a class="headerlink" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.client.DriverUbiqClient.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/plugins/client.html#DriverUbiqClient.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.client.DriverUbiqClient.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/plugins/client.html#DriverUbiqClient.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.plugins.client.DriverUbiqClient.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.ubiquiti.plugins.helpers">
+<span id="enhomie-ubiquiti-plugins-helpers-module"></span><h2>enhomie.ubiquiti.plugins.helpers module<a class="headerlink" href="#module-enhomie.ubiquiti.plugins.helpers" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.helpers.ubiq_latest">
+<span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.plugins.helpers.</span></span><span class="sig-name descname"><span class="pre">ubiq_latest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UbiqFetch</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/plugins/helpers.html#ubiq_latest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.plugins.helpers.ubiq_latest" title="Link to this definition"></a></dt>
+<dd><p>Return the timestamp for client association with router.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> – Content which will be shown after header.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Timestamp for client association with router.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-enhomie.ubiquiti.plugins">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-enhomie.ubiquiti.plugins" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.DriverUbiqClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.plugins.</span></span><span class="sig-name descname"><span class="pre">DriverUbiqClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/ubiquiti/plugins/client.html#DriverUbiqClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.plugins.DriverUbiqClient" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.DriverUbiqClient.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'ubiquiti'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.plugins.DriverUbiqClient.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.DriverUbiqClient.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.ubiquiti.plugins.DriverUbiqClient.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.DriverUbiqClient.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.DriverUbiqClientParams" title="enhomie.ubiquiti.params.DriverUbiqClientParams"><span class="pre">DriverUbiqClientParams</span></a></em><a class="headerlink" href="#enhomie.ubiquiti.plugins.DriverUbiqClient.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.DriverUbiqClient.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/plugins/client.html#DriverUbiqClient.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.plugins.DriverUbiqClient.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.ubiquiti.plugins.DriverUbiqClient.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/plugins/client.html#DriverUbiqClient.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.plugins.DriverUbiqClient.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+enhomie.philips package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   enhomie.philips.params
+   enhomie.philips.plugins
+   enhomie.philips.test
+
+Submodules
+----------
+
+enhomie.philips.action module
+-----------------------------
+
+.. automodule:: enhomie.philips.action
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.device module
+-----------------------------
+
+.. automodule:: enhomie.philips.device
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.helpers module
+------------------------------
+
+.. automodule:: enhomie.philips.helpers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.models module
+-----------------------------
+
+.. automodule:: enhomie.philips.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.origin module
+-----------------------------
+
+.. automodule:: enhomie.philips.origin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.stream module
+-----------------------------
+
+.. automodule:: enhomie.philips.stream
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.surgeon module
+------------------------------
+
+.. automodule:: enhomie.philips.surgeon
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.update module
+-----------------------------
+
+.. automodule:: enhomie.philips.update
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.philips
+   :members:
+   :undoc-members:
+   :show-inheritance:

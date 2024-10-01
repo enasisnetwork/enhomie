@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.philips.plugins.test.test_change &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">enhomie.philips.plugins.test.test_change</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for enhomie.philips.plugins.test.test_change</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
+
+<span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
+<span class="sd">is permitted, for more information consult the project license file.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">inrepr</span>
+<span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">instr</span>
+<span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">lattrs</span>
+<span class="kn">from</span> <span class="nn">encommon.utils</span> <span class="kn">import</span> <span class="n">save_text</span>
+
+<span class="kn">from</span> <span class="nn">respx</span> <span class="kn">import</span> <span class="n">MockRouter</span>
+
+<span class="kn">from</span> <span class="nn">..change</span> <span class="kn">import</span> <span class="n">DriverPhueChange</span>
+<span class="kn">from</span> <span class="nn">....conftest</span> <span class="kn">import</span> <span class="n">config_factory</span>
+<span class="kn">from</span> <span class="nn">....conftest</span> <span class="kn">import</span> <span class="n">homie_factory</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">....homie</span> <span class="kn">import</span> <span class="n">Homie</span>
+    <span class="kn">from</span> <span class="nn">....utils</span> <span class="kn">import</span> <span class="n">TestBodies</span>
+    <span class="kn">from</span> <span class="nn">....utils</span> <span class="kn">import</span> <span class="n">TestTimes</span>
+
+
+
+<div class="viewcode-block" id="test_DriverPhueChange">
+<a class="viewcode-back" href="../../../../../enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_change.test_DriverPhueChange">[docs]</a>
+<span class="k">def</span> <span class="nf">test_DriverPhueChange</span><span class="p">(</span>
+    <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
+    <span class="n">bodies</span><span class="p">:</span> <span class="s1">&#39;TestBodies&#39;</span><span class="p">,</span>
+    <span class="n">times</span><span class="p">:</span> <span class="s1">&#39;TestTimes&#39;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform various tests associated with relevant routines.</span>
+
+<span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
+<span class="sd">    :param bodies: Locations and groups for use in testing.</span>
+<span class="sd">    :param times: Times that are used with tests in project.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
+    <span class="n">desires</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">desires</span>
+
+
+    <span class="k">assert</span> <span class="n">homie</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+
+    <span class="n">planets</span> <span class="o">=</span> <span class="n">bodies</span><span class="o">.</span><span class="n">planets</span>
+
+    <span class="n">family</span> <span class="o">=</span> <span class="s1">&#39;philips&#39;</span>
+
+    <span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+
+        <span class="n">desire</span> <span class="o">=</span> <span class="n">desires</span><span class="p">[</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_active&#39;</span><span class="p">]</span>
+
+        <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">driver</span><span class="p">,</span> <span class="n">DriverPhueChange</span><span class="p">)</span>
+
+
+        <span class="n">attrs</span> <span class="o">=</span> <span class="n">lattrs</span><span class="p">(</span><span class="n">driver</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">attrs</span> <span class="o">==</span> <span class="p">[</span>
+            <span class="s1">&#39;_HomieDriver__plugin&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;_HomieDriver__params&#39;</span><span class="p">]</span>
+
+
+        <span class="k">assert</span> <span class="n">inrepr</span><span class="p">(</span>
+            <span class="s1">&#39;change.DriverPhueChange&#39;</span><span class="p">,</span>
+            <span class="n">driver</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="nb">hash</span><span class="p">(</span><span class="n">driver</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">instr</span><span class="p">(</span>
+            <span class="s1">&#39;change.DriverPhueChange&#39;</span><span class="p">,</span>
+            <span class="n">driver</span><span class="p">)</span>
+
+
+        <span class="n">driver</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+
+        <span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">plugin</span>
+
+        <span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">family</span> <span class="o">==</span> <span class="n">family</span>
+
+        <span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">kinds</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;where&#39;</span><span class="p">]</span>
+
+        <span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">params</span>
+
+
+        <span class="n">time</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">current</span>
+
+        <span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">time</span><span class="p">)</span></div>
+
+
+
+
+<div class="viewcode-block" id="test_DriverPhueChange_cover">
+<a class="viewcode-back" href="../../../../../enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_change.test_DriverPhueChange_cover">[docs]</a>
+<span class="k">def</span> <span class="nf">test_DriverPhueChange_cover</span><span class="p">(</span>
+    <span class="n">tmp_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
+    <span class="n">times</span><span class="p">:</span> <span class="s1">&#39;TestTimes&#39;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform various tests associated with relevant routines.</span>
+
+<span class="sd">    :param tmp_path: pytest object for temporal filesystem.</span>
+<span class="sd">    :param respx_mock: Object for mocking request operation.</span>
+<span class="sd">    :param times: Times that are used with tests in project.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">samples</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">tmp_path</span> <span class="o">/</span> <span class="s1">&#39;homie&#39;</span><span class="p">)</span>
+
+    <span class="n">samples</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+
+    <span class="n">save_text</span><span class="p">(</span>
+        <span class="n">samples</span> <span class="o">/</span> <span class="s1">&#39;test.yml&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        devices:</span>
+<span class="sd">         jupiter_nexist:</span>
+<span class="sd">          origin: jupiter_philips</span>
+<span class="sd">          label: Not exists</span>
+<span class="sd">         neptune_nexist:</span>
+<span class="sd">          origin: neptune_philips</span>
+<span class="sd">          label: Not exists</span>
+<span class="sd">        desires:</span>
+<span class="sd">         pytest:</span>
+<span class="sd">          groups:</span>
+<span class="sd">          - ganymede</span>
+<span class="sd">          - halimede</span>
+<span class="sd">          wheres:</span>
+<span class="sd">          - philips_change:</span>
+<span class="sd">             devices:</span>
+<span class="sd">             - jupiter_button</span>
+<span class="sd">             - neptune_button</span>
+<span class="sd">             since: 900</span>
+<span class="sd">          - philips_change:</span>
+<span class="sd">             devices:</span>
+<span class="sd">             - jupiter_nexist</span>
+<span class="sd">             - neptune_nexist</span>
+<span class="sd">        &quot;&quot;&quot;</span><span class="p">)</span>  <span class="c1"># noqa: LIT003</span>
+
+    <span class="n">homie</span> <span class="o">=</span> <span class="n">homie_factory</span><span class="p">(</span>
+        <span class="n">config_factory</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">),</span>
+        <span class="n">respx_mock</span><span class="o">=</span><span class="n">respx_mock</span><span class="p">)</span>
+
+
+    <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
+
+    <span class="n">desire</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">childs</span><span class="o">.</span><span class="n">desires</span>
+        <span class="p">[</span><span class="s1">&#39;pytest&#39;</span><span class="p">])</span>
+
+
+    <span class="k">assert</span> <span class="n">homie</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+
+    <span class="n">time</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">current</span>
+
+    <span class="n">wheres</span> <span class="o">=</span> <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span>
+
+    <span class="k">for</span> <span class="n">where</span> <span class="ow">in</span> <span class="n">wheres</span><span class="p">:</span>
+
+        <span class="p">(</span><span class="n">where</span><span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+         <span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">time</span><span class="p">))</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

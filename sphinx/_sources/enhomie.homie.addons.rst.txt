@@ -1,0 +1,61 @@
+enhomie.homie.addons package
+============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   enhomie.homie.addons.test
+
+Submodules
+----------
+
+enhomie.homie.addons.aspired module
+-----------------------------------
+
+.. automodule:: enhomie.homie.addons.aspired
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.addons.desired module
+-----------------------------------
+
+.. automodule:: enhomie.homie.addons.desired
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.addons.logger module
+----------------------------------
+
+.. automodule:: enhomie.homie.addons.logger
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.addons.persist module
+-----------------------------------
+
+.. automodule:: enhomie.homie.addons.persist
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.addons.queue module
+---------------------------------
+
+.. automodule:: enhomie.homie.addons.queue
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.homie.addons
+   :members:
+   :undoc-members:
+   :show-inheritance:

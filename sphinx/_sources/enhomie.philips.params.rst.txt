@@ -1,0 +1,29 @@
+enhomie.philips.params package
+==============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   enhomie.philips.params.plugins
+
+Submodules
+----------
+
+enhomie.philips.params.origin module
+------------------------------------
+
+.. automodule:: enhomie.philips.params.origin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.philips.params
+   :members:
+   :undoc-members:
+   :show-inheritance:

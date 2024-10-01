@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.philips.plugins package &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">enhomie.philips.plugins package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.button">enhomie.philips.plugins.button module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.button.DriverPhueButton"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.button.DriverPhueButton.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.button.DriverPhueButton.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.button.DriverPhueButton.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.button.DriverPhueButton.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.button.DriverPhueButton.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.change">enhomie.philips.plugins.change module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.change.DriverPhueChange"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.change.DriverPhueChange.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.change.DriverPhueChange.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.change.DriverPhueChange.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.change.DriverPhueChange.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.change.DriverPhueChange.where"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.where()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.contact">enhomie.philips.plugins.contact module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.contact.DriverPhueContact"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.contact.DriverPhueContact.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.contact.DriverPhueContact.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.contact.DriverPhueContact.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.contact.DriverPhueContact.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.contact.DriverPhueContact.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.helpers">enhomie.philips.plugins.helpers module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.helpers.phue_changed"><code class="docutils literal notranslate"><span class="pre">phue_changed()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.helpers.phue_sensors"><code class="docutils literal notranslate"><span class="pre">phue_sensors()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.motion">enhomie.philips.plugins.motion module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.motion.DriverPhueMotion"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.motion.DriverPhueMotion.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.motion.DriverPhueMotion.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.motion.DriverPhueMotion.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.motion.DriverPhueMotion.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.motion.DriverPhueMotion.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins.scene">enhomie.philips.plugins.scene module</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.scene.DriverPhueScene"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.scene.DriverPhueScene.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.scene.DriverPhueScene.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.scene.DriverPhueScene.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.scene.DriverPhueScene.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.scene.DriverPhueScene.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.philips.plugins">Module contents</a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueButton"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueButton.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueButton.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueButton.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueButton.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueButton.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueButton.validate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueChange"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueChange.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueChange.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueChange.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueChange.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.validate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueChange.where"><code class="docutils literal notranslate"><span class="pre">DriverPhueChange.where()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueContact"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueContact.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueContact.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueContact.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueContact.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueContact.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueContact.validate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueMotion"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueMotion.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueMotion.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueMotion.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueMotion.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueMotion.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueMotion.validate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueScene"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueScene.family"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.family</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueScene.kinds"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.kinds</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueScene.occur"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.occur()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueScene.params"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.params</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.philips.plugins.DriverPhueScene.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">enhomie.philips.plugins package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enhomie.philips.plugins.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enhomie-philips-plugins-package">
+<h1>enhomie.philips.plugins package<a class="headerlink" href="#enhomie-philips-plugins-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.philips.plugins.test.html">enhomie.philips.plugins.test package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.plugins.test.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_button">enhomie.philips.plugins.test.test_button module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_button.test_DriverPhueButton"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueButton()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_button.test_DriverPhueButton_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueButton_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_change">enhomie.philips.plugins.test.test_change module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_change.test_DriverPhueChange"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueChange()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_change.test_DriverPhueChange_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueChange_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_contact">enhomie.philips.plugins.test.test_contact module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_contact.test_DriverPhueContact"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueContact()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_contact.test_DriverPhueContact_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueContact_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_helpers">enhomie.philips.plugins.test.test_helpers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_helpers.test_phue_changed"><code class="docutils literal notranslate"><span class="pre">test_phue_changed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_helpers.test_phue_sensors"><code class="docutils literal notranslate"><span class="pre">test_phue_sensors()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_motion">enhomie.philips.plugins.test.test_motion module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_motion.test_DriverPhueMotion"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueMotion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_motion.test_DriverPhueMotion_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueMotion_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_scene">enhomie.philips.plugins.test.test_scene module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_scene.test_DriverPhueScene"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueScene()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_scene.test_DriverPhueScene_cover"><code class="docutils literal notranslate"><span class="pre">test_DriverPhueScene_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-enhomie.philips.plugins.button">
+<span id="enhomie-philips-plugins-button-module"></span><h2>enhomie.philips.plugins.button module<a class="headerlink" href="#module-enhomie.philips.plugins.button" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.button.DriverPhueButton">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.button.</span></span><span class="sig-name descname"><span class="pre">DriverPhueButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/philips/plugins/button.html#DriverPhueButton"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.button.DriverPhueButton" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.button.DriverPhueButton.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'philips'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.button.DriverPhueButton.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.button.DriverPhueButton.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.button.DriverPhueButton.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.button.DriverPhueButton.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/button.html#DriverPhueButton.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.button.DriverPhueButton.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.button.DriverPhueButton.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueButtonParams" title="enhomie.philips.params.DriverPhueButtonParams"><span class="pre">DriverPhueButtonParams</span></a></em><a class="headerlink" href="#enhomie.philips.plugins.button.DriverPhueButton.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.button.DriverPhueButton.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/button.html#DriverPhueButton.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.button.DriverPhueButton.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.change">
+<span id="enhomie-philips-plugins-change-module"></span><h2>enhomie.philips.plugins.change module<a class="headerlink" href="#module-enhomie.philips.plugins.change" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.change.DriverPhueChange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.change.</span></span><span class="sig-name descname"><span class="pre">DriverPhueChange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/philips/plugins/change.html#DriverPhueChange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.change.DriverPhueChange" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.change.DriverPhueChange.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'philips'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.change.DriverPhueChange.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.change.DriverPhueChange.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.change.DriverPhueChange.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.change.DriverPhueChange.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueChangeParams" title="enhomie.philips.params.DriverPhueChangeParams"><span class="pre">DriverPhueChangeParams</span></a></em><a class="headerlink" href="#enhomie.philips.plugins.change.DriverPhueChange.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.change.DriverPhueChange.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/change.html#DriverPhueChange.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.change.DriverPhueChange.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.change.DriverPhueChange.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/change.html#DriverPhueChange.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.change.DriverPhueChange.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.contact">
+<span id="enhomie-philips-plugins-contact-module"></span><h2>enhomie.philips.plugins.contact module<a class="headerlink" href="#module-enhomie.philips.plugins.contact" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.contact.DriverPhueContact">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.contact.</span></span><span class="sig-name descname"><span class="pre">DriverPhueContact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/philips/plugins/contact.html#DriverPhueContact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.contact.DriverPhueContact" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.contact.DriverPhueContact.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'philips'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.contact.DriverPhueContact.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.contact.DriverPhueContact.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.contact.DriverPhueContact.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.contact.DriverPhueContact.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/contact.html#DriverPhueContact.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.contact.DriverPhueContact.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.contact.DriverPhueContact.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueContactParams" title="enhomie.philips.params.DriverPhueContactParams"><span class="pre">DriverPhueContactParams</span></a></em><a class="headerlink" href="#enhomie.philips.plugins.contact.DriverPhueContact.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.contact.DriverPhueContact.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/contact.html#DriverPhueContact.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.contact.DriverPhueContact.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.helpers">
+<span id="enhomie-philips-plugins-helpers-module"></span><h2>enhomie.philips.plugins.helpers module<a class="headerlink" href="#module-enhomie.philips.plugins.helpers" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.helpers.phue_changed">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.helpers.</span></span><span class="sig-name descname"><span class="pre">phue_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PhueFetch</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/helpers.html#phue_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.helpers.phue_changed" title="Link to this definition"></a></dt>
+<dd><p>Return the timestamp for the services that have changed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> – Content which will be shown after header.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Timestamp for the services that have changed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.helpers.phue_sensors">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.helpers.</span></span><span class="sig-name descname"><span class="pre">phue_sensors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PhueFetch</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/helpers.html#phue_sensors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.helpers.phue_sensors" title="Link to this definition"></a></dt>
+<dd><p>Return the unique identifier for services on the device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> – Content which will be shown after header.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Timestamp for the services that have changed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.motion">
+<span id="enhomie-philips-plugins-motion-module"></span><h2>enhomie.philips.plugins.motion module<a class="headerlink" href="#module-enhomie.philips.plugins.motion" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.motion.DriverPhueMotion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.motion.</span></span><span class="sig-name descname"><span class="pre">DriverPhueMotion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/philips/plugins/motion.html#DriverPhueMotion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.motion.DriverPhueMotion" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.motion.DriverPhueMotion.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'philips'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.motion.DriverPhueMotion.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.motion.DriverPhueMotion.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.motion.DriverPhueMotion.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.motion.DriverPhueMotion.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/motion.html#DriverPhueMotion.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.motion.DriverPhueMotion.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.motion.DriverPhueMotion.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueMotionParams" title="enhomie.philips.params.DriverPhueMotionParams"><span class="pre">DriverPhueMotionParams</span></a></em><a class="headerlink" href="#enhomie.philips.plugins.motion.DriverPhueMotion.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.motion.DriverPhueMotion.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/motion.html#DriverPhueMotion.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.motion.DriverPhueMotion.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins.scene">
+<span id="enhomie-philips-plugins-scene-module"></span><h2>enhomie.philips.plugins.scene module<a class="headerlink" href="#module-enhomie.philips.plugins.scene" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.scene.DriverPhueScene">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.scene.</span></span><span class="sig-name descname"><span class="pre">DriverPhueScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/philips/plugins/scene.html#DriverPhueScene"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.scene.DriverPhueScene" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.scene.DriverPhueScene.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'philips'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.scene.DriverPhueScene.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.scene.DriverPhueScene.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.scene.DriverPhueScene.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.scene.DriverPhueScene.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/scene.html#DriverPhueScene.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.scene.DriverPhueScene.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.scene.DriverPhueScene.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueSceneParams" title="enhomie.philips.params.DriverPhueSceneParams"><span class="pre">DriverPhueSceneParams</span></a></em><a class="headerlink" href="#enhomie.philips.plugins.scene.DriverPhueScene.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.scene.DriverPhueScene.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/scene.html#DriverPhueScene.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.scene.DriverPhueScene.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.philips.plugins">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-enhomie.philips.plugins" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueButton">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.</span></span><span class="sig-name descname"><span class="pre">DriverPhueButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/philips/plugins/button.html#DriverPhueButton"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueButton" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueButton.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'philips'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueButton.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueButton.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueButton.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueButton.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/button.html#DriverPhueButton.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueButton.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueButton.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueButtonParams" title="enhomie.philips.params.DriverPhueButtonParams"><span class="pre">DriverPhueButtonParams</span></a></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueButton.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueButton.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/button.html#DriverPhueButton.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueButton.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueChange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.</span></span><span class="sig-name descname"><span class="pre">DriverPhueChange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/philips/plugins/change.html#DriverPhueChange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueChange" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueChange.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'philips'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueChange.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueChange.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueChange.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueChange.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueChangeParams" title="enhomie.philips.params.DriverPhueChangeParams"><span class="pre">DriverPhueChangeParams</span></a></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueChange.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueChange.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/change.html#DriverPhueChange.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueChange.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueChange.where">
+<span class="sig-name descname"><span class="pre">where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.19.2)"><span class="pre">Time</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/change.html#DriverPhueChange.where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueChange.where" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time</strong> – Time that will be used in the conditionals.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueContact">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.</span></span><span class="sig-name descname"><span class="pre">DriverPhueContact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/philips/plugins/contact.html#DriverPhueContact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueContact" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueContact.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'philips'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueContact.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueContact.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueContact.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueContact.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/contact.html#DriverPhueContact.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueContact.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueContact.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueContactParams" title="enhomie.philips.params.DriverPhueContactParams"><span class="pre">DriverPhueContactParams</span></a></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueContact.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueContact.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/contact.html#DriverPhueContact.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueContact.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueMotion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.</span></span><span class="sig-name descname"><span class="pre">DriverPhueMotion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/philips/plugins/motion.html#DriverPhueMotion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueMotion" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueMotion.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'philips'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueMotion.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueMotion.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueMotion.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueMotion.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/motion.html#DriverPhueMotion.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueMotion.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueMotion.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueMotionParams" title="enhomie.philips.params.DriverPhueMotionParams"><span class="pre">DriverPhueMotionParams</span></a></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueMotion.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueMotion.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/motion.html#DriverPhueMotion.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueMotion.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueScene">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.</span></span><span class="sig-name descname"><span class="pre">DriverPhueScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plugin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin" title="enhomie.homie.plugins.plugin.HomiePlugin"><span class="pre">HomiePlugin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><span class="pre">HomieParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/philips/plugins/scene.html#DriverPhueScene"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueScene" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver" title="enhomie.homie.plugins.driver.HomieDriver"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieDriver</span></code></a></p>
+<p>Match specific conditions for determining desired state.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueScene.family">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">family</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.12)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'philips'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueScene.family" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueScene.kinds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">HomiePluginKinds</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueScene.kinds" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueScene.occur">
+<span class="sig-name descname"><span class="pre">occur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/scene.html#DriverPhueScene.occur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueScene.occur" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating the conditional outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sitem</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating the conditional outcomes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueScene.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueSceneParams" title="enhomie.philips.params.DriverPhueSceneParams"><span class="pre">DriverPhueSceneParams</span></a></em><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueScene.params" title="Link to this definition"></a></dt>
+<dd><p>Return the Pydantic model containing the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pydantic model containing the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.DriverPhueScene.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/scene.html#DriverPhueScene.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.DriverPhueScene.validate" title="Link to this definition"></a></dt>
+<dd><p>Perform advanced validation on the parameters provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

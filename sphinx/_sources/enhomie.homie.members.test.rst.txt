@@ -1,0 +1,45 @@
+enhomie.homie.members.test package
+==================================
+
+Submodules
+----------
+
+enhomie.homie.members.test.test\_actions module
+-----------------------------------------------
+
+.. automodule:: enhomie.homie.members.test.test_actions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.members.test.test\_member module
+----------------------------------------------
+
+.. automodule:: enhomie.homie.members.test.test_member
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.members.test.test\_streams module
+-----------------------------------------------
+
+.. automodule:: enhomie.homie.members.test.test_streams
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.members.test.test\_updates module
+-----------------------------------------------
+
+.. automodule:: enhomie.homie.members.test.test_updates
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.homie.members.test
+   :members:
+   :undoc-members:
+   :show-inheritance:

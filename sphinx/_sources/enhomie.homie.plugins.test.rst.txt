@@ -1,0 +1,45 @@
+enhomie.homie.plugins.test package
+==================================
+
+Submodules
+----------
+
+enhomie.homie.plugins.test.test\_driver module
+----------------------------------------------
+
+.. automodule:: enhomie.homie.plugins.test.test_driver
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.plugins.test.test\_occur module
+---------------------------------------------
+
+.. automodule:: enhomie.homie.plugins.test.test_occur
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.plugins.test.test\_plugin module
+----------------------------------------------
+
+.. automodule:: enhomie.homie.plugins.test.test_plugin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.plugins.test.test\_where module
+---------------------------------------------
+
+.. automodule:: enhomie.homie.plugins.test.test_where
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.homie.plugins.test
+   :members:
+   :undoc-members:
+   :show-inheritance:

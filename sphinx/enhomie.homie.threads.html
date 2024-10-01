@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>enhomie.homie.threads package &mdash; enhomie  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            enhomie
+          </a>
+              <div class="version">
+                0.12.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">enhomie.homie.threads package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-enhomie.homie.threads.action">enhomie.homie.threads.action module</a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.action.HomieAction"><code class="docutils literal notranslate"><span class="pre">HomieAction</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.action.HomieAction.execute"><code class="docutils literal notranslate"><span class="pre">HomieAction.execute()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.action.HomieAction.operate"><code class="docutils literal notranslate"><span class="pre">HomieAction.operate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.action.HomieActionItem"><code class="docutils literal notranslate"><span class="pre">HomieActionItem</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.action.HomieActionItem.color"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.color</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.action.HomieActionItem.device"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.device</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.action.HomieActionItem.group"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.group</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.action.HomieActionItem.level"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.level</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.action.HomieActionItem.scene"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.scene</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.action.HomieActionItem.state"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.state</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.homie.threads.stream">enhomie.homie.threads.stream module</a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.stream.HomieStream"><code class="docutils literal notranslate"><span class="pre">HomieStream</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.stream.HomieStream.operate"><code class="docutils literal notranslate"><span class="pre">HomieStream.operate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.stream.HomieStream.operate_streams"><code class="docutils literal notranslate"><span class="pre">HomieStream.operate_streams()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.stream.HomieStreamItem"><code class="docutils literal notranslate"><span class="pre">HomieStreamItem</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.stream.HomieStreamItem.event"><code class="docutils literal notranslate"><span class="pre">HomieStreamItem.event</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.homie.threads.thread">enhomie.homie.threads.thread module</a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread"><code class="docutils literal notranslate"><span class="pre">HomieThread</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.aqueue"><code class="docutils literal notranslate"><span class="pre">HomieThread.aqueue</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.congest"><code class="docutils literal notranslate"><span class="pre">HomieThread.congest</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.enqueue"><code class="docutils literal notranslate"><span class="pre">HomieThread.enqueue</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.expired"><code class="docutils literal notranslate"><span class="pre">HomieThread.expired()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.homie"><code class="docutils literal notranslate"><span class="pre">HomieThread.homie</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.member"><code class="docutils literal notranslate"><span class="pre">HomieThread.member</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.operate"><code class="docutils literal notranslate"><span class="pre">HomieThread.operate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.operate_updates"><code class="docutils literal notranslate"><span class="pre">HomieThread.operate_updates()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.origin"><code class="docutils literal notranslate"><span class="pre">HomieThread.origin</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.run"><code class="docutils literal notranslate"><span class="pre">HomieThread.run()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.squeue"><code class="docutils literal notranslate"><span class="pre">HomieThread.squeue</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.stop"><code class="docutils literal notranslate"><span class="pre">HomieThread.stop()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread.uqueue"><code class="docutils literal notranslate"><span class="pre">HomieThread.uqueue</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThreadItem"><code class="docutils literal notranslate"><span class="pre">HomieThreadItem</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThreadItem.origin"><code class="docutils literal notranslate"><span class="pre">HomieThreadItem.origin</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.homie.threads.update">enhomie.homie.threads.update module</a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.update.HomieUpdate"><code class="docutils literal notranslate"><span class="pre">HomieUpdate</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.update.HomieUpdate.operate"><code class="docutils literal notranslate"><span class="pre">HomieUpdate.operate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.update.HomieUpdate.operate_updates"><code class="docutils literal notranslate"><span class="pre">HomieUpdate.operate_updates()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.update.HomieUpdateItem"><code class="docutils literal notranslate"><span class="pre">HomieUpdateItem</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-enhomie.homie.threads">Module contents</a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieAction"><code class="docutils literal notranslate"><span class="pre">HomieAction</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieAction.execute"><code class="docutils literal notranslate"><span class="pre">HomieAction.execute()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieAction.operate"><code class="docutils literal notranslate"><span class="pre">HomieAction.operate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieActionItem"><code class="docutils literal notranslate"><span class="pre">HomieActionItem</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieActionItem.color"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.color</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieActionItem.device"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.device</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieActionItem.group"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.group</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieActionItem.level"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.level</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieActionItem.origin"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.origin</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieActionItem.scene"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.scene</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieActionItem.state"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.state</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieActionItem.time"><code class="docutils literal notranslate"><span class="pre">HomieActionItem.time</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieStream"><code class="docutils literal notranslate"><span class="pre">HomieStream</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieStream.operate"><code class="docutils literal notranslate"><span class="pre">HomieStream.operate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieStream.operate_streams"><code class="docutils literal notranslate"><span class="pre">HomieStream.operate_streams()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieStreamItem"><code class="docutils literal notranslate"><span class="pre">HomieStreamItem</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieStreamItem.event"><code class="docutils literal notranslate"><span class="pre">HomieStreamItem.event</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieStreamItem.origin"><code class="docutils literal notranslate"><span class="pre">HomieStreamItem.origin</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieStreamItem.time"><code class="docutils literal notranslate"><span class="pre">HomieStreamItem.time</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread"><code class="docutils literal notranslate"><span class="pre">HomieThread</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.aqueue"><code class="docutils literal notranslate"><span class="pre">HomieThread.aqueue</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.congest"><code class="docutils literal notranslate"><span class="pre">HomieThread.congest</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.enqueue"><code class="docutils literal notranslate"><span class="pre">HomieThread.enqueue</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.expired"><code class="docutils literal notranslate"><span class="pre">HomieThread.expired()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.homie"><code class="docutils literal notranslate"><span class="pre">HomieThread.homie</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.member"><code class="docutils literal notranslate"><span class="pre">HomieThread.member</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.operate"><code class="docutils literal notranslate"><span class="pre">HomieThread.operate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.operate_updates"><code class="docutils literal notranslate"><span class="pre">HomieThread.operate_updates()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.origin"><code class="docutils literal notranslate"><span class="pre">HomieThread.origin</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.run"><code class="docutils literal notranslate"><span class="pre">HomieThread.run()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.squeue"><code class="docutils literal notranslate"><span class="pre">HomieThread.squeue</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.stop"><code class="docutils literal notranslate"><span class="pre">HomieThread.stop()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThread.uqueue"><code class="docutils literal notranslate"><span class="pre">HomieThread.uqueue</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThreadItem"><code class="docutils literal notranslate"><span class="pre">HomieThreadItem</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThreadItem.origin"><code class="docutils literal notranslate"><span class="pre">HomieThreadItem.origin</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieThreadItem.time"><code class="docutils literal notranslate"><span class="pre">HomieThreadItem.time</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieUpdate"><code class="docutils literal notranslate"><span class="pre">HomieUpdate</span></code></a><ul>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieUpdate.operate"><code class="docutils literal notranslate"><span class="pre">HomieUpdate.operate()</span></code></a></li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieUpdate.operate_updates"><code class="docutils literal notranslate"><span class="pre">HomieUpdate.operate_updates()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhomie.homie.threads.HomieUpdateItem"><code class="docutils literal notranslate"><span class="pre">HomieUpdateItem</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">enhomie</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">enhomie.homie.threads package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/enhomie.homie.threads.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enhomie-homie-threads-package">
+<h1>enhomie.homie.threads package<a class="headerlink" href="#enhomie-homie-threads-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enhomie.homie.threads.test.html">enhomie.homie.threads.test package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.threads.test.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.threads.test.html#module-enhomie.homie.threads.test.test_action">enhomie.homie.threads.test.test_action module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.threads.test.html#enhomie.homie.threads.test.test_action.test_HomieAction"><code class="docutils literal notranslate"><span class="pre">test_HomieAction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.threads.test.html#enhomie.homie.threads.test.test_action.test_HomieActionItem"><code class="docutils literal notranslate"><span class="pre">test_HomieActionItem()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.threads.test.html#module-enhomie.homie.threads.test.test_stream">enhomie.homie.threads.test.test_stream module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.threads.test.html#enhomie.homie.threads.test.test_stream.test_HomieStream"><code class="docutils literal notranslate"><span class="pre">test_HomieStream()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.threads.test.html#enhomie.homie.threads.test.test_stream.test_HomieStreamItem"><code class="docutils literal notranslate"><span class="pre">test_HomieStreamItem()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.threads.test.html#module-enhomie.homie.threads.test.test_thread">enhomie.homie.threads.test.test_thread module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.threads.test.html#enhomie.homie.threads.test.test_thread.test_HomieThread_cover"><code class="docutils literal notranslate"><span class="pre">test_HomieThread_cover()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.threads.test.html#module-enhomie.homie.threads.test.test_update">enhomie.homie.threads.test.test_update module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.threads.test.html#enhomie.homie.threads.test.test_update.test_HomieUpdate"><code class="docutils literal notranslate"><span class="pre">test_HomieUpdate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.threads.test.html#enhomie.homie.threads.test.test_update.test_HomieUpdateItem"><code class="docutils literal notranslate"><span class="pre">test_HomieUpdateItem()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.threads.test.html#module-enhomie.homie.threads.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-enhomie.homie.threads.action">
+<span id="enhomie-homie-threads-action-module"></span><h2>enhomie.homie.threads.action module<a class="headerlink" href="#module-enhomie.homie.threads.action" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.action.HomieAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.action.</span></span><span class="sig-name descname"><span class="pre">HomieAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">member</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><span class="pre">HomieMember</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/action.html#HomieAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.action.HomieAction" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread" title="enhomie.homie.threads.thread.HomieThread"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThread</span></code></a></p>
+<p>Common methods and routines for Homie Automate threads.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.action.HomieAction.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#enhomie.homie.threads.action.HomieActionItem" title="enhomie.homie.threads.action.HomieActionItem"><span class="pre">HomieActionItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/action.html#HomieAction.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.action.HomieAction.execute" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aitem</strong> – Item containing information for operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.action.HomieAction.operate">
+<span class="sig-name descname"><span class="pre">operate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/action.html#HomieAction.operate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.action.HomieAction.operate" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.action.HomieActionItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.action.</span></span><span class="sig-name descname"><span class="pre">HomieActionItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.group.HomieGroup" title="enhomie.homie.childs.group.HomieGroup"><span class="pre">HomieGroup</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.device.HomieDevice" title="enhomie.homie.childs.device.HomieDevice"><span class="pre">HomieDevice</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HomieState</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.colors.html#encommon.colors.color.Color" title="(in encommon v0.19.2)"><span class="pre">Color</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scene</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.scene.HomieScene" title="enhomie.homie.childs.scene.HomieScene"><span class="pre">HomieScene</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/action.html#HomieActionItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.action.HomieActionItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThreadItem" title="enhomie.homie.threads.thread.HomieThreadItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThreadItem</span></code></a></p>
+<p>Contain information for sharing using the Python queue.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.action.HomieActionItem.color">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.colors.html#encommon.colors.color.Color" title="(in encommon v0.19.2)"><span class="pre">Color</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.action.HomieActionItem.color" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.action.HomieActionItem.device">
+<span class="sig-name descname"><span class="pre">device</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.action.HomieActionItem.device" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.action.HomieActionItem.group">
+<span class="sig-name descname"><span class="pre">group</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.action.HomieActionItem.group" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.action.HomieActionItem.level">
+<span class="sig-name descname"><span class="pre">level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.action.HomieActionItem.level" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.action.HomieActionItem.scene">
+<span class="sig-name descname"><span class="pre">scene</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.action.HomieActionItem.scene" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.action.HomieActionItem.state">
+<span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">HomieState</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.action.HomieActionItem.state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.homie.threads.stream">
+<span id="enhomie-homie-threads-stream-module"></span><h2>enhomie.homie.threads.stream module<a class="headerlink" href="#module-enhomie.homie.threads.stream" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.stream.HomieStream">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.stream.</span></span><span class="sig-name descname"><span class="pre">HomieStream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">member</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><span class="pre">HomieMember</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/stream.html#HomieStream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.stream.HomieStream" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread" title="enhomie.homie.threads.thread.HomieThread"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThread</span></code></a></p>
+<p>Common methods and routines for Homie Automate threads.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.stream.HomieStream.operate">
+<span class="sig-name descname"><span class="pre">operate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/stream.html#HomieStream.operate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.stream.HomieStream.operate" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.stream.HomieStream.operate_streams">
+<span class="sig-name descname"><span class="pre">operate_streams</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/stream.html#HomieStream.operate_streams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.stream.HomieStream.operate_streams" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.stream.HomieStreamItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.stream.</span></span><span class="sig-name descname"><span class="pre">HomieStreamItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/stream.html#HomieStreamItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.stream.HomieStreamItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThreadItem" title="enhomie.homie.threads.thread.HomieThreadItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThreadItem</span></code></a></p>
+<p>Contain information for sharing using the Python queue.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.stream.HomieStreamItem.event">
+<span class="sig-name descname"><span class="pre">event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.stream.HomieStreamItem.event" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.homie.threads.thread">
+<span id="enhomie-homie-threads-thread-module"></span><h2>enhomie.homie.threads.thread module<a class="headerlink" href="#module-enhomie.homie.threads.thread" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.thread.</span></span><span class="sig-name descname"><span class="pre">HomieThread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">member</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><span class="pre">HomieMember</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/threading.html#threading.Thread" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Thread</span></code></a></p>
+<p>Common methods and routines for Homie Automate threads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>member</strong> – Child class instance for Homie Automate.</p></li>
+<li><p><strong>origin</strong> – Child class instance for Homie Automate.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.aqueue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">aqueue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue" title="enhomie.homie.addons.queue.HomieQueue"><span class="pre">HomieQueue</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.threads.action.HomieActionItem" title="enhomie.homie.threads.action.HomieActionItem"><span class="pre">HomieActionItem</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.aqueue" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.congest">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">congest</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.congest" title="Link to this definition"></a></dt>
+<dd><p>Return the list of congested threads and members queues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of congested threads and members queues.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.enqueue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enqueue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.enqueue" title="Link to this definition"></a></dt>
+<dd><p>Return the list of congested threads and members queues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of congested threads and members queues.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.expired">
+<span class="sig-name descname"><span class="pre">expired</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThreadItem" title="enhomie.homie.threads.thread.HomieThreadItem"><span class="pre">HomieThreadItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread.expired"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.expired" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating whether the item expired.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating whether the item expired.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.homie">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">homie</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></em><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.homie" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie instance to which this instance belongs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie instance to which this instance belongs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.member">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">member</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><span class="pre">HomieMember</span></a></em><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.member" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.operate">
+<span class="sig-name descname"><span class="pre">operate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread.operate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.operate" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.operate_updates">
+<span class="sig-name descname"><span class="pre">operate_updates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread.operate_updates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.operate_updates" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.origin">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></em><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.origin" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.run" title="Link to this definition"></a></dt>
+<dd><p>Perform whatever operation is associated with the class.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.squeue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">squeue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue" title="enhomie.homie.addons.queue.HomieQueue"><span class="pre">HomieQueue</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.threads.stream.HomieStreamItem" title="enhomie.homie.threads.stream.HomieStreamItem"><span class="pre">HomieStreamItem</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.squeue" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.stop" title="Link to this definition"></a></dt>
+<dd><p>Wait for the thread object to complete routine and exit.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThread.uqueue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uqueue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue" title="enhomie.homie.addons.queue.HomieQueue"><span class="pre">HomieQueue</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.threads.update.HomieUpdateItem" title="enhomie.homie.threads.update.HomieUpdateItem"><span class="pre">HomieUpdateItem</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThread.uqueue" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThreadItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.thread.</span></span><span class="sig-name descname"><span class="pre">HomieThreadItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThreadItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThreadItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueueItem" title="enhomie.homie.addons.queue.HomieQueueItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieQueueItem</span></code></a></p>
+<p>Contain information for sharing using the Python queue.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.thread.HomieThreadItem.origin">
+<span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><a class="headerlink" href="#enhomie.homie.threads.thread.HomieThreadItem.origin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-enhomie.homie.threads.update">
+<span id="enhomie-homie-threads-update-module"></span><h2>enhomie.homie.threads.update module<a class="headerlink" href="#module-enhomie.homie.threads.update" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.update.HomieUpdate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.update.</span></span><span class="sig-name descname"><span class="pre">HomieUpdate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/update.html#HomieUpdate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.update.HomieUpdate" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread" title="enhomie.homie.threads.thread.HomieThread"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThread</span></code></a></p>
+<p>Common methods and routines for Homie Automate threads.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.update.HomieUpdate.operate">
+<span class="sig-name descname"><span class="pre">operate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/update.html#HomieUpdate.operate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.update.HomieUpdate.operate" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.update.HomieUpdate.operate_updates">
+<span class="sig-name descname"><span class="pre">operate_updates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/update.html#HomieUpdate.operate_updates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.update.HomieUpdate.operate_updates" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.update.HomieUpdateItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.update.</span></span><span class="sig-name descname"><span class="pre">HomieUpdateItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/update.html#HomieUpdateItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.update.HomieUpdateItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThreadItem" title="enhomie.homie.threads.thread.HomieThreadItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThreadItem</span></code></a></p>
+<p>Contain information for sharing using the Python queue.</p>
+</dd></dl>
+
+</section>
+<section id="module-enhomie.homie.threads">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-enhomie.homie.threads" title="Link to this heading"></a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.</span></span><span class="sig-name descname"><span class="pre">HomieAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">member</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><span class="pre">HomieMember</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/action.html#HomieAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieAction" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread" title="enhomie.homie.threads.thread.HomieThread"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThread</span></code></a></p>
+<p>Common methods and routines for Homie Automate threads.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieAction.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aitem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#enhomie.homie.threads.action.HomieActionItem" title="enhomie.homie.threads.action.HomieActionItem"><span class="pre">HomieActionItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/action.html#HomieAction.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieAction.execute" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aitem</strong> – Item containing information for operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieAction.operate">
+<span class="sig-name descname"><span class="pre">operate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/action.html#HomieAction.operate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieAction.operate" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieActionItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.</span></span><span class="sig-name descname"><span class="pre">HomieActionItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.group.HomieGroup" title="enhomie.homie.childs.group.HomieGroup"><span class="pre">HomieGroup</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.device.HomieDevice" title="enhomie.homie.childs.device.HomieDevice"><span class="pre">HomieDevice</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HomieState</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.colors.html#encommon.colors.color.Color" title="(in encommon v0.19.2)"><span class="pre">Color</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scene</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.scene.HomieScene" title="enhomie.homie.childs.scene.HomieScene"><span class="pre">HomieScene</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/action.html#HomieActionItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieActionItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThreadItem" title="enhomie.homie.threads.thread.HomieThreadItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThreadItem</span></code></a></p>
+<p>Contain information for sharing using the Python queue.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieActionItem.color">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://encommon.readthedocs.io/en/latest/encommon.colors.html#encommon.colors.color.Color" title="(in encommon v0.19.2)"><span class="pre">Color</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.HomieActionItem.color" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieActionItem.device">
+<span class="sig-name descname"><span class="pre">device</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.HomieActionItem.device" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieActionItem.group">
+<span class="sig-name descname"><span class="pre">group</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.HomieActionItem.group" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieActionItem.level">
+<span class="sig-name descname"><span class="pre">level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.HomieActionItem.level" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieActionItem.origin">
+<span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><a class="headerlink" href="#enhomie.homie.threads.HomieActionItem.origin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieActionItem.scene">
+<span class="sig-name descname"><span class="pre">scene</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.HomieActionItem.scene" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieActionItem.state">
+<span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">HomieState</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#enhomie.homie.threads.HomieActionItem.state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieActionItem.time">
+<span class="sig-name descname"><span class="pre">time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Time</span></em><a class="headerlink" href="#enhomie.homie.threads.HomieActionItem.time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieStream">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.</span></span><span class="sig-name descname"><span class="pre">HomieStream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">member</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><span class="pre">HomieMember</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/stream.html#HomieStream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieStream" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread" title="enhomie.homie.threads.thread.HomieThread"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThread</span></code></a></p>
+<p>Common methods and routines for Homie Automate threads.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieStream.operate">
+<span class="sig-name descname"><span class="pre">operate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/stream.html#HomieStream.operate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieStream.operate" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieStream.operate_streams">
+<span class="sig-name descname"><span class="pre">operate_streams</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/stream.html#HomieStream.operate_streams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieStream.operate_streams" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieStreamItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.</span></span><span class="sig-name descname"><span class="pre">HomieStreamItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/stream.html#HomieStreamItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieStreamItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThreadItem" title="enhomie.homie.threads.thread.HomieThreadItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThreadItem</span></code></a></p>
+<p>Contain information for sharing using the Python queue.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieStreamItem.event">
+<span class="sig-name descname"><span class="pre">event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.HomieStreamItem.event" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieStreamItem.origin">
+<span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><a class="headerlink" href="#enhomie.homie.threads.HomieStreamItem.origin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieStreamItem.time">
+<span class="sig-name descname"><span class="pre">time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Time</span></em><a class="headerlink" href="#enhomie.homie.threads.HomieStreamItem.time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.</span></span><span class="sig-name descname"><span class="pre">HomieThread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">member</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><span class="pre">HomieMember</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieThread" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/threading.html#threading.Thread" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Thread</span></code></a></p>
+<p>Common methods and routines for Homie Automate threads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>member</strong> – Child class instance for Homie Automate.</p></li>
+<li><p><strong>origin</strong> – Child class instance for Homie Automate.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.aqueue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">aqueue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue" title="enhomie.homie.addons.queue.HomieQueue"><span class="pre">HomieQueue</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.threads.HomieActionItem" title="enhomie.homie.threads.HomieActionItem"><span class="pre">HomieActionItem</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.HomieThread.aqueue" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.congest">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">congest</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.HomieThread.congest" title="Link to this definition"></a></dt>
+<dd><p>Return the list of congested threads and members queues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of congested threads and members queues.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.enqueue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enqueue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.HomieThread.enqueue" title="Link to this definition"></a></dt>
+<dd><p>Return the list of congested threads and members queues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of congested threads and members queues.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.expired">
+<span class="sig-name descname"><span class="pre">expired</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#enhomie.homie.threads.thread.HomieThreadItem" title="enhomie.homie.threads.thread.HomieThreadItem"><span class="pre">HomieThreadItem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread.expired"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieThread.expired" title="Link to this definition"></a></dt>
+<dd><p>Return the boolean indicating whether the item expired.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> – Item containing information for operation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating whether the item expired.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.homie">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">homie</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></em><a class="headerlink" href="#enhomie.homie.threads.HomieThread.homie" title="Link to this definition"></a></dt>
+<dd><p>Return the Homie instance to which this instance belongs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Homie instance to which this instance belongs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.member">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">member</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><span class="pre">HomieMember</span></a></em><a class="headerlink" href="#enhomie.homie.threads.HomieThread.member" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.operate">
+<span class="sig-name descname"><span class="pre">operate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread.operate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieThread.operate" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.operate_updates">
+<span class="sig-name descname"><span class="pre">operate_updates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread.operate_updates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieThread.operate_updates" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.origin">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></em><a class="headerlink" href="#enhomie.homie.threads.HomieThread.origin" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieThread.run" title="Link to this definition"></a></dt>
+<dd><p>Perform whatever operation is associated with the class.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.squeue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">squeue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue" title="enhomie.homie.addons.queue.HomieQueue"><span class="pre">HomieQueue</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.threads.HomieStreamItem" title="enhomie.homie.threads.HomieStreamItem"><span class="pre">HomieStreamItem</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.HomieThread.squeue" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThread.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieThread.stop" title="Link to this definition"></a></dt>
+<dd><p>Wait for the thread object to complete routine and exit.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThread.uqueue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uqueue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue" title="enhomie.homie.addons.queue.HomieQueue"><span class="pre">HomieQueue</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.homie.threads.HomieUpdateItem" title="enhomie.homie.threads.HomieUpdateItem"><span class="pre">HomieUpdateItem</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.threads.HomieThread.uqueue" title="Link to this definition"></a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThreadItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.</span></span><span class="sig-name descname"><span class="pre">HomieThreadItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/thread.html#HomieThreadItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieThreadItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueueItem" title="enhomie.homie.addons.queue.HomieQueueItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieQueueItem</span></code></a></p>
+<p>Contain information for sharing using the Python queue.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThreadItem.origin">
+<span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></em><a class="headerlink" href="#enhomie.homie.threads.HomieThreadItem.origin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieThreadItem.time">
+<span class="sig-name descname"><span class="pre">time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Time</span></em><a class="headerlink" href="#enhomie.homie.threads.HomieThreadItem.time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieUpdate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.</span></span><span class="sig-name descname"><span class="pre">HomieUpdate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/update.html#HomieUpdate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieUpdate" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThread" title="enhomie.homie.threads.thread.HomieThread"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThread</span></code></a></p>
+<p>Common methods and routines for Homie Automate threads.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieUpdate.operate">
+<span class="sig-name descname"><span class="pre">operate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/update.html#HomieUpdate.operate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieUpdate.operate" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieUpdate.operate_updates">
+<span class="sig-name descname"><span class="pre">operate_updates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/threads/update.html#HomieUpdate.operate_updates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieUpdate.operate_updates" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation related to Homie service threads.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.threads.HomieUpdateItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.threads.</span></span><span class="sig-name descname"><span class="pre">HomieUpdateItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/threads/update.html#HomieUpdateItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.threads.HomieUpdateItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.threads.thread.HomieThreadItem" title="enhomie.homie.threads.thread.HomieThreadItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieThreadItem</span></code></a></p>
+<p>Contain information for sharing using the Python queue.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Enasis Network.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

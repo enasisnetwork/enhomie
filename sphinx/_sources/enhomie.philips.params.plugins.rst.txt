@@ -1,0 +1,53 @@
+enhomie.philips.params.plugins package
+======================================
+
+Submodules
+----------
+
+enhomie.philips.params.plugins.button module
+--------------------------------------------
+
+.. automodule:: enhomie.philips.params.plugins.button
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.params.plugins.change module
+--------------------------------------------
+
+.. automodule:: enhomie.philips.params.plugins.change
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.params.plugins.contact module
+---------------------------------------------
+
+.. automodule:: enhomie.philips.params.plugins.contact
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.params.plugins.motion module
+--------------------------------------------
+
+.. automodule:: enhomie.philips.params.plugins.motion
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.philips.params.plugins.scene module
+-------------------------------------------
+
+.. automodule:: enhomie.philips.params.plugins.scene
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.philips.params.plugins
+   :members:
+   :undoc-members:
+   :show-inheritance:

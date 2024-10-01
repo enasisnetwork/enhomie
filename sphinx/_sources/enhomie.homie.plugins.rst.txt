@@ -1,0 +1,61 @@
+enhomie.homie.plugins package
+=============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   enhomie.homie.plugins.test
+
+Submodules
+----------
+
+enhomie.homie.plugins.common module
+-----------------------------------
+
+.. automodule:: enhomie.homie.plugins.common
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.plugins.driver module
+-----------------------------------
+
+.. automodule:: enhomie.homie.plugins.driver
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.plugins.occur module
+----------------------------------
+
+.. automodule:: enhomie.homie.plugins.occur
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.plugins.plugin module
+-----------------------------------
+
+.. automodule:: enhomie.homie.plugins.plugin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.homie.plugins.where module
+----------------------------------
+
+.. automodule:: enhomie.homie.plugins.where
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.homie.plugins
+   :members:
+   :undoc-members:
+   :show-inheritance:

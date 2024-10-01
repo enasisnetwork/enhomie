@@ -1,0 +1,85 @@
+enhomie.execution package
+=========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   enhomie.execution.test
+
+Submodules
+----------
+
+enhomie.execution.action module
+-------------------------------
+
+.. automodule:: enhomie.execution.action
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.execution.backup module
+-------------------------------
+
+.. automodule:: enhomie.execution.backup
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.execution.config module
+-------------------------------
+
+.. automodule:: enhomie.execution.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.execution.crypts module
+-------------------------------
+
+.. automodule:: enhomie.execution.crypts
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.execution.desired module
+--------------------------------
+
+.. automodule:: enhomie.execution.desired
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.execution.dumped module
+-------------------------------
+
+.. automodule:: enhomie.execution.dumped
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.execution.persist module
+--------------------------------
+
+.. automodule:: enhomie.execution.persist
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+enhomie.execution.service module
+--------------------------------
+
+.. automodule:: enhomie.execution.service
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.execution
+   :members:
+   :undoc-members:
+   :show-inheritance:

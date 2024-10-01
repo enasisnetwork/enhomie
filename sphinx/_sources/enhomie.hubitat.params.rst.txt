@@ -1,0 +1,21 @@
+enhomie.hubitat.params package
+==============================
+
+Submodules
+----------
+
+enhomie.hubitat.params.origin module
+------------------------------------
+
+.. automodule:: enhomie.hubitat.params.origin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.hubitat.params
+   :members:
+   :undoc-members:
+   :show-inheritance:
