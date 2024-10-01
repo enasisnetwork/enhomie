@@ -8,17 +8,16 @@
     DONE
 >>> make sphinx
   ● Building Sphinx documentation..
-Running Sphinx v7.4.7
-loading translations [en]... done
+Running Sphinx v7.3.7
 making output directory... done
-loading intersphinx inventory 'encommon' from https://encommon.readthedocs.io/en/latest/objects.inv...
-loading intersphinx inventory 'enconnect' from https://enconnect.readthedocs.io/en/latest/objects.inv...
-loading intersphinx inventory 'jinja2' from https://jinja.palletsprojects.com/en/latest/objects.inv...
-loading intersphinx inventory 'netaddr' from https://netaddr.readthedocs.io/en/latest/objects.inv...
-loading intersphinx inventory 'pydantic' from https://docs.pydantic.dev/latest/objects.inv...
-loading intersphinx inventory 'pytest' from https://docs.pytest.org/latest/objects.inv...
-loading intersphinx inventory 'python' from https://docs.python.org/3/objects.inv...
-loading intersphinx inventory 'sqlalchemy' from https://docs.sqlalchemy.org/en/20/objects.inv...
+loading intersphinx inventory from https://encommon.readthedocs.io/en/latest/objects.inv...
+loading intersphinx inventory from https://enconnect.readthedocs.io/en/latest/objects.inv...
+loading intersphinx inventory from https://jinja.palletsprojects.com/en/latest/objects.inv...
+loading intersphinx inventory from https://netaddr.readthedocs.io/en/latest/objects.inv...
+loading intersphinx inventory from https://docs.pydantic.dev/latest/objects.inv...
+loading intersphinx inventory from https://docs.pytest.org/latest/objects.inv...
+loading intersphinx inventory from https://docs.python.org/3/objects.inv...
+loading intersphinx inventory from https://docs.sqlalchemy.org/en/20/objects.inv...
 intersphinx inventory has moved: https://docs.pytest.org/latest/objects.inv -> https://docs.pytest.org/en/7.4.x/objects.inv
 building [mo]: targets for 0 po files that are out of date
 writing output... 
@@ -67,10 +66,9 @@ looking for now-outdated files... none found
 pickling environment... done
 checking consistency... done
 preparing documents... done
-copying assets... 
-copying static files... done
+copying assets... copying static files... done
 copying extra files... done
-copying assets: done
+done
 writing output... [  3%] enhomie
 writing output... [  5%] enhomie.builtins
 writing output... [  8%] enhomie.builtins.params
@@ -289,7 +287,46 @@ highlighting module code... [100%] enhomie.utils.tests
 writing additional pages... search done
 dumping search index in English (code: en)... done
 dumping object inventory... done
-build succeeded, 1449 warnings.
+postprocess html... [  3%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.html
+postprocess html... [  5%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.builtins.html
+postprocess html... [  8%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.builtins.params.html
+postprocess html... [ 11%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.builtins.test.html
+postprocess html... [ 13%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.execution.html
+postprocess html... [ 16%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.execution.test.html
+postprocess html... [ 18%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.html
+postprocess html... [ 21%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.addons.html
+postprocess html... [ 24%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.addons.test.html
+postprocess html... [ 26%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.childs.html
+postprocess html... [ 29%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.childs.test.html
+postprocess html... [ 32%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.members.html
+postprocess html... [ 34%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.members.test.html
+postprocess html... [ 37%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.params.html
+postprocess html... [ 39%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.plugins.html
+postprocess html... [ 42%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.plugins.test.html
+postprocess html... [ 45%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.test.html
+postprocess html... [ 47%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.threads.html
+postprocess html... [ 50%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.threads.test.html
+postprocess html... [ 53%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.hubitat.html
+postprocess html... [ 55%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.hubitat.params.html
+postprocess html... [ 58%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.hubitat.test.html
+postprocess html... [ 61%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.html
+postprocess html... [ 63%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.params.html
+postprocess html... [ 66%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.params.plugins.html
+postprocess html... [ 68%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.plugins.html
+postprocess html... [ 71%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.plugins.test.html
+postprocess html... [ 74%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.test.html
+postprocess html... [ 76%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.html
+postprocess html... [ 79%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.params.html
+postprocess html... [ 82%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.params.plugins.html
+postprocess html... [ 84%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.plugins.html
+postprocess html... [ 87%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.plugins.test.html
+postprocess html... [ 89%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.test.html
+postprocess html... [ 92%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.utils.html
+postprocess html... [ 95%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.utils.test.html
+postprocess html... [ 97%] /home/runner/work/enhomie/enhomie/main/sphinx/html/index.html
+postprocess html... [100%] /home/runner/work/enhomie/enhomie/main/sphinx/html/modules.html
+
+build succeeded, 705 warnings.
 
 The HTML pages are in sphinx/html.
     DONE
