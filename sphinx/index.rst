@@ -1,5 +1,8 @@
+Enasis Network Homie Automate
+=============================
+
 Configuration Container
-=======================
+-----------------------
 
 .. autoclass:: enhomie.homie.HomieConfig
    :members:
@@ -7,7 +10,7 @@ Configuration Container
    :noindex:
 
 Parameters Container
-====================
+--------------------
 
 .. autopydantic_model:: enhomie.homie.params.HomieParams
    :members:
@@ -15,7 +18,7 @@ Parameters Container
    :noindex:
 
 Homie Children
-==============
+--------------
 
 .. autopydantic_model:: enhomie.homie.params.HomieOriginParams
    :members:
@@ -48,7 +51,7 @@ Homie Children
    :noindex:
 
 Multithread Service
-===================
+-------------------
 
 .. autopydantic_model:: enhomie.homie.params.HomieServiceParams
    :members:
@@ -56,7 +59,7 @@ Multithread Service
    :noindex:
 
 Hubitat Origin
-==============
+--------------
 
 .. autopydantic_model:: enhomie.hubitat.params.HubiOriginParams
    :members:
@@ -64,7 +67,7 @@ Hubitat Origin
    :noindex:
 
 Philips Origin
-==============
+--------------
 
 .. autopydantic_model:: enhomie.philips.params.PhueOriginParams
    :members:
@@ -72,7 +75,7 @@ Philips Origin
    :noindex:
 
 Ubiquiti Origin
-===============
+---------------
 
 .. autopydantic_model:: enhomie.ubiquiti.params.UbiqOriginParams
    :members:
@@ -80,7 +83,7 @@ Ubiquiti Origin
    :noindex:
 
 Builtin Plugins
-===============
+---------------
 
 .. autopydantic_model:: enhomie.builtins.params.DriverBltnPeriodParams
    :members:
@@ -98,7 +101,7 @@ Builtin Plugins
    :noindex:
 
 Philips Plugins
-===============
+---------------
 
 .. autopydantic_model:: enhomie.philips.params.DriverPhueButtonParams
    :members:
@@ -126,7 +129,7 @@ Philips Plugins
    :noindex:
 
 Ubiquiti Plugins
-================
+----------------
 
 .. autopydantic_model:: enhomie.ubiquiti.params.DriverUbiqClientParams
    :members:
