@@ -4,6 +4,7 @@
 
 Define desired scenes for groups using flexible conditional plugins.
 
+<a href="https://pypi.org/project/enhomie"><img src="https://enasisnetwork.github.io/enhomie/badges/pypi.png"></a><br>
 <a href="https://enasisnetwork.github.io/enhomie/validate/flake8.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/flake8.png"></a><br>
 <a href="https://enasisnetwork.github.io/enhomie/validate/pylint.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/pylint.png"></a><br>
 <a href="https://enasisnetwork.github.io/enhomie/validate/mypy.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/mypy.png"></a><br>
@@ -11,7 +12,6 @@ Define desired scenes for groups using flexible conditional plugins.
 <a href="https://enasisnetwork.github.io/enhomie/validate/pytest.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/pytest.png"></a><br>
 <a href="https://enasisnetwork.github.io/enhomie/validate/coverage.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/coverage.png"></a><br>
 <a href="https://enasisnetwork.github.io/enhomie/validate/sphinx.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/sphinx.png"></a><br>
-<a href="https://pypi.org/project/enhomie"><img src="https://enasisnetwork.github.io/enhomie/badges/pypi.png"></a><br>
 
 ## Documentation
 Read [project documentation](https://enasisnetwork.github.io/enhomie/sphinx)
