@@ -21,6 +21,13 @@ dynamic = ["version", "dependencies"]
 
 
 
+[project.urls]
+
+Source = "https://github.com/enasisnetwork/enhomie"
+Documentation = "https://enasisnetwork.github.io/enhomie/sphinx"
+
+
+
 [tool.setuptools.dynamic]
 
 version.attr = "enhomie.__version__"
