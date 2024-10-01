@@ -326,7 +326,7 @@ postprocess html... [ 95%] /home/runner/work/enhomie/enhomie/main/sphinx/html/en
 postprocess html... [ 97%] /home/runner/work/enhomie/enhomie/main/sphinx/html/index.html
 postprocess html... [100%] /home/runner/work/enhomie/enhomie/main/sphinx/html/modules.html
 
-build succeeded, 705 warnings.
+build succeeded, 799 warnings.
 
 The HTML pages are in sphinx/html.
     DONE
