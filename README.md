@@ -4,16 +4,20 @@
 
 Define desired scenes for groups using flexible conditional plugins.
 
-[![](https://img.shields.io/github/actions/workflow/status/enasisnetwork/enhomie/build.yml?style=flat-square&label=GitHub%20actions)](https://github.com/enasisnetwork/enhomie/actions)<br>
-[![codecov](https://img.shields.io/codecov/c/github/enasisnetwork/enhomie?token=7PGOXKJU0E&style=flat-square&logoColor=FFFFFF&label=Coverage)](https://codecov.io/gh/enasisnetwork/enhomie)<br>
-[![](https://img.shields.io/readthedocs/enhomie?style=flat-square&label=Read%20the%20Docs)](https://enhomie.readthedocs.io)<br>
-[![](https://img.shields.io/pypi/v/enhomie.svg?style=flat-square&label=PyPi%20version)](https://pypi.org/project/enhomie)<br>
-[![](https://img.shields.io/pypi/dm/enhomie?style=flat-square&label=PyPi%20downloads)](https://pypi.org/project/enhomie)
+<a href="https://enasisnetwork.github.io/enhomie/validate/flake8.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/flake8.png"></a><br>
+<a href="https://enasisnetwork.github.io/enhomie/validate/pylint.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/pylint.png"></a><br>
+<a href="https://enasisnetwork.github.io/enhomie/validate/mypy.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/mypy.png"></a><br>
+<a href="https://enasisnetwork.github.io/enhomie/validate/yamllint.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/yamllint.png"></a><br>
+<a href="https://enasisnetwork.github.io/enhomie/validate/pytest.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/pytest.png"></a><br>
+<a href="https://enasisnetwork.github.io/enhomie/validate/coverage.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/coverage.png"></a><br>
+<a href="https://enasisnetwork.github.io/enhomie/validate/sphinx.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/sphinx.png"></a><br>
+<a href="https://pypi.org/project/enhomie"><img src="https://enasisnetwork.github.io/enhomie/badges/pypi.png"></a><br>
 
 ## Documentation
-Documentation is on [Read the Docs](https://enhomie.readthedocs.io).
+Read [project documentation](https://enasisnetwork.github.io/enhomie/sphinx)
+built using the [Sphinx](https://www.sphinx-doc.org/) project.
 Should you venture into the sections below you will be able to use the
-`sphinx` recipe to build documention in the `docs/html` directory.
+`sphinx` recipe to build documention in the `sphinx/html` directory.
 
 ## Useful and related links
 - [Philips Hue API](https://developers.meethue.com/develop/hue-api-v2/api-reference)
@@ -117,7 +121,3 @@ make -s \
    ```
    make -s pypi-upload-prod
    ```
-
-1. Update [Read the Docs](https://enhomie.readthedocs.io) documentation.
-
-1. Consider running builds on dependent projects.
