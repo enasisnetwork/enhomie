@@ -1,110 +1,150 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
+<html lang="en"
+      data-content_root="./"
+      x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }"
+      x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
+      class="scroll-smooth"
+      :class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
+>
 <head>
-  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; enhomie  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+  <meta charset="utf-8" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+  
+    <title>Index | enhomie  documentation</title>
+    <meta property="og:title" content="Index | enhomie  documentation" />
+    <meta name="twitter:title" content="Index | enhomie  documentation" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="_static/theme.css?v=ecdfb4fc" />
       <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+        <link rel="search" title="Search" href="search.html" />
+        <link rel="index" title="Index" href="#" />
 
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+    </script>
 </head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
-            enhomie
-          </a>
-              <div class="version">
-                0.12.2
-              </div>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
-        </div>
+<body x-data="{ showSidebar: false }" class="min-h-screen font-sans antialiased bg-background text-foreground" :class="{ 'overflow-hidden': showSidebar }">
+    <div x-cloak x-show="showSidebar" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" @click.self="showSidebar = false"></div><div id="page" class="relative flex flex-col min-h-screen"><a href="#content" class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100">
+      Skip to content
+    </a><header
+  class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+    <div class="hidden mr-4 md:flex">
+      <a href="index.html" class="flex items-center mr-6"><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">enhomie  documentation</span>
+      </a></div><button
+      class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden"
+      type="button" @click="showSidebar = true">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" aria-hidden="true"
+        fill="currentColor">
+        <path
+          d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z" />
+      </svg>
+      <span class="sr-only">Toggle navigation menu</span>
+    </button>
+    <div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+      <div class="flex-1 w-full md:w-auto md:flex-none"><form id="searchbox"
+      action="search.html"
+      method="get"
+      class="relative flex items-center group"
+      @keydown.k.window.meta="$refs.search.focus()">
+  <input x-ref="search"
+          name="q"
+          id="search-input"
+          type="search"
+          aria-label="Search the docs"
+          placeholder="Search ..."
+          class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" />
+  <kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+    <span class="text-xs">⌘</span>
+    K
+  </kbd>
+</form>
       </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">enhomie</a>
+      <nav class="flex items-center space-x-1">
+        <button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'"
+          class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9"
+          type="button"
+          aria-label="Color theme switcher">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" fill="currentColor"
+            class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0">
+            <path
+              d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" fill="currentColor"
+            class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100">
+            <path
+              d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z" />
+          </svg>
+        </button>
       </nav>
+    </div>
+  </div>
+</header>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Index</li>
-      <li class="wy-breadcrumbs-aside">
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside id="left-sidebar"
+  class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky"
+  :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }">
 
-<h1 id="index">Index</h1>
+    <a href="index.html" class="!justify-start text-sm md:!hidden bg-background"><span class="font-bold text-clip whitespace-nowrap">enhomie  documentation</span>
+    </a>
 
-<div class="genindex-jumpbox">
- <a href="#A"><strong>A</strong></a>
- | <a href="#B"><strong>B</strong></a>
- | <a href="#C"><strong>C</strong></a>
- | <a href="#D"><strong>D</strong></a>
- | <a href="#E"><strong>E</strong></a>
- | <a href="#F"><strong>F</strong></a>
- | <a href="#G"><strong>G</strong></a>
- | <a href="#H"><strong>H</strong></a>
- | <a href="#I"><strong>I</strong></a>
- | <a href="#K"><strong>K</strong></a>
- | <a href="#L"><strong>L</strong></a>
- | <a href="#M"><strong>M</strong></a>
- | <a href="#N"><strong>N</strong></a>
- | <a href="#O"><strong>O</strong></a>
- | <a href="#P"><strong>P</strong></a>
- | <a href="#Q"><strong>Q</strong></a>
- | <a href="#R"><strong>R</strong></a>
- | <a href="#S"><strong>S</strong></a>
- | <a href="#T"><strong>T</strong></a>
- | <a href="#U"><strong>U</strong></a>
- | <a href="#V"><strong>V</strong></a>
- | <a href="#W"><strong>W</strong></a>
- | <a href="#Z"><strong>Z</strong></a>
- 
-</div>
-<h2 id="A">A</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+    <div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+      <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
+  
+</nav>
+      </div>
+    </div>
+    <button type="button" @click="showSidebar = false"
+      class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" fill="currentColor"
+        stroke="none" class="h-4 w-4">
+        <path
+          d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z" />
+      </svg>
+    </button>
+  </aside>
+        <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs"
+     class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+  <a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground"
+     href="index.html">
+    <span class="hidden md:inline">enhomie  documentation</span>
+    <svg xmlns="http://www.w3.org/2000/svg"
+         height="18"
+         width="18"
+         viewBox="0 96 960 960"
+         aria-label="Home"
+         fill="currentColor"
+         stroke="none"
+         class="md:hidden">
+      <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z" />
+    </svg>
+  </a>
+  
+<div class="mr-1">/</div><span aria-current="page"
+        class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Index</span>
+</nav>
+
+<div id="content" role="main">
+
+  <h1 id="index">Index</h1>
+  <h2 id="A">A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.utils.html#enhomie.utils.child.InvalidChild.about">about (enhomie.utils.child.InvalidChild attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.InvalidChild.about">(enhomie.utils.InvalidChild attribute)</a>
 </li>
         <li><a href="enhomie.utils.html#enhomie.utils.InvalidParam.about">(enhomie.utils.InvalidParam attribute)</a>
@@ -114,7 +154,7 @@
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomiePrinterParams.action">action (enhomie.homie.params.homie.HomiePrinterParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomiePrinterParams.action">(enhomie.homie.params.HomiePrinterParams attribute)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.service.HomieServiceTimeoutParams.action">(enhomie.homie.params.service.HomieServiceTimeoutParams attribute)</a>
@@ -122,7 +162,7 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.action">action() (enhomie.homie.models.HomieModels class method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiModels.action">(enhomie.hubitat.HubiModels class method)</a>
 </li>
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.models.HubiModels.action">(enhomie.hubitat.models.HubiModels class method)</a>
@@ -134,25 +174,25 @@
       </ul></li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.helpers.action_request">action_request() (in module enhomie.hubitat.helpers)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.helpers.action_request">(in module enhomie.philips.helpers)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.actions">actions (enhomie.homie.HomieService property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.service.HomieService.actions">(enhomie.homie.service.HomieService property)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.applied">applied (enhomie.homie.addons.desired.HomieDesiredItem property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieDesiredItem.applied">(enhomie.homie.addons.HomieDesiredItem property)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.aqueue">aqueue (enhomie.homie.members.HomieMember property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.aqueue">(enhomie.homie.members.member.HomieMember property)</a>
 </li>
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieThread.aqueue">(enhomie.homie.threads.HomieThread property)</a>
@@ -161,10 +201,10 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.execution.html#enhomie.execution.action.arguments">arguments() (in module enhomie.execution.action)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#enhomie.execution.backup.arguments">(in module enhomie.execution.backup)</a>
 </li>
         <li><a href="enhomie.execution.html#enhomie.execution.config.arguments">(in module enhomie.execution.config)</a>
@@ -182,7 +222,7 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.aspired.HomieAspiredItem.aspire">aspire (enhomie.homie.addons.aspired.HomieAspiredItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieAspiredItem.aspire">(enhomie.homie.addons.HomieAspiredItem attribute)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomiePrinterParams.aspire">(enhomie.homie.params.homie.HomiePrinterParams attribute)</a>
@@ -194,7 +234,7 @@
 </li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.aspired">aspired (enhomie.homie.Homie property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.aspired">(enhomie.homie.homie.Homie property)</a>
 </li>
       </ul></li>
@@ -202,7 +242,7 @@
 </li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.aspires">aspires (enhomie.homie.childs.homie.HomieChilds property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChilds.aspires">(enhomie.homie.childs.HomieChilds property)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomieParams.aspires">(enhomie.homie.params.homie.HomieParams attribute)</a>
@@ -211,16 +251,17 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="B">B</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="B">B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.builtins.html#enhomie.builtins.models.BltnDriverModels">BltnDriverModels (class in enhomie.builtins.models)</a>
 </li>
       <li><a href="enhomie.builtins.html#enhomie.builtins.BltnModels">BltnModels (class in enhomie.builtins)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.models.BltnModels">(class in enhomie.builtins.models)</a>
 </li>
       </ul></li>
@@ -228,7 +269,7 @@
 </li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.bridge">bridge (enhomie.hubitat.HubiOrigin property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.bridge">(enhomie.hubitat.origin.HubiOrigin property)</a>
 </li>
         <li><a href="enhomie.hubitat.params.html#enhomie.hubitat.params.HubiOriginParams.bridge">(enhomie.hubitat.params.HubiOriginParams attribute)</a>
@@ -245,10 +286,10 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.build_objects">build_objects() (enhomie.homie.childs.homie.HomieChilds method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChilds.build_objects">(enhomie.homie.childs.HomieChilds method)</a>
 </li>
       </ul></li>
@@ -256,33 +297,34 @@
 </li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieWhereParams.builtins_period">builtins_period (enhomie.homie.params.HomieWhereParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.where.HomieWhereParams.builtins_period">(enhomie.homie.params.where.HomieWhereParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieOccurParams.builtins_regexp">builtins_regexp (enhomie.homie.params.HomieOccurParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.occur.HomieOccurParams.builtins_regexp">(enhomie.homie.params.occur.HomieOccurParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieWhereParams.builtins_store">builtins_store (enhomie.homie.params.HomieWhereParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.where.HomieWhereParams.builtins_store">(enhomie.homie.params.where.HomieWhereParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.philips.html#enhomie.philips.models.PhueDriverModels.button">button() (enhomie.philips.models.PhueDriverModels class method)</a>
 </li>
   </ul></td>
-</tr></table>
-
-<h2 id="C">C</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="C">C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.cancel">cancel (enhomie.homie.members.HomieMember property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.cancel">(enhomie.homie.members.member.HomieMember property)</a>
 </li>
       </ul></li>
@@ -290,19 +332,19 @@
 </li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.check_congest">check_congest() (enhomie.homie.HomieService method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.service.HomieService.check_congest">(enhomie.homie.service.HomieService method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.check_zombies">check_zombies() (enhomie.homie.HomieService method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.service.HomieService.check_zombies">(enhomie.homie.service.HomieService method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.utils.html#enhomie.utils.child.InvalidChild.child">child (enhomie.utils.child.InvalidChild attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.InvalidChild.child">(enhomie.utils.InvalidChild attribute)</a>
 </li>
         <li><a href="enhomie.utils.html#enhomie.utils.InvalidParam.child">(enhomie.utils.InvalidParam attribute)</a>
@@ -314,7 +356,7 @@
 </li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.childs">childs (enhomie.homie.Homie property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.childs">(enhomie.homie.homie.Homie property)</a>
 </li>
       </ul></li>
@@ -322,7 +364,7 @@
 </li>
       <li><a href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.DriverUbiqClientParams.clients">clients (enhomie.ubiquiti.params.DriverUbiqClientParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.params.plugins.html#enhomie.ubiquiti.params.plugins.client.DriverUbiqClientParams.clients">(enhomie.ubiquiti.params.plugins.client.DriverUbiqClientParams attribute)</a>
 </li>
         <li><a href="enhomie.ubiquiti.params.plugins.html#enhomie.ubiquiti.params.plugins.DriverUbiqClientParams.clients">(enhomie.ubiquiti.params.plugins.DriverUbiqClientParams attribute)</a>
@@ -330,7 +372,7 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.aspired.HomieAspiredItem.color">color (enhomie.homie.addons.aspired.HomieAspiredItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.color">(enhomie.homie.addons.desired.HomieDesiredItem attribute)</a>
 </li>
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieAspiredItem.color">(enhomie.homie.addons.HomieAspiredItem attribute)</a>
@@ -347,16 +389,16 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnRegexpParams.complete">complete (enhomie.builtins.params.DriverBltnRegexpParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.regexp.DriverBltnRegexpParams.complete">(enhomie.builtins.params.regexp.DriverBltnRegexpParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.config">config (enhomie.homie.Homie property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.config">(enhomie.homie.homie.Homie property)</a>
 </li>
       </ul></li>
@@ -366,7 +408,7 @@
 </li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.congest">congest (enhomie.homie.HomieService property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.congest">(enhomie.homie.members.HomieMember property)</a>
 </li>
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.congest">(enhomie.homie.members.member.HomieMember property)</a>
@@ -382,43 +424,44 @@
 </li>
       <li><a href="enhomie.utils.html#enhomie.utils.tests.TestTimes.current">current (enhomie.utils.tests.TestTimes attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.TestTimes.current">(enhomie.utils.TestTimes attribute)</a>
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="D">D</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="D">D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomieParams.database">database (enhomie.homie.params.homie.HomieParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieParams.database">(enhomie.homie.params.HomieParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnPeriodParams.days">days (enhomie.builtins.params.DriverBltnPeriodParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams.days">(enhomie.builtins.params.period.DriverBltnPeriodParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.desire.HomieDesireParams.delay">delay (enhomie.homie.params.desire.HomieDesireParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieDesireParams.delay">(enhomie.homie.params.HomieDesireParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomiePersist.delete">delete() (enhomie.homie.addons.HomiePersist method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersist.delete">(enhomie.homie.addons.persist.HomiePersist method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.desire">desire (enhomie.homie.addons.desired.HomieDesiredItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieDesiredItem.desire">(enhomie.homie.addons.HomieDesiredItem attribute)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomiePrinterParams.desire">(enhomie.homie.params.homie.HomiePrinterParams attribute)</a>
@@ -432,7 +475,7 @@
 </li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.desired">desired (enhomie.homie.Homie property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.desired">(enhomie.homie.homie.Homie property)</a>
 </li>
       </ul></li>
@@ -440,7 +483,7 @@
 </li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.desires">desires (enhomie.homie.childs.homie.HomieChilds property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChilds.desires">(enhomie.homie.childs.HomieChilds property)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomieParams.desires">(enhomie.homie.params.homie.HomieParams attribute)</a>
@@ -450,7 +493,7 @@
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.action.HomieActionItem.device">device (enhomie.homie.threads.action.HomieActionItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieActionItem.device">(enhomie.homie.threads.HomieActionItem attribute)</a>
 </li>
         <li><a href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueButtonParams.device">(enhomie.philips.params.DriverPhueButtonParams attribute)</a>
@@ -476,7 +519,7 @@
 </li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.aspire.HomieAspire.devices">devices (enhomie.homie.childs.aspire.HomieAspire property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.devices">(enhomie.homie.childs.desire.HomieDesire property)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.devices">(enhomie.homie.childs.homie.HomieChilds property)</a>
@@ -515,28 +558,28 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod">DriverBltnPeriod (class in enhomie.builtins)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.period.DriverBltnPeriod">(class in enhomie.builtins.period)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp">DriverBltnRegexp (class in enhomie.builtins)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp">(class in enhomie.builtins.regexp)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore">DriverBltnStore (class in enhomie.builtins)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.store.DriverBltnStore">(class in enhomie.builtins.store)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.philips.html#enhomie.philips.DriverPhueButton">DriverPhueButton (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#enhomie.philips.plugins.DriverPhueButton">(class in enhomie.philips.plugins)</a>
 </li>
         <li><a href="enhomie.philips.plugins.html#enhomie.philips.plugins.button.DriverPhueButton">(class in enhomie.philips.plugins.button)</a>
@@ -544,7 +587,7 @@
       </ul></li>
       <li><a href="enhomie.philips.html#enhomie.philips.DriverPhueChange">DriverPhueChange (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#enhomie.philips.plugins.DriverPhueChange">(class in enhomie.philips.plugins)</a>
 </li>
         <li><a href="enhomie.philips.plugins.html#enhomie.philips.plugins.change.DriverPhueChange">(class in enhomie.philips.plugins.change)</a>
@@ -552,7 +595,7 @@
       </ul></li>
       <li><a href="enhomie.philips.html#enhomie.philips.DriverPhueContact">DriverPhueContact (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#enhomie.philips.plugins.DriverPhueContact">(class in enhomie.philips.plugins)</a>
 </li>
         <li><a href="enhomie.philips.plugins.html#enhomie.philips.plugins.contact.DriverPhueContact">(class in enhomie.philips.plugins.contact)</a>
@@ -560,7 +603,7 @@
       </ul></li>
       <li><a href="enhomie.philips.html#enhomie.philips.DriverPhueMotion">DriverPhueMotion (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#enhomie.philips.plugins.DriverPhueMotion">(class in enhomie.philips.plugins)</a>
 </li>
         <li><a href="enhomie.philips.plugins.html#enhomie.philips.plugins.motion.DriverPhueMotion">(class in enhomie.philips.plugins.motion)</a>
@@ -568,7 +611,7 @@
       </ul></li>
       <li><a href="enhomie.philips.html#enhomie.philips.DriverPhueScene">DriverPhueScene (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#enhomie.philips.plugins.DriverPhueScene">(class in enhomie.philips.plugins)</a>
 </li>
         <li><a href="enhomie.philips.plugins.html#enhomie.philips.plugins.scene.DriverPhueScene">(class in enhomie.philips.plugins.scene)</a>
@@ -576,13 +619,13 @@
       </ul></li>
       <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.HomiePlugin.drivers">drivers (enhomie.homie.plugins.HomiePlugin property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin.drivers">(enhomie.homie.plugins.plugin.HomiePlugin property)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.builtins.html#enhomie.builtins.BltnModels.drivers">drivers() (enhomie.builtins.BltnModels class method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.models.BltnModels.drivers">(enhomie.builtins.models.BltnModels class method)</a>
 </li>
         <li><a href="enhomie.philips.html#enhomie.philips.models.PhueModels.drivers">(enhomie.philips.models.PhueModels class method)</a>
@@ -596,7 +639,7 @@
       </ul></li>
       <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.DriverUbiqClient">DriverUbiqClient (class in enhomie.ubiquiti)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.DriverUbiqClient">(class in enhomie.ubiquiti.plugins)</a>
 </li>
         <li><a href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.client.DriverUbiqClient">(class in enhomie.ubiquiti.plugins.client)</a>
@@ -604,7 +647,7 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.dryrun">dryrun (enhomie.homie.Homie property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.dryrun">(enhomie.homie.homie.Homie property)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomieParams.dryrun">(enhomie.homie.params.homie.HomieParams attribute)</a>
@@ -614,7 +657,7 @@
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.child.HomieChild.dumped">dumped (enhomie.homie.childs.child.HomieChild property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.device.HomieDevice.dumped">(enhomie.homie.childs.device.HomieDevice property)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.group.HomieGroup.dumped">(enhomie.homie.childs.group.HomieGroup property)</a>
@@ -639,14 +682,15 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="E">E</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="E">E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieQueue.empty">empty (enhomie.homie.addons.HomieQueue property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue.empty">(enhomie.homie.addons.queue.HomieQueue property)</a>
 </li>
       </ul></li>
@@ -657,1458 +701,1458 @@
       <li>
     enhomie
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.html#module-enhomie">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#module-enhomie.builtins">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.models
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#module-enhomie.builtins.models">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.params
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#module-enhomie.builtins.params">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.params.period
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#module-enhomie.builtins.params.period">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.params.regexp
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#module-enhomie.builtins.params.regexp">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.params.store
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#module-enhomie.builtins.params.store">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.period
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#module-enhomie.builtins.period">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.regexp
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#module-enhomie.builtins.regexp">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.store
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#module-enhomie.builtins.store">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.test.html#module-enhomie.builtins.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.test.test_models
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_models">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.test.test_period
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_period">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.test.test_regexp
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_regexp">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.builtins.test.test_store
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.test.html#module-enhomie.builtins.test.test_store">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.conftest
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.html#module-enhomie.conftest">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#module-enhomie.execution">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.action
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#module-enhomie.execution.action">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.backup
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#module-enhomie.execution.backup">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.config
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#module-enhomie.execution.config">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.crypts
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#module-enhomie.execution.crypts">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.desired
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#module-enhomie.execution.desired">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.dumped
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#module-enhomie.execution.dumped">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.persist
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#module-enhomie.execution.persist">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.service
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#module-enhomie.execution.service">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.test.html#module-enhomie.execution.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.test.test_action
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.test.html#module-enhomie.execution.test.test_action">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.test.test_backup
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.test.html#module-enhomie.execution.test.test_backup">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.test.test_config
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.test.html#module-enhomie.execution.test.test_config">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.test.test_crypts
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.test.html#module-enhomie.execution.test.test_crypts">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.test.test_desired
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.test.html#module-enhomie.execution.test.test_desired">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.test.test_dumped
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.test.html#module-enhomie.execution.test.test_dumped">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.test.test_persist
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.test.html#module-enhomie.execution.test.test_persist">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.execution.test.test_service
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.test.html#module-enhomie.execution.test.test_service">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#module-enhomie.homie">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#module-enhomie.homie.addons">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.aspired
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#module-enhomie.homie.addons.aspired">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.desired
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#module-enhomie.homie.addons.desired">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.logger
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#module-enhomie.homie.addons.logger">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.persist
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#module-enhomie.homie.addons.persist">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.queue
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#module-enhomie.homie.addons.queue">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.test.html#module-enhomie.homie.addons.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.test.test_aspired
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.test.html#module-enhomie.homie.addons.test.test_aspired">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.test.test_desired
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.test.html#module-enhomie.homie.addons.test.test_desired">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.test.test_logger
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.test.html#module-enhomie.homie.addons.test.test_logger">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.test.test_persist
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.test.html#module-enhomie.homie.addons.test.test_persist">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.addons.test.test_queue
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.test.html#module-enhomie.homie.addons.test.test_queue">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#module-enhomie.homie.childs">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.aspire
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#module-enhomie.homie.childs.aspire">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.child
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#module-enhomie.homie.childs.child">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.desire
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#module-enhomie.homie.childs.desire">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.device
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#module-enhomie.homie.childs.device">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.group
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#module-enhomie.homie.childs.group">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.helpers
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#module-enhomie.homie.childs.helpers">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.homie
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#module-enhomie.homie.childs.homie">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#module-enhomie.homie.childs.origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.scene
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#module-enhomie.homie.childs.scene">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.test.html#module-enhomie.homie.childs.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.test.test_aspire
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.test.html#module-enhomie.homie.childs.test.test_aspire">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.test.test_child
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.test.html#module-enhomie.homie.childs.test.test_child">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.test.test_desire
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.test.html#module-enhomie.homie.childs.test.test_desire">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.test.test_device
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.test.html#module-enhomie.homie.childs.test.test_device">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.test.test_group
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.test.html#module-enhomie.homie.childs.test.test_group">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.test.test_homie
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.test.html#module-enhomie.homie.childs.test.test_homie">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.test.test_origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.test.html#module-enhomie.homie.childs.test.test_origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.childs.test.test_scene
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.test.html#module-enhomie.homie.childs.test.test_scene">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.common
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#module-enhomie.homie.common">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.config
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#module-enhomie.homie.config">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.homie
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#module-enhomie.homie.homie">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.members
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#module-enhomie.homie.members">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.members.actions
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#module-enhomie.homie.members.actions">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.members.member
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#module-enhomie.homie.members.member">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.members.streams
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#module-enhomie.homie.members.streams">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.members.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.test.html#module-enhomie.homie.members.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.members.test.test_actions
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.test.html#module-enhomie.homie.members.test.test_actions">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.members.test.test_member
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.test.html#module-enhomie.homie.members.test.test_member">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.members.test.test_streams
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.test.html#module-enhomie.homie.members.test.test_streams">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.members.test.test_updates
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.test.html#module-enhomie.homie.members.test.test_updates">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.members.updates
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#module-enhomie.homie.members.updates">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.models
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#module-enhomie.homie.models">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.aspire
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.aspire">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.child
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.child">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.common
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.common">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.desire
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.desire">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.device
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.device">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.group
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.group">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.homie
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.homie">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.occur
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.occur">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.plugin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.plugin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.scene
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.scene">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.service
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.service">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.stage
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.stage">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.store
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.store">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.params.where
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#module-enhomie.homie.params.where">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#module-enhomie.homie.plugins">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins.common
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#module-enhomie.homie.plugins.common">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins.driver
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#module-enhomie.homie.plugins.driver">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins.occur
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#module-enhomie.homie.plugins.occur">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins.plugin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#module-enhomie.homie.plugins.plugin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.test.html#module-enhomie.homie.plugins.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins.test.test_driver
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.test.html#module-enhomie.homie.plugins.test.test_driver">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins.test.test_occur
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.test.html#module-enhomie.homie.plugins.test.test_occur">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins.test.test_plugin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.test.html#module-enhomie.homie.plugins.test.test_plugin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins.test.test_where
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.test.html#module-enhomie.homie.plugins.test.test_where">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.plugins.where
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#module-enhomie.homie.plugins.where">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.service
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#module-enhomie.homie.service">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.test.html#module-enhomie.homie.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.test.test_config
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.test.html#module-enhomie.homie.test.test_config">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.test.test_homie
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.test.html#module-enhomie.homie.test.test_homie">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.test.test_models
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.test.html#module-enhomie.homie.test.test_models">module</a>
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li>
     enhomie.homie.test.test_service
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.test.html#module-enhomie.homie.test.test_service">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.threads
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#module-enhomie.homie.threads">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.threads.action
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#module-enhomie.homie.threads.action">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.threads.stream
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#module-enhomie.homie.threads.stream">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.threads.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.test.html#module-enhomie.homie.threads.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.threads.test.test_action
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.test.html#module-enhomie.homie.threads.test.test_action">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.threads.test.test_stream
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.test.html#module-enhomie.homie.threads.test.test_stream">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.threads.test.test_thread
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.test.html#module-enhomie.homie.threads.test.test_thread">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.threads.test.test_update
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.test.html#module-enhomie.homie.threads.test.test_update">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.threads.thread
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#module-enhomie.homie.threads.thread">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.homie.threads.update
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#module-enhomie.homie.threads.update">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#module-enhomie.hubitat">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.action
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#module-enhomie.hubitat.action">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.device
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#module-enhomie.hubitat.device">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.helpers
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#module-enhomie.hubitat.helpers">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.models
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#module-enhomie.hubitat.models">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#module-enhomie.hubitat.origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.params
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.params.html#module-enhomie.hubitat.params">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.params.origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.params.html#module-enhomie.hubitat.params.origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.test.html#module-enhomie.hubitat.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.test.test_action
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_action">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.test.test_device
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_device">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.test.test_helpers
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_helpers">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.test.test_models
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_models">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.test.test_origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.test.test_update
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.test.html#module-enhomie.hubitat.test.test_update">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.hubitat.update
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#module-enhomie.hubitat.update">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#module-enhomie.philips">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.action
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#module-enhomie.philips.action">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.device
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#module-enhomie.philips.device">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.helpers
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#module-enhomie.philips.helpers">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.models
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#module-enhomie.philips.models">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#module-enhomie.philips.origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.params
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.html#module-enhomie.philips.params">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.params.origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.html#module-enhomie.philips.params.origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.params.plugins
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.plugins.html#module-enhomie.philips.params.plugins">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.params.plugins.button
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.plugins.html#module-enhomie.philips.params.plugins.button">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.params.plugins.change
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.plugins.html#module-enhomie.philips.params.plugins.change">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.params.plugins.contact
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.plugins.html#module-enhomie.philips.params.plugins.contact">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.params.plugins.motion
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.plugins.html#module-enhomie.philips.params.plugins.motion">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.params.plugins.scene
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.plugins.html#module-enhomie.philips.params.plugins.scene">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#module-enhomie.philips.plugins">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.button
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.button">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.change
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.change">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.contact
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.contact">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.helpers
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.helpers">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.motion
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.motion">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.scene
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.scene">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.test.test_button
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_button">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.test.test_change
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_change">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.test.test_contact
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_contact">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.test.test_helpers
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_helpers">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.test.test_motion
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_motion">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.plugins.test.test_scene
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_scene">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.stream
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#module-enhomie.philips.stream">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.surgeon
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#module-enhomie.philips.surgeon">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.test.html#module-enhomie.philips.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.test.test_action
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.test.html#module-enhomie.philips.test.test_action">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.test.test_device
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.test.html#module-enhomie.philips.test.test_device">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.test.test_helpers
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.test.html#module-enhomie.philips.test.test_helpers">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.test.test_models
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.test.html#module-enhomie.philips.test.test_models">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.test.test_origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.test.html#module-enhomie.philips.test.test_origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.test.test_stream
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.test.html#module-enhomie.philips.test.test_stream">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.test.test_surgeon
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.test.html#module-enhomie.philips.test.test_surgeon">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.test.test_update
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.test.html#module-enhomie.philips.test.test_update">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.philips.update
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#module-enhomie.philips.update">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.html#module-enhomie.ubiquiti">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.device
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.html#module-enhomie.ubiquiti.device">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.helpers
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.html#module-enhomie.ubiquiti.helpers">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.models
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.html#module-enhomie.ubiquiti.models">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.html#module-enhomie.ubiquiti.origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.params
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.params.html#module-enhomie.ubiquiti.params">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.params.origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.params.html#module-enhomie.ubiquiti.params.origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.params.plugins
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.params.plugins.html#module-enhomie.ubiquiti.params.plugins">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.params.plugins.client
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.params.plugins.html#module-enhomie.ubiquiti.params.plugins.client">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.plugins
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.plugins.html#module-enhomie.ubiquiti.plugins">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.plugins.client
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.plugins.html#module-enhomie.ubiquiti.plugins.client">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.plugins.helpers
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.plugins.html#module-enhomie.ubiquiti.plugins.helpers">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.plugins.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.plugins.test.html#module-enhomie.ubiquiti.plugins.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.plugins.test.test_client
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.plugins.test.html#module-enhomie.ubiquiti.plugins.test.test_client">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.plugins.test.test_helpers
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.plugins.test.html#module-enhomie.ubiquiti.plugins.test.test_helpers">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.test.test_device
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_device">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.test.test_models
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_models">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.test.test_origin
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_origin">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.test.test_update
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.test.html#module-enhomie.ubiquiti.test.test_update">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.ubiquiti.update
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.html#module-enhomie.ubiquiti.update">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.utils
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#module-enhomie.utils">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.utils.child
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#module-enhomie.utils.child">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.utils.param
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#module-enhomie.utils.param">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.utils.raises
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#module-enhomie.utils.raises">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.utils.test
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.test.html#module-enhomie.utils.test">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.utils.test.test_child
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.test.html#module-enhomie.utils.test.test_child">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.utils.test.test_param
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.test.html#module-enhomie.utils.test.test_param">module</a>
 </li>
       </ul></li>
       <li>
     enhomie.utils.tests
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#module-enhomie.utils.tests">module</a>
 </li>
       </ul></li>
@@ -2116,7 +2160,7 @@
 </li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.enqueue">enqueue (enhomie.homie.HomieService property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.enqueue">(enhomie.homie.members.HomieMember property)</a>
 </li>
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.enqueue">(enhomie.homie.members.member.HomieMember property)</a>
@@ -2130,13 +2174,13 @@
       </ul></li>
       <li><a href="enhomie.utils.html#enhomie.utils.InvalidParam.error">error (enhomie.utils.InvalidParam attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.param.InvalidParam.error">(enhomie.utils.param.InvalidParam attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieStreamItem.event">event (enhomie.homie.threads.HomieStreamItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem.event">(enhomie.homie.threads.stream.HomieStreamItem attribute)</a>
 </li>
         <li><a href="enhomie.philips.html#enhomie.philips.stream.PhueStreamItem.event">(enhomie.philips.stream.PhueStreamItem attribute)</a>
@@ -2144,7 +2188,7 @@
       </ul></li>
       <li><a href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueButtonParams.events">events (enhomie.philips.params.DriverPhueButtonParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.plugins.html#enhomie.philips.params.plugins.button.DriverPhueButtonParams.events">(enhomie.philips.params.plugins.button.DriverPhueButtonParams attribute)</a>
 </li>
         <li><a href="enhomie.philips.params.plugins.html#enhomie.philips.params.plugins.DriverPhueButtonParams.events">(enhomie.philips.params.plugins.DriverPhueButtonParams attribute)</a>
@@ -2152,7 +2196,7 @@
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.action.HomieAction.execute">execute() (enhomie.homie.threads.action.HomieAction method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieAction.execute">(enhomie.homie.threads.HomieAction method)</a>
 </li>
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.action.HubiAction.execute">(enhomie.hubitat.action.HubiAction method)</a>
@@ -2166,7 +2210,7 @@
       </ul></li>
       <li><a href="enhomie.execution.html#enhomie.execution.action.execution">execution() (in module enhomie.execution.action)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#enhomie.execution.backup.execution">(in module enhomie.execution.backup)</a>
 </li>
         <li><a href="enhomie.execution.html#enhomie.execution.config.execution">(in module enhomie.execution.config)</a>
@@ -2184,7 +2228,7 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersistTable.expire">expire (enhomie.homie.addons.persist.HomiePersistTable attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieStoreParams.expire">(enhomie.homie.params.HomieStoreParams attribute)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.store.HomieStoreParams.expire">(enhomie.homie.params.store.HomieStoreParams attribute)</a>
@@ -2192,25 +2236,26 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomiePersist.expire">expire() (enhomie.homie.addons.HomiePersist method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersist.expire">(enhomie.homie.addons.persist.HomiePersist method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieThread.expired">expired() (enhomie.homie.threads.HomieThread method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.thread.HomieThread.expired">(enhomie.homie.threads.thread.HomieThread method)</a>
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="F">F</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="F">F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod.family">family (enhomie.builtins.DriverBltnPeriod property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp.family">(enhomie.builtins.DriverBltnRegexp property)</a>
 </li>
         <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore.family">(enhomie.builtins.DriverBltnStore property)</a>
@@ -2303,10 +2348,10 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.fetch">fetch (enhomie.hubitat.HubiOrigin property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.fetch">(enhomie.hubitat.origin.HubiOrigin property)</a>
 </li>
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.update.HubiUpdateItem.fetch">(enhomie.hubitat.update.HubiUpdateItem attribute)</a>
@@ -2326,25 +2371,26 @@
       </ul></li>
       <li><a href="enhomie.utils.html#enhomie.utils.tests.TestTimes.final">final (enhomie.utils.tests.TestTimes attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.TestTimes.final">(enhomie.utils.TestTimes attribute)</a>
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="G">G</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="G">G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieQueue.get">get() (enhomie.homie.addons.HomieQueue method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue.get">(enhomie.homie.addons.queue.HomieQueue method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin.get_action">get_action() (enhomie.homie.childs.HomieOrigin method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin.get_action">(enhomie.homie.childs.origin.HomieOrigin method)</a>
 </li>
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.get_action">(enhomie.hubitat.HubiOrigin method)</a>
@@ -2358,19 +2404,19 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.get_actions">get_actions() (enhomie.homie.Homie method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.get_actions">(enhomie.homie.homie.Homie method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.get_device">get_device() (enhomie.homie.childs.homie.HomieChilds method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChilds.get_device">(enhomie.homie.childs.HomieChilds method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.HomieOccur.get_drivers">get_drivers() (enhomie.homie.plugins.HomieOccur method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.HomiePlugin.get_drivers">(enhomie.homie.plugins.HomiePlugin method)</a>
 </li>
         <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.HomieWhere.get_drivers">(enhomie.homie.plugins.HomieWhere method)</a>
@@ -2384,13 +2430,13 @@
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.get_origin">get_origin() (enhomie.homie.childs.homie.HomieChilds method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChilds.get_origin">(enhomie.homie.childs.HomieChilds method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin.get_stream">get_stream() (enhomie.homie.childs.HomieOrigin method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin.get_stream">(enhomie.homie.childs.origin.HomieOrigin method)</a>
 </li>
         <li><a href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.get_stream">(enhomie.philips.origin.PhueOrigin method)</a>
@@ -2400,7 +2446,7 @@
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.actions.HomieActions.get_thread">get_thread() (enhomie.homie.members.actions.HomieActions method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieActions.get_thread">(enhomie.homie.members.HomieActions method)</a>
 </li>
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.get_thread">(enhomie.homie.members.HomieMember method)</a>
@@ -2417,10 +2463,10 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin.get_update">get_update() (enhomie.homie.childs.HomieOrigin method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin.get_update">(enhomie.homie.childs.origin.HomieOrigin method)</a>
 </li>
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.get_update">(enhomie.hubitat.HubiOrigin method)</a>
@@ -2438,7 +2484,7 @@
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.action.HomieActionItem.group">group (enhomie.homie.threads.action.HomieActionItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieActionItem.group">(enhomie.homie.threads.HomieActionItem attribute)</a>
 </li>
         <li><a href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueSceneParams.group">(enhomie.philips.params.DriverPhueSceneParams attribute)</a>
@@ -2452,7 +2498,7 @@
 </li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.aspire.HomieAspire.groups">groups (enhomie.homie.childs.aspire.HomieAspire property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.groups">(enhomie.homie.childs.desire.HomieDesire property)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.groups">(enhomie.homie.childs.homie.HomieChilds property)</a>
@@ -2477,22 +2523,23 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="H">H</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="H">H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.service.HomieServiceRespiteParams.health">health (enhomie.homie.params.service.HomieServiceRespiteParams attribute)</a>
 </li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie">Homie (class in enhomie.homie)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie">(class in enhomie.homie.homie)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.child.HomieChild.homie">homie (enhomie.homie.childs.child.HomieChild property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChild.homie">(enhomie.homie.childs.HomieChild property)</a>
 </li>
         <li><a href="enhomie.homie.html#enhomie.homie.HomieService.homie">(enhomie.homie.HomieService property)</a>
@@ -2514,7 +2561,7 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.homie">homie() (enhomie.homie.models.HomieModels class method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.html#enhomie.conftest.homie">(in module enhomie.conftest)</a>
 </li>
       </ul></li>
@@ -2522,125 +2569,125 @@
 </li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieAction">HomieAction (class in enhomie.homie.threads)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.action.HomieAction">(class in enhomie.homie.threads.action)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieActionItem">HomieActionItem (class in enhomie.homie.threads)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.action.HomieActionItem">(class in enhomie.homie.threads.action)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieActions">HomieActions (class in enhomie.homie.members)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.actions.HomieActions">(class in enhomie.homie.members.actions)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieAspire">HomieAspire (class in enhomie.homie.childs)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.aspire.HomieAspire">(class in enhomie.homie.childs.aspire)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieAspired">HomieAspired (class in enhomie.homie.addons)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.aspired.HomieAspired">(class in enhomie.homie.addons.aspired)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieAspiredItem">HomieAspiredItem (class in enhomie.homie.addons)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.aspired.HomieAspiredItem">(class in enhomie.homie.addons.aspired)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChild">HomieChild (class in enhomie.homie.childs)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.child.HomieChild">(class in enhomie.homie.childs.child)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChilds">HomieChilds (class in enhomie.homie.childs)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds">(class in enhomie.homie.childs.homie)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieConfig">HomieConfig (class in enhomie.homie)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.config.HomieConfig">(class in enhomie.homie.config)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieDesire">HomieDesire (class in enhomie.homie.childs)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire">(class in enhomie.homie.childs.desire)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieDesired">HomieDesired (class in enhomie.homie.addons)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesired">(class in enhomie.homie.addons.desired)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieDesiredItem">HomieDesiredItem (class in enhomie.homie.addons)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem">(class in enhomie.homie.addons.desired)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieDevice">HomieDevice (class in enhomie.homie.childs)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.device.HomieDevice">(class in enhomie.homie.childs.device)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.HomieDriver">HomieDriver (class in enhomie.homie.plugins)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver">(class in enhomie.homie.plugins.driver)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieGroup">HomieGroup (class in enhomie.homie.childs)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.group.HomieGroup">(class in enhomie.homie.childs.group)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieLogger">HomieLogger (class in enhomie.homie.addons)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.logger.HomieLogger">(class in enhomie.homie.addons.logger)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember">HomieMember (class in enhomie.homie.members)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember">(class in enhomie.homie.members.member)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels">HomieModels (class in enhomie.homie.models)</a>
 </li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.HomieOccur">HomieOccur (class in enhomie.homie.plugins)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.occur.HomieOccur">(class in enhomie.homie.plugins.occur)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin">HomieOrigin (class in enhomie.homie.childs)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin">(class in enhomie.homie.childs.origin)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomiePersist">HomiePersist (class in enhomie.homie.addons)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersist">(class in enhomie.homie.addons.persist)</a>
 </li>
       </ul></li>
@@ -2648,31 +2695,31 @@
 </li>
       <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.HomiePlugin">HomiePlugin (class in enhomie.homie.plugins)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.plugin.HomiePlugin">(class in enhomie.homie.plugins.plugin)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieQueue">HomieQueue (class in enhomie.homie.addons)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue">(class in enhomie.homie.addons.queue)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieQueueItem">HomieQueueItem (class in enhomie.homie.addons)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueueItem">(class in enhomie.homie.addons.queue)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieScene">HomieScene (class in enhomie.homie.childs)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.scene.HomieScene">(class in enhomie.homie.childs.scene)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService">HomieService (class in enhomie.homie)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.service.HomieService">(class in enhomie.homie.service)</a>
 </li>
       </ul></li>
@@ -2680,61 +2727,61 @@
 </li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieStream">HomieStream (class in enhomie.homie.threads)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStream">(class in enhomie.homie.threads.stream)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieStreamItem">HomieStreamItem (class in enhomie.homie.threads)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.stream.HomieStreamItem">(class in enhomie.homie.threads.stream)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieStreams">HomieStreams (class in enhomie.homie.members)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.streams.HomieStreams">(class in enhomie.homie.members.streams)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieThread">HomieThread (class in enhomie.homie.threads)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.thread.HomieThread">(class in enhomie.homie.threads.thread)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieThreadItem">HomieThreadItem (class in enhomie.homie.threads)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.thread.HomieThreadItem">(class in enhomie.homie.threads.thread)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieUpdate">HomieUpdate (class in enhomie.homie.threads)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdate">(class in enhomie.homie.threads.update)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieUpdateItem">HomieUpdateItem (class in enhomie.homie.threads)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdateItem">(class in enhomie.homie.threads.update)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieUpdates">HomieUpdates (class in enhomie.homie.members)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.updates.HomieUpdates">(class in enhomie.homie.members.updates)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.HomieWhere">HomieWhere (class in enhomie.homie.plugins)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.where.HomieWhere">(class in enhomie.homie.plugins.where)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiAction">HubiAction (class in enhomie.hubitat)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.action.HubiAction">(class in enhomie.hubitat.action)</a>
 </li>
       </ul></li>
@@ -2742,25 +2789,25 @@
 </li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiDevice">HubiDevice (class in enhomie.hubitat)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.device.HubiDevice">(class in enhomie.hubitat.device)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiModels">HubiModels (class in enhomie.hubitat)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.models.HubiModels">(class in enhomie.hubitat.models)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin">HubiOrigin (class in enhomie.hubitat)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin">(class in enhomie.hubitat.origin)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieOriginParams.hubitat">hubitat (enhomie.homie.params.HomieOriginParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.origin.HomieOriginParams.hubitat">(enhomie.homie.params.origin.HomieOriginParams attribute)</a>
 </li>
       </ul></li>
@@ -2768,35 +2815,36 @@
 </li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiUpdate">HubiUpdate (class in enhomie.hubitat)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.update.HubiUpdate">(class in enhomie.hubitat.update)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.update.HubiUpdateItem">HubiUpdateItem (class in enhomie.hubitat.update)</a>
 </li>
   </ul></td>
-</tr></table>
-
-<h2 id="I">I</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="I">I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.utils.html#enhomie.utils.Idempotent">Idempotent</a>, <a href="enhomie.utils.html#enhomie.utils.raises.Idempotent">[1]</a>
 </li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomiePersist.insert">insert() (enhomie.homie.addons.HomiePersist method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersist.insert">(enhomie.homie.addons.persist.HomiePersist method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.utils.html#enhomie.utils.InvalidChild">InvalidChild</a>, <a href="enhomie.utils.html#enhomie.utils.child.InvalidChild">[1]</a>
 </li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.utils.html#enhomie.utils.InvalidParam">InvalidParam</a>, <a href="enhomie.utils.html#enhomie.utils.param.InvalidParam">[1]</a>
 </li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.aspired.HomieAspired.items">items() (enhomie.homie.addons.aspired.HomieAspired method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesired.items">(enhomie.homie.addons.desired.HomieDesired method)</a>
 </li>
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieAspired.items">(enhomie.homie.addons.HomieAspired method)</a>
@@ -2805,14 +2853,15 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="K">K</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="K">K</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.aspire.HomieAspire.kind">kind (enhomie.homie.childs.aspire.HomieAspire property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.child.HomieChild.kind">(enhomie.homie.childs.child.HomieChild property)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.kind">(enhomie.homie.childs.desire.HomieDesire property)</a>
@@ -2854,7 +2903,7 @@
       </ul></li>
       <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod.kinds">kinds (enhomie.builtins.DriverBltnPeriod property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp.kinds">(enhomie.builtins.DriverBltnRegexp property)</a>
 </li>
         <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore.kinds">(enhomie.builtins.DriverBltnStore property)</a>
@@ -2907,14 +2956,15 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="L">L</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="L">L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.device.HomieDeviceParams.label">label (enhomie.homie.params.device.HomieDeviceParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.group.HomieGroupParams.label">(enhomie.homie.params.group.HomieGroupParams attribute)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieDeviceParams.label">(enhomie.homie.params.HomieDeviceParams attribute)</a>
@@ -2928,7 +2978,7 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.aspired.HomieAspiredItem.level">level (enhomie.homie.addons.aspired.HomieAspiredItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.level">(enhomie.homie.addons.desired.HomieDesiredItem attribute)</a>
 </li>
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieAspiredItem.level">(enhomie.homie.addons.HomieAspiredItem attribute)</a>
@@ -2945,58 +2995,59 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieLogger.log">log() (enhomie.homie.addons.HomieLogger method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.logger.HomieLogger.log">(enhomie.homie.addons.logger.HomieLogger method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieLogger.log_c">log_c() (enhomie.homie.addons.HomieLogger method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.logger.HomieLogger.log_c">(enhomie.homie.addons.logger.HomieLogger method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieLogger.log_d">log_d() (enhomie.homie.addons.HomieLogger method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.logger.HomieLogger.log_d">(enhomie.homie.addons.logger.HomieLogger method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieLogger.log_e">log_e() (enhomie.homie.addons.HomieLogger method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.logger.HomieLogger.log_e">(enhomie.homie.addons.logger.HomieLogger method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieLogger.log_i">log_i() (enhomie.homie.addons.HomieLogger method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.logger.HomieLogger.log_i">(enhomie.homie.addons.logger.HomieLogger method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieLogger.log_w">log_w() (enhomie.homie.addons.HomieLogger method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.logger.HomieLogger.log_w">(enhomie.homie.addons.logger.HomieLogger method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.logger">logger (enhomie.homie.Homie property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.logger">(enhomie.homie.homie.Homie property)</a>
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="M">M</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="M">M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.matched">matched() (enhomie.homie.addons.desired.HomieDesiredItem method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieDesiredItem.matched">(enhomie.homie.addons.HomieDesiredItem method)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.aspire.HomieAspire.matched">(enhomie.homie.childs.aspire.HomieAspire method)</a>
@@ -3010,13 +3061,13 @@
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieThread.member">member (enhomie.homie.threads.HomieThread property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.thread.HomieThread.member">(enhomie.homie.threads.thread.HomieThread property)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.merge">merge (enhomie.hubitat.HubiOrigin property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.merge">(enhomie.hubitat.origin.HubiOrigin property)</a>
 </li>
         <li><a href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin.merge">(enhomie.philips.origin.PhueOrigin property)</a>
@@ -3030,7 +3081,7 @@
       </ul></li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.helpers.merge_fetch">merge_fetch() (in module enhomie.hubitat.helpers)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.helpers.merge_fetch">(in module enhomie.philips.helpers)</a>
 </li>
         <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.helpers.merge_fetch">(in module enhomie.ubiquiti.helpers)</a>
@@ -3038,7 +3089,7 @@
       </ul></li>
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.helpers.merge_find">merge_find() (in module enhomie.hubitat.helpers)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.helpers.merge_find">(in module enhomie.philips.helpers)</a>
 </li>
         <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.helpers.merge_find">(in module enhomie.ubiquiti.helpers)</a>
@@ -3046,7 +3097,7 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.config.HomieConfig.merge_params">merge_params() (enhomie.homie.config.HomieConfig method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.HomieConfig.merge_params">(enhomie.homie.HomieConfig method)</a>
 </li>
       </ul></li>
@@ -3054,7 +3105,7 @@
 </li>
       <li><a href="enhomie.utils.html#enhomie.utils.tests.TestTimes.middle">middle (enhomie.utils.tests.TestTimes attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.TestTimes.middle">(enhomie.utils.TestTimes attribute)</a>
 </li>
       </ul></li>
@@ -3067,7 +3118,7 @@
       <li>
     module
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.html#module-enhomie">enhomie</a>
 </li>
         <li><a href="enhomie.builtins.html#module-enhomie.builtins">enhomie.builtins</a>
@@ -3486,10 +3537,10 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.utils.html#enhomie.utils.TestBodies.moons">moons (enhomie.utils.TestBodies attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.tests.TestBodies.moons">(enhomie.utils.tests.TestBodies attribute)</a>
 </li>
       </ul></li>
@@ -3498,34 +3549,36 @@
       <li><a href="enhomie.utils.html#enhomie.utils.MultipleSource">MultipleSource</a>, <a href="enhomie.utils.html#enhomie.utils.raises.MultipleSource">[1]</a>
 </li>
   </ul></td>
-</tr></table>
-
-<h2 id="N">N</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="N">N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.child.HomieChild.name">name (enhomie.homie.childs.child.HomieChild property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChild.name">(enhomie.homie.childs.HomieChild property)</a>
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieWhereParams.negate">negate (enhomie.homie.params.HomieWhereParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.where.HomieWhereParams.negate">(enhomie.homie.params.where.HomieWhereParams attribute)</a>
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="O">O</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="O">O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp.occur">occur() (enhomie.builtins.DriverBltnRegexp method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp.occur">(enhomie.builtins.regexp.DriverBltnRegexp method)</a>
 </li>
         <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.occur">(enhomie.homie.models.HomieModels class method)</a>
@@ -3563,7 +3616,7 @@
 </li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.aspire.HomieAspire.occurs">occurs (enhomie.homie.childs.aspire.HomieAspire property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieAspire.occurs">(enhomie.homie.childs.HomieAspire property)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.aspire.HomieAspireParams.occurs">(enhomie.homie.params.aspire.HomieAspireParams attribute)</a>
@@ -3573,7 +3626,7 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.omitted">omitted() (enhomie.homie.addons.desired.HomieDesiredItem method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieDesiredItem.omitted">(enhomie.homie.addons.HomieDesiredItem method)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.omitted">(enhomie.homie.childs.desire.HomieDesire method)</a>
@@ -3583,7 +3636,7 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.operate">operate() (enhomie.homie.HomieService method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.actions.HomieActions.operate">(enhomie.homie.members.actions.HomieActions method)</a>
 </li>
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieActions.operate">(enhomie.homie.members.HomieActions method)</a>
@@ -3621,33 +3674,33 @@
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.actions.HomieActions.operate_actions">operate_actions() (enhomie.homie.members.actions.HomieActions method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieActions.operate_actions">(enhomie.homie.members.HomieActions method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.actions.HomieActions.operate_aspires">operate_aspires() (enhomie.homie.members.actions.HomieActions method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieActions.operate_aspires">(enhomie.homie.members.HomieActions method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.actions.HomieActions.operate_desires">operate_desires() (enhomie.homie.members.actions.HomieActions method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieActions.operate_desires">(enhomie.homie.members.HomieActions method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.operate_healths">operate_healths() (enhomie.homie.HomieService method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.service.HomieService.operate_healths">(enhomie.homie.service.HomieService method)</a>
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.operate_streams">operate_streams() (enhomie.homie.HomieService method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieUpdates.operate_streams">(enhomie.homie.members.HomieUpdates method)</a>
 </li>
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.updates.HomieUpdates.operate_streams">(enhomie.homie.members.updates.HomieUpdates method)</a>
@@ -3665,7 +3718,7 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.operate_updates">operate_updates() (enhomie.homie.HomieService method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.operate_updates">(enhomie.homie.members.HomieMember method)</a>
 </li>
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.operate_updates">(enhomie.homie.members.member.HomieMember method)</a>
@@ -3683,7 +3736,7 @@
       </ul></li>
       <li><a href="enhomie.execution.html#enhomie.execution.action.operation">operation() (in module enhomie.execution.action)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.html#enhomie.execution.backup.operation">(in module enhomie.execution.backup)</a>
 </li>
         <li><a href="enhomie.execution.html#enhomie.execution.config.operation">(in module enhomie.execution.config)</a>
@@ -3701,13 +3754,13 @@
       </ul></li>
       <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnStoreParams.operator">operator (enhomie.builtins.params.DriverBltnStoreParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.store.DriverBltnStoreParams.operator">(enhomie.builtins.params.store.DriverBltnStoreParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.device.HomieDevice.origin">origin (enhomie.homie.childs.device.HomieDevice property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.group.HomieGroup.origin">(enhomie.homie.childs.group.HomieGroup property)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieDevice.origin">(enhomie.homie.childs.HomieDevice property)</a>
@@ -3737,7 +3790,7 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.origin">origin() (enhomie.homie.models.HomieModels class method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiModels.origin">(enhomie.hubitat.HubiModels class method)</a>
 </li>
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.models.HubiModels.origin">(enhomie.hubitat.models.HubiModels class method)</a>
@@ -3753,7 +3806,7 @@
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.origins">origins (enhomie.homie.childs.homie.HomieChilds property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChilds.origins">(enhomie.homie.childs.HomieChilds property)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomieParams.origins">(enhomie.homie.params.homie.HomieParams attribute)</a>
@@ -3762,20 +3815,21 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="P">P</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="P">P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.utils.html#enhomie.utils.InvalidParam.param">param (enhomie.utils.InvalidParam attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.param.InvalidParam.param">(enhomie.utils.param.InvalidParam attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod.params">params (enhomie.builtins.DriverBltnPeriod property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp.params">(enhomie.builtins.DriverBltnRegexp property)</a>
 </li>
         <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore.params">(enhomie.builtins.DriverBltnStore property)</a>
@@ -3881,13 +3935,13 @@
       </ul></li>
       <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnRegexpParams.patterns">patterns (enhomie.builtins.params.DriverBltnRegexpParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.regexp.DriverBltnRegexpParams.patterns">(enhomie.builtins.params.regexp.DriverBltnRegexpParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.aspire.HomieAspireParams.pause">pause (enhomie.homie.params.aspire.HomieAspireParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.desire.HomieDesireParams.pause">(enhomie.homie.params.desire.HomieDesireParams attribute)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieAspireParams.pause">(enhomie.homie.params.HomieAspireParams attribute)</a>
@@ -3897,7 +3951,7 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.paused">paused (enhomie.homie.addons.desired.HomieDesiredItem property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieDesiredItem.paused">(enhomie.homie.addons.HomieDesiredItem property)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.aspire.HomieAspire.paused">(enhomie.homie.childs.aspire.HomieAspire property)</a>
@@ -3906,10 +3960,10 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.paused">paused() (enhomie.homie.childs.desire.HomieDesire method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieDesire.paused">(enhomie.homie.childs.HomieDesire method)</a>
 </li>
       </ul></li>
@@ -3917,19 +3971,19 @@
 </li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.persist">persist (enhomie.homie.Homie property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.persist">(enhomie.homie.homie.Homie property)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.utils.html#enhomie.utils.child.InvalidChild.phase">phase (enhomie.utils.child.InvalidChild attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.InvalidChild.phase">(enhomie.utils.InvalidChild attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieOriginParams.philips">philips (enhomie.homie.params.HomieOriginParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.origin.HomieOriginParams.philips">(enhomie.homie.params.origin.HomieOriginParams attribute)</a>
 </li>
       </ul></li>
@@ -3937,31 +3991,31 @@
 </li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieOccurParams.philips_button">philips_button (enhomie.homie.params.HomieOccurParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.occur.HomieOccurParams.philips_button">(enhomie.homie.params.occur.HomieOccurParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieWhereParams.philips_change">philips_change (enhomie.homie.params.HomieWhereParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.where.HomieWhereParams.philips_change">(enhomie.homie.params.where.HomieWhereParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieOccurParams.philips_contact">philips_contact (enhomie.homie.params.HomieOccurParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.occur.HomieOccurParams.philips_contact">(enhomie.homie.params.occur.HomieOccurParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieOccurParams.philips_motion">philips_motion (enhomie.homie.params.HomieOccurParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.occur.HomieOccurParams.philips_motion">(enhomie.homie.params.occur.HomieOccurParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieOccurParams.philips_scene">philips_scene (enhomie.homie.params.HomieOccurParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.occur.HomieOccurParams.philips_scene">(enhomie.homie.params.occur.HomieOccurParams attribute)</a>
 </li>
       </ul></li>
@@ -3971,7 +4025,7 @@
 </li>
       <li><a href="enhomie.philips.html#enhomie.philips.PhueAction">PhueAction (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.action.PhueAction">(class in enhomie.philips.action)</a>
 </li>
       </ul></li>
@@ -3979,7 +4033,7 @@
 </li>
       <li><a href="enhomie.philips.html#enhomie.philips.PhueDevice">PhueDevice (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.device.PhueDevice">(class in enhomie.philips.device)</a>
 </li>
       </ul></li>
@@ -3987,19 +4041,19 @@
 </li>
       <li><a href="enhomie.philips.html#enhomie.philips.PhueModels">PhueModels (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.models.PhueModels">(class in enhomie.philips.models)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.philips.html#enhomie.philips.PhueOrigin">PhueOrigin (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.origin.PhueOrigin">(class in enhomie.philips.origin)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.philips.html#enhomie.philips.PhueStream">PhueStream (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.stream.PhueStream">(class in enhomie.philips.stream)</a>
 </li>
       </ul></li>
@@ -4007,7 +4061,7 @@
 </li>
       <li><a href="enhomie.philips.html#enhomie.philips.PhueUpdate">PhueUpdate (class in enhomie.philips)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.update.PhueUpdate">(class in enhomie.philips.update)</a>
 </li>
       </ul></li>
@@ -4015,13 +4069,13 @@
 </li>
       <li><a href="enhomie.utils.html#enhomie.utils.TestBodies.planets">planets (enhomie.utils.TestBodies attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.tests.TestBodies.planets">(enhomie.utils.tests.TestBodies attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.driver.HomieDriver.plugin">plugin (enhomie.homie.plugins.driver.HomieDriver property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.plugins.html#enhomie.homie.plugins.HomieDriver.plugin">(enhomie.homie.plugins.HomieDriver property)</a>
 </li>
       </ul></li>
@@ -4029,7 +4083,7 @@
 </li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.potent">potent (enhomie.homie.Homie property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.potent">(enhomie.homie.homie.Homie property)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomieParams.potent">(enhomie.homie.params.homie.HomieParams attribute)</a>
@@ -4039,13 +4093,13 @@
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomieParams.printer">printer (enhomie.homie.params.homie.HomieParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieParams.printer">(enhomie.homie.params.HomieParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.printer">printer() (enhomie.homie.Homie method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.printer">(enhomie.homie.homie.Homie method)</a>
 </li>
         <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.printer">(enhomie.homie.models.HomieModels class method)</a>
@@ -4053,59 +4107,61 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieQueue.put">put() (enhomie.homie.addons.HomieQueue method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue.put">(enhomie.homie.addons.queue.HomieQueue method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin.put_action">put_action() (enhomie.homie.childs.HomieOrigin method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin.put_action">(enhomie.homie.childs.origin.HomieOrigin method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.actions.HomieActions.put_actions">put_actions() (enhomie.homie.members.actions.HomieActions method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieActions.put_actions">(enhomie.homie.members.HomieActions method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin.put_stream">put_stream() (enhomie.homie.childs.HomieOrigin method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin.put_stream">(enhomie.homie.childs.origin.HomieOrigin method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin.put_update">put_update() (enhomie.homie.childs.HomieOrigin method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin.put_update">(enhomie.homie.childs.origin.HomieOrigin method)</a>
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="Q">Q</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="Q">Q</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieQueue.qsize">qsize (enhomie.homie.addons.HomieQueue property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueue.qsize">(enhomie.homie.addons.queue.HomieQueue property)</a>
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.queue">queue() (enhomie.homie.models.HomieModels class method)</a>
 </li>
   </ul></td>
-</tr></table>
-
-<h2 id="R">R</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="R">R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin.refresh">refresh() (enhomie.homie.childs.HomieOrigin method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin.refresh">(enhomie.homie.childs.origin.HomieOrigin method)</a>
 </li>
         <li><a href="enhomie.homie.html#enhomie.homie.Homie.refresh">(enhomie.homie.Homie method)</a>
@@ -4134,22 +4190,22 @@
       <li><a href="enhomie.html#enhomie.conftest.replaces_factory">replaces_factory() (in module enhomie.conftest)</a>
 </li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.hubitat.html#enhomie.hubitat.helpers.request_action">request_action() (in module enhomie.hubitat.helpers)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.helpers.request_action">(in module enhomie.philips.helpers)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieServiceParams.respite">respite (enhomie.homie.params.HomieServiceParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.service.HomieServiceParams.respite">(enhomie.homie.params.service.HomieServiceParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin.router">router (enhomie.ubiquiti.origin.UbiqOrigin property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.origin.UbiqOriginParams.router">(enhomie.ubiquiti.params.origin.UbiqOriginParams attribute)</a>
 </li>
         <li><a href="enhomie.ubiquiti.params.html#enhomie.ubiquiti.params.UbiqOriginParams.router">(enhomie.ubiquiti.params.UbiqOriginParams attribute)</a>
@@ -4159,13 +4215,13 @@
       </ul></li>
       <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieThread.run">run() (enhomie.homie.threads.HomieThread method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.thread.HomieThread.run">(enhomie.homie.threads.thread.HomieThread method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.running">running (enhomie.homie.HomieService property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.running">(enhomie.homie.members.HomieMember property)</a>
 </li>
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.running">(enhomie.homie.members.member.HomieMember property)</a>
@@ -4174,14 +4230,15 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="S">S</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="S">S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.aspired.HomieAspiredItem.scene">scene (enhomie.homie.addons.aspired.HomieAspiredItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.scene">(enhomie.homie.addons.desired.HomieDesiredItem attribute)</a>
 </li>
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieAspiredItem.scene">(enhomie.homie.addons.HomieAspiredItem attribute)</a>
@@ -4209,13 +4266,13 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.scene">scene() (enhomie.homie.models.HomieModels class method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.models.PhueDriverModels.scene">(enhomie.philips.models.PhueDriverModels class method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.scenes">scenes (enhomie.homie.childs.homie.HomieChilds property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieChilds.scenes">(enhomie.homie.childs.HomieChilds property)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomieParams.scenes">(enhomie.homie.params.homie.HomieParams attribute)</a>
@@ -4225,13 +4282,13 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomiePersist.select">select() (enhomie.homie.addons.HomiePersist method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersist.select">(enhomie.homie.addons.persist.HomiePersist method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueButtonParams.sensor">sensor (enhomie.philips.params.DriverPhueButtonParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.plugins.html#enhomie.philips.params.plugins.button.DriverPhueButtonParams.sensor">(enhomie.philips.params.plugins.button.DriverPhueButtonParams attribute)</a>
 </li>
         <li><a href="enhomie.philips.params.plugins.html#enhomie.philips.params.plugins.DriverPhueButtonParams.sensor">(enhomie.philips.params.plugins.DriverPhueButtonParams attribute)</a>
@@ -4239,7 +4296,7 @@
       </ul></li>
       <li><a href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueChangeParams.sensors">sensors (enhomie.philips.params.DriverPhueChangeParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.plugins.html#enhomie.philips.params.plugins.change.DriverPhueChangeParams.sensors">(enhomie.philips.params.plugins.change.DriverPhueChangeParams attribute)</a>
 </li>
         <li><a href="enhomie.philips.params.plugins.html#enhomie.philips.params.plugins.DriverPhueChangeParams.sensors">(enhomie.philips.params.plugins.DriverPhueChangeParams attribute)</a>
@@ -4247,13 +4304,13 @@
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomieParams.service">service (enhomie.homie.params.homie.HomieParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieParams.service">(enhomie.homie.params.HomieParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.service">service() (enhomie.homie.models.HomieModels class method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.html#enhomie.conftest.service">(in module enhomie.conftest)</a>
 </li>
       </ul></li>
@@ -4261,7 +4318,7 @@
 </li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin.set_action">set_action() (enhomie.homie.childs.HomieOrigin method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin.set_action">(enhomie.homie.childs.origin.HomieOrigin method)</a>
 </li>
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.set_action">(enhomie.hubitat.HubiOrigin method)</a>
@@ -4275,13 +4332,13 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.Homie.set_actions">set_actions() (enhomie.homie.Homie method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.homie.Homie.set_actions">(enhomie.homie.homie.Homie method)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin.set_update">set_update() (enhomie.homie.childs.HomieOrigin method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin.set_update">(enhomie.homie.childs.origin.HomieOrigin method)</a>
 </li>
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiOrigin.set_update">(enhomie.hubitat.HubiOrigin method)</a>
@@ -4299,7 +4356,7 @@
       </ul></li>
       <li><a href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueChangeParams.since">since (enhomie.philips.params.DriverPhueChangeParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.plugins.html#enhomie.philips.params.plugins.change.DriverPhueChangeParams.since">(enhomie.philips.params.plugins.change.DriverPhueChangeParams attribute)</a>
 </li>
         <li><a href="enhomie.philips.params.plugins.html#enhomie.philips.params.plugins.DriverPhueChangeParams.since">(enhomie.philips.params.plugins.DriverPhueChangeParams attribute)</a>
@@ -4313,7 +4370,7 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.soft">soft() (enhomie.homie.HomieService method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.soft">(enhomie.homie.members.HomieMember method)</a>
 </li>
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.soft">(enhomie.homie.members.member.HomieMember method)</a>
@@ -4323,7 +4380,7 @@
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.device.HomieDevice.source">source (enhomie.homie.childs.device.HomieDevice property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.group.HomieGroup.source">(enhomie.homie.childs.group.HomieGroup property)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieDevice.source">(enhomie.homie.childs.HomieDevice property)</a>
@@ -4333,7 +4390,7 @@
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieOrigin.source">source() (enhomie.homie.childs.HomieOrigin method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieScene.source">(enhomie.homie.childs.HomieScene method)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin.source">(enhomie.homie.childs.origin.HomieOrigin method)</a>
@@ -4354,12 +4411,12 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.persist.SQLBase">SQLBase (class in enhomie.homie.addons.persist)</a>
 </li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.squeue">squeue (enhomie.homie.members.HomieMember property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.squeue">(enhomie.homie.members.member.HomieMember property)</a>
 </li>
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieThread.squeue">(enhomie.homie.threads.HomieThread property)</a>
@@ -4369,7 +4426,7 @@
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.aspire.HomieAspireParams.stage">stage (enhomie.homie.params.aspire.HomieAspireParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.desire.HomieDesireParams.stage">(enhomie.homie.params.desire.HomieDesireParams attribute)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieAspireParams.stage">(enhomie.homie.params.HomieAspireParams attribute)</a>
@@ -4383,7 +4440,7 @@
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieScene.stage">stage() (enhomie.homie.childs.HomieScene method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.scene.HomieScene.stage">(enhomie.homie.childs.scene.HomieScene method)</a>
 </li>
         <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.stage">(enhomie.homie.models.HomieModels class method)</a>
@@ -4391,7 +4448,7 @@
       </ul></li>
       <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnPeriodParams.start">start (enhomie.builtins.params.DriverBltnPeriodParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams.start">(enhomie.builtins.params.period.DriverBltnPeriodParams attribute)</a>
 </li>
         <li><a href="enhomie.utils.html#enhomie.utils.tests.TestTimes.start">(enhomie.utils.tests.TestTimes attribute)</a>
@@ -4401,7 +4458,7 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieLogger.start">start() (enhomie.homie.addons.HomieLogger method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.logger.HomieLogger.start">(enhomie.homie.addons.logger.HomieLogger method)</a>
 </li>
         <li><a href="enhomie.homie.html#enhomie.homie.HomieService.start">(enhomie.homie.HomieService method)</a>
@@ -4415,7 +4472,7 @@
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.aspired.HomieAspiredItem.state">state (enhomie.homie.addons.aspired.HomieAspiredItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.state">(enhomie.homie.addons.desired.HomieDesiredItem attribute)</a>
 </li>
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieAspiredItem.state">(enhomie.homie.addons.HomieAspiredItem attribute)</a>
@@ -4433,7 +4490,7 @@
       </ul></li>
       <li><a href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueContactParams.states">states (enhomie.philips.params.DriverPhueContactParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueMotionParams.states">(enhomie.philips.params.DriverPhueMotionParams attribute)</a>
 </li>
         <li><a href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueSceneParams.states">(enhomie.philips.params.DriverPhueSceneParams attribute)</a>
@@ -4453,13 +4510,13 @@
       </ul></li>
       <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnPeriodParams.stop">stop (enhomie.builtins.params.DriverBltnPeriodParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams.stop">(enhomie.builtins.params.period.DriverBltnPeriodParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieLogger.stop">stop() (enhomie.homie.addons.HomieLogger method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.logger.HomieLogger.stop">(enhomie.homie.addons.logger.HomieLogger method)</a>
 </li>
         <li><a href="enhomie.homie.html#enhomie.homie.HomieService.stop">(enhomie.homie.HomieService method)</a>
@@ -4477,7 +4534,7 @@
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.aspire.HomieAspireParams.store">store (enhomie.homie.params.aspire.HomieAspireParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.desire.HomieDesireParams.store">(enhomie.homie.params.desire.HomieDesireParams attribute)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieAspireParams.store">(enhomie.homie.params.HomieAspireParams attribute)</a>
@@ -4489,7 +4546,7 @@
 </li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomiePrinterParams.stream">stream (enhomie.homie.params.homie.HomiePrinterParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomiePrinterParams.stream">(enhomie.homie.params.HomiePrinterParams attribute)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.service.HomieServiceTimeoutParams.stream">(enhomie.homie.params.service.HomieServiceTimeoutParams attribute)</a>
@@ -4497,7 +4554,7 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.stream">stream() (enhomie.homie.models.HomieModels class method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.html#enhomie.philips.models.PhueModels.stream">(enhomie.philips.models.PhueModels class method)</a>
 </li>
         <li><a href="enhomie.philips.html#enhomie.philips.PhueModels.stream">(enhomie.philips.PhueModels class method)</a>
@@ -4505,21 +4562,22 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.streams">streams (enhomie.homie.HomieService property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.service.HomieService.streams">(enhomie.homie.service.HomieService property)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.philips.html#enhomie.philips.surgeon.surgeon">surgeon() (in module enhomie.philips.surgeon)</a>
 </li>
   </ul></td>
-</tr></table>
-
-<h2 id="T">T</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="T">T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.aspired.HomieAspiredItem.target">target (enhomie.homie.addons.aspired.HomieAspiredItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.target">(enhomie.homie.addons.desired.HomieDesiredItem attribute)</a>
 </li>
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieAspiredItem.target">(enhomie.homie.addons.HomieAspiredItem attribute)</a>
@@ -4529,7 +4587,7 @@
       </ul></li>
       <li><a href="enhomie.execution.test.html#enhomie.execution.test.test_action.test_arguments">test_arguments() (in module enhomie.execution.test.test_action)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.execution.test.html#enhomie.execution.test.test_backup.test_arguments">(in module enhomie.execution.test.test_backup)</a>
 </li>
         <li><a href="enhomie.execution.test.html#enhomie.execution.test.test_config.test_arguments">(in module enhomie.execution.test.test_config)</a>
@@ -4652,7 +4710,7 @@
       <li><a href="enhomie.homie.addons.test.html#enhomie.homie.addons.test.test_queue.test_HomieQueue">test_HomieQueue() (in module enhomie.homie.addons.test.test_queue)</a>
 </li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.test.html#enhomie.homie.addons.test.test_queue.test_HomieQueueItem">test_HomieQueueItem() (in module enhomie.homie.addons.test.test_queue)</a>
 </li>
       <li><a href="enhomie.homie.childs.test.html#enhomie.homie.childs.test.test_scene.test_HomieScene">test_HomieScene() (in module enhomie.homie.childs.test.test_scene)</a>
@@ -4731,7 +4789,7 @@
 </li>
       <li><a href="enhomie.hubitat.test.html#enhomie.hubitat.test.test_helpers.test_request_action">test_request_action() (in module enhomie.hubitat.test.test_helpers)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.philips.test.html#enhomie.philips.test.test_helpers.test_request_action">(in module enhomie.philips.test.test_helpers)</a>
 </li>
       </ul></li>
@@ -4753,13 +4811,13 @@
 </li>
       <li><a href="enhomie.utils.html#enhomie.utils.TestBodies">TestBodies (class in enhomie.utils)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.tests.TestBodies">(class in enhomie.utils.tests)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.utils.html#enhomie.utils.TestTimes">TestTimes (class in enhomie.utils)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.utils.html#enhomie.utils.tests.TestTimes">(class in enhomie.utils.tests)</a>
 </li>
       </ul></li>
@@ -4767,13 +4825,13 @@
 </li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.threads">threads (enhomie.homie.members.HomieMember property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.threads">(enhomie.homie.members.member.HomieMember property)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieQueueItem.time">time (enhomie.homie.addons.HomieQueueItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.queue.HomieQueueItem.time">(enhomie.homie.addons.queue.HomieQueueItem attribute)</a>
 </li>
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieActionItem.time">(enhomie.homie.threads.HomieActionItem attribute)</a>
@@ -4785,7 +4843,7 @@
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieServiceParams.timeout">timeout (enhomie.homie.params.HomieServiceParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.service.HomieServiceParams.timeout">(enhomie.homie.params.service.HomieServiceParams attribute)</a>
 </li>
       </ul></li>
@@ -4793,21 +4851,22 @@
 </li>
       <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnPeriodParams.tzname">tzname (enhomie.builtins.params.DriverBltnPeriodParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.period.DriverBltnPeriodParams.tzname">(enhomie.builtins.params.period.DriverBltnPeriodParams attribute)</a>
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="U">U</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="U">U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.ubiquiti.plugins.html#enhomie.ubiquiti.plugins.helpers.ubiq_latest">ubiq_latest() (in module enhomie.ubiquiti.plugins.helpers)</a>
 </li>
       <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqDevice">UbiqDevice (class in enhomie.ubiquiti)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.device.UbiqDevice">(class in enhomie.ubiquiti.device)</a>
 </li>
       </ul></li>
@@ -4815,19 +4874,19 @@
 </li>
       <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqModels">UbiqModels (class in enhomie.ubiquiti)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.models.UbiqModels">(class in enhomie.ubiquiti.models)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqOrigin">UbiqOrigin (class in enhomie.ubiquiti)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.origin.UbiqOrigin">(class in enhomie.ubiquiti.origin)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieOriginParams.ubiquiti">ubiquiti (enhomie.homie.params.HomieOriginParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.origin.HomieOriginParams.ubiquiti">(enhomie.homie.params.origin.HomieOriginParams attribute)</a>
 </li>
       </ul></li>
@@ -4835,13 +4894,13 @@
 </li>
       <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomieWhereParams.ubiquiti_client">ubiquiti_client (enhomie.homie.params.HomieWhereParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.where.HomieWhereParams.ubiquiti_client">(enhomie.homie.params.where.HomieWhereParams attribute)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.UbiqUpdate">UbiqUpdate (class in enhomie.ubiquiti)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.ubiquiti.html#enhomie.ubiquiti.update.UbiqUpdate">(class in enhomie.ubiquiti.update)</a>
 </li>
       </ul></li>
@@ -4851,7 +4910,7 @@
 </li>
       <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnStoreParams.unique">unique (enhomie.builtins.params.DriverBltnStoreParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.store.DriverBltnStoreParams.unique">(enhomie.builtins.params.store.DriverBltnStoreParams attribute)</a>
 </li>
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersistTable.unique">(enhomie.homie.addons.persist.HomiePersistTable attribute)</a>
@@ -4866,10 +4925,10 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersistTable.update">update (enhomie.homie.addons.persist.HomiePersistTable attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.homie.HomiePrinterParams.update">(enhomie.homie.params.homie.HomiePrinterParams attribute)</a>
 </li>
         <li><a href="enhomie.homie.params.html#enhomie.homie.params.HomiePrinterParams.update">(enhomie.homie.params.HomiePrinterParams attribute)</a>
@@ -4881,7 +4940,7 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.models.HomieModels.update">update() (enhomie.homie.models.HomieModels class method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.HubiModels.update">(enhomie.hubitat.HubiModels class method)</a>
 </li>
         <li><a href="enhomie.hubitat.html#enhomie.hubitat.models.HubiModels.update">(enhomie.hubitat.models.HubiModels class method)</a>
@@ -4897,13 +4956,13 @@
       </ul></li>
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.updates">updates (enhomie.homie.HomieService property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.html#enhomie.homie.service.HomieService.updates">(enhomie.homie.service.HomieService property)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.uqueue">uqueue (enhomie.homie.members.HomieMember property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.uqueue">(enhomie.homie.members.member.HomieMember property)</a>
 </li>
         <li><a href="enhomie.homie.threads.html#enhomie.homie.threads.HomieThread.uqueue">(enhomie.homie.threads.HomieThread property)</a>
@@ -4912,20 +4971,21 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="V">V</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="V">V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.vacate">vacate (enhomie.homie.members.HomieMember property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.vacate">(enhomie.homie.members.member.HomieMember property)</a>
 </li>
       </ul></li>
       <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod.validate">validate() (enhomie.builtins.DriverBltnPeriod method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnRegexp.validate">(enhomie.builtins.DriverBltnRegexp method)</a>
 </li>
         <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore.validate">(enhomie.builtins.DriverBltnStore method)</a>
@@ -5022,10 +5082,10 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.DriverBltnStoreParams.value">value (enhomie.builtins.params.DriverBltnStoreParams attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.params.html#enhomie.builtins.params.store.DriverBltnStoreParams.value">(enhomie.builtins.params.store.DriverBltnStoreParams attribute)</a>
 </li>
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersistTable.value">(enhomie.homie.addons.persist.HomiePersistTable attribute)</a>
@@ -5040,14 +5100,15 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="W">W</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="W">W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.desired.HomieDesiredItem.weight">weight (enhomie.homie.addons.desired.HomieDesiredItem attribute)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.addons.html#enhomie.homie.addons.HomieDesiredItem.weight">(enhomie.homie.addons.HomieDesiredItem attribute)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.weight">(enhomie.homie.childs.desire.HomieDesire property)</a>
@@ -5061,7 +5122,7 @@
       </ul></li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.aspire.HomieAspire.when">when() (enhomie.homie.childs.aspire.HomieAspire method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.when">(enhomie.homie.childs.desire.HomieDesire method)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieAspire.when">(enhomie.homie.childs.HomieAspire method)</a>
@@ -5079,7 +5140,7 @@
       </ul></li>
       <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnPeriod.where">where() (enhomie.builtins.DriverBltnPeriod method)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.builtins.html#enhomie.builtins.DriverBltnStore.where">(enhomie.builtins.DriverBltnStore method)</a>
 </li>
         <li><a href="enhomie.builtins.html#enhomie.builtins.period.DriverBltnPeriod.where">(enhomie.builtins.period.DriverBltnPeriod method)</a>
@@ -5106,12 +5167,12 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.helpers.whered">whered() (in module enhomie.homie.childs.helpers)</a>
 </li>
       <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.aspire.HomieAspire.wheres">wheres (enhomie.homie.childs.aspire.HomieAspire property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.wheres">(enhomie.homie.childs.desire.HomieDesire property)</a>
 </li>
         <li><a href="enhomie.homie.childs.html#enhomie.homie.childs.HomieAspire.wheres">(enhomie.homie.childs.HomieAspire property)</a>
@@ -5128,14 +5189,15 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
-
-<h2 id="Z">Z</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
+  </tr>
+      </table>
+  
+  <h2 id="Z">Z</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
       <li><a href="enhomie.homie.html#enhomie.homie.HomieService.zombies">zombies (enhomie.homie.HomieService property)</a>
 
-      <ul>
+      <ul style="list-style-type:none">
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.HomieMember.zombies">(enhomie.homie.members.HomieMember property)</a>
 </li>
         <li><a href="enhomie.homie.members.html#enhomie.homie.members.member.HomieMember.zombies">(enhomie.homie.members.member.HomieMember property)</a>
@@ -5144,35 +5206,33 @@
 </li>
       </ul></li>
   </ul></td>
-</tr></table>
+  </tr>
+      </table>
+  
 
-
-
-           </div>
-          </div>
-          <footer>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2024, Enasis Network.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+</div></div>
+<aside id="right-sidebar" class="hidden text-sm xl:block">
+<div class="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-6 space-y-2">
+<a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#A">A</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#B">B</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#C">C</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#D">D</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#E">E</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#F">F</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#G">G</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#H">H</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#I">I</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#K">K</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#L">L</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#M">M</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#N">N</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#O">O</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#P">P</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#Q">Q</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#R">R</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#S">S</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#T">T</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#U">U</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#V">V</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#W">W</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#Z">Z</a>
+</div>
+</aside>
+        </main>
       </div>
-    </section>
+    </div><footer class="py-6 border-t border-border md:py-0">
+    <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+      <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+        <p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Enasis Network&nbsp;Built with <a class="font-medium underline underline-offset-4"
+    href="https://www.sphinx-doc.org"
+    rel="noreferrer">Sphinx 7.3.7</a></p>
+</div>
+</div>
+</footer>
   </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
+  
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script defer="defer" src="_static/theme.js?v=e82a16a3"></script>
+  
 </body>
 </html>
