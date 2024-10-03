@@ -7,6 +7,7 @@ Define desired scenes for groups using flexible conditional plugins.
 <a href="https://pypi.org/project/enhomie"><img src="https://enasisnetwork.github.io/enhomie/badges/pypi.png"></a><br>
 <a href="https://enasisnetwork.github.io/enhomie/validate/flake8.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/flake8.png"></a><br>
 <a href="https://enasisnetwork.github.io/enhomie/validate/pylint.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/pylint.png"></a><br>
+<a href="https://enasisnetwork.github.io/enhomie/validate/ruff.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/ruff.png"></a><br>
 <a href="https://enasisnetwork.github.io/enhomie/validate/mypy.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/mypy.png"></a><br>
 <a href="https://enasisnetwork.github.io/enhomie/validate/yamllint.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/yamllint.png"></a><br>
 <a href="https://enasisnetwork.github.io/enhomie/validate/pytest.txt"><img src="https://enasisnetwork.github.io/enhomie/badges/pytest.png"></a><br>
