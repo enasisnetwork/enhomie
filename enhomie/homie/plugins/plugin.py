@@ -106,9 +106,9 @@ class HomiePlugin:
         self,
     ) -> 'Homie':
         """
-        Return the Homie instance to which this instance belongs.
+        Return the Homie instance to which the instance belongs.
 
-        :returns: Homie instance to which this instance belongs.
+        :returns: Homie instance to which the instance belongs.
         """
 
         return self.__homie
