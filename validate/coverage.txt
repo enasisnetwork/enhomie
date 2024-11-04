@@ -12,7 +12,7 @@ enhomie/builtins/regexp.py                         33      0   100%
 enhomie/builtins/store.py                          53      0   100%
 enhomie/builtins/test/__init__.py                   0      0   100%
 enhomie/builtins/test/test_models.py                7      0   100%
-enhomie/builtins/test/test_period.py               57      0   100%
+enhomie/builtins/test/test_period.py               57      3    95%
 enhomie/builtins/test/test_regexp.py               30      0   100%
 enhomie/builtins/test/test_store.py                46      0   100%
 enhomie/conftest.py                                53      0   100%
@@ -209,4 +209,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            7075      0   100%
+TOTAL                                            7075      3    99%
