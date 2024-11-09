@@ -70,7 +70,7 @@ enhomie/homie/common.py                            22      0   100%
 enhomie/homie/config.py                           102      0   100%
 enhomie/homie/homie.py                            159      0   100%
 enhomie/homie/members/__init__.py                   5      0   100%
-enhomie/homie/members/actions.py                   90      1    99%
+enhomie/homie/members/actions.py                   90      0   100%
 enhomie/homie/members/member.py                   133      0   100%
 enhomie/homie/members/streams.py                   12      0   100%
 enhomie/homie/members/test/__init__.py              0      0   100%
@@ -209,4 +209,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            7075      4    99%
+TOTAL                                            7075      3    99%
