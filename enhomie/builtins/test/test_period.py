@@ -90,7 +90,9 @@ def test_DriverBltnPeriod(
         assert driver.params
 
 
-        time = Time('05:00')
+        time = Time(
+            '05:00',
+            tzname='US/Central')
 
         assert driver.where(time)
 
@@ -132,14 +134,11 @@ def test_DriverBltnPeriod_cover(  # noqa: CFQ001
           - builtins_period:
              start: '12:00'
              stop: '17:00'
-             tzname: US/Central
           - builtins_period:
              start: '00:00'
              stop: '07:00'
-             tzname: US/Central
           - builtins_period:
              start: '19:00'
-             tzname: US/Central
         """)  # noqa: LIT003
 
     homie = homie_factory(
@@ -200,9 +199,9 @@ def test_DriverBltnPeriod_cover(  # noqa: CFQ001
         .drivers[0])
 
     asserts = [
-        (Time('16:30'), False),
-        (Time('19:00'), True),
-        (Time('23:30'), False)]
+        (Time('11:30'), False),
+        (Time('14:00'), True),
+        (Time('18:30'), False)]
 
     assert all(
         driver.where(x) is y
@@ -214,9 +213,8 @@ def test_DriverBltnPeriod_cover(  # noqa: CFQ001
         .drivers[0])
 
     asserts = [
-        (Time('04:30'), False),
-        (Time('05:30'), True),
-        (Time('18:30'), False),
+        (Time('00:30'), True),
+        (Time('07:30'), False),
         (Time('23:30'), False)]
 
     assert all(
@@ -229,8 +227,8 @@ def test_DriverBltnPeriod_cover(  # noqa: CFQ001
         .drivers[0])
 
     asserts = [
-        (Time('02:00'), True),
-        (Time('07:00'), False)]
+        (Time('21:00'), True),
+        (Time('02:00'), False)]
 
     assert all(
         driver.where(x) is y
