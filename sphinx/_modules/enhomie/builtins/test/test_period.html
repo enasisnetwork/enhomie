@@ -16,7 +16,7 @@
     <meta property="og:title" content="enhomie.builtins.test.test_period | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.builtins.test.test_period | enhomie  documentation" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8d216cef" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/theme.css?v=edd7d3d2" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -235,154 +235,152 @@
 </span><span id="line-90">        <span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">params</span>
 </span><span id="line-91">
 </span><span id="line-92">
-</span><span id="line-93">        <span class="n">time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;05:00&#39;</span><span class="p">)</span>
-</span><span id="line-94">
-</span><span id="line-95">        <span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">time</span><span class="p">)</span></div>
-
+</span><span id="line-93">        <span class="n">time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span>
+</span><span id="line-94">            <span class="s1">&#39;05:00&#39;</span><span class="p">,</span>
+</span><span id="line-95">            <span class="n">tzname</span><span class="o">=</span><span class="s1">&#39;US/Central&#39;</span><span class="p">)</span>
 </span><span id="line-96">
-</span><span id="line-97">
+</span><span id="line-97">        <span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">time</span><span class="p">)</span></div>
+
 </span><span id="line-98">
+</span><span id="line-99">
+</span><span id="line-100">
 <div class="viewcode-block" id="test_DriverBltnPeriod_cover">
 <a class="viewcode-back" href="../../../../enhomie.builtins.test.html#enhomie.builtins.test.test_period.test_DriverBltnPeriod_cover">[docs]</a>
-</span><span id="line-99"><span class="k">def</span> <span class="nf">test_DriverBltnPeriod_cover</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001</span>
-</span><span id="line-100">    <span class="n">tmp_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
-</span><span id="line-101">    <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
-</span><span id="line-102"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-103"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-104"><span class="sd">    Perform various tests associated with relevant routines.</span>
-</span><span id="line-105">
-</span><span id="line-106"><span class="sd">    :param tmp_path: pytest object for temporal filesystem.</span>
-</span><span id="line-107"><span class="sd">    :param respx_mock: Object for mocking request operation.</span>
-</span><span id="line-108"><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="line-109">
-</span><span id="line-110">    <span class="n">samples</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-111">        <span class="n">tmp_path</span> <span class="o">/</span> <span class="s1">&#39;homie&#39;</span><span class="p">)</span>
-</span><span id="line-112">
-</span><span id="line-113">    <span class="n">samples</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+</span><span id="line-101"><span class="k">def</span> <span class="nf">test_DriverBltnPeriod_cover</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001</span>
+</span><span id="line-102">    <span class="n">tmp_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+</span><span id="line-103">    <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
+</span><span id="line-104"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-105"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-106"><span class="sd">    Perform various tests associated with relevant routines.</span>
+</span><span id="line-107">
+</span><span id="line-108"><span class="sd">    :param tmp_path: pytest object for temporal filesystem.</span>
+</span><span id="line-109"><span class="sd">    :param respx_mock: Object for mocking request operation.</span>
+</span><span id="line-110"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="line-111">
+</span><span id="line-112">    <span class="n">samples</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-113">        <span class="n">tmp_path</span> <span class="o">/</span> <span class="s1">&#39;homie&#39;</span><span class="p">)</span>
 </span><span id="line-114">
-</span><span id="line-115">    <span class="n">save_text</span><span class="p">(</span>
-</span><span id="line-116">        <span class="n">samples</span> <span class="o">/</span> <span class="s1">&#39;test.yml&#39;</span><span class="p">,</span>
-</span><span id="line-117"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-118"><span class="sd">        desires:</span>
-</span><span id="line-119"><span class="sd">         pytest:</span>
-</span><span id="line-120"><span class="sd">          groups:</span>
-</span><span id="line-121"><span class="sd">          - ganymede</span>
-</span><span id="line-122"><span class="sd">          - halimede</span>
-</span><span id="line-123"><span class="sd">          wheres:</span>
-</span><span id="line-124"><span class="sd">          - builtins_period:</span>
-</span><span id="line-125"><span class="sd">             start: &#39;00:00&#39;</span>
-</span><span id="line-126"><span class="sd">             stop: &#39;12:00&#39;</span>
-</span><span id="line-127"><span class="sd">          - builtins_period:</span>
-</span><span id="line-128"><span class="sd">             start: &#39;12:00&#39;</span>
+</span><span id="line-115">    <span class="n">samples</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+</span><span id="line-116">
+</span><span id="line-117">    <span class="n">save_text</span><span class="p">(</span>
+</span><span id="line-118">        <span class="n">samples</span> <span class="o">/</span> <span class="s1">&#39;test.yml&#39;</span><span class="p">,</span>
+</span><span id="line-119"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-120"><span class="sd">        desires:</span>
+</span><span id="line-121"><span class="sd">         pytest:</span>
+</span><span id="line-122"><span class="sd">          groups:</span>
+</span><span id="line-123"><span class="sd">          - ganymede</span>
+</span><span id="line-124"><span class="sd">          - halimede</span>
+</span><span id="line-125"><span class="sd">          wheres:</span>
+</span><span id="line-126"><span class="sd">          - builtins_period:</span>
+</span><span id="line-127"><span class="sd">             start: &#39;00:00&#39;</span>
+</span><span id="line-128"><span class="sd">             stop: &#39;12:00&#39;</span>
 </span><span id="line-129"><span class="sd">          - builtins_period:</span>
-</span><span id="line-130"><span class="sd">             days: Monday</span>
-</span><span id="line-131"><span class="sd">             start: &#39;00:00&#39;</span>
-</span><span id="line-132"><span class="sd">          - builtins_period:</span>
-</span><span id="line-133"><span class="sd">             start: &#39;12:00&#39;</span>
-</span><span id="line-134"><span class="sd">             stop: &#39;17:00&#39;</span>
-</span><span id="line-135"><span class="sd">             tzname: US/Central</span>
-</span><span id="line-136"><span class="sd">          - builtins_period:</span>
-</span><span id="line-137"><span class="sd">             start: &#39;00:00&#39;</span>
-</span><span id="line-138"><span class="sd">             stop: &#39;07:00&#39;</span>
-</span><span id="line-139"><span class="sd">             tzname: US/Central</span>
+</span><span id="line-130"><span class="sd">             start: &#39;12:00&#39;</span>
+</span><span id="line-131"><span class="sd">          - builtins_period:</span>
+</span><span id="line-132"><span class="sd">             days: Monday</span>
+</span><span id="line-133"><span class="sd">             start: &#39;00:00&#39;</span>
+</span><span id="line-134"><span class="sd">          - builtins_period:</span>
+</span><span id="line-135"><span class="sd">             start: &#39;12:00&#39;</span>
+</span><span id="line-136"><span class="sd">             stop: &#39;17:00&#39;</span>
+</span><span id="line-137"><span class="sd">          - builtins_period:</span>
+</span><span id="line-138"><span class="sd">             start: &#39;00:00&#39;</span>
+</span><span id="line-139"><span class="sd">             stop: &#39;07:00&#39;</span>
 </span><span id="line-140"><span class="sd">          - builtins_period:</span>
 </span><span id="line-141"><span class="sd">             start: &#39;19:00&#39;</span>
-</span><span id="line-142"><span class="sd">             tzname: US/Central</span>
-</span><span id="line-143"><span class="sd">        &quot;&quot;&quot;</span><span class="p">)</span>  <span class="c1"># noqa: LIT003</span>
-</span><span id="line-144">
-</span><span id="line-145">    <span class="n">homie</span> <span class="o">=</span> <span class="n">homie_factory</span><span class="p">(</span>
-</span><span id="line-146">        <span class="n">config_factory</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">),</span>
-</span><span id="line-147">        <span class="n">respx_mock</span><span class="o">=</span><span class="n">respx_mock</span><span class="p">)</span>
+</span><span id="line-142"><span class="sd">        &quot;&quot;&quot;</span><span class="p">)</span>  <span class="c1"># noqa: LIT003</span>
+</span><span id="line-143">
+</span><span id="line-144">    <span class="n">homie</span> <span class="o">=</span> <span class="n">homie_factory</span><span class="p">(</span>
+</span><span id="line-145">        <span class="n">config_factory</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">),</span>
+</span><span id="line-146">        <span class="n">respx_mock</span><span class="o">=</span><span class="n">respx_mock</span><span class="p">)</span>
+</span><span id="line-147">
 </span><span id="line-148">
-</span><span id="line-149">
-</span><span id="line-150">    <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
-</span><span id="line-151">
-</span><span id="line-152">    <span class="n">desire</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-153">        <span class="n">childs</span><span class="o">.</span><span class="n">desires</span>
-</span><span id="line-154">        <span class="p">[</span><span class="s1">&#39;pytest&#39;</span><span class="p">])</span>
+</span><span id="line-149">    <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
+</span><span id="line-150">
+</span><span id="line-151">    <span class="n">desire</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-152">        <span class="n">childs</span><span class="o">.</span><span class="n">desires</span>
+</span><span id="line-153">        <span class="p">[</span><span class="s1">&#39;pytest&#39;</span><span class="p">])</span>
+</span><span id="line-154">
 </span><span id="line-155">
-</span><span id="line-156">
-</span><span id="line-157">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-158">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</span><span id="line-159">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="line-160">
-</span><span id="line-161">    <span class="n">asserts</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="line-162">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;00:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
-</span><span id="line-163">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;11:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
-</span><span id="line-164">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;13:00&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
-</span><span id="line-165">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;23:00&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)]</span>
-</span><span id="line-166">
-</span><span id="line-167">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
-</span><span id="line-168">        <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">y</span>
-</span><span id="line-169">        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">asserts</span><span class="p">)</span>
+</span><span id="line-156">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-157">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="line-158">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="line-159">
+</span><span id="line-160">    <span class="n">asserts</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="line-161">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;00:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
+</span><span id="line-162">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;11:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
+</span><span id="line-163">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;13:00&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
+</span><span id="line-164">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;23:00&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)]</span>
+</span><span id="line-165">
+</span><span id="line-166">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
+</span><span id="line-167">        <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">y</span>
+</span><span id="line-168">        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">asserts</span><span class="p">)</span>
+</span><span id="line-169">
 </span><span id="line-170">
-</span><span id="line-171">
-</span><span id="line-172">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-173">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="line-174">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="line-175">
-</span><span id="line-176">    <span class="n">asserts</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="line-177">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;00:00&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
-</span><span id="line-178">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;11:00&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
-</span><span id="line-179">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;13:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
-</span><span id="line-180">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;23:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">)]</span>
-</span><span id="line-181">
-</span><span id="line-182">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
-</span><span id="line-183">        <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">y</span>
-</span><span id="line-184">        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">asserts</span><span class="p">)</span>
+</span><span id="line-171">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-172">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="line-173">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="line-174">
+</span><span id="line-175">    <span class="n">asserts</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="line-176">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;00:00&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
+</span><span id="line-177">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;11:00&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
+</span><span id="line-178">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;13:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
+</span><span id="line-179">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;23:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">)]</span>
+</span><span id="line-180">
+</span><span id="line-181">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
+</span><span id="line-182">        <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">y</span>
+</span><span id="line-183">        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">asserts</span><span class="p">)</span>
+</span><span id="line-184">
 </span><span id="line-185">
-</span><span id="line-186">
-</span><span id="line-187">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-188">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-</span><span id="line-189">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="line-190">
-</span><span id="line-191">    <span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
-</span><span id="line-192">        <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;Monday 12:00&#39;</span><span class="p">))</span>
-</span><span id="line-193">
-</span><span id="line-194">    <span class="k">assert</span> <span class="ow">not</span> <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
-</span><span id="line-195">        <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;Friday 12:00&#39;</span><span class="p">))</span>
+</span><span id="line-186">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-187">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span><span id="line-188">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="line-189">
+</span><span id="line-190">    <span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+</span><span id="line-191">        <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;Monday 12:00&#39;</span><span class="p">))</span>
+</span><span id="line-192">
+</span><span id="line-193">    <span class="k">assert</span> <span class="ow">not</span> <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+</span><span id="line-194">        <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;Friday 12:00&#39;</span><span class="p">))</span>
+</span><span id="line-195">
 </span><span id="line-196">
-</span><span id="line-197">
-</span><span id="line-198">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-199">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-</span><span id="line-200">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="line-201">
-</span><span id="line-202">    <span class="n">asserts</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="line-203">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;16:30&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
-</span><span id="line-204">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;19:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
-</span><span id="line-205">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;23:30&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)]</span>
-</span><span id="line-206">
-</span><span id="line-207">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
-</span><span id="line-208">        <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">y</span>
-</span><span id="line-209">        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">asserts</span><span class="p">)</span>
+</span><span id="line-197">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-198">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</span><span id="line-199">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="line-200">
+</span><span id="line-201">    <span class="n">asserts</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="line-202">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;11:30&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
+</span><span id="line-203">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;14:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
+</span><span id="line-204">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;18:30&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)]</span>
+</span><span id="line-205">
+</span><span id="line-206">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
+</span><span id="line-207">        <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">y</span>
+</span><span id="line-208">        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">asserts</span><span class="p">)</span>
+</span><span id="line-209">
 </span><span id="line-210">
-</span><span id="line-211">
-</span><span id="line-212">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-213">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
-</span><span id="line-214">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="line-215">
-</span><span id="line-216">    <span class="n">asserts</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="line-217">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;04:30&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
-</span><span id="line-218">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;05:30&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
-</span><span id="line-219">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;18:30&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
-</span><span id="line-220">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;23:30&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)]</span>
-</span><span id="line-221">
-</span><span id="line-222">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
-</span><span id="line-223">        <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">y</span>
-</span><span id="line-224">        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">asserts</span><span class="p">)</span>
-</span><span id="line-225">
-</span><span id="line-226">
-</span><span id="line-227">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-228">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-</span><span id="line-229">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="line-230">
-</span><span id="line-231">    <span class="n">asserts</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="line-232">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;02:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
-</span><span id="line-233">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;07:00&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)]</span>
-</span><span id="line-234">
-</span><span id="line-235">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
-</span><span id="line-236">        <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">y</span>
-</span><span id="line-237">        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">asserts</span><span class="p">)</span></div>
+</span><span id="line-211">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-212">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</span><span id="line-213">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="line-214">
+</span><span id="line-215">    <span class="n">asserts</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="line-216">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;00:30&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
+</span><span id="line-217">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;07:30&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">),</span>
+</span><span id="line-218">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;23:30&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)]</span>
+</span><span id="line-219">
+</span><span id="line-220">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
+</span><span id="line-221">        <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">y</span>
+</span><span id="line-222">        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">asserts</span><span class="p">)</span>
+</span><span id="line-223">
+</span><span id="line-224">
+</span><span id="line-225">    <span class="n">driver</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-226">        <span class="n">desire</span><span class="o">.</span><span class="n">wheres</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</span><span id="line-227">        <span class="o">.</span><span class="n">drivers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="line-228">
+</span><span id="line-229">    <span class="n">asserts</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="line-230">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;21:00&#39;</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span>
+</span><span id="line-231">        <span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;02:00&#39;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)]</span>
+</span><span id="line-232">
+</span><span id="line-233">    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
+</span><span id="line-234">        <span class="n">driver</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">y</span>
+</span><span id="line-235">        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">asserts</span><span class="p">)</span></div>
 
 </span></code></pre></div>
     </div></div>
@@ -402,7 +400,7 @@
     <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script defer="defer" src="../../../../_static/theme.js?v=1808ab49"></script>
+    <script defer="defer" src="../../../../_static/theme.js?v=073f68d9"></script>
   
 </body>
 </html>
