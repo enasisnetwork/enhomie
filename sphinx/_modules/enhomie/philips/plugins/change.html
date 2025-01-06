@@ -15,7 +15,7 @@
     <title>enhomie.philips.plugins.change | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.philips.plugins.change | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.philips.plugins.change | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../../search.html" />
@@ -150,20 +150,20 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">get_args</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_args</span>
 </span><span id="line-13">
-</span><span id="line-14"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">Time</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span>
 </span><span id="line-15">
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">.helpers</span> <span class="kn">import</span> <span class="n">phue_changed</span>
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">..models</span> <span class="kn">import</span> <span class="n">PhueModels</span>
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">...homie.plugins</span> <span class="kn">import</span> <span class="n">HomieDriver</span>
-</span><span id="line-19"><span class="kn">from</span> <span class="nn">...utils</span> <span class="kn">import</span> <span class="n">InvalidParam</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">phue_changed</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">..models</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueModels</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">...homie.plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDriver</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">...utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidParam</span>
 </span><span id="line-20">
 </span><span id="line-21"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-22">    <span class="kn">from</span> <span class="nn">..params</span> <span class="kn">import</span> <span class="n">DriverPhueChangeParams</span>
-</span><span id="line-23">    <span class="kn">from</span> <span class="nn">...homie.plugins</span> <span class="kn">import</span> <span class="n">HomiePluginKinds</span>
+</span><span id="line-22">    <span class="kn">from</span><span class="w"> </span><span class="nn">..params</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriverPhueChangeParams</span>
+</span><span id="line-23">    <span class="kn">from</span><span class="w"> </span><span class="nn">...homie.plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomiePluginKinds</span>
 </span><span id="line-24">
 </span><span id="line-25">
 </span><span id="line-26">
@@ -182,7 +182,7 @@
 </span><span id="line-39">
 <div class="viewcode-block" id="DriverPhueChange">
 <a class="viewcode-back" href="../../../../enhomie.philips.plugins.html#enhomie.philips.DriverPhueChange">[docs]</a>
-</span><span id="line-40"><span class="k">class</span> <span class="nc">DriverPhueChange</span><span class="p">(</span><span class="n">HomieDriver</span><span class="p">):</span>
+</span><span id="line-40"><span class="k">class</span><span class="w"> </span><span class="nc">DriverPhueChange</span><span class="p">(</span><span class="n">HomieDriver</span><span class="p">):</span>
 </span><span id="line-41"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-42"><span class="sd">    Match specific conditions for determining desired state.</span>
 </span><span id="line-43"><span class="sd">    &quot;&quot;&quot;</span>
@@ -190,7 +190,7 @@
 </span><span id="line-45">
 <div class="viewcode-block" id="DriverPhueChange.validate">
 <a class="viewcode-back" href="../../../../enhomie.philips.plugins.html#enhomie.philips.DriverPhueChange.validate">[docs]</a>
-</span><span id="line-46">    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span>
+</span><span id="line-46">    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
 </span><span id="line-47">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-48">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-49"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -235,7 +235,7 @@
 </span><span id="line-87">
 </span><span id="line-88">
 </span><span id="line-89">    <span class="nd">@property</span>
-</span><span id="line-90">    <span class="k">def</span> <span class="nf">family</span><span class="p">(</span>
+</span><span id="line-90">    <span class="k">def</span><span class="w"> </span><span class="nf">family</span><span class="p">(</span>
 </span><span id="line-91">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-92">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;philips&#39;</span><span class="p">]:</span>
 </span><span id="line-93"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -248,7 +248,7 @@
 </span><span id="line-100">
 </span><span id="line-101">
 </span><span id="line-102">    <span class="nd">@property</span>
-</span><span id="line-103">    <span class="k">def</span> <span class="nf">kinds</span><span class="p">(</span>
+</span><span id="line-103">    <span class="k">def</span><span class="w"> </span><span class="nf">kinds</span><span class="p">(</span>
 </span><span id="line-104">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-105">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;HomiePluginKinds&#39;</span><span class="p">]:</span>
 </span><span id="line-106"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -261,7 +261,7 @@
 </span><span id="line-113">
 </span><span id="line-114">
 </span><span id="line-115">    <span class="nd">@property</span>
-</span><span id="line-116">    <span class="k">def</span> <span class="nf">params</span><span class="p">(</span>
+</span><span id="line-116">    <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span>
 </span><span id="line-117">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-118">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DriverPhueChangeParams&#39;</span><span class="p">:</span>
 </span><span id="line-119"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -285,7 +285,7 @@
 </span><span id="line-137">
 <div class="viewcode-block" id="DriverPhueChange.where">
 <a class="viewcode-back" href="../../../../enhomie.philips.plugins.html#enhomie.philips.DriverPhueChange.where">[docs]</a>
-</span><span id="line-138">    <span class="k">def</span> <span class="nf">where</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
+</span><span id="line-138">    <span class="k">def</span><span class="w"> </span><span class="nf">where</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
 </span><span id="line-139">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-140">        <span class="n">time</span><span class="p">:</span> <span class="n">Time</span><span class="p">,</span>
 </span><span id="line-141">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -311,7 +311,7 @@
 </span><span id="line-161">        <span class="n">wheres</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="line-162">
 </span><span id="line-163">
-</span><span id="line-164">        <span class="k">def</span> <span class="nf">_process</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-164">        <span class="k">def</span><span class="w"> </span><span class="nf">_process</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-165">
 </span><span id="line-166">            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sensors</span><span class="p">:</span>
 </span><span id="line-167">                <span class="k">return</span> <span class="kc">None</span>

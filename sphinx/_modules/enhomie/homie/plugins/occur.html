@@ -15,7 +15,7 @@
     <title>enhomie.homie.plugins.occur | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.homie.plugins.occur | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.homie.plugins.occur | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../../search.html" />
@@ -150,25 +150,25 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Type</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Type</span>
 </span><span id="line-13">
-</span><span id="line-14"><span class="kn">from</span> <span class="nn">.plugin</span> <span class="kn">import</span> <span class="n">HomiePlugin</span>
-</span><span id="line-15"><span class="kn">from</span> <span class="nn">..models</span> <span class="kn">import</span> <span class="n">HomieModels</span>
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">...utils</span> <span class="kn">import</span> <span class="n">InvalidParam</span>
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">...utils</span> <span class="kn">import</span> <span class="n">UnexpectedCondition</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">.plugin</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomiePlugin</span>
+</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">..models</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieModels</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">...utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidParam</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">...utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnexpectedCondition</span>
 </span><span id="line-18">
 </span><span id="line-19"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-20">    <span class="kn">from</span> <span class="nn">.driver</span> <span class="kn">import</span> <span class="n">HomieDriver</span>
-</span><span id="line-21">    <span class="kn">from</span> <span class="nn">..params</span> <span class="kn">import</span> <span class="n">HomieOccurParams</span>
-</span><span id="line-22">    <span class="kn">from</span> <span class="nn">..threads</span> <span class="kn">import</span> <span class="n">HomieStreamItem</span>
+</span><span id="line-20">    <span class="kn">from</span><span class="w"> </span><span class="nn">.driver</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDriver</span>
+</span><span id="line-21">    <span class="kn">from</span><span class="w"> </span><span class="nn">..params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOccurParams</span>
+</span><span id="line-22">    <span class="kn">from</span><span class="w"> </span><span class="nn">..threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStreamItem</span>
 </span><span id="line-23">
 </span><span id="line-24">
 </span><span id="line-25">
 <div class="viewcode-block" id="HomieOccur">
 <a class="viewcode-back" href="../../../../enhomie.homie.plugins.html#enhomie.homie.plugins.occur.HomieOccur">[docs]</a>
-</span><span id="line-26"><span class="k">class</span> <span class="nc">HomieOccur</span><span class="p">(</span><span class="n">HomiePlugin</span><span class="p">):</span>
+</span><span id="line-26"><span class="k">class</span><span class="w"> </span><span class="nc">HomieOccur</span><span class="p">(</span><span class="n">HomiePlugin</span><span class="p">):</span>
 </span><span id="line-27"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-28"><span class="sd">    Match specific conditions for determining desired state.</span>
 </span><span id="line-29"><span class="sd">    &quot;&quot;&quot;</span>
@@ -176,7 +176,7 @@
 </span><span id="line-31">
 <div class="viewcode-block" id="HomieOccur.validate">
 <a class="viewcode-back" href="../../../../enhomie.homie.plugins.html#enhomie.homie.plugins.occur.HomieOccur.validate">[docs]</a>
-</span><span id="line-32">    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span>
+</span><span id="line-32">    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
 </span><span id="line-33">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-34">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-35"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -209,7 +209,7 @@
 </span><span id="line-61">
 </span><span id="line-62">
 </span><span id="line-63">    <span class="nd">@property</span>
-</span><span id="line-64">    <span class="k">def</span> <span class="nf">kind</span><span class="p">(</span>
+</span><span id="line-64">    <span class="k">def</span><span class="w"> </span><span class="nf">kind</span><span class="p">(</span>
 </span><span id="line-65">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-66">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;occur&#39;</span><span class="p">]:</span>
 </span><span id="line-67"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -222,7 +222,7 @@
 </span><span id="line-74">
 </span><span id="line-75">
 </span><span id="line-76">    <span class="nd">@property</span>
-</span><span id="line-77">    <span class="k">def</span> <span class="nf">params</span><span class="p">(</span>
+</span><span id="line-77">    <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span>
 </span><span id="line-78">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-79">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieOccurParams&#39;</span><span class="p">:</span>
 </span><span id="line-80"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -245,7 +245,7 @@
 </span><span id="line-97">
 <div class="viewcode-block" id="HomieOccur.get_drivers">
 <a class="viewcode-back" href="../../../../enhomie.homie.plugins.html#enhomie.homie.plugins.occur.HomieOccur.get_drivers">[docs]</a>
-</span><span id="line-98">    <span class="k">def</span> <span class="nf">get_drivers</span><span class="p">(</span>
+</span><span id="line-98">    <span class="k">def</span><span class="w"> </span><span class="nf">get_drivers</span><span class="p">(</span>
 </span><span id="line-99">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-100">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieDriver&#39;</span><span class="p">]]:</span>
 </span><span id="line-101"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -254,19 +254,19 @@
 </span><span id="line-104"><span class="sd">        :returns: Homie class definition for its instantiation.</span>
 </span><span id="line-105"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-106">
-</span><span id="line-107">        <span class="kn">from</span> <span class="nn">...builtins</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-107">        <span class="kn">from</span><span class="w"> </span><span class="nn">...builtins</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-108">            <span class="n">DriverBltnRegexp</span><span class="p">)</span>
 </span><span id="line-109">
-</span><span id="line-110">        <span class="kn">from</span> <span class="nn">...philips</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-110">        <span class="kn">from</span><span class="w"> </span><span class="nn">...philips</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-111">            <span class="n">DriverPhueButton</span><span class="p">)</span>
 </span><span id="line-112">
-</span><span id="line-113">        <span class="kn">from</span> <span class="nn">...philips</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-113">        <span class="kn">from</span><span class="w"> </span><span class="nn">...philips</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-114">            <span class="n">DriverPhueContact</span><span class="p">)</span>
 </span><span id="line-115">
-</span><span id="line-116">        <span class="kn">from</span> <span class="nn">...philips</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-116">        <span class="kn">from</span><span class="w"> </span><span class="nn">...philips</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-117">            <span class="n">DriverPhueMotion</span><span class="p">)</span>
 </span><span id="line-118">
-</span><span id="line-119">        <span class="kn">from</span> <span class="nn">...philips</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-119">        <span class="kn">from</span><span class="w"> </span><span class="nn">...philips</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-120">            <span class="n">DriverPhueScene</span><span class="p">)</span>
 </span><span id="line-121">
 </span><span id="line-122">
@@ -291,7 +291,7 @@
 </span><span id="line-140">
 <div class="viewcode-block" id="HomieOccur.when">
 <a class="viewcode-back" href="../../../../enhomie.homie.plugins.html#enhomie.homie.plugins.occur.HomieOccur.when">[docs]</a>
-</span><span id="line-141">    <span class="k">def</span> <span class="nf">when</span><span class="p">(</span>
+</span><span id="line-141">    <span class="k">def</span><span class="w"> </span><span class="nf">when</span><span class="p">(</span>
 </span><span id="line-142">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-143">        <span class="n">sitem</span><span class="p">:</span> <span class="s1">&#39;HomieStreamItem&#39;</span><span class="p">,</span>
 </span><span id="line-144">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>

@@ -15,7 +15,7 @@
     <title>enhomie.philips.models | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.philips.models | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.philips.models | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../search.html" />
@@ -150,25 +150,25 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Type</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Type</span>
 </span><span id="line-12">
 </span><span id="line-13"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-14">    <span class="kn">from</span> <span class="nn">.action</span> <span class="kn">import</span> <span class="n">PhueActionItem</span>
-</span><span id="line-15">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">DriverPhueButtonParams</span>
-</span><span id="line-16">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">DriverPhueChangeParams</span>
-</span><span id="line-17">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">DriverPhueContactParams</span>
-</span><span id="line-18">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">DriverPhueMotionParams</span>
-</span><span id="line-19">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">DriverPhueSceneParams</span>
-</span><span id="line-20">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">PhueOriginParams</span>
-</span><span id="line-21">    <span class="kn">from</span> <span class="nn">.update</span> <span class="kn">import</span> <span class="n">PhueUpdateItem</span>
-</span><span id="line-22">    <span class="kn">from</span> <span class="nn">.stream</span> <span class="kn">import</span> <span class="n">PhueStreamItem</span>
+</span><span id="line-14">    <span class="kn">from</span><span class="w"> </span><span class="nn">.action</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueActionItem</span>
+</span><span id="line-15">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriverPhueButtonParams</span>
+</span><span id="line-16">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriverPhueChangeParams</span>
+</span><span id="line-17">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriverPhueContactParams</span>
+</span><span id="line-18">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriverPhueMotionParams</span>
+</span><span id="line-19">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriverPhueSceneParams</span>
+</span><span id="line-20">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueOriginParams</span>
+</span><span id="line-21">    <span class="kn">from</span><span class="w"> </span><span class="nn">.update</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueUpdateItem</span>
+</span><span id="line-22">    <span class="kn">from</span><span class="w"> </span><span class="nn">.stream</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueStreamItem</span>
 </span><span id="line-23">
 </span><span id="line-24">
 </span><span id="line-25">
 <div class="viewcode-block" id="PhueDriverModels">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueDriverModels">[docs]</a>
-</span><span id="line-26"><span class="k">class</span> <span class="nc">PhueDriverModels</span><span class="p">:</span>
+</span><span id="line-26"><span class="k">class</span><span class="w"> </span><span class="nc">PhueDriverModels</span><span class="p">:</span>
 </span><span id="line-27"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-28"><span class="sd">    Return the class object that was imported within method.</span>
 </span><span id="line-29"><span class="sd">    &quot;&quot;&quot;</span>
@@ -177,7 +177,7 @@
 <div class="viewcode-block" id="PhueDriverModels.button">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueDriverModels.button">[docs]</a>
 </span><span id="line-32">    <span class="nd">@classmethod</span>
-</span><span id="line-33">    <span class="k">def</span> <span class="nf">button</span><span class="p">(</span>
+</span><span id="line-33">    <span class="k">def</span><span class="w"> </span><span class="nf">button</span><span class="p">(</span>
 </span><span id="line-34">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-35">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;DriverPhueButtonParams&#39;</span><span class="p">]:</span>
 </span><span id="line-36"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -186,7 +186,7 @@
 </span><span id="line-39"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-40"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-41">
-</span><span id="line-42">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-42">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-43">            <span class="n">DriverPhueButtonParams</span><span class="p">)</span>
 </span><span id="line-44">
 </span><span id="line-45">        <span class="k">return</span> <span class="n">DriverPhueButtonParams</span></div>
@@ -196,7 +196,7 @@
 <div class="viewcode-block" id="PhueDriverModels.change">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueDriverModels.change">[docs]</a>
 </span><span id="line-48">    <span class="nd">@classmethod</span>
-</span><span id="line-49">    <span class="k">def</span> <span class="nf">change</span><span class="p">(</span>
+</span><span id="line-49">    <span class="k">def</span><span class="w"> </span><span class="nf">change</span><span class="p">(</span>
 </span><span id="line-50">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-51">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;DriverPhueChangeParams&#39;</span><span class="p">]:</span>
 </span><span id="line-52"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -205,7 +205,7 @@
 </span><span id="line-55"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-56"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-57">
-</span><span id="line-58">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-58">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-59">            <span class="n">DriverPhueChangeParams</span><span class="p">)</span>
 </span><span id="line-60">
 </span><span id="line-61">        <span class="k">return</span> <span class="n">DriverPhueChangeParams</span></div>
@@ -215,7 +215,7 @@
 <div class="viewcode-block" id="PhueDriverModels.contact">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueDriverModels.contact">[docs]</a>
 </span><span id="line-64">    <span class="nd">@classmethod</span>
-</span><span id="line-65">    <span class="k">def</span> <span class="nf">contact</span><span class="p">(</span>
+</span><span id="line-65">    <span class="k">def</span><span class="w"> </span><span class="nf">contact</span><span class="p">(</span>
 </span><span id="line-66">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-67">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;DriverPhueContactParams&#39;</span><span class="p">]:</span>
 </span><span id="line-68"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -224,7 +224,7 @@
 </span><span id="line-71"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-72"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-73">
-</span><span id="line-74">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-74">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-75">            <span class="n">DriverPhueContactParams</span><span class="p">)</span>
 </span><span id="line-76">
 </span><span id="line-77">        <span class="k">return</span> <span class="n">DriverPhueContactParams</span></div>
@@ -234,7 +234,7 @@
 <div class="viewcode-block" id="PhueDriverModels.motion">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueDriverModels.motion">[docs]</a>
 </span><span id="line-80">    <span class="nd">@classmethod</span>
-</span><span id="line-81">    <span class="k">def</span> <span class="nf">motion</span><span class="p">(</span>
+</span><span id="line-81">    <span class="k">def</span><span class="w"> </span><span class="nf">motion</span><span class="p">(</span>
 </span><span id="line-82">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-83">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;DriverPhueMotionParams&#39;</span><span class="p">]:</span>
 </span><span id="line-84"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -243,7 +243,7 @@
 </span><span id="line-87"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-88"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-89">
-</span><span id="line-90">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-90">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-91">            <span class="n">DriverPhueMotionParams</span><span class="p">)</span>
 </span><span id="line-92">
 </span><span id="line-93">        <span class="k">return</span> <span class="n">DriverPhueMotionParams</span></div>
@@ -253,7 +253,7 @@
 <div class="viewcode-block" id="PhueDriverModels.scene">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueDriverModels.scene">[docs]</a>
 </span><span id="line-96">    <span class="nd">@classmethod</span>
-</span><span id="line-97">    <span class="k">def</span> <span class="nf">scene</span><span class="p">(</span>
+</span><span id="line-97">    <span class="k">def</span><span class="w"> </span><span class="nf">scene</span><span class="p">(</span>
 </span><span id="line-98">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-99">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;DriverPhueSceneParams&#39;</span><span class="p">]:</span>
 </span><span id="line-100"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -262,7 +262,7 @@
 </span><span id="line-103"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-104"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-105">
-</span><span id="line-106">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-106">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-107">            <span class="n">DriverPhueSceneParams</span><span class="p">)</span>
 </span><span id="line-108">
 </span><span id="line-109">        <span class="k">return</span> <span class="n">DriverPhueSceneParams</span></div>
@@ -273,7 +273,7 @@
 </span><span id="line-112">
 <div class="viewcode-block" id="PhueModels">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueModels">[docs]</a>
-</span><span id="line-113"><span class="k">class</span> <span class="nc">PhueModels</span><span class="p">:</span>
+</span><span id="line-113"><span class="k">class</span><span class="w"> </span><span class="nc">PhueModels</span><span class="p">:</span>
 </span><span id="line-114"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-115"><span class="sd">    Return the class object that was imported within method.</span>
 </span><span id="line-116"><span class="sd">    &quot;&quot;&quot;</span>
@@ -282,7 +282,7 @@
 <div class="viewcode-block" id="PhueModels.origin">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueModels.origin">[docs]</a>
 </span><span id="line-119">    <span class="nd">@classmethod</span>
-</span><span id="line-120">    <span class="k">def</span> <span class="nf">origin</span><span class="p">(</span>
+</span><span id="line-120">    <span class="k">def</span><span class="w"> </span><span class="nf">origin</span><span class="p">(</span>
 </span><span id="line-121">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-122">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;PhueOriginParams&#39;</span><span class="p">]:</span>
 </span><span id="line-123"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -291,7 +291,7 @@
 </span><span id="line-126"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-127"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-128">
-</span><span id="line-129">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-129">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-130">            <span class="n">PhueOriginParams</span><span class="p">)</span>
 </span><span id="line-131">
 </span><span id="line-132">        <span class="k">return</span> <span class="n">PhueOriginParams</span></div>
@@ -301,7 +301,7 @@
 <div class="viewcode-block" id="PhueModels.action">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueModels.action">[docs]</a>
 </span><span id="line-135">    <span class="nd">@classmethod</span>
-</span><span id="line-136">    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span>
+</span><span id="line-136">    <span class="k">def</span><span class="w"> </span><span class="nf">action</span><span class="p">(</span>
 </span><span id="line-137">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-138">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;PhueActionItem&#39;</span><span class="p">]:</span>
 </span><span id="line-139"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -310,7 +310,7 @@
 </span><span id="line-142"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-143"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-144">
-</span><span id="line-145">        <span class="kn">from</span> <span class="nn">.action</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-145">        <span class="kn">from</span><span class="w"> </span><span class="nn">.action</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-146">            <span class="n">PhueActionItem</span><span class="p">)</span>
 </span><span id="line-147">
 </span><span id="line-148">        <span class="k">return</span> <span class="n">PhueActionItem</span></div>
@@ -320,7 +320,7 @@
 <div class="viewcode-block" id="PhueModels.update">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueModels.update">[docs]</a>
 </span><span id="line-151">    <span class="nd">@classmethod</span>
-</span><span id="line-152">    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+</span><span id="line-152">    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
 </span><span id="line-153">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-154">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;PhueUpdateItem&#39;</span><span class="p">]:</span>
 </span><span id="line-155"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -329,7 +329,7 @@
 </span><span id="line-158"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-159"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-160">
-</span><span id="line-161">        <span class="kn">from</span> <span class="nn">.update</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-161">        <span class="kn">from</span><span class="w"> </span><span class="nn">.update</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-162">            <span class="n">PhueUpdateItem</span><span class="p">)</span>
 </span><span id="line-163">
 </span><span id="line-164">        <span class="k">return</span> <span class="n">PhueUpdateItem</span></div>
@@ -339,7 +339,7 @@
 <div class="viewcode-block" id="PhueModels.stream">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueModels.stream">[docs]</a>
 </span><span id="line-167">    <span class="nd">@classmethod</span>
-</span><span id="line-168">    <span class="k">def</span> <span class="nf">stream</span><span class="p">(</span>
+</span><span id="line-168">    <span class="k">def</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span>
 </span><span id="line-169">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-170">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;PhueStreamItem&#39;</span><span class="p">]:</span>
 </span><span id="line-171"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -348,7 +348,7 @@
 </span><span id="line-174"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-175"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-176">
-</span><span id="line-177">        <span class="kn">from</span> <span class="nn">.stream</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-177">        <span class="kn">from</span><span class="w"> </span><span class="nn">.stream</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-178">            <span class="n">PhueStreamItem</span><span class="p">)</span>
 </span><span id="line-179">
 </span><span id="line-180">        <span class="k">return</span> <span class="n">PhueStreamItem</span></div>
@@ -358,7 +358,7 @@
 <div class="viewcode-block" id="PhueModels.drivers">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.models.PhueModels.drivers">[docs]</a>
 </span><span id="line-183">    <span class="nd">@classmethod</span>
-</span><span id="line-184">    <span class="k">def</span> <span class="nf">drivers</span><span class="p">(</span>
+</span><span id="line-184">    <span class="k">def</span><span class="w"> </span><span class="nf">drivers</span><span class="p">(</span>
 </span><span id="line-185">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-186">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;PhueDriverModels&#39;</span><span class="p">]:</span>
 </span><span id="line-187"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>

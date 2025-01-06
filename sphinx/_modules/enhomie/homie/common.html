@@ -15,7 +15,7 @@
     <title>enhomie.homie.common | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.homie.common | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.homie.common | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../search.html" />
@@ -150,19 +150,19 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-</span><span id="line-13"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-14"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
 </span><span id="line-15">
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">encommon.colors</span> <span class="kn">import</span> <span class="n">Color</span>
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">encommon.utils.stdout</span> <span class="kn">import</span> <span class="n">ANSIARRAY</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">Color</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.utils.stdout</span><span class="w"> </span><span class="kn">import</span> <span class="n">ANSIARRAY</span>
 </span><span id="line-18">
 </span><span id="line-19"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-20">    <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="n">HomieThreadItem</span>
-</span><span id="line-21">    <span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="n">HomieAspiredItem</span>
-</span><span id="line-22">    <span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="n">HomieDesiredItem</span>
+</span><span id="line-20">    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieThreadItem</span>
+</span><span id="line-21">    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieAspiredItem</span>
+</span><span id="line-22">    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDesiredItem</span>
 </span><span id="line-23">
 </span><span id="line-24">
 </span><span id="line-25">
@@ -195,7 +195,7 @@
 <div class="viewcode-block" id="HomieStage">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.common.HomieStage">[docs]</a>
 </span><span id="line-52"><span class="nd">@dataclass</span>
-</span><span id="line-53"><span class="k">class</span> <span class="nc">HomieStage</span><span class="p">:</span>
+</span><span id="line-53"><span class="k">class</span><span class="w"> </span><span class="nc">HomieStage</span><span class="p">:</span>
 </span><span id="line-54"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-55"><span class="sd">    Contain information about the parameters for the scene.</span>
 </span><span id="line-56"><span class="sd">    &quot;&quot;&quot;</span>
@@ -205,7 +205,7 @@
 </span><span id="line-60">    <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="line-61">
 </span><span id="line-62">
-</span><span id="line-63">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="line-63">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="line-64">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-65">        <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomieState</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="line-66">        <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>

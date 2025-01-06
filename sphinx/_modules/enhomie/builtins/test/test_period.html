@@ -15,7 +15,7 @@
     <title>enhomie.builtins.test.test_period | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.builtins.test.test_period | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.builtins.test.test_period | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../../search.html" />
@@ -150,30 +150,30 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
 </span><span id="line-12">
-</span><span id="line-13"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">Time</span>
-</span><span id="line-14"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">inrepr</span>
-</span><span id="line-15"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">instr</span>
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">lattrs</span>
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">encommon.utils</span> <span class="kn">import</span> <span class="n">save_text</span>
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">inrepr</span>
+</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">instr</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">lattrs</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_text</span>
 </span><span id="line-18">
-</span><span id="line-19"><span class="kn">from</span> <span class="nn">respx</span> <span class="kn">import</span> <span class="n">MockRouter</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">respx</span><span class="w"> </span><span class="kn">import</span> <span class="n">MockRouter</span>
 </span><span id="line-20">
-</span><span id="line-21"><span class="kn">from</span> <span class="nn">..period</span> <span class="kn">import</span> <span class="n">DriverBltnPeriod</span>
-</span><span id="line-22"><span class="kn">from</span> <span class="nn">...conftest</span> <span class="kn">import</span> <span class="n">config_factory</span>
-</span><span id="line-23"><span class="kn">from</span> <span class="nn">...conftest</span> <span class="kn">import</span> <span class="n">homie_factory</span>
+</span><span id="line-21"><span class="kn">from</span><span class="w"> </span><span class="nn">..period</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriverBltnPeriod</span>
+</span><span id="line-22"><span class="kn">from</span><span class="w"> </span><span class="nn">...conftest</span><span class="w"> </span><span class="kn">import</span> <span class="n">config_factory</span>
+</span><span id="line-23"><span class="kn">from</span><span class="w"> </span><span class="nn">...conftest</span><span class="w"> </span><span class="kn">import</span> <span class="n">homie_factory</span>
 </span><span id="line-24">
 </span><span id="line-25"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-26">    <span class="kn">from</span> <span class="nn">...homie</span> <span class="kn">import</span> <span class="n">Homie</span>
-</span><span id="line-27">    <span class="kn">from</span> <span class="nn">...utils</span> <span class="kn">import</span> <span class="n">TestBodies</span>
+</span><span id="line-26">    <span class="kn">from</span><span class="w"> </span><span class="nn">...homie</span><span class="w"> </span><span class="kn">import</span> <span class="n">Homie</span>
+</span><span id="line-27">    <span class="kn">from</span><span class="w"> </span><span class="nn">...utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">TestBodies</span>
 </span><span id="line-28">
 </span><span id="line-29">
 </span><span id="line-30">
 <div class="viewcode-block" id="test_DriverBltnPeriod">
 <a class="viewcode-back" href="../../../../enhomie.builtins.test.html#enhomie.builtins.test.test_period.test_DriverBltnPeriod">[docs]</a>
-</span><span id="line-31"><span class="k">def</span> <span class="nf">test_DriverBltnPeriod</span><span class="p">(</span>
+</span><span id="line-31"><span class="k">def</span><span class="w"> </span><span class="nf">test_DriverBltnPeriod</span><span class="p">(</span>
 </span><span id="line-32">    <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
 </span><span id="line-33">    <span class="n">bodies</span><span class="p">:</span> <span class="s1">&#39;TestBodies&#39;</span><span class="p">,</span>
 </span><span id="line-34"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -246,7 +246,7 @@
 </span><span id="line-100">
 <div class="viewcode-block" id="test_DriverBltnPeriod_cover">
 <a class="viewcode-back" href="../../../../enhomie.builtins.test.html#enhomie.builtins.test.test_period.test_DriverBltnPeriod_cover">[docs]</a>
-</span><span id="line-101"><span class="k">def</span> <span class="nf">test_DriverBltnPeriod_cover</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001</span>
+</span><span id="line-101"><span class="k">def</span><span class="w"> </span><span class="nf">test_DriverBltnPeriod_cover</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001</span>
 </span><span id="line-102">    <span class="n">tmp_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
 </span><span id="line-103">    <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
 </span><span id="line-104"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

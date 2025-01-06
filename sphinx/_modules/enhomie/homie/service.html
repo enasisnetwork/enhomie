@@ -15,7 +15,7 @@
     <title>enhomie.homie.service | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.homie.service | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.homie.service | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../search.html" />
@@ -150,20 +150,20 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Event</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span> <span class="k">as</span> <span class="n">block_sleep</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-</span><span id="line-13"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span> <span class="k">as</span> <span class="n">block_sleep</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
 </span><span id="line-14">
-</span><span id="line-15"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">Timer</span>
+</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
 </span><span id="line-16">
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">.members</span> <span class="kn">import</span> <span class="n">HomieActions</span>
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">.members</span> <span class="kn">import</span> <span class="n">HomieStreams</span>
-</span><span id="line-19"><span class="kn">from</span> <span class="nn">.members</span> <span class="kn">import</span> <span class="n">HomieUpdates</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">.members</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActions</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">.members</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStreams</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">.members</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieUpdates</span>
 </span><span id="line-20">
 </span><span id="line-21"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-22">    <span class="kn">from</span> <span class="nn">.homie</span> <span class="kn">import</span> <span class="n">Homie</span>
-</span><span id="line-23">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieServiceParams</span>
+</span><span id="line-22">    <span class="kn">from</span><span class="w"> </span><span class="nn">.homie</span><span class="w"> </span><span class="kn">import</span> <span class="n">Homie</span>
+</span><span id="line-23">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieServiceParams</span>
 </span><span id="line-24">
 </span><span id="line-25">
 </span><span id="line-26">
@@ -173,7 +173,7 @@
 </span><span id="line-30">
 <div class="viewcode-block" id="HomieService">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService">[docs]</a>
-</span><span id="line-31"><span class="k">class</span> <span class="nc">HomieService</span><span class="p">:</span>
+</span><span id="line-31"><span class="k">class</span><span class="w"> </span><span class="nc">HomieService</span><span class="p">:</span>
 </span><span id="line-32"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-33"><span class="sd">    Multi-threaded service for processing the desired state.</span>
 </span><span id="line-34">
@@ -192,7 +192,7 @@
 </span><span id="line-47">    <span class="n">__started</span><span class="p">:</span> <span class="nb">bool</span>
 </span><span id="line-48">
 </span><span id="line-49">
-</span><span id="line-50">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="line-50">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="line-51">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-52">        <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
 </span><span id="line-53">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -215,7 +215,7 @@
 </span><span id="line-70">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;created&#39;</span><span class="p">)</span>
 </span><span id="line-71">
 </span><span id="line-72">
-</span><span id="line-73">    <span class="k">def</span> <span class="nf">__build_objects</span><span class="p">(</span>
+</span><span id="line-73">    <span class="k">def</span><span class="w"> </span><span class="nf">__build_objects</span><span class="p">(</span>
 </span><span id="line-74">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-75">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-76"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -247,7 +247,7 @@
 </span><span id="line-102">
 </span><span id="line-103">
 </span><span id="line-104">    <span class="nd">@property</span>
-</span><span id="line-105">    <span class="k">def</span> <span class="nf">homie</span><span class="p">(</span>
+</span><span id="line-105">    <span class="k">def</span><span class="w"> </span><span class="nf">homie</span><span class="p">(</span>
 </span><span id="line-106">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-107">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Homie&#39;</span><span class="p">:</span>
 </span><span id="line-108"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -260,7 +260,7 @@
 </span><span id="line-115">
 </span><span id="line-116">
 </span><span id="line-117">    <span class="nd">@property</span>
-</span><span id="line-118">    <span class="k">def</span> <span class="nf">params</span><span class="p">(</span>
+</span><span id="line-118">    <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span>
 </span><span id="line-119">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-120">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieServiceParams&#39;</span><span class="p">:</span>
 </span><span id="line-121"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -276,7 +276,7 @@
 </span><span id="line-131">
 </span><span id="line-132">
 </span><span id="line-133">    <span class="nd">@property</span>
-</span><span id="line-134">    <span class="k">def</span> <span class="nf">actions</span><span class="p">(</span>
+</span><span id="line-134">    <span class="k">def</span><span class="w"> </span><span class="nf">actions</span><span class="p">(</span>
 </span><span id="line-135">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-136">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieActions</span><span class="p">:</span>
 </span><span id="line-137"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -289,7 +289,7 @@
 </span><span id="line-144">
 </span><span id="line-145">
 </span><span id="line-146">    <span class="nd">@property</span>
-</span><span id="line-147">    <span class="k">def</span> <span class="nf">updates</span><span class="p">(</span>
+</span><span id="line-147">    <span class="k">def</span><span class="w"> </span><span class="nf">updates</span><span class="p">(</span>
 </span><span id="line-148">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-149">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieUpdates</span><span class="p">:</span>
 </span><span id="line-150"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -302,7 +302,7 @@
 </span><span id="line-157">
 </span><span id="line-158">
 </span><span id="line-159">    <span class="nd">@property</span>
-</span><span id="line-160">    <span class="k">def</span> <span class="nf">streams</span><span class="p">(</span>
+</span><span id="line-160">    <span class="k">def</span><span class="w"> </span><span class="nf">streams</span><span class="p">(</span>
 </span><span id="line-161">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-162">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieStreams</span><span class="p">:</span>
 </span><span id="line-163"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -315,7 +315,7 @@
 </span><span id="line-170">
 </span><span id="line-171">
 </span><span id="line-172">    <span class="nd">@property</span>
-</span><span id="line-173">    <span class="k">def</span> <span class="nf">running</span><span class="p">(</span>
+</span><span id="line-173">    <span class="k">def</span><span class="w"> </span><span class="nf">running</span><span class="p">(</span>
 </span><span id="line-174">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-175">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 </span><span id="line-176"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -343,7 +343,7 @@
 </span><span id="line-198">
 </span><span id="line-199">
 </span><span id="line-200">    <span class="nd">@property</span>
-</span><span id="line-201">    <span class="k">def</span> <span class="nf">zombies</span><span class="p">(</span>
+</span><span id="line-201">    <span class="k">def</span><span class="w"> </span><span class="nf">zombies</span><span class="p">(</span>
 </span><span id="line-202">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-203">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 </span><span id="line-204"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -371,7 +371,7 @@
 </span><span id="line-226">
 </span><span id="line-227">
 </span><span id="line-228">    <span class="nd">@property</span>
-</span><span id="line-229">    <span class="k">def</span> <span class="nf">congest</span><span class="p">(</span>
+</span><span id="line-229">    <span class="k">def</span><span class="w"> </span><span class="nf">congest</span><span class="p">(</span>
 </span><span id="line-230">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-231">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CONGEST</span><span class="p">:</span>
 </span><span id="line-232"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -399,7 +399,7 @@
 </span><span id="line-254">
 </span><span id="line-255">
 </span><span id="line-256">    <span class="nd">@property</span>
-</span><span id="line-257">    <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span>
+</span><span id="line-257">    <span class="k">def</span><span class="w"> </span><span class="nf">enqueue</span><span class="p">(</span>
 </span><span id="line-258">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-259">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CONGEST</span><span class="p">:</span>
 </span><span id="line-260"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -428,7 +428,7 @@
 </span><span id="line-283">
 <div class="viewcode-block" id="HomieService.start">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.start">[docs]</a>
-</span><span id="line-284">    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span>
+</span><span id="line-284">    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span>
 </span><span id="line-285">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-286">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-287"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -461,7 +461,7 @@
 </span><span id="line-313">
 <div class="viewcode-block" id="HomieService.operate">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate">[docs]</a>
-</span><span id="line-314">    <span class="k">def</span> <span class="nf">operate</span><span class="p">(</span>
+</span><span id="line-314">    <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span>
 </span><span id="line-315">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-316">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-317"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -496,7 +496,7 @@
 </span><span id="line-345">
 <div class="viewcode-block" id="HomieService.operate_updates">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate_updates">[docs]</a>
-</span><span id="line-346">    <span class="k">def</span> <span class="nf">operate_updates</span><span class="p">(</span>
+</span><span id="line-346">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_updates</span><span class="p">(</span>
 </span><span id="line-347">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-348">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-349"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -519,7 +519,7 @@
 </span><span id="line-366">            <span class="o">.</span><span class="n">values</span><span class="p">())</span>
 </span><span id="line-367">
 </span><span id="line-368">
-</span><span id="line-369">        <span class="k">def</span> <span class="nf">_set_update</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-369">        <span class="k">def</span><span class="w"> </span><span class="nf">_set_update</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-370">
 </span><span id="line-371">            <span class="n">name</span> <span class="o">=</span> <span class="n">uitem</span><span class="o">.</span><span class="n">origin</span>
 </span><span id="line-372">            <span class="n">_name</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">name</span>
@@ -549,7 +549,7 @@
 </span><span id="line-395">
 <div class="viewcode-block" id="HomieService.operate_streams">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate_streams">[docs]</a>
-</span><span id="line-396">    <span class="k">def</span> <span class="nf">operate_streams</span><span class="p">(</span>
+</span><span id="line-396">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_streams</span><span class="p">(</span>
 </span><span id="line-397">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-398">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-399"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -585,7 +585,7 @@
 </span><span id="line-428">
 <div class="viewcode-block" id="HomieService.operate_healths">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate_healths">[docs]</a>
-</span><span id="line-429">    <span class="k">def</span> <span class="nf">operate_healths</span><span class="p">(</span>
+</span><span id="line-429">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_healths</span><span class="p">(</span>
 </span><span id="line-430">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-431">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-432"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -615,7 +615,7 @@
 </span><span id="line-455">
 <div class="viewcode-block" id="HomieService.check_zombies">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.check_zombies">[docs]</a>
-</span><span id="line-456">    <span class="k">def</span> <span class="nf">check_zombies</span><span class="p">(</span>
+</span><span id="line-456">    <span class="k">def</span><span class="w"> </span><span class="nf">check_zombies</span><span class="p">(</span>
 </span><span id="line-457">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-458">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="line-459"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -639,7 +639,7 @@
 </span><span id="line-476">
 <div class="viewcode-block" id="HomieService.check_congest">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.check_congest">[docs]</a>
-</span><span id="line-477">    <span class="k">def</span> <span class="nf">check_congest</span><span class="p">(</span>
+</span><span id="line-477">    <span class="k">def</span><span class="w"> </span><span class="nf">check_congest</span><span class="p">(</span>
 </span><span id="line-478">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-479">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="line-480"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -664,7 +664,7 @@
 </span><span id="line-498">
 <div class="viewcode-block" id="HomieService.soft">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.soft">[docs]</a>
-</span><span id="line-499">    <span class="k">def</span> <span class="nf">soft</span><span class="p">(</span>
+</span><span id="line-499">    <span class="k">def</span><span class="w"> </span><span class="nf">soft</span><span class="p">(</span>
 </span><span id="line-500">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-501">        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
 </span><span id="line-502">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
@@ -700,7 +700,7 @@
 </span><span id="line-531">
 <div class="viewcode-block" id="HomieService.stop">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.stop">[docs]</a>
-</span><span id="line-532">    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span>
+</span><span id="line-532">    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span>
 </span><span id="line-533">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-534">        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
 </span><span id="line-535">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>

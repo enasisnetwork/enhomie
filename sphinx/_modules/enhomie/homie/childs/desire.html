@@ -15,7 +15,7 @@
     <title>enhomie.homie.childs.desire | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.homie.childs.desire | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.homie.childs.desire | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../../search.html" />
@@ -150,32 +150,32 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
 </span><span id="line-13">
-</span><span id="line-14"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">Time</span>
-</span><span id="line-15"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">TimerParams</span>
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">Timers</span>
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">TimersParams</span>
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">encommon.times.params</span> <span class="kn">import</span> <span class="n">_TIMERS</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span>
+</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimerParams</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timers</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimersParams</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">_TIMERS</span>
 </span><span id="line-19">
-</span><span id="line-20"><span class="kn">from</span> <span class="nn">.child</span> <span class="kn">import</span> <span class="n">HomieChild</span>
-</span><span id="line-21"><span class="kn">from</span> <span class="nn">.helpers</span> <span class="kn">import</span> <span class="n">whered</span>
-</span><span id="line-22"><span class="kn">from</span> <span class="nn">..models</span> <span class="kn">import</span> <span class="n">HomieModels</span>
-</span><span id="line-23"><span class="kn">from</span> <span class="nn">..plugins</span> <span class="kn">import</span> <span class="n">HomieWhere</span>
+</span><span id="line-20"><span class="kn">from</span><span class="w"> </span><span class="nn">.child</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieChild</span>
+</span><span id="line-21"><span class="kn">from</span><span class="w"> </span><span class="nn">.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">whered</span>
+</span><span id="line-22"><span class="kn">from</span><span class="w"> </span><span class="nn">..models</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieModels</span>
+</span><span id="line-23"><span class="kn">from</span><span class="w"> </span><span class="nn">..plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieWhere</span>
 </span><span id="line-24">
 </span><span id="line-25"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-26">    <span class="kn">from</span> <span class="nn">.device</span> <span class="kn">import</span> <span class="n">HomieDevice</span>
-</span><span id="line-27">    <span class="kn">from</span> <span class="nn">.group</span> <span class="kn">import</span> <span class="n">HomieGroup</span>
-</span><span id="line-28">    <span class="kn">from</span> <span class="nn">..params</span> <span class="kn">import</span> <span class="n">HomieDesireParams</span>
-</span><span id="line-29">    <span class="kn">from</span> <span class="nn">..threads</span> <span class="kn">import</span> <span class="n">HomieActionNode</span>
+</span><span id="line-26">    <span class="kn">from</span><span class="w"> </span><span class="nn">.device</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDevice</span>
+</span><span id="line-27">    <span class="kn">from</span><span class="w"> </span><span class="nn">.group</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieGroup</span>
+</span><span id="line-28">    <span class="kn">from</span><span class="w"> </span><span class="nn">..params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDesireParams</span>
+</span><span id="line-29">    <span class="kn">from</span><span class="w"> </span><span class="nn">..threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActionNode</span>
 </span><span id="line-30">
 </span><span id="line-31">
 </span><span id="line-32">
 <div class="viewcode-block" id="HomieDesire">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire">[docs]</a>
-</span><span id="line-33"><span class="k">class</span> <span class="nc">HomieDesire</span><span class="p">(</span><span class="n">HomieChild</span><span class="p">):</span>
+</span><span id="line-33"><span class="k">class</span><span class="w"> </span><span class="nc">HomieDesire</span><span class="p">(</span><span class="n">HomieChild</span><span class="p">):</span>
 </span><span id="line-34"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-35"><span class="sd">    Match specific conditions for determining desired state.</span>
 </span><span id="line-36"><span class="sd">    &quot;&quot;&quot;</span>
@@ -185,7 +185,7 @@
 </span><span id="line-40">    <span class="n">__timers</span><span class="p">:</span> <span class="n">Timers</span>
 </span><span id="line-41">
 </span><span id="line-42">
-</span><span id="line-43">    <span class="k">def</span> <span class="nf">__post__</span><span class="p">(</span>
+</span><span id="line-43">    <span class="k">def</span><span class="w"> </span><span class="nf">__post__</span><span class="p">(</span>
 </span><span id="line-44">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-45">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-46"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -198,7 +198,7 @@
 </span><span id="line-53">        <span class="bp">self</span><span class="o">.</span><span class="n">__build_timers</span><span class="p">()</span>
 </span><span id="line-54">
 </span><span id="line-55">
-</span><span id="line-56">    <span class="k">def</span> <span class="nf">__build_timers</span><span class="p">(</span>
+</span><span id="line-56">    <span class="k">def</span><span class="w"> </span><span class="nf">__build_timers</span><span class="p">(</span>
 </span><span id="line-57">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-58">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-59"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -265,7 +265,7 @@
 </span><span id="line-120">
 </span><span id="line-121">
 </span><span id="line-122">
-</span><span id="line-123">    <span class="k">def</span> <span class="nf">__build_wheres</span><span class="p">(</span>
+</span><span id="line-123">    <span class="k">def</span><span class="w"> </span><span class="nf">__build_wheres</span><span class="p">(</span>
 </span><span id="line-124">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-125">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-126"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -298,7 +298,7 @@
 </span><span id="line-153">
 <div class="viewcode-block" id="HomieDesire.validate">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.validate">[docs]</a>
-</span><span id="line-154">    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span>
+</span><span id="line-154">    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
 </span><span id="line-155">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-156">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-157"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -313,7 +313,7 @@
 </span><span id="line-165">
 </span><span id="line-166">
 </span><span id="line-167">    <span class="nd">@property</span>
-</span><span id="line-168">    <span class="k">def</span> <span class="nf">kind</span><span class="p">(</span>
+</span><span id="line-168">    <span class="k">def</span><span class="w"> </span><span class="nf">kind</span><span class="p">(</span>
 </span><span id="line-169">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-170">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;desire&#39;</span><span class="p">]:</span>
 </span><span id="line-171"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -326,7 +326,7 @@
 </span><span id="line-178">
 </span><span id="line-179">
 </span><span id="line-180">    <span class="nd">@property</span>
-</span><span id="line-181">    <span class="k">def</span> <span class="nf">params</span><span class="p">(</span>
+</span><span id="line-181">    <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span>
 </span><span id="line-182">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-183">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieDesireParams&#39;</span><span class="p">:</span>
 </span><span id="line-184"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -348,7 +348,7 @@
 </span><span id="line-200">
 </span><span id="line-201">
 </span><span id="line-202">    <span class="nd">@property</span>
-</span><span id="line-203">    <span class="k">def</span> <span class="nf">weight</span><span class="p">(</span>
+</span><span id="line-203">    <span class="k">def</span><span class="w"> </span><span class="nf">weight</span><span class="p">(</span>
 </span><span id="line-204">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-205">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 </span><span id="line-206"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -361,7 +361,7 @@
 </span><span id="line-213">
 </span><span id="line-214">
 </span><span id="line-215">    <span class="nd">@property</span>
-</span><span id="line-216">    <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span>
+</span><span id="line-216">    <span class="k">def</span><span class="w"> </span><span class="nf">devices</span><span class="p">(</span>
 </span><span id="line-217">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-218">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;HomieDevice&#39;</span><span class="p">]:</span>
 </span><span id="line-219"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -395,7 +395,7 @@
 </span><span id="line-247">
 </span><span id="line-248">
 </span><span id="line-249">    <span class="nd">@property</span>
-</span><span id="line-250">    <span class="k">def</span> <span class="nf">groups</span><span class="p">(</span>
+</span><span id="line-250">    <span class="k">def</span><span class="w"> </span><span class="nf">groups</span><span class="p">(</span>
 </span><span id="line-251">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-252">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;HomieGroup&#39;</span><span class="p">]:</span>
 </span><span id="line-253"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -429,7 +429,7 @@
 </span><span id="line-281">
 </span><span id="line-282">
 </span><span id="line-283">    <span class="nd">@property</span>
-</span><span id="line-284">    <span class="k">def</span> <span class="nf">wheres</span><span class="p">(</span>
+</span><span id="line-284">    <span class="k">def</span><span class="w"> </span><span class="nf">wheres</span><span class="p">(</span>
 </span><span id="line-285">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-286">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">HomieWhere</span><span class="p">]:</span>
 </span><span id="line-287"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -443,7 +443,7 @@
 </span><span id="line-295">
 <div class="viewcode-block" id="HomieDesire.when">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.when">[docs]</a>
-</span><span id="line-296">    <span class="k">def</span> <span class="nf">when</span><span class="p">(</span>
+</span><span id="line-296">    <span class="k">def</span><span class="w"> </span><span class="nf">when</span><span class="p">(</span>
 </span><span id="line-297">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-298">        <span class="n">time</span><span class="p">:</span> <span class="n">Time</span><span class="p">,</span>
 </span><span id="line-299">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -481,7 +481,7 @@
 </span><span id="line-330">
 <div class="viewcode-block" id="HomieDesire.paused">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.paused">[docs]</a>
-</span><span id="line-331">    <span class="k">def</span> <span class="nf">paused</span><span class="p">(</span>
+</span><span id="line-331">    <span class="k">def</span><span class="w"> </span><span class="nf">paused</span><span class="p">(</span>
 </span><span id="line-332">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-333">        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
 </span><span id="line-334">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -510,7 +510,7 @@
 </span><span id="line-356">
 <div class="viewcode-block" id="HomieDesire.matched">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.matched">[docs]</a>
-</span><span id="line-357">    <span class="k">def</span> <span class="nf">matched</span><span class="p">(</span>
+</span><span id="line-357">    <span class="k">def</span><span class="w"> </span><span class="nf">matched</span><span class="p">(</span>
 </span><span id="line-358">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-359">        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
 </span><span id="line-360">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -540,7 +540,7 @@
 </span><span id="line-383">
 <div class="viewcode-block" id="HomieDesire.omitted">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.omitted">[docs]</a>
-</span><span id="line-384">    <span class="k">def</span> <span class="nf">omitted</span><span class="p">(</span>
+</span><span id="line-384">    <span class="k">def</span><span class="w"> </span><span class="nf">omitted</span><span class="p">(</span>
 </span><span id="line-385">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-386">        <span class="n">target</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieActionNode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="line-387">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

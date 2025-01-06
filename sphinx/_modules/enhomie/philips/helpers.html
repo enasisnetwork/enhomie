@@ -15,7 +15,7 @@
     <title>enhomie.philips.helpers | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.philips.helpers | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.philips.helpers | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../search.html" />
@@ -150,30 +150,30 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-</span><span id="line-13"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
 </span><span id="line-14">
-</span><span id="line-15"><span class="kn">from</span> <span class="nn">encommon.colors</span> <span class="kn">import</span> <span class="n">Color</span>
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">DictStrAny</span>
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">NCFalse</span>
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">NCNone</span>
-</span><span id="line-19"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">getate</span>
-</span><span id="line-20"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">setate</span>
-</span><span id="line-21"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">strplwr</span>
+</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">Color</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictStrAny</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">NCFalse</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">NCNone</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">getate</span>
+</span><span id="line-20"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">setate</span>
+</span><span id="line-21"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">strplwr</span>
 </span><span id="line-22">
-</span><span id="line-23"><span class="kn">from</span> <span class="nn">httpx</span> <span class="kn">import</span> <span class="n">Response</span>
+</span><span id="line-23"><span class="kn">from</span><span class="w"> </span><span class="nn">httpx</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
 </span><span id="line-24">
-</span><span id="line-25"><span class="kn">from</span> <span class="nn">.device</span> <span class="kn">import</span> <span class="n">PhueDevice</span>
-</span><span id="line-26"><span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">Idempotent</span>
+</span><span id="line-25"><span class="kn">from</span><span class="w"> </span><span class="nn">.device</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueDevice</span>
+</span><span id="line-26"><span class="kn">from</span><span class="w"> </span><span class="nn">..utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Idempotent</span>
 </span><span id="line-27">
 </span><span id="line-28"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-29">    <span class="kn">from</span> <span class="nn">.origin</span> <span class="kn">import</span> <span class="n">PhueOrigin</span>
-</span><span id="line-30">    <span class="kn">from</span> <span class="nn">..homie.common</span> <span class="kn">import</span> <span class="n">HomieKinds</span>
-</span><span id="line-31">    <span class="kn">from</span> <span class="nn">..homie.common</span> <span class="kn">import</span> <span class="n">HomieState</span>
-</span><span id="line-32">    <span class="kn">from</span> <span class="nn">..homie.childs</span> <span class="kn">import</span> <span class="n">HomieScene</span>
-</span><span id="line-33">    <span class="kn">from</span> <span class="nn">..homie.threads</span> <span class="kn">import</span> <span class="n">HomieActionNode</span>
+</span><span id="line-29">    <span class="kn">from</span><span class="w"> </span><span class="nn">.origin</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueOrigin</span>
+</span><span id="line-30">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieKinds</span>
+</span><span id="line-31">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieState</span>
+</span><span id="line-32">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieScene</span>
+</span><span id="line-33">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActionNode</span>
 </span><span id="line-34">
 </span><span id="line-35">
 </span><span id="line-36">
@@ -207,7 +207,7 @@
 </span><span id="line-64">
 <div class="viewcode-block" id="merge_fetch">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.helpers.merge_fetch">[docs]</a>
-</span><span id="line-65"><span class="k">def</span> <span class="nf">merge_fetch</span><span class="p">(</span>
+</span><span id="line-65"><span class="k">def</span><span class="w"> </span><span class="nf">merge_fetch</span><span class="p">(</span>
 </span><span id="line-66">    <span class="n">fetch</span><span class="p">:</span> <span class="n">PhueFetch</span><span class="p">,</span>
 </span><span id="line-67"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PhueMerge</span><span class="p">:</span>
 </span><span id="line-68"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -226,7 +226,7 @@
 </span><span id="line-81">    <span class="n">origin</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 </span><span id="line-82">
 </span><span id="line-83">
-</span><span id="line-84">    <span class="k">def</span> <span class="nf">_enrichment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-84">    <span class="k">def</span><span class="w"> </span><span class="nf">_enrichment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-85">
 </span><span id="line-86">        <span class="n">rtype</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rtype&#39;</span><span class="p">]</span>
 </span><span id="line-87">        <span class="n">rid</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rid&#39;</span><span class="p">]</span>
@@ -261,7 +261,7 @@
 </span><span id="line-115">
 <div class="viewcode-block" id="merge_find">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.helpers.merge_find">[docs]</a>
-</span><span id="line-116"><span class="k">def</span> <span class="nf">merge_find</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ004</span>
+</span><span id="line-116"><span class="k">def</span><span class="w"> </span><span class="nf">merge_find</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ004</span>
 </span><span id="line-117">    <span class="n">merge</span><span class="p">:</span> <span class="n">PhueMerge</span><span class="p">,</span>
 </span><span id="line-118">    <span class="n">kind</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieKinds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="line-119">    <span class="n">unique</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -290,7 +290,7 @@
 </span><span id="line-142">    <span class="n">found</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">DictStrAny</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="line-143">
 </span><span id="line-144">
-</span><span id="line-145">    <span class="k">def</span> <span class="nf">_match_owner</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-145">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_owner</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="line-146">
 </span><span id="line-147">        <span class="k">if</span> <span class="n">relate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-148">            <span class="k">return</span> <span class="kc">True</span>
@@ -319,7 +319,7 @@
 </span><span id="line-171">            <span class="k">else</span> <span class="kc">True</span><span class="p">)</span>
 </span><span id="line-172">
 </span><span id="line-173">
-</span><span id="line-174">    <span class="k">def</span> <span class="nf">_match_kind</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-174">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_kind</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="line-175">
 </span><span id="line-176">        <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-177">            <span class="k">return</span> <span class="kc">True</span>
@@ -337,7 +337,7 @@
 </span><span id="line-189">        <span class="k">return</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">_kind</span>
 </span><span id="line-190">
 </span><span id="line-191">
-</span><span id="line-192">    <span class="k">def</span> <span class="nf">_match_unique</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-192">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_unique</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="line-193">
 </span><span id="line-194">        <span class="k">if</span> <span class="n">unique</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-195">            <span class="k">return</span> <span class="kc">True</span>
@@ -348,7 +348,7 @@
 </span><span id="line-200">        <span class="k">return</span> <span class="n">unique</span> <span class="o">==</span> <span class="n">_unique</span>
 </span><span id="line-201">
 </span><span id="line-202">
-</span><span id="line-203">    <span class="k">def</span> <span class="nf">_match_label</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-203">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_label</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="line-204">
 </span><span id="line-205">        <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-206">            <span class="k">return</span> <span class="kc">True</span>
@@ -391,7 +391,7 @@
 </span><span id="line-242">
 <div class="viewcode-block" id="request_action">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.helpers.request_action">[docs]</a>
-</span><span id="line-243"><span class="k">def</span> <span class="nf">request_action</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ002,CFQ004</span>
+</span><span id="line-243"><span class="k">def</span><span class="w"> </span><span class="nf">request_action</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ002,CFQ004</span>
 </span><span id="line-244">    <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;PhueOrigin&#39;</span><span class="p">,</span>
 </span><span id="line-245">    <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
 </span><span id="line-246">    <span class="o">*</span><span class="p">,</span>
@@ -467,7 +467,7 @@
 </span><span id="line-316">        <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
 </span><span id="line-317">
 </span><span id="line-318">
-</span><span id="line-319">    <span class="k">def</span> <span class="nf">_set_scene</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-319">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_scene</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-320">
 </span><span id="line-321">        <span class="n">unique</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
 </span><span id="line-322">
@@ -498,7 +498,7 @@
 </span><span id="line-347">         <span class="o">.</span><span class="n">raise_for_status</span><span class="p">())</span>
 </span><span id="line-348">
 </span><span id="line-349">
-</span><span id="line-350">    <span class="k">def</span> <span class="nf">_set_target</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
+</span><span id="line-350">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_target</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
 </span><span id="line-351">        <span class="n">item</span><span class="p">:</span> <span class="n">DictStrAny</span><span class="p">,</span>
 </span><span id="line-352">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-353">
@@ -545,7 +545,7 @@
 </span><span id="line-394">         <span class="o">.</span><span class="n">raise_for_status</span><span class="p">())</span>
 </span><span id="line-395">
 </span><span id="line-396">
-</span><span id="line-397">    <span class="k">def</span> <span class="nf">_set_targets</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-397">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_targets</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-398">
 </span><span id="line-399">        <span class="n">services</span> <span class="o">=</span> <span class="p">(</span>
 </span><span id="line-400">            <span class="n">source</span><span class="p">[</span><span class="s1">&#39;services&#39;</span><span class="p">])</span>
@@ -573,7 +573,7 @@
 </span><span id="line-421">
 <div class="viewcode-block" id="action_request">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.helpers.action_request">[docs]</a>
-</span><span id="line-422"><span class="k">def</span> <span class="nf">action_request</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ002,CFQ004</span>
+</span><span id="line-422"><span class="k">def</span><span class="w"> </span><span class="nf">action_request</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ002,CFQ004</span>
 </span><span id="line-423">    <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;PhueOrigin&#39;</span><span class="p">,</span>
 </span><span id="line-424">    <span class="nb">type</span><span class="p">:</span> <span class="n">_ATYPES</span><span class="p">,</span>
 </span><span id="line-425">    <span class="n">unique</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -617,7 +617,7 @@
 </span><span id="line-463">        <span class="sa">f</span><span class="s1">&#39;/</span><span class="si">{</span><span class="n">unique</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </span><span id="line-464">
 </span><span id="line-465">
-</span><span id="line-466">    <span class="k">def</span> <span class="nf">_set_scene</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-466">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_scene</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-467">
 </span><span id="line-468">        <span class="k">if</span> <span class="n">state</span> <span class="o">!=</span> <span class="s1">&#39;active&#39;</span><span class="p">:</span>
 </span><span id="line-469">            <span class="k">return</span> <span class="kc">None</span>
@@ -638,7 +638,7 @@
 </span><span id="line-484">    <span class="n">_set_scene</span><span class="p">()</span>
 </span><span id="line-485">
 </span><span id="line-486">
-</span><span id="line-487">    <span class="k">def</span> <span class="nf">_set_color</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-487">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_color</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-488">
 </span><span id="line-489">        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-490">            <span class="k">return</span> <span class="kc">None</span>
@@ -661,7 +661,7 @@
 </span><span id="line-507">    <span class="n">_set_color</span><span class="p">()</span>
 </span><span id="line-508">
 </span><span id="line-509">
-</span><span id="line-510">    <span class="k">def</span> <span class="nf">_set_level</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-510">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_level</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-511">
 </span><span id="line-512">        <span class="k">if</span> <span class="n">level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-513">            <span class="k">return</span> <span class="kc">None</span>
@@ -683,7 +683,7 @@
 </span><span id="line-529">    <span class="n">_set_level</span><span class="p">()</span>
 </span><span id="line-530">
 </span><span id="line-531">
-</span><span id="line-532">    <span class="k">def</span> <span class="nf">_set_state</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-532">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_state</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-533">
 </span><span id="line-534">        <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;off&#39;</span><span class="p">]</span>
 </span><span id="line-535">

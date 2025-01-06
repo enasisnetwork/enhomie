@@ -15,7 +15,7 @@
     <title>enhomie.homie.models | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.homie.models | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.homie.models | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../search.html" />
@@ -150,41 +150,41 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Type</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Type</span>
 </span><span id="line-12">
 </span><span id="line-13"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-14">    <span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="n">HomieAspiredItem</span>
-</span><span id="line-15">    <span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="n">HomieDesiredItem</span>
-</span><span id="line-16">    <span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="n">HomieQueueItem</span>
-</span><span id="line-17">    <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">HomieStage</span>
-</span><span id="line-18">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieParams</span>
-</span><span id="line-19">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomiePrinterParams</span>
-</span><span id="line-20">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieChildParams</span>
-</span><span id="line-21">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieOriginParams</span>
-</span><span id="line-22">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieDeviceParams</span>
-</span><span id="line-23">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieGroupParams</span>
-</span><span id="line-24">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieSceneParams</span>
-</span><span id="line-25">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieAspireParams</span>
-</span><span id="line-26">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieDesireParams</span>
-</span><span id="line-27">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomiePluginParams</span>
-</span><span id="line-28">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieOccurParams</span>
-</span><span id="line-29">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieWhereParams</span>
-</span><span id="line-30">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">HomieServiceParams</span>
-</span><span id="line-31">    <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="n">HomieActionItem</span>
-</span><span id="line-32">    <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="n">HomieStreamItem</span>
-</span><span id="line-33">    <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="n">HomieThreadItem</span>
-</span><span id="line-34">    <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="n">HomieUpdateItem</span>
-</span><span id="line-35">    <span class="kn">from</span> <span class="nn">..builtins</span> <span class="kn">import</span> <span class="n">BltnModels</span>
-</span><span id="line-36">    <span class="kn">from</span> <span class="nn">..hubitat</span> <span class="kn">import</span> <span class="n">HubiModels</span>
-</span><span id="line-37">    <span class="kn">from</span> <span class="nn">..philips</span> <span class="kn">import</span> <span class="n">PhueModels</span>
-</span><span id="line-38">    <span class="kn">from</span> <span class="nn">..ubiquiti</span> <span class="kn">import</span> <span class="n">UbiqModels</span>
+</span><span id="line-14">    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieAspiredItem</span>
+</span><span id="line-15">    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDesiredItem</span>
+</span><span id="line-16">    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieQueueItem</span>
+</span><span id="line-17">    <span class="kn">from</span><span class="w"> </span><span class="nn">.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStage</span>
+</span><span id="line-18">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieParams</span>
+</span><span id="line-19">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomiePrinterParams</span>
+</span><span id="line-20">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieChildParams</span>
+</span><span id="line-21">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOriginParams</span>
+</span><span id="line-22">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDeviceParams</span>
+</span><span id="line-23">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieGroupParams</span>
+</span><span id="line-24">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieSceneParams</span>
+</span><span id="line-25">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieAspireParams</span>
+</span><span id="line-26">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDesireParams</span>
+</span><span id="line-27">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomiePluginParams</span>
+</span><span id="line-28">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOccurParams</span>
+</span><span id="line-29">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieWhereParams</span>
+</span><span id="line-30">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieServiceParams</span>
+</span><span id="line-31">    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActionItem</span>
+</span><span id="line-32">    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStreamItem</span>
+</span><span id="line-33">    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieThreadItem</span>
+</span><span id="line-34">    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieUpdateItem</span>
+</span><span id="line-35">    <span class="kn">from</span><span class="w"> </span><span class="nn">..builtins</span><span class="w"> </span><span class="kn">import</span> <span class="n">BltnModels</span>
+</span><span id="line-36">    <span class="kn">from</span><span class="w"> </span><span class="nn">..hubitat</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubiModels</span>
+</span><span id="line-37">    <span class="kn">from</span><span class="w"> </span><span class="nn">..philips</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueModels</span>
+</span><span id="line-38">    <span class="kn">from</span><span class="w"> </span><span class="nn">..ubiquiti</span><span class="w"> </span><span class="kn">import</span> <span class="n">UbiqModels</span>
 </span><span id="line-39">
 </span><span id="line-40">
 </span><span id="line-41">
 <div class="viewcode-block" id="HomieModels">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels">[docs]</a>
-</span><span id="line-42"><span class="k">class</span> <span class="nc">HomieModels</span><span class="p">:</span>
+</span><span id="line-42"><span class="k">class</span><span class="w"> </span><span class="nc">HomieModels</span><span class="p">:</span>
 </span><span id="line-43"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-44"><span class="sd">    Return the class object that was imported within method.</span>
 </span><span id="line-45"><span class="sd">    &quot;&quot;&quot;</span>
@@ -193,7 +193,7 @@
 <div class="viewcode-block" id="HomieModels.homie">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.homie">[docs]</a>
 </span><span id="line-48">    <span class="nd">@classmethod</span>
-</span><span id="line-49">    <span class="k">def</span> <span class="nf">homie</span><span class="p">(</span>
+</span><span id="line-49">    <span class="k">def</span><span class="w"> </span><span class="nf">homie</span><span class="p">(</span>
 </span><span id="line-50">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-51">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieParams&#39;</span><span class="p">]:</span>
 </span><span id="line-52"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -202,7 +202,7 @@
 </span><span id="line-55"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-56"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-57">
-</span><span id="line-58">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-58">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-59">            <span class="n">HomieParams</span><span class="p">)</span>
 </span><span id="line-60">
 </span><span id="line-61">        <span class="k">return</span> <span class="n">HomieParams</span></div>
@@ -212,7 +212,7 @@
 <div class="viewcode-block" id="HomieModels.printer">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.printer">[docs]</a>
 </span><span id="line-64">    <span class="nd">@classmethod</span>
-</span><span id="line-65">    <span class="k">def</span> <span class="nf">printer</span><span class="p">(</span>
+</span><span id="line-65">    <span class="k">def</span><span class="w"> </span><span class="nf">printer</span><span class="p">(</span>
 </span><span id="line-66">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-67">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomiePrinterParams&#39;</span><span class="p">]:</span>
 </span><span id="line-68"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -221,7 +221,7 @@
 </span><span id="line-71"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-72"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-73">
-</span><span id="line-74">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-74">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-75">            <span class="n">HomiePrinterParams</span><span class="p">)</span>
 </span><span id="line-76">
 </span><span id="line-77">        <span class="k">return</span> <span class="n">HomiePrinterParams</span></div>
@@ -231,7 +231,7 @@
 <div class="viewcode-block" id="HomieModels.service">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.service">[docs]</a>
 </span><span id="line-80">    <span class="nd">@classmethod</span>
-</span><span id="line-81">    <span class="k">def</span> <span class="nf">service</span><span class="p">(</span>
+</span><span id="line-81">    <span class="k">def</span><span class="w"> </span><span class="nf">service</span><span class="p">(</span>
 </span><span id="line-82">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-83">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieServiceParams&#39;</span><span class="p">]:</span>
 </span><span id="line-84"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -240,7 +240,7 @@
 </span><span id="line-87"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-88"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-89">
-</span><span id="line-90">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-90">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-91">            <span class="n">HomieServiceParams</span><span class="p">)</span>
 </span><span id="line-92">
 </span><span id="line-93">        <span class="k">return</span> <span class="n">HomieServiceParams</span></div>
@@ -250,7 +250,7 @@
 <div class="viewcode-block" id="HomieModels.builtins">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.builtins">[docs]</a>
 </span><span id="line-96">    <span class="nd">@classmethod</span>
-</span><span id="line-97">    <span class="k">def</span> <span class="nf">builtins</span><span class="p">(</span>
+</span><span id="line-97">    <span class="k">def</span><span class="w"> </span><span class="nf">builtins</span><span class="p">(</span>
 </span><span id="line-98">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-99">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;BltnModels&#39;</span><span class="p">]:</span>
 </span><span id="line-100"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -259,7 +259,7 @@
 </span><span id="line-103"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-104"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-105">
-</span><span id="line-106">        <span class="kn">from</span> <span class="nn">..builtins</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-106">        <span class="kn">from</span><span class="w"> </span><span class="nn">..builtins</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-107">            <span class="n">BltnModels</span><span class="p">)</span>
 </span><span id="line-108">
 </span><span id="line-109">        <span class="k">return</span> <span class="n">BltnModels</span></div>
@@ -269,7 +269,7 @@
 <div class="viewcode-block" id="HomieModels.hubitat">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.hubitat">[docs]</a>
 </span><span id="line-112">    <span class="nd">@classmethod</span>
-</span><span id="line-113">    <span class="k">def</span> <span class="nf">hubitat</span><span class="p">(</span>
+</span><span id="line-113">    <span class="k">def</span><span class="w"> </span><span class="nf">hubitat</span><span class="p">(</span>
 </span><span id="line-114">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-115">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HubiModels&#39;</span><span class="p">]:</span>
 </span><span id="line-116"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -278,7 +278,7 @@
 </span><span id="line-119"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-120"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-121">
-</span><span id="line-122">        <span class="kn">from</span> <span class="nn">..hubitat</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-122">        <span class="kn">from</span><span class="w"> </span><span class="nn">..hubitat</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-123">            <span class="n">HubiModels</span><span class="p">)</span>
 </span><span id="line-124">
 </span><span id="line-125">        <span class="k">return</span> <span class="n">HubiModels</span></div>
@@ -288,7 +288,7 @@
 <div class="viewcode-block" id="HomieModels.philips">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.philips">[docs]</a>
 </span><span id="line-128">    <span class="nd">@classmethod</span>
-</span><span id="line-129">    <span class="k">def</span> <span class="nf">philips</span><span class="p">(</span>
+</span><span id="line-129">    <span class="k">def</span><span class="w"> </span><span class="nf">philips</span><span class="p">(</span>
 </span><span id="line-130">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-131">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;PhueModels&#39;</span><span class="p">]:</span>
 </span><span id="line-132"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -297,7 +297,7 @@
 </span><span id="line-135"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-136"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-137">
-</span><span id="line-138">        <span class="kn">from</span> <span class="nn">..philips</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-138">        <span class="kn">from</span><span class="w"> </span><span class="nn">..philips</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-139">            <span class="n">PhueModels</span><span class="p">)</span>
 </span><span id="line-140">
 </span><span id="line-141">        <span class="k">return</span> <span class="n">PhueModels</span></div>
@@ -307,7 +307,7 @@
 <div class="viewcode-block" id="HomieModels.ubiquiti">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.ubiquiti">[docs]</a>
 </span><span id="line-144">    <span class="nd">@classmethod</span>
-</span><span id="line-145">    <span class="k">def</span> <span class="nf">ubiquiti</span><span class="p">(</span>
+</span><span id="line-145">    <span class="k">def</span><span class="w"> </span><span class="nf">ubiquiti</span><span class="p">(</span>
 </span><span id="line-146">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-147">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;UbiqModels&#39;</span><span class="p">]:</span>
 </span><span id="line-148"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -316,7 +316,7 @@
 </span><span id="line-151"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-152"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-153">
-</span><span id="line-154">        <span class="kn">from</span> <span class="nn">..ubiquiti</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-154">        <span class="kn">from</span><span class="w"> </span><span class="nn">..ubiquiti</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-155">            <span class="n">UbiqModels</span><span class="p">)</span>
 </span><span id="line-156">
 </span><span id="line-157">        <span class="k">return</span> <span class="n">UbiqModels</span></div>
@@ -326,7 +326,7 @@
 <div class="viewcode-block" id="HomieModels.child">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.child">[docs]</a>
 </span><span id="line-160">    <span class="nd">@classmethod</span>
-</span><span id="line-161">    <span class="k">def</span> <span class="nf">child</span><span class="p">(</span>
+</span><span id="line-161">    <span class="k">def</span><span class="w"> </span><span class="nf">child</span><span class="p">(</span>
 </span><span id="line-162">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-163">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieChildParams&#39;</span><span class="p">]:</span>
 </span><span id="line-164"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -335,7 +335,7 @@
 </span><span id="line-167"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-168"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-169">
-</span><span id="line-170">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-170">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-171">            <span class="n">HomieChildParams</span><span class="p">)</span>
 </span><span id="line-172">
 </span><span id="line-173">        <span class="k">return</span> <span class="n">HomieChildParams</span></div>
@@ -345,7 +345,7 @@
 <div class="viewcode-block" id="HomieModels.origin">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.origin">[docs]</a>
 </span><span id="line-176">    <span class="nd">@classmethod</span>
-</span><span id="line-177">    <span class="k">def</span> <span class="nf">origin</span><span class="p">(</span>
+</span><span id="line-177">    <span class="k">def</span><span class="w"> </span><span class="nf">origin</span><span class="p">(</span>
 </span><span id="line-178">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-179">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieOriginParams&#39;</span><span class="p">]:</span>
 </span><span id="line-180"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -354,7 +354,7 @@
 </span><span id="line-183"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-184"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-185">
-</span><span id="line-186">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-186">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-187">            <span class="n">HomieOriginParams</span><span class="p">)</span>
 </span><span id="line-188">
 </span><span id="line-189">        <span class="k">return</span> <span class="n">HomieOriginParams</span></div>
@@ -364,7 +364,7 @@
 <div class="viewcode-block" id="HomieModels.device">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.device">[docs]</a>
 </span><span id="line-192">    <span class="nd">@classmethod</span>
-</span><span id="line-193">    <span class="k">def</span> <span class="nf">device</span><span class="p">(</span>
+</span><span id="line-193">    <span class="k">def</span><span class="w"> </span><span class="nf">device</span><span class="p">(</span>
 </span><span id="line-194">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-195">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieDeviceParams&#39;</span><span class="p">]:</span>
 </span><span id="line-196"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -373,7 +373,7 @@
 </span><span id="line-199"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-200"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-201">
-</span><span id="line-202">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-202">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-203">            <span class="n">HomieDeviceParams</span><span class="p">)</span>
 </span><span id="line-204">
 </span><span id="line-205">        <span class="k">return</span> <span class="n">HomieDeviceParams</span></div>
@@ -383,7 +383,7 @@
 <div class="viewcode-block" id="HomieModels.group">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.group">[docs]</a>
 </span><span id="line-208">    <span class="nd">@classmethod</span>
-</span><span id="line-209">    <span class="k">def</span> <span class="nf">group</span><span class="p">(</span>
+</span><span id="line-209">    <span class="k">def</span><span class="w"> </span><span class="nf">group</span><span class="p">(</span>
 </span><span id="line-210">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-211">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieGroupParams&#39;</span><span class="p">]:</span>
 </span><span id="line-212"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -392,7 +392,7 @@
 </span><span id="line-215"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-216"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-217">
-</span><span id="line-218">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-218">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-219">            <span class="n">HomieGroupParams</span><span class="p">)</span>
 </span><span id="line-220">
 </span><span id="line-221">        <span class="k">return</span> <span class="n">HomieGroupParams</span></div>
@@ -402,7 +402,7 @@
 <div class="viewcode-block" id="HomieModels.scene">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.scene">[docs]</a>
 </span><span id="line-224">    <span class="nd">@classmethod</span>
-</span><span id="line-225">    <span class="k">def</span> <span class="nf">scene</span><span class="p">(</span>
+</span><span id="line-225">    <span class="k">def</span><span class="w"> </span><span class="nf">scene</span><span class="p">(</span>
 </span><span id="line-226">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-227">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieSceneParams&#39;</span><span class="p">]:</span>
 </span><span id="line-228"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -411,7 +411,7 @@
 </span><span id="line-231"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-232"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-233">
-</span><span id="line-234">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-234">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-235">            <span class="n">HomieSceneParams</span><span class="p">)</span>
 </span><span id="line-236">
 </span><span id="line-237">        <span class="k">return</span> <span class="n">HomieSceneParams</span></div>
@@ -421,7 +421,7 @@
 <div class="viewcode-block" id="HomieModels.desire">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.desire">[docs]</a>
 </span><span id="line-240">    <span class="nd">@classmethod</span>
-</span><span id="line-241">    <span class="k">def</span> <span class="nf">desire</span><span class="p">(</span>
+</span><span id="line-241">    <span class="k">def</span><span class="w"> </span><span class="nf">desire</span><span class="p">(</span>
 </span><span id="line-242">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-243">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieDesireParams&#39;</span><span class="p">]:</span>
 </span><span id="line-244"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -430,7 +430,7 @@
 </span><span id="line-247"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-248"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-249">
-</span><span id="line-250">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-250">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-251">            <span class="n">HomieDesireParams</span><span class="p">)</span>
 </span><span id="line-252">
 </span><span id="line-253">        <span class="k">return</span> <span class="n">HomieDesireParams</span></div>
@@ -440,7 +440,7 @@
 <div class="viewcode-block" id="HomieModels.aspire">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.aspire">[docs]</a>
 </span><span id="line-256">    <span class="nd">@classmethod</span>
-</span><span id="line-257">    <span class="k">def</span> <span class="nf">aspire</span><span class="p">(</span>
+</span><span id="line-257">    <span class="k">def</span><span class="w"> </span><span class="nf">aspire</span><span class="p">(</span>
 </span><span id="line-258">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-259">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieAspireParams&#39;</span><span class="p">]:</span>
 </span><span id="line-260"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -449,7 +449,7 @@
 </span><span id="line-263"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-264"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-265">
-</span><span id="line-266">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-266">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-267">            <span class="n">HomieAspireParams</span><span class="p">)</span>
 </span><span id="line-268">
 </span><span id="line-269">        <span class="k">return</span> <span class="n">HomieAspireParams</span></div>
@@ -459,7 +459,7 @@
 <div class="viewcode-block" id="HomieModels.plugin">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.plugin">[docs]</a>
 </span><span id="line-272">    <span class="nd">@classmethod</span>
-</span><span id="line-273">    <span class="k">def</span> <span class="nf">plugin</span><span class="p">(</span>
+</span><span id="line-273">    <span class="k">def</span><span class="w"> </span><span class="nf">plugin</span><span class="p">(</span>
 </span><span id="line-274">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-275">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomiePluginParams&#39;</span><span class="p">]:</span>
 </span><span id="line-276"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -468,7 +468,7 @@
 </span><span id="line-279"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-280"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-281">
-</span><span id="line-282">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-282">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-283">            <span class="n">HomiePluginParams</span><span class="p">)</span>
 </span><span id="line-284">
 </span><span id="line-285">        <span class="k">return</span> <span class="n">HomiePluginParams</span></div>
@@ -478,7 +478,7 @@
 <div class="viewcode-block" id="HomieModels.occur">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.occur">[docs]</a>
 </span><span id="line-288">    <span class="nd">@classmethod</span>
-</span><span id="line-289">    <span class="k">def</span> <span class="nf">occur</span><span class="p">(</span>
+</span><span id="line-289">    <span class="k">def</span><span class="w"> </span><span class="nf">occur</span><span class="p">(</span>
 </span><span id="line-290">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-291">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieOccurParams&#39;</span><span class="p">]:</span>
 </span><span id="line-292"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -487,7 +487,7 @@
 </span><span id="line-295"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-296"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-297">
-</span><span id="line-298">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-298">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-299">            <span class="n">HomieOccurParams</span><span class="p">)</span>
 </span><span id="line-300">
 </span><span id="line-301">        <span class="k">return</span> <span class="n">HomieOccurParams</span></div>
@@ -497,7 +497,7 @@
 <div class="viewcode-block" id="HomieModels.where">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.where">[docs]</a>
 </span><span id="line-304">    <span class="nd">@classmethod</span>
-</span><span id="line-305">    <span class="k">def</span> <span class="nf">where</span><span class="p">(</span>
+</span><span id="line-305">    <span class="k">def</span><span class="w"> </span><span class="nf">where</span><span class="p">(</span>
 </span><span id="line-306">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-307">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieWhereParams&#39;</span><span class="p">]:</span>
 </span><span id="line-308"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -506,7 +506,7 @@
 </span><span id="line-311"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-312"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-313">
-</span><span id="line-314">        <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-314">        <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-315">            <span class="n">HomieWhereParams</span><span class="p">)</span>
 </span><span id="line-316">
 </span><span id="line-317">        <span class="k">return</span> <span class="n">HomieWhereParams</span></div>
@@ -516,7 +516,7 @@
 <div class="viewcode-block" id="HomieModels.stage">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.stage">[docs]</a>
 </span><span id="line-320">    <span class="nd">@classmethod</span>
-</span><span id="line-321">    <span class="k">def</span> <span class="nf">stage</span><span class="p">(</span>
+</span><span id="line-321">    <span class="k">def</span><span class="w"> </span><span class="nf">stage</span><span class="p">(</span>
 </span><span id="line-322">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-323">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieStage&#39;</span><span class="p">]:</span>
 </span><span id="line-324"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -525,7 +525,7 @@
 </span><span id="line-327"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-328"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-329">
-</span><span id="line-330">        <span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-330">        <span class="kn">from</span><span class="w"> </span><span class="nn">.common</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-331">            <span class="n">HomieStage</span><span class="p">)</span>
 </span><span id="line-332">
 </span><span id="line-333">        <span class="k">return</span> <span class="n">HomieStage</span></div>
@@ -535,7 +535,7 @@
 <div class="viewcode-block" id="HomieModels.queue">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.queue">[docs]</a>
 </span><span id="line-336">    <span class="nd">@classmethod</span>
-</span><span id="line-337">    <span class="k">def</span> <span class="nf">queue</span><span class="p">(</span>
+</span><span id="line-337">    <span class="k">def</span><span class="w"> </span><span class="nf">queue</span><span class="p">(</span>
 </span><span id="line-338">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-339">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieQueueItem&#39;</span><span class="p">]:</span>
 </span><span id="line-340"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -544,7 +544,7 @@
 </span><span id="line-343"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-344"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-345">
-</span><span id="line-346">        <span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-346">        <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-347">            <span class="n">HomieQueueItem</span><span class="p">)</span>
 </span><span id="line-348">
 </span><span id="line-349">        <span class="k">return</span> <span class="n">HomieQueueItem</span></div>
@@ -554,7 +554,7 @@
 <div class="viewcode-block" id="HomieModels.thread">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.thread">[docs]</a>
 </span><span id="line-352">    <span class="nd">@classmethod</span>
-</span><span id="line-353">    <span class="k">def</span> <span class="nf">thread</span><span class="p">(</span>
+</span><span id="line-353">    <span class="k">def</span><span class="w"> </span><span class="nf">thread</span><span class="p">(</span>
 </span><span id="line-354">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-355">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieThreadItem&#39;</span><span class="p">]:</span>
 </span><span id="line-356"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -563,7 +563,7 @@
 </span><span id="line-359"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-360"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-361">
-</span><span id="line-362">        <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-362">        <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-363">            <span class="n">HomieThreadItem</span><span class="p">)</span>
 </span><span id="line-364">
 </span><span id="line-365">        <span class="k">return</span> <span class="n">HomieThreadItem</span></div>
@@ -573,7 +573,7 @@
 <div class="viewcode-block" id="HomieModels.action">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.action">[docs]</a>
 </span><span id="line-368">    <span class="nd">@classmethod</span>
-</span><span id="line-369">    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span>
+</span><span id="line-369">    <span class="k">def</span><span class="w"> </span><span class="nf">action</span><span class="p">(</span>
 </span><span id="line-370">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-371">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieActionItem&#39;</span><span class="p">]:</span>
 </span><span id="line-372"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -582,7 +582,7 @@
 </span><span id="line-375"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-376"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-377">
-</span><span id="line-378">        <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-378">        <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-379">            <span class="n">HomieActionItem</span><span class="p">)</span>
 </span><span id="line-380">
 </span><span id="line-381">        <span class="k">return</span> <span class="n">HomieActionItem</span></div>
@@ -592,7 +592,7 @@
 <div class="viewcode-block" id="HomieModels.update">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.update">[docs]</a>
 </span><span id="line-384">    <span class="nd">@classmethod</span>
-</span><span id="line-385">    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+</span><span id="line-385">    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
 </span><span id="line-386">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-387">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieUpdateItem&#39;</span><span class="p">]:</span>
 </span><span id="line-388"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -601,7 +601,7 @@
 </span><span id="line-391"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-392"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-393">
-</span><span id="line-394">        <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-394">        <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-395">            <span class="n">HomieUpdateItem</span><span class="p">)</span>
 </span><span id="line-396">
 </span><span id="line-397">        <span class="k">return</span> <span class="n">HomieUpdateItem</span></div>
@@ -611,7 +611,7 @@
 <div class="viewcode-block" id="HomieModels.stream">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.stream">[docs]</a>
 </span><span id="line-400">    <span class="nd">@classmethod</span>
-</span><span id="line-401">    <span class="k">def</span> <span class="nf">stream</span><span class="p">(</span>
+</span><span id="line-401">    <span class="k">def</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span>
 </span><span id="line-402">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-403">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieStreamItem&#39;</span><span class="p">]:</span>
 </span><span id="line-404"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -620,7 +620,7 @@
 </span><span id="line-407"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-408"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-409">
-</span><span id="line-410">        <span class="kn">from</span> <span class="nn">.threads</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-410">        <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-411">            <span class="n">HomieStreamItem</span><span class="p">)</span>
 </span><span id="line-412">
 </span><span id="line-413">        <span class="k">return</span> <span class="n">HomieStreamItem</span></div>
@@ -630,7 +630,7 @@
 <div class="viewcode-block" id="HomieModels.desired">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.desired">[docs]</a>
 </span><span id="line-416">    <span class="nd">@classmethod</span>
-</span><span id="line-417">    <span class="k">def</span> <span class="nf">desired</span><span class="p">(</span>
+</span><span id="line-417">    <span class="k">def</span><span class="w"> </span><span class="nf">desired</span><span class="p">(</span>
 </span><span id="line-418">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-419">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieDesiredItem&#39;</span><span class="p">]:</span>
 </span><span id="line-420"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -639,7 +639,7 @@
 </span><span id="line-423"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-424"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-425">
-</span><span id="line-426">        <span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-426">        <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-427">            <span class="n">HomieDesiredItem</span><span class="p">)</span>
 </span><span id="line-428">
 </span><span id="line-429">        <span class="k">return</span> <span class="n">HomieDesiredItem</span></div>
@@ -649,7 +649,7 @@
 <div class="viewcode-block" id="HomieModels.aspired">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.models.HomieModels.aspired">[docs]</a>
 </span><span id="line-432">    <span class="nd">@classmethod</span>
-</span><span id="line-433">    <span class="k">def</span> <span class="nf">aspired</span><span class="p">(</span>
+</span><span id="line-433">    <span class="k">def</span><span class="w"> </span><span class="nf">aspired</span><span class="p">(</span>
 </span><span id="line-434">        <span class="bp">cls</span><span class="p">,</span>
 </span><span id="line-435">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieAspiredItem&#39;</span><span class="p">]:</span>
 </span><span id="line-436"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -658,7 +658,7 @@
 </span><span id="line-439"><span class="sd">        :returns: Class object that was imported within method.</span>
 </span><span id="line-440"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-441">
-</span><span id="line-442">        <span class="kn">from</span> <span class="nn">.addons</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span id="line-442">        <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span id="line-443">            <span class="n">HomieAspiredItem</span><span class="p">)</span>
 </span><span id="line-444">
 </span><span id="line-445">        <span class="k">return</span> <span class="n">HomieAspiredItem</span></div>

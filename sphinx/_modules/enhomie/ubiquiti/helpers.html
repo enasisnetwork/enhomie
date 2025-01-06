@@ -15,7 +15,7 @@
     <title>enhomie.ubiquiti.helpers | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.ubiquiti.helpers | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.ubiquiti.helpers | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../search.html" />
@@ -150,18 +150,18 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-</span><span id="line-13"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
 </span><span id="line-14">
-</span><span id="line-15"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">DictStrAny</span>
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">NCFalse</span>
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">merge_dicts</span>
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">strplwr</span>
+</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictStrAny</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">NCFalse</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">merge_dicts</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">strplwr</span>
 </span><span id="line-19">
 </span><span id="line-20"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-21">    <span class="kn">from</span> <span class="nn">..homie.common</span> <span class="kn">import</span> <span class="n">HomieKinds</span>
+</span><span id="line-21">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieKinds</span>
 </span><span id="line-22">
 </span><span id="line-23">
 </span><span id="line-24">
@@ -176,7 +176,7 @@
 </span><span id="line-33">
 <div class="viewcode-block" id="merge_fetch">
 <a class="viewcode-back" href="../../../enhomie.ubiquiti.html#enhomie.ubiquiti.helpers.merge_fetch">[docs]</a>
-</span><span id="line-34"><span class="k">def</span> <span class="nf">merge_fetch</span><span class="p">(</span>
+</span><span id="line-34"><span class="k">def</span><span class="w"> </span><span class="nf">merge_fetch</span><span class="p">(</span>
 </span><span id="line-35">    <span class="n">fetch</span><span class="p">:</span> <span class="n">UbiqFetch</span><span class="p">,</span>
 </span><span id="line-36"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UbiqMerge</span><span class="p">:</span>
 </span><span id="line-37"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -201,7 +201,7 @@
 </span><span id="line-56">        <span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
 </span><span id="line-57">
 </span><span id="line-58">
-</span><span id="line-59">    <span class="k">def</span> <span class="nf">_fixtimes</span><span class="p">(</span>
+</span><span id="line-59">    <span class="k">def</span><span class="w"> </span><span class="nf">_fixtimes</span><span class="p">(</span>
 </span><span id="line-60">        <span class="n">fetch</span><span class="p">:</span> <span class="n">UbiqFetch</span><span class="p">,</span>
 </span><span id="line-61">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-62">
@@ -214,7 +214,7 @@
 </span><span id="line-69">                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;last_seen&#39;</span><span class="p">]]</span>
 </span><span id="line-70">
 </span><span id="line-71">
-</span><span id="line-72">    <span class="k">def</span> <span class="nf">_combine</span><span class="p">(</span>
+</span><span id="line-72">    <span class="k">def</span><span class="w"> </span><span class="nf">_combine</span><span class="p">(</span>
 </span><span id="line-73">        <span class="n">target</span><span class="p">:</span> <span class="n">UbiqKinds</span><span class="p">,</span>
 </span><span id="line-74">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-75">
@@ -273,7 +273,7 @@
 </span><span id="line-127">
 <div class="viewcode-block" id="merge_find">
 <a class="viewcode-back" href="../../../enhomie.ubiquiti.html#enhomie.ubiquiti.helpers.merge_find">[docs]</a>
-</span><span id="line-128"><span class="k">def</span> <span class="nf">merge_find</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
+</span><span id="line-128"><span class="k">def</span><span class="w"> </span><span class="nf">merge_find</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
 </span><span id="line-129">    <span class="n">merge</span><span class="p">:</span> <span class="n">UbiqMerge</span><span class="p">,</span>
 </span><span id="line-130">    <span class="n">kind</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieKinds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="line-131">    <span class="n">unique</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -304,7 +304,7 @@
 </span><span id="line-156">        <span class="k">assert</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;device&#39;</span>
 </span><span id="line-157">
 </span><span id="line-158">
-</span><span id="line-159">    <span class="k">def</span> <span class="nf">_match_unique</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-159">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_unique</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="line-160">
 </span><span id="line-161">        <span class="k">if</span> <span class="n">unique</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-162">            <span class="k">return</span> <span class="kc">True</span>
@@ -322,7 +322,7 @@
 </span><span id="line-174">        <span class="k">return</span> <span class="n">unique</span> <span class="ow">in</span> <span class="n">uniques</span>
 </span><span id="line-175">
 </span><span id="line-176">
-</span><span id="line-177">    <span class="k">def</span> <span class="nf">_match_label</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-177">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_label</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="line-178">
 </span><span id="line-179">        <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-180">            <span class="k">return</span> <span class="kc">True</span>

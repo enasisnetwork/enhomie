@@ -15,7 +15,7 @@
     <title>enhomie.homie.members.updates | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.homie.members.updates | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.homie.members.updates | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../../search.html" />
@@ -150,26 +150,26 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Type</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Type</span>
 </span><span id="line-13">
-</span><span id="line-14"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">NCNone</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">NCNone</span>
 </span><span id="line-15">
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">.member</span> <span class="kn">import</span> <span class="n">HomieMember</span>
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">...hubitat</span> <span class="kn">import</span> <span class="n">HubiUpdate</span>
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">...philips</span> <span class="kn">import</span> <span class="n">PhueUpdate</span>
-</span><span id="line-19"><span class="kn">from</span> <span class="nn">...ubiquiti</span> <span class="kn">import</span> <span class="n">UbiqUpdate</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">.member</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieMember</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">...hubitat</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubiUpdate</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">...philips</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueUpdate</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">...ubiquiti</span><span class="w"> </span><span class="kn">import</span> <span class="n">UbiqUpdate</span>
 </span><span id="line-20">
 </span><span id="line-21"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-22">    <span class="kn">from</span> <span class="nn">..childs</span> <span class="kn">import</span> <span class="n">HomieOrigin</span>
-</span><span id="line-23">    <span class="kn">from</span> <span class="nn">..threads</span> <span class="kn">import</span> <span class="n">HomieThread</span>
+</span><span id="line-22">    <span class="kn">from</span><span class="w"> </span><span class="nn">..childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOrigin</span>
+</span><span id="line-23">    <span class="kn">from</span><span class="w"> </span><span class="nn">..threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieThread</span>
 </span><span id="line-24">
 </span><span id="line-25">
 </span><span id="line-26">
 <div class="viewcode-block" id="HomieUpdates">
 <a class="viewcode-back" href="../../../../enhomie.homie.members.html#enhomie.homie.members.updates.HomieUpdates">[docs]</a>
-</span><span id="line-27"><span class="k">class</span> <span class="nc">HomieUpdates</span><span class="p">(</span><span class="n">HomieMember</span><span class="p">):</span>
+</span><span id="line-27"><span class="k">class</span><span class="w"> </span><span class="nc">HomieUpdates</span><span class="p">(</span><span class="n">HomieMember</span><span class="p">):</span>
 </span><span id="line-28"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-29"><span class="sd">    Common methods and routines for Homie Automate members.</span>
 </span><span id="line-30"><span class="sd">    &quot;&quot;&quot;</span>
@@ -177,7 +177,7 @@
 </span><span id="line-32">
 <div class="viewcode-block" id="HomieUpdates.operate">
 <a class="viewcode-back" href="../../../../enhomie.homie.members.html#enhomie.homie.members.updates.HomieUpdates.operate">[docs]</a>
-</span><span id="line-33">    <span class="k">def</span> <span class="nf">operate</span><span class="p">(</span>
+</span><span id="line-33">    <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span>
 </span><span id="line-34">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-35">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-36"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -190,7 +190,7 @@
 </span><span id="line-42">
 <div class="viewcode-block" id="HomieUpdates.operate_streams">
 <a class="viewcode-back" href="../../../../enhomie.homie.members.html#enhomie.homie.members.updates.HomieUpdates.operate_streams">[docs]</a>
-</span><span id="line-43">    <span class="k">def</span> <span class="nf">operate_streams</span><span class="p">(</span>
+</span><span id="line-43">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_streams</span><span class="p">(</span>
 </span><span id="line-44">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-45">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-46"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -205,7 +205,7 @@
 </span><span id="line-55">            <span class="o">.</span><span class="n">values</span><span class="p">())</span>
 </span><span id="line-56">
 </span><span id="line-57">
-</span><span id="line-58">        <span class="k">def</span> <span class="nf">_put_update</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-58">        <span class="k">def</span><span class="w"> </span><span class="nf">_put_update</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-59">
 </span><span id="line-60">            <span class="n">name</span> <span class="o">=</span> <span class="n">sitem</span><span class="o">.</span><span class="n">origin</span>
 </span><span id="line-61">            <span class="n">origin</span> <span class="o">=</span> <span class="n">thread</span><span class="o">.</span><span class="n">origin</span>
@@ -232,7 +232,7 @@
 </span><span id="line-81">
 <div class="viewcode-block" id="HomieUpdates.get_thread">
 <a class="viewcode-back" href="../../../../enhomie.homie.members.html#enhomie.homie.members.updates.HomieUpdates.get_thread">[docs]</a>
-</span><span id="line-82">    <span class="k">def</span> <span class="nf">get_thread</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
+</span><span id="line-82">    <span class="k">def</span><span class="w"> </span><span class="nf">get_thread</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
 </span><span id="line-83">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-84">        <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;HomieOrigin&#39;</span><span class="p">,</span>
 </span><span id="line-85">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieThread&#39;</span><span class="p">]]:</span>

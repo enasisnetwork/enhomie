@@ -15,7 +15,7 @@
     <title>enhomie.philips.stream | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.philips.stream | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.philips.stream | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../search.html" />
@@ -150,27 +150,27 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span> <span class="k">as</span> <span class="n">block_sleep</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span> <span class="k">as</span> <span class="n">block_sleep</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
 </span><span id="line-13">
-</span><span id="line-14"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">DictStrAny</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictStrAny</span>
 </span><span id="line-15">
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">httpx</span> <span class="kn">import</span> <span class="n">ReadTimeout</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">httpx</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReadTimeout</span>
 </span><span id="line-17">
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">.origin</span> <span class="kn">import</span> <span class="n">PhueOrigin</span>
-</span><span id="line-19"><span class="kn">from</span> <span class="nn">..homie.threads</span> <span class="kn">import</span> <span class="n">HomieStream</span>
-</span><span id="line-20"><span class="kn">from</span> <span class="nn">..homie.threads</span> <span class="kn">import</span> <span class="n">HomieStreamItem</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">.origin</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueOrigin</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">..homie.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStream</span>
+</span><span id="line-20"><span class="kn">from</span><span class="w"> </span><span class="nn">..homie.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStreamItem</span>
 </span><span id="line-21">
 </span><span id="line-22"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-23">    <span class="kn">from</span> <span class="nn">..homie.childs</span> <span class="kn">import</span> <span class="n">HomieOrigin</span>
+</span><span id="line-23">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOrigin</span>
 </span><span id="line-24">
 </span><span id="line-25">
 </span><span id="line-26">
 <div class="viewcode-block" id="PhueStreamItem">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.stream.PhueStreamItem">[docs]</a>
 </span><span id="line-27"><span class="nd">@dataclass</span>
-</span><span id="line-28"><span class="k">class</span> <span class="nc">PhueStreamItem</span><span class="p">(</span><span class="n">HomieStreamItem</span><span class="p">):</span>
+</span><span id="line-28"><span class="k">class</span><span class="w"> </span><span class="nc">PhueStreamItem</span><span class="p">(</span><span class="n">HomieStreamItem</span><span class="p">):</span>
 </span><span id="line-29"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-30"><span class="sd">    Contain information for sharing using the Python queue.</span>
 </span><span id="line-31"><span class="sd">    &quot;&quot;&quot;</span>
@@ -178,7 +178,7 @@
 </span><span id="line-33">    <span class="n">event</span><span class="p">:</span> <span class="n">DictStrAny</span>
 </span><span id="line-34">
 </span><span id="line-35">
-</span><span id="line-36">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="line-36">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="line-37">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-38">        <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;HomieOrigin&#39;</span><span class="p">,</span>
 </span><span id="line-39">        <span class="n">event</span><span class="p">:</span> <span class="n">DictStrAny</span><span class="p">,</span>
@@ -195,7 +195,7 @@
 </span><span id="line-49">
 <div class="viewcode-block" id="PhueStream">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.stream.PhueStream">[docs]</a>
-</span><span id="line-50"><span class="k">class</span> <span class="nc">PhueStream</span><span class="p">(</span><span class="n">HomieStream</span><span class="p">):</span>
+</span><span id="line-50"><span class="k">class</span><span class="w"> </span><span class="nc">PhueStream</span><span class="p">(</span><span class="n">HomieStream</span><span class="p">):</span>
 </span><span id="line-51"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-52"><span class="sd">    Common methods and routines for Homie Automate threads.</span>
 </span><span id="line-53"><span class="sd">    &quot;&quot;&quot;</span>
@@ -203,7 +203,7 @@
 </span><span id="line-55">
 <div class="viewcode-block" id="PhueStream.operate_streams">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.stream.PhueStream.operate_streams">[docs]</a>
-</span><span id="line-56">    <span class="k">def</span> <span class="nf">operate_streams</span><span class="p">(</span>
+</span><span id="line-56">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_streams</span><span class="p">(</span>
 </span><span id="line-57">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-58">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-59"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>

@@ -15,7 +15,7 @@
     <title>enhomie.builtins.regexp | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.builtins.regexp | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.builtins.regexp | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../search.html" />
@@ -150,27 +150,27 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">suppress</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">re</span> <span class="kn">import</span> <span class="nb">compile</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
-</span><span id="line-13"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">suppress</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">re</span><span class="w"> </span><span class="kn">import</span> <span class="nb">compile</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
 </span><span id="line-14">
-</span><span id="line-15"><span class="kn">from</span> <span class="nn">encommon.utils</span> <span class="kn">import</span> <span class="n">rgxp_match</span>
+</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">rgxp_match</span>
 </span><span id="line-16">
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">BltnModels</span>
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">..homie.plugins</span> <span class="kn">import</span> <span class="n">HomieDriver</span>
-</span><span id="line-19"><span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">InvalidParam</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">BltnModels</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">..homie.plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDriver</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">..utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidParam</span>
 </span><span id="line-20">
 </span><span id="line-21"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-22">    <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">DriverBltnRegexpParams</span>
-</span><span id="line-23">    <span class="kn">from</span> <span class="nn">..homie.plugins</span> <span class="kn">import</span> <span class="n">HomiePluginKinds</span>
-</span><span id="line-24">    <span class="kn">from</span> <span class="nn">..homie.threads</span> <span class="kn">import</span> <span class="n">HomieStreamItem</span>
+</span><span id="line-22">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">DriverBltnRegexpParams</span>
+</span><span id="line-23">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomiePluginKinds</span>
+</span><span id="line-24">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStreamItem</span>
 </span><span id="line-25">
 </span><span id="line-26">
 </span><span id="line-27">
 <div class="viewcode-block" id="DriverBltnRegexp">
 <a class="viewcode-back" href="../../../enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp">[docs]</a>
-</span><span id="line-28"><span class="k">class</span> <span class="nc">DriverBltnRegexp</span><span class="p">(</span><span class="n">HomieDriver</span><span class="p">):</span>
+</span><span id="line-28"><span class="k">class</span><span class="w"> </span><span class="nc">DriverBltnRegexp</span><span class="p">(</span><span class="n">HomieDriver</span><span class="p">):</span>
 </span><span id="line-29"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-30"><span class="sd">    Match specific conditions for determining desired state.</span>
 </span><span id="line-31"><span class="sd">    &quot;&quot;&quot;</span>
@@ -178,7 +178,7 @@
 </span><span id="line-33">
 <div class="viewcode-block" id="DriverBltnRegexp.validate">
 <a class="viewcode-back" href="../../../enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp.validate">[docs]</a>
-</span><span id="line-34">    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span>
+</span><span id="line-34">    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
 </span><span id="line-35">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-36">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-37"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -204,7 +204,7 @@
 </span><span id="line-56">
 </span><span id="line-57">
 </span><span id="line-58">    <span class="nd">@property</span>
-</span><span id="line-59">    <span class="k">def</span> <span class="nf">family</span><span class="p">(</span>
+</span><span id="line-59">    <span class="k">def</span><span class="w"> </span><span class="nf">family</span><span class="p">(</span>
 </span><span id="line-60">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-61">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;builtins&#39;</span><span class="p">]:</span>
 </span><span id="line-62"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -217,7 +217,7 @@
 </span><span id="line-69">
 </span><span id="line-70">
 </span><span id="line-71">    <span class="nd">@property</span>
-</span><span id="line-72">    <span class="k">def</span> <span class="nf">kinds</span><span class="p">(</span>
+</span><span id="line-72">    <span class="k">def</span><span class="w"> </span><span class="nf">kinds</span><span class="p">(</span>
 </span><span id="line-73">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-74">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;HomiePluginKinds&#39;</span><span class="p">]:</span>
 </span><span id="line-75"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -230,7 +230,7 @@
 </span><span id="line-82">
 </span><span id="line-83">
 </span><span id="line-84">    <span class="nd">@property</span>
-</span><span id="line-85">    <span class="k">def</span> <span class="nf">params</span><span class="p">(</span>
+</span><span id="line-85">    <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span>
 </span><span id="line-86">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-87">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DriverBltnRegexpParams&#39;</span><span class="p">:</span>
 </span><span id="line-88"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -254,7 +254,7 @@
 </span><span id="line-106">
 <div class="viewcode-block" id="DriverBltnRegexp.occur">
 <a class="viewcode-back" href="../../../enhomie.builtins.html#enhomie.builtins.regexp.DriverBltnRegexp.occur">[docs]</a>
-</span><span id="line-107">    <span class="k">def</span> <span class="nf">occur</span><span class="p">(</span>
+</span><span id="line-107">    <span class="k">def</span><span class="w"> </span><span class="nf">occur</span><span class="p">(</span>
 </span><span id="line-108">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-109">        <span class="n">sitem</span><span class="p">:</span> <span class="s1">&#39;HomieStreamItem&#39;</span><span class="p">,</span>
 </span><span id="line-110">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>

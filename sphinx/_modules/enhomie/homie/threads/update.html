@@ -15,7 +15,7 @@
     <title>enhomie.homie.threads.update | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.homie.threads.update | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.homie.threads.update | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../../search.html" />
@@ -150,20 +150,20 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-13"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
 </span><span id="line-14">
-</span><span id="line-15"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">Timer</span>
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">NCNone</span>
+</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">NCNone</span>
 </span><span id="line-17">
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">.thread</span> <span class="kn">import</span> <span class="n">HomieThread</span>
-</span><span id="line-19"><span class="kn">from</span> <span class="nn">.thread</span> <span class="kn">import</span> <span class="n">HomieThreadItem</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">.thread</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieThread</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">.thread</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieThreadItem</span>
 </span><span id="line-20">
 </span><span id="line-21"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-22">    <span class="kn">from</span> <span class="nn">.stream</span> <span class="kn">import</span> <span class="n">HomieStreamItem</span>
-</span><span id="line-23">    <span class="kn">from</span> <span class="nn">..childs</span> <span class="kn">import</span> <span class="n">HomieOrigin</span>
+</span><span id="line-22">    <span class="kn">from</span><span class="w"> </span><span class="nn">.stream</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStreamItem</span>
+</span><span id="line-23">    <span class="kn">from</span><span class="w"> </span><span class="nn">..childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOrigin</span>
 </span><span id="line-24">
 </span><span id="line-25">
 </span><span id="line-26">
@@ -178,13 +178,13 @@
 <div class="viewcode-block" id="HomieUpdateItem">
 <a class="viewcode-back" href="../../../../enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdateItem">[docs]</a>
 </span><span id="line-35"><span class="nd">@dataclass</span>
-</span><span id="line-36"><span class="k">class</span> <span class="nc">HomieUpdateItem</span><span class="p">(</span><span class="n">HomieThreadItem</span><span class="p">):</span>
+</span><span id="line-36"><span class="k">class</span><span class="w"> </span><span class="nc">HomieUpdateItem</span><span class="p">(</span><span class="n">HomieThreadItem</span><span class="p">):</span>
 </span><span id="line-37"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-38"><span class="sd">    Contain information for sharing using the Python queue.</span>
 </span><span id="line-39"><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="line-40">
 </span><span id="line-41">
-</span><span id="line-42">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="line-42">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="line-43">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-44">        <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;HomieOrigin&#39;</span><span class="p">,</span>
 </span><span id="line-45">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -199,7 +199,7 @@
 </span><span id="line-53">
 <div class="viewcode-block" id="HomieUpdate">
 <a class="viewcode-back" href="../../../../enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdate">[docs]</a>
-</span><span id="line-54"><span class="k">class</span> <span class="nc">HomieUpdate</span><span class="p">(</span><span class="n">HomieThread</span><span class="p">):</span>
+</span><span id="line-54"><span class="k">class</span><span class="w"> </span><span class="nc">HomieUpdate</span><span class="p">(</span><span class="n">HomieThread</span><span class="p">):</span>
 </span><span id="line-55"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-56"><span class="sd">    Common methods and routines for Homie Automate threads.</span>
 </span><span id="line-57"><span class="sd">    &quot;&quot;&quot;</span>
@@ -207,7 +207,7 @@
 </span><span id="line-59">    <span class="n">__timer</span><span class="p">:</span> <span class="n">Timer</span>
 </span><span id="line-60">
 </span><span id="line-61">
-</span><span id="line-62">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="line-62">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="line-63">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-64">        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
 </span><span id="line-65">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
@@ -236,7 +236,7 @@
 </span><span id="line-88">
 <div class="viewcode-block" id="HomieUpdate.operate">
 <a class="viewcode-back" href="../../../../enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdate.operate">[docs]</a>
-</span><span id="line-89">    <span class="k">def</span> <span class="nf">operate</span><span class="p">(</span>
+</span><span id="line-89">    <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span>
 </span><span id="line-90">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-91">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-92"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -275,7 +275,7 @@
 </span><span id="line-124">
 <div class="viewcode-block" id="HomieUpdate.operate_updates">
 <a class="viewcode-back" href="../../../../enhomie.homie.threads.html#enhomie.homie.threads.update.HomieUpdate.operate_updates">[docs]</a>
-</span><span id="line-125">    <span class="k">def</span> <span class="nf">operate_updates</span><span class="p">(</span>
+</span><span id="line-125">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_updates</span><span class="p">(</span>
 </span><span id="line-126">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-127">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-128"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -297,7 +297,7 @@
 </span><span id="line-144">        <span class="n">updates</span><span class="p">:</span> <span class="n">_UPDATES</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 </span><span id="line-145">
 </span><span id="line-146">
-</span><span id="line-147">        <span class="k">def</span> <span class="nf">_set_update</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-147">        <span class="k">def</span><span class="w"> </span><span class="nf">_set_update</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-148">
 </span><span id="line-149">            <span class="n">name</span> <span class="o">=</span> <span class="n">sitem</span><span class="o">.</span><span class="n">origin</span>
 </span><span id="line-150">            <span class="n">_name</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">name</span>

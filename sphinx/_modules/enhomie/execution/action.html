@@ -15,7 +15,7 @@
     <title>enhomie.execution.action | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.execution.action | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.execution.action | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../search.html" />
@@ -150,28 +150,28 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span> <span class="k">as</span> <span class="n">sys_argv</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-</span><span id="line-13"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-14"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">get_args</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArgumentParser</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">sys</span><span class="w"> </span><span class="kn">import</span> <span class="n">argv</span> <span class="k">as</span> <span class="n">sys_argv</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_args</span>
 </span><span id="line-15">
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">DictStrAny</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictStrAny</span>
 </span><span id="line-17">
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">..homie</span> <span class="kn">import</span> <span class="n">Homie</span>
-</span><span id="line-19"><span class="kn">from</span> <span class="nn">..homie</span> <span class="kn">import</span> <span class="n">HomieConfig</span>
-</span><span id="line-20"><span class="kn">from</span> <span class="nn">..homie.common</span> <span class="kn">import</span> <span class="n">HomieState</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">..homie</span><span class="w"> </span><span class="kn">import</span> <span class="n">Homie</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">..homie</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieConfig</span>
+</span><span id="line-20"><span class="kn">from</span><span class="w"> </span><span class="nn">..homie.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieState</span>
 </span><span id="line-21">
 </span><span id="line-22"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-23">    <span class="kn">from</span> <span class="nn">..homie.childs</span> <span class="kn">import</span> <span class="n">HomieDevice</span>
-</span><span id="line-24">    <span class="kn">from</span> <span class="nn">..homie.childs</span> <span class="kn">import</span> <span class="n">HomieGroup</span>
-</span><span id="line-25">    <span class="kn">from</span> <span class="nn">..homie.childs</span> <span class="kn">import</span> <span class="n">HomieScene</span>
+</span><span id="line-23">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDevice</span>
+</span><span id="line-24">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieGroup</span>
+</span><span id="line-25">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieScene</span>
 </span><span id="line-26">
 </span><span id="line-27">
 </span><span id="line-28">
 <div class="viewcode-block" id="arguments">
 <a class="viewcode-back" href="../../../enhomie.execution.html#enhomie.execution.action.arguments">[docs]</a>
-</span><span id="line-29"><span class="k">def</span> <span class="nf">arguments</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001</span>
+</span><span id="line-29"><span class="k">def</span><span class="w"> </span><span class="nf">arguments</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001</span>
 </span><span id="line-30">    <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="line-31"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
 </span><span id="line-32"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -296,7 +296,7 @@
 </span><span id="line-150">
 <div class="viewcode-block" id="operation">
 <a class="viewcode-back" href="../../../enhomie.execution.html#enhomie.execution.action.operation">[docs]</a>
-</span><span id="line-151"><span class="k">def</span> <span class="nf">operation</span><span class="p">(</span>
+</span><span id="line-151"><span class="k">def</span><span class="w"> </span><span class="nf">operation</span><span class="p">(</span>
 </span><span id="line-152">    <span class="c1"># NOCVR</span>
 </span><span id="line-153">    <span class="n">homie</span><span class="p">:</span> <span class="n">Homie</span><span class="p">,</span>
 </span><span id="line-154"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -364,7 +364,7 @@
 </span><span id="line-215">
 <div class="viewcode-block" id="execution">
 <a class="viewcode-back" href="../../../enhomie.execution.html#enhomie.execution.action.execution">[docs]</a>
-</span><span id="line-216"><span class="k">def</span> <span class="nf">execution</span><span class="p">(</span>
+</span><span id="line-216"><span class="k">def</span><span class="w"> </span><span class="nf">execution</span><span class="p">(</span>
 </span><span id="line-217">    <span class="c1"># NOCVR</span>
 </span><span id="line-218">    <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="line-219"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

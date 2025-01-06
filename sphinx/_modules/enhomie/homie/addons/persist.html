@@ -15,7 +15,7 @@
     <title>enhomie.homie.addons.persist | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.homie.addons.persist | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.homie.addons.persist | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../../search.html" />
@@ -150,27 +150,27 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">dumps</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">loads</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Lock</span>
-</span><span id="line-13"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-</span><span id="line-14"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-15"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">json</span><span class="w"> </span><span class="kn">import</span> <span class="n">dumps</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">json</span><span class="w"> </span><span class="kn">import</span> <span class="n">loads</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Lock</span>
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
 </span><span id="line-16">
-</span><span id="line-17"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">Time</span>
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">unitime</span>
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">unitime</span>
 </span><span id="line-19">
-</span><span id="line-20"><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span>
-</span><span id="line-21"><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Numeric</span>
-</span><span id="line-22"><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">String</span>
-</span><span id="line-23"><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
-</span><span id="line-24"><span class="kn">from</span> <span class="nn">sqlalchemy.engine</span> <span class="kn">import</span> <span class="n">Engine</span>
-</span><span id="line-25"><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">DeclarativeBase</span>
-</span><span id="line-26"><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
-</span><span id="line-27"><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+</span><span id="line-20"><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Column</span>
+</span><span id="line-21"><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Numeric</span>
+</span><span id="line-22"><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
+</span><span id="line-23"><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+</span><span id="line-24"><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.engine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Engine</span>
+</span><span id="line-25"><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeclarativeBase</span>
+</span><span id="line-26"><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span>
+</span><span id="line-27"><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">sessionmaker</span>
 </span><span id="line-28">
 </span><span id="line-29"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-30">    <span class="kn">from</span> <span class="nn">..homie</span> <span class="kn">import</span> <span class="n">Homie</span>
+</span><span id="line-30">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie</span><span class="w"> </span><span class="kn">import</span> <span class="n">Homie</span>
 </span><span id="line-31">
 </span><span id="line-32">
 </span><span id="line-33">
@@ -187,7 +187,7 @@
 </span><span id="line-44">
 <div class="viewcode-block" id="SQLBase">
 <a class="viewcode-back" href="../../../../enhomie.homie.addons.html#enhomie.homie.addons.persist.SQLBase">[docs]</a>
-</span><span id="line-45"><span class="k">class</span> <span class="nc">SQLBase</span><span class="p">(</span><span class="n">DeclarativeBase</span><span class="p">):</span>
+</span><span id="line-45"><span class="k">class</span><span class="w"> </span><span class="nc">SQLBase</span><span class="p">(</span><span class="n">DeclarativeBase</span><span class="p">):</span>
 </span><span id="line-46"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-47"><span class="sd">    Some additional class that SQLAlchemy requires to work.</span>
 </span><span id="line-48"><span class="sd">    &quot;&quot;&quot;</span></div>
@@ -197,7 +197,7 @@
 </span><span id="line-51">
 <div class="viewcode-block" id="HomiePersistTable">
 <a class="viewcode-back" href="../../../../enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersistTable">[docs]</a>
-</span><span id="line-52"><span class="k">class</span> <span class="nc">HomiePersistTable</span><span class="p">(</span><span class="n">SQLBase</span><span class="p">):</span>
+</span><span id="line-52"><span class="k">class</span><span class="w"> </span><span class="nc">HomiePersistTable</span><span class="p">(</span><span class="n">SQLBase</span><span class="p">):</span>
 </span><span id="line-53"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-54"><span class="sd">    Schematic for the database operations using SQLAlchemy.</span>
 </span><span id="line-55">
@@ -229,7 +229,7 @@
 </span><span id="line-80">
 <div class="viewcode-block" id="HomiePersist">
 <a class="viewcode-back" href="../../../../enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersist">[docs]</a>
-</span><span id="line-81"><span class="k">class</span> <span class="nc">HomiePersist</span><span class="p">:</span>
+</span><span id="line-81"><span class="k">class</span><span class="w"> </span><span class="nc">HomiePersist</span><span class="p">:</span>
 </span><span id="line-82"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-83"><span class="sd">    Store the persistent information in the key value store.</span>
 </span><span id="line-84">
@@ -245,7 +245,7 @@
 </span><span id="line-94">        <span class="n">sessionmaker</span><span class="p">[</span><span class="n">Session</span><span class="p">])</span>
 </span><span id="line-95">
 </span><span id="line-96">
-</span><span id="line-97">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="line-97">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="line-98">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-99">        <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
 </span><span id="line-100">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -265,7 +265,7 @@
 </span><span id="line-114">        <span class="bp">self</span><span class="o">.</span><span class="n">__build_engine</span><span class="p">()</span>
 </span><span id="line-115">
 </span><span id="line-116">
-</span><span id="line-117">    <span class="k">def</span> <span class="nf">__build_engine</span><span class="p">(</span>
+</span><span id="line-117">    <span class="k">def</span><span class="w"> </span><span class="nf">__build_engine</span><span class="p">(</span>
 </span><span id="line-118">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-119">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-120"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -289,7 +289,7 @@
 </span><span id="line-138">
 <div class="viewcode-block" id="HomiePersist.insert">
 <a class="viewcode-back" href="../../../../enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersist.insert">[docs]</a>
-</span><span id="line-139">    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span>
+</span><span id="line-139">    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span>
 </span><span id="line-140">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-141">        <span class="n">unique</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 </span><span id="line-142">        <span class="n">value</span><span class="p">:</span> <span class="n">HomiePersistValue</span><span class="p">,</span>
@@ -337,7 +337,7 @@
 </span><span id="line-183">
 <div class="viewcode-block" id="HomiePersist.select">
 <a class="viewcode-back" href="../../../../enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersist.select">[docs]</a>
-</span><span id="line-184">    <span class="k">def</span> <span class="nf">select</span><span class="p">(</span>
+</span><span id="line-184">    <span class="k">def</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span>
 </span><span id="line-185">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-186">        <span class="n">unique</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 </span><span id="line-187">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomiePersistValue</span><span class="p">:</span>
@@ -380,7 +380,7 @@
 </span><span id="line-223">
 <div class="viewcode-block" id="HomiePersist.delete">
 <a class="viewcode-back" href="../../../../enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersist.delete">[docs]</a>
-</span><span id="line-224">    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span>
+</span><span id="line-224">    <span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span>
 </span><span id="line-225">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-226">        <span class="n">unique</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 </span><span id="line-227">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -415,7 +415,7 @@
 </span><span id="line-255">
 <div class="viewcode-block" id="HomiePersist.expire">
 <a class="viewcode-back" href="../../../../enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersist.expire">[docs]</a>
-</span><span id="line-256">    <span class="k">def</span> <span class="nf">expire</span><span class="p">(</span>
+</span><span id="line-256">    <span class="k">def</span><span class="w"> </span><span class="nf">expire</span><span class="p">(</span>
 </span><span id="line-257">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-258">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-259"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>

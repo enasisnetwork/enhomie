@@ -15,7 +15,7 @@
     <title>enhomie.hubitat.origin | enhomie  documentation</title>
     <meta property="og:title" content="enhomie.hubitat.origin | enhomie  documentation" />
     <meta name="twitter:title" content="enhomie.hubitat.origin | enhomie  documentation" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8d216cef" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e72c8e07" />
       <link rel="stylesheet" type="text/css" href="../../../_static/theme.css?v=42baaae4" />
       <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
         <link rel="search" title="Search" href="../../../search.html" />
@@ -150,44 +150,44 @@
 </span><span id="line-7">
 </span><span id="line-8">
 </span><span id="line-9">
-</span><span id="line-10"><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-</span><span id="line-11"><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">current_thread</span>
-</span><span id="line-12"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-</span><span id="line-13"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
-</span><span id="line-14"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-</span><span id="line-15"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-16"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+</span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+</span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">current_thread</span>
+</span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
 </span><span id="line-17">
-</span><span id="line-18"><span class="kn">from</span> <span class="nn">encommon.colors</span> <span class="kn">import</span> <span class="n">Color</span>
-</span><span id="line-19"><span class="kn">from</span> <span class="nn">encommon.times</span> <span class="kn">import</span> <span class="n">Time</span>
-</span><span id="line-20"><span class="kn">from</span> <span class="nn">encommon.types</span> <span class="kn">import</span> <span class="n">DictStrAny</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">Color</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span>
+</span><span id="line-20"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictStrAny</span>
 </span><span id="line-21">
-</span><span id="line-22"><span class="kn">from</span> <span class="nn">enconnect.hubitat</span> <span class="kn">import</span> <span class="n">Bridge</span>
+</span><span id="line-22"><span class="kn">from</span><span class="w"> </span><span class="nn">enconnect.hubitat</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bridge</span>
 </span><span id="line-23">
-</span><span id="line-24"><span class="kn">from</span> <span class="nn">.helpers</span> <span class="kn">import</span> <span class="n">HubiFetch</span>
-</span><span id="line-25"><span class="kn">from</span> <span class="nn">.helpers</span> <span class="kn">import</span> <span class="n">HubiMerge</span>
-</span><span id="line-26"><span class="kn">from</span> <span class="nn">.helpers</span> <span class="kn">import</span> <span class="n">merge_fetch</span>
-</span><span id="line-27"><span class="kn">from</span> <span class="nn">.helpers</span> <span class="kn">import</span> <span class="n">merge_find</span>
-</span><span id="line-28"><span class="kn">from</span> <span class="nn">.helpers</span> <span class="kn">import</span> <span class="n">request_action</span>
-</span><span id="line-29"><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">HubiModels</span>
-</span><span id="line-30"><span class="kn">from</span> <span class="nn">..homie.childs</span> <span class="kn">import</span> <span class="n">HomieOrigin</span>
-</span><span id="line-31"><span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">Idempotent</span>
-</span><span id="line-32"><span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">MultipleSource</span>
+</span><span id="line-24"><span class="kn">from</span><span class="w"> </span><span class="nn">.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubiFetch</span>
+</span><span id="line-25"><span class="kn">from</span><span class="w"> </span><span class="nn">.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubiMerge</span>
+</span><span id="line-26"><span class="kn">from</span><span class="w"> </span><span class="nn">.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">merge_fetch</span>
+</span><span id="line-27"><span class="kn">from</span><span class="w"> </span><span class="nn">.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">merge_find</span>
+</span><span id="line-28"><span class="kn">from</span><span class="w"> </span><span class="nn">.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">request_action</span>
+</span><span id="line-29"><span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubiModels</span>
+</span><span id="line-30"><span class="kn">from</span><span class="w"> </span><span class="nn">..homie.childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOrigin</span>
+</span><span id="line-31"><span class="kn">from</span><span class="w"> </span><span class="nn">..utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Idempotent</span>
+</span><span id="line-32"><span class="kn">from</span><span class="w"> </span><span class="nn">..utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultipleSource</span>
 </span><span id="line-33">
 </span><span id="line-34"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-35">    <span class="kn">from</span> <span class="nn">..homie.childs</span> <span class="kn">import</span> <span class="n">HomieScene</span>
-</span><span id="line-36">    <span class="kn">from</span> <span class="nn">..homie.common</span> <span class="kn">import</span> <span class="n">HomieKinds</span>
-</span><span id="line-37">    <span class="kn">from</span> <span class="nn">..homie.common</span> <span class="kn">import</span> <span class="n">HomieState</span>
-</span><span id="line-38">    <span class="kn">from</span> <span class="nn">..homie.threads</span> <span class="kn">import</span> <span class="n">HomieActionNode</span>
-</span><span id="line-39">    <span class="kn">from</span> <span class="nn">..homie.threads</span> <span class="kn">import</span> <span class="n">HomieActionItem</span>
-</span><span id="line-40">    <span class="kn">from</span> <span class="nn">..homie.threads</span> <span class="kn">import</span> <span class="n">HomieUpdateBase</span>
-</span><span id="line-41">    <span class="kn">from</span> <span class="nn">..homie.threads</span> <span class="kn">import</span> <span class="n">HomieUpdateItem</span>
+</span><span id="line-35">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieScene</span>
+</span><span id="line-36">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieKinds</span>
+</span><span id="line-37">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieState</span>
+</span><span id="line-38">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActionNode</span>
+</span><span id="line-39">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActionItem</span>
+</span><span id="line-40">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieUpdateBase</span>
+</span><span id="line-41">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieUpdateItem</span>
 </span><span id="line-42">
 </span><span id="line-43">
 </span><span id="line-44">
 <div class="viewcode-block" id="HubiOrigin">
 <a class="viewcode-back" href="../../../enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin">[docs]</a>
-</span><span id="line-45"><span class="k">class</span> <span class="nc">HubiOrigin</span><span class="p">(</span><span class="n">HomieOrigin</span><span class="p">):</span>
+</span><span id="line-45"><span class="k">class</span><span class="w"> </span><span class="nc">HubiOrigin</span><span class="p">(</span><span class="n">HomieOrigin</span><span class="p">):</span>
 </span><span id="line-46"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-47"><span class="sd">    Contain the relevant attributes from the related source.</span>
 </span><span id="line-48"><span class="sd">    &quot;&quot;&quot;</span>
@@ -198,7 +198,7 @@
 </span><span id="line-53">    <span class="n">__merge</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HubiMerge</span><span class="p">]</span>
 </span><span id="line-54">
 </span><span id="line-55">
-</span><span id="line-56">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="line-56">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="line-57">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-58">        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
 </span><span id="line-59">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
@@ -228,7 +228,7 @@
 </span><span id="line-83">
 </span><span id="line-84">
 </span><span id="line-85">    <span class="nd">@property</span>
-</span><span id="line-86">    <span class="k">def</span> <span class="nf">family</span><span class="p">(</span>
+</span><span id="line-86">    <span class="k">def</span><span class="w"> </span><span class="nf">family</span><span class="p">(</span>
 </span><span id="line-87">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-88">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;hubitat&#39;</span><span class="p">]:</span>
 </span><span id="line-89"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -241,7 +241,7 @@
 </span><span id="line-96">
 </span><span id="line-97">
 </span><span id="line-98">    <span class="nd">@property</span>
-</span><span id="line-99">    <span class="k">def</span> <span class="nf">bridge</span><span class="p">(</span>
+</span><span id="line-99">    <span class="k">def</span><span class="w"> </span><span class="nf">bridge</span><span class="p">(</span>
 </span><span id="line-100">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-101">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bridge</span><span class="p">:</span>
 </span><span id="line-102"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -254,7 +254,7 @@
 </span><span id="line-109">
 </span><span id="line-110">
 </span><span id="line-111">    <span class="nd">@property</span>
-</span><span id="line-112">    <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span>
+</span><span id="line-112">    <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span>
 </span><span id="line-113">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-114">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HubiFetch</span><span class="p">]:</span>
 </span><span id="line-115"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -269,7 +269,7 @@
 </span><span id="line-124">
 </span><span id="line-125">
 </span><span id="line-126">    <span class="nd">@property</span>
-</span><span id="line-127">    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span>
+</span><span id="line-127">    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span>
 </span><span id="line-128">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-129">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HubiMerge</span><span class="p">]:</span>
 </span><span id="line-130"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -297,7 +297,7 @@
 </span><span id="line-152">
 <div class="viewcode-block" id="HubiOrigin.refresh">
 <a class="viewcode-back" href="../../../enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.refresh">[docs]</a>
-</span><span id="line-153">    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span>
+</span><span id="line-153">    <span class="k">def</span><span class="w"> </span><span class="nf">refresh</span><span class="p">(</span>
 </span><span id="line-154">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-155">        <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="line-156">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -360,7 +360,7 @@
 </span><span id="line-212">
 <div class="viewcode-block" id="HubiOrigin.get_action">
 <a class="viewcode-back" href="../../../enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.get_action">[docs]</a>
-</span><span id="line-213">    <span class="k">def</span> <span class="nf">get_action</span><span class="p">(</span>
+</span><span id="line-213">    <span class="k">def</span><span class="w"> </span><span class="nf">get_action</span><span class="p">(</span>
 </span><span id="line-214">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-215">        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
 </span><span id="line-216">        <span class="o">*</span><span class="p">,</span>
@@ -408,7 +408,7 @@
 </span><span id="line-257">
 <div class="viewcode-block" id="HubiOrigin.set_action">
 <a class="viewcode-back" href="../../../enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.set_action">[docs]</a>
-</span><span id="line-258">    <span class="k">def</span> <span class="nf">set_action</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
+</span><span id="line-258">    <span class="k">def</span><span class="w"> </span><span class="nf">set_action</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
 </span><span id="line-259">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-260">        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
 </span><span id="line-261">        <span class="n">aitem</span><span class="p">:</span> <span class="s1">&#39;HomieActionItem&#39;</span><span class="p">,</span>
@@ -508,7 +508,7 @@
 </span><span id="line-354">
 <div class="viewcode-block" id="HubiOrigin.get_update">
 <a class="viewcode-back" href="../../../enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.get_update">[docs]</a>
-</span><span id="line-355">    <span class="k">def</span> <span class="nf">get_update</span><span class="p">(</span>
+</span><span id="line-355">    <span class="k">def</span><span class="w"> </span><span class="nf">get_update</span><span class="p">(</span>
 </span><span id="line-356">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-357">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieUpdateItem&#39;</span><span class="p">:</span>
 </span><span id="line-358"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -532,7 +532,7 @@
 </span><span id="line-375">
 <div class="viewcode-block" id="HubiOrigin.set_update">
 <a class="viewcode-back" href="../../../enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.set_update">[docs]</a>
-</span><span id="line-376">    <span class="k">def</span> <span class="nf">set_update</span><span class="p">(</span>
+</span><span id="line-376">    <span class="k">def</span><span class="w"> </span><span class="nf">set_update</span><span class="p">(</span>
 </span><span id="line-377">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-378">        <span class="n">uitem</span><span class="p">:</span> <span class="s1">&#39;HomieUpdateBase&#39;</span><span class="p">,</span>
 </span><span id="line-379">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -564,7 +564,7 @@
 </span><span id="line-404">
 <div class="viewcode-block" id="HubiOrigin.source">
 <a class="viewcode-back" href="../../../enhomie.hubitat.html#enhomie.hubitat.origin.HubiOrigin.source">[docs]</a>
-</span><span id="line-405">    <span class="k">def</span> <span class="nf">source</span><span class="p">(</span>
+</span><span id="line-405">    <span class="k">def</span><span class="w"> </span><span class="nf">source</span><span class="p">(</span>
 </span><span id="line-406">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-407">        <span class="n">kind</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieKinds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span id="line-408">        <span class="n">unique</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
