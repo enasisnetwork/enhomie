@@ -1,0 +1,108 @@
+
+
+
+/* Based off the Enasis Network websites */
+
+
+
+/************************************/
+/* Initial default for all elements */
+/************************************/
+
+* {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-width: 0;
+  box-sizing: border-box;
+  color: rgba(var(--foreground), 1);
+  font-family: 'Roboto';
+  font-size: 1vw;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: .05rem;
+  line-height: 1vw;
+  list-style-type: none;
+  margin: 0;
+  outline: none !important;
+  padding: 0;
+  page-break-after: avoid;
+  page-break-before: avoid;
+  page-break-inside: avoid;
+  scroll-behavior: smooth;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap; }
+
+
+@media (max-width: 800.00px) {
+
+  * {
+    font-size: 2vw;
+    letter-spacing: .1rem; } }
+
+
+
+/**********************************/
+/* Elements which are very common */
+/**********************************/
+
+body {
+  background-color: rgba(var(--background), 1);
+  justify-content: center;
+  padding: 2rem 2rem 2rem 2rem;
+  transition:
+    background-color 300ms ease-in-out,
+    background-image 300ms ease-in-out; }
+
+
+
+@media (max-width: 800.00px) {
+
+  body {
+    background-position: center left 50%; } }
+
+
+
+/**********************************/
+/* Elements which are very common */
+/**********************************/
+
+a, b, i, li, p, span {
+  white-space: normal; }
+
+a, b, i, span {
+  color: inherit;
+  line-height: inherit;
+  font-size: inherit; }
+
+a { cursor: pointer; }
+b { font-weight: bold; }
+i { font-style: italic; }
+
+
+
+/************************************/
+/* Styles for scroll bar and handle */
+/************************************/
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  height: 1rem;
+  width: .9rem; }
+
+
+::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  background-color: rgba(var(--scroll), .8);
+  border-color: transparent;
+  border-radius: .5rem;
+  border-style: solid;
+  border-width: .2rem; }
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--scroll), 1); }
+
+
+::-webkit-scrollbar-corner {
+  background-color: transparent; }

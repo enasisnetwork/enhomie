@@ -24,7 +24,7 @@ def ubiq_latest(
     """
     Return the timestamp for client association with router.
 
-    :param source: Content which will be shown after header.
+    :param source: Dictionary of parameters from the bridge.
     :returns: Timestamp for client association with router.
     """
 

@@ -7,21 +7,19 @@ is permitted, for more information consult the project license file.
 
 
 
-from ..models import UbiqModels
+from ..restful import arguments
 
 
 
-def test_UbiqModels_cover() -> None:
+def test_arguments() -> None:
     """
     Perform various tests associated with relevant routines.
     """
 
-    models = UbiqModels
+    sargs = arguments([
+        '--config', 'path'])
 
-    assert models.origin()
-    assert models.update()
-
-    drivers = models.drivers()
-
-    assert drivers.client()
-    assert drivers.helpers()
+    assert sargs == {
+        'config': 'path',
+        'console': False,
+        'debug': False}

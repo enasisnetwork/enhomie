@@ -354,10 +354,18 @@ class HomieDesired:
 
             for value in store:
 
+                parsed = (
+                    desire.j2parse(
+                        value.value))
+
                 persist.insert(
                     value.unique,
-                    value.value,
-                    value.expire)
+                    parsed,
+                    value.expire,
+                    label=value.label,
+                    unit=value.unit,
+                    icon=value.icon,
+                    about=value.about)
 
 
         objects = targets.values()

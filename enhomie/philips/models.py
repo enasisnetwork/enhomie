@@ -7,6 +7,8 @@ is permitted, for more information consult the project license file.
 
 
 
+from typing import Any
+from typing import Callable
 from typing import TYPE_CHECKING
 from typing import Type
 
@@ -20,6 +22,64 @@ if TYPE_CHECKING:
     from .params import PhueOriginParams
     from .update import PhueUpdateItem
     from .stream import PhueStreamItem
+
+
+
+class PhueDriverHelpers:
+    """
+    Return the class object that was imported within method.
+
+    .. note::
+       These are used with the Homie Automate Jinja2 parser.
+    """
+
+
+    @classmethod
+    def sensors(
+        cls,
+    ) -> Callable[..., Any]:
+        """
+        Return the class object that was imported within method.
+
+        :returns: Class object that was imported within method.
+        """
+
+        from .plugins import (
+            phue_sensors)
+
+        return phue_sensors
+
+
+    @classmethod
+    def changed(
+        cls,
+    ) -> Callable[..., Any]:
+        """
+        Return the class object that was imported within method.
+
+        :returns: Class object that was imported within method.
+        """
+
+        from .plugins import (
+            phue_changed)
+
+        return phue_changed
+
+
+    @classmethod
+    def current(
+        cls,
+    ) -> Callable[..., Any]:
+        """
+        Return the class object that was imported within method.
+
+        :returns: Class object that was imported within method.
+        """
+
+        from .plugins import (
+            phue_current)
+
+        return phue_current
 
 
 
@@ -107,6 +167,19 @@ class PhueDriverModels:
             DriverPhueSceneParams)
 
         return DriverPhueSceneParams
+
+
+    @classmethod
+    def helpers(
+        cls,
+    ) -> Type['PhueDriverHelpers']:
+        """
+        Return the class object that was imported within method.
+
+        :returns: Class object that was imported within method.
+        """
+
+        return PhueDriverHelpers
 
 
 

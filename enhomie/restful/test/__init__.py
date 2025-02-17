@@ -7,11 +7,10 @@ is permitted, for more information consult the project license file.
 
 
 
-from .client import DriverUbiqClient
-from .helpers import ubiq_latest
+from pathlib import Path
 
 
 
-__all__ = [
-    'DriverUbiqClient',
-    'ubiq_latest']
+SAMPLES = (
+    Path(__file__).parent
+    / 'samples')

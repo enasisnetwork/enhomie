@@ -9,6 +9,7 @@ is permitted, for more information consult the project license file.
 
 from typing import Annotated
 from typing import Any
+from typing import Optional
 
 from encommon.times import unitime
 
@@ -31,10 +32,34 @@ class HomieStoreParams(HomieParamsModel, extra='forbid'):
               description='Unique key for the value',
               min_length=1)]
 
+    label: Annotated[
+        Optional[str],
+        Field(None,
+              description='Friendly label for the value',
+              min_length=1)]
+
     value: Annotated[
         HomiePersistValue,
         Field(...,
               description='Value stored at the key')]
+
+    unit: Annotated[
+        Optional[str],
+        Field(None,
+              description='Friendly unit for the value',
+              min_length=1)]
+
+    icon: Annotated[
+        Optional[str],
+        Field(None,
+              description='Friendly icon for the value',
+              min_length=1)]
+
+    about: Annotated[
+        Optional[str],
+        Field(None,
+              description='Friendly about for the value',
+              min_length=1)]
 
     expire: Annotated[
         HomiePersistExpire,

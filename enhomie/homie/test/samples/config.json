@@ -16,7 +16,11 @@
       "store": [
         {
           "unique": "jupiter_aspire",
+          "label": null,
           "value": "active",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -125,7 +129,11 @@
       "store": [
         {
           "unique": "jupiter_aspire",
+          "label": null,
           "value": "standby",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -189,7 +197,11 @@
       "store": [
         {
           "unique": "neptune_aspire",
+          "label": null,
           "value": "active",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -298,7 +310,11 @@
       "store": [
         {
           "unique": "neptune_aspire",
+          "label": null,
           "value": "standby",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -365,7 +381,11 @@
       "store": [
         {
           "unique": "jupiter_desire",
+          "label": null,
           "value": "active",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -395,7 +415,8 @@
               "jupiter_switch"
             ],
             "sensors": [
-              "motion"
+              "motion",
+              "temperature"
             ],
             "since": 900
           },
@@ -456,7 +477,11 @@
       "store": [
         {
           "unique": "jupiter_desire",
+          "label": null,
           "value": "standby",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -490,7 +515,11 @@
       "store": [
         {
           "unique": "jupiter_desire",
+          "label": null,
           "value": "absent",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -530,7 +559,11 @@
       "store": [
         {
           "unique": "neptune_desire",
+          "label": null,
           "value": "active",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -560,7 +593,8 @@
               "neptune_switch"
             ],
             "sensors": [
-              "motion"
+              "motion",
+              "temperature"
             ],
             "since": 900
           },
@@ -621,7 +655,11 @@
       "store": [
         {
           "unique": "neptune_desire",
+          "label": null,
           "value": "standby",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -655,7 +693,11 @@
       "store": [
         {
           "unique": "neptune_desire",
+          "label": null,
           "value": "absent",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -789,7 +831,13 @@
       "_/encommon_sample/TMPPATH/_/homie"
     ]
   },
-  "encrypts": null,
+  "encrypts": {
+    "phrases": {
+      "enhomie": {
+        "phrase": "oIUc2odGYMKycATXsvXTMzxe0Qbq4z3YPPIWS8fH_uU="
+      }
+    }
+  },
   "enlogger": {
     "stdo_level": "debug",
     "file_level": null,
@@ -914,6 +962,16 @@
     "stream": true,
     "desire": true,
     "aspire": true
+  },
+  "restful": {
+    "bind_addr": "127.0.0.1",
+    "bind_port": 8429,
+    "authenticate": {
+      "username": "password"
+    },
+    "ssl_capem": null,
+    "ssl_mypem": null,
+    "ssl_mykey": null
   },
   "scenes": {
     "active": {

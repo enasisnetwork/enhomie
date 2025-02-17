@@ -1,0 +1,65 @@
+
+
+
+/* Based off the Enasis Network websites */
+
+
+
+/*********************************/
+/* Elements for website contents */
+/*********************************/
+
+
+h1, h2 {
+  color: rgba(var(--foreground), .75);
+  font-weight: bold;
+  letter-spacing: 0;
+  text-shadow: .1rem .1rem rgba(var(--color-teal-dark), .25);
+  transition: all 300ms ease-in-out; }
+
+h1 {
+  font-size: 3rem;
+  line-height: 3rem; }
+
+h2 {
+  font-size: 2rem;
+  line-height: 2rem; }
+
+
+@media (max-width: 800.00px) {
+
+  h1 {
+    font-size: 4rem;
+    line-height: 4rem; }
+
+  h2 {
+    font-size: 3rem;
+    line-height: 3rem; } }
+
+
+
+/*********************************/
+/* Elements for website contents */
+/*********************************/
+
+table {
+  border-width: .1rem .1rem .1rem .1rem;
+  border-style: solid;
+  border-color: rgba(var(--color-teal-dark), 1);
+  width: 100%; }
+
+table>thead>tr>th {
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: .35rem .5rem .35rem .5rem;
+  background: rgba(var(--color-teal-dark), .5); }
+
+table>tbody>tr>td {
+  border-width: .1rem .1rem .1rem .1rem;
+  border-style: solid;
+  border-color: rgba(var(--color-teal-dark), 1);
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: .35rem .5rem .35rem .5rem;
+  vertical-align: middle;
+  white-space: normal; }

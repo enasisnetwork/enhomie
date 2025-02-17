@@ -44,6 +44,7 @@ def test_Homie(
     assert attrs == [
         '_Homie__config',
         '_Homie__logger',
+        '_Homie__jinja2',
         '_Homie__persist',
         '_Homie__childs',
         '_Homie__desired',
@@ -65,6 +66,8 @@ def test_Homie(
     assert homie.config
 
     assert homie.logger
+
+    assert homie.jinja2
 
     assert homie.persist
 
@@ -98,6 +101,13 @@ def test_Homie(
         replace=replaces)
 
     assert expect == sample
+
+
+    parsed = homie.j2parse(
+        '{{ foo }}',
+        {'foo': 'bar'})
+
+    assert parsed == 'bar'
 
 
 

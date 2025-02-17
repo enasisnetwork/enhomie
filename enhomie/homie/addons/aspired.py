@@ -204,10 +204,18 @@ class HomieAspired:
 
             for value in store:
 
+                parsed = (
+                    aspire.j2parse(
+                        value.value))
+
                 persist.insert(
                     value.unique,
-                    value.value,
-                    value.expire)
+                    parsed,
+                    value.expire,
+                    label=value.label,
+                    unit=value.unit,
+                    icon=value.icon,
+                    about=value.about)
 
 
         for aspire in matched:

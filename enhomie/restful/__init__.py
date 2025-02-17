@@ -7,11 +7,9 @@ is permitted, for more information consult the project license file.
 
 
 
-from .client import DriverUbiqClient
-from .helpers import ubiq_latest
+from .service import HomieRestful
 
 
 
 __all__ = [
-    'DriverUbiqClient',
-    'ubiq_latest']
+    'HomieRestful']

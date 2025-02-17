@@ -29,3 +29,4 @@ def test_PhueModels_cover() -> None:
     assert drivers.change()
     assert drivers.contact()
     assert drivers.motion()
+    assert drivers.helpers()

@@ -101,6 +101,13 @@ def test_HomieDesire(
         assert desire.dumped
 
 
+        parsed = desire.j2parse(
+            '{{ foo }}',
+            {'foo': 'bar'})
+
+        assert parsed == 'bar'
+
+
 
 def test_HomieDesires_cover(
     tmp_path: Path,
