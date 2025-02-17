@@ -30,7 +30,8 @@ PhueChangeSensor = Literal[
     'button3',
     'button4',
     'contact',
-    'motion']
+    'motion',
+    'temperature']
 
 _SENSORS = list(
     get_args(PhueChangeSensor))

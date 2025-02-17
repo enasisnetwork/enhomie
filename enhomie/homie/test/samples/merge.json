@@ -279,7 +279,10 @@
               "jupiter_contact",
               "jupiter_switch"
             ],
-            "sensors": "motion",
+            "sensors": [
+              "motion",
+              "temperature"
+            ],
             "since": 900
           },
           "negate": true,
@@ -393,7 +396,10 @@
               "neptune_contact",
               "neptune_switch"
             ],
-            "sensors": "motion",
+            "sensors": [
+              "motion",
+              "temperature"
+            ],
             "since": 900
           },
           "negate": true,

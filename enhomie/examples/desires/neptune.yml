@@ -40,7 +40,9 @@ desires:
             - neptune_button
             - neptune_contact
             - neptune_switch
-          sensors: motion
+          sensors:
+            - motion
+            - temperature
           since: 900
         negate: true
         family: active

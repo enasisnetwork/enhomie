@@ -23,7 +23,17 @@ _CHANGED = dict[str, Optional[Time]]
 
 _SENSORS = dict[str, str]
 
-_REPORTS = ['button', 'contact', 'motion']
+_CURRENT_VALUE = float | bool | str
+
+_CURRENT = dict[
+    str,
+    Optional[_CURRENT_VALUE]]
+
+_REPORTS = [
+    'button',
+    'contact',
+    'motion',
+    'temperature']
 
 
 
@@ -123,3 +133,77 @@ def phue_sensors(
 
 
     return sort_dict(sensors)
+
+
+
+def phue_current(
+    source: 'PhueFetch',
+) -> _CURRENT:
+    """
+    Return the various values for the services within scope.
+
+    :param source: Content which will be shown after header.
+    :returns: Various values for the services within scope.
+    """
+
+    current: _CURRENT = {}
+
+
+    services = (
+        source['services'])
+
+
+    for item in services:
+
+        rtype = item['rtype']
+
+        if rtype not in _REPORTS:
+            continue
+
+        fetch = item['_source']
+
+
+        base = f'{rtype}_report'
+
+
+        key: Optional[str] = None
+
+        if rtype == 'button':
+            key = 'event'
+
+        elif rtype == 'contact':
+            key = 'state'
+
+        elif rtype == 'motion':
+            key = 'motion'
+
+        elif rtype == 'temperature':
+            key = 'temperature'
+
+        assert key is not None
+
+
+        value = getate(
+            (fetch[rtype]
+             if rtype != 'contact'
+             else fetch),
+            f'{base}/{key}')
+
+
+        if value is not None:
+            assert isinstance(
+                value,
+                _CURRENT_VALUE)
+
+
+        index = getate(
+            fetch,
+            'metadata/control_id')
+
+        if index is not None:
+            rtype += str(index)
+
+        current[rtype] = value
+
+
+    return sort_dict(current)
