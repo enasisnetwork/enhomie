@@ -16,7 +16,11 @@
       "store": [
         {
           "unique": "jupiter_aspire",
+          "label": null,
           "value": "active",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -125,7 +129,11 @@
       "store": [
         {
           "unique": "jupiter_aspire",
+          "label": null,
           "value": "standby",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -189,7 +197,11 @@
       "store": [
         {
           "unique": "neptune_aspire",
+          "label": null,
           "value": "active",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -298,7 +310,11 @@
       "store": [
         {
           "unique": "neptune_aspire",
+          "label": null,
           "value": "standby",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -365,7 +381,11 @@
       "store": [
         {
           "unique": "jupiter_desire",
+          "label": null,
           "value": "active",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -457,7 +477,11 @@
       "store": [
         {
           "unique": "jupiter_desire",
+          "label": null,
           "value": "standby",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -491,7 +515,11 @@
       "store": [
         {
           "unique": "jupiter_desire",
+          "label": null,
           "value": "absent",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -531,7 +559,11 @@
       "store": [
         {
           "unique": "neptune_desire",
+          "label": null,
           "value": "active",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -623,7 +655,11 @@
       "store": [
         {
           "unique": "neptune_desire",
+          "label": null,
           "value": "standby",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],
@@ -657,7 +693,11 @@
       "store": [
         {
           "unique": "neptune_desire",
+          "label": null,
           "value": "absent",
+          "unit": null,
+          "icon": null,
+          "about": null,
           "expire": "1d"
         }
       ],

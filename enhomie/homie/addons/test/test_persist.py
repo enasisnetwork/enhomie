@@ -108,6 +108,10 @@ def test_HomiePersist_cover(
 
     assert value is None
 
+    records = persist.records()
+
+    assert len(records) == 0
+
 
     persist.insert(
         unique='types',
@@ -118,6 +122,12 @@ def test_HomiePersist_cover(
         .select('types'))
 
     assert value == 1
+
+    records = persist.records()
+
+    assert len(records) == 1
+    assert records[0].unique == 'types'
+    assert records[0].value == 1
 
 
     persist.insert(
@@ -130,6 +140,12 @@ def test_HomiePersist_cover(
 
     assert value == 1.0
 
+    records = persist.records()
+
+    assert len(records) == 1
+    assert records[0].unique == 'types'
+    assert records[0].value == 1.0
+
 
     persist.insert(
         unique='types',
@@ -140,6 +156,12 @@ def test_HomiePersist_cover(
         .select('types'))
 
     assert value == 'string'
+
+    records = persist.records()
+
+    assert len(records) == 1
+    assert records[0].unique == 'types'
+    assert records[0].value == 'string'
 
 
     persist.insert(
@@ -152,6 +174,12 @@ def test_HomiePersist_cover(
 
     assert value is True
 
+    records = persist.records()
+
+    assert len(records) == 1
+    assert records[0].unique == 'types'
+    assert records[0].value is True
+
 
     persist.insert(
         unique='types',
@@ -162,3 +190,7 @@ def test_HomiePersist_cover(
         .select('types'))
 
     assert value is None
+
+    records = persist.records()
+
+    assert len(records) == 0

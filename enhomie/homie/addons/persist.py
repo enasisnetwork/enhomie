@@ -7,6 +7,7 @@ is permitted, for more information consult the project license file.
 
 
 
+from dataclasses import dataclass
 from json import dumps
 from json import loads
 from threading import Lock
@@ -49,6 +50,86 @@ class SQLBase(DeclarativeBase):
 
 
 
+@dataclass
+class HomiePersistRecord:
+    """
+    Contain the information regarding the persistent value.
+    """
+
+    unique: str
+    label: Optional[str]
+    value: HomiePersistValue
+    unit: Optional[str]
+    icon: Optional[str]
+    about: Optional[str]
+    expire: Optional[Time]
+    update: Time
+
+
+    def __init__(
+        self,
+        record: 'HomiePersistTable',
+    ) -> None:
+        """
+        Initialize instance for class using provided parameters.
+        """
+
+        unique = record.unique
+        label = record.label
+        value = record.value
+        unit = record.unit
+        icon = record.icon
+        about = record.about
+        expire = record.expire
+        update = record.update
+
+
+        self.unique = str(unique)
+
+        self.label = (
+            str(label)
+            if label is not None
+            else None)
+
+
+        assert value is not None
+
+        self.value = loads(str(value))
+
+        assert isinstance(
+            self.value,
+            _PERSIST_VALUE)
+
+
+        self.unit = (
+            str(unit)
+            if unit is not None
+            else None)
+
+        self.icon = (
+            str(icon)
+            if icon is not None
+            else None)
+
+        self.about = (
+            str(about)
+            if about is not None
+            else None)
+
+
+        self.expire = (
+            Time(float(expire))
+            if expire is not None
+            else None)
+
+        self.update = (
+            Time(float(update)))
+
+
+        super().__init__()
+
+
+
 class HomiePersistTable(SQLBase):
     """
     Schematic for the database operations using SQLAlchemy.
@@ -62,9 +143,25 @@ class HomiePersistTable(SQLBase):
         primary_key=True,
         nullable=False)
 
+    label = Column(
+        String,
+        nullable=True)
+
     value = Column(
         String,
         nullable=False)
+
+    unit = Column(
+        String,
+        nullable=True)
+
+    icon = Column(
+        String,
+        nullable=True)
+
+    about = Column(
+        String,
+        nullable=True)
 
     expire = Column(
         Numeric,
@@ -84,6 +181,8 @@ class HomiePersist:
 
     :param homie: Primary class instance for Homie Automate.
     """
+
+    __homie: 'Homie'
 
     __connect: str
     __locker: Lock
@@ -136,11 +235,16 @@ class HomiePersist:
         self.__session = session
 
 
-    def insert(
+    def insert(  # noqa: CFQ002
         self,
         unique: str,
         value: HomiePersistValue,
         expire: HomiePersistExpire = '30d',
+        *,
+        label: Optional[str] = None,
+        unit: Optional[str] = None,
+        icon: Optional[str] = None,
+        about: Optional[str] = None,
     ) -> None:
         """
         Insert the value within the persistent key value store.
@@ -151,7 +255,15 @@ class HomiePersist:
         :param unique: Unique identifier from within the table.
         :param value: Value Which will be stored within record.
         :param expire: Optional time in seconds for expiration.
+        :param label: Optional human friendly label for value.
+        :param unit: Optional human friendly value unit label.
+        :param icon: Optional human friendly icon in Material.
+        :param about: Optional human friendly value description.
         """
+
+        sess = self.__session()
+        lock = self.__locker
+
 
         expire = unitime(expire)
 
@@ -165,16 +277,20 @@ class HomiePersist:
             self.delete(unique)
             return None
 
+        assert isinstance(
+            value, _PERSIST_VALUE)
 
-        sess = self.__session()
-        lock = self.__locker
 
         with lock, sess as session:
 
             session.merge(
                 HomiePersistTable(
                     unique=unique,
+                    label=label,
                     value=dumps(value),
+                    unit=unit,
+                    icon=icon,
+                    about=about,
                     expire=expire,
                     update=update))
 
@@ -198,7 +314,9 @@ class HomiePersist:
         table = HomiePersistTable
         field = table.unique
 
+
         self.expire()
+
 
         with lock, sess as session:
 
@@ -237,6 +355,7 @@ class HomiePersist:
         table = HomiePersistTable
         field = table.unique
 
+
         with lock, sess as session:
 
             query = (
@@ -260,11 +379,12 @@ class HomiePersist:
         Remove the expired persistent key values from the table.
         """
 
+        sess = self.__session()
+        lock = self.__locker
+
         table = HomiePersistTable
         expire = table.expire
 
-        sess = self.__session()
-        lock = self.__locker
 
         with lock, sess as session:
 
@@ -275,3 +395,37 @@ class HomiePersist:
              .delete())
 
             session.commit()
+
+
+    def records(
+        self,
+    ) -> list[HomiePersistRecord]:
+        """
+        Return all records from in persistent key value store.
+
+        :returns: Records from in persistent key value store.
+        """
+
+        sess = self.__session()
+        lock = self.__locker
+
+        records: list[HomiePersistRecord]
+
+        table = HomiePersistTable
+        model = HomiePersistRecord
+
+
+        with lock, sess as session:
+
+            records = []
+
+            query = (
+                session.query(table))
+
+            for record in query.all():
+
+                object = model(record)
+
+                records.append(object)
+
+            return records

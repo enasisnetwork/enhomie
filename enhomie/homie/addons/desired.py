@@ -361,7 +361,11 @@ class HomieDesired:
                 persist.insert(
                     value.unique,
                     parsed,
-                    value.expire)
+                    value.expire,
+                    label=value.label,
+                    unit=value.unit,
+                    icon=value.icon,
+                    about=value.about)
 
 
         objects = targets.values()
