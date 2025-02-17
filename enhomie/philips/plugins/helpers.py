@@ -43,7 +43,7 @@ def phue_changed(
     """
     Return the timestamp for the services that have changed.
 
-    :param source: Content which will be shown after header.
+    :param source: Dictionary of parameters from the bridge.
     :returns: Timestamp for the services that have changed.
     """
 
@@ -101,7 +101,7 @@ def phue_sensors(
     """
     Return the unique identifier for services on the device.
 
-    :param source: Content which will be shown after header.
+    :param source: Dictionary of parameters from the bridge.
     :returns: Timestamp for the services that have changed.
     """
 
@@ -142,7 +142,7 @@ def phue_current(
     """
     Return the various values for the services within scope.
 
-    :param source: Content which will be shown after header.
+    :param source: Dictionary of parameters from the bridge.
     :returns: Various values for the services within scope.
     """
 

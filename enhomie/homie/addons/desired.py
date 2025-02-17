@@ -354,9 +354,13 @@ class HomieDesired:
 
             for value in store:
 
+                parsed = (
+                    desire.j2parse(
+                        value.value))
+
                 persist.insert(
                     value.unique,
-                    value.value,
+                    parsed,
                     value.expire)
 
 
