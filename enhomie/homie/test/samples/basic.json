@@ -6,8 +6,21 @@
       "_/encommon_sample/TMPPATH/_/homie"
     ]
   },
+  "encrypts": {
+    "phrases": {
+      "enhomie": {
+        "phrase": "oIUc2odGYMKycATXsvXTMzxe0Qbq4z3YPPIWS8fH_uU="
+      }
+    }
+  },
   "enlogger": {
     "stdo_level": "debug"
+  },
+  "restful": {
+    "bind_port": 8429,
+    "authenticate": {
+      "username": "{{ config.crypts.decrypt(\n     \"$ENCRYPT;1.0;enhomie;\"\n     \"gAAAAABnssr4ATnkBC_-0\"\n     \"XFKVpJ26zX1CUdodEkfUe\"\n     \"Xpi_NazvIMuv-xXtbGhhv\"\n     \"YyAj0oTjdpExJbY8_mElD\"\n     \"opl_ySg1sxcQ0w==\") }}"
+    }
   },
   "dryrun": false,
   "potent": true,

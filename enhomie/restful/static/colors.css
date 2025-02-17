@@ -1,0 +1,53 @@
+
+
+
+/* Based off the Enasis Network websites */
+
+
+
+/***********************************/
+/* Colors used throughout the site */
+/***********************************/
+
+:root {
+
+  --background: var(--color-teal-back);
+  --foreground: var(--color-gray-lite);
+
+  --scroll: var(--color-teal-dark); }
+
+
+
+/***********************************/
+/* Colors used throughout the site */
+/***********************************/
+
+:root {
+
+  --color-gray-lite: 233, 233, 233;      /* e9e9e9 */
+  --color-gray-dark: 136, 136, 136;      /* 888888 */
+  --color-gray-back: 24, 24, 24;         /* 181818 */
+
+  --color-red-lite: 255, 102, 102;       /* ff6666 */
+  --color-red-dark: 153, 0, 0;           /* 990000 */
+  --color-red-back: 26, 10, 10;          /* 1a0a0a */
+
+  --color-pink-lite: 255, 0, 204;        /* ff00cc */
+  --color-pink-dark: 143, 0, 114;        /* 8f0072 */
+  --color-pink-back: 32, 0, 25;          /* 200019 */
+
+  --color-teal-lite: 102, 255, 255;      /* 66ffff */
+  --color-teal-dark: 0, 153, 153;        /* 009999 */
+  --color-teal-back: 10, 26, 26;         /* 0a1a1a */
+
+  --color-blue-lite: 8, 155, 216;        /* 089bd8 */
+  --color-blue-dark: 6, 92, 129;         /* 065c81 */
+  --color-blue-back: 2, 24, 34;          /* 021822 */
+
+  --color-green-lite: 102, 255, 102;     /* 66ff66 */
+  --color-green-dark: 0, 153, 0;         /* 009900 */
+  --color-green-back: 10, 26, 10;        /* 0a1a0a */
+
+  --color-yellow-lite: 255, 255, 102;    /* ffff66 */
+  --color-yellow-dark: 153, 153, 0;      /* 999900 */
+  --color-yellow-back: 26, 26, 10; }     /* 1a1a0a */

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homie Automate</title>
+
+    <!-- meta data -->
+    <meta charset="utf-8">
+    <meta
+     name="viewport"
+     content="width=device-width, initial-scale=1.0">
+    <!-- meta data -->
+
+    <!-- link hrefs -->
+    <link rel="icon" href="/static/icon.png" type="image/png">
+    <link rel="stylesheet" href="/static/common.css">
+    <link rel="stylesheet" href="/static/colors.css">
+    <link rel="stylesheet" href="/static/content.css">
+    <!-- link hrefs -->
+
+  </head>
+  <body>
+
+    <!-- content -->
+    <h1>Persistent Values</h1>
+    <div id="records">Loading...</div>
+    <script>
+
+
+
+      async function get_persists() {
+
+        const response =
+          await fetch(
+            '/api/persists');
+
+        const payload =
+          await response.json();
+
+        return payload; }
+
+
+
+      async function table_persists() {
+
+        const element =
+          document
+          .getElementById('records');
+
+        const payload =
+          await get_persists();
+
+        const entries = payload.entries;
+
+        const headers = {
+          'icon': 'Icon',
+          'label': 'Label',
+          'unique': 'Unique',
+          'value': 'Value',
+          'unit': 'Unit',
+          'about': 'About',
+          'expire': 'Expires',
+          'update': 'Updated'};
+
+
+        const table =
+          document
+          .createElement('table');
+
+
+        function _append_thead() {
+
+          const thead =
+            document
+            .createElement('thead');
+
+          const trow =
+            document
+            .createElement('tr');
+
+          for (const key in headers) {
+
+            const tcell =
+              document
+              .createElement('th');
+
+            tcell.textContent = headers[key];
+
+            trow.appendChild(tcell); }
+
+          thead.appendChild(trow);
+          table.appendChild(thead); }
+
+
+        function _append_tbody() {
+
+          const tbody =
+            document
+            .createElement('tbody');
+
+          entries.forEach(entry => {
+
+            const trow =
+              document
+              .createElement('tr');
+
+            for (const key in headers) {
+
+              const tcell =
+                document
+                .createElement('td');
+
+              tcell.textContent = entry[key];
+
+              trow.appendChild(tcell); }
+
+            tbody.appendChild(trow); });
+
+          table.appendChild(tbody); }
+
+
+        _append_thead();
+        _append_tbody();
+
+        element.replaceChildren(table); }
+
+
+
+      table_persists();
+
+
+    </script>
+    <!-- content -->
+
+  </body>
+</html>
