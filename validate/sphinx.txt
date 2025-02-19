@@ -1,6 +1,6 @@
 >>> make sphinx
   ● Building Sphinx documentation..
-Running Sphinx v8.1.3
+Running Sphinx v8.2.0
 loading translations [en]... done
 making output directory... done
 loading intersphinx inventory 'encommon' from https://encommon.readthedocs.io/en/latest/objects.inv ...
@@ -16,45 +16,7 @@ building [mo]: targets for 0 po files that are out of date
 writing output... 
 building [html]: targets for 38 source files that are out of date
 updating environment: [new config] 38 added, 0 changed, 0 removed
-reading sources... [  3%] enhomie
-reading sources... [  5%] enhomie.builtins
-reading sources... [  8%] enhomie.builtins.params
-reading sources... [ 11%] enhomie.builtins.test
-reading sources... [ 13%] enhomie.execution
-reading sources... [ 16%] enhomie.execution.test
-reading sources... [ 18%] enhomie.homie
-reading sources... [ 21%] enhomie.homie.addons
-reading sources... [ 24%] enhomie.homie.addons.test
-reading sources... [ 26%] enhomie.homie.childs
-reading sources... [ 29%] enhomie.homie.childs.test
-reading sources... [ 32%] enhomie.homie.members
-reading sources... [ 34%] enhomie.homie.members.test
-reading sources... [ 37%] enhomie.homie.params
-reading sources... [ 39%] enhomie.homie.plugins
-reading sources... [ 42%] enhomie.homie.plugins.test
-reading sources... [ 45%] enhomie.homie.test
-reading sources... [ 47%] enhomie.homie.threads
-reading sources... [ 50%] enhomie.homie.threads.test
-reading sources... [ 53%] enhomie.hubitat
-reading sources... [ 55%] enhomie.hubitat.params
-reading sources... [ 58%] enhomie.hubitat.test
-reading sources... [ 61%] enhomie.philips
-reading sources... [ 63%] enhomie.philips.params
-reading sources... [ 66%] enhomie.philips.params.plugins
-reading sources... [ 68%] enhomie.philips.plugins
-reading sources... [ 71%] enhomie.philips.plugins.test
-reading sources... [ 74%] enhomie.philips.test
-reading sources... [ 76%] enhomie.ubiquiti
-reading sources... [ 79%] enhomie.ubiquiti.params
-reading sources... [ 82%] enhomie.ubiquiti.params.plugins
-reading sources... [ 84%] enhomie.ubiquiti.plugins
-reading sources... [ 87%] enhomie.ubiquiti.plugins.test
-reading sources... [ 89%] enhomie.ubiquiti.test
-reading sources... [ 92%] enhomie.utils
-reading sources... [ 95%] enhomie.utils.test
-reading sources... [ 97%] index
-reading sources... [100%] modules
-
+reading sources... [  3%] enhomiereading sources... [  5%] enhomie.builtinsreading sources... [  8%] enhomie.builtins.paramsreading sources... [ 11%] enhomie.builtins.testreading sources... [ 13%] enhomie.executionreading sources... [ 16%] enhomie.execution.testreading sources... [ 18%] enhomie.homiereading sources... [ 21%] enhomie.homie.addonsreading sources... [ 24%] enhomie.homie.addons.testreading sources... [ 26%] enhomie.homie.childsreading sources... [ 29%] enhomie.homie.childs.testreading sources... [ 32%] enhomie.homie.membersreading sources... [ 34%] enhomie.homie.members.testreading sources... [ 37%] enhomie.homie.paramsreading sources... [ 39%] enhomie.homie.pluginsreading sources... [ 42%] enhomie.homie.plugins.testreading sources... [ 45%] enhomie.homie.testreading sources... [ 47%] enhomie.homie.threadsreading sources... [ 50%] enhomie.homie.threads.testreading sources... [ 53%] enhomie.hubitatreading sources... [ 55%] enhomie.hubitat.paramsreading sources... [ 58%] enhomie.hubitat.testreading sources... [ 61%] enhomie.philipsreading sources... [ 63%] enhomie.philips.paramsreading sources... [ 66%] enhomie.philips.params.pluginsreading sources... [ 68%] enhomie.philips.pluginsreading sources... [ 71%] enhomie.philips.plugins.testreading sources... [ 74%] enhomie.philips.testreading sources... [ 76%] enhomie.ubiquitireading sources... [ 79%] enhomie.ubiquiti.paramsreading sources... [ 82%] enhomie.ubiquiti.params.pluginsreading sources... [ 84%] enhomie.ubiquiti.pluginsreading sources... [ 87%] enhomie.ubiquiti.plugins.testreading sources... [ 89%] enhomie.ubiquiti.testreading sources... [ 92%] enhomie.utilsreading sources... [ 95%] enhomie.utils.testreading sources... [ 97%] indexreading sources... [100%] modules
 looking for now-outdated files... none found
 pickling environment... done
 checking consistency... done
@@ -68,263 +30,13 @@ copying static files: done
 copying extra files... 
 copying extra files: done
 copying assets: done
-writing output... [  3%] enhomie
-writing output... [  5%] enhomie.builtins
-writing output... [  8%] enhomie.builtins.params
-writing output... [ 11%] enhomie.builtins.test
-writing output... [ 13%] enhomie.execution
-writing output... [ 16%] enhomie.execution.test
-writing output... [ 18%] enhomie.homie
-writing output... [ 21%] enhomie.homie.addons
-writing output... [ 24%] enhomie.homie.addons.test
-writing output... [ 26%] enhomie.homie.childs
-writing output... [ 29%] enhomie.homie.childs.test
-writing output... [ 32%] enhomie.homie.members
-writing output... [ 34%] enhomie.homie.members.test
-writing output... [ 37%] enhomie.homie.params
-writing output... [ 39%] enhomie.homie.plugins
-writing output... [ 42%] enhomie.homie.plugins.test
-writing output... [ 45%] enhomie.homie.test
-writing output... [ 47%] enhomie.homie.threads
-writing output... [ 50%] enhomie.homie.threads.test
-writing output... [ 53%] enhomie.hubitat
-writing output... [ 55%] enhomie.hubitat.params
-writing output... [ 58%] enhomie.hubitat.test
-writing output... [ 61%] enhomie.philips
-writing output... [ 63%] enhomie.philips.params
-writing output... [ 66%] enhomie.philips.params.plugins
-writing output... [ 68%] enhomie.philips.plugins
-writing output... [ 71%] enhomie.philips.plugins.test
-writing output... [ 74%] enhomie.philips.test
-writing output... [ 76%] enhomie.ubiquiti
-writing output... [ 79%] enhomie.ubiquiti.params
-writing output... [ 82%] enhomie.ubiquiti.params.plugins
-writing output... [ 84%] enhomie.ubiquiti.plugins
-writing output... [ 87%] enhomie.ubiquiti.plugins.test
-writing output... [ 89%] enhomie.ubiquiti.test
-writing output... [ 92%] enhomie.utils
-writing output... [ 95%] enhomie.utils.test
-writing output... [ 97%] index
-writing output... [100%] modules
-
+writing output... [  3%] enhomiewriting output... [  5%] enhomie.builtinswriting output... [  8%] enhomie.builtins.paramswriting output... [ 11%] enhomie.builtins.testwriting output... [ 13%] enhomie.executionwriting output... [ 16%] enhomie.execution.testwriting output... [ 18%] enhomie.homiewriting output... [ 21%] enhomie.homie.addonswriting output... [ 24%] enhomie.homie.addons.testwriting output... [ 26%] enhomie.homie.childswriting output... [ 29%] enhomie.homie.childs.testwriting output... [ 32%] enhomie.homie.memberswriting output... [ 34%] enhomie.homie.members.testwriting output... [ 37%] enhomie.homie.paramswriting output... [ 39%] enhomie.homie.pluginswriting output... [ 42%] enhomie.homie.plugins.testwriting output... [ 45%] enhomie.homie.testwriting output... [ 47%] enhomie.homie.threadswriting output... [ 50%] enhomie.homie.threads.testwriting output... [ 53%] enhomie.hubitatwriting output... [ 55%] enhomie.hubitat.paramswriting output... [ 58%] enhomie.hubitat.testwriting output... [ 61%] enhomie.philipswriting output... [ 63%] enhomie.philips.paramswriting output... [ 66%] enhomie.philips.params.pluginswriting output... [ 68%] enhomie.philips.pluginswriting output... [ 71%] enhomie.philips.plugins.testwriting output... [ 74%] enhomie.philips.testwriting output... [ 76%] enhomie.ubiquitiwriting output... [ 79%] enhomie.ubiquiti.paramswriting output... [ 82%] enhomie.ubiquiti.params.pluginswriting output... [ 84%] enhomie.ubiquiti.pluginswriting output... [ 87%] enhomie.ubiquiti.plugins.testwriting output... [ 89%] enhomie.ubiquiti.testwriting output... [ 92%] enhomie.utilswriting output... [ 95%] enhomie.utils.testwriting output... [ 97%] indexwriting output... [100%] modules
 generating indices... genindex py-modindex done
-highlighting module code... [  1%] enhomie.builtins.models
-highlighting module code... [  1%] enhomie.builtins.params.period
-highlighting module code... [  2%] enhomie.builtins.params.regexp
-highlighting module code... [  2%] enhomie.builtins.params.store
-highlighting module code... [  3%] enhomie.builtins.period
-highlighting module code... [  3%] enhomie.builtins.regexp
-highlighting module code... [  4%] enhomie.builtins.store
-highlighting module code... [  5%] enhomie.builtins.test.test_models
-highlighting module code... [  5%] enhomie.builtins.test.test_period
-highlighting module code... [  6%] enhomie.builtins.test.test_regexp
-highlighting module code... [  6%] enhomie.builtins.test.test_store
-highlighting module code... [  7%] enhomie.conftest
-highlighting module code... [  7%] enhomie.execution.action
-highlighting module code... [  8%] enhomie.execution.backup
-highlighting module code... [  9%] enhomie.execution.config
-highlighting module code... [  9%] enhomie.execution.crypts
-highlighting module code... [ 10%] enhomie.execution.desired
-highlighting module code... [ 10%] enhomie.execution.dumped
-highlighting module code... [ 11%] enhomie.execution.persist
-highlighting module code... [ 11%] enhomie.execution.service
-highlighting module code... [ 12%] enhomie.execution.test.test_action
-highlighting module code... [ 13%] enhomie.execution.test.test_backup
-highlighting module code... [ 13%] enhomie.execution.test.test_config
-highlighting module code... [ 14%] enhomie.execution.test.test_crypts
-highlighting module code... [ 14%] enhomie.execution.test.test_desired
-highlighting module code... [ 15%] enhomie.execution.test.test_dumped
-highlighting module code... [ 16%] enhomie.execution.test.test_persist
-highlighting module code... [ 16%] enhomie.execution.test.test_service
-highlighting module code... [ 17%] enhomie.homie.addons.aspired
-highlighting module code... [ 17%] enhomie.homie.addons.desired
-highlighting module code... [ 18%] enhomie.homie.addons.logger
-highlighting module code... [ 18%] enhomie.homie.addons.persist
-highlighting module code... [ 19%] enhomie.homie.addons.queue
-highlighting module code... [ 20%] enhomie.homie.addons.test.test_aspired
-highlighting module code... [ 20%] enhomie.homie.addons.test.test_desired
-highlighting module code... [ 21%] enhomie.homie.addons.test.test_logger
-highlighting module code... [ 21%] enhomie.homie.addons.test.test_persist
-highlighting module code... [ 22%] enhomie.homie.addons.test.test_queue
-highlighting module code... [ 22%] enhomie.homie.childs.aspire
-highlighting module code... [ 23%] enhomie.homie.childs.child
-highlighting module code... [ 24%] enhomie.homie.childs.desire
-highlighting module code... [ 24%] enhomie.homie.childs.device
-highlighting module code... [ 25%] enhomie.homie.childs.group
-highlighting module code... [ 25%] enhomie.homie.childs.helpers
-highlighting module code... [ 26%] enhomie.homie.childs.homie
-highlighting module code... [ 26%] enhomie.homie.childs.origin
-highlighting module code... [ 27%] enhomie.homie.childs.scene
-highlighting module code... [ 28%] enhomie.homie.childs.test.test_aspire
-highlighting module code... [ 28%] enhomie.homie.childs.test.test_child
-highlighting module code... [ 29%] enhomie.homie.childs.test.test_desire
-highlighting module code... [ 29%] enhomie.homie.childs.test.test_device
-highlighting module code... [ 30%] enhomie.homie.childs.test.test_group
-highlighting module code... [ 30%] enhomie.homie.childs.test.test_homie
-highlighting module code... [ 31%] enhomie.homie.childs.test.test_origin
-highlighting module code... [ 32%] enhomie.homie.childs.test.test_scene
-highlighting module code... [ 32%] enhomie.homie.common
-highlighting module code... [ 33%] enhomie.homie.config
-highlighting module code... [ 33%] enhomie.homie.homie
-highlighting module code... [ 34%] enhomie.homie.members.actions
-highlighting module code... [ 34%] enhomie.homie.members.member
-highlighting module code... [ 35%] enhomie.homie.members.streams
-highlighting module code... [ 36%] enhomie.homie.members.test.test_actions
-highlighting module code... [ 36%] enhomie.homie.members.test.test_member
-highlighting module code... [ 37%] enhomie.homie.members.test.test_streams
-highlighting module code... [ 37%] enhomie.homie.members.test.test_updates
-highlighting module code... [ 38%] enhomie.homie.members.updates
-highlighting module code... [ 39%] enhomie.homie.models
-highlighting module code... [ 39%] enhomie.homie.params.aspire
-highlighting module code... [ 40%] enhomie.homie.params.child
-highlighting module code... [ 40%] enhomie.homie.params.common
-highlighting module code... [ 41%] enhomie.homie.params.desire
-highlighting module code... [ 41%] enhomie.homie.params.device
-highlighting module code... [ 42%] enhomie.homie.params.group
-highlighting module code... [ 43%] enhomie.homie.params.homie
-highlighting module code... [ 43%] enhomie.homie.params.occur
-highlighting module code... [ 44%] enhomie.homie.params.origin
-highlighting module code... [ 44%] enhomie.homie.params.plugin
-highlighting module code... [ 45%] enhomie.homie.params.scene
-highlighting module code... [ 45%] enhomie.homie.params.service
-highlighting module code... [ 46%] enhomie.homie.params.stage
-highlighting module code... [ 47%] enhomie.homie.params.store
-highlighting module code... [ 47%] enhomie.homie.params.where
-highlighting module code... [ 48%] enhomie.homie.plugins.driver
-highlighting module code... [ 48%] enhomie.homie.plugins.occur
-highlighting module code... [ 49%] enhomie.homie.plugins.plugin
-highlighting module code... [ 49%] enhomie.homie.plugins.test.test_driver
-highlighting module code... [ 50%] enhomie.homie.plugins.test.test_occur
-highlighting module code... [ 51%] enhomie.homie.plugins.test.test_plugin
-highlighting module code... [ 51%] enhomie.homie.plugins.test.test_where
-highlighting module code... [ 52%] enhomie.homie.plugins.where
-highlighting module code... [ 52%] enhomie.homie.service
-highlighting module code... [ 53%] enhomie.homie.test.test_config
-highlighting module code... [ 53%] enhomie.homie.test.test_homie
-highlighting module code... [ 54%] enhomie.homie.test.test_models
-highlighting module code... [ 55%] enhomie.homie.test.test_service
-highlighting module code... [ 55%] enhomie.homie.threads.action
-highlighting module code... [ 56%] enhomie.homie.threads.stream
-highlighting module code... [ 56%] enhomie.homie.threads.test.test_action
-highlighting module code... [ 57%] enhomie.homie.threads.test.test_stream
-highlighting module code... [ 57%] enhomie.homie.threads.test.test_thread
-highlighting module code... [ 58%] enhomie.homie.threads.test.test_update
-highlighting module code... [ 59%] enhomie.homie.threads.thread
-highlighting module code... [ 59%] enhomie.homie.threads.update
-highlighting module code... [ 60%] enhomie.hubitat.action
-highlighting module code... [ 60%] enhomie.hubitat.device
-highlighting module code... [ 61%] enhomie.hubitat.helpers
-highlighting module code... [ 61%] enhomie.hubitat.models
-highlighting module code... [ 62%] enhomie.hubitat.origin
-highlighting module code... [ 63%] enhomie.hubitat.params.origin
-highlighting module code... [ 63%] enhomie.hubitat.test
-highlighting module code... [ 64%] enhomie.hubitat.test.test_action
-highlighting module code... [ 64%] enhomie.hubitat.test.test_device
-highlighting module code... [ 65%] enhomie.hubitat.test.test_helpers
-highlighting module code... [ 66%] enhomie.hubitat.test.test_models
-highlighting module code... [ 66%] enhomie.hubitat.test.test_origin
-highlighting module code... [ 67%] enhomie.hubitat.test.test_update
-highlighting module code... [ 67%] enhomie.hubitat.update
-highlighting module code... [ 68%] enhomie.philips.action
-highlighting module code... [ 68%] enhomie.philips.device
-highlighting module code... [ 69%] enhomie.philips.helpers
-highlighting module code... [ 70%] enhomie.philips.models
-highlighting module code... [ 70%] enhomie.philips.origin
-highlighting module code... [ 71%] enhomie.philips.params.origin
-highlighting module code... [ 71%] enhomie.philips.params.plugins.button
-highlighting module code... [ 72%] enhomie.philips.params.plugins.change
-highlighting module code... [ 72%] enhomie.philips.params.plugins.contact
-highlighting module code... [ 73%] enhomie.philips.params.plugins.motion
-highlighting module code... [ 74%] enhomie.philips.params.plugins.scene
-highlighting module code... [ 74%] enhomie.philips.plugins.button
-highlighting module code... [ 75%] enhomie.philips.plugins.change
-highlighting module code... [ 75%] enhomie.philips.plugins.contact
-highlighting module code... [ 76%] enhomie.philips.plugins.helpers
-highlighting module code... [ 76%] enhomie.philips.plugins.motion
-highlighting module code... [ 77%] enhomie.philips.plugins.scene
-highlighting module code... [ 78%] enhomie.philips.plugins.test.test_button
-highlighting module code... [ 78%] enhomie.philips.plugins.test.test_change
-highlighting module code... [ 79%] enhomie.philips.plugins.test.test_contact
-highlighting module code... [ 79%] enhomie.philips.plugins.test.test_helpers
-highlighting module code... [ 80%] enhomie.philips.plugins.test.test_motion
-highlighting module code... [ 80%] enhomie.philips.plugins.test.test_scene
-highlighting module code... [ 81%] enhomie.philips.stream
-highlighting module code... [ 82%] enhomie.philips.surgeon
-highlighting module code... [ 82%] enhomie.philips.test
-highlighting module code... [ 83%] enhomie.philips.test.test_action
-highlighting module code... [ 83%] enhomie.philips.test.test_device
-highlighting module code... [ 84%] enhomie.philips.test.test_helpers
-highlighting module code... [ 84%] enhomie.philips.test.test_models
-highlighting module code... [ 85%] enhomie.philips.test.test_origin
-highlighting module code... [ 86%] enhomie.philips.test.test_stream
-highlighting module code... [ 86%] enhomie.philips.test.test_surgeon
-highlighting module code... [ 87%] enhomie.philips.test.test_update
-highlighting module code... [ 87%] enhomie.philips.update
-highlighting module code... [ 88%] enhomie.ubiquiti.device
-highlighting module code... [ 89%] enhomie.ubiquiti.helpers
-highlighting module code... [ 89%] enhomie.ubiquiti.models
-highlighting module code... [ 90%] enhomie.ubiquiti.origin
-highlighting module code... [ 90%] enhomie.ubiquiti.params.origin
-highlighting module code... [ 91%] enhomie.ubiquiti.params.plugins.client
-highlighting module code... [ 91%] enhomie.ubiquiti.plugins.client
-highlighting module code... [ 92%] enhomie.ubiquiti.plugins.helpers
-highlighting module code... [ 93%] enhomie.ubiquiti.plugins.test.test_client
-highlighting module code... [ 93%] enhomie.ubiquiti.plugins.test.test_helpers
-highlighting module code... [ 94%] enhomie.ubiquiti.test
-highlighting module code... [ 94%] enhomie.ubiquiti.test.test_device
-highlighting module code... [ 95%] enhomie.ubiquiti.test.test_models
-highlighting module code... [ 95%] enhomie.ubiquiti.test.test_origin
-highlighting module code... [ 96%] enhomie.ubiquiti.test.test_update
-highlighting module code... [ 97%] enhomie.ubiquiti.update
-highlighting module code... [ 97%] enhomie.utils.child
-highlighting module code... [ 98%] enhomie.utils.param
-highlighting module code... [ 98%] enhomie.utils.raises
-highlighting module code... [ 99%] enhomie.utils.test.test_child
-highlighting module code... [ 99%] enhomie.utils.test.test_param
-highlighting module code... [100%] enhomie.utils.tests
-
+highlighting module code... [  1%] enhomie.builtins.modelshighlighting module code... [  1%] enhomie.builtins.params.periodhighlighting module code... [  2%] enhomie.builtins.params.regexphighlighting module code... [  2%] enhomie.builtins.params.storehighlighting module code... [  3%] enhomie.builtins.periodhighlighting module code... [  3%] enhomie.builtins.regexphighlighting module code... [  4%] enhomie.builtins.storehighlighting module code... [  5%] enhomie.builtins.test.test_modelshighlighting module code... [  5%] enhomie.builtins.test.test_periodhighlighting module code... [  6%] enhomie.builtins.test.test_regexphighlighting module code... [  6%] enhomie.builtins.test.test_storehighlighting module code... [  7%] enhomie.conftesthighlighting module code... [  7%] enhomie.execution.actionhighlighting module code... [  8%] enhomie.execution.backuphighlighting module code... [  9%] enhomie.execution.confighighlighting module code... [  9%] enhomie.execution.cryptshighlighting module code... [ 10%] enhomie.execution.desiredhighlighting module code... [ 10%] enhomie.execution.dumpedhighlighting module code... [ 11%] enhomie.execution.persisthighlighting module code... [ 11%] enhomie.execution.servicehighlighting module code... [ 12%] enhomie.execution.test.test_actionhighlighting module code... [ 13%] enhomie.execution.test.test_backuphighlighting module code... [ 13%] enhomie.execution.test.test_confighighlighting module code... [ 14%] enhomie.execution.test.test_cryptshighlighting module code... [ 14%] enhomie.execution.test.test_desiredhighlighting module code... [ 15%] enhomie.execution.test.test_dumpedhighlighting module code... [ 16%] enhomie.execution.test.test_persisthighlighting module code... [ 16%] enhomie.execution.test.test_servicehighlighting module code... [ 17%] enhomie.homie.addons.aspiredhighlighting module code... [ 17%] enhomie.homie.addons.desiredhighlighting module code... [ 18%] enhomie.homie.addons.loggerhighlighting module code... [ 18%] enhomie.homie.addons.persisthighlighting module code... [ 19%] enhomie.homie.addons.queuehighlighting module code... [ 20%] enhomie.homie.addons.test.test_aspiredhighlighting module code... [ 20%] enhomie.homie.addons.test.test_desiredhighlighting module code... [ 21%] enhomie.homie.addons.test.test_loggerhighlighting module code... [ 21%] enhomie.homie.addons.test.test_persisthighlighting module code... [ 22%] enhomie.homie.addons.test.test_queuehighlighting module code... [ 22%] enhomie.homie.childs.aspirehighlighting module code... [ 23%] enhomie.homie.childs.childhighlighting module code... [ 24%] enhomie.homie.childs.desirehighlighting module code... [ 24%] enhomie.homie.childs.devicehighlighting module code... [ 25%] enhomie.homie.childs.grouphighlighting module code... [ 25%] enhomie.homie.childs.helpershighlighting module code... [ 26%] enhomie.homie.childs.homiehighlighting module code... [ 26%] enhomie.homie.childs.originhighlighting module code... [ 27%] enhomie.homie.childs.scenehighlighting module code... [ 28%] enhomie.homie.childs.test.test_aspirehighlighting module code... [ 28%] enhomie.homie.childs.test.test_childhighlighting module code... [ 29%] enhomie.homie.childs.test.test_desirehighlighting module code... [ 29%] enhomie.homie.childs.test.test_devicehighlighting module code... [ 30%] enhomie.homie.childs.test.test_grouphighlighting module code... [ 30%] enhomie.homie.childs.test.test_homiehighlighting module code... [ 31%] enhomie.homie.childs.test.test_originhighlighting module code... [ 32%] enhomie.homie.childs.test.test_scenehighlighting module code... [ 32%] enhomie.homie.commonhighlighting module code... [ 33%] enhomie.homie.confighighlighting module code... [ 33%] enhomie.homie.homiehighlighting module code... [ 34%] enhomie.homie.members.actionshighlighting module code... [ 34%] enhomie.homie.members.memberhighlighting module code... [ 35%] enhomie.homie.members.streamshighlighting module code... [ 36%] enhomie.homie.members.test.test_actionshighlighting module code... [ 36%] enhomie.homie.members.test.test_memberhighlighting module code... [ 37%] enhomie.homie.members.test.test_streamshighlighting module code... [ 37%] enhomie.homie.members.test.test_updateshighlighting module code... [ 38%] enhomie.homie.members.updateshighlighting module code... [ 39%] enhomie.homie.modelshighlighting module code... [ 39%] enhomie.homie.params.aspirehighlighting module code... [ 40%] enhomie.homie.params.childhighlighting module code... [ 40%] enhomie.homie.params.commonhighlighting module code... [ 41%] enhomie.homie.params.desirehighlighting module code... [ 41%] enhomie.homie.params.devicehighlighting module code... [ 42%] enhomie.homie.params.grouphighlighting module code... [ 43%] enhomie.homie.params.homiehighlighting module code... [ 43%] enhomie.homie.params.occurhighlighting module code... [ 44%] enhomie.homie.params.originhighlighting module code... [ 44%] enhomie.homie.params.pluginhighlighting module code... [ 45%] enhomie.homie.params.scenehighlighting module code... [ 45%] enhomie.homie.params.servicehighlighting module code... [ 46%] enhomie.homie.params.stagehighlighting module code... [ 47%] enhomie.homie.params.storehighlighting module code... [ 47%] enhomie.homie.params.wherehighlighting module code... [ 48%] enhomie.homie.plugins.driverhighlighting module code... [ 48%] enhomie.homie.plugins.occurhighlighting module code... [ 49%] enhomie.homie.plugins.pluginhighlighting module code... [ 49%] enhomie.homie.plugins.test.test_driverhighlighting module code... [ 50%] enhomie.homie.plugins.test.test_occurhighlighting module code... [ 51%] enhomie.homie.plugins.test.test_pluginhighlighting module code... [ 51%] enhomie.homie.plugins.test.test_wherehighlighting module code... [ 52%] enhomie.homie.plugins.wherehighlighting module code... [ 52%] enhomie.homie.servicehighlighting module code... [ 53%] enhomie.homie.test.test_confighighlighting module code... [ 53%] enhomie.homie.test.test_homiehighlighting module code... [ 54%] enhomie.homie.test.test_modelshighlighting module code... [ 55%] enhomie.homie.test.test_servicehighlighting module code... [ 55%] enhomie.homie.threads.actionhighlighting module code... [ 56%] enhomie.homie.threads.streamhighlighting module code... [ 56%] enhomie.homie.threads.test.test_actionhighlighting module code... [ 57%] enhomie.homie.threads.test.test_streamhighlighting module code... [ 57%] enhomie.homie.threads.test.test_threadhighlighting module code... [ 58%] enhomie.homie.threads.test.test_updatehighlighting module code... [ 59%] enhomie.homie.threads.threadhighlighting module code... [ 59%] enhomie.homie.threads.updatehighlighting module code... [ 60%] enhomie.hubitat.actionhighlighting module code... [ 60%] enhomie.hubitat.devicehighlighting module code... [ 61%] enhomie.hubitat.helpershighlighting module code... [ 61%] enhomie.hubitat.modelshighlighting module code... [ 62%] enhomie.hubitat.originhighlighting module code... [ 63%] enhomie.hubitat.params.originhighlighting module code... [ 63%] enhomie.hubitat.testhighlighting module code... [ 64%] enhomie.hubitat.test.test_actionhighlighting module code... [ 64%] enhomie.hubitat.test.test_devicehighlighting module code... [ 65%] enhomie.hubitat.test.test_helpershighlighting module code... [ 66%] enhomie.hubitat.test.test_modelshighlighting module code... [ 66%] enhomie.hubitat.test.test_originhighlighting module code... [ 67%] enhomie.hubitat.test.test_updatehighlighting module code... [ 67%] enhomie.hubitat.updatehighlighting module code... [ 68%] enhomie.philips.actionhighlighting module code... [ 68%] enhomie.philips.devicehighlighting module code... [ 69%] enhomie.philips.helpershighlighting module code... [ 70%] enhomie.philips.modelshighlighting module code... [ 70%] enhomie.philips.originhighlighting module code... [ 71%] enhomie.philips.params.originhighlighting module code... [ 71%] enhomie.philips.params.plugins.buttonhighlighting module code... [ 72%] enhomie.philips.params.plugins.changehighlighting module code... [ 72%] enhomie.philips.params.plugins.contacthighlighting module code... [ 73%] enhomie.philips.params.plugins.motionhighlighting module code... [ 74%] enhomie.philips.params.plugins.scenehighlighting module code... [ 74%] enhomie.philips.plugins.buttonhighlighting module code... [ 75%] enhomie.philips.plugins.changehighlighting module code... [ 75%] enhomie.philips.plugins.contacthighlighting module code... [ 76%] enhomie.philips.plugins.helpershighlighting module code... [ 76%] enhomie.philips.plugins.motionhighlighting module code... [ 77%] enhomie.philips.plugins.scenehighlighting module code... [ 78%] enhomie.philips.plugins.test.test_buttonhighlighting module code... [ 78%] enhomie.philips.plugins.test.test_changehighlighting module code... [ 79%] enhomie.philips.plugins.test.test_contacthighlighting module code... [ 79%] enhomie.philips.plugins.test.test_helpershighlighting module code... [ 80%] enhomie.philips.plugins.test.test_motionhighlighting module code... [ 80%] enhomie.philips.plugins.test.test_scenehighlighting module code... [ 81%] enhomie.philips.streamhighlighting module code... [ 82%] enhomie.philips.surgeonhighlighting module code... [ 82%] enhomie.philips.testhighlighting module code... [ 83%] enhomie.philips.test.test_actionhighlighting module code... [ 83%] enhomie.philips.test.test_devicehighlighting module code... [ 84%] enhomie.philips.test.test_helpershighlighting module code... [ 84%] enhomie.philips.test.test_modelshighlighting module code... [ 85%] enhomie.philips.test.test_originhighlighting module code... [ 86%] enhomie.philips.test.test_streamhighlighting module code... [ 86%] enhomie.philips.test.test_surgeonhighlighting module code... [ 87%] enhomie.philips.test.test_updatehighlighting module code... [ 87%] enhomie.philips.updatehighlighting module code... [ 88%] enhomie.ubiquiti.devicehighlighting module code... [ 89%] enhomie.ubiquiti.helpershighlighting module code... [ 89%] enhomie.ubiquiti.modelshighlighting module code... [ 90%] enhomie.ubiquiti.originhighlighting module code... [ 90%] enhomie.ubiquiti.params.originhighlighting module code... [ 91%] enhomie.ubiquiti.params.plugins.clienthighlighting module code... [ 91%] enhomie.ubiquiti.plugins.clienthighlighting module code... [ 92%] enhomie.ubiquiti.plugins.helpershighlighting module code... [ 93%] enhomie.ubiquiti.plugins.test.test_clienthighlighting module code... [ 93%] enhomie.ubiquiti.plugins.test.test_helpershighlighting module code... [ 94%] enhomie.ubiquiti.testhighlighting module code... [ 94%] enhomie.ubiquiti.test.test_devicehighlighting module code... [ 95%] enhomie.ubiquiti.test.test_modelshighlighting module code... [ 95%] enhomie.ubiquiti.test.test_originhighlighting module code... [ 96%] enhomie.ubiquiti.test.test_updatehighlighting module code... [ 97%] enhomie.ubiquiti.updatehighlighting module code... [ 97%] enhomie.utils.childhighlighting module code... [ 98%] enhomie.utils.paramhighlighting module code... [ 98%] enhomie.utils.raiseshighlighting module code... [ 99%] enhomie.utils.test.test_childhighlighting module code... [ 99%] enhomie.utils.test.test_paramhighlighting module code... [100%] enhomie.utils.tests
 writing additional pages... search done
 dumping search index in English (code: en)... done
 dumping object inventory... done
-postprocess html... [  3%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.html
-postprocess html... [  5%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.builtins.html
-postprocess html... [  8%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.builtins.params.html
-postprocess html... [ 11%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.builtins.test.html
-postprocess html... [ 13%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.execution.html
-postprocess html... [ 16%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.execution.test.html
-postprocess html... [ 18%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.html
-postprocess html... [ 21%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.addons.html
-postprocess html... [ 24%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.addons.test.html
-postprocess html... [ 26%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.childs.html
-postprocess html... [ 29%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.childs.test.html
-postprocess html... [ 32%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.members.html
-postprocess html... [ 34%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.members.test.html
-postprocess html... [ 37%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.params.html
-postprocess html... [ 39%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.plugins.html
-postprocess html... [ 42%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.plugins.test.html
-postprocess html... [ 45%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.test.html
-postprocess html... [ 47%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.threads.html
-postprocess html... [ 50%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.threads.test.html
-postprocess html... [ 53%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.hubitat.html
-postprocess html... [ 55%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.hubitat.params.html
-postprocess html... [ 58%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.hubitat.test.html
-postprocess html... [ 61%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.html
-postprocess html... [ 63%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.params.html
-postprocess html... [ 66%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.params.plugins.html
-postprocess html... [ 68%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.plugins.html
-postprocess html... [ 71%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.plugins.test.html
-postprocess html... [ 74%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.test.html
-postprocess html... [ 76%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.html
-postprocess html... [ 79%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.params.html
-postprocess html... [ 82%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.params.plugins.html
-postprocess html... [ 84%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.plugins.html
-postprocess html... [ 87%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.plugins.test.html
-postprocess html... [ 89%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.test.html
-postprocess html... [ 92%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.utils.html
-postprocess html... [ 95%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.utils.test.html
-postprocess html... [ 97%] /home/runner/work/enhomie/enhomie/main/sphinx/html/index.html
-postprocess html... [100%] /home/runner/work/enhomie/enhomie/main/sphinx/html/modules.html
-
+postprocess html... [  3%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.htmlpostprocess html... [  5%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.builtins.htmlpostprocess html... [  8%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.builtins.params.htmlpostprocess html... [ 11%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.builtins.test.htmlpostprocess html... [ 13%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.execution.htmlpostprocess html... [ 16%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.execution.test.htmlpostprocess html... [ 18%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.htmlpostprocess html... [ 21%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.addons.htmlpostprocess html... [ 24%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.addons.test.htmlpostprocess html... [ 26%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.childs.htmlpostprocess html... [ 29%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.childs.test.htmlpostprocess html... [ 32%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.members.htmlpostprocess html... [ 34%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.members.test.htmlpostprocess html... [ 37%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.params.htmlpostprocess html... [ 39%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.plugins.htmlpostprocess html... [ 42%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.plugins.test.htmlpostprocess html... [ 45%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.test.htmlpostprocess html... [ 47%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.threads.htmlpostprocess html... [ 50%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.homie.threads.test.htmlpostprocess html... [ 53%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.hubitat.htmlpostprocess html... [ 55%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.hubitat.params.htmlpostprocess html... [ 58%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.hubitat.test.htmlpostprocess html... [ 61%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.htmlpostprocess html... [ 63%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.params.htmlpostprocess html... [ 66%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.params.plugins.htmlpostprocess html... [ 68%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.plugins.htmlpostprocess html... [ 71%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.plugins.test.htmlpostprocess html... [ 74%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.philips.test.htmlpostprocess html... [ 76%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.htmlpostprocess html... [ 79%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.params.htmlpostprocess html... [ 82%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.params.plugins.htmlpostprocess html... [ 84%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.plugins.htmlpostprocess html... [ 87%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.plugins.test.htmlpostprocess html... [ 89%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.ubiquiti.test.htmlpostprocess html... [ 92%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.utils.htmlpostprocess html... [ 95%] /home/runner/work/enhomie/enhomie/main/sphinx/html/enhomie.utils.test.htmlpostprocess html... [ 97%] /home/runner/work/enhomie/enhomie/main/sphinx/html/index.htmlpostprocess html... [100%] /home/runner/work/enhomie/enhomie/main/sphinx/html/modules.html
 build succeeded, 1543 warnings.
 
 The HTML pages are in sphinx/html.
