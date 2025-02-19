@@ -17,37 +17,37 @@ enhomie.homie.threads.action module
 
 .. automodule:: enhomie.homie.threads.action
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.threads.stream module
 -----------------------------------
 
 .. automodule:: enhomie.homie.threads.stream
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.threads.thread module
 -----------------------------------
 
 .. automodule:: enhomie.homie.threads.thread
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.threads.update module
 -----------------------------------
 
 .. automodule:: enhomie.homie.threads.update
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.homie.threads
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

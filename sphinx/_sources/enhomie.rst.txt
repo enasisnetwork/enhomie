@@ -23,13 +23,13 @@ enhomie.conftest module
 
 .. automodule:: enhomie.conftest
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

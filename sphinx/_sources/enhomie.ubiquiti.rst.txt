@@ -19,45 +19,45 @@ enhomie.ubiquiti.device module
 
 .. automodule:: enhomie.ubiquiti.device
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.ubiquiti.helpers module
 -------------------------------
 
 .. automodule:: enhomie.ubiquiti.helpers
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.ubiquiti.models module
 ------------------------------
 
 .. automodule:: enhomie.ubiquiti.models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.ubiquiti.origin module
 ------------------------------
 
 .. automodule:: enhomie.ubiquiti.origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.ubiquiti.update module
 ------------------------------
 
 .. automodule:: enhomie.ubiquiti.update
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.ubiquiti
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

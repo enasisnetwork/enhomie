@@ -9,45 +9,45 @@ enhomie.homie.addons.test.test\_aspired module
 
 .. automodule:: enhomie.homie.addons.test.test_aspired
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.addons.test.test\_desired module
 ----------------------------------------------
 
 .. automodule:: enhomie.homie.addons.test.test_desired
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.addons.test.test\_logger module
 ---------------------------------------------
 
 .. automodule:: enhomie.homie.addons.test.test_logger
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.addons.test.test\_persist module
 ----------------------------------------------
 
 .. automodule:: enhomie.homie.addons.test.test_persist
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.addons.test.test\_queue module
 --------------------------------------------
 
 .. automodule:: enhomie.homie.addons.test.test_queue
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.homie.addons.test
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

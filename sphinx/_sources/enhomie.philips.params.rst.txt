@@ -17,13 +17,13 @@ enhomie.philips.params.origin module
 
 .. automodule:: enhomie.philips.params.origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.philips.params
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

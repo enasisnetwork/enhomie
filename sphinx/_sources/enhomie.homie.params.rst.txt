@@ -9,125 +9,125 @@ enhomie.homie.params.aspire module
 
 .. automodule:: enhomie.homie.params.aspire
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.child module
 ---------------------------------
 
 .. automodule:: enhomie.homie.params.child
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.common module
 ----------------------------------
 
 .. automodule:: enhomie.homie.params.common
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.desire module
 ----------------------------------
 
 .. automodule:: enhomie.homie.params.desire
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.device module
 ----------------------------------
 
 .. automodule:: enhomie.homie.params.device
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.group module
 ---------------------------------
 
 .. automodule:: enhomie.homie.params.group
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.homie module
 ---------------------------------
 
 .. automodule:: enhomie.homie.params.homie
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.occur module
 ---------------------------------
 
 .. automodule:: enhomie.homie.params.occur
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.origin module
 ----------------------------------
 
 .. automodule:: enhomie.homie.params.origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.plugin module
 ----------------------------------
 
 .. automodule:: enhomie.homie.params.plugin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.scene module
 ---------------------------------
 
 .. automodule:: enhomie.homie.params.scene
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.service module
 -----------------------------------
 
 .. automodule:: enhomie.homie.params.service
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.stage module
 ---------------------------------
 
 .. automodule:: enhomie.homie.params.stage
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.store module
 ---------------------------------
 
 .. automodule:: enhomie.homie.params.store
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.params.where module
 ---------------------------------
 
 .. automodule:: enhomie.homie.params.where
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.homie.params
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

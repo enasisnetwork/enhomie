@@ -17,13 +17,13 @@ enhomie.ubiquiti.params.origin module
 
 .. automodule:: enhomie.ubiquiti.params.origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.ubiquiti.params
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

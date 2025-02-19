@@ -9,29 +9,29 @@ enhomie.builtins.params.period module
 
 .. automodule:: enhomie.builtins.params.period
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.builtins.params.regexp module
 -------------------------------------
 
 .. automodule:: enhomie.builtins.params.regexp
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.builtins.params.store module
 ------------------------------------
 
 .. automodule:: enhomie.builtins.params.store
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.builtins.params
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

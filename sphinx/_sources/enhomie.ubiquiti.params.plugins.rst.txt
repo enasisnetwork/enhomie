@@ -9,13 +9,13 @@ enhomie.ubiquiti.params.plugins.client module
 
 .. automodule:: enhomie.ubiquiti.params.plugins.client
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.ubiquiti.params.plugins
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

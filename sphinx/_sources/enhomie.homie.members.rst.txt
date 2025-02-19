@@ -17,37 +17,37 @@ enhomie.homie.members.actions module
 
 .. automodule:: enhomie.homie.members.actions
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.members.member module
 -----------------------------------
 
 .. automodule:: enhomie.homie.members.member
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.members.streams module
 ------------------------------------
 
 .. automodule:: enhomie.homie.members.streams
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.members.updates module
 ------------------------------------
 
 .. automodule:: enhomie.homie.members.updates
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.homie.members
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

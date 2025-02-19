@@ -9,53 +9,53 @@ enhomie.hubitat.test.test\_action module
 
 .. automodule:: enhomie.hubitat.test.test_action
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.hubitat.test.test\_device module
 ----------------------------------------
 
 .. automodule:: enhomie.hubitat.test.test_device
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.hubitat.test.test\_helpers module
 -----------------------------------------
 
 .. automodule:: enhomie.hubitat.test.test_helpers
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.hubitat.test.test\_models module
 ----------------------------------------
 
 .. automodule:: enhomie.hubitat.test.test_models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.hubitat.test.test\_origin module
 ----------------------------------------
 
 .. automodule:: enhomie.hubitat.test.test_origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.hubitat.test.test\_update module
 ----------------------------------------
 
 .. automodule:: enhomie.hubitat.test.test_update
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.hubitat.test
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

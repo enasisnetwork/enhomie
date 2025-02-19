@@ -17,21 +17,21 @@ enhomie.ubiquiti.plugins.client module
 
 .. automodule:: enhomie.ubiquiti.plugins.client
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.ubiquiti.plugins.helpers module
 ---------------------------------------
 
 .. automodule:: enhomie.ubiquiti.plugins.helpers
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.ubiquiti.plugins
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

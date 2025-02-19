@@ -17,37 +17,37 @@ enhomie.utils.child module
 
 .. automodule:: enhomie.utils.child
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.utils.param module
 --------------------------
 
 .. automodule:: enhomie.utils.param
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.utils.raises module
 ---------------------------
 
 .. automodule:: enhomie.utils.raises
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.utils.tests module
 --------------------------
 
 .. automodule:: enhomie.utils.tests
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.utils
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

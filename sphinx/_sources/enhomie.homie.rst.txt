@@ -23,45 +23,45 @@ enhomie.homie.common module
 
 .. automodule:: enhomie.homie.common
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.config module
 ---------------------------
 
 .. automodule:: enhomie.homie.config
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.homie module
 --------------------------
 
 .. automodule:: enhomie.homie.homie
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.models module
 ---------------------------
 
 .. automodule:: enhomie.homie.models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.service module
 ----------------------------
 
 .. automodule:: enhomie.homie.service
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.homie
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

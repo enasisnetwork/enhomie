@@ -18,37 +18,37 @@ enhomie.builtins.models module
 
 .. automodule:: enhomie.builtins.models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.builtins.period module
 ------------------------------
 
 .. automodule:: enhomie.builtins.period
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.builtins.regexp module
 ------------------------------
 
 .. automodule:: enhomie.builtins.regexp
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.builtins.store module
 -----------------------------
 
 .. automodule:: enhomie.builtins.store
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.builtins
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

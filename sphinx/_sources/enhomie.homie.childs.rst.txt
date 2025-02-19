@@ -17,77 +17,77 @@ enhomie.homie.childs.aspire module
 
 .. automodule:: enhomie.homie.childs.aspire
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.child module
 ---------------------------------
 
 .. automodule:: enhomie.homie.childs.child
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.desire module
 ----------------------------------
 
 .. automodule:: enhomie.homie.childs.desire
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.device module
 ----------------------------------
 
 .. automodule:: enhomie.homie.childs.device
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.group module
 ---------------------------------
 
 .. automodule:: enhomie.homie.childs.group
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.helpers module
 -----------------------------------
 
 .. automodule:: enhomie.homie.childs.helpers
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.homie module
 ---------------------------------
 
 .. automodule:: enhomie.homie.childs.homie
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.origin module
 ----------------------------------
 
 .. automodule:: enhomie.homie.childs.origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.scene module
 ---------------------------------
 
 .. automodule:: enhomie.homie.childs.scene
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.homie.childs
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

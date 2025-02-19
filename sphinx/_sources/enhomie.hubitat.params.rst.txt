@@ -9,13 +9,13 @@ enhomie.hubitat.params.origin module
 
 .. automodule:: enhomie.hubitat.params.origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.hubitat.params
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

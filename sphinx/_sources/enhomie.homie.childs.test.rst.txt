@@ -9,69 +9,69 @@ enhomie.homie.childs.test.test\_aspire module
 
 .. automodule:: enhomie.homie.childs.test.test_aspire
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.test.test\_child module
 --------------------------------------------
 
 .. automodule:: enhomie.homie.childs.test.test_child
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.test.test\_desire module
 ---------------------------------------------
 
 .. automodule:: enhomie.homie.childs.test.test_desire
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.test.test\_device module
 ---------------------------------------------
 
 .. automodule:: enhomie.homie.childs.test.test_device
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.test.test\_group module
 --------------------------------------------
 
 .. automodule:: enhomie.homie.childs.test.test_group
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.test.test\_homie module
 --------------------------------------------
 
 .. automodule:: enhomie.homie.childs.test.test_homie
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.test.test\_origin module
 ---------------------------------------------
 
 .. automodule:: enhomie.homie.childs.test.test_origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.childs.test.test\_scene module
 --------------------------------------------
 
 .. automodule:: enhomie.homie.childs.test.test_scene
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.homie.childs.test
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

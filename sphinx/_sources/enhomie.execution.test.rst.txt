@@ -9,69 +9,69 @@ enhomie.execution.test.test\_action module
 
 .. automodule:: enhomie.execution.test.test_action
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.test.test\_backup module
 ------------------------------------------
 
 .. automodule:: enhomie.execution.test.test_backup
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.test.test\_config module
 ------------------------------------------
 
 .. automodule:: enhomie.execution.test.test_config
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.test.test\_crypts module
 ------------------------------------------
 
 .. automodule:: enhomie.execution.test.test_crypts
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.test.test\_desired module
 -------------------------------------------
 
 .. automodule:: enhomie.execution.test.test_desired
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.test.test\_dumped module
 ------------------------------------------
 
 .. automodule:: enhomie.execution.test.test_dumped
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.test.test\_persist module
 -------------------------------------------
 
 .. automodule:: enhomie.execution.test.test_persist
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.test.test\_service module
 -------------------------------------------
 
 .. automodule:: enhomie.execution.test.test_service
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.execution.test
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

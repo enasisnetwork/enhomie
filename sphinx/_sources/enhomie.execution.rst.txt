@@ -17,69 +17,69 @@ enhomie.execution.action module
 
 .. automodule:: enhomie.execution.action
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.backup module
 -------------------------------
 
 .. automodule:: enhomie.execution.backup
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.config module
 -------------------------------
 
 .. automodule:: enhomie.execution.config
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.crypts module
 -------------------------------
 
 .. automodule:: enhomie.execution.crypts
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.desired module
 --------------------------------
 
 .. automodule:: enhomie.execution.desired
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.dumped module
 -------------------------------
 
 .. automodule:: enhomie.execution.dumped
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.persist module
 --------------------------------
 
 .. automodule:: enhomie.execution.persist
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.execution.service module
 --------------------------------
 
 .. automodule:: enhomie.execution.service
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.execution
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

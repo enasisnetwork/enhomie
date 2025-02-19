@@ -18,53 +18,53 @@ enhomie.hubitat.action module
 
 .. automodule:: enhomie.hubitat.action
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.hubitat.device module
 -----------------------------
 
 .. automodule:: enhomie.hubitat.device
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.hubitat.helpers module
 ------------------------------
 
 .. automodule:: enhomie.hubitat.helpers
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.hubitat.models module
 -----------------------------
 
 .. automodule:: enhomie.hubitat.models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.hubitat.origin module
 -----------------------------
 
 .. automodule:: enhomie.hubitat.origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.hubitat.update module
 -----------------------------
 
 .. automodule:: enhomie.hubitat.update
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.hubitat
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

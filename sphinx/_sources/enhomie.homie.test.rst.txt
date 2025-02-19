@@ -9,37 +9,37 @@ enhomie.homie.test.test\_config module
 
 .. automodule:: enhomie.homie.test.test_config
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.test.test\_homie module
 -------------------------------------
 
 .. automodule:: enhomie.homie.test.test_homie
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.test.test\_models module
 --------------------------------------
 
 .. automodule:: enhomie.homie.test.test_models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.test.test\_service module
 ---------------------------------------
 
 .. automodule:: enhomie.homie.test.test_service
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.homie.test
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

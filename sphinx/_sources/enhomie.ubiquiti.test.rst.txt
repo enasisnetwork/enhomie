@@ -9,37 +9,37 @@ enhomie.ubiquiti.test.test\_device module
 
 .. automodule:: enhomie.ubiquiti.test.test_device
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.ubiquiti.test.test\_models module
 -----------------------------------------
 
 .. automodule:: enhomie.ubiquiti.test.test_models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.ubiquiti.test.test\_origin module
 -----------------------------------------
 
 .. automodule:: enhomie.ubiquiti.test.test_origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.ubiquiti.test.test\_update module
 -----------------------------------------
 
 .. automodule:: enhomie.ubiquiti.test.test_update
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.ubiquiti.test
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

@@ -9,37 +9,37 @@ enhomie.homie.members.test.test\_actions module
 
 .. automodule:: enhomie.homie.members.test.test_actions
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.members.test.test\_member module
 ----------------------------------------------
 
 .. automodule:: enhomie.homie.members.test.test_member
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.members.test.test\_streams module
 -----------------------------------------------
 
 .. automodule:: enhomie.homie.members.test.test_streams
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.homie.members.test.test\_updates module
 -----------------------------------------------
 
 .. automodule:: enhomie.homie.members.test.test_updates
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.homie.members.test
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

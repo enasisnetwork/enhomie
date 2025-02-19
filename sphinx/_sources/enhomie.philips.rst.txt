@@ -19,69 +19,69 @@ enhomie.philips.action module
 
 .. automodule:: enhomie.philips.action
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.philips.device module
 -----------------------------
 
 .. automodule:: enhomie.philips.device
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.philips.helpers module
 ------------------------------
 
 .. automodule:: enhomie.philips.helpers
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.philips.models module
 -----------------------------
 
 .. automodule:: enhomie.philips.models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.philips.origin module
 -----------------------------
 
 .. automodule:: enhomie.philips.origin
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.philips.stream module
 -----------------------------
 
 .. automodule:: enhomie.philips.stream
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.philips.surgeon module
 ------------------------------
 
 .. automodule:: enhomie.philips.surgeon
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 enhomie.philips.update module
 -----------------------------
 
 .. automodule:: enhomie.philips.update
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: enhomie.philips
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
