@@ -12,7 +12,6 @@ from typing import Optional
 from typing import TYPE_CHECKING
 
 from encommon.times import Time
-from encommon.types import DictStrAny
 
 if TYPE_CHECKING:
     from ..childs import HomieDesire
@@ -353,24 +352,13 @@ class HomieDesired:
             if homie.dryrun:
                 continue
 
+            statics = {
+                'desire': desire}
+
             for value in store:
-
-                insert: DictStrAny = {
-                    x: getattr(value, x)
-                    for x in [
-                        'unique',
-                        'value',
-                        'expire',
-                        'value_unit',
-                        'value_label',
-                        'value_icon',
-                        'about',
-                        'about_label',
-                        'about_icon',
-                        'level',
-                        'tags']}
-
-                persist.insert(**insert)
+                persist.insert(
+                    **value.endumped,
+                    statics=statics)
 
 
         objects = targets.values()

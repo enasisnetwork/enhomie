@@ -11,8 +11,6 @@ from dataclasses import dataclass
 from typing import Optional
 from typing import TYPE_CHECKING
 
-from encommon.types import DictStrAny
-
 if TYPE_CHECKING:
     from ..childs import HomieAspire
     from ..childs import HomieScene
@@ -204,28 +202,13 @@ class HomieAspired:
             if homie.dryrun:
                 continue
 
+            statics = {
+                'aspire': aspire}
+
             for value in store:
-
-                insert: DictStrAny = {
-                    x: getattr(value, x)
-                    for x in [
-                        'unique',
-                        'value',
-                        'expire',
-                        'value_unit',
-                        'value_label',
-                        'value_icon',
-                        'about',
-                        'about_label',
-                        'about_icon',
-                        'level',
-                        'tags']}
-
                 persist.insert(
-                    **insert,
-                    statics={
-                        'aspire': aspire,
-                        'sitem': sitem})
+                    **value.endumped,
+                    statics=statics)
 
 
         for aspire in matched:
