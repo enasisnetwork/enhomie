@@ -221,7 +221,11 @@ class HomieAspired:
                         'level',
                         'tags']}
 
-                persist.insert(**insert)
+                persist.insert(
+                    **insert,
+                    statics={
+                        'aspire': aspire,
+                        'sitem': sitem})
 
 
         for aspire in matched:

@@ -386,6 +386,7 @@ class HomiePersist:
         about_icon: Optional[str] = None,
         level: Optional[HomiePersistLevel] = None,
         tags: Optional[list[str]] = None,
+        statics: Optional[DictStrAny] = None,
     ) -> None:
         """
         Insert the value within the persistent key value store.
@@ -404,6 +405,7 @@ class HomiePersist:
         :param about_icon: Parameter value passed to downstream.
         :param level: Parameter value passed to the downstream.
         :param tags: Parameter value passed to the downstream.
+        :param statics: Additional values available for parsing.
         """
 
         homie = self.__homie
@@ -413,6 +415,8 @@ class HomiePersist:
         persists = (
             params.persists
             or {})
+
+        statics = dict(statics or {})
 
 
         sess = self.__session()
@@ -493,10 +497,19 @@ class HomiePersist:
             'expire': expire,
             'update': update}
 
+        statics |= {
+            'record': insert}
+
+        parsed = (
+            homie.j2parse(
+                value, statics))
+
+        statics |= {
+            'value': parsed}
+
         insert = (
             homie.j2parse(
-                insert,
-                {'record': insert}))
+                insert, statics))
 
         insert = (
             model(**insert)

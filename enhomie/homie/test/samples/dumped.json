@@ -95,9 +95,7 @@
       "action": 1,
       "update": 1,
       "stream": 1
-    },
-    "aspires": true,
-    "desires": true
+    }
   },
   "restful": {
     "bind_addr": "127.0.0.1",
@@ -109,6 +107,8 @@
     "ssl_mypem": null,
     "ssl_mykey": null
   },
+  "aspires_filters": null,
+  "desires_filters": null,
   "origins": {
     "jupiter_hubitat": {
       "name": "jupiter_hubitat",

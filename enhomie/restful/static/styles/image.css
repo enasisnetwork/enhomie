@@ -38,6 +38,11 @@ is permitted, for more information consult the project license file.
   mask-image: url('/static/images/datestamp');
   -webkit-mask-image: url('/static/images/datestamp'); }
 
+.encommon_svgicon[data-image='datesince'] {
+  background-color: rgba(var(--pretty), 1);
+  mask-image: url('/static/images/datesince');
+  -webkit-mask-image: url('/static/images/datesince'); }
+
 .encommon_svgicon[data-image='motion'] {
   background-color: rgba(var(--pretty), 1);
   mask-image: url('/static/images/motion');

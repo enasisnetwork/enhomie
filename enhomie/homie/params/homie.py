@@ -103,6 +103,18 @@ class HomieParams(Params, extra='forbid'):
         Field(default_factory=HomieRestfulParams,
               description='Parameters for Homie RESTful')]
 
+    aspires_filters: Annotated[
+        Optional[list[str]],
+        Field(None,
+              description='Patterns the names must match',
+              min_length=1)]
+
+    desires_filters: Annotated[
+        Optional[list[str]],
+        Field(None,
+              description='Patterns the names must match',
+              min_length=1)]
+
     origins: Annotated[
         Optional[dict[str, HomieOriginParams]],
         Field(None,

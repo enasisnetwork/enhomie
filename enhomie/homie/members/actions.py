@@ -13,7 +13,6 @@ from typing import Type
 
 from encommon.times import Time
 from encommon.times import Timer
-from encommon.types import NCNone
 
 from .member import HomieMember
 from ...hubitat import HubiAction
@@ -107,14 +106,6 @@ class HomieActions(HomieMember):
         timer = self.__timer
 
 
-        enable = (
-            homie.params
-            .service.desires)
-
-        if enable is False:
-            return NCNone
-
-
         if timer.pause():
             return None
 
@@ -169,14 +160,6 @@ class HomieActions(HomieMember):
 
         vacate = self.vacate
         squeue = self.squeue
-
-
-        enable = (
-            homie.params
-            .service.aspires)
-
-        if enable is False:
-            return NCNone
 
 
         def _execute() -> None:

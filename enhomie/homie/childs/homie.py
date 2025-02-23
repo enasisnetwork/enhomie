@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 from typing import Type
 
 from encommon.types import DictStrAny
+from encommon.utils import fuzz_match
 
 from .aspire import HomieAspire
 from .desire import HomieDesire
@@ -252,12 +253,29 @@ class HomieChilds:
         model = HomieDesire
 
 
+        filter = params.desires_filters
+
+
+        def _filter() -> bool:
+
+            if filter is None:
+                return False
+
+            matched = (
+                fuzz_match(name, filter))
+
+            return not matched
+
+
         childs: HomieDesires = {}
 
 
         items = desires.items()
 
         for name, desire in items:
+
+            if _filter() is True:
+                continue
 
             object = model(
                 homie, name, desire)
@@ -285,12 +303,29 @@ class HomieChilds:
         model = HomieAspire
 
 
+        filter = params.aspires_filters
+
+
+        def _filter() -> bool:
+
+            if filter is None:
+                return False
+
+            matched = (
+                fuzz_match(name, filter))
+
+            return not matched
+
+
         childs: HomieAspires = {}
 
 
         items = aspires.items()
 
         for name, aspire in items:
+
+            if _filter() is True:
+                continue
 
             object = model(
                 homie, name, aspire)

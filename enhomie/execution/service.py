@@ -178,23 +178,21 @@ def arguments(  # noqa: CFQ001
 
 
     parser.add_argument(
-        '--disable_desires',
-        action='store_false',
-        default=True,
-        dest='desires',
+        '--desires_filters',
+        type=lambda x: x.split(','),
+        dest='fdesires',
         help=(
-            'disable the desired '
-            'service routines'))
+            'filter which desired '
+            'objects are created'))
 
 
     parser.add_argument(
-        '--disable_aspires',
-        action='store_false',
-        default=True,
-        dest='aspires',
+        '--aspires_filters',
+        type=lambda x: x.split(','),
+        dest='faspires',
         help=(
-            'disable the aspired '
-            'service routines'))
+            'filter which aspired '
+            'objects are created'))
 
 
     return vars(

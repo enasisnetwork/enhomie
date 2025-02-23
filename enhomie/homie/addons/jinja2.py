@@ -39,7 +39,8 @@ class HomieJinja2(Jinja2):
         statics: DictStrAny = {
             'homie': homie}
 
-        filters: dict[str, FILTER] = {}
+        filters: dict[str, FILTER] = {
+            'average': lambda x: sum(x) / len(x)}
 
         models = HomieModels
 
