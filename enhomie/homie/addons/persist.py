@@ -464,18 +464,16 @@ class HomiePersist:
         # collect input values
 
         inputs: DictStrAny = {
-            x: locals().get(x)
-            for x in [
-                'unique',
-                'value',
-                'value_unit',
-                'value_label',
-                'value_icon',
-                'about',
-                'about_label',
-                'about_icon',
-                'level',
-                'tags']}
+            'unique': unique,
+            'value': value,
+            'value_unit': value_unit,
+            'value_label': value_label,
+            'value_icon': value_icon,
+            'about': about,
+            'about_label': about_label,
+            'about_icon': about_icon,
+            'level': level,
+            'tags': tags}
 
         inputs = {
             k: v for k, v
