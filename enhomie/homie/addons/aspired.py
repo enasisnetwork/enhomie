@@ -202,12 +202,13 @@ class HomieAspired:
             if homie.dryrun:
                 continue
 
-            for value in store:
+            statics = {
+                'aspire': aspire}
 
+            for value in store:
                 persist.insert(
-                    value.unique,
-                    value.value,
-                    value.expire)
+                    **value.endumped,
+                    statics=statics)
 
 
         for aspire in matched:

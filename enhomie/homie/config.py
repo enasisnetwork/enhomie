@@ -76,6 +76,21 @@ class HomieConfig(Config):
             cargs['potent'] = _potent
 
 
+        _faspires = (
+            sargs.get('faspires'))
+
+        _fdesires = (
+            sargs.get('fdesires'))
+
+        if _faspires is not None:
+            key = 'aspires_filters'
+            cargs[key] = _faspires
+
+        if _fdesires is not None:
+            key = 'desires_filters'
+            cargs[key] = _fdesires
+
+
         _idesire = (
             sargs.get('idesire'))
 

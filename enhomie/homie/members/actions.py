@@ -105,6 +105,7 @@ class HomieActions(HomieMember):
         desired = homie.desired
         timer = self.__timer
 
+
         if timer.pause():
             return None
 

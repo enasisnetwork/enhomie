@@ -128,10 +128,28 @@ Philips Plugins
    :show-inheritance:
    :noindex:
 
+Philips Helpers
+---------------
+
+.. autofunction:: enhomie.philips.plugins.phue_sensors
+   :noindex:
+
+.. autofunction:: enhomie.philips.plugins.phue_changed
+   :noindex:
+
+.. autofunction:: enhomie.philips.plugins.phue_current
+   :noindex:
+
 Ubiquiti Plugins
 ----------------
 
 .. autopydantic_model:: enhomie.ubiquiti.params.DriverUbiqClientParams
    :members:
    :show-inheritance:
+   :noindex:
+
+Ubiquiti Helpers
+----------------
+
+.. autofunction:: enhomie.ubiquiti.plugins.ubiq_latest
    :noindex:

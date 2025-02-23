@@ -79,3 +79,21 @@ def test_HomieConfig(
         replace=replaces)
 
     assert expect == sample
+
+
+
+def test_HomieConfig_cover() -> None:
+    """
+    Perform various tests associated with relevant routines.
+    """
+
+    config = HomieConfig({
+        'fdesires': ['neptune_*'],
+        'faspires': ['neptune_*']})
+
+    params = config.params
+    fdesires = params.desires_filters
+    faspires = params.aspires_filters
+
+    assert fdesires == ['neptune_*']
+    assert faspires == ['neptune_*']

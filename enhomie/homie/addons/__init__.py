@@ -11,9 +11,10 @@ from .aspired import HomieAspired
 from .aspired import HomieAspiredItem
 from .desired import HomieDesired
 from .desired import HomieDesiredItem
+from .jinja2 import HomieJinja2
 from .logger import HomieLogger
 from .persist import HomiePersist
-from .persist import HomiePersistExpire
+from .persist import HomiePersistRecord
 from .persist import HomiePersistValue
 from .queue import HomieQueue
 from .queue import HomieQueueItem
@@ -22,6 +23,7 @@ from .queue import HomieQueueItem
 
 __all__ = [
     'HomieLogger',
+    'HomieJinja2',
     'HomieQueue',
     'HomieQueueItem',
     'HomieAspired',
@@ -29,5 +31,5 @@ __all__ = [
     'HomieDesired',
     'HomieDesiredItem',
     'HomiePersist',
-    'HomiePersistValue',
-    'HomiePersistExpire']
+    'HomiePersistRecord',
+    'HomiePersistValue']

@@ -24,6 +24,7 @@ from .homie import HomieConfig
 from .homie import HomieService
 from .hubitat.test import mock_hubi
 from .philips.test import mock_phue
+from .restful import HomieRestful
 from .ubiquiti.test import mock_ubiq
 from .utils import TestBodies
 from .utils import TestTimes
@@ -51,8 +52,63 @@ def config_factory(
         enlogger:
           stdo_level: info
 
+        encrypts:
+          phrases:
+            enhomie:
+              phrase: oIUc2odGYMKycATXsvXTMzxe0Qbq4z3YPPIWS8fH_uU=
+
         database: >-
           sqlite:///{tmp_path}/db
+
+        restful:
+          bind_port: 8429
+          authenticate:
+            username: >-
+              {{{{ config.crypts.decrypt(
+                   "$ENCRYPT;1.0;enhomie;"
+                   "gAAAAABnssr4ATnkBC_-0"
+                   "XFKVpJ26zX1CUdodEkfUe"
+                   "Xpi_NazvIMuv-xXtbGhhv"
+                   "YyAj0oTjdpExJbY8_mElD"
+                   "opl_ySg1sxcQ0w==") }}}}
+
+        persists:
+
+          jupiter_aspire:
+            value_unit: status
+            value_label: Current Status
+            about: Aspire for Jupiter
+            about_label: Jupiter Aspire
+            about_icon: jupiter
+            level: information
+            tags: ['jupiter', 'aspire']
+
+          neptune_aspire:
+            value_unit: status
+            value_label: Current Status
+            about: Aspire for Neptune
+            about_label: Neptune Aspire
+            about_icon: neptune
+            level: information
+            tags: ['neptune', 'aspire']
+
+          jupiter_desire:
+            value_unit: status
+            value_label: Current Status
+            about: Desire for Jupiter
+            about_label: Jupiter Desire
+            about_icon: jupiter
+            level: information
+            tags: ['jupiter', 'desire']
+
+          neptune_desire:
+            value_unit: status
+            value_label: Current Status
+            about: Desire for Neptune
+            about_label: Neptune Desire
+            about_icon: neptune
+            level: information
+            tags: ['neptune', 'desire']
 
         """)
 
@@ -68,6 +124,8 @@ def config_factory(
         'potent': True,
         'console': True,
         'debug': True,
+        'faspires': None,
+        'fdesires': None,
         'idesire': 1,
         'iupdate': 1,
         'ihealth': 1,
@@ -252,3 +310,32 @@ def service(
 
     return service_factory(
         homie, respx_mock)
+
+
+
+def restful_factory(
+    homie: Homie,
+) -> HomieRestful:
+    """
+    Construct the instance for use in the downstream tests.
+
+    :param homie: Primary class instance for Homie Automate.
+    :returns: Newly constructed instance of related class.
+    """
+
+    return HomieRestful(homie)
+
+
+
+@fixture
+def restful(
+    homie: Homie,
+) -> HomieRestful:
+    """
+    Construct the instance for use in the downstream tests.
+
+    :param homie: Primary class instance for Homie Automate.
+    :returns: Newly constructed instance of related class.
+    """
+
+    return restful_factory(homie)

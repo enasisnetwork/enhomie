@@ -173,8 +173,26 @@ def arguments(  # noqa: CFQ001
         default=False,
         dest='paspire',
         help=(
-            'print the desired '
+            'print the aspired '
             'state to console'))
+
+
+    parser.add_argument(
+        '--desires_filters',
+        type=lambda x: x.split(','),
+        dest='fdesires',
+        help=(
+            'filter which desired '
+            'objects are created'))
+
+
+    parser.add_argument(
+        '--aspires_filters',
+        type=lambda x: x.split(','),
+        dest='faspires',
+        help=(
+            'filter which aspired '
+            'objects are created'))
 
 
     return vars(

@@ -22,6 +22,8 @@ from .desire import HomieDesireParams
 from .device import HomieDeviceParams
 from .group import HomieGroupParams
 from .origin import HomieOriginParams
+from .persist import HomiePersistParams
+from .restful import HomieRestfulParams
 from .scene import HomieSceneParams
 from .service import HomieServiceParams
 
@@ -85,10 +87,33 @@ class HomieParams(Params, extra='forbid'):
         Field(default_factory=HomiePrinterParams,
               description='Print the stream to console')]
 
+    persists: Annotated[
+        Optional[dict[str, HomiePersistParams]],
+        Field(None,
+              description='Parameters for common persists',
+              min_length=1)]
+
     service: Annotated[
         HomieServiceParams,
         Field(default_factory=HomieServiceParams,
               description='Parameters for Homie Service')]
+
+    restful: Annotated[
+        HomieRestfulParams,
+        Field(default_factory=HomieRestfulParams,
+              description='Parameters for Homie RESTful')]
+
+    aspires_filters: Annotated[
+        Optional[list[str]],
+        Field(None,
+              description='Patterns the names must match',
+              min_length=1)]
+
+    desires_filters: Annotated[
+        Optional[list[str]],
+        Field(None,
+              description='Patterns the names must match',
+              min_length=1)]
 
     origins: Annotated[
         Optional[dict[str, HomieOriginParams]],
@@ -167,7 +192,8 @@ class HomieParams(Params, extra='forbid'):
                 'dryrun',
                 'potent',
                 'printer',
-                'service']
+                'service',
+                'restful']
 
             for key in parsable:
 

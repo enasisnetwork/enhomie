@@ -17,7 +17,9 @@ from .homie import HomieParams
 from .homie import HomiePrinterParams
 from .occur import HomieOccurParams
 from .origin import HomieOriginParams
+from .persist import HomiePersistParams
 from .plugin import HomiePluginParams
+from .restful import HomieRestfulParams
 from .scene import HomieSceneParams
 from .service import HomieServiceParams
 from .store import HomieStoreParams
@@ -29,6 +31,7 @@ __all__ = [
     'HomieParams',
     'HomieParamsModel',
     'HomiePrinterParams',
+    'HomiePersistParams',
     'HomieChildParams',
     'HomieOriginParams',
     'HomieDeviceParams',
@@ -37,6 +40,7 @@ __all__ = [
     'HomieAspireParams',
     'HomieDesireParams',
     'HomieServiceParams',
+    'HomieRestfulParams',
     'HomiePluginParams',
     'HomieStoreParams',
     'HomieOccurParams',
