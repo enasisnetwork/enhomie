@@ -86,7 +86,7 @@ async def get_static_scripts(
 
     if local is not None:
         content += (
-            f"{'\n' * 3}"
+            r'\n\n\n'
             f'{read_text(local)}')
 
     await asyncio.sleep(0)
@@ -119,7 +119,7 @@ async def get_static_styles(
 
     if local is not None:
         content += (
-            f"{'\n' * 3}"
+            r'\n\n\n'
             f'{read_text(local)}')
 
     await asyncio.sleep(0)
