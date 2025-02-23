@@ -11,12 +11,15 @@ from dataclasses import dataclass
 from json import dumps
 from json import loads
 from threading import Lock
+from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
-from typing import Union
 
 from encommon.times import Time
 from encommon.times import unitime
+from encommon.times.common import UNITIME
+from encommon.types import DictStrAny
+from encommon.types import merge_dicts
 
 from sqlalchemy import Column
 from sqlalchemy import Numeric
@@ -38,8 +41,11 @@ HomiePersistValue = Optional[
 _PERSIST_VALUE = (
     int, float, bool, str)
 
-HomiePersistExpire = Union[
-    int, float, str]
+HomiePersistLevel = Literal[
+    'failure',
+    'information',
+    'success',
+    'warning']
 
 
 
@@ -57,11 +63,15 @@ class HomiePersistRecord:
     """
 
     unique: str
-    label: Optional[str]
     value: HomiePersistValue
-    unit: Optional[str]
-    icon: Optional[str]
+    value_unit: Optional[str]
+    value_label: Optional[str]
+    value_icon: Optional[str]
     about: Optional[str]
+    about_label: Optional[str]
+    about_icon: Optional[str]
+    level: Optional[HomiePersistLevel]
+    tags: Optional[list[str]]
     expire: Optional[Time]
     update: Time
 
@@ -75,20 +85,35 @@ class HomiePersistRecord:
         """
 
         unique = record.unique
-        label = record.label
         value = record.value
-        unit = record.unit
-        icon = record.icon
+        value_unit = record.value_unit
+        value_label = record.value_label
+        value_icon = record.value_icon
         about = record.about
+        about_label = record.about_label
+        about_icon = record.about_icon
+        level = record.level
+        tags = record.tags
         expire = record.expire
         update = record.update
 
 
         self.unique = str(unique)
 
-        self.label = (
-            str(label)
-            if label is not None
+
+        self.about = (
+            str(about)
+            if about is not None
+            else None)
+
+        self.about_label = (
+            str(about_label)
+            if about_label is not None
+            else None)
+
+        self.about_icon = (
+            str(about_icon)
+            if about_icon is not None
             else None)
 
 
@@ -100,20 +125,31 @@ class HomiePersistRecord:
             self.value,
             _PERSIST_VALUE)
 
-
-        self.unit = (
-            str(unit)
-            if unit is not None
+        self.value_label = (
+            str(value_label)
+            if value_label is not None
             else None)
 
-        self.icon = (
-            str(icon)
-            if icon is not None
+        self.value_icon = (
+            str(value_icon)
+            if value_icon is not None
             else None)
 
-        self.about = (
-            str(about)
-            if about is not None
+        self.value_unit = (
+            str(value_unit)
+            if value_unit is not None
+            else None)
+
+
+        self.level = (
+            str(level)  # type: ignore[assignment]
+            if level is not None
+            else None)
+
+
+        self.tags = (
+            loads(str(tags))
+            if tags is not None
             else None)
 
 
@@ -143,23 +179,39 @@ class HomiePersistTable(SQLBase):
         primary_key=True,
         nullable=False)
 
-    label = Column(
-        String,
-        nullable=True)
-
     value = Column(
         String,
         nullable=False)
 
-    unit = Column(
+    value_unit = Column(
         String,
         nullable=True)
 
-    icon = Column(
+    value_label = Column(
+        String,
+        nullable=True)
+
+    value_icon = Column(
         String,
         nullable=True)
 
     about = Column(
+        String,
+        nullable=True)
+
+    about_label = Column(
+        String,
+        nullable=True)
+
+    about_icon = Column(
+        String,
+        nullable=True)
+
+    level = Column(
+        String,
+        nullable=True)
+
+    tags = Column(
         String,
         nullable=True)
 
@@ -239,12 +291,16 @@ class HomiePersist:
         self,
         unique: str,
         value: HomiePersistValue,
-        expire: HomiePersistExpire = '30d',
+        expire: Optional[UNITIME] = None,
         *,
-        label: Optional[str] = None,
-        unit: Optional[str] = None,
-        icon: Optional[str] = None,
+        value_unit: Optional[str] = None,
+        value_label: Optional[str] = None,
+        value_icon: Optional[str] = None,
         about: Optional[str] = None,
+        about_label: Optional[str] = None,
+        about_icon: Optional[str] = None,
+        level: Optional[HomiePersistLevel] = None,
+        tags: Optional[list[str]] = None,
     ) -> None:
         """
         Insert the value within the persistent key value store.
@@ -252,47 +308,105 @@ class HomiePersist:
         .. note::
            This will replace existing record with primary key.
 
-        :param unique: Unique identifier from within the table.
-        :param value: Value Which will be stored within record.
-        :param expire: Optional time in seconds for expiration.
-        :param label: Optional human friendly label for value.
-        :param unit: Optional human friendly value unit label.
-        :param icon: Optional human friendly icon in Material.
-        :param about: Optional human friendly value description.
+        :param unique: Parameter value passed to the downstream.
+        :param value: Parameter value passed to the downstream.
+        :param value_unit: Parameter value passed to downstream.
+        :param value_label: Parameter value passed to downstream.
+        :param value_icon: Parameter value passed to downstream.
+        :param expire: Parameter value passed to the downstream.
+        :param about: Parameter value passed to the downstream.
+        :param about_label: Parameter value passed to downstream.
+        :param about_icon: Parameter value passed to downstream.
+        :param level: Parameter value passed to the downstream.
+        :param tags: Parameter value passed to the downstream.
         """
+
+        homie = self.__homie
+
+        params = homie.params
+
+        persists = (
+            params.persists
+            or {})
+
 
         sess = self.__session()
         lock = self.__locker
 
-
-        expire = unitime(expire)
-
-        assert isinstance(expire, int)
-
-        update = Time().spoch
-        expire = update + expire
+        table = HomiePersistTable
 
 
         if value is None:
+
             self.delete(unique)
+
             return None
 
         assert isinstance(
             value, _PERSIST_VALUE)
 
 
+        update = Time().spoch
+
+
+        if expire is not None:
+
+            expire = unitime(expire)
+
+            assert isinstance(
+                expire, int)
+
+            expire = update + expire
+
+
+        default: DictStrAny = {}
+
+        if unique in persists:
+
+            default = (
+                persists[unique]
+                .endumped)
+
+
+        inputs: DictStrAny = {
+            'unique': unique,
+            'value': value,
+            'value_unit': value_unit,
+            'value_label': value_label,
+            'value_icon': value_icon,
+            'about': about,
+            'about_label': about_label,
+            'about_icon': about_icon,
+            'level': level,
+            'tags': tags,
+            'expire': expire,
+            'update': update}
+
+        inputs = {
+            k: v for k, v
+            in inputs.items()
+            if v is not None}
+
+
+        insert: DictStrAny = (
+            merge_dicts(
+                default, inputs,
+                force=True,
+                merge_list=False,
+                paranoid=True))
+
+        insert['value'] = (
+            dumps(insert['value']))
+
+        if 'tags' in insert:
+            insert['tags'] = (
+                dumps(insert['tags']))
+
+
         with lock, sess as session:
 
             session.merge(
-                HomiePersistTable(
-                    unique=unique,
-                    label=label,
-                    value=dumps(value),
-                    unit=unit,
-                    icon=icon,
-                    about=about,
-                    expire=expire,
-                    update=update))
+                table(**insert))
 
             session.commit()
 
@@ -397,13 +511,47 @@ class HomiePersist:
             session.commit()
 
 
+    def record(
+        self,
+        unique: str,
+    ) -> HomiePersistRecord:
+        """
+        Return the record within the persistent key value store.
+
+        :param unique: Unique identifier from within the table.
+        :returns: Record within the persistent key value store.
+        """
+
+        sess = self.__session()
+        lock = self.__locker
+
+        table = HomiePersistTable
+        model = HomiePersistRecord
+        field = table.unique
+
+        self.expire()
+
+
+        with lock, sess as session:
+
+            query = (
+                session.query(table)
+                .filter(field == unique))
+
+            record = query.first()
+
+            assert record is not None
+
+            return model(record)
+
+
     def records(
         self,
     ) -> list[HomiePersistRecord]:
         """
-        Return all records from in persistent key value store.
+        Return all records within the persistent key value store.
 
-        :returns: Records from in persistent key value store.
+        :returns: Records within the persistent key value store.
         """
 
         sess = self.__session()

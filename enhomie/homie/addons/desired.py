@@ -362,10 +362,19 @@ class HomieDesired:
                     value.unique,
                     parsed,
                     value.expire,
-                    label=value.label,
-                    unit=value.unit,
-                    icon=value.icon,
-                    about=value.about)
+                    value_unit=(
+                        value.value_unit),
+                    value_label=(
+                        value.value_label),
+                    value_icon=(
+                        value.value_icon),
+                    about=value.about,
+                    about_label=(
+                        value.about_label),
+                    about_icon=(
+                        value.about_icon),
+                    level=value.level,
+                    tags=value.tags)
 
 
         objects = targets.values()

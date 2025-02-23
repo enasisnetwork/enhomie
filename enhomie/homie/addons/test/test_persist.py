@@ -7,6 +7,7 @@ is permitted, for more information consult the project license file.
 
 
 
+from dataclasses import asdict
 from typing import TYPE_CHECKING
 
 from encommon.types import inrepr
@@ -53,40 +54,59 @@ def test_HomiePersist(
 
 
     persist.insert(
-        unique='present',
-        value=False)
+        'jupiter_aspire',
+        False)
 
     value = (
         persist
-        .select('present'))
+        .select('jupiter_aspire'))
 
     assert value is False
 
 
+    record = asdict(
+        persist
+        .record('jupiter_aspire'))
+
+    assert record == {
+        'about': 'Aspire for Jupiter',
+        'about_icon': 'jupiter',
+        'about_label': 'Jupiter Aspire',
+        'expire': None,
+        'level': 'information',
+        'tags': ['jupiter', 'aspire'],
+        'unique': 'jupiter_aspire',
+        'update': record['update'],
+        'value': False,
+        'value_icon': None,
+        'value_label': 'Current Status',
+        'value_unit': 'status'}
+
+
     persist.delete(
-        unique='present')
+        'jupiter_aspire')
 
     value = (
         persist
-        .select('present'))
+        .select('jupiter_aspire'))
 
     assert value is None
 
 
     persist.insert(
-        unique='present',
+        'jupiter_aspire',
         value=True,
         expire=-1)
 
     value = (
         persist
-        .select('present'))
+        .select('jupiter_aspire'))
 
     assert value is None
 
 
 
-def test_HomiePersist_cover(
+def test_HomiePersist_cover(  # noqa: CFQ001
     homie: 'Homie',
 ) -> None:
     """
@@ -115,7 +135,8 @@ def test_HomiePersist_cover(
 
     persist.insert(
         unique='types',
-        value=1)
+        value=1,
+        tags=['one', 'two'])
 
     value = (
         persist
@@ -126,8 +147,22 @@ def test_HomiePersist_cover(
     records = persist.records()
 
     assert len(records) == 1
-    assert records[0].unique == 'types'
-    assert records[0].value == 1
+
+    record = asdict(records[0])
+
+    assert record == {
+        'about': None,
+        'about_icon': None,
+        'about_label': None,
+        'expire': record['expire'],
+        'level': None,
+        'tags': ['one', 'two'],
+        'unique': 'types',
+        'update': record['update'],
+        'value': 1,
+        'value_icon': None,
+        'value_label': None,
+        'value_unit': None}
 
 
     persist.insert(

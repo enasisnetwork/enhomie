@@ -16,6 +16,56 @@
   "enlogger": {
     "stdo_level": "debug"
   },
+  "persists": {
+    "jupiter_aspire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "about": "Aspire for Jupiter",
+      "about_label": "Jupiter Aspire",
+      "about_icon": "jupiter",
+      "level": "information",
+      "tags": [
+        "jupiter",
+        "aspire"
+      ]
+    },
+    "neptune_aspire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "about": "Aspire for Neptune",
+      "about_label": "Neptune Aspire",
+      "about_icon": "neptune",
+      "level": "information",
+      "tags": [
+        "neptune",
+        "aspire"
+      ]
+    },
+    "jupiter_desire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "about": "Desire for Jupiter",
+      "about_label": "Jupiter Desire",
+      "about_icon": "jupiter",
+      "level": "information",
+      "tags": [
+        "jupiter",
+        "desire"
+      ]
+    },
+    "neptune_desire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "about": "Desire for Neptune",
+      "about_label": "Neptune Desire",
+      "about_icon": "neptune",
+      "level": "information",
+      "tags": [
+        "neptune",
+        "desire"
+      ]
+    }
+  },
   "restful": {
     "bind_port": 8429,
     "authenticate": {
@@ -25,6 +75,8 @@
   "dryrun": false,
   "potent": true,
   "service": {
+    "aspires": true,
+    "desires": true,
     "respite": {
       "desire": 1,
       "update": 1,

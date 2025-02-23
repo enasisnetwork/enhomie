@@ -21,7 +21,16 @@ from pydantic import BaseModel
 from pydantic import Field
 
 from ..homie.addons.persist import HomiePersistRecord
-from ..homie.addons.persist import HomiePersistValue
+from ..homie.params.persist import _PARAM_ABOUT
+from ..homie.params.persist import _PARAM_ABOUT_ICON
+from ..homie.params.persist import _PARAM_ABOUT_LABEL
+from ..homie.params.persist import _PARAM_LEVEL
+from ..homie.params.persist import _PARAM_TAGS
+from ..homie.params.persist import _PARAM_VALUE_ICON
+from ..homie.params.persist import _PARAM_VALUE_LABEL
+from ..homie.params.persist import _PARAM_VALUE_UNIT
+from ..homie.params.store import _PARAM_UNIQUE
+from ..homie.params.store import _PARAM_VALUE
 
 
 
@@ -35,40 +44,25 @@ class HomiePersistEntry(BaseModel, extra='forbid'):
     Contain the information regarding the persistent value.
     """
 
-    unique: Annotated[
-        str,
-        Field(...,
-              description='Unique key for the value',
-              min_length=1)]
+    unique: _PARAM_UNIQUE
 
-    label: Annotated[
-        Optional[str],
-        Field(None,
-              description='Friendly label for the value',
-              min_length=1)]
+    value: _PARAM_VALUE
 
-    value: Annotated[
-        HomiePersistValue,
-        Field(...,
-              description='Value stored at the key')]
+    value_unit: _PARAM_VALUE_UNIT
 
-    unit: Annotated[
-        Optional[str],
-        Field(None,
-              description='Friendly unit for the value',
-              min_length=1)]
+    value_label: _PARAM_VALUE_LABEL
 
-    icon: Annotated[
-        Optional[str],
-        Field(None,
-              description='Friendly icon for the value',
-              min_length=1)]
+    value_icon: _PARAM_VALUE_ICON
 
-    about: Annotated[
-        Optional[str],
-        Field(None,
-              description='Friendly about for the value',
-              min_length=1)]
+    about: _PARAM_ABOUT
+
+    about_label: _PARAM_ABOUT_LABEL
+
+    about_icon: _PARAM_ABOUT_ICON
+
+    level: _PARAM_LEVEL
+
+    tags: _PARAM_TAGS
 
     expire: Annotated[
         Optional[str],
@@ -135,6 +129,10 @@ async def get_persists(
         HomiePersistEntry(x)
         for x in
         persist.records()]
+
+    entries = sorted(
+        entries,
+        key=lambda x: x.unique)
 
     return HomiePersistEntries(
         entries=entries,

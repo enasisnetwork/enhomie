@@ -34,11 +34,13 @@ def test_get_persists(
 
     persist.insert(
         unique='one',
-        label='Total Bytes',
-        value=1000,
-        unit='bytes',
-        icon='inbox',
+        value=1e9,
+        value_unit='bytes',
         about='Amount of bytes sent',
+        about_label='Total Bytes Sent',
+        about_icon='inbox',
+        level='success',
+        tags=['one', 'two', 'three'],
         expire='1d')
 
     path = '/api/persists'
@@ -54,10 +56,14 @@ def test_get_persists(
     assert entries == [
 
         {'about': 'Amount of bytes sent',
+         'about_icon': 'inbox',
+         'about_label': 'Total Bytes Sent',
          'expire': entries[0]['expire'],
-         'icon': 'inbox',
-         'label': 'Total Bytes',
+         'level': 'success',
+         'tags': ['one', 'two', 'three'],
          'unique': 'one',
-         'unit': 'bytes',
          'update': entries[0]['update'],
-         'value': 1000}]
+         'value': 1000000000.0,
+         'value_icon': None,
+         'value_label': None,
+         'value_unit': 'bytes'}]

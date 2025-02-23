@@ -76,6 +76,23 @@ class HomieConfig(Config):
             cargs['potent'] = _potent
 
 
+        _aspires = (
+            sargs.get('aspires'))
+
+        _desires = (
+            sargs.get('desires'))
+
+        prefix = 'service'
+
+        if _aspires is not None:
+            key = f'{prefix}/aspires'
+            cargs[key] = _aspires
+
+        if _desires is not None:
+            key = f'{prefix}/desires'
+            cargs[key] = _desires
+
+
         _idesire = (
             sargs.get('idesire'))
 

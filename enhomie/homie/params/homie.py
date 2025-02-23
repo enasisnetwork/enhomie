@@ -22,6 +22,7 @@ from .desire import HomieDesireParams
 from .device import HomieDeviceParams
 from .group import HomieGroupParams
 from .origin import HomieOriginParams
+from .persist import HomiePersistParams
 from .restful import HomieRestfulParams
 from .scene import HomieSceneParams
 from .service import HomieServiceParams
@@ -85,6 +86,12 @@ class HomieParams(Params, extra='forbid'):
         HomiePrinterParams,
         Field(default_factory=HomiePrinterParams,
               description='Print the stream to console')]
+
+    persists: Annotated[
+        Optional[dict[str, HomiePersistParams]],
+        Field(None,
+              description='Parameters for common persists',
+              min_length=1)]
 
     service: Annotated[
         HomieServiceParams,

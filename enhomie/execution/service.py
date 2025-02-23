@@ -173,8 +173,28 @@ def arguments(  # noqa: CFQ001
         default=False,
         dest='paspire',
         help=(
-            'print the desired '
+            'print the aspired '
             'state to console'))
+
+
+    parser.add_argument(
+        '--disable_desires',
+        action='store_false',
+        default=True,
+        dest='desires',
+        help=(
+            'disable the desired '
+            'service routines'))
+
+
+    parser.add_argument(
+        '--disable_aspires',
+        action='store_false',
+        default=True,
+        dest='aspires',
+        help=(
+            'disable the aspired '
+            'service routines'))
 
 
     return vars(

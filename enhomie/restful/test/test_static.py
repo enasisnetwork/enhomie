@@ -37,7 +37,7 @@ def test_get_static(
     assert response.status_code == 200
 
     assert instr(
-        'function get_persists()',
+        '<!DOCTYPE html>',
         response.text)
 
 
@@ -45,4 +45,46 @@ def test_get_static(
 
     response = client.get(path)
 
+    assert response.status_code == 403
+
+
+    path = '/static/doesnotexist.html'
+
+    response = client.get(path)
+
     assert response.status_code == 404
+
+
+    path = '/static/styles/default'
+
+    response = client.get(path)
+
+    assert response.status_code == 200
+
+
+    path = '/static/scripts/default'
+
+    response = client.get(path)
+
+    assert response.status_code == 200
+
+
+    path = '/static/scripts/restful'
+
+    response = client.get(path)
+
+    assert response.status_code == 200
+
+
+    path = '/static/images/success'
+
+    response = client.get(path)
+
+    assert response.status_code == 200
+
+
+    path = '/static/images/motion'
+
+    response = client.get(path)
+
+    assert response.status_code == 200

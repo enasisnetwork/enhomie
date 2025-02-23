@@ -79,3 +79,13 @@ class HomieServiceParams(HomieParamsModel, extra='forbid'):
         HomieServiceTimeoutParams,
         Field(default_factory=HomieServiceTimeoutParams,
               description='Override source or defaults')]
+
+    aspires: Annotated[
+        bool,
+        Field(True,
+              description='Whether to process aspires')]
+
+    desires: Annotated[
+        bool,
+        Field(True,
+              description='Whether to process desires')]
