@@ -7,7 +7,6 @@ is permitted, for more information consult the project license file.
 
 
 
-from typing import Any
 from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
@@ -17,7 +16,6 @@ from encommon.times import TimerParams
 from encommon.times import Timers
 from encommon.times import TimersParams
 from encommon.times.params import _TIMERS
-from encommon.types import DictStrAny
 
 from .child import HomieChild
 from .helpers import whered
@@ -428,27 +426,3 @@ class HomieDesire(HomieChild):
             timers.update(
                 f'{kind}/{name}',
                 value=update)
-
-
-    def j2parse(
-        self,
-        value: Any,  # noqa: ANN401
-        statics: Optional[DictStrAny] = None,
-        literal: bool = True,
-    ) -> Any:  # noqa: ANN401
-        """
-        Return the provided input using the Jinja2 environment.
-
-        :param value: Input that will be processed and returned.
-        :param statics: Additional values available for parsing.
-        :param literal: Determine if Python objects are evaled.
-        :returns: Provided input using the Jinja2 environment.
-        """
-
-        _statics = {'desire': self}
-
-        if statics is not None:
-            _statics |= dict(statics)
-
-        return self.homie.j2parse(
-            value, _statics, literal)

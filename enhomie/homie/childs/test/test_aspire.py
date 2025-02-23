@@ -98,13 +98,6 @@ def test_HomieAspire(
         assert aspire.dumped
 
 
-        parsed = aspire.j2parse(
-            '{{ foo }}',
-            {'foo': 'bar'})
-
-        assert parsed == 'bar'
-
-
 
 def test_HomieAspire_cover(
     tmp_path: Path,

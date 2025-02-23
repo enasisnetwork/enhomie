@@ -41,10 +41,13 @@ async function
   $('#persists')
     .append($('<br/>'));
 
+
+  function _refresh() {
+    persist_datagrid(refresh); }
+
   if (!isnull(refresh))
     setTimeout(
-      'persist_datagrid()',
-      refresh); }
+      _refresh, refresh); }
 
 
 

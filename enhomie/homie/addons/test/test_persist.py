@@ -7,7 +7,6 @@ is permitted, for more information consult the project license file.
 
 
 
-from dataclasses import asdict
 from typing import TYPE_CHECKING
 
 from encommon.types import inrepr
@@ -64,9 +63,10 @@ def test_HomiePersist(
     assert value is False
 
 
-    record = asdict(
+    record = (
         persist
-        .record('jupiter_aspire'))
+        .record('jupiter_aspire')
+        .endumped)
 
     assert record == {
         'about': 'Aspire for Jupiter',
@@ -148,7 +148,7 @@ def test_HomiePersist_cover(  # noqa: CFQ001
 
     assert len(records) == 1
 
-    record = asdict(records[0])
+    record = records[0].endumped
 
     assert record == {
         'about': None,

@@ -157,19 +157,24 @@ def operation(
     config = homie.config
     sargs = config.sargs
 
+    insert: DictStrAny = {
+        x: sargs.get(x)
+        for x in [
+            'unique',
+            'value',
+            'expire',
+            'value_unit',
+            'value_label',
+            'value_icon',
+            'about',
+            'about_label',
+            'about_icon',
+            'level',
+            'tags']}
+
     (homie.persist
-     .insert(
-         unique=sargs['unique'],
-         value=sargs['value'],
-         value_unit=sargs['value_unit'],
-         value_label=sargs['value_label'],
-         value_icon=sargs['value_icon'],
-         expire=sargs['expire'],
-         about=sargs['about'],
-         about_label=sargs['about_label'],
-         about_icon=sargs['about_icon'],
-         level=sargs['level'],
-         tags=sargs['tags']))
+     .insert(**insert))
+
 
 
 def execution(

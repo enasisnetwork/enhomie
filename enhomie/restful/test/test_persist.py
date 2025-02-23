@@ -33,15 +33,13 @@ def test_get_persists(
     persist = homie.persist
 
     persist.insert(
-        unique='one',
-        value=1e9,
-        value_unit='bytes',
-        about='Amount of bytes sent',
-        about_label='Total Bytes Sent',
-        about_icon='inbox',
-        level='success',
-        tags=['one', 'two', 'three'],
-        expire='1d')
+        'jupiter_aspire',
+        False)
+
+    persist.insert(
+        'neptune_aspire',
+        False)
+
 
     path = '/api/persists'
 
@@ -53,17 +51,31 @@ def test_get_persists(
 
     entries = _response['entries']
 
+
     assert entries == [
 
-        {'about': 'Amount of bytes sent',
-         'about_icon': 'inbox',
-         'about_label': 'Total Bytes Sent',
-         'expire': entries[0]['expire'],
-         'level': 'success',
-         'tags': ['one', 'two', 'three'],
-         'unique': 'one',
+        {'about': 'Aspire for Jupiter',
+         'about_icon': 'jupiter',
+         'about_label': 'Jupiter Aspire',
+         'expire': None,
+         'level': 'information',
+         'tags': ['jupiter', 'aspire'],
+         'unique': 'jupiter_aspire',
          'update': entries[0]['update'],
-         'value': 1000000000.0,
+         'value': False,
          'value_icon': None,
-         'value_label': None,
-         'value_unit': 'bytes'}]
+         'value_label': 'Current Status',
+         'value_unit': 'status'},
+
+        {'about': 'Aspire for Neptune',
+         'about_icon': 'neptune',
+         'about_label': 'Neptune Aspire',
+         'expire': None,
+         'level': 'information',
+         'tags': ['neptune', 'aspire'],
+         'unique': 'neptune_aspire',
+         'update': entries[1]['update'],
+         'value': False,
+         'value_icon': None,
+         'value_label': 'Current Status',
+         'value_unit': 'status'}]

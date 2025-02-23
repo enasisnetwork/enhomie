@@ -24,19 +24,21 @@ from .persist import _PARAM_TAGS
 from .persist import _PARAM_VALUE_ICON
 from .persist import _PARAM_VALUE_LABEL
 from .persist import _PARAM_VALUE_UNIT
-from ..addons import HomiePersistValue
+from ..addons.persist import HomiePersistValue
+from ..addons.persist import _PERSIST_ABOUT
+
 
 
 _PARAM_UNIQUE = Annotated[
     str,
     Field(...,
-          description='Unique key for the value',
+          description=_PERSIST_ABOUT['unique'],
           min_length=1)]
 
 _PARAM_VALUE = Annotated[
     HomiePersistValue,
     Field(...,
-          description='Value stored at unique')]
+          description=_PERSIST_ABOUT['value'])]
 
 
 

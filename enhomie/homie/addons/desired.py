@@ -12,6 +12,7 @@ from typing import Optional
 from typing import TYPE_CHECKING
 
 from encommon.times import Time
+from encommon.types import DictStrAny
 
 if TYPE_CHECKING:
     from ..childs import HomieDesire
@@ -354,27 +355,22 @@ class HomieDesired:
 
             for value in store:
 
-                parsed = (
-                    desire.j2parse(
-                        value.value))
+                insert: DictStrAny = {
+                    x: getattr(value, x)
+                    for x in [
+                        'unique',
+                        'value',
+                        'expire',
+                        'value_unit',
+                        'value_label',
+                        'value_icon',
+                        'about',
+                        'about_label',
+                        'about_icon',
+                        'level',
+                        'tags']}
 
-                persist.insert(
-                    value.unique,
-                    parsed,
-                    value.expire,
-                    value_unit=(
-                        value.value_unit),
-                    value_label=(
-                        value.value_label),
-                    value_icon=(
-                        value.value_icon),
-                    about=value.about,
-                    about_label=(
-                        value.about_label),
-                    about_icon=(
-                        value.about_icon),
-                    level=value.level,
-                    tags=value.tags)
+                persist.insert(**insert)
 
 
         objects = targets.values()
