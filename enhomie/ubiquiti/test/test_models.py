@@ -24,3 +24,8 @@ def test_UbiqModels_cover() -> None:
     drivers = models.drivers()
 
     assert drivers.client()
+
+    helpers = drivers.helpers()
+
+    assert callable(
+        helpers.latest())

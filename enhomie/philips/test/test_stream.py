@@ -76,6 +76,8 @@ def test_PhueStream_samples(
     :param bodies: Locations and groups for use in testing.
     """
 
+    assert service.streams
+
     member = service.streams
     threads = member.threads
     squeue = member.squeue

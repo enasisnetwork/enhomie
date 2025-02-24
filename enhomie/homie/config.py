@@ -76,6 +76,21 @@ class HomieConfig(Config):
             cargs['potent'] = _potent
 
 
+        _faspires = (
+            sargs.get('faspires'))
+
+        _fdesires = (
+            sargs.get('fdesires'))
+
+        if _faspires is not None:
+            key = 'filters/aspires'
+            cargs[key] = _faspires
+
+        if _fdesires is not None:
+            key = 'filters/desires'
+            cargs[key] = _fdesires
+
+
         _idesire = (
             sargs.get('idesire'))
 
@@ -98,6 +113,37 @@ class HomieConfig(Config):
         if _ihealth is not None:
             key = f'{prefix}/health'
             cargs[key] = _ihealth
+
+
+        _dactions = (
+            sargs.get('dactions'))
+
+        _dupdates = (
+            sargs.get('dupdates'))
+
+        _dstreams = (
+            sargs.get('dstreams'))
+
+        _erestful = (
+            sargs.get('erestful'))
+
+        prefix = 'service/members'
+
+        if _dactions is not None:
+            key = f'{prefix}/actions'
+            cargs[key] = not _dactions
+
+        if _dupdates is not None:
+            key = f'{prefix}/updates'
+            cargs[key] = not _dupdates
+
+        if _dstreams is not None:
+            key = f'{prefix}/streams'
+            cargs[key] = not _dstreams
+
+        if _erestful is not None:
+            key = f'{prefix}/restful'
+            cargs[key] = _erestful
 
 
         _atimeout = (

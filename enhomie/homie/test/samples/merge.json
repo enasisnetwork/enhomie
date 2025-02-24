@@ -6,6 +6,13 @@
       "_/encommon_sample/TMPPATH/_/homie"
     ]
   },
+  "encrypts": {
+    "phrases": {
+      "enhomie": {
+        "phrase": "oIUc2odGYMKycATXsvXTMzxe0Qbq4z3YPPIWS8fH_uU="
+      }
+    }
+  },
   "enlogger": {
     "stdo_level": "debug"
   },
@@ -279,7 +286,10 @@
               "jupiter_contact",
               "jupiter_switch"
             ],
-            "sensors": "motion",
+            "sensors": [
+              "motion",
+              "temperature"
+            ],
             "since": 900
           },
           "negate": true,
@@ -393,7 +403,10 @@
               "neptune_contact",
               "neptune_switch"
             ],
-            "sensors": "motion",
+            "sensors": [
+              "motion",
+              "temperature"
+            ],
             "since": 900
           },
           "negate": true,
@@ -636,6 +649,61 @@
           "ssl_verify": false
         }
       }
+    }
+  },
+  "persists": {
+    "jupiter_aspire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "about": "Aspire for Jupiter",
+      "about_label": "Jupiter Aspire",
+      "about_icon": "jupiter",
+      "level": "information",
+      "tags": [
+        "jupiter",
+        "aspire"
+      ]
+    },
+    "neptune_aspire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "about": "Aspire for Neptune",
+      "about_label": "Neptune Aspire",
+      "about_icon": "neptune",
+      "level": "information",
+      "tags": [
+        "neptune",
+        "aspire"
+      ]
+    },
+    "jupiter_desire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "about": "Desire for Jupiter",
+      "about_label": "Jupiter Desire",
+      "about_icon": "jupiter",
+      "level": "information",
+      "tags": [
+        "jupiter",
+        "desire"
+      ]
+    },
+    "neptune_desire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "about": "Desire for Neptune",
+      "about_label": "Neptune Desire",
+      "about_icon": "neptune",
+      "level": "information",
+      "tags": [
+        "neptune",
+        "desire"
+      ]
+    }
+  },
+  "restful": {
+    "authenticate": {
+      "username": "{{ config.crypts.decrypt(\n   \"$ENCRYPT;1.0;enhomie;\"\n   \"gAAAAABnssr4ATnkBC_-0\"\n   \"XFKVpJ26zX1CUdodEkfUe\"\n   \"Xpi_NazvIMuv-xXtbGhhv\"\n   \"YyAj0oTjdpExJbY8_mElD\"\n   \"opl_ySg1sxcQ0w==\") }}"
     }
   },
   "scenes": {

@@ -79,3 +79,18 @@ def test_HomieConfig(
         replace=replaces)
 
     assert expect == sample
+
+
+
+def test_HomieConfig_cover() -> None:
+    """
+    Perform various tests associated with relevant routines.
+    """
+
+    HomieConfig({
+        'fdesires': ['neptune_*'],
+        'faspires': ['neptune_*'],
+        'dactions': True,
+        'dupdates': True,
+        'dstreams': True,
+        'erestful': True})

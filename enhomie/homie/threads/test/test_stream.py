@@ -95,6 +95,8 @@ def test_HomieStream(
     :param bodies: Locations and groups for use in testing.
     """
 
+    assert service.streams
+
     member = service.streams
     threads = member.threads
 

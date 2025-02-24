@@ -9,6 +9,7 @@ is permitted, for more information consult the project license file.
 
 from .actions import HomieActions
 from .member import HomieMember
+from .restful import HomieRestful
 from .streams import HomieStreams
 from .updates import HomieUpdates
 
@@ -18,4 +19,5 @@ __all__ = [
     'HomieMember',
     'HomieActions',
     'HomieUpdates',
-    'HomieStreams']
+    'HomieStreams',
+    'HomieRestful']

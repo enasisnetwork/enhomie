@@ -18,7 +18,7 @@ from ..homie import HomieConfig
 
 
 
-def arguments(
+def arguments(  # noqa: CFQ001
     args: Optional[list[str]] = None,
 ) -> DictStrAny:
     """
@@ -82,6 +82,62 @@ def arguments(
             'be removed from table'))
 
 
+    parser.add_argument(
+        '--value_unit',
+        help=(
+            'additional parameter '
+            'passed to insert method'))
+
+
+    parser.add_argument(
+        '--value_label',
+        help=(
+            'additional parameter '
+            'passed to insert method'))
+
+
+    parser.add_argument(
+        '--value_icon',
+        help=(
+            'additional parameter '
+            'passed to insert method'))
+
+
+    parser.add_argument(
+        '--about',
+        help=(
+            'additional parameter '
+            'passed to insert method'))
+
+
+    parser.add_argument(
+        '--about_label',
+        help=(
+            'additional parameter '
+            'passed to insert method'))
+
+
+    parser.add_argument(
+        '--about_icon',
+        help=(
+            'additional parameter '
+            'passed to insert method'))
+
+
+    parser.add_argument(
+        '--level',
+        help=(
+            'additional parameter '
+            'passed to insert method'))
+
+
+    parser.add_argument(
+        '--tags',
+        help=(
+            'additional parameter '
+            'passed to insert method'))
+
+
     return vars(
         parser
         .parse_args(args))
@@ -101,12 +157,24 @@ def operation(
     config = homie.config
     sargs = config.sargs
 
-    unique = sargs['unique']
-    value = sargs['value']
-    expire = sargs['expire']
+    insert: DictStrAny = {
+        x: sargs.get(x)
+        for x in [
+            'unique',
+            'value',
+            'expire',
+            'value_unit',
+            'value_label',
+            'value_icon',
+            'about',
+            'about_label',
+            'about_icon',
+            'level',
+            'tags']}
 
     (homie.persist
-     .insert(unique, value, expire))
+     .insert(**insert))
+
 
 
 def execution(

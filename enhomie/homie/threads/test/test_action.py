@@ -128,6 +128,8 @@ def test_HomieAction(
     :param bodies: Locations and groups for use in testing.
     """
 
+    assert service.actions
+
     member = service.actions
     threads = member.threads
 

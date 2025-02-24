@@ -10,7 +10,13 @@
     "file_level": null,
     "file_path": null
   },
-  "encrypts": null,
+  "encrypts": {
+    "phrases": {
+      "enhomie": {
+        "phrase": "oIUc2odGYMKycATXsvXTMzxe0Qbq4z3YPPIWS8fH_uU="
+      }
+    }
+  },
   "database": "sqlite:///_/encommon_sample/TMPPATH/_/db",
   "dryrun": false,
   "potent": true,
@@ -31,7 +37,85 @@
       "action": 1,
       "update": 1,
       "stream": 1
+    },
+    "members": {
+      "actions": true,
+      "streams": true,
+      "updates": true,
+      "restful": false
     }
+  },
+  "restful": {
+    "bind_addr": "127.0.0.1",
+    "bind_port": 8420,
+    "authenticate": {
+      "username": "password"
+    },
+    "ssl_capem": null,
+    "ssl_mypem": null,
+    "ssl_mykey": null
+  },
+  "persists": {
+    "jupiter_aspire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "value_icon": null,
+      "about": "Aspire for Jupiter",
+      "about_label": "Jupiter Aspire",
+      "about_icon": "jupiter",
+      "level": "information",
+      "tags": [
+        "jupiter",
+        "aspire"
+      ],
+      "expire": null
+    },
+    "neptune_aspire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "value_icon": null,
+      "about": "Aspire for Neptune",
+      "about_label": "Neptune Aspire",
+      "about_icon": "neptune",
+      "level": "information",
+      "tags": [
+        "neptune",
+        "aspire"
+      ],
+      "expire": null
+    },
+    "jupiter_desire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "value_icon": null,
+      "about": "Desire for Jupiter",
+      "about_label": "Jupiter Desire",
+      "about_icon": "jupiter",
+      "level": "information",
+      "tags": [
+        "jupiter",
+        "desire"
+      ],
+      "expire": null
+    },
+    "neptune_desire": {
+      "value_unit": "status",
+      "value_label": "Current Status",
+      "value_icon": null,
+      "about": "Desire for Neptune",
+      "about_label": "Neptune Desire",
+      "about_icon": "neptune",
+      "level": "information",
+      "tags": [
+        "neptune",
+        "desire"
+      ],
+      "expire": null
+    }
+  },
+  "filters": {
+    "aspires": null,
+    "desires": null
   },
   "origins": {
     "jupiter_hubitat": {
@@ -528,6 +612,14 @@
           {
             "unique": "jupiter_desire",
             "value": "active",
+            "value_unit": null,
+            "value_label": null,
+            "value_icon": null,
+            "about": null,
+            "about_label": null,
+            "about_icon": null,
+            "level": null,
+            "tags": null,
             "expire": "1d"
           }
         ],
@@ -557,7 +649,8 @@
                 "jupiter_switch"
               ],
               "sensors": [
-                "motion"
+                "motion",
+                "temperature"
               ],
               "since": 900
             },
@@ -624,6 +717,14 @@
           {
             "unique": "jupiter_desire",
             "value": "standby",
+            "value_unit": null,
+            "value_label": null,
+            "value_icon": null,
+            "about": null,
+            "about_label": null,
+            "about_icon": null,
+            "level": null,
+            "tags": null,
             "expire": "1d"
           }
         ],
@@ -663,6 +764,14 @@
           {
             "unique": "jupiter_desire",
             "value": "absent",
+            "value_unit": null,
+            "value_label": null,
+            "value_icon": null,
+            "about": null,
+            "about_label": null,
+            "about_icon": null,
+            "level": null,
+            "tags": null,
             "expire": "1d"
           }
         ],
@@ -708,6 +817,14 @@
           {
             "unique": "neptune_desire",
             "value": "active",
+            "value_unit": null,
+            "value_label": null,
+            "value_icon": null,
+            "about": null,
+            "about_label": null,
+            "about_icon": null,
+            "level": null,
+            "tags": null,
             "expire": "1d"
           }
         ],
@@ -737,7 +854,8 @@
                 "neptune_switch"
               ],
               "sensors": [
-                "motion"
+                "motion",
+                "temperature"
               ],
               "since": 900
             },
@@ -804,6 +922,14 @@
           {
             "unique": "neptune_desire",
             "value": "standby",
+            "value_unit": null,
+            "value_label": null,
+            "value_icon": null,
+            "about": null,
+            "about_label": null,
+            "about_icon": null,
+            "level": null,
+            "tags": null,
             "expire": "1d"
           }
         ],
@@ -843,6 +969,14 @@
           {
             "unique": "neptune_desire",
             "value": "absent",
+            "value_unit": null,
+            "value_label": null,
+            "value_icon": null,
+            "about": null,
+            "about_label": null,
+            "about_icon": null,
+            "level": null,
+            "tags": null,
             "expire": "1d"
           }
         ],
@@ -890,6 +1024,14 @@
           {
             "unique": "jupiter_aspire",
             "value": "active",
+            "value_unit": null,
+            "value_label": null,
+            "value_icon": null,
+            "about": null,
+            "about_label": null,
+            "about_icon": null,
+            "level": null,
+            "tags": null,
             "expire": "1d"
           }
         ],
@@ -1004,6 +1146,14 @@
           {
             "unique": "jupiter_aspire",
             "value": "standby",
+            "value_unit": null,
+            "value_label": null,
+            "value_icon": null,
+            "about": null,
+            "about_label": null,
+            "about_icon": null,
+            "level": null,
+            "tags": null,
             "expire": "1d"
           }
         ],
@@ -1073,6 +1223,14 @@
           {
             "unique": "neptune_aspire",
             "value": "active",
+            "value_unit": null,
+            "value_label": null,
+            "value_icon": null,
+            "about": null,
+            "about_label": null,
+            "about_icon": null,
+            "level": null,
+            "tags": null,
             "expire": "1d"
           }
         ],
@@ -1187,6 +1345,14 @@
           {
             "unique": "neptune_aspire",
             "value": "standby",
+            "value_unit": null,
+            "value_label": null,
+            "value_icon": null,
+            "about": null,
+            "about_label": null,
+            "about_icon": null,
+            "level": null,
+            "tags": null,
             "expire": "1d"
           }
         ],

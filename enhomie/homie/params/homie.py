@@ -22,8 +22,10 @@ from .desire import HomieDesireParams
 from .device import HomieDeviceParams
 from .group import HomieGroupParams
 from .origin import HomieOriginParams
+from .persist import HomiePersistParams
 from .scene import HomieSceneParams
 from .service import HomieServiceParams
+from ...restful import RestfulServiceParams
 
 
 
@@ -59,6 +61,25 @@ class HomiePrinterParams(HomieParamsModel, extra='forbid'):
 
 
 
+class HomieFiltersParams(HomieParamsModel, extra='forbid'):
+    """
+    Process and validate the Homie configuration parameters.
+    """
+
+    aspires: Annotated[
+        Optional[list[str]],
+        Field(None,
+              description='Patterns the names must match',
+              min_length=1)]
+
+    desires: Annotated[
+        Optional[list[str]],
+        Field(None,
+              description='Patterns the names must match',
+              min_length=1)]
+
+
+
 class HomieParams(Params, extra='forbid'):
     """
     Process and validate the core configuration parameters.
@@ -89,6 +110,22 @@ class HomieParams(Params, extra='forbid'):
         HomieServiceParams,
         Field(default_factory=HomieServiceParams,
               description='Parameters for Homie Service')]
+
+    restful: Annotated[
+        RestfulServiceParams,
+        Field(default_factory=RestfulServiceParams,
+              description='Parameters for Homie RESTful')]
+
+    persists: Annotated[
+        Optional[dict[str, HomiePersistParams]],
+        Field(None,
+              description='Parameters for common persists',
+              min_length=1)]
+
+    filters: Annotated[
+        HomieFiltersParams,
+        Field(default_factory=HomieFiltersParams,
+              description='Determine object instantiation')]
 
     origins: Annotated[
         Optional[dict[str, HomieOriginParams]],
@@ -167,7 +204,9 @@ class HomieParams(Params, extra='forbid'):
                 'dryrun',
                 'potent',
                 'printer',
-                'service']
+                'service',
+                'restful',
+                'filters']
 
             for key in parsable:
 

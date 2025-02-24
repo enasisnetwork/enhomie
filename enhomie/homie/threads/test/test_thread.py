@@ -32,6 +32,8 @@ def test_HomieThread_cover(
     childs = homie.childs
     origins = childs.origins
 
+    assert service.actions
+
     member = service.actions
     threads = member.threads
 

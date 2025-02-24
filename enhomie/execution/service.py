@@ -177,6 +177,57 @@ def arguments(  # noqa: CFQ001
             'state to console'))
 
 
+    parser.add_argument(
+        '--filter_desires',
+        type=lambda x: x.split(','),
+        dest='fdesires',
+        help=(
+            'filter which desired '
+            'objects are created'))
+
+
+    parser.add_argument(
+        '--filter_aspires',
+        type=lambda x: x.split(','),
+        dest='faspires',
+        help=(
+            'filter which aspired '
+            'objects are created'))
+
+
+    parser.add_argument(
+        '--disable_actions',
+        action='store_true',
+        dest='dactions',
+        help=(
+            'override the boolean '
+            'for enabling member'))
+
+    parser.add_argument(
+        '--disable_updates',
+        action='store_true',
+        dest='dupdates',
+        help=(
+            'override the boolean '
+            'for enabling member'))
+
+    parser.add_argument(
+        '--disable_streams',
+        action='store_true',
+        dest='dstreams',
+        help=(
+            'override the boolean '
+            'for enabling member'))
+
+    parser.add_argument(
+        '--enable_restful',
+        action='store_true',
+        dest='erestful',
+        help=(
+            'override the boolean '
+            'for enabling member'))
+
+
     return vars(
         parser
         .parse_args(args))

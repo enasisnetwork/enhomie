@@ -40,7 +40,9 @@ desires:
             - jupiter_button
             - jupiter_contact
             - jupiter_switch
-          sensors: motion
+          sensors:
+            - motion
+            - temperature
           since: 900
         negate: true
         family: active

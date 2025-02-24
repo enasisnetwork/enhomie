@@ -10,11 +10,13 @@ is permitted, for more information consult the project license file.
 from threading import Event
 from time import sleep as block_sleep
 from typing import Any
+from typing import Optional
 from typing import TYPE_CHECKING
 
 from encommon.times import Timer
 
 from .members import HomieActions
+from .members import HomieRestful
 from .members import HomieStreams
 from .members import HomieUpdates
 
@@ -37,9 +39,10 @@ class HomieService:
 
     __homie: 'Homie'
 
-    __actions: HomieActions
-    __updates: HomieUpdates
-    __streams: HomieStreams
+    __actions: Optional[HomieActions]
+    __updates: Optional[HomieUpdates]
+    __streams: Optional[HomieStreams]
+    __restful: Optional[HomieRestful]
 
     __timer: Timer
     __vacate: Event
@@ -81,16 +84,28 @@ class HomieService:
         params = self.params
 
         respite = params.respite
+        members = params.members
 
 
         self.__actions = (
-            HomieActions(homie))
+            HomieActions(homie)
+            if members.actions
+            else None)
 
         self.__updates = (
-            HomieUpdates(homie))
+            HomieUpdates(homie)
+            if members.updates
+            else None)
 
         self.__streams = (
-            HomieStreams(homie))
+            HomieStreams(homie)
+            if members.streams
+            else None)
+
+        self.__restful = (
+            HomieRestful(homie)
+            if members.restful
+            else None)
 
 
         self.__timer = Timer(
@@ -133,7 +148,7 @@ class HomieService:
     @property
     def actions(
         self,
-    ) -> HomieActions:
+    ) -> Optional[HomieActions]:
         """
         Return the value for the attribute from class instance.
 
@@ -146,7 +161,7 @@ class HomieService:
     @property
     def updates(
         self,
-    ) -> HomieUpdates:
+    ) -> Optional[HomieUpdates]:
         """
         Return the value for the attribute from class instance.
 
@@ -159,7 +174,7 @@ class HomieService:
     @property
     def streams(
         self,
-    ) -> HomieStreams:
+    ) -> Optional[HomieStreams]:
         """
         Return the value for the attribute from class instance.
 
@@ -167,6 +182,19 @@ class HomieService:
         """
 
         return self.__streams
+
+
+    @property
+    def restful(
+        self,
+    ) -> Optional[HomieRestful]:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return self.__restful
 
 
     @property
@@ -184,15 +212,23 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
-        running.extend(
-            actions.running)
+        if actions is not None:
+            running.extend(
+                actions.running)
 
-        running.extend(
-            updates.running)
+        if updates is not None:
+            running.extend(
+                updates.running)
 
-        running.extend(
-            streams.running)
+        if streams is not None:
+            running.extend(
+                streams.running)
+
+        if restful is not None:
+            running.extend(
+                restful.running)
 
         return sorted(running)
 
@@ -212,15 +248,23 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
-        zombies.extend(
-            actions.zombies)
+        if actions is not None:
+            zombies.extend(
+                actions.zombies)
 
-        zombies.extend(
-            updates.zombies)
+        if updates is not None:
+            zombies.extend(
+                updates.zombies)
 
-        zombies.extend(
-            streams.zombies)
+        if streams is not None:
+            zombies.extend(
+                streams.zombies)
+
+        if restful is not None:
+            zombies.extend(
+                restful.zombies)
 
         return sorted(zombies)
 
@@ -240,15 +284,23 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
-        congest.extend(
-            actions.congest)
+        if actions is not None:
+            congest.extend(
+                actions.congest)
 
-        congest.extend(
-            updates.congest)
+        if updates is not None:
+            congest.extend(
+                updates.congest)
 
-        congest.extend(
-            streams.congest)
+        if streams is not None:
+            congest.extend(
+                streams.congest)
+
+        if restful is not None:
+            congest.extend(
+                restful.congest)
 
         return sorted(congest)
 
@@ -268,15 +320,23 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
-        enqueue.extend(
-            actions.enqueue)
+        if actions is not None:
+            enqueue.extend(
+                actions.enqueue)
 
-        enqueue.extend(
-            updates.enqueue)
+        if updates is not None:
+            enqueue.extend(
+                updates.enqueue)
 
-        enqueue.extend(
-            streams.enqueue)
+        if streams is not None:
+            enqueue.extend(
+                streams.enqueue)
+
+        if restful is not None:
+            enqueue.extend(
+                restful.enqueue)
 
         return sorted(enqueue)
 
@@ -294,6 +354,11 @@ class HomieService:
         if started is True:
             return None
 
+        actions = self.__actions
+        updates = self.__updates
+        streams = self.__streams
+        restful = self.__restful
+
         self.__started = True
 
         homie.logger.log_i(
@@ -302,9 +367,19 @@ class HomieService:
 
         assert homie.refresh()
 
-        self.__streams.start()
-        self.__updates.start()
-        self.__actions.start()
+
+        if streams is not None:
+            streams.start()
+
+        if updates is not None:
+            updates.start()
+
+        if actions is not None:
+            actions.start()
+
+        if restful is not None:
+            restful.start()
+
 
         homie.logger.log_i(
             base=self,
@@ -323,16 +398,24 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
         while self.running:
 
-            updates.operate()
+            if updates is not None:
+                updates.operate()
 
             self.operate_updates()
             self.operate_streams()
 
-            actions.operate()
-            streams.operate()
+            if actions is not None:
+                actions.operate()
+
+            if streams is not None:
+                streams.operate()
+
+            if restful is not None:
+                restful.operate()
 
             block_sleep(0.05)
 
@@ -357,9 +440,15 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
 
+        if updates is None:
+            return None
+
         uqueue = updates.uqueue
 
-        auqueue = actions.uqueue
+        auqueue = (
+            actions.uqueue
+            if actions is not None
+            else None)
 
         origins = (
             childs.origins
@@ -385,7 +474,8 @@ class HomieService:
             if vacate.is_set():
                 continue
 
-            auqueue.put(uitem)
+            if auqueue is not None:
+                auqueue.put(uitem)
 
             for origin in origins:
                 _set_update()
@@ -407,10 +497,20 @@ class HomieService:
         updates = self.__updates
         streams = self.__streams
 
+        if streams is None:
+            return None
+
         squeue = streams.squeue
 
-        asqueue = actions.squeue
-        usqueue = updates.squeue
+        asqueue = (
+            actions.squeue
+            if actions is not None
+            else None)
+
+        usqueue = (
+            updates.squeue
+            if updates is not None
+            else None)
 
 
         while not squeue.empty:
@@ -420,8 +520,11 @@ class HomieService:
             if vacate.is_set():
                 continue
 
-            asqueue.put(sitem)
-            usqueue.put(sitem)
+            if asqueue is not None:
+                asqueue.put(sitem)
+
+            if usqueue is not None:
+                usqueue.put(sitem)
 
             homie.printer(sitem)
 
@@ -518,15 +621,30 @@ class HomieService:
         if vacate.is_set():
             return self.stop()
 
+        actions = self.__actions
+        updates = self.__updates
+        streams = self.__streams
+        restful = self.__restful
+
+
         homie.logger.log_i(
             base=self,
             status='vacating')
 
         vacate.set()
 
-        self.__streams.stop()
-        self.__updates.soft()
-        self.__actions.soft()
+
+        if streams is not None:
+            streams.stop()
+
+        if updates is not None:
+            updates.soft()
+
+        if actions is not None:
+            actions.soft()
+
+        if restful is not None:
+            restful.soft()
 
 
     def stop(
@@ -551,15 +669,31 @@ class HomieService:
         if cancel.is_set():
             return None
 
+        actions = self.__actions
+        updates = self.__updates
+        streams = self.__streams
+        restful = self.__restful
+
+
         cancel.set()
 
         homie.logger.log_i(
             base=self,
             status='stopping')
 
-        self.__streams.stop()
-        self.__updates.stop()
-        self.__actions.stop()
+
+        if streams is not None:
+            streams.stop()
+
+        if updates is not None:
+            updates.stop()
+
+        if actions is not None:
+            actions.stop()
+
+        if restful is not None:
+            restful.stop()
+
 
         homie.logger.log_i(
             base=self,
