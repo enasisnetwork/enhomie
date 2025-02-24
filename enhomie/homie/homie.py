@@ -8,6 +8,7 @@ is permitted, for more information consult the project license file.
 
 
 from copy import deepcopy
+from typing import Any
 from typing import Optional
 from typing import TYPE_CHECKING
 
@@ -20,6 +21,7 @@ from encommon.utils import print_ansi
 
 from .addons import HomieAspired
 from .addons import HomieDesired
+from .addons import HomieJinja2
 from .addons import HomieLogger
 from .addons import HomiePersist
 from .childs import HomieChilds
@@ -48,9 +50,13 @@ class Homie:
     __config: 'HomieConfig'
 
     __logger: HomieLogger
+    __jinja2: HomieJinja2
     __persist: HomiePersist
 
     __childs: HomieChilds
+
+    __desired: HomieDesired
+    __aspired: HomieAspired
 
 
     def __init__(
@@ -69,6 +75,9 @@ class Homie:
 
         self.__logger = (
             HomieLogger(self))
+
+        self.__jinja2 = (
+            HomieJinja2(self))
 
         self.__persist = (
             HomiePersist(self))
@@ -113,6 +122,19 @@ class Homie:
         """
 
         return self.__logger
+
+
+    @property
+    def jinja2(
+        self,
+    ) -> HomieJinja2:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return self.__jinja2
 
 
     @property
@@ -558,3 +580,22 @@ class Homie:
             changed.add(result)
 
         return any(changed)
+
+
+    def j2parse(
+        self,
+        value: Any,  # noqa: ANN401
+        statics: Optional[DictStrAny] = None,
+        literal: bool = True,
+    ) -> Any:  # noqa: ANN401
+        """
+        Return the provided input using the Jinja2 environment.
+
+        :param value: Input that will be processed and returned.
+        :param statics: Additional values available for parsing.
+        :param literal: Determine if Python objects are evaled.
+        :returns: Provided input using the Jinja2 environment.
+        """
+
+        return self.__jinja2.parse(
+            value, statics, literal)

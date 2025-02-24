@@ -26,4 +26,12 @@ def test_arguments() -> None:
         'debug': False,
         'expire': '30m',
         'unique': 'key',
-        'value': None}
+        'value': None,
+        'value_unit': None,
+        'value_label': None,
+        'value_icon': None,
+        'about': None,
+        'about_label': None,
+        'about_icon': None,
+        'level': None,
+        'tags': None}

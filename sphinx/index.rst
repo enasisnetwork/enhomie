@@ -50,6 +50,14 @@ Homie Children
    :show-inheritance:
    :noindex:
 
+Persistent Defaults
+-------------------
+
+.. autopydantic_model:: enhomie.homie.params.HomiePersistParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
 Multithread Service
 -------------------
 

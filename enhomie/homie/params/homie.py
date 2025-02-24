@@ -22,6 +22,7 @@ from .desire import HomieDesireParams
 from .device import HomieDeviceParams
 from .group import HomieGroupParams
 from .origin import HomieOriginParams
+from .persist import HomiePersistParams
 from .scene import HomieSceneParams
 from .service import HomieServiceParams
 
@@ -89,6 +90,12 @@ class HomieParams(Params, extra='forbid'):
         HomieServiceParams,
         Field(default_factory=HomieServiceParams,
               description='Parameters for Homie Service')]
+
+    persists: Annotated[
+        Optional[dict[str, HomiePersistParams]],
+        Field(None,
+              description='Parameters for common persists',
+              min_length=1)]
 
     origins: Annotated[
         Optional[dict[str, HomieOriginParams]],

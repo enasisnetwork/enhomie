@@ -352,12 +352,13 @@ class HomieDesired:
             if homie.dryrun:
                 continue
 
-            for value in store:
+            statics = {
+                'desire': desire}
 
+            for value in store:
                 persist.insert(
-                    value.unique,
-                    value.value,
-                    value.expire)
+                    **value.endumped,
+                    statics=statics)
 
 
         objects = targets.values()
