@@ -557,7 +557,8 @@
                 "jupiter_switch"
               ],
               "sensors": [
-                "motion"
+                "motion",
+                "temperature"
               ],
               "since": 900
             },
@@ -737,7 +738,8 @@
                 "neptune_switch"
               ],
               "sensors": [
-                "motion"
+                "motion",
+                "temperature"
               ],
               "since": 900
             },

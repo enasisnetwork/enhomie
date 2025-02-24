@@ -8,8 +8,10 @@ is permitted, for more information consult the project license file.
 
 
 from .client import DriverUbiqClient
+from .helpers import ubiq_latest
 
 
 
 __all__ = [
-    'DriverUbiqClient']
+    'DriverUbiqClient',
+    'ubiq_latest']

@@ -10,6 +10,7 @@ is permitted, for more information consult the project license file.
 from typing import TYPE_CHECKING
 
 from ..helpers import phue_changed
+from ..helpers import phue_current
 from ..helpers import phue_sensors
 from ...origin import PhueOrigin
 from ....utils.tests import STARTED
@@ -116,5 +117,80 @@ def test_phue_sensors(
             f'{prefix}-abcd-1234'
             '-ab12-abcdef000025')
 
+        celsius = (
+            f'{prefix}-abcd-1234'
+            '-ab12-abcdef000028')
+
         assert sensors == {
-            'motion': motion}
+            'motion': motion,
+            'temperature': celsius}
+
+
+
+def test_phue_current(
+    homie: 'Homie',
+    bodies: 'TestBodies',
+) -> None:
+    """
+    Perform various tests associated with relevant routines.
+
+    :param homie: Primary class instance for Homie Automate.
+    :param bodies: Locations and groups for use in testing.
+    """
+
+    childs = homie.childs
+    origins = childs.origins
+    devices = childs.devices
+
+
+    planets = bodies.planets
+
+    for planet in planets:
+
+        origin = origins[
+            f'{planet}_philips']
+
+        assert isinstance(
+            origin, PhueOrigin)
+
+        assert origin.refresh()
+
+
+        device = devices[
+            f'{planet}_motion']
+
+        assert device.source
+
+        current = phue_current(
+            device.source)
+
+        assert current == {
+            'motion': False,
+            'temperature': 28.47}
+
+
+        device = devices[
+            f'{planet}_button']
+
+        assert device.source
+
+        current = phue_current(
+            device.source)
+
+        assert current == {
+            'button1': None,
+            'button2': 'short_release',
+            'button3': 'long_release',
+            'button4': None}
+
+
+        device = devices[
+            f'{planet}_contact']
+
+        assert device.source
+
+        current = phue_current(
+            device.source)
+
+        assert current == {
+            'contact': 'contact'}
