@@ -46,6 +46,7 @@ def test_HomieService(
         '_HomieService__actions',
         '_HomieService__updates',
         '_HomieService__streams',
+        '_HomieService__restful',
         '_HomieService__timer',
         '_HomieService__vacate',
         '_HomieService__cancel',
@@ -73,6 +74,8 @@ def test_HomieService(
     assert service.updates
 
     assert service.streams
+
+    assert not service.restful
 
     assert len(service.running) == 0
 

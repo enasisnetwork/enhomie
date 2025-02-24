@@ -16,6 +16,7 @@ from typing import TYPE_CHECKING
 from encommon.times import Timer
 
 from .members import HomieActions
+from .members import HomieRestful
 from .members import HomieStreams
 from .members import HomieUpdates
 
@@ -41,6 +42,7 @@ class HomieService:
     __actions: Optional[HomieActions]
     __updates: Optional[HomieUpdates]
     __streams: Optional[HomieStreams]
+    __restful: Optional[HomieRestful]
 
     __timer: Timer
     __vacate: Event
@@ -98,6 +100,11 @@ class HomieService:
         self.__streams = (
             HomieStreams(homie)
             if members.streams
+            else None)
+
+        self.__restful = (
+            HomieRestful(homie)
+            if members.restful
             else None)
 
 
@@ -178,6 +185,19 @@ class HomieService:
 
 
     @property
+    def restful(
+        self,
+    ) -> Optional[HomieRestful]:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return self.__restful
+
+
+    @property
     def running(
         self,
     ) -> list[str]:
@@ -192,6 +212,7 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
         if actions is not None:
             running.extend(
@@ -204,6 +225,10 @@ class HomieService:
         if streams is not None:
             running.extend(
                 streams.running)
+
+        if restful is not None:
+            running.extend(
+                restful.running)
 
         return sorted(running)
 
@@ -223,6 +248,7 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
         if actions is not None:
             zombies.extend(
@@ -235,6 +261,10 @@ class HomieService:
         if streams is not None:
             zombies.extend(
                 streams.zombies)
+
+        if restful is not None:
+            zombies.extend(
+                restful.zombies)
 
         return sorted(zombies)
 
@@ -254,6 +284,7 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
         if actions is not None:
             congest.extend(
@@ -266,6 +297,10 @@ class HomieService:
         if streams is not None:
             congest.extend(
                 streams.congest)
+
+        if restful is not None:
+            congest.extend(
+                restful.congest)
 
         return sorted(congest)
 
@@ -285,6 +320,7 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
         if actions is not None:
             enqueue.extend(
@@ -297,6 +333,10 @@ class HomieService:
         if streams is not None:
             enqueue.extend(
                 streams.enqueue)
+
+        if restful is not None:
+            enqueue.extend(
+                restful.enqueue)
 
         return sorted(enqueue)
 
@@ -317,6 +357,7 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
         self.__started = True
 
@@ -336,6 +377,9 @@ class HomieService:
         if actions is not None:
             actions.start()
 
+        if restful is not None:
+            restful.start()
+
 
         homie.logger.log_i(
             base=self,
@@ -354,6 +398,7 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
         while self.running:
 
@@ -368,6 +413,9 @@ class HomieService:
 
             if streams is not None:
                 streams.operate()
+
+            if restful is not None:
+                restful.operate()
 
             block_sleep(0.05)
 
@@ -576,6 +624,7 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
 
         homie.logger.log_i(
@@ -593,6 +642,9 @@ class HomieService:
 
         if actions is not None:
             actions.soft()
+
+        if restful is not None:
+            restful.soft()
 
 
     def stop(
@@ -620,6 +672,7 @@ class HomieService:
         actions = self.__actions
         updates = self.__updates
         streams = self.__streams
+        restful = self.__restful
 
 
         cancel.set()
@@ -637,6 +690,9 @@ class HomieService:
 
         if actions is not None:
             actions.stop()
+
+        if restful is not None:
+            restful.stop()
 
 
         homie.logger.log_i(

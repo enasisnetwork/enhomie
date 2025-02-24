@@ -219,6 +219,14 @@ def arguments(  # noqa: CFQ001
             'override the boolean '
             'for enabling member'))
 
+    parser.add_argument(
+        '--enable_restful',
+        action='store_true',
+        dest='erestful',
+        help=(
+            'override the boolean '
+            'for enabling member'))
+
 
     return vars(
         parser

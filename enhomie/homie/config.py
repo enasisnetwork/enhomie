@@ -124,6 +124,9 @@ class HomieConfig(Config):
         _dstreams = (
             sargs.get('dstreams'))
 
+        _erestful = (
+            sargs.get('erestful'))
+
         prefix = 'service/members'
 
         if _dactions is not None:
@@ -137,6 +140,10 @@ class HomieConfig(Config):
         if _dstreams is not None:
             key = f'{prefix}/streams'
             cargs[key] = not _dstreams
+
+        if _erestful is not None:
+            key = f'{prefix}/restful'
+            cargs[key] = _erestful
 
 
         _atimeout = (

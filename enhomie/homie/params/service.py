@@ -85,6 +85,12 @@ class HomieServiceMembersParams(HomieParamsModel, extra='forbid'):
         Field(True,
               description='Determine whether created')]
 
+    restful: Annotated[
+        bool,
+        Field(False,
+              description='Determine whether created')]
+
+
 
 
 class HomieServiceParams(HomieParamsModel, extra='forbid'):

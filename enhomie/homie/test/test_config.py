@@ -92,4 +92,5 @@ def test_HomieConfig_cover() -> None:
         'faspires': ['neptune_*'],
         'dactions': True,
         'dupdates': True,
-        'dstreams': True})
+        'dstreams': True,
+        'erestful': True})

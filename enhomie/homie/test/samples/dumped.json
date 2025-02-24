@@ -41,7 +41,8 @@
     "members": {
       "actions": true,
       "streams": true,
-      "updates": true
+      "updates": true,
+      "restful": false
     }
   },
   "restful": {

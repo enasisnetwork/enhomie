@@ -32,6 +32,7 @@ def test_arguments() -> None:
         'dactions': False,
         'dstreams': False,
         'dupdates': False,
+        'erestful': False,
         'atimeout': None,
         'utimeout': None,
         'stimeout': None,
