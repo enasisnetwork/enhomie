@@ -237,58 +237,60 @@
 </span><span id="line-89"><span class="sd">    :param bodies: Locations and groups for use in testing.</span>
 </span><span id="line-90"><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="line-91">
-</span><span id="line-92">    <span class="n">member</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">updates</span>
-</span><span id="line-93">    <span class="n">threads</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">threads</span>
-</span><span id="line-94">
-</span><span id="line-95">
-</span><span id="line-96">    <span class="n">planets</span> <span class="o">=</span> <span class="n">bodies</span><span class="o">.</span><span class="n">planets</span>
+</span><span id="line-92">    <span class="k">assert</span> <span class="n">service</span><span class="o">.</span><span class="n">updates</span>
+</span><span id="line-93">
+</span><span id="line-94">    <span class="n">member</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">updates</span>
+</span><span id="line-95">    <span class="n">threads</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">threads</span>
+</span><span id="line-96">
 </span><span id="line-97">
-</span><span id="line-98">    <span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+</span><span id="line-98">    <span class="n">planets</span> <span class="o">=</span> <span class="n">bodies</span><span class="o">.</span><span class="n">planets</span>
 </span><span id="line-99">
-</span><span id="line-100">        <span class="n">thread</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span>
-</span><span id="line-101">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_philips&#39;</span><span class="p">]</span>
-</span><span id="line-102">
-</span><span id="line-103">
-</span><span id="line-104">        <span class="n">attrs</span> <span class="o">=</span> <span class="n">lattrs</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
+</span><span id="line-100">    <span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+</span><span id="line-101">
+</span><span id="line-102">        <span class="n">thread</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span>
+</span><span id="line-103">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_philips&#39;</span><span class="p">]</span>
+</span><span id="line-104">
 </span><span id="line-105">
-</span><span id="line-106">        <span class="c1"># Inherits Thread class</span>
+</span><span id="line-106">        <span class="n">attrs</span> <span class="o">=</span> <span class="n">lattrs</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
 </span><span id="line-107">
-</span><span id="line-108">        <span class="k">assert</span> <span class="n">inlist</span><span class="p">(</span>
-</span><span id="line-109">            <span class="s1">&#39;_HomieThread__member&#39;</span><span class="p">,</span>
-</span><span id="line-110">            <span class="n">attrs</span><span class="p">)</span>
-</span><span id="line-111">
-</span><span id="line-112">        <span class="k">assert</span> <span class="n">inlist</span><span class="p">(</span>
-</span><span id="line-113">            <span class="s1">&#39;_HomieThread__origin&#39;</span><span class="p">,</span>
-</span><span id="line-114">            <span class="n">attrs</span><span class="p">)</span>
-</span><span id="line-115">
-</span><span id="line-116">
-</span><span id="line-117">        <span class="k">assert</span> <span class="n">inrepr</span><span class="p">(</span>
-</span><span id="line-118">            <span class="s1">&#39;Update(PhueUpdate&#39;</span><span class="p">,</span>
-</span><span id="line-119">            <span class="n">thread</span><span class="p">)</span>
-</span><span id="line-120">
-</span><span id="line-121">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
-</span><span id="line-122">            <span class="nb">hash</span><span class="p">(</span><span class="n">thread</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
-</span><span id="line-123">
-</span><span id="line-124">        <span class="k">assert</span> <span class="n">instr</span><span class="p">(</span>
-</span><span id="line-125">            <span class="s1">&#39;Update(PhueUpdate&#39;</span><span class="p">,</span>
-</span><span id="line-126">            <span class="n">thread</span><span class="p">)</span>
-</span><span id="line-127">
-</span><span id="line-128">
-</span><span id="line-129">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">homie</span>
+</span><span id="line-108">        <span class="c1"># Inherits Thread class</span>
+</span><span id="line-109">
+</span><span id="line-110">        <span class="k">assert</span> <span class="n">inlist</span><span class="p">(</span>
+</span><span id="line-111">            <span class="s1">&#39;_HomieThread__member&#39;</span><span class="p">,</span>
+</span><span id="line-112">            <span class="n">attrs</span><span class="p">)</span>
+</span><span id="line-113">
+</span><span id="line-114">        <span class="k">assert</span> <span class="n">inlist</span><span class="p">(</span>
+</span><span id="line-115">            <span class="s1">&#39;_HomieThread__origin&#39;</span><span class="p">,</span>
+</span><span id="line-116">            <span class="n">attrs</span><span class="p">)</span>
+</span><span id="line-117">
+</span><span id="line-118">
+</span><span id="line-119">        <span class="k">assert</span> <span class="n">inrepr</span><span class="p">(</span>
+</span><span id="line-120">            <span class="s1">&#39;Update(PhueUpdate&#39;</span><span class="p">,</span>
+</span><span id="line-121">            <span class="n">thread</span><span class="p">)</span>
+</span><span id="line-122">
+</span><span id="line-123">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+</span><span id="line-124">            <span class="nb">hash</span><span class="p">(</span><span class="n">thread</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+</span><span id="line-125">
+</span><span id="line-126">        <span class="k">assert</span> <span class="n">instr</span><span class="p">(</span>
+</span><span id="line-127">            <span class="s1">&#39;Update(PhueUpdate&#39;</span><span class="p">,</span>
+</span><span id="line-128">            <span class="n">thread</span><span class="p">)</span>
+</span><span id="line-129">
 </span><span id="line-130">
-</span><span id="line-131">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">member</span>
+</span><span id="line-131">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">homie</span>
 </span><span id="line-132">
-</span><span id="line-133">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">origin</span>
+</span><span id="line-133">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">member</span>
 </span><span id="line-134">
-</span><span id="line-135">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">aqueue</span>
+</span><span id="line-135">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">origin</span>
 </span><span id="line-136">
-</span><span id="line-137">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">uqueue</span>
+</span><span id="line-137">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">aqueue</span>
 </span><span id="line-138">
-</span><span id="line-139">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">squeue</span>
+</span><span id="line-139">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">uqueue</span>
 </span><span id="line-140">
-</span><span id="line-141">        <span class="k">assert</span> <span class="ow">not</span> <span class="n">thread</span><span class="o">.</span><span class="n">congest</span>
+</span><span id="line-141">        <span class="k">assert</span> <span class="n">thread</span><span class="o">.</span><span class="n">squeue</span>
 </span><span id="line-142">
-</span><span id="line-143">        <span class="k">assert</span> <span class="ow">not</span> <span class="n">thread</span><span class="o">.</span><span class="n">enqueue</span></div>
+</span><span id="line-143">        <span class="k">assert</span> <span class="ow">not</span> <span class="n">thread</span><span class="o">.</span><span class="n">congest</span>
+</span><span id="line-144">
+</span><span id="line-145">        <span class="k">assert</span> <span class="ow">not</span> <span class="n">thread</span><span class="o">.</span><span class="n">enqueue</span></div>
 
 </span></code></pre></div>
     </div></div>

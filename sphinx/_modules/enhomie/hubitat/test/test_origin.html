@@ -391,94 +391,96 @@
 </span><span id="line-237"><span class="sd">    :param bodies: Locations and groups for use in testing.</span>
 </span><span id="line-238"><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="line-239">
-</span><span id="line-240">    <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
-</span><span id="line-241">    <span class="n">origins</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">origins</span>
-</span><span id="line-242">    <span class="n">member</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">updates</span>
-</span><span id="line-243">    <span class="n">uqueue</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">uqueue</span>
-</span><span id="line-244">
-</span><span id="line-245">
-</span><span id="line-246">    <span class="n">planets</span> <span class="o">=</span> <span class="n">bodies</span><span class="o">.</span><span class="n">planets</span>
+</span><span id="line-240">    <span class="k">assert</span> <span class="n">service</span><span class="o">.</span><span class="n">updates</span>
+</span><span id="line-241">
+</span><span id="line-242">    <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
+</span><span id="line-243">    <span class="n">origins</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">origins</span>
+</span><span id="line-244">    <span class="n">member</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">updates</span>
+</span><span id="line-245">    <span class="n">uqueue</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">uqueue</span>
+</span><span id="line-246">
 </span><span id="line-247">
-</span><span id="line-248">    <span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+</span><span id="line-248">    <span class="n">planets</span> <span class="o">=</span> <span class="n">bodies</span><span class="o">.</span><span class="n">planets</span>
 </span><span id="line-249">
-</span><span id="line-250">        <span class="n">origin</span> <span class="o">=</span> <span class="n">origins</span><span class="p">[</span>
-</span><span id="line-251">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_hubitat&#39;</span><span class="p">]</span>
-</span><span id="line-252">
-</span><span id="line-253">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
-</span><span id="line-254">            <span class="n">origin</span><span class="p">,</span> <span class="n">HubiOrigin</span><span class="p">)</span>
-</span><span id="line-255">
-</span><span id="line-256">        <span class="k">assert</span> <span class="n">origin</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</span><span id="line-250">    <span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+</span><span id="line-251">
+</span><span id="line-252">        <span class="n">origin</span> <span class="o">=</span> <span class="n">origins</span><span class="p">[</span>
+</span><span id="line-253">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_hubitat&#39;</span><span class="p">]</span>
+</span><span id="line-254">
+</span><span id="line-255">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+</span><span id="line-256">            <span class="n">origin</span><span class="p">,</span> <span class="n">HubiOrigin</span><span class="p">)</span>
 </span><span id="line-257">
-</span><span id="line-258">        <span class="n">fetch</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">fetch</span>
+</span><span id="line-258">        <span class="k">assert</span> <span class="n">origin</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 </span><span id="line-259">
-</span><span id="line-260">
-</span><span id="line-261">        <span class="n">uitem</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">get_update</span><span class="p">()</span>
+</span><span id="line-260">        <span class="n">fetch</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">fetch</span>
+</span><span id="line-261">
 </span><span id="line-262">
-</span><span id="line-263">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
-</span><span id="line-264">            <span class="n">uitem</span><span class="p">,</span> <span class="n">HubiUpdateItem</span><span class="p">)</span>
-</span><span id="line-265">
-</span><span id="line-266">        <span class="n">uitem</span><span class="o">.</span><span class="n">fetch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>
+</span><span id="line-263">        <span class="n">uitem</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">get_update</span><span class="p">()</span>
+</span><span id="line-264">
+</span><span id="line-265">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+</span><span id="line-266">            <span class="n">uitem</span><span class="p">,</span> <span class="n">HubiUpdateItem</span><span class="p">)</span>
 </span><span id="line-267">
-</span><span id="line-268">        <span class="n">origin</span><span class="o">.</span><span class="n">set_update</span><span class="p">(</span><span class="n">uitem</span><span class="p">)</span>
+</span><span id="line-268">        <span class="n">uitem</span><span class="o">.</span><span class="n">fetch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>
 </span><span id="line-269">
-</span><span id="line-270">        <span class="n">origin</span><span class="o">.</span><span class="n">put_update</span><span class="p">(</span><span class="n">uqueue</span><span class="p">)</span>
+</span><span id="line-270">        <span class="n">origin</span><span class="o">.</span><span class="n">set_update</span><span class="p">(</span><span class="n">uitem</span><span class="p">)</span>
 </span><span id="line-271">
-</span><span id="line-272">        <span class="n">_fetch</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">fetch</span>
+</span><span id="line-272">        <span class="n">origin</span><span class="o">.</span><span class="n">put_update</span><span class="p">(</span><span class="n">uqueue</span><span class="p">)</span>
 </span><span id="line-273">
-</span><span id="line-274">
-</span><span id="line-275">        <span class="k">assert</span> <span class="n">_fetch</span> <span class="o">!=</span> <span class="n">fetch</span>
+</span><span id="line-274">        <span class="n">_fetch</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">fetch</span>
+</span><span id="line-275">
 </span><span id="line-276">
-</span><span id="line-277">
-</span><span id="line-278">    <span class="k">assert</span> <span class="n">uqueue</span><span class="o">.</span><span class="n">qsize</span> <span class="o">==</span> <span class="mi">2</span></div>
-
+</span><span id="line-277">        <span class="k">assert</span> <span class="n">_fetch</span> <span class="o">!=</span> <span class="n">fetch</span>
+</span><span id="line-278">
 </span><span id="line-279">
-</span><span id="line-280">
+</span><span id="line-280">    <span class="k">assert</span> <span class="n">uqueue</span><span class="o">.</span><span class="n">qsize</span> <span class="o">==</span> <span class="mi">2</span></div>
+
 </span><span id="line-281">
+</span><span id="line-282">
+</span><span id="line-283">
 <div class="viewcode-block" id="test_HubiOrigin_source">
 <a class="viewcode-back" href="../../../../enhomie.hubitat.test.html#enhomie.hubitat.test.test_origin.test_HubiOrigin_source">[docs]</a>
-</span><span id="line-282"><span class="k">def</span><span class="w"> </span><span class="nf">test_HubiOrigin_source</span><span class="p">(</span>
-</span><span id="line-283">    <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
-</span><span id="line-284">    <span class="n">bodies</span><span class="p">:</span> <span class="s1">&#39;TestBodies&#39;</span><span class="p">,</span>
-</span><span id="line-285"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-286"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-287"><span class="sd">    Perform various tests associated with relevant routines.</span>
-</span><span id="line-288">
-</span><span id="line-289"><span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
-</span><span id="line-290"><span class="sd">    :param bodies: Locations and groups for use in testing.</span>
-</span><span id="line-291"><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="line-292">
-</span><span id="line-293">    <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
-</span><span id="line-294">    <span class="n">origins</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">origins</span>
-</span><span id="line-295">
-</span><span id="line-296">
-</span><span id="line-297">    <span class="n">planets</span> <span class="o">=</span> <span class="n">bodies</span><span class="o">.</span><span class="n">planets</span>
+</span><span id="line-284"><span class="k">def</span><span class="w"> </span><span class="nf">test_HubiOrigin_source</span><span class="p">(</span>
+</span><span id="line-285">    <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
+</span><span id="line-286">    <span class="n">bodies</span><span class="p">:</span> <span class="s1">&#39;TestBodies&#39;</span><span class="p">,</span>
+</span><span id="line-287"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-288"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-289"><span class="sd">    Perform various tests associated with relevant routines.</span>
+</span><span id="line-290">
+</span><span id="line-291"><span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
+</span><span id="line-292"><span class="sd">    :param bodies: Locations and groups for use in testing.</span>
+</span><span id="line-293"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="line-294">
+</span><span id="line-295">    <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
+</span><span id="line-296">    <span class="n">origins</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">origins</span>
+</span><span id="line-297">
 </span><span id="line-298">
-</span><span id="line-299">    <span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+</span><span id="line-299">    <span class="n">planets</span> <span class="o">=</span> <span class="n">bodies</span><span class="o">.</span><span class="n">planets</span>
 </span><span id="line-300">
-</span><span id="line-301">        <span class="n">origin</span> <span class="o">=</span> <span class="n">origins</span><span class="p">[</span>
-</span><span id="line-302">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_hubitat&#39;</span><span class="p">]</span>
-</span><span id="line-303">
-</span><span id="line-304">
-</span><span id="line-305">        <span class="n">origin</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</span><span id="line-301">    <span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+</span><span id="line-302">
+</span><span id="line-303">        <span class="n">origin</span> <span class="o">=</span> <span class="n">origins</span><span class="p">[</span>
+</span><span id="line-304">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_hubitat&#39;</span><span class="p">]</span>
+</span><span id="line-305">
 </span><span id="line-306">
-</span><span id="line-307">
-</span><span id="line-308">        <span class="n">source</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">source</span><span class="p">(</span>
-</span><span id="line-309">            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nothing&#39;</span><span class="p">)</span>
-</span><span id="line-310">
-</span><span id="line-311">        <span class="k">assert</span> <span class="n">source</span> <span class="ow">is</span> <span class="kc">None</span>
+</span><span id="line-307">        <span class="n">origin</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</span><span id="line-308">
+</span><span id="line-309">
+</span><span id="line-310">        <span class="n">source</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">source</span><span class="p">(</span>
+</span><span id="line-311">            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nothing&#39;</span><span class="p">)</span>
 </span><span id="line-312">
-</span><span id="line-313">
-</span><span id="line-314">        <span class="n">source</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">source</span><span class="p">(</span>
-</span><span id="line-315">            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1"> Light&#39;</span><span class="p">)</span>
-</span><span id="line-316">
-</span><span id="line-317">        <span class="k">assert</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="line-313">        <span class="k">assert</span> <span class="n">source</span> <span class="ow">is</span> <span class="kc">None</span>
+</span><span id="line-314">
+</span><span id="line-315">
+</span><span id="line-316">        <span class="n">source</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">source</span><span class="p">(</span>
+</span><span id="line-317">            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1"> Light&#39;</span><span class="p">)</span>
 </span><span id="line-318">
-</span><span id="line-319">
-</span><span id="line-320">        <span class="n">source</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">source</span><span class="p">(</span>
-</span><span id="line-321">            <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;device&#39;</span><span class="p">,</span>
-</span><span id="line-322">            <span class="n">unique</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
-</span><span id="line-323">
-</span><span id="line-324">        <span class="k">assert</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+</span><span id="line-319">        <span class="k">assert</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="line-320">
+</span><span id="line-321">
+</span><span id="line-322">        <span class="n">source</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">source</span><span class="p">(</span>
+</span><span id="line-323">            <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;device&#39;</span><span class="p">,</span>
+</span><span id="line-324">            <span class="n">unique</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+</span><span id="line-325">
+</span><span id="line-326">        <span class="k">assert</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
 
 </span></code></pre></div>
     </div></div>

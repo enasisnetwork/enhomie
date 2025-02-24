@@ -204,6 +204,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="enhomie.philips.plugins.html#module-enhomie.philips.plugins.helpers">enhomie.philips.plugins.helpers module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.html#enhomie.philips.plugins.helpers.phue_changed"><code class="docutils literal notranslate"><span class="pre">phue_changed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.html#enhomie.philips.plugins.helpers.phue_current"><code class="docutils literal notranslate"><span class="pre">phue_current()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.html#enhomie.philips.plugins.helpers.phue_sensors"><code class="docutils literal notranslate"><span class="pre">phue_sensors()</span></code></a></li>
 </ul>
 </li>
@@ -270,6 +271,9 @@
 <li class="toctree-l4"><a class="reference internal" href="enhomie.philips.plugins.html#enhomie.philips.plugins.DriverPhueScene.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.validate()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.html#enhomie.philips.plugins.phue_changed"><code class="docutils literal notranslate"><span class="pre">phue_changed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.html#enhomie.philips.plugins.phue_current"><code class="docutils literal notranslate"><span class="pre">phue_current()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.html#enhomie.philips.plugins.phue_sensors"><code class="docutils literal notranslate"><span class="pre">phue_sensors()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -462,6 +466,46 @@ is permitted, for more information consult the project license file.</p>
 <p>This file is part of Enasis Network software eco-system. Distribution
 is permitted, for more information consult the project license file.</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="enhomie.philips.models.PhueDriverHelpers">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.models.</span></span><span class="sig-name descname"><span class="pre">PhueDriverHelpers</span></span><a class="reference internal" href="_modules/enhomie/philips/models.html#PhueDriverHelpers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.models.PhueDriverHelpers" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.models.PhueDriverHelpers'">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Return the class object that was imported within method.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These are used with the Homie Automate Jinja2 parser.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.models.PhueDriverHelpers.changed">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">changed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/models.html#PhueDriverHelpers.changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.models.PhueDriverHelpers.changed" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.models.PhueDriverHelpers.changed'">¶</a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.models.PhueDriverHelpers.current">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/models.html#PhueDriverHelpers.current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.models.PhueDriverHelpers.current" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.models.PhueDriverHelpers.current'">¶</a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.models.PhueDriverHelpers.sensors">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sensors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/models.html#PhueDriverHelpers.sensors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.models.PhueDriverHelpers.sensors" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.models.PhueDriverHelpers.sensors'">¶</a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
 <dt class="sig sig-object py" id="enhomie.philips.models.PhueDriverModels">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.philips.models.</span></span><span class="sig-name descname"><span class="pre">PhueDriverModels</span></span><a class="reference internal" href="_modules/enhomie/philips/models.html#PhueDriverModels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.models.PhueDriverModels" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.models.PhueDriverModels'">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
@@ -489,6 +533,16 @@ is permitted, for more information consult the project license file.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="enhomie.philips.models.PhueDriverModels.contact">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">contact</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.13)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enhomie.philips.params.html#enhomie.philips.params.DriverPhueContactParams" title="enhomie.philips.params.DriverPhueContactParams"><span class="pre">DriverPhueContactParams</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/models.html#PhueDriverModels.contact"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.models.PhueDriverModels.contact" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.models.PhueDriverModels.contact'">¶</a></dt>
+<dd><p>Return the class object that was imported within method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Class object that was imported within method.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.philips.models.PhueDriverModels.helpers">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">helpers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.13)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#enhomie.philips.models.PhueDriverHelpers" title="enhomie.philips.models.PhueDriverHelpers"><span class="pre">PhueDriverHelpers</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/models.html#PhueDriverModels.helpers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.models.PhueDriverModels.helpers" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.models.PhueDriverModels.helpers'">¶</a></dt>
 <dd><p>Return the class object that was imported within method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1379,10 +1433,17 @@ is permitted, for more information consult the project license file.</p>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#module-enhomie.philips.models'" class="reference internal" href="#module-enhomie.philips.models">enhomie.philips.models module</a><ul>
+<li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverHelpers'" class="reference internal" href="#enhomie.philips.models.PhueDriverHelpers"><code class="docutils literal notranslate"><span class="pre">PhueDriverHelpers</span></code></a><ul>
+<li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverHelpers.changed'" class="reference internal" href="#enhomie.philips.models.PhueDriverHelpers.changed"><code class="docutils literal notranslate"><span class="pre">PhueDriverHelpers.changed()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverHelpers.current'" class="reference internal" href="#enhomie.philips.models.PhueDriverHelpers.current"><code class="docutils literal notranslate"><span class="pre">PhueDriverHelpers.current()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverHelpers.sensors'" class="reference internal" href="#enhomie.philips.models.PhueDriverHelpers.sensors"><code class="docutils literal notranslate"><span class="pre">PhueDriverHelpers.sensors()</span></code></a></li>
+</ul>
+</li>
 <li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverModels'" class="reference internal" href="#enhomie.philips.models.PhueDriverModels"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels</span></code></a><ul>
 <li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverModels.button'" class="reference internal" href="#enhomie.philips.models.PhueDriverModels.button"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.button()</span></code></a></li>
 <li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverModels.change'" class="reference internal" href="#enhomie.philips.models.PhueDriverModels.change"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.change()</span></code></a></li>
 <li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverModels.contact'" class="reference internal" href="#enhomie.philips.models.PhueDriverModels.contact"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.contact()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverModels.helpers'" class="reference internal" href="#enhomie.philips.models.PhueDriverModels.helpers"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.helpers()</span></code></a></li>
 <li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverModels.motion'" class="reference internal" href="#enhomie.philips.models.PhueDriverModels.motion"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.motion()</span></code></a></li>
 <li><a :data-current="activeSection === '#enhomie.philips.models.PhueDriverModels.scene'" class="reference internal" href="#enhomie.philips.models.PhueDriverModels.scene"><code class="docutils literal notranslate"><span class="pre">PhueDriverModels.scene()</span></code></a></li>
 </ul>

@@ -508,22 +508,23 @@
 </span><span id="line-352">            <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
 </span><span id="line-353">                <span class="k">continue</span>
 </span><span id="line-354">
-</span><span id="line-355">            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">store</span><span class="p">:</span>
-</span><span id="line-356">
-</span><span id="line-357">                <span class="n">persist</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
-</span><span id="line-358">                    <span class="n">value</span><span class="o">.</span><span class="n">unique</span><span class="p">,</span>
-</span><span id="line-359">                    <span class="n">value</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
-</span><span id="line-360">                    <span class="n">value</span><span class="o">.</span><span class="n">expire</span><span class="p">)</span>
-</span><span id="line-361">
+</span><span id="line-355">            <span class="n">statics</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="line-356">                <span class="s1">&#39;desire&#39;</span><span class="p">:</span> <span class="n">desire</span><span class="p">}</span>
+</span><span id="line-357">
+</span><span id="line-358">            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">store</span><span class="p">:</span>
+</span><span id="line-359">                <span class="n">persist</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+</span><span id="line-360">                    <span class="o">**</span><span class="n">value</span><span class="o">.</span><span class="n">endumped</span><span class="p">,</span>
+</span><span id="line-361">                    <span class="n">statics</span><span class="o">=</span><span class="n">statics</span><span class="p">)</span>
 </span><span id="line-362">
-</span><span id="line-363">        <span class="n">objects</span> <span class="o">=</span> <span class="n">targets</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-</span><span id="line-364">
-</span><span id="line-365">        <span class="k">for</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">objects</span><span class="p">:</span>
-</span><span id="line-366">
-</span><span id="line-367">            <span class="n">desired</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
-</span><span id="line-368">
+</span><span id="line-363">
+</span><span id="line-364">        <span class="n">objects</span> <span class="o">=</span> <span class="n">targets</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</span><span id="line-365">
+</span><span id="line-366">        <span class="k">for</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">objects</span><span class="p">:</span>
+</span><span id="line-367">
+</span><span id="line-368">            <span class="n">desired</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
 </span><span id="line-369">
-</span><span id="line-370">        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">desired</span><span class="p">)</span></div>
+</span><span id="line-370">
+</span><span id="line-371">        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">desired</span><span class="p">)</span></div>
 </div>
 
 </span></code></pre></div>

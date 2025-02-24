@@ -1,0 +1,10 @@
+enhomie.restful.static package
+==============================
+
+Module contents
+---------------
+
+.. automodule:: enhomie.restful.static
+   :members:
+   :show-inheritance:
+   :undoc-members:

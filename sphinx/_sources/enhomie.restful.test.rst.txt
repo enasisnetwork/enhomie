@@ -1,0 +1,37 @@
+enhomie.restful.test package
+============================
+
+Submodules
+----------
+
+enhomie.restful.test.test\_persist module
+-----------------------------------------
+
+.. automodule:: enhomie.restful.test.test_persist
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+enhomie.restful.test.test\_service module
+-----------------------------------------
+
+.. automodule:: enhomie.restful.test.test_service
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+enhomie.restful.test.test\_static module
+----------------------------------------
+
+.. automodule:: enhomie.restful.test.test_static
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: enhomie.restful.test
+   :members:
+   :show-inheritance:
+   :undoc-members:

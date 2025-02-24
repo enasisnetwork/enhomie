@@ -12,6 +12,7 @@ Subpackages
    enhomie.homie
    enhomie.hubitat
    enhomie.philips
+   enhomie.restful
    enhomie.ubiquiti
    enhomie.utils
 

@@ -113,6 +113,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="enhomie.philips.plugins.test.html#module-enhomie.philips.plugins.test.test_helpers">enhomie.philips.plugins.test.test_helpers module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_helpers.test_phue_changed"><code class="docutils literal notranslate"><span class="pre">test_phue_changed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_helpers.test_phue_current"><code class="docutils literal notranslate"><span class="pre">test_phue_current()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="enhomie.philips.plugins.test.html#enhomie.philips.plugins.test.test_helpers.test_phue_sensors"><code class="docutils literal notranslate"><span class="pre">test_phue_sensors()</span></code></a></li>
 </ul>
 </li>
@@ -326,10 +327,23 @@ is permitted, for more information consult the project license file.</p>
 <dd><p>Return the timestamp for the services that have changed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>source</strong> – Content which will be shown after header.</p>
+<dd class="field-odd"><p><strong>source</strong> – Dictionary of parameters from the bridge.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Timestamp for the services that have changed.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.helpers.phue_current">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.helpers.</span></span><span class="sig-name descname"><span class="pre">phue_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PhueFetch</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/helpers.html#phue_current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.helpers.phue_current" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.plugins.helpers.phue_current'">¶</a></dt>
+<dd><p>Return the various values for the services within scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> – Dictionary of parameters from the bridge.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Various values for the services within scope.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -339,7 +353,7 @@ is permitted, for more information consult the project license file.</p>
 <dd><p>Return the unique identifier for services on the device.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>source</strong> – Content which will be shown after header.</p>
+<dd class="field-odd"><p><strong>source</strong> – Dictionary of parameters from the bridge.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Timestamp for the services that have changed.</p>
@@ -742,6 +756,45 @@ is permitted, for more information consult the project license file.</p>
 <dd><p>Perform advanced validation on the parameters provided.</p>
 </dd></dl>
 </dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.phue_changed">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.</span></span><span class="sig-name descname"><span class="pre">phue_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PhueFetch</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Time</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/helpers.html#phue_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.phue_changed" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.plugins.phue_changed'">¶</a></dt>
+<dd><p>Return the timestamp for the services that have changed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> – Dictionary of parameters from the bridge.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Timestamp for the services that have changed.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.phue_current">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.</span></span><span class="sig-name descname"><span class="pre">phue_current</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PhueFetch</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/helpers.html#phue_current"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.phue_current" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.plugins.phue_current'">¶</a></dt>
+<dd><p>Return the various values for the services within scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> – Dictionary of parameters from the bridge.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Various values for the services within scope.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="enhomie.philips.plugins.phue_sensors">
+<span class="sig-prename descclassname"><span class="pre">enhomie.philips.plugins.</span></span><span class="sig-name descname"><span class="pre">phue_sensors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PhueFetch</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/enhomie/philips/plugins/helpers.html#phue_sensors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.plugins.phue_sensors" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.philips.plugins.phue_sensors'">¶</a></dt>
+<dd><p>Return the unique identifier for services on the device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> – Dictionary of parameters from the bridge.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Timestamp for the services that have changed.</p>
+</dd>
+</dl>
+</dd></dl>
 </section>
 </section>
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
@@ -784,6 +837,7 @@ is permitted, for more information consult the project license file.</p>
 </li>
 <li><a :data-current="activeSection === '#module-enhomie.philips.plugins.helpers'" class="reference internal" href="#module-enhomie.philips.plugins.helpers">enhomie.philips.plugins.helpers module</a><ul>
 <li><a :data-current="activeSection === '#enhomie.philips.plugins.helpers.phue_changed'" class="reference internal" href="#enhomie.philips.plugins.helpers.phue_changed"><code class="docutils literal notranslate"><span class="pre">phue_changed()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.philips.plugins.helpers.phue_current'" class="reference internal" href="#enhomie.philips.plugins.helpers.phue_current"><code class="docutils literal notranslate"><span class="pre">phue_current()</span></code></a></li>
 <li><a :data-current="activeSection === '#enhomie.philips.plugins.helpers.phue_sensors'" class="reference internal" href="#enhomie.philips.plugins.helpers.phue_sensors"><code class="docutils literal notranslate"><span class="pre">phue_sensors()</span></code></a></li>
 </ul>
 </li>
@@ -850,6 +904,9 @@ is permitted, for more information consult the project license file.</p>
 <li><a :data-current="activeSection === '#enhomie.philips.plugins.DriverPhueScene.validate'" class="reference internal" href="#enhomie.philips.plugins.DriverPhueScene.validate"><code class="docutils literal notranslate"><span class="pre">DriverPhueScene.validate()</span></code></a></li>
 </ul>
 </li>
+<li><a :data-current="activeSection === '#enhomie.philips.plugins.phue_changed'" class="reference internal" href="#enhomie.philips.plugins.phue_changed"><code class="docutils literal notranslate"><span class="pre">phue_changed()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.philips.plugins.phue_current'" class="reference internal" href="#enhomie.philips.plugins.phue_current"><code class="docutils literal notranslate"><span class="pre">phue_current()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.philips.plugins.phue_sensors'" class="reference internal" href="#enhomie.philips.plugins.phue_sensors"><code class="docutils literal notranslate"><span class="pre">phue_sensors()</span></code></a></li>
 </ul>
 </li>
 </ul>

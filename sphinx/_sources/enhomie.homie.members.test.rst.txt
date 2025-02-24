@@ -20,6 +20,14 @@ enhomie.homie.members.test.test\_member module
    :show-inheritance:
    :undoc-members:
 
+enhomie.homie.members.test.test\_restful module
+-----------------------------------------------
+
+.. automodule:: enhomie.homie.members.test.test_restful
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 enhomie.homie.members.test.test\_streams module
 -----------------------------------------------
 

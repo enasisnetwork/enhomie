@@ -50,10 +50,26 @@ Homie Children
    :show-inheritance:
    :noindex:
 
+Persistent Defaults
+-------------------
+
+.. autopydantic_model:: enhomie.homie.params.HomiePersistParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
 Multithread Service
 -------------------
 
 .. autopydantic_model:: enhomie.homie.params.HomieServiceParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
+Restful Service
+---------------
+
+.. autopydantic_model:: enhomie.homie.params.RestfulServiceParams
    :members:
    :show-inheritance:
    :noindex:
@@ -128,10 +144,28 @@ Philips Plugins
    :show-inheritance:
    :noindex:
 
+Philips Helpers
+---------------
+
+.. autofunction:: enhomie.philips.plugins.phue_sensors
+   :noindex:
+
+.. autofunction:: enhomie.philips.plugins.phue_changed
+   :noindex:
+
+.. autofunction:: enhomie.philips.plugins.phue_current
+   :noindex:
+
 Ubiquiti Plugins
 ----------------
 
 .. autopydantic_model:: enhomie.ubiquiti.params.DriverUbiqClientParams
    :members:
    :show-inheritance:
+   :noindex:
+
+Ubiquiti Helpers
+----------------
+
+.. autofunction:: enhomie.ubiquiti.plugins.ubiq_latest
    :noindex:

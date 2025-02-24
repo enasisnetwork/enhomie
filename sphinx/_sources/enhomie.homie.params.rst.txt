@@ -76,6 +76,14 @@ enhomie.homie.params.origin module
    :show-inheritance:
    :undoc-members:
 
+enhomie.homie.params.persist module
+-----------------------------------
+
+.. automodule:: enhomie.homie.params.persist
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 enhomie.homie.params.plugin module
 ----------------------------------
 

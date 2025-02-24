@@ -153,588 +153,722 @@
 </span><span id="line-10"><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span>
 </span><span id="line-11"><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span> <span class="k">as</span> <span class="n">block_sleep</span>
 </span><span id="line-12"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
-</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span id="line-14">
-</span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
-</span><span id="line-16">
-</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">.members</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActions</span>
-</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">.members</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStreams</span>
-</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">.members</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieUpdates</span>
-</span><span id="line-20">
-</span><span id="line-21"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-22">    <span class="kn">from</span><span class="w"> </span><span class="nn">.homie</span><span class="w"> </span><span class="kn">import</span> <span class="n">Homie</span>
-</span><span id="line-23">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieServiceParams</span>
-</span><span id="line-24">
-</span><span id="line-25">
+</span><span id="line-13"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="line-14"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span id="line-15">
+</span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.times</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
+</span><span id="line-17">
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">.members</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActions</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">.members</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieRestful</span>
+</span><span id="line-20"><span class="kn">from</span><span class="w"> </span><span class="nn">.members</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStreams</span>
+</span><span id="line-21"><span class="kn">from</span><span class="w"> </span><span class="nn">.members</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieUpdates</span>
+</span><span id="line-22">
+</span><span id="line-23"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+</span><span id="line-24">    <span class="kn">from</span><span class="w"> </span><span class="nn">.homie</span><span class="w"> </span><span class="kn">import</span> <span class="n">Homie</span>
+</span><span id="line-25">    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieServiceParams</span>
 </span><span id="line-26">
-</span><span id="line-27"><span class="n">_CONGEST</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span>
+</span><span id="line-27">
 </span><span id="line-28">
-</span><span id="line-29">
+</span><span id="line-29"><span class="n">_CONGEST</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span>
 </span><span id="line-30">
+</span><span id="line-31">
+</span><span id="line-32">
 <div class="viewcode-block" id="HomieService">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService">[docs]</a>
-</span><span id="line-31"><span class="k">class</span><span class="w"> </span><span class="nc">HomieService</span><span class="p">:</span>
-</span><span id="line-32"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-33"><span class="sd">    Multi-threaded service for processing the desired state.</span>
-</span><span id="line-34">
-</span><span id="line-35"><span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
-</span><span id="line-36"><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="line-37">
-</span><span id="line-38">    <span class="n">__homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span>
+</span><span id="line-33"><span class="k">class</span><span class="w"> </span><span class="nc">HomieService</span><span class="p">:</span>
+</span><span id="line-34"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-35"><span class="sd">    Multi-threaded service for processing the desired state.</span>
+</span><span id="line-36">
+</span><span id="line-37"><span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
+</span><span id="line-38"><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="line-39">
-</span><span id="line-40">    <span class="n">__actions</span><span class="p">:</span> <span class="n">HomieActions</span>
-</span><span id="line-41">    <span class="n">__updates</span><span class="p">:</span> <span class="n">HomieUpdates</span>
-</span><span id="line-42">    <span class="n">__streams</span><span class="p">:</span> <span class="n">HomieStreams</span>
-</span><span id="line-43">
-</span><span id="line-44">    <span class="n">__timer</span><span class="p">:</span> <span class="n">Timer</span>
-</span><span id="line-45">    <span class="n">__vacate</span><span class="p">:</span> <span class="n">Event</span>
-</span><span id="line-46">    <span class="n">__cancel</span><span class="p">:</span> <span class="n">Event</span>
-</span><span id="line-47">    <span class="n">__started</span><span class="p">:</span> <span class="nb">bool</span>
-</span><span id="line-48">
-</span><span id="line-49">
-</span><span id="line-50">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-</span><span id="line-51">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-52">        <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
-</span><span id="line-53">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-54"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-55"><span class="sd">        Initialize instance for class using provided parameters.</span>
-</span><span id="line-56"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-57">
-</span><span id="line-58">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
-</span><span id="line-59">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-</span><span id="line-60">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;initial&#39;</span><span class="p">)</span>
-</span><span id="line-61">
-</span><span id="line-62">        <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span> <span class="o">=</span> <span class="n">homie</span>
-</span><span id="line-63">
-</span><span id="line-64">        <span class="bp">self</span><span class="o">.</span><span class="n">__build_objects</span><span class="p">()</span>
-</span><span id="line-65">
-</span><span id="line-66">        <span class="bp">self</span><span class="o">.</span><span class="n">__started</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="line-67">
-</span><span id="line-68">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-</span><span id="line-69">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-</span><span id="line-70">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;created&#39;</span><span class="p">)</span>
-</span><span id="line-71">
-</span><span id="line-72">
-</span><span id="line-73">    <span class="k">def</span><span class="w"> </span><span class="nf">__build_objects</span><span class="p">(</span>
-</span><span id="line-74">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-75">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-76"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-77"><span class="sd">        Construct instances using the configuration parameters.</span>
-</span><span id="line-78"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-79">
-</span><span id="line-80">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
-</span><span id="line-81">        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+</span><span id="line-40">    <span class="n">__homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span>
+</span><span id="line-41">
+</span><span id="line-42">    <span class="n">__actions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomieActions</span><span class="p">]</span>
+</span><span id="line-43">    <span class="n">__updates</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomieUpdates</span><span class="p">]</span>
+</span><span id="line-44">    <span class="n">__streams</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomieStreams</span><span class="p">]</span>
+</span><span id="line-45">    <span class="n">__restful</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomieRestful</span><span class="p">]</span>
+</span><span id="line-46">
+</span><span id="line-47">    <span class="n">__timer</span><span class="p">:</span> <span class="n">Timer</span>
+</span><span id="line-48">    <span class="n">__vacate</span><span class="p">:</span> <span class="n">Event</span>
+</span><span id="line-49">    <span class="n">__cancel</span><span class="p">:</span> <span class="n">Event</span>
+</span><span id="line-50">    <span class="n">__started</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="line-51">
+</span><span id="line-52">
+</span><span id="line-53">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+</span><span id="line-54">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-55">        <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
+</span><span id="line-56">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-57"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-58"><span class="sd">        Initialize instance for class using provided parameters.</span>
+</span><span id="line-59"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-60">
+</span><span id="line-61">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
+</span><span id="line-62">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="line-63">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;initial&#39;</span><span class="p">)</span>
+</span><span id="line-64">
+</span><span id="line-65">        <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span> <span class="o">=</span> <span class="n">homie</span>
+</span><span id="line-66">
+</span><span id="line-67">        <span class="bp">self</span><span class="o">.</span><span class="n">__build_objects</span><span class="p">()</span>
+</span><span id="line-68">
+</span><span id="line-69">        <span class="bp">self</span><span class="o">.</span><span class="n">__started</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="line-70">
+</span><span id="line-71">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
+</span><span id="line-72">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="line-73">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;created&#39;</span><span class="p">)</span>
+</span><span id="line-74">
+</span><span id="line-75">
+</span><span id="line-76">    <span class="k">def</span><span class="w"> </span><span class="nf">__build_objects</span><span class="p">(</span>
+</span><span id="line-77">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-78">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-79"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-80"><span class="sd">        Construct instances using the configuration parameters.</span>
+</span><span id="line-81"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-82">
-</span><span id="line-83">        <span class="n">respite</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">respite</span>
-</span><span id="line-84">
+</span><span id="line-83">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-84">        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
 </span><span id="line-85">
-</span><span id="line-86">        <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-87">            <span class="n">HomieActions</span><span class="p">(</span><span class="n">homie</span><span class="p">))</span>
+</span><span id="line-86">        <span class="n">respite</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">respite</span>
+</span><span id="line-87">        <span class="n">members</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">members</span>
 </span><span id="line-88">
-</span><span id="line-89">        <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-90">            <span class="n">HomieUpdates</span><span class="p">(</span><span class="n">homie</span><span class="p">))</span>
-</span><span id="line-91">
-</span><span id="line-92">        <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-93">            <span class="n">HomieStreams</span><span class="p">(</span><span class="n">homie</span><span class="p">))</span>
+</span><span id="line-89">
+</span><span id="line-90">        <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-91">            <span class="n">HomieActions</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span>
+</span><span id="line-92">            <span class="k">if</span> <span class="n">members</span><span class="o">.</span><span class="n">actions</span>
+</span><span id="line-93">            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
 </span><span id="line-94">
-</span><span id="line-95">
-</span><span id="line-96">        <span class="bp">self</span><span class="o">.</span><span class="n">__timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span>
-</span><span id="line-97">            <span class="n">respite</span><span class="o">.</span><span class="n">health</span><span class="p">,</span>
-</span><span id="line-98">            <span class="n">start</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">)</span>
+</span><span id="line-95">        <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-96">            <span class="n">HomieUpdates</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span>
+</span><span id="line-97">            <span class="k">if</span> <span class="n">members</span><span class="o">.</span><span class="n">updates</span>
+</span><span id="line-98">            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
 </span><span id="line-99">
-</span><span id="line-100">        <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span> <span class="o">=</span> <span class="n">Event</span><span class="p">()</span>
-</span><span id="line-101">        <span class="bp">self</span><span class="o">.</span><span class="n">__cancel</span> <span class="o">=</span> <span class="n">Event</span><span class="p">()</span>
-</span><span id="line-102">
-</span><span id="line-103">
-</span><span id="line-104">    <span class="nd">@property</span>
-</span><span id="line-105">    <span class="k">def</span><span class="w"> </span><span class="nf">homie</span><span class="p">(</span>
-</span><span id="line-106">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-107">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Homie&#39;</span><span class="p">:</span>
-</span><span id="line-108"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-109"><span class="sd">        Return the Homie instance to which the instance belongs.</span>
+</span><span id="line-100">        <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-101">            <span class="n">HomieStreams</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span>
+</span><span id="line-102">            <span class="k">if</span> <span class="n">members</span><span class="o">.</span><span class="n">streams</span>
+</span><span id="line-103">            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="line-104">
+</span><span id="line-105">        <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-106">            <span class="n">HomieRestful</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span>
+</span><span id="line-107">            <span class="k">if</span> <span class="n">members</span><span class="o">.</span><span class="n">restful</span>
+</span><span id="line-108">            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="line-109">
 </span><span id="line-110">
-</span><span id="line-111"><span class="sd">        :returns: Homie instance to which the instance belongs.</span>
-</span><span id="line-112"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-113">
-</span><span id="line-114">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
-</span><span id="line-115">
-</span><span id="line-116">
-</span><span id="line-117">    <span class="nd">@property</span>
-</span><span id="line-118">    <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span>
-</span><span id="line-119">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-120">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieServiceParams&#39;</span><span class="p">:</span>
-</span><span id="line-121"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-122"><span class="sd">        Return the Pydantic model containing the configuration.</span>
-</span><span id="line-123">
-</span><span id="line-124"><span class="sd">        :returns: Pydantic model containing the configuration.</span>
-</span><span id="line-125"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-126">
-</span><span id="line-127">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
-</span><span id="line-128">        <span class="n">params</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">params</span>
-</span><span id="line-129">
-</span><span id="line-130">        <span class="k">return</span> <span class="n">params</span><span class="o">.</span><span class="n">service</span>
+</span><span id="line-111">        <span class="bp">self</span><span class="o">.</span><span class="n">__timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span>
+</span><span id="line-112">            <span class="n">respite</span><span class="o">.</span><span class="n">health</span><span class="p">,</span>
+</span><span id="line-113">            <span class="n">start</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">)</span>
+</span><span id="line-114">
+</span><span id="line-115">        <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span> <span class="o">=</span> <span class="n">Event</span><span class="p">()</span>
+</span><span id="line-116">        <span class="bp">self</span><span class="o">.</span><span class="n">__cancel</span> <span class="o">=</span> <span class="n">Event</span><span class="p">()</span>
+</span><span id="line-117">
+</span><span id="line-118">
+</span><span id="line-119">    <span class="nd">@property</span>
+</span><span id="line-120">    <span class="k">def</span><span class="w"> </span><span class="nf">homie</span><span class="p">(</span>
+</span><span id="line-121">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-122">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Homie&#39;</span><span class="p">:</span>
+</span><span id="line-123"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-124"><span class="sd">        Return the Homie instance to which the instance belongs.</span>
+</span><span id="line-125">
+</span><span id="line-126"><span class="sd">        :returns: Homie instance to which the instance belongs.</span>
+</span><span id="line-127"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-128">
+</span><span id="line-129">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-130">
 </span><span id="line-131">
-</span><span id="line-132">
-</span><span id="line-133">    <span class="nd">@property</span>
-</span><span id="line-134">    <span class="k">def</span><span class="w"> </span><span class="nf">actions</span><span class="p">(</span>
-</span><span id="line-135">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-136">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieActions</span><span class="p">:</span>
-</span><span id="line-137"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-138"><span class="sd">        Return the value for the attribute from class instance.</span>
-</span><span id="line-139">
-</span><span id="line-140"><span class="sd">        :returns: Value for the attribute from class instance.</span>
-</span><span id="line-141"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-142">
-</span><span id="line-143">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
+</span><span id="line-132">    <span class="nd">@property</span>
+</span><span id="line-133">    <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span>
+</span><span id="line-134">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-135">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieServiceParams&#39;</span><span class="p">:</span>
+</span><span id="line-136"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-137"><span class="sd">        Return the Pydantic model containing the configuration.</span>
+</span><span id="line-138">
+</span><span id="line-139"><span class="sd">        :returns: Pydantic model containing the configuration.</span>
+</span><span id="line-140"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-141">
+</span><span id="line-142">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-143">        <span class="n">params</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">params</span>
 </span><span id="line-144">
-</span><span id="line-145">
-</span><span id="line-146">    <span class="nd">@property</span>
-</span><span id="line-147">    <span class="k">def</span><span class="w"> </span><span class="nf">updates</span><span class="p">(</span>
-</span><span id="line-148">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-149">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieUpdates</span><span class="p">:</span>
-</span><span id="line-150"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-151"><span class="sd">        Return the value for the attribute from class instance.</span>
-</span><span id="line-152">
-</span><span id="line-153"><span class="sd">        :returns: Value for the attribute from class instance.</span>
-</span><span id="line-154"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-155">
-</span><span id="line-156">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
+</span><span id="line-145">        <span class="k">return</span> <span class="n">params</span><span class="o">.</span><span class="n">service</span>
+</span><span id="line-146">
+</span><span id="line-147">
+</span><span id="line-148">    <span class="nd">@property</span>
+</span><span id="line-149">    <span class="k">def</span><span class="w"> </span><span class="nf">actions</span><span class="p">(</span>
+</span><span id="line-150">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-151">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomieActions</span><span class="p">]:</span>
+</span><span id="line-152"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-153"><span class="sd">        Return the value for the attribute from class instance.</span>
+</span><span id="line-154">
+</span><span id="line-155"><span class="sd">        :returns: Value for the attribute from class instance.</span>
+</span><span id="line-156"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-157">
-</span><span id="line-158">
-</span><span id="line-159">    <span class="nd">@property</span>
-</span><span id="line-160">    <span class="k">def</span><span class="w"> </span><span class="nf">streams</span><span class="p">(</span>
-</span><span id="line-161">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-162">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieStreams</span><span class="p">:</span>
-</span><span id="line-163"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-164"><span class="sd">        Return the value for the attribute from class instance.</span>
-</span><span id="line-165">
-</span><span id="line-166"><span class="sd">        :returns: Value for the attribute from class instance.</span>
-</span><span id="line-167"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-168">
-</span><span id="line-169">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-158">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
+</span><span id="line-159">
+</span><span id="line-160">
+</span><span id="line-161">    <span class="nd">@property</span>
+</span><span id="line-162">    <span class="k">def</span><span class="w"> </span><span class="nf">updates</span><span class="p">(</span>
+</span><span id="line-163">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-164">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomieUpdates</span><span class="p">]:</span>
+</span><span id="line-165"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-166"><span class="sd">        Return the value for the attribute from class instance.</span>
+</span><span id="line-167">
+</span><span id="line-168"><span class="sd">        :returns: Value for the attribute from class instance.</span>
+</span><span id="line-169"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-170">
-</span><span id="line-171">
-</span><span id="line-172">    <span class="nd">@property</span>
-</span><span id="line-173">    <span class="k">def</span><span class="w"> </span><span class="nf">running</span><span class="p">(</span>
-</span><span id="line-174">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-175">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-</span><span id="line-176"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-177"><span class="sd">        Return the list of threads which are determined running.</span>
-</span><span id="line-178">
-</span><span id="line-179"><span class="sd">        :returns: List of threads which are determined running.</span>
-</span><span id="line-180"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-181">
-</span><span id="line-182">        <span class="n">running</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="line-171">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
+</span><span id="line-172">
+</span><span id="line-173">
+</span><span id="line-174">    <span class="nd">@property</span>
+</span><span id="line-175">    <span class="k">def</span><span class="w"> </span><span class="nf">streams</span><span class="p">(</span>
+</span><span id="line-176">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-177">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomieStreams</span><span class="p">]:</span>
+</span><span id="line-178"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-179"><span class="sd">        Return the value for the attribute from class instance.</span>
+</span><span id="line-180">
+</span><span id="line-181"><span class="sd">        :returns: Value for the attribute from class instance.</span>
+</span><span id="line-182"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-183">
-</span><span id="line-184">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
-</span><span id="line-185">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
-</span><span id="line-186">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
-</span><span id="line-187">
-</span><span id="line-188">        <span class="n">running</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-189">            <span class="n">actions</span><span class="o">.</span><span class="n">running</span><span class="p">)</span>
-</span><span id="line-190">
-</span><span id="line-191">        <span class="n">running</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-192">            <span class="n">updates</span><span class="o">.</span><span class="n">running</span><span class="p">)</span>
+</span><span id="line-184">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-185">
+</span><span id="line-186">
+</span><span id="line-187">    <span class="nd">@property</span>
+</span><span id="line-188">    <span class="k">def</span><span class="w"> </span><span class="nf">restful</span><span class="p">(</span>
+</span><span id="line-189">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-190">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomieRestful</span><span class="p">]:</span>
+</span><span id="line-191"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-192"><span class="sd">        Return the value for the attribute from class instance.</span>
 </span><span id="line-193">
-</span><span id="line-194">        <span class="n">running</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-195">            <span class="n">streams</span><span class="o">.</span><span class="n">running</span><span class="p">)</span>
+</span><span id="line-194"><span class="sd">        :returns: Value for the attribute from class instance.</span>
+</span><span id="line-195"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-196">
-</span><span id="line-197">        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">running</span><span class="p">)</span>
+</span><span id="line-197">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
 </span><span id="line-198">
 </span><span id="line-199">
 </span><span id="line-200">    <span class="nd">@property</span>
-</span><span id="line-201">    <span class="k">def</span><span class="w"> </span><span class="nf">zombies</span><span class="p">(</span>
+</span><span id="line-201">    <span class="k">def</span><span class="w"> </span><span class="nf">running</span><span class="p">(</span>
 </span><span id="line-202">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-203">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 </span><span id="line-204"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-205"><span class="sd">        Return the list of threads which are determined zombies.</span>
+</span><span id="line-205"><span class="sd">        Return the list of threads which are determined running.</span>
 </span><span id="line-206">
-</span><span id="line-207"><span class="sd">        :returns: List of threads which are determined zombies.</span>
+</span><span id="line-207"><span class="sd">        :returns: List of threads which are determined running.</span>
 </span><span id="line-208"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-209">
-</span><span id="line-210">        <span class="n">zombies</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="line-210">        <span class="n">running</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="line-211">
 </span><span id="line-212">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
 </span><span id="line-213">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
 </span><span id="line-214">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
-</span><span id="line-215">
-</span><span id="line-216">        <span class="n">zombies</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-217">            <span class="n">actions</span><span class="o">.</span><span class="n">zombies</span><span class="p">)</span>
-</span><span id="line-218">
-</span><span id="line-219">        <span class="n">zombies</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-220">            <span class="n">updates</span><span class="o">.</span><span class="n">zombies</span><span class="p">)</span>
-</span><span id="line-221">
-</span><span id="line-222">        <span class="n">zombies</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-223">            <span class="n">streams</span><span class="o">.</span><span class="n">zombies</span><span class="p">)</span>
+</span><span id="line-215">        <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
+</span><span id="line-216">
+</span><span id="line-217">        <span class="k">if</span> <span class="n">actions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-218">            <span class="n">running</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-219">                <span class="n">actions</span><span class="o">.</span><span class="n">running</span><span class="p">)</span>
+</span><span id="line-220">
+</span><span id="line-221">        <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-222">            <span class="n">running</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-223">                <span class="n">updates</span><span class="o">.</span><span class="n">running</span><span class="p">)</span>
 </span><span id="line-224">
-</span><span id="line-225">        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">zombies</span><span class="p">)</span>
-</span><span id="line-226">
-</span><span id="line-227">
-</span><span id="line-228">    <span class="nd">@property</span>
-</span><span id="line-229">    <span class="k">def</span><span class="w"> </span><span class="nf">congest</span><span class="p">(</span>
-</span><span id="line-230">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-231">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CONGEST</span><span class="p">:</span>
-</span><span id="line-232"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-233"><span class="sd">        Return the list of congested threads and members queues.</span>
+</span><span id="line-225">        <span class="k">if</span> <span class="n">streams</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-226">            <span class="n">running</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-227">                <span class="n">streams</span><span class="o">.</span><span class="n">running</span><span class="p">)</span>
+</span><span id="line-228">
+</span><span id="line-229">        <span class="k">if</span> <span class="n">restful</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-230">            <span class="n">running</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-231">                <span class="n">restful</span><span class="o">.</span><span class="n">running</span><span class="p">)</span>
+</span><span id="line-232">
+</span><span id="line-233">        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">running</span><span class="p">)</span>
 </span><span id="line-234">
-</span><span id="line-235"><span class="sd">        :returns: List of congested threads and members queues.</span>
-</span><span id="line-236"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-237">
-</span><span id="line-238">        <span class="n">congest</span><span class="p">:</span> <span class="n">_CONGEST</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="line-239">
-</span><span id="line-240">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
-</span><span id="line-241">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
-</span><span id="line-242">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
-</span><span id="line-243">
-</span><span id="line-244">        <span class="n">congest</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-245">            <span class="n">actions</span><span class="o">.</span><span class="n">congest</span><span class="p">)</span>
-</span><span id="line-246">
-</span><span id="line-247">        <span class="n">congest</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-248">            <span class="n">updates</span><span class="o">.</span><span class="n">congest</span><span class="p">)</span>
-</span><span id="line-249">
-</span><span id="line-250">        <span class="n">congest</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-251">            <span class="n">streams</span><span class="o">.</span><span class="n">congest</span><span class="p">)</span>
+</span><span id="line-235">
+</span><span id="line-236">    <span class="nd">@property</span>
+</span><span id="line-237">    <span class="k">def</span><span class="w"> </span><span class="nf">zombies</span><span class="p">(</span>
+</span><span id="line-238">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-239">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+</span><span id="line-240"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-241"><span class="sd">        Return the list of threads which are determined zombies.</span>
+</span><span id="line-242">
+</span><span id="line-243"><span class="sd">        :returns: List of threads which are determined zombies.</span>
+</span><span id="line-244"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-245">
+</span><span id="line-246">        <span class="n">zombies</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="line-247">
+</span><span id="line-248">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
+</span><span id="line-249">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
+</span><span id="line-250">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-251">        <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
 </span><span id="line-252">
-</span><span id="line-253">        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">congest</span><span class="p">)</span>
-</span><span id="line-254">
-</span><span id="line-255">
-</span><span id="line-256">    <span class="nd">@property</span>
-</span><span id="line-257">    <span class="k">def</span><span class="w"> </span><span class="nf">enqueue</span><span class="p">(</span>
-</span><span id="line-258">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-259">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CONGEST</span><span class="p">:</span>
-</span><span id="line-260"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-261"><span class="sd">        Return the list of congested threads and members queues.</span>
-</span><span id="line-262">
-</span><span id="line-263"><span class="sd">        :returns: List of congested threads and members queues.</span>
-</span><span id="line-264"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-265">
-</span><span id="line-266">        <span class="n">enqueue</span><span class="p">:</span> <span class="n">_CONGEST</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="line-267">
-</span><span id="line-268">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
-</span><span id="line-269">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
-</span><span id="line-270">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-253">        <span class="k">if</span> <span class="n">actions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-254">            <span class="n">zombies</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-255">                <span class="n">actions</span><span class="o">.</span><span class="n">zombies</span><span class="p">)</span>
+</span><span id="line-256">
+</span><span id="line-257">        <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-258">            <span class="n">zombies</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-259">                <span class="n">updates</span><span class="o">.</span><span class="n">zombies</span><span class="p">)</span>
+</span><span id="line-260">
+</span><span id="line-261">        <span class="k">if</span> <span class="n">streams</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-262">            <span class="n">zombies</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-263">                <span class="n">streams</span><span class="o">.</span><span class="n">zombies</span><span class="p">)</span>
+</span><span id="line-264">
+</span><span id="line-265">        <span class="k">if</span> <span class="n">restful</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-266">            <span class="n">zombies</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-267">                <span class="n">restful</span><span class="o">.</span><span class="n">zombies</span><span class="p">)</span>
+</span><span id="line-268">
+</span><span id="line-269">        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">zombies</span><span class="p">)</span>
+</span><span id="line-270">
 </span><span id="line-271">
-</span><span id="line-272">        <span class="n">enqueue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-273">            <span class="n">actions</span><span class="o">.</span><span class="n">enqueue</span><span class="p">)</span>
-</span><span id="line-274">
-</span><span id="line-275">        <span class="n">enqueue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-276">            <span class="n">updates</span><span class="o">.</span><span class="n">enqueue</span><span class="p">)</span>
-</span><span id="line-277">
-</span><span id="line-278">        <span class="n">enqueue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-</span><span id="line-279">            <span class="n">streams</span><span class="o">.</span><span class="n">enqueue</span><span class="p">)</span>
-</span><span id="line-280">
-</span><span id="line-281">        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">enqueue</span><span class="p">)</span>
-</span><span id="line-282">
+</span><span id="line-272">    <span class="nd">@property</span>
+</span><span id="line-273">    <span class="k">def</span><span class="w"> </span><span class="nf">congest</span><span class="p">(</span>
+</span><span id="line-274">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-275">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CONGEST</span><span class="p">:</span>
+</span><span id="line-276"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-277"><span class="sd">        Return the list of congested threads and members queues.</span>
+</span><span id="line-278">
+</span><span id="line-279"><span class="sd">        :returns: List of congested threads and members queues.</span>
+</span><span id="line-280"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-281">
+</span><span id="line-282">        <span class="n">congest</span><span class="p">:</span> <span class="n">_CONGEST</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="line-283">
+</span><span id="line-284">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
+</span><span id="line-285">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
+</span><span id="line-286">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-287">        <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
+</span><span id="line-288">
+</span><span id="line-289">        <span class="k">if</span> <span class="n">actions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-290">            <span class="n">congest</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-291">                <span class="n">actions</span><span class="o">.</span><span class="n">congest</span><span class="p">)</span>
+</span><span id="line-292">
+</span><span id="line-293">        <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-294">            <span class="n">congest</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-295">                <span class="n">updates</span><span class="o">.</span><span class="n">congest</span><span class="p">)</span>
+</span><span id="line-296">
+</span><span id="line-297">        <span class="k">if</span> <span class="n">streams</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-298">            <span class="n">congest</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-299">                <span class="n">streams</span><span class="o">.</span><span class="n">congest</span><span class="p">)</span>
+</span><span id="line-300">
+</span><span id="line-301">        <span class="k">if</span> <span class="n">restful</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-302">            <span class="n">congest</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-303">                <span class="n">restful</span><span class="o">.</span><span class="n">congest</span><span class="p">)</span>
+</span><span id="line-304">
+</span><span id="line-305">        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">congest</span><span class="p">)</span>
+</span><span id="line-306">
+</span><span id="line-307">
+</span><span id="line-308">    <span class="nd">@property</span>
+</span><span id="line-309">    <span class="k">def</span><span class="w"> </span><span class="nf">enqueue</span><span class="p">(</span>
+</span><span id="line-310">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-311">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CONGEST</span><span class="p">:</span>
+</span><span id="line-312"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-313"><span class="sd">        Return the list of congested threads and members queues.</span>
+</span><span id="line-314">
+</span><span id="line-315"><span class="sd">        :returns: List of congested threads and members queues.</span>
+</span><span id="line-316"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-317">
+</span><span id="line-318">        <span class="n">enqueue</span><span class="p">:</span> <span class="n">_CONGEST</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="line-319">
+</span><span id="line-320">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
+</span><span id="line-321">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
+</span><span id="line-322">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-323">        <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
+</span><span id="line-324">
+</span><span id="line-325">        <span class="k">if</span> <span class="n">actions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-326">            <span class="n">enqueue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-327">                <span class="n">actions</span><span class="o">.</span><span class="n">enqueue</span><span class="p">)</span>
+</span><span id="line-328">
+</span><span id="line-329">        <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-330">            <span class="n">enqueue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-331">                <span class="n">updates</span><span class="o">.</span><span class="n">enqueue</span><span class="p">)</span>
+</span><span id="line-332">
+</span><span id="line-333">        <span class="k">if</span> <span class="n">streams</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-334">            <span class="n">enqueue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-335">                <span class="n">streams</span><span class="o">.</span><span class="n">enqueue</span><span class="p">)</span>
+</span><span id="line-336">
+</span><span id="line-337">        <span class="k">if</span> <span class="n">restful</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-338">            <span class="n">enqueue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+</span><span id="line-339">                <span class="n">restful</span><span class="o">.</span><span class="n">enqueue</span><span class="p">)</span>
+</span><span id="line-340">
+</span><span id="line-341">        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">enqueue</span><span class="p">)</span>
+</span><span id="line-342">
+</span><span id="line-343">
 <div class="viewcode-block" id="HomieService.start">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.start">[docs]</a>
-</span><span id="line-284">    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span>
-</span><span id="line-285">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-286">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-287"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-288"><span class="sd">        Start the various threads within the Homie class object.</span>
-</span><span id="line-289"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-290">
-</span><span id="line-291">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
-</span><span id="line-292">        <span class="n">started</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__started</span>
-</span><span id="line-293">
-</span><span id="line-294">        <span class="k">if</span> <span class="n">started</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-</span><span id="line-295">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-296">
-</span><span id="line-297">        <span class="bp">self</span><span class="o">.</span><span class="n">__started</span> <span class="o">=</span> <span class="kc">True</span>
-</span><span id="line-298">
-</span><span id="line-299">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-</span><span id="line-300">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-</span><span id="line-301">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;starting&#39;</span><span class="p">)</span>
-</span><span id="line-302">
-</span><span id="line-303">        <span class="k">assert</span> <span class="n">homie</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
-</span><span id="line-304">
-</span><span id="line-305">        <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</span><span id="line-306">        <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</span><span id="line-307">        <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</span><span id="line-308">
-</span><span id="line-309">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-</span><span id="line-310">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-</span><span id="line-311">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;started&#39;</span><span class="p">)</span></div>
-
-</span><span id="line-312">
-</span><span id="line-313">
-<div class="viewcode-block" id="HomieService.operate">
-<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate">[docs]</a>
-</span><span id="line-314">    <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span>
-</span><span id="line-315">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-316">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-317"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-318"><span class="sd">        Perform the operation related to Homie service members.</span>
-</span><span id="line-319"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-320">
-</span><span id="line-321">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
-</span><span id="line-322">
-</span><span id="line-323">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
-</span><span id="line-324">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
-</span><span id="line-325">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
-</span><span id="line-326">
-</span><span id="line-327">        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
-</span><span id="line-328">
-</span><span id="line-329">            <span class="n">updates</span><span class="o">.</span><span class="n">operate</span><span class="p">()</span>
-</span><span id="line-330">
-</span><span id="line-331">            <span class="bp">self</span><span class="o">.</span><span class="n">operate_updates</span><span class="p">()</span>
-</span><span id="line-332">            <span class="bp">self</span><span class="o">.</span><span class="n">operate_streams</span><span class="p">()</span>
-</span><span id="line-333">
-</span><span id="line-334">            <span class="n">actions</span><span class="o">.</span><span class="n">operate</span><span class="p">()</span>
-</span><span id="line-335">            <span class="n">streams</span><span class="o">.</span><span class="n">operate</span><span class="p">()</span>
-</span><span id="line-336">
-</span><span id="line-337">            <span class="n">block_sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
-</span><span id="line-338">
-</span><span id="line-339">            <span class="bp">self</span><span class="o">.</span><span class="n">operate_healths</span><span class="p">()</span>
-</span><span id="line-340">
-</span><span id="line-341">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-</span><span id="line-342">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-</span><span id="line-343">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;vacated&#39;</span><span class="p">)</span></div>
-
-</span><span id="line-344">
-</span><span id="line-345">
-<div class="viewcode-block" id="HomieService.operate_updates">
-<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate_updates">[docs]</a>
-</span><span id="line-346">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_updates</span><span class="p">(</span>
-</span><span id="line-347">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-348">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-349"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-350"><span class="sd">        Perform the operation related to Homie service members.</span>
-</span><span id="line-351"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-352">
-</span><span id="line-353">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
-</span><span id="line-354">        <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
-</span><span id="line-355">
-</span><span id="line-356">        <span class="n">vacate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span>
+</span><span id="line-344">    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span>
+</span><span id="line-345">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-346">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-347"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-348"><span class="sd">        Start the various threads within the Homie class object.</span>
+</span><span id="line-349"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-350">
+</span><span id="line-351">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-352">        <span class="n">started</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__started</span>
+</span><span id="line-353">
+</span><span id="line-354">        <span class="k">if</span> <span class="n">started</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="line-355">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-356">
 </span><span id="line-357">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
 </span><span id="line-358">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
-</span><span id="line-359">
-</span><span id="line-360">        <span class="n">uqueue</span> <span class="o">=</span> <span class="n">updates</span><span class="o">.</span><span class="n">uqueue</span>
+</span><span id="line-359">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-360">        <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
 </span><span id="line-361">
-</span><span id="line-362">        <span class="n">auqueue</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">uqueue</span>
+</span><span id="line-362">        <span class="bp">self</span><span class="o">.</span><span class="n">__started</span> <span class="o">=</span> <span class="kc">True</span>
 </span><span id="line-363">
-</span><span id="line-364">        <span class="n">origins</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-365">            <span class="n">childs</span><span class="o">.</span><span class="n">origins</span>
-</span><span id="line-366">            <span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</span><span id="line-364">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
+</span><span id="line-365">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="line-366">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;starting&#39;</span><span class="p">)</span>
 </span><span id="line-367">
-</span><span id="line-368">
-</span><span id="line-369">        <span class="k">def</span><span class="w"> </span><span class="nf">_set_update</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-368">        <span class="k">assert</span> <span class="n">homie</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</span><span id="line-369">
 </span><span id="line-370">
-</span><span id="line-371">            <span class="n">name</span> <span class="o">=</span> <span class="n">uitem</span><span class="o">.</span><span class="n">origin</span>
-</span><span id="line-372">            <span class="n">_name</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">name</span>
+</span><span id="line-371">        <span class="k">if</span> <span class="n">streams</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-372">            <span class="n">streams</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </span><span id="line-373">
-</span><span id="line-374">            <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="n">_name</span><span class="p">:</span>
-</span><span id="line-375">                <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-374">        <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-375">            <span class="n">updates</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </span><span id="line-376">
-</span><span id="line-377">            <span class="p">(</span><span class="n">origin</span>
-</span><span id="line-378">             <span class="o">.</span><span class="n">set_update</span><span class="p">(</span><span class="n">uitem</span><span class="p">))</span>
+</span><span id="line-377">        <span class="k">if</span> <span class="n">actions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-378">            <span class="n">actions</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </span><span id="line-379">
-</span><span id="line-380">
-</span><span id="line-381">        <span class="k">while</span> <span class="ow">not</span> <span class="n">uqueue</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+</span><span id="line-380">        <span class="k">if</span> <span class="n">restful</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-381">            <span class="n">restful</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </span><span id="line-382">
-</span><span id="line-383">            <span class="n">uitem</span> <span class="o">=</span> <span class="n">uqueue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</span><span id="line-384">
-</span><span id="line-385">            <span class="k">if</span> <span class="n">vacate</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
-</span><span id="line-386">                <span class="k">continue</span>
-</span><span id="line-387">
-</span><span id="line-388">            <span class="n">auqueue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">uitem</span><span class="p">)</span>
-</span><span id="line-389">
-</span><span id="line-390">            <span class="k">for</span> <span class="n">origin</span> <span class="ow">in</span> <span class="n">origins</span><span class="p">:</span>
-</span><span id="line-391">                <span class="n">_set_update</span><span class="p">()</span>
-</span><span id="line-392">
-</span><span id="line-393">            <span class="n">homie</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="n">uitem</span><span class="p">)</span></div>
+</span><span id="line-383">
+</span><span id="line-384">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
+</span><span id="line-385">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="line-386">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;started&#39;</span><span class="p">)</span></div>
 
-</span><span id="line-394">
+</span><span id="line-387">
+</span><span id="line-388">
+<div class="viewcode-block" id="HomieService.operate">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate">[docs]</a>
+</span><span id="line-389">    <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span>
+</span><span id="line-390">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-391">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-392"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-393"><span class="sd">        Perform the operation related to Homie service members.</span>
+</span><span id="line-394"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-395">
-<div class="viewcode-block" id="HomieService.operate_streams">
-<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate_streams">[docs]</a>
-</span><span id="line-396">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_streams</span><span class="p">(</span>
-</span><span id="line-397">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-398">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-399"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-400"><span class="sd">        Perform the operation related to Homie service members.</span>
-</span><span id="line-401"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-396">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-397">
+</span><span id="line-398">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
+</span><span id="line-399">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
+</span><span id="line-400">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-401">        <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
 </span><span id="line-402">
-</span><span id="line-403">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-403">        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
 </span><span id="line-404">
-</span><span id="line-405">        <span class="n">vacate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span>
-</span><span id="line-406">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
-</span><span id="line-407">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
-</span><span id="line-408">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
-</span><span id="line-409">
-</span><span id="line-410">        <span class="n">squeue</span> <span class="o">=</span> <span class="n">streams</span><span class="o">.</span><span class="n">squeue</span>
-</span><span id="line-411">
-</span><span id="line-412">        <span class="n">asqueue</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">squeue</span>
-</span><span id="line-413">        <span class="n">usqueue</span> <span class="o">=</span> <span class="n">updates</span><span class="o">.</span><span class="n">squeue</span>
-</span><span id="line-414">
-</span><span id="line-415">
-</span><span id="line-416">        <span class="k">while</span> <span class="ow">not</span> <span class="n">squeue</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-</span><span id="line-417">
-</span><span id="line-418">            <span class="n">sitem</span> <span class="o">=</span> <span class="n">squeue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span id="line-405">            <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-406">                <span class="n">updates</span><span class="o">.</span><span class="n">operate</span><span class="p">()</span>
+</span><span id="line-407">
+</span><span id="line-408">            <span class="bp">self</span><span class="o">.</span><span class="n">operate_updates</span><span class="p">()</span>
+</span><span id="line-409">            <span class="bp">self</span><span class="o">.</span><span class="n">operate_streams</span><span class="p">()</span>
+</span><span id="line-410">
+</span><span id="line-411">            <span class="k">if</span> <span class="n">actions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-412">                <span class="n">actions</span><span class="o">.</span><span class="n">operate</span><span class="p">()</span>
+</span><span id="line-413">
+</span><span id="line-414">            <span class="k">if</span> <span class="n">streams</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-415">                <span class="n">streams</span><span class="o">.</span><span class="n">operate</span><span class="p">()</span>
+</span><span id="line-416">
+</span><span id="line-417">            <span class="k">if</span> <span class="n">restful</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-418">                <span class="n">restful</span><span class="o">.</span><span class="n">operate</span><span class="p">()</span>
 </span><span id="line-419">
-</span><span id="line-420">            <span class="k">if</span> <span class="n">vacate</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
-</span><span id="line-421">                <span class="k">continue</span>
-</span><span id="line-422">
-</span><span id="line-423">            <span class="n">asqueue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">sitem</span><span class="p">)</span>
-</span><span id="line-424">            <span class="n">usqueue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">sitem</span><span class="p">)</span>
-</span><span id="line-425">
-</span><span id="line-426">            <span class="n">homie</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="n">sitem</span><span class="p">)</span></div>
+</span><span id="line-420">            <span class="n">block_sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+</span><span id="line-421">
+</span><span id="line-422">            <span class="bp">self</span><span class="o">.</span><span class="n">operate_healths</span><span class="p">()</span>
+</span><span id="line-423">
+</span><span id="line-424">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
+</span><span id="line-425">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="line-426">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;vacated&#39;</span><span class="p">)</span></div>
 
 </span><span id="line-427">
 </span><span id="line-428">
-<div class="viewcode-block" id="HomieService.operate_healths">
-<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate_healths">[docs]</a>
-</span><span id="line-429">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_healths</span><span class="p">(</span>
+<div class="viewcode-block" id="HomieService.operate_updates">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate_updates">[docs]</a>
+</span><span id="line-429">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_updates</span><span class="p">(</span>
 </span><span id="line-430">        <span class="bp">self</span><span class="p">,</span>
 </span><span id="line-431">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-432"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="line-433"><span class="sd">        Perform the operation related to Homie service members.</span>
 </span><span id="line-434"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-435">
-</span><span id="line-436">        <span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timer</span>
-</span><span id="line-437">
-</span><span id="line-438">        <span class="k">if</span> <span class="n">timer</span><span class="o">.</span><span class="n">pause</span><span class="p">():</span>
-</span><span id="line-439">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-440">
-</span><span id="line-441">        <span class="n">vacate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span>
-</span><span id="line-442">        <span class="n">cancel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cancel</span>
-</span><span id="line-443">
-</span><span id="line-444">        <span class="bp">self</span><span class="o">.</span><span class="n">check_congest</span><span class="p">()</span>
+</span><span id="line-436">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-437">        <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
+</span><span id="line-438">
+</span><span id="line-439">        <span class="n">vacate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span>
+</span><span id="line-440">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
+</span><span id="line-441">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
+</span><span id="line-442">
+</span><span id="line-443">        <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-444">            <span class="k">return</span> <span class="kc">None</span>
 </span><span id="line-445">
-</span><span id="line-446">        <span class="k">if</span> <span class="n">vacate</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
-</span><span id="line-447">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-448">
-</span><span id="line-449">        <span class="k">if</span> <span class="n">cancel</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
-</span><span id="line-450">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-451">
-</span><span id="line-452">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_zombies</span><span class="p">():</span>
-</span><span id="line-453">            <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span></div>
-
-</span><span id="line-454">
-</span><span id="line-455">
-<div class="viewcode-block" id="HomieService.check_zombies">
-<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.check_zombies">[docs]</a>
-</span><span id="line-456">    <span class="k">def</span><span class="w"> </span><span class="nf">check_zombies</span><span class="p">(</span>
-</span><span id="line-457">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-458">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="line-459"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-460"><span class="sd">        Return the boolean indicating while threads are zombies.</span>
-</span><span id="line-461">
-</span><span id="line-462"><span class="sd">        :returns: Boolean indicating while threads are zombies.</span>
-</span><span id="line-463"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-464">
-</span><span id="line-465">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
-</span><span id="line-466">        <span class="n">zombies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zombies</span>
-</span><span id="line-467">
-</span><span id="line-468">        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">zombies</span><span class="p">:</span>
+</span><span id="line-446">        <span class="n">uqueue</span> <span class="o">=</span> <span class="n">updates</span><span class="o">.</span><span class="n">uqueue</span>
+</span><span id="line-447">
+</span><span id="line-448">        <span class="n">auqueue</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-449">            <span class="n">actions</span><span class="o">.</span><span class="n">uqueue</span>
+</span><span id="line-450">            <span class="k">if</span> <span class="n">actions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="line-451">            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="line-452">
+</span><span id="line-453">        <span class="n">origins</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-454">            <span class="n">childs</span><span class="o">.</span><span class="n">origins</span>
+</span><span id="line-455">            <span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</span><span id="line-456">
+</span><span id="line-457">
+</span><span id="line-458">        <span class="k">def</span><span class="w"> </span><span class="nf">_set_update</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-459">
+</span><span id="line-460">            <span class="n">name</span> <span class="o">=</span> <span class="n">uitem</span><span class="o">.</span><span class="n">origin</span>
+</span><span id="line-461">            <span class="n">_name</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">name</span>
+</span><span id="line-462">
+</span><span id="line-463">            <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="n">_name</span><span class="p">:</span>
+</span><span id="line-464">                <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-465">
+</span><span id="line-466">            <span class="p">(</span><span class="n">origin</span>
+</span><span id="line-467">             <span class="o">.</span><span class="n">set_update</span><span class="p">(</span><span class="n">uitem</span><span class="p">))</span>
+</span><span id="line-468">
 </span><span id="line-469">
-</span><span id="line-470">            <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_c</span><span class="p">(</span>
-</span><span id="line-471">                <span class="n">thread</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-</span><span id="line-472">                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;zombie&#39;</span><span class="p">)</span>
+</span><span id="line-470">        <span class="k">while</span> <span class="ow">not</span> <span class="n">uqueue</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+</span><span id="line-471">
+</span><span id="line-472">            <span class="n">uitem</span> <span class="o">=</span> <span class="n">uqueue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </span><span id="line-473">
-</span><span id="line-474">        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">zombies</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span></div>
-
-</span><span id="line-475">
+</span><span id="line-474">            <span class="k">if</span> <span class="n">vacate</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+</span><span id="line-475">                <span class="k">continue</span>
 </span><span id="line-476">
-<div class="viewcode-block" id="HomieService.check_congest">
-<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.check_congest">[docs]</a>
-</span><span id="line-477">    <span class="k">def</span><span class="w"> </span><span class="nf">check_congest</span><span class="p">(</span>
-</span><span id="line-478">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-479">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="line-480"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-481"><span class="sd">        Return the boolean indicating when queues are congested.</span>
+</span><span id="line-477">            <span class="k">if</span> <span class="n">auqueue</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-478">                <span class="n">auqueue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">uitem</span><span class="p">)</span>
+</span><span id="line-479">
+</span><span id="line-480">            <span class="k">for</span> <span class="n">origin</span> <span class="ow">in</span> <span class="n">origins</span><span class="p">:</span>
+</span><span id="line-481">                <span class="n">_set_update</span><span class="p">()</span>
 </span><span id="line-482">
-</span><span id="line-483"><span class="sd">        :returns: Boolean indicating when queues are congested.</span>
-</span><span id="line-484"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-485">
-</span><span id="line-486">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
-</span><span id="line-487">        <span class="n">congest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">congest</span>
-</span><span id="line-488">
-</span><span id="line-489">        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">congest</span><span class="p">:</span>
-</span><span id="line-490">
-</span><span id="line-491">            <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_e</span><span class="p">(</span>
-</span><span id="line-492">                <span class="n">queue</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-</span><span id="line-493">                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;congest&#39;</span><span class="p">,</span>
-</span><span id="line-494">                <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
-</span><span id="line-495">
-</span><span id="line-496">        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">congest</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span></div>
+</span><span id="line-483">            <span class="n">homie</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="n">uitem</span><span class="p">)</span></div>
 
-</span><span id="line-497">
-</span><span id="line-498">
-<div class="viewcode-block" id="HomieService.soft">
-<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.soft">[docs]</a>
-</span><span id="line-499">    <span class="k">def</span><span class="w"> </span><span class="nf">soft</span><span class="p">(</span>
-</span><span id="line-500">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-501">        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-</span><span id="line-502">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-</span><span id="line-503">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-504"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-505"><span class="sd">        Stop the various threads within the Homie class object.</span>
-</span><span id="line-506">
-</span><span id="line-507"><span class="sd">        :param kwargs: Keyword arguments ignored by the method.</span>
-</span><span id="line-508"><span class="sd">        :param args: Positional arguments ignored by the method.</span>
-</span><span id="line-509"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-510">
-</span><span id="line-511">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
-</span><span id="line-512">        <span class="n">started</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__started</span>
-</span><span id="line-513">        <span class="n">vacate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span>
+</span><span id="line-484">
+</span><span id="line-485">
+<div class="viewcode-block" id="HomieService.operate_streams">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate_streams">[docs]</a>
+</span><span id="line-486">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_streams</span><span class="p">(</span>
+</span><span id="line-487">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-488">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-489"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-490"><span class="sd">        Perform the operation related to Homie service members.</span>
+</span><span id="line-491"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-492">
+</span><span id="line-493">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-494">
+</span><span id="line-495">        <span class="n">vacate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span>
+</span><span id="line-496">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
+</span><span id="line-497">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
+</span><span id="line-498">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-499">
+</span><span id="line-500">        <span class="k">if</span> <span class="n">streams</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-501">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-502">
+</span><span id="line-503">        <span class="n">squeue</span> <span class="o">=</span> <span class="n">streams</span><span class="o">.</span><span class="n">squeue</span>
+</span><span id="line-504">
+</span><span id="line-505">        <span class="n">asqueue</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-506">            <span class="n">actions</span><span class="o">.</span><span class="n">squeue</span>
+</span><span id="line-507">            <span class="k">if</span> <span class="n">actions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="line-508">            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="line-509">
+</span><span id="line-510">        <span class="n">usqueue</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-511">            <span class="n">updates</span><span class="o">.</span><span class="n">squeue</span>
+</span><span id="line-512">            <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="line-513">            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
 </span><span id="line-514">
-</span><span id="line-515">        <span class="k">if</span> <span class="n">started</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
-</span><span id="line-516">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-515">
+</span><span id="line-516">        <span class="k">while</span> <span class="ow">not</span> <span class="n">squeue</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
 </span><span id="line-517">
-</span><span id="line-518">        <span class="k">if</span> <span class="n">vacate</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
-</span><span id="line-519">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-</span><span id="line-520">
-</span><span id="line-521">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-</span><span id="line-522">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-</span><span id="line-523">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;vacating&#39;</span><span class="p">)</span>
-</span><span id="line-524">
-</span><span id="line-525">        <span class="n">vacate</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-</span><span id="line-526">
-</span><span id="line-527">        <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-</span><span id="line-528">        <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span><span class="o">.</span><span class="n">soft</span><span class="p">()</span>
-</span><span id="line-529">        <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span><span class="o">.</span><span class="n">soft</span><span class="p">()</span></div>
+</span><span id="line-518">            <span class="n">sitem</span> <span class="o">=</span> <span class="n">squeue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span id="line-519">
+</span><span id="line-520">            <span class="k">if</span> <span class="n">vacate</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+</span><span id="line-521">                <span class="k">continue</span>
+</span><span id="line-522">
+</span><span id="line-523">            <span class="k">if</span> <span class="n">asqueue</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-524">                <span class="n">asqueue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">sitem</span><span class="p">)</span>
+</span><span id="line-525">
+</span><span id="line-526">            <span class="k">if</span> <span class="n">usqueue</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-527">                <span class="n">usqueue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">sitem</span><span class="p">)</span>
+</span><span id="line-528">
+</span><span id="line-529">            <span class="n">homie</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="n">sitem</span><span class="p">)</span></div>
 
 </span><span id="line-530">
 </span><span id="line-531">
+<div class="viewcode-block" id="HomieService.operate_healths">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.operate_healths">[docs]</a>
+</span><span id="line-532">    <span class="k">def</span><span class="w"> </span><span class="nf">operate_healths</span><span class="p">(</span>
+</span><span id="line-533">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-534">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-535"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-536"><span class="sd">        Perform the operation related to Homie service members.</span>
+</span><span id="line-537"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-538">
+</span><span id="line-539">        <span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timer</span>
+</span><span id="line-540">
+</span><span id="line-541">        <span class="k">if</span> <span class="n">timer</span><span class="o">.</span><span class="n">pause</span><span class="p">():</span>
+</span><span id="line-542">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-543">
+</span><span id="line-544">        <span class="n">vacate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span>
+</span><span id="line-545">        <span class="n">cancel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cancel</span>
+</span><span id="line-546">
+</span><span id="line-547">        <span class="bp">self</span><span class="o">.</span><span class="n">check_congest</span><span class="p">()</span>
+</span><span id="line-548">
+</span><span id="line-549">        <span class="k">if</span> <span class="n">vacate</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+</span><span id="line-550">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-551">
+</span><span id="line-552">        <span class="k">if</span> <span class="n">cancel</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+</span><span id="line-553">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-554">
+</span><span id="line-555">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_zombies</span><span class="p">():</span>
+</span><span id="line-556">            <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span></div>
+
+</span><span id="line-557">
+</span><span id="line-558">
+<div class="viewcode-block" id="HomieService.check_zombies">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.check_zombies">[docs]</a>
+</span><span id="line-559">    <span class="k">def</span><span class="w"> </span><span class="nf">check_zombies</span><span class="p">(</span>
+</span><span id="line-560">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-561">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-562"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-563"><span class="sd">        Return the boolean indicating while threads are zombies.</span>
+</span><span id="line-564">
+</span><span id="line-565"><span class="sd">        :returns: Boolean indicating while threads are zombies.</span>
+</span><span id="line-566"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-567">
+</span><span id="line-568">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-569">        <span class="n">zombies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zombies</span>
+</span><span id="line-570">
+</span><span id="line-571">        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">zombies</span><span class="p">:</span>
+</span><span id="line-572">
+</span><span id="line-573">            <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_c</span><span class="p">(</span>
+</span><span id="line-574">                <span class="n">thread</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+</span><span id="line-575">                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;zombie&#39;</span><span class="p">)</span>
+</span><span id="line-576">
+</span><span id="line-577">        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">zombies</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span></div>
+
+</span><span id="line-578">
+</span><span id="line-579">
+<div class="viewcode-block" id="HomieService.check_congest">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.check_congest">[docs]</a>
+</span><span id="line-580">    <span class="k">def</span><span class="w"> </span><span class="nf">check_congest</span><span class="p">(</span>
+</span><span id="line-581">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-582">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-583"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-584"><span class="sd">        Return the boolean indicating when queues are congested.</span>
+</span><span id="line-585">
+</span><span id="line-586"><span class="sd">        :returns: Boolean indicating when queues are congested.</span>
+</span><span id="line-587"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-588">
+</span><span id="line-589">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-590">        <span class="n">congest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">congest</span>
+</span><span id="line-591">
+</span><span id="line-592">        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">congest</span><span class="p">:</span>
+</span><span id="line-593">
+</span><span id="line-594">            <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_e</span><span class="p">(</span>
+</span><span id="line-595">                <span class="n">queue</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+</span><span id="line-596">                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;congest&#39;</span><span class="p">,</span>
+</span><span id="line-597">                <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
+</span><span id="line-598">
+</span><span id="line-599">        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">congest</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span></div>
+
+</span><span id="line-600">
+</span><span id="line-601">
+<div class="viewcode-block" id="HomieService.soft">
+<a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.soft">[docs]</a>
+</span><span id="line-602">    <span class="k">def</span><span class="w"> </span><span class="nf">soft</span><span class="p">(</span>
+</span><span id="line-603">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-604">        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+</span><span id="line-605">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+</span><span id="line-606">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-607"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-608"><span class="sd">        Stop the various threads within the Homie class object.</span>
+</span><span id="line-609">
+</span><span id="line-610"><span class="sd">        :param kwargs: Keyword arguments ignored by the method.</span>
+</span><span id="line-611"><span class="sd">        :param args: Positional arguments ignored by the method.</span>
+</span><span id="line-612"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-613">
+</span><span id="line-614">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-615">        <span class="n">started</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__started</span>
+</span><span id="line-616">        <span class="n">vacate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span>
+</span><span id="line-617">
+</span><span id="line-618">        <span class="k">if</span> <span class="n">started</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+</span><span id="line-619">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-620">
+</span><span id="line-621">        <span class="k">if</span> <span class="n">vacate</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+</span><span id="line-622">            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</span><span id="line-623">
+</span><span id="line-624">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
+</span><span id="line-625">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
+</span><span id="line-626">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-627">        <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
+</span><span id="line-628">
+</span><span id="line-629">
+</span><span id="line-630">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
+</span><span id="line-631">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="line-632">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;vacating&#39;</span><span class="p">)</span>
+</span><span id="line-633">
+</span><span id="line-634">        <span class="n">vacate</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</span><span id="line-635">
+</span><span id="line-636">
+</span><span id="line-637">        <span class="k">if</span> <span class="n">streams</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-638">            <span class="n">streams</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</span><span id="line-639">
+</span><span id="line-640">        <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-641">            <span class="n">updates</span><span class="o">.</span><span class="n">soft</span><span class="p">()</span>
+</span><span id="line-642">
+</span><span id="line-643">        <span class="k">if</span> <span class="n">actions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-644">            <span class="n">actions</span><span class="o">.</span><span class="n">soft</span><span class="p">()</span>
+</span><span id="line-645">
+</span><span id="line-646">        <span class="k">if</span> <span class="n">restful</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-647">            <span class="n">restful</span><span class="o">.</span><span class="n">soft</span><span class="p">()</span></div>
+
+</span><span id="line-648">
+</span><span id="line-649">
 <div class="viewcode-block" id="HomieService.stop">
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.service.HomieService.stop">[docs]</a>
-</span><span id="line-532">    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span>
-</span><span id="line-533">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-534">        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-</span><span id="line-535">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-</span><span id="line-536">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-537"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-538"><span class="sd">        Stop the various threads within the Homie class object.</span>
-</span><span id="line-539">
-</span><span id="line-540"><span class="sd">        :param kwargs: Keyword arguments ignored by the method.</span>
-</span><span id="line-541"><span class="sd">        :param args: Positional arguments ignored by the method.</span>
-</span><span id="line-542"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-543">
-</span><span id="line-544">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
-</span><span id="line-545">        <span class="n">started</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__started</span>
-</span><span id="line-546">        <span class="n">cancel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cancel</span>
-</span><span id="line-547">
-</span><span id="line-548">        <span class="k">if</span> <span class="n">started</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
-</span><span id="line-549">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-550">
-</span><span id="line-551">        <span class="k">if</span> <span class="n">cancel</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
-</span><span id="line-552">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-553">
-</span><span id="line-554">        <span class="n">cancel</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-</span><span id="line-555">
-</span><span id="line-556">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-</span><span id="line-557">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-</span><span id="line-558">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;stopping&#39;</span><span class="p">)</span>
-</span><span id="line-559">
-</span><span id="line-560">        <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-</span><span id="line-561">        <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-</span><span id="line-562">        <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-</span><span id="line-563">
-</span><span id="line-564">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-</span><span id="line-565">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-</span><span id="line-566">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;stopped&#39;</span><span class="p">)</span></div>
+</span><span id="line-650">    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span>
+</span><span id="line-651">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-652">        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+</span><span id="line-653">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+</span><span id="line-654">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-655"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-656"><span class="sd">        Stop the various threads within the Homie class object.</span>
+</span><span id="line-657">
+</span><span id="line-658"><span class="sd">        :param kwargs: Keyword arguments ignored by the method.</span>
+</span><span id="line-659"><span class="sd">        :param args: Positional arguments ignored by the method.</span>
+</span><span id="line-660"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-661">
+</span><span id="line-662">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
+</span><span id="line-663">        <span class="n">started</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__started</span>
+</span><span id="line-664">        <span class="n">cancel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cancel</span>
+</span><span id="line-665">
+</span><span id="line-666">        <span class="k">if</span> <span class="n">started</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+</span><span id="line-667">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-668">
+</span><span id="line-669">        <span class="k">if</span> <span class="n">cancel</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>
+</span><span id="line-670">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-671">
+</span><span id="line-672">        <span class="n">actions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actions</span>
+</span><span id="line-673">        <span class="n">updates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__updates</span>
+</span><span id="line-674">        <span class="n">streams</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__streams</span>
+</span><span id="line-675">        <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
+</span><span id="line-676">
+</span><span id="line-677">
+</span><span id="line-678">        <span class="n">cancel</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</span><span id="line-679">
+</span><span id="line-680">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
+</span><span id="line-681">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="line-682">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;stopping&#39;</span><span class="p">)</span>
+</span><span id="line-683">
+</span><span id="line-684">
+</span><span id="line-685">        <span class="k">if</span> <span class="n">streams</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-686">            <span class="n">streams</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</span><span id="line-687">
+</span><span id="line-688">        <span class="k">if</span> <span class="n">updates</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-689">            <span class="n">updates</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</span><span id="line-690">
+</span><span id="line-691">        <span class="k">if</span> <span class="n">actions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-692">            <span class="n">actions</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</span><span id="line-693">
+</span><span id="line-694">        <span class="k">if</span> <span class="n">restful</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-695">            <span class="n">restful</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</span><span id="line-696">
+</span><span id="line-697">
+</span><span id="line-698">        <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
+</span><span id="line-699">            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="line-700">            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;stopped&#39;</span><span class="p">)</span></div>
 </div>
 
 </span></code></pre></div>

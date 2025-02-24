@@ -68,6 +68,14 @@ enhomie.execution.persist module
    :show-inheritance:
    :undoc-members:
 
+enhomie.execution.restful module
+--------------------------------
+
+.. automodule:: enhomie.execution.restful
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 enhomie.execution.service module
 --------------------------------
 

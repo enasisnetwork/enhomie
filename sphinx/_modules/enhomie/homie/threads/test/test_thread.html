@@ -177,36 +177,38 @@
 </span><span id="line-32">    <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
 </span><span id="line-33">    <span class="n">origins</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">origins</span>
 </span><span id="line-34">
-</span><span id="line-35">    <span class="n">member</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">actions</span>
-</span><span id="line-36">    <span class="n">threads</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">threads</span>
-</span><span id="line-37">
-</span><span id="line-38">
-</span><span id="line-39">    <span class="n">planets</span> <span class="o">=</span> <span class="n">bodies</span><span class="o">.</span><span class="n">planets</span>
+</span><span id="line-35">    <span class="k">assert</span> <span class="n">service</span><span class="o">.</span><span class="n">actions</span>
+</span><span id="line-36">
+</span><span id="line-37">    <span class="n">member</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">actions</span>
+</span><span id="line-38">    <span class="n">threads</span> <span class="o">=</span> <span class="n">member</span><span class="o">.</span><span class="n">threads</span>
+</span><span id="line-39">
 </span><span id="line-40">
-</span><span id="line-41">    <span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+</span><span id="line-41">    <span class="n">planets</span> <span class="o">=</span> <span class="n">bodies</span><span class="o">.</span><span class="n">planets</span>
 </span><span id="line-42">
-</span><span id="line-43">        <span class="n">origin</span> <span class="o">=</span> <span class="n">origins</span><span class="p">[</span>
-</span><span id="line-44">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_philips&#39;</span><span class="p">]</span>
-</span><span id="line-45">
-</span><span id="line-46">        <span class="n">thread</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span>
-</span><span id="line-47">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_philips&#39;</span><span class="p">]</span>
-</span><span id="line-48">
-</span><span id="line-49">
-</span><span id="line-50">        <span class="k">assert</span> <span class="n">origin</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</span><span id="line-43">    <span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+</span><span id="line-44">
+</span><span id="line-45">        <span class="n">origin</span> <span class="o">=</span> <span class="n">origins</span><span class="p">[</span>
+</span><span id="line-46">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_philips&#39;</span><span class="p">]</span>
+</span><span id="line-47">
+</span><span id="line-48">        <span class="n">thread</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span>
+</span><span id="line-49">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">planet</span><span class="si">}</span><span class="s1">_philips&#39;</span><span class="p">]</span>
+</span><span id="line-50">
 </span><span id="line-51">
-</span><span id="line-52">        <span class="n">uitem</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">get_update</span><span class="p">()</span>
+</span><span id="line-52">        <span class="k">assert</span> <span class="n">origin</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 </span><span id="line-53">
-</span><span id="line-54">        <span class="n">expired</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-55">            <span class="n">thread</span><span class="o">.</span><span class="n">expired</span><span class="p">(</span><span class="n">uitem</span><span class="p">))</span>
-</span><span id="line-56">
-</span><span id="line-57">        <span class="k">assert</span> <span class="n">expired</span> <span class="ow">is</span> <span class="kc">False</span>
+</span><span id="line-54">        <span class="n">uitem</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">get_update</span><span class="p">()</span>
+</span><span id="line-55">
+</span><span id="line-56">        <span class="n">expired</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-57">            <span class="n">thread</span><span class="o">.</span><span class="n">expired</span><span class="p">(</span><span class="n">uitem</span><span class="p">))</span>
 </span><span id="line-58">
-</span><span id="line-59">        <span class="n">uitem</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;-1h&#39;</span><span class="p">)</span>
+</span><span id="line-59">        <span class="k">assert</span> <span class="n">expired</span> <span class="ow">is</span> <span class="kc">False</span>
 </span><span id="line-60">
-</span><span id="line-61">        <span class="n">expired</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-62">            <span class="n">thread</span><span class="o">.</span><span class="n">expired</span><span class="p">(</span><span class="n">uitem</span><span class="p">))</span>
-</span><span id="line-63">
-</span><span id="line-64">        <span class="k">assert</span> <span class="n">expired</span> <span class="ow">is</span> <span class="kc">True</span></div>
+</span><span id="line-61">        <span class="n">uitem</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;-1h&#39;</span><span class="p">)</span>
+</span><span id="line-62">
+</span><span id="line-63">        <span class="n">expired</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-64">            <span class="n">thread</span><span class="o">.</span><span class="n">expired</span><span class="p">(</span><span class="n">uitem</span><span class="p">))</span>
+</span><span id="line-65">
+</span><span id="line-66">        <span class="k">assert</span> <span class="n">expired</span> <span class="ow">is</span> <span class="kc">True</span></div>
 
 </span></code></pre></div>
     </div></div>

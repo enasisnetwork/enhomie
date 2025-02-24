@@ -28,6 +28,14 @@ enhomie.homie.addons.desired module
    :show-inheritance:
    :undoc-members:
 
+enhomie.homie.addons.jinja2 module
+----------------------------------
+
+.. automodule:: enhomie.homie.addons.jinja2
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 enhomie.homie.addons.logger module
 ----------------------------------
 

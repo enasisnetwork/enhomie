@@ -60,6 +60,14 @@ enhomie.execution.test.test\_persist module
    :show-inheritance:
    :undoc-members:
 
+enhomie.execution.test.test\_restful module
+-------------------------------------------
+
+.. automodule:: enhomie.execution.test.test_restful
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 enhomie.execution.test.test\_service module
 -------------------------------------------
 

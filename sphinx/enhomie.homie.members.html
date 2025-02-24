@@ -104,6 +104,10 @@
 <li class="toctree-l3"><a class="reference internal" href="enhomie.homie.members.test.html#enhomie.homie.members.test.test_member.test_HomieMember_cover"><code class="docutils literal notranslate"><span class="pre">test_HomieMember_cover()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="enhomie.homie.members.test.html#module-enhomie.homie.members.test.test_restful">enhomie.homie.members.test.test_restful module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="enhomie.homie.members.test.html#enhomie.homie.members.test.test_restful.test_HomieRestful"><code class="docutils literal notranslate"><span class="pre">test_HomieRestful()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="enhomie.homie.members.test.html#module-enhomie.homie.members.test.test_streams">enhomie.homie.members.test.test_streams module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="enhomie.homie.members.test.html#enhomie.homie.members.test.test_streams.test_HomieStreams"><code class="docutils literal notranslate"><span class="pre">test_HomieStreams()</span></code></a></li>
 </ul>
@@ -338,6 +342,81 @@ is permitted, for more information consult the project license file.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="enhomie.homie.members.member.HomieMember.zombies">
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zombies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.members.member.HomieMember.zombies" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.member.HomieMember.zombies'">¶</a></dt>
+<dd><p>Return the list of threads which are determined zombies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of threads which are determined zombies.</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="module-enhomie.homie.members.restful">
+<span id="enhomie-homie-members-restful-module"></span><h2>enhomie.homie.members.restful module<a class="headerlink" href="#module-enhomie.homie.members.restful" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#module-enhomie.homie.members.restful'">¶</a></h2>
+<p>Functions and routines associated with Enasis Network Homie Automate.</p>
+<p>This file is part of Enasis Network software eco-system. Distribution
+is permitted, for more information consult the project license file.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.members.restful.HomieRestful">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.members.restful.</span></span><span class="sig-name descname"><span class="pre">HomieRestful</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.restful.HomieRestful" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.restful.HomieRestful'">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieMember</span></code></a></p>
+<p>Common methods and routines for Homie Automate members.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.members.restful.HomieRestful.get_thread">
+<span class="sig-name descname"><span class="pre">get_thread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.13)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.thread.HomieThread" title="enhomie.homie.threads.thread.HomieThread"><span class="pre">HomieThread</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful.get_thread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.restful.HomieRestful.get_thread" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.restful.HomieRestful.get_thread'">¶</a></dt>
+<dd><p>Return the Homie class definition for its instantiation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>origin</strong> – Child class instance for Homie Automate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Homie class definition for its instantiation.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.members.restful.HomieRestful.operate">
+<span class="sig-name descname"><span class="pre">operate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful.operate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.restful.HomieRestful.operate" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.restful.HomieRestful.operate'">¶</a></dt>
+<dd><p>Perform the operation related to Homie service members.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.members.restful.HomieRestful.operate_updates">
+<span class="sig-name descname"><span class="pre">operate_updates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful.operate_updates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.restful.HomieRestful.operate_updates" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.restful.HomieRestful.operate_updates'">¶</a></dt>
+<dd><p>Perform the operation related to Homie service members.</p>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.members.restful.HomieRestful.restful">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">restful</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.restful.html#enhomie.restful.service.RestfulService" title="enhomie.restful.service.RestfulService"><span class="pre">RestfulService</span></a></em><a class="headerlink" href="#enhomie.homie.members.restful.HomieRestful.restful" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.restful.HomieRestful.restful'">¶</a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.members.restful.HomieRestful.running">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">running</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.members.restful.HomieRestful.running" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.restful.HomieRestful.running'">¶</a></dt>
+<dd><p>Return the list of threads which are determined running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of threads which are determined running.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.members.restful.HomieRestful.soft">
+<span class="sig-name descname"><span class="pre">soft</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful.soft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.restful.HomieRestful.soft" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.restful.HomieRestful.soft'">¶</a></dt>
+<dd><p>Stop the various threads within the Homie class object.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.members.restful.HomieRestful.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.restful.HomieRestful.stop" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.restful.HomieRestful.stop'">¶</a></dt>
+<dd><p>Stop the various threads within the Homie class object.</p>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.members.restful.HomieRestful.zombies">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zombies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.members.restful.HomieRestful.zombies" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.restful.HomieRestful.zombies'">¶</a></dt>
 <dd><p>Return the list of threads which are determined zombies.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -632,6 +711,75 @@ is permitted, for more information consult the project license file.</p>
 </dd></dl>
 </dd></dl>
 <dl class="py class">
+<dt class="sig sig-object py" id="enhomie.homie.members.HomieRestful">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.members.</span></span><span class="sig-name descname"><span class="pre">HomieRestful</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.HomieRestful" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.HomieRestful'">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieMember</span></code></a></p>
+<p>Common methods and routines for Homie Automate members.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.members.HomieRestful.get_thread">
+<span class="sig-name descname"><span class="pre">get_thread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.childs.html#enhomie.homie.childs.origin.HomieOrigin" title="enhomie.homie.childs.origin.HomieOrigin"><span class="pre">HomieOrigin</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.13)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="enhomie.homie.threads.html#enhomie.homie.threads.thread.HomieThread" title="enhomie.homie.threads.thread.HomieThread"><span class="pre">HomieThread</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful.get_thread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.HomieRestful.get_thread" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.HomieRestful.get_thread'">¶</a></dt>
+<dd><p>Return the Homie class definition for its instantiation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>origin</strong> – Child class instance for Homie Automate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Homie class definition for its instantiation.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.members.HomieRestful.operate">
+<span class="sig-name descname"><span class="pre">operate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful.operate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.HomieRestful.operate" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.HomieRestful.operate'">¶</a></dt>
+<dd><p>Perform the operation related to Homie service members.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.members.HomieRestful.operate_updates">
+<span class="sig-name descname"><span class="pre">operate_updates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful.operate_updates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.HomieRestful.operate_updates" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.HomieRestful.operate_updates'">¶</a></dt>
+<dd><p>Perform the operation related to Homie service members.</p>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.members.HomieRestful.restful">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">restful</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enhomie.restful.html#enhomie.restful.service.RestfulService" title="enhomie.restful.service.RestfulService"><span class="pre">RestfulService</span></a></em><a class="headerlink" href="#enhomie.homie.members.HomieRestful.restful" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.HomieRestful.restful'">¶</a></dt>
+<dd><p>Return the value for the attribute from class instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value for the attribute from class instance.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.members.HomieRestful.running">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">running</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.members.HomieRestful.running" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.HomieRestful.running'">¶</a></dt>
+<dd><p>Return the list of threads which are determined running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of threads which are determined running.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.members.HomieRestful.soft">
+<span class="sig-name descname"><span class="pre">soft</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful.soft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.HomieRestful.soft" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.HomieRestful.soft'">¶</a></dt>
+<dd><p>Stop the various threads within the Homie class object.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="enhomie.homie.members.HomieRestful.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/enhomie/homie/members/restful.html#HomieRestful.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.HomieRestful.stop" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.HomieRestful.stop'">¶</a></dt>
+<dd><p>Stop the various threads within the Homie class object.</p>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="enhomie.homie.members.HomieRestful.zombies">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zombies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#enhomie.homie.members.HomieRestful.zombies" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.HomieRestful.zombies'">¶</a></dt>
+<dd><p>Return the list of threads which are determined zombies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of threads which are determined zombies.</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
 <dt class="sig sig-object py" id="enhomie.homie.members.HomieStreams">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enhomie.homie.members.</span></span><span class="sig-name descname"><span class="pre">HomieStreams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">homie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="enhomie.homie.html#enhomie.homie.homie.Homie" title="enhomie.homie.homie.Homie"><span class="pre">Homie</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/members/streams.html#HomieStreams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.members.HomieStreams" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enhomie.homie.members.HomieStreams'">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#enhomie.homie.members.member.HomieMember" title="enhomie.homie.members.member.HomieMember"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieMember</span></code></a></p>
@@ -726,6 +874,20 @@ is permitted, for more information consult the project license file.</p>
 </li>
 </ul>
 </li>
+<li><a :data-current="activeSection === '#module-enhomie.homie.members.restful'" class="reference internal" href="#module-enhomie.homie.members.restful">enhomie.homie.members.restful module</a><ul>
+<li><a :data-current="activeSection === '#enhomie.homie.members.restful.HomieRestful'" class="reference internal" href="#enhomie.homie.members.restful.HomieRestful"><code class="docutils literal notranslate"><span class="pre">HomieRestful</span></code></a><ul>
+<li><a :data-current="activeSection === '#enhomie.homie.members.restful.HomieRestful.get_thread'" class="reference internal" href="#enhomie.homie.members.restful.HomieRestful.get_thread"><code class="docutils literal notranslate"><span class="pre">HomieRestful.get_thread()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.restful.HomieRestful.operate'" class="reference internal" href="#enhomie.homie.members.restful.HomieRestful.operate"><code class="docutils literal notranslate"><span class="pre">HomieRestful.operate()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.restful.HomieRestful.operate_updates'" class="reference internal" href="#enhomie.homie.members.restful.HomieRestful.operate_updates"><code class="docutils literal notranslate"><span class="pre">HomieRestful.operate_updates()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.restful.HomieRestful.restful'" class="reference internal" href="#enhomie.homie.members.restful.HomieRestful.restful"><code class="docutils literal notranslate"><span class="pre">HomieRestful.restful</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.restful.HomieRestful.running'" class="reference internal" href="#enhomie.homie.members.restful.HomieRestful.running"><code class="docutils literal notranslate"><span class="pre">HomieRestful.running</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.restful.HomieRestful.soft'" class="reference internal" href="#enhomie.homie.members.restful.HomieRestful.soft"><code class="docutils literal notranslate"><span class="pre">HomieRestful.soft()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.restful.HomieRestful.stop'" class="reference internal" href="#enhomie.homie.members.restful.HomieRestful.stop"><code class="docutils literal notranslate"><span class="pre">HomieRestful.stop()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.restful.HomieRestful.zombies'" class="reference internal" href="#enhomie.homie.members.restful.HomieRestful.zombies"><code class="docutils literal notranslate"><span class="pre">HomieRestful.zombies</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a :data-current="activeSection === '#module-enhomie.homie.members.streams'" class="reference internal" href="#module-enhomie.homie.members.streams">enhomie.homie.members.streams module</a><ul>
 <li><a :data-current="activeSection === '#enhomie.homie.members.streams.HomieStreams'" class="reference internal" href="#enhomie.homie.members.streams.HomieStreams"><code class="docutils literal notranslate"><span class="pre">HomieStreams</span></code></a><ul>
 <li><a :data-current="activeSection === '#enhomie.homie.members.streams.HomieStreams.get_thread'" class="reference internal" href="#enhomie.homie.members.streams.HomieStreams.get_thread"><code class="docutils literal notranslate"><span class="pre">HomieStreams.get_thread()</span></code></a></li>
@@ -771,6 +933,17 @@ is permitted, for more information consult the project license file.</p>
 <li><a :data-current="activeSection === '#enhomie.homie.members.HomieMember.uqueue'" class="reference internal" href="#enhomie.homie.members.HomieMember.uqueue"><code class="docutils literal notranslate"><span class="pre">HomieMember.uqueue</span></code></a></li>
 <li><a :data-current="activeSection === '#enhomie.homie.members.HomieMember.vacate'" class="reference internal" href="#enhomie.homie.members.HomieMember.vacate"><code class="docutils literal notranslate"><span class="pre">HomieMember.vacate</span></code></a></li>
 <li><a :data-current="activeSection === '#enhomie.homie.members.HomieMember.zombies'" class="reference internal" href="#enhomie.homie.members.HomieMember.zombies"><code class="docutils literal notranslate"><span class="pre">HomieMember.zombies</span></code></a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.HomieRestful'" class="reference internal" href="#enhomie.homie.members.HomieRestful"><code class="docutils literal notranslate"><span class="pre">HomieRestful</span></code></a><ul>
+<li><a :data-current="activeSection === '#enhomie.homie.members.HomieRestful.get_thread'" class="reference internal" href="#enhomie.homie.members.HomieRestful.get_thread"><code class="docutils literal notranslate"><span class="pre">HomieRestful.get_thread()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.HomieRestful.operate'" class="reference internal" href="#enhomie.homie.members.HomieRestful.operate"><code class="docutils literal notranslate"><span class="pre">HomieRestful.operate()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.HomieRestful.operate_updates'" class="reference internal" href="#enhomie.homie.members.HomieRestful.operate_updates"><code class="docutils literal notranslate"><span class="pre">HomieRestful.operate_updates()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.HomieRestful.restful'" class="reference internal" href="#enhomie.homie.members.HomieRestful.restful"><code class="docutils literal notranslate"><span class="pre">HomieRestful.restful</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.HomieRestful.running'" class="reference internal" href="#enhomie.homie.members.HomieRestful.running"><code class="docutils literal notranslate"><span class="pre">HomieRestful.running</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.HomieRestful.soft'" class="reference internal" href="#enhomie.homie.members.HomieRestful.soft"><code class="docutils literal notranslate"><span class="pre">HomieRestful.soft()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.HomieRestful.stop'" class="reference internal" href="#enhomie.homie.members.HomieRestful.stop"><code class="docutils literal notranslate"><span class="pre">HomieRestful.stop()</span></code></a></li>
+<li><a :data-current="activeSection === '#enhomie.homie.members.HomieRestful.zombies'" class="reference internal" href="#enhomie.homie.members.HomieRestful.zombies"><code class="docutils literal notranslate"><span class="pre">HomieRestful.zombies</span></code></a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#enhomie.homie.members.HomieStreams'" class="reference internal" href="#enhomie.homie.members.HomieStreams"><code class="docutils literal notranslate"><span class="pre">HomieStreams</span></code></a><ul>

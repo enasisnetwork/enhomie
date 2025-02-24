@@ -28,6 +28,14 @@ enhomie.homie.members.member module
    :show-inheritance:
    :undoc-members:
 
+enhomie.homie.members.restful module
+------------------------------------
+
+.. automodule:: enhomie.homie.members.restful
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 enhomie.homie.members.streams module
 ------------------------------------
 
