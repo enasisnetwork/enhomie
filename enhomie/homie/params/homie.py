@@ -25,6 +25,7 @@ from .origin import HomieOriginParams
 from .persist import HomiePersistParams
 from .scene import HomieSceneParams
 from .service import HomieServiceParams
+from ...restful import RestfulServiceParams
 
 
 
@@ -90,6 +91,11 @@ class HomieParams(Params, extra='forbid'):
         HomieServiceParams,
         Field(default_factory=HomieServiceParams,
               description='Parameters for Homie Service')]
+
+    restful: Annotated[
+        RestfulServiceParams,
+        Field(default_factory=RestfulServiceParams,
+              description='Parameters for Homie RESTful')]
 
     persists: Annotated[
         Optional[dict[str, HomiePersistParams]],
@@ -174,7 +180,8 @@ class HomieParams(Params, extra='forbid'):
                 'dryrun',
                 'potent',
                 'printer',
-                'service']
+                'service',
+                'restful']
 
             for key in parsable:
 

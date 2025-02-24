@@ -24,6 +24,7 @@ from .homie import HomieConfig
 from .homie import HomieService
 from .hubitat.test import mock_hubi
 from .philips.test import mock_phue
+from .restful import RestfulService
 from .ubiquiti.test import mock_ubiq
 from .utils import TestBodies
 from .utils import TestTimes
@@ -50,6 +51,11 @@ def config_factory(
 
         enlogger:
           stdo_level: info
+
+        encrypts:
+          phrases:
+            enhomie:
+              phrase: oIUc2odGYMKycATXsvXTMzxe0Qbq4z3YPPIWS8fH_uU=
 
         database: >-
           sqlite:///{tmp_path}/db
@@ -252,3 +258,32 @@ def service(
 
     return service_factory(
         homie, respx_mock)
+
+
+
+def restful_factory(
+    homie: Homie,
+) -> RestfulService:
+    """
+    Construct the instance for use in the downstream tests.
+
+    :param homie: Primary class instance for Homie Automate.
+    :returns: Newly constructed instance of related class.
+    """
+
+    return RestfulService(homie)
+
+
+
+@fixture
+def restful(
+    homie: Homie,
+) -> RestfulService:
+    """
+    Construct the instance for use in the downstream tests.
+
+    :param homie: Primary class instance for Homie Automate.
+    :returns: Newly constructed instance of related class.
+    """
+
+    return restful_factory(homie)

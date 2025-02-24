@@ -1,0 +1,14 @@
+---
+
+
+
+restful:
+  authenticate:
+    username: >-
+      {{ config.crypts.decrypt(
+         "$ENCRYPT;1.0;enhomie;"
+         "gAAAAABnssr4ATnkBC_-0"
+         "XFKVpJ26zX1CUdodEkfUe"
+         "Xpi_NazvIMuv-xXtbGhhv"
+         "YyAj0oTjdpExJbY8_mElD"
+         "opl_ySg1sxcQ0w==") }}

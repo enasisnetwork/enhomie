@@ -871,7 +871,13 @@
       "_/encommon_sample/TMPPATH/_/homie"
     ]
   },
-  "encrypts": null,
+  "encrypts": {
+    "phrases": {
+      "enhomie": {
+        "phrase": "oIUc2odGYMKycATXsvXTMzxe0Qbq4z3YPPIWS8fH_uU="
+      }
+    }
+  },
   "enlogger": {
     "stdo_level": "debug",
     "file_level": null,
@@ -1054,6 +1060,16 @@
     "stream": true,
     "desire": true,
     "aspire": true
+  },
+  "restful": {
+    "bind_addr": "127.0.0.1",
+    "bind_port": 8420,
+    "authenticate": {
+      "username": "password"
+    },
+    "ssl_capem": null,
+    "ssl_mypem": null,
+    "ssl_mykey": null
   },
   "scenes": {
     "active": {

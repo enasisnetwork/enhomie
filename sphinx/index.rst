@@ -66,6 +66,14 @@ Multithread Service
    :show-inheritance:
    :noindex:
 
+Restful Service
+---------------
+
+.. autopydantic_model:: enhomie.homie.params.RestfulServiceParams
+   :members:
+   :show-inheritance:
+   :noindex:
+
 Hubitat Origin
 --------------
 
