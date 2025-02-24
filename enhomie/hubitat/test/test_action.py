@@ -34,6 +34,8 @@ def test_HubiAction_cover(
     origins = childs.origins
     devices = childs.devices
 
+    assert service.actions
+
     actions = service.actions
     threads = actions.threads
 

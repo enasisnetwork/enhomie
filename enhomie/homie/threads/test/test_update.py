@@ -89,6 +89,8 @@ def test_HomieUpdate(
     :param bodies: Locations and groups for use in testing.
     """
 
+    assert service.updates
+
     member = service.updates
     threads = member.threads
 

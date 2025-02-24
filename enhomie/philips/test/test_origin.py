@@ -258,6 +258,8 @@ def test_PhueOrigin_update(
     :param bodies: Locations and groups for use in testing.
     """
 
+    assert service.updates
+
     childs = homie.childs
     origins = childs.origins
     member = service.updates
@@ -336,6 +338,8 @@ def test_PhueOrigin_stream(
     :param service: Ancilary Homie Automate class instance.
     :param bodies: Locations and groups for use in testing.
     """
+
+    assert service.streams
 
     childs = homie.childs
     origins = childs.origins

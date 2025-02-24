@@ -65,6 +65,28 @@ class HomieServiceRespiteParams(HomieParamsModel, extra='forbid'):
 
 
 
+class HomieServiceMembersParams(HomieParamsModel, extra='forbid'):
+    """
+    Process and validate the Homie configuration parameters.
+    """
+
+    actions: Annotated[
+        bool,
+        Field(True,
+              description='Determine whether created')]
+
+    streams: Annotated[
+        bool,
+        Field(True,
+              description='Determine whether created')]
+
+    updates: Annotated[
+        bool,
+        Field(True,
+              description='Determine whether created')]
+
+
+
 class HomieServiceParams(HomieParamsModel, extra='forbid'):
     """
     Process and validate the Homie configuration parameters.
@@ -79,3 +101,8 @@ class HomieServiceParams(HomieParamsModel, extra='forbid'):
         HomieServiceTimeoutParams,
         Field(default_factory=HomieServiceTimeoutParams,
               description='Override source or defaults')]
+
+    members: Annotated[
+        HomieServiceMembersParams,
+        Field(default_factory=HomieServiceMembersParams,
+              description='Which members are created')]

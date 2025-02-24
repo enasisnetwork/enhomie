@@ -237,6 +237,8 @@ def test_HubiOrigin_update(
     :param bodies: Locations and groups for use in testing.
     """
 
+    assert service.updates
+
     childs = homie.childs
     origins = childs.origins
     member = service.updates

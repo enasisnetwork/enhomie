@@ -115,6 +115,30 @@ class HomieConfig(Config):
             cargs[key] = _ihealth
 
 
+        _dactions = (
+            sargs.get('dactions'))
+
+        _dupdates = (
+            sargs.get('dupdates'))
+
+        _dstreams = (
+            sargs.get('dstreams'))
+
+        prefix = 'service/members'
+
+        if _dactions is not None:
+            key = f'{prefix}/actions'
+            cargs[key] = not _dactions
+
+        if _dupdates is not None:
+            key = f'{prefix}/updates'
+            cargs[key] = not _dupdates
+
+        if _dstreams is not None:
+            key = f'{prefix}/streams'
+            cargs[key] = not _dstreams
+
+
         _atimeout = (
             sargs.get('atimeout'))
 

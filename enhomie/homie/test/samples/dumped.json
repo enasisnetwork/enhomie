@@ -37,6 +37,11 @@
       "action": 1,
       "update": 1,
       "stream": 1
+    },
+    "members": {
+      "actions": true,
+      "streams": true,
+      "updates": true
     }
   },
   "restful": {

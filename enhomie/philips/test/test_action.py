@@ -35,6 +35,8 @@ def test_PhueAction_cover(
     devices = childs.devices
     groups = childs.groups
 
+    assert service.actions
+
     actions = service.actions
     threads = actions.threads
 

@@ -195,6 +195,31 @@ def arguments(  # noqa: CFQ001
             'objects are created'))
 
 
+    parser.add_argument(
+        '--disable_actions',
+        action='store_true',
+        dest='dactions',
+        help=(
+            'override the boolean '
+            'for enabling member'))
+
+    parser.add_argument(
+        '--disable_updates',
+        action='store_true',
+        dest='dupdates',
+        help=(
+            'override the boolean '
+            'for enabling member'))
+
+    parser.add_argument(
+        '--disable_streams',
+        action='store_true',
+        dest='dstreams',
+        help=(
+            'override the boolean '
+            'for enabling member'))
+
+
     return vars(
         parser
         .parse_args(args))

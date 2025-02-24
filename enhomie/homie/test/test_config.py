@@ -89,4 +89,7 @@ def test_HomieConfig_cover() -> None:
 
     HomieConfig({
         'fdesires': ['neptune_*'],
-        'faspires': ['neptune_*']})
+        'faspires': ['neptune_*'],
+        'dactions': True,
+        'dupdates': True,
+        'dstreams': True})

@@ -27,6 +27,8 @@ def test_HomieActions(
     :param service: Ancilary Homie Automate class instance.
     """
 
+    assert service.actions
+
     member = service.actions
 
 
