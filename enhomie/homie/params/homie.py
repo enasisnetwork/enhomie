@@ -61,6 +61,25 @@ class HomiePrinterParams(HomieParamsModel, extra='forbid'):
 
 
 
+class HomieFiltersParams(HomieParamsModel, extra='forbid'):
+    """
+    Process and validate the Homie configuration parameters.
+    """
+
+    aspires: Annotated[
+        Optional[list[str]],
+        Field(None,
+              description='Patterns the names must match',
+              min_length=1)]
+
+    desires: Annotated[
+        Optional[list[str]],
+        Field(None,
+              description='Patterns the names must match',
+              min_length=1)]
+
+
+
 class HomieParams(Params, extra='forbid'):
     """
     Process and validate the core configuration parameters.
@@ -102,6 +121,11 @@ class HomieParams(Params, extra='forbid'):
         Field(None,
               description='Parameters for common persists',
               min_length=1)]
+
+    filters: Annotated[
+        HomieFiltersParams,
+        Field(default_factory=HomieFiltersParams,
+              description='Determine object instantiation')]
 
     origins: Annotated[
         Optional[dict[str, HomieOriginParams]],
@@ -181,7 +205,8 @@ class HomieParams(Params, extra='forbid'):
                 'potent',
                 'printer',
                 'service',
-                'restful']
+                'restful',
+                'filters']
 
             for key in parsable:
 

@@ -177,6 +177,24 @@ def arguments(  # noqa: CFQ001
             'state to console'))
 
 
+    parser.add_argument(
+        '--filter_desires',
+        type=lambda x: x.split(','),
+        dest='fdesires',
+        help=(
+            'filter which desired '
+            'objects are created'))
+
+
+    parser.add_argument(
+        '--filter_aspires',
+        type=lambda x: x.split(','),
+        dest='faspires',
+        help=(
+            'filter which aspired '
+            'objects are created'))
+
+
     return vars(
         parser
         .parse_args(args))

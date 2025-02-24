@@ -25,6 +25,8 @@ def test_arguments() -> None:
         'debug': False,
         'dryrun': False,
         'potent': None,
+        'faspires': None,
+        'fdesires': None,
         'idesire': None,
         'iupdate': None,
         'atimeout': None,
