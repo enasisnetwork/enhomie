@@ -198,6 +198,7 @@ def arguments(  # noqa: CFQ001
     parser.add_argument(
         '--disable_actions',
         action='store_true',
+        default=None,
         dest='dactions',
         help=(
             'override the boolean '
@@ -206,6 +207,7 @@ def arguments(  # noqa: CFQ001
     parser.add_argument(
         '--disable_updates',
         action='store_true',
+        default=None,
         dest='dupdates',
         help=(
             'override the boolean '
@@ -214,6 +216,7 @@ def arguments(  # noqa: CFQ001
     parser.add_argument(
         '--disable_streams',
         action='store_true',
+        default=None,
         dest='dstreams',
         help=(
             'override the boolean '
@@ -222,6 +225,7 @@ def arguments(  # noqa: CFQ001
     parser.add_argument(
         '--enable_restful',
         action='store_true',
+        default=None,
         dest='erestful',
         help=(
             'override the boolean '
