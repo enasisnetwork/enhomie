@@ -27,18 +27,22 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
     'sphinx.ext.viewcode',
-    'sphinxcontrib.autodoc_pydantic']
+    'sphinxcontrib.autodoc_pydantic',
+    'sphinx_js']
 
 html_theme = 'sphinxawesome_theme'
 
 always_document_param_types = True
 
 intersphinx_mapping = {
-    'encommon': ('https://encommon.readthedocs.io/en/latest', None),
-    'enconnect': ('https://enconnect.readthedocs.io/en/latest', None),
+    'encommon': ('https://enasisnetwork.github.io/encommon/sphinx', None),
+    'enconnect': ('https://enasisnetwork.github.io/enconnect/sphinx', None),
     'jinja2': ('https://jinja.palletsprojects.com/en/latest', None),
     'netaddr': ('https://netaddr.readthedocs.io/en/latest', None),
     'pydantic': ('https://docs.pydantic.dev/latest', None),
     'pytest': ('https://docs.pytest.org/latest', None),
     'python': ('https://docs.python.org/3', None),
     'sqlalchemy': ('https://docs.sqlalchemy.org/en/20', None)}
+
+js_source_path = [
+    '../enhomie/restful/static/scripts']

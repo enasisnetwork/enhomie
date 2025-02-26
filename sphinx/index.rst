@@ -169,3 +169,8 @@ Ubiquiti Helpers
 
 .. autofunction:: enhomie.ubiquiti.plugins.ubiq_latest
    :noindex:
+
+Interface JavaScript
+--------------------
+
+.. js:autofunction:: persist_datagrid

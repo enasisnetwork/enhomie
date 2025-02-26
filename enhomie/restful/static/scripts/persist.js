@@ -7,11 +7,13 @@ is permitted, for more information consult the project license file.
 
 
 
+/**
+ * Construct the table with the header using the contents.
+ */
 async function
  persist_datagrid(
   refresh,
 ) {
-  // Construct the table with the header using the contents.
 
   let payload = null;
 
@@ -77,10 +79,12 @@ async function
 
 
 
+/**
+ * Return the entries but enhanced using various elements.
+ */
 function persist_entries(
   entries,
 ) {
-  // Return the entries but enhanced using various elements.
 
   assert(!isnull(entries));
 

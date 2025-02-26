@@ -46,6 +46,7 @@ pylint
 sphinx
 autodoc_pydantic
 sphinxawesome-theme
+sphinx-js
 
 yamllint
 
