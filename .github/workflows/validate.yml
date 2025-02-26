@@ -81,7 +81,7 @@ jobs:
 
       # Standard project construction
       - name: Install jsdoc from NPM
-        run: npm install jsdoc
+        run: sudo npm install -g jsdoc
 
 
       # Standard project construction
