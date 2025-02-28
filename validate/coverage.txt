@@ -73,7 +73,7 @@ enhomie/homie/common.py                            22      0   100%
 enhomie/homie/config.py                           127      0   100%
 enhomie/homie/homie.py                            170      0   100%
 enhomie/homie/members/__init__.py                   6      0   100%
-enhomie/homie/members/actions.py                   90      1    99%
+enhomie/homie/members/actions.py                   90      0   100%
 enhomie/homie/members/member.py                   133      0   100%
 enhomie/homie/members/restful.py                   45      0   100%
 enhomie/homie/members/streams.py                   12      0   100%
@@ -189,7 +189,7 @@ enhomie/restful/__init__.py                         3      0   100%
 enhomie/restful/conftest.py                        20      0   100%
 enhomie/restful/params.py                          13      0   100%
 enhomie/restful/persist.py                         20      0   100%
-enhomie/restful/server.py                          84      5    94%
+enhomie/restful/server.py                          84      0   100%
 enhomie/restful/service.py                         78      0   100%
 enhomie/restful/static/__init__.py                 54      0   100%
 enhomie/restful/test/__init__.py                    2      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8067      6    99%
+TOTAL                                            8067      0   100%
