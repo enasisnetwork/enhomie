@@ -219,13 +219,11 @@ def test_Homie_actions(
 
 def test_Homie_jinja2(
     homie: Homie,
-    replaces: DictStrAny,
 ) -> None:
     """
     Perform various tests associated with relevant routines.
 
     :param homie: Primary class instance for Homie Automate.
-    :param replaces: Mapping of what to replace in samples.
     """
 
     parsed = homie.j2parse(
