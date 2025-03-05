@@ -373,33 +373,31 @@
 <a class="viewcode-back" href="../../../../enhomie.homie.test.html#enhomie.homie.test.test_homie.test_Homie_jinja2">[docs]</a>
 </span><span id="line-220"><span class="k">def</span><span class="w"> </span><span class="nf">test_Homie_jinja2</span><span class="p">(</span>
 </span><span id="line-221">    <span class="n">homie</span><span class="p">:</span> <span class="n">Homie</span><span class="p">,</span>
-</span><span id="line-222">    <span class="n">replaces</span><span class="p">:</span> <span class="n">DictStrAny</span><span class="p">,</span>
-</span><span id="line-223"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-224"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-225"><span class="sd">    Perform various tests associated with relevant routines.</span>
-</span><span id="line-226">
-</span><span id="line-227"><span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
-</span><span id="line-228"><span class="sd">    :param replaces: Mapping of what to replace in samples.</span>
-</span><span id="line-229"><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="line-230">
-</span><span id="line-231">    <span class="n">parsed</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">j2parse</span><span class="p">(</span>
-</span><span id="line-232">        <span class="s1">&#39;{{ foo }}&#39;</span><span class="p">,</span>
-</span><span id="line-233">        <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">})</span>
-</span><span id="line-234">
-</span><span id="line-235">    <span class="k">assert</span> <span class="n">parsed</span> <span class="o">==</span> <span class="s1">&#39;bar&#39;</span></div>
+</span><span id="line-222"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-223"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-224"><span class="sd">    Perform various tests associated with relevant routines.</span>
+</span><span id="line-225">
+</span><span id="line-226"><span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
+</span><span id="line-227"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="line-228">
+</span><span id="line-229">    <span class="n">parsed</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">j2parse</span><span class="p">(</span>
+</span><span id="line-230">        <span class="s1">&#39;{{ foo }}&#39;</span><span class="p">,</span>
+</span><span id="line-231">        <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">})</span>
+</span><span id="line-232">
+</span><span id="line-233">    <span class="k">assert</span> <span class="n">parsed</span> <span class="o">==</span> <span class="s1">&#39;bar&#39;</span></div>
 
+</span><span id="line-234">
+</span><span id="line-235">
 </span><span id="line-236">
-</span><span id="line-237">
-</span><span id="line-238">
 <div class="viewcode-block" id="test_Homie_cover">
 <a class="viewcode-back" href="../../../../enhomie.homie.test.html#enhomie.homie.test.test_homie.test_Homie_cover">[docs]</a>
-</span><span id="line-239"><span class="k">def</span><span class="w"> </span><span class="nf">test_Homie_cover</span><span class="p">(</span>
-</span><span id="line-240"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-241"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-242"><span class="sd">    Perform various tests associated with relevant routines.</span>
-</span><span id="line-243"><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="line-244">
-</span><span id="line-245">    <span class="n">Homie</span><span class="p">(</span><span class="n">HomieConfig</span><span class="p">())</span></div>
+</span><span id="line-237"><span class="k">def</span><span class="w"> </span><span class="nf">test_Homie_cover</span><span class="p">(</span>
+</span><span id="line-238"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-239"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-240"><span class="sd">    Perform various tests associated with relevant routines.</span>
+</span><span id="line-241"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="line-242">
+</span><span id="line-243">    <span class="n">Homie</span><span class="p">(</span><span class="n">HomieConfig</span><span class="p">())</span></div>
 
 </span></code></pre></div>
     </div></div>

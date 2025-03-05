@@ -181,37 +181,36 @@
 </span><span id="line-36"><span class="sd">        Initialize instance for class using provided parameters.</span>
 </span><span id="line-37"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-38">
-</span><span id="line-39">
-</span><span id="line-40">        <span class="n">statics</span><span class="p">:</span> <span class="n">DictStrAny</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="line-41">            <span class="s1">&#39;homie&#39;</span><span class="p">:</span> <span class="n">homie</span><span class="p">}</span>
-</span><span id="line-42">
-</span><span id="line-43">        <span class="n">filters</span><span class="p">:</span> <span class="n">FILTERS</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="line-44">            <span class="s1">&#39;average&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span>
-</span><span id="line-45">                <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))}</span>
-</span><span id="line-46">
-</span><span id="line-47">        <span class="n">models</span> <span class="o">=</span> <span class="n">HomieModels</span>
-</span><span id="line-48">
-</span><span id="line-49">        <span class="n">philips</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-50">            <span class="n">models</span><span class="o">.</span><span class="n">philips</span><span class="p">()</span>
-</span><span id="line-51">            <span class="o">.</span><span class="n">drivers</span><span class="p">()</span><span class="o">.</span><span class="n">helpers</span><span class="p">())</span>
-</span><span id="line-52">
-</span><span id="line-53">        <span class="n">ubiquiti</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-54">            <span class="n">models</span><span class="o">.</span><span class="n">ubiquiti</span><span class="p">()</span>
-</span><span id="line-55">            <span class="o">.</span><span class="n">drivers</span><span class="p">()</span><span class="o">.</span><span class="n">helpers</span><span class="p">())</span>
-</span><span id="line-56">
-</span><span id="line-57">        <span class="n">filters</span> <span class="o">|=</span> <span class="p">{</span>
-</span><span id="line-58">            <span class="s1">&#39;philips_sensors&#39;</span><span class="p">:</span> <span class="p">(</span>
-</span><span id="line-59">                <span class="n">philips</span><span class="o">.</span><span class="n">sensors</span><span class="p">()),</span>
-</span><span id="line-60">            <span class="s1">&#39;philips_changed&#39;</span><span class="p">:</span> <span class="p">(</span>
-</span><span id="line-61">                <span class="n">philips</span><span class="o">.</span><span class="n">changed</span><span class="p">()),</span>
-</span><span id="line-62">            <span class="s1">&#39;philips_current&#39;</span><span class="p">:</span> <span class="p">(</span>
-</span><span id="line-63">                <span class="n">philips</span><span class="o">.</span><span class="n">current</span><span class="p">()),</span>
-</span><span id="line-64">            <span class="s1">&#39;ubiquiti_latest&#39;</span><span class="p">:</span> <span class="p">(</span>
-</span><span id="line-65">                <span class="n">ubiquiti</span><span class="o">.</span><span class="n">latest</span><span class="p">())}</span>
-</span><span id="line-66">
-</span><span id="line-67">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-</span><span id="line-68">            <span class="n">statics</span><span class="o">=</span><span class="n">statics</span><span class="p">,</span>
-</span><span id="line-69">            <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">)</span></div>
+</span><span id="line-39">        <span class="n">statics</span><span class="p">:</span> <span class="n">DictStrAny</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="line-40">            <span class="s1">&#39;homie&#39;</span><span class="p">:</span> <span class="n">homie</span><span class="p">}</span>
+</span><span id="line-41">
+</span><span id="line-42">        <span class="n">filters</span><span class="p">:</span> <span class="n">FILTERS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="line-43">            <span class="s1">&#39;average&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span>
+</span><span id="line-44">                <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))}</span>
+</span><span id="line-45">
+</span><span id="line-46">        <span class="n">models</span> <span class="o">=</span> <span class="n">HomieModels</span>
+</span><span id="line-47">
+</span><span id="line-48">        <span class="n">philips</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-49">            <span class="n">models</span><span class="o">.</span><span class="n">philips</span><span class="p">()</span>
+</span><span id="line-50">            <span class="o">.</span><span class="n">drivers</span><span class="p">()</span><span class="o">.</span><span class="n">helpers</span><span class="p">())</span>
+</span><span id="line-51">
+</span><span id="line-52">        <span class="n">ubiquiti</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-53">            <span class="n">models</span><span class="o">.</span><span class="n">ubiquiti</span><span class="p">()</span>
+</span><span id="line-54">            <span class="o">.</span><span class="n">drivers</span><span class="p">()</span><span class="o">.</span><span class="n">helpers</span><span class="p">())</span>
+</span><span id="line-55">
+</span><span id="line-56">        <span class="n">filters</span> <span class="o">|=</span> <span class="p">{</span>
+</span><span id="line-57">            <span class="s1">&#39;philips_sensors&#39;</span><span class="p">:</span> <span class="p">(</span>
+</span><span id="line-58">                <span class="n">philips</span><span class="o">.</span><span class="n">sensors</span><span class="p">()),</span>
+</span><span id="line-59">            <span class="s1">&#39;philips_changed&#39;</span><span class="p">:</span> <span class="p">(</span>
+</span><span id="line-60">                <span class="n">philips</span><span class="o">.</span><span class="n">changed</span><span class="p">()),</span>
+</span><span id="line-61">            <span class="s1">&#39;philips_current&#39;</span><span class="p">:</span> <span class="p">(</span>
+</span><span id="line-62">                <span class="n">philips</span><span class="o">.</span><span class="n">current</span><span class="p">()),</span>
+</span><span id="line-63">            <span class="s1">&#39;ubiquiti_latest&#39;</span><span class="p">:</span> <span class="p">(</span>
+</span><span id="line-64">                <span class="n">ubiquiti</span><span class="o">.</span><span class="n">latest</span><span class="p">())}</span>
+</span><span id="line-65">
+</span><span id="line-66">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+</span><span id="line-67">            <span class="n">statics</span><span class="o">=</span><span class="n">statics</span><span class="p">,</span>
+</span><span id="line-68">            <span class="n">filters</span><span class="o">=</span><span class="n">filters</span><span class="p">)</span></div>
 
 </span></code></pre></div>
     </div></div>
