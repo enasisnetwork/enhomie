@@ -10,8 +10,6 @@ is permitted, for more information consult the project license file.
 import asyncio
 from logging import getLogger
 from typing import Any
-from typing import Awaitable
-from typing import Callable
 from typing import TYPE_CHECKING
 
 from encommon.types import DictStrAny
@@ -80,17 +78,12 @@ class RestfulApp(FastAPI):
             redoc_url='/api/redoc',
             dependencies=depends,
             exception_handlers={
+                HTTPException: _exception,
                 Exception: _exception})
 
 
         self.include_router(PERSIST)
         self.include_router(STATIC)
-
-
-        middleware = (
-            self.middleware('http'))
-
-        middleware(_middlexcept)
 
 
 
@@ -321,33 +314,15 @@ async def _exception(
 
     await asyncio.sleep(0)
 
+    _httpexc = isinstance(
+        reason, HTTPException)
+
+    if _httpexc is True:
+        return Response(
+            reason.detail,
+            reason.status_code)
+
     return Response(500)
-
-
-
-async def _middlexcept(
-    request: Request,
-    next: Callable[[Request], Awaitable[Response]],
-) -> Response:
-    """
-    Handle logging the exceptions encountered with FastAPI.
-    """
-
-    homie = request.app.homie
-
-    try:
-        return await next(request)
-
-    except Exception as reason:
-
-        homie.logger.log_e(
-            base=request.app,
-            status='exception',
-            exc_info=reason)
-
-        await asyncio.sleep(0)
-
-        return Response(500)
 
 
 

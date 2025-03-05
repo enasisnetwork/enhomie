@@ -278,12 +278,20 @@ class HomiePersistRecord(BaseModel, extra='forbid'):
             tags = record.tags
 
             if value is not None:
-                assert isinstance(value, str)
-                params['value'] = loads(value)
+
+                assert isinstance(
+                    value, str)
+
+                params['value'] = (
+                    loads(value))
 
             if tags is not None:
-                assert isinstance(tags, str)
-                params['tags'] = loads(tags)
+
+                assert isinstance(
+                    tags, str)
+
+                params['tags'] = (
+                    loads(tags))
 
 
         elif kwargs is not None:
@@ -291,6 +299,7 @@ class HomiePersistRecord(BaseModel, extra='forbid'):
             params = {
                 x: kwargs.get(x)
                 for x in fields}
+
 
         else:  # NOCVR
             raise ValueError('record')
@@ -509,9 +518,9 @@ class HomiePersist:
             homie.j2parse(
                 insert, statics))
 
-        insert = (
-            model(**insert)
-            .endumped)
+        record = model(**insert)
+
+        insert = record.endumped
 
 
         # prepare the values
@@ -529,12 +538,12 @@ class HomiePersist:
             else None)
 
         insert['expire'] = (
-            int(Time(expire))
+            float(Time(expire))
             if expire is not None
             else None)
 
         insert['update'] = (
-            int(Time(update)))
+            float(Time(update)))
 
 
         # insert into database
@@ -563,7 +572,6 @@ class HomiePersist:
 
         table = HomiePersistTable
         field = table.unique
-
 
         self.expire()
 

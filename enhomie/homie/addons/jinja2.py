@@ -36,7 +36,6 @@ class HomieJinja2(Jinja2):
         Initialize instance for class using provided parameters.
         """
 
-
         statics: DictStrAny = {
             'homie': homie}
 
