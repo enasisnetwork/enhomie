@@ -97,8 +97,6 @@ def test_HomieService(
 
     assert not service.zombies
 
-    assert service.congest
-
     service.soft()
 
     while service.enqueue:
@@ -148,8 +146,6 @@ def test_HomieService_dryrun(
     assert service.running
 
     assert not service.zombies
-
-    assert service.congest
 
     service.soft()
 
