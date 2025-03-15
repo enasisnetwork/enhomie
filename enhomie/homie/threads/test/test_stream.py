@@ -136,6 +136,8 @@ def test_HomieStream(
 
         assert thread.homie
 
+        assert thread.service
+
         assert thread.member
 
         assert thread.origin
