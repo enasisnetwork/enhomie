@@ -410,10 +410,10 @@
 </span><span id="line-262">            <span class="k">if</span> <span class="nb">filter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-263">                <span class="k">return</span> <span class="kc">False</span>
 </span><span id="line-264">
-</span><span id="line-265">            <span class="n">matched</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-266">                <span class="n">fuzz_match</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">filter</span><span class="p">))</span>
+</span><span id="line-265">            <span class="n">match</span> <span class="o">=</span> <span class="n">fuzz_match</span><span class="p">(</span>
+</span><span id="line-266">                <span class="n">name</span><span class="p">,</span> <span class="nb">filter</span><span class="p">)</span>
 </span><span id="line-267">
-</span><span id="line-268">            <span class="k">return</span> <span class="ow">not</span> <span class="n">matched</span>
+</span><span id="line-268">            <span class="k">return</span> <span class="ow">not</span> <span class="n">match</span>
 </span><span id="line-269">
 </span><span id="line-270">
 </span><span id="line-271">        <span class="n">childs</span><span class="p">:</span> <span class="n">HomieDesires</span> <span class="o">=</span> <span class="p">{}</span>
@@ -461,10 +461,10 @@
 </span><span id="line-313">            <span class="k">if</span> <span class="nb">filter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="line-314">                <span class="k">return</span> <span class="kc">False</span>
 </span><span id="line-315">
-</span><span id="line-316">            <span class="n">matched</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-317">                <span class="n">fuzz_match</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">filter</span><span class="p">))</span>
+</span><span id="line-316">            <span class="n">match</span> <span class="o">=</span> <span class="n">fuzz_match</span><span class="p">(</span>
+</span><span id="line-317">                <span class="n">name</span><span class="p">,</span> <span class="nb">filter</span><span class="p">)</span>
 </span><span id="line-318">
-</span><span id="line-319">            <span class="k">return</span> <span class="ow">not</span> <span class="n">matched</span>
+</span><span id="line-319">            <span class="k">return</span> <span class="ow">not</span> <span class="n">match</span>
 </span><span id="line-320">
 </span><span id="line-321">
 </span><span id="line-322">        <span class="n">childs</span><span class="p">:</span> <span class="n">HomieAspires</span> <span class="o">=</span> <span class="p">{}</span>
