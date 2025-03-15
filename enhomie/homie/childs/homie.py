@@ -262,10 +262,10 @@ class HomieChilds:
             if filter is None:
                 return False
 
-            matched = (
-                fuzz_match(name, filter))
+            match = fuzz_match(
+                name, filter)
 
-            return not matched
+            return not match
 
 
         childs: HomieDesires = {}
@@ -313,10 +313,10 @@ class HomieChilds:
             if filter is None:
                 return False
 
-            matched = (
-                fuzz_match(name, filter))
+            match = fuzz_match(
+                name, filter)
 
-            return not matched
+            return not match
 
 
         childs: HomieAspires = {}

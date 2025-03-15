@@ -21,6 +21,7 @@ from .thread import HomieThreadItem
 if TYPE_CHECKING:
     from .stream import HomieStreamItem
     from ..childs import HomieOrigin
+    from ..members import HomieUpdates
 
 
 
@@ -84,6 +85,27 @@ class HomieUpdate(HomieThread):
             start='min')
 
         self.__timer = timer
+
+
+    @property
+    def member(
+        self,
+    ) -> 'HomieUpdates':
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        from ..members import (
+            HomieUpdates)
+
+        member = super().member
+
+        assert isinstance(
+            member, HomieUpdates)
+
+        return member
 
 
     def operate(

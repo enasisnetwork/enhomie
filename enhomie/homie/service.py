@@ -80,7 +80,6 @@ class HomieService:
         Construct instances using the configuration parameters.
         """
 
-        homie = self.__homie
         params = self.params
 
         respite = params.respite
@@ -88,22 +87,22 @@ class HomieService:
 
 
         self.__actions = (
-            HomieActions(homie)
+            HomieActions(self)
             if members.actions
             else None)
 
         self.__updates = (
-            HomieUpdates(homie)
+            HomieUpdates(self)
             if members.updates
             else None)
 
         self.__streams = (
-            HomieStreams(homie)
+            HomieStreams(self)
             if members.streams
             else None)
 
         self.__restful = (
-            HomieRestful(homie)
+            HomieRestful(self)
             if members.restful
             else None)
 

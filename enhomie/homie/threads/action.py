@@ -23,6 +23,7 @@ if TYPE_CHECKING:
     from ..childs import HomieOrigin
     from ..childs import HomieScene
     from ..common import HomieState
+    from ..members import HomieActions
 
 
 
@@ -92,6 +93,27 @@ class HomieAction(HomieThread):
     """
     Common methods and routines for Homie Automate threads.
     """
+
+
+    @property
+    def member(
+        self,
+    ) -> 'HomieActions':
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        from ..members import (
+            HomieActions)
+
+        member = super().member
+
+        assert isinstance(
+            member, HomieActions)
+
+        return member
 
 
     def operate(

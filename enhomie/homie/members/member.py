@@ -19,6 +19,7 @@ from ..addons import HomieQueue
 if TYPE_CHECKING:
     from ..childs import HomieOrigin
     from ..homie import Homie
+    from ..service import HomieService
     from ..threads import HomieActionItem
     from ..threads import HomieStreamItem
     from ..threads import HomieThread
@@ -39,7 +40,7 @@ class HomieMember:
     :param homie: Primary class instance for Homie Automate.
     """
 
-    __homie: 'Homie'
+    __service: 'HomieService'
 
     __threads: HomieThreads
 
@@ -52,17 +53,19 @@ class HomieMember:
 
     def __init__(
         self,
-        homie: 'Homie',
+        service: 'HomieService',
     ) -> None:
         """
         Initialize instance for class using provided parameters.
         """
 
+        homie = service.homie
+
         homie.logger.log_d(
             base=self,
             status='initial')
 
-        self.__homie = homie
+        self.__service = service
 
         self.__threads = {}
 
@@ -90,7 +93,7 @@ class HomieMember:
         Construct instances using the configuration parameters.
         """
 
-        homie = self.__homie
+        homie = self.homie
 
         self.__aqueue = (
             HomieQueue(homie))
@@ -114,7 +117,7 @@ class HomieMember:
         Construct instances using the configuration parameters.
         """
 
-        homie = self.__homie
+        homie = self.homie
         childs = homie.childs
         origins = childs.origins
 
@@ -152,7 +155,20 @@ class HomieMember:
         :returns: Homie instance to which the instance belongs.
         """
 
-        return self.__homie
+        return self.__service.homie
+
+
+    @property
+    def service(
+        self,
+    ) -> 'HomieService':
+        """
+        Return the Homie instance to which the instance belongs.
+
+        :returns: Homie instance to which the instance belongs.
+        """
+
+        return self.__service
 
 
     @property

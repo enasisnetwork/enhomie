@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 
 class HomieChild:
     """
-    Normalize the desired parameters with multiple products.
+    Parent object for child objects within the project base.
 
     :param homie: Primary class instance for Homie Automate.
     :param name: Name of the object within the Homie config.

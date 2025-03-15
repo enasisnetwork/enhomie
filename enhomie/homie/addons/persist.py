@@ -294,7 +294,7 @@ class HomiePersistRecord(BaseModel, extra='forbid'):
                     loads(tags))
 
 
-        elif kwargs is not None:
+        elif record is None:
 
             params = {
                 x: kwargs.get(x)

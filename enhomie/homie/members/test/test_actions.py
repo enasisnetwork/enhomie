@@ -35,7 +35,7 @@ def test_HomieActions(
     attrs = lattrs(member)
 
     assert attrs == [
-        '_HomieMember__homie',
+        '_HomieMember__service',
         '_HomieMember__threads',
         '_HomieMember__aqueue',
         '_HomieMember__uqueue',
@@ -58,6 +58,8 @@ def test_HomieActions(
 
 
     assert member.homie
+
+    assert member.service
 
     assert len(member.threads) == 4
 
