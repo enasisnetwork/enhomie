@@ -21,6 +21,7 @@ if TYPE_CHECKING:
     from ..childs import HomieOrigin
     from ..homie import Homie
     from ..members import HomieMember
+    from ..service import HomieService
     from ..threads import HomieActionItem
     from ..threads import HomieStreamItem
     from ..threads import HomieUpdateItem
@@ -138,6 +139,19 @@ class HomieThread(Thread):
         """
 
         return self.member.homie
+
+
+    @property
+    def service(
+        self,
+    ) -> 'HomieService':
+        """
+        Return the Homie instance to which the instance belongs.
+
+        :returns: Homie instance to which the instance belongs.
+        """
+
+        return self.__member.service
 
 
     @property

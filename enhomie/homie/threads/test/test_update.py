@@ -130,6 +130,8 @@ def test_HomieUpdate(
 
         assert thread.homie
 
+        assert thread.service
+
         assert thread.member
 
         assert thread.origin

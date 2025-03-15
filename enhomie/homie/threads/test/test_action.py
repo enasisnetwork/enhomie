@@ -181,6 +181,8 @@ def test_HomieAction(
 
         assert thread.homie
 
+        assert thread.service
+
         assert thread.member
 
         assert thread.origin
