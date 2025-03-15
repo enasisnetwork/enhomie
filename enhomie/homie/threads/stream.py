@@ -18,6 +18,7 @@ from .thread import HomieThreadItem
 
 if TYPE_CHECKING:
     from ..childs import HomieOrigin
+    from ..members import HomieStreams
 
 
 
@@ -51,6 +52,27 @@ class HomieStream(HomieThread):
     """
     Common methods and routines for Homie Automate threads.
     """
+
+
+    @property
+    def member(
+        self,
+    ) -> 'HomieStreams':
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        from ..members import (
+            HomieStreams)
+
+        member = super().member
+
+        assert isinstance(
+            member, HomieStreams)
+
+        return member
 
 
     def operate(
