@@ -123,11 +123,11 @@ enhomie/homie/threads/__init__.py                  12      0   100%
 enhomie/homie/threads/action.py                    54      0   100%
 enhomie/homie/threads/stream.py                    25      0   100%
 enhomie/homie/threads/test/__init__.py              0      0   100%
-enhomie/homie/threads/test/test_action.py          63      0   100%
-enhomie/homie/threads/test/test_stream.py          47      0   100%
+enhomie/homie/threads/test/test_action.py          64      0   100%
+enhomie/homie/threads/test/test_stream.py          48      0   100%
 enhomie/homie/threads/test/test_thread.py          20      0   100%
-enhomie/homie/threads/test/test_update.py          45      0   100%
-enhomie/homie/threads/thread.py                   123      0   100%
+enhomie/homie/threads/test/test_update.py          46      0   100%
+enhomie/homie/threads/thread.py                   126      0   100%
 enhomie/homie/threads/update.py                    65      0   100%
 enhomie/hubitat/__init__.py                         6      0   100%
 enhomie/hubitat/action.py                          31      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8083      0   100%
+TOTAL                                            8089      0   100%
