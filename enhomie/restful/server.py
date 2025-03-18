@@ -320,7 +320,8 @@ async def _exception(
     if _httpexc is True:
         return Response(
             reason.detail,
-            reason.status_code)
+            reason.status_code,
+            reason.headers)
 
     return Response(500)
 
