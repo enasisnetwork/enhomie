@@ -83,10 +83,9 @@ def merge_fetch(
 
     def _enrichment() -> None:
 
-        rtype = item['rtype']
         rid = item['rid']
 
-        if 'taurus_' in rtype:
+        if rid not in origin:
             return None
 
         item['_source'] = (
