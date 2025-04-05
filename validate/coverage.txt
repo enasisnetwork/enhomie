@@ -148,7 +148,7 @@ enhomie/hubitat/update.py                          14      0   100%
 enhomie/philips/__init__.py                        12      0   100%
 enhomie/philips/action.py                          35      0   100%
 enhomie/philips/device.py                           6      0   100%
-enhomie/philips/helpers.py                        205      0   100%
+enhomie/philips/helpers.py                        204      0   100%
 enhomie/philips/models.py                          61      0   100%
 enhomie/philips/origin.py                         129      0   100%
 enhomie/philips/params/__init__.py                  7      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8089      0   100%
+TOTAL                                            8088      0   100%
