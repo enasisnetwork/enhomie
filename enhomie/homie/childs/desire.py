@@ -119,7 +119,6 @@ class HomieDesire(HomieChild):
         self.__timers = object
 
 
-
     def __build_wheres(
         self,
     ) -> None:
