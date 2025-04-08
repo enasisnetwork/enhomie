@@ -42,7 +42,7 @@ enhomie/homie/addons/aspired.py                    80      0   100%
 enhomie/homie/addons/desired.py                   131      0   100%
 enhomie/homie/addons/jinja2.py                     14      0   100%
 enhomie/homie/addons/logger.py                     72      0   100%
-enhomie/homie/addons/persist.py                   207      0   100%
+enhomie/homie/addons/persist.py                   206      0   100%
 enhomie/homie/addons/queue.py                      34      0   100%
 enhomie/homie/addons/test/__init__.py               0      0   100%
 enhomie/homie/addons/test/test_aspired.py          74      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8088      0   100%
+TOTAL                                            8087      0   100%
