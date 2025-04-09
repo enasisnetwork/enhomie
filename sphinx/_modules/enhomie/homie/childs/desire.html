@@ -264,327 +264,326 @@
 </span><span id="line-119">        <span class="bp">self</span><span class="o">.</span><span class="n">__timers</span> <span class="o">=</span> <span class="nb">object</span>
 </span><span id="line-120">
 </span><span id="line-121">
-</span><span id="line-122">
-</span><span id="line-123">    <span class="k">def</span><span class="w"> </span><span class="nf">__build_wheres</span><span class="p">(</span>
-</span><span id="line-124">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-125">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-126"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-127"><span class="sd">        Construct instances using the configuration parameters.</span>
-</span><span id="line-128"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-129">
-</span><span id="line-130">        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
-</span><span id="line-131">        <span class="n">wheres</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">wheres</span>
-</span><span id="line-132">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
-</span><span id="line-133">
-</span><span id="line-134">        <span class="k">if</span> <span class="n">wheres</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-135">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-136">
-</span><span id="line-137">        <span class="n">model</span> <span class="o">=</span> <span class="n">HomieWhere</span>
+</span><span id="line-122">    <span class="k">def</span><span class="w"> </span><span class="nf">__build_wheres</span><span class="p">(</span>
+</span><span id="line-123">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-124">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-125"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-126"><span class="sd">        Construct instances using the configuration parameters.</span>
+</span><span id="line-127"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-128">
+</span><span id="line-129">        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+</span><span id="line-130">        <span class="n">wheres</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">wheres</span>
+</span><span id="line-131">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
+</span><span id="line-132">
+</span><span id="line-133">        <span class="k">if</span> <span class="n">wheres</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-134">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-135">
+</span><span id="line-136">        <span class="n">model</span> <span class="o">=</span> <span class="n">HomieWhere</span>
+</span><span id="line-137">
 </span><span id="line-138">
-</span><span id="line-139">
-</span><span id="line-140">        <span class="n">plugins</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">HomieWhere</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="line-139">        <span class="n">plugins</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">HomieWhere</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="line-140">
 </span><span id="line-141">
-</span><span id="line-142">
-</span><span id="line-143">        <span class="k">for</span> <span class="n">where</span> <span class="ow">in</span> <span class="n">wheres</span><span class="p">:</span>
-</span><span id="line-144">
-</span><span id="line-145">            <span class="nb">object</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span>
-</span><span id="line-146">                <span class="n">homie</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
-</span><span id="line-147">
-</span><span id="line-148">            <span class="n">plugins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</span><span id="line-142">        <span class="k">for</span> <span class="n">where</span> <span class="ow">in</span> <span class="n">wheres</span><span class="p">:</span>
+</span><span id="line-143">
+</span><span id="line-144">            <span class="nb">object</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span>
+</span><span id="line-145">                <span class="n">homie</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
+</span><span id="line-146">
+</span><span id="line-147">            <span class="n">plugins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</span><span id="line-148">
 </span><span id="line-149">
-</span><span id="line-150">
-</span><span id="line-151">        <span class="bp">self</span><span class="o">.</span><span class="n">__wheres</span> <span class="o">=</span> <span class="n">plugins</span>
+</span><span id="line-150">        <span class="bp">self</span><span class="o">.</span><span class="n">__wheres</span> <span class="o">=</span> <span class="n">plugins</span>
+</span><span id="line-151">
 </span><span id="line-152">
-</span><span id="line-153">
 <div class="viewcode-block" id="HomieDesire.validate">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.validate">[docs]</a>
-</span><span id="line-154">    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
-</span><span id="line-155">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-156">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-157"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-158"><span class="sd">        Perform advanced validation on the parameters provided.</span>
-</span><span id="line-159"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-160">
-</span><span id="line-161">        <span class="n">wheres</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__wheres</span>
-</span><span id="line-162">
-</span><span id="line-163">        <span class="k">for</span> <span class="n">where</span> <span class="ow">in</span> <span class="n">wheres</span><span class="p">:</span>
-</span><span id="line-164">            <span class="n">where</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span></div>
+</span><span id="line-153">    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
+</span><span id="line-154">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-155">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-156"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-157"><span class="sd">        Perform advanced validation on the parameters provided.</span>
+</span><span id="line-158"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-159">
+</span><span id="line-160">        <span class="n">wheres</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__wheres</span>
+</span><span id="line-161">
+</span><span id="line-162">        <span class="k">for</span> <span class="n">where</span> <span class="ow">in</span> <span class="n">wheres</span><span class="p">:</span>
+</span><span id="line-163">            <span class="n">where</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span></div>
 
+</span><span id="line-164">
 </span><span id="line-165">
-</span><span id="line-166">
-</span><span id="line-167">    <span class="nd">@property</span>
-</span><span id="line-168">    <span class="k">def</span><span class="w"> </span><span class="nf">kind</span><span class="p">(</span>
-</span><span id="line-169">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-170">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;desire&#39;</span><span class="p">]:</span>
-</span><span id="line-171"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-172"><span class="sd">        Return the value for the attribute from class instance.</span>
-</span><span id="line-173">
-</span><span id="line-174"><span class="sd">        :returns: Value for the attribute from class instance.</span>
-</span><span id="line-175"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-176">
-</span><span id="line-177">        <span class="k">return</span> <span class="s1">&#39;desire&#39;</span>
+</span><span id="line-166">    <span class="nd">@property</span>
+</span><span id="line-167">    <span class="k">def</span><span class="w"> </span><span class="nf">kind</span><span class="p">(</span>
+</span><span id="line-168">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-169">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;desire&#39;</span><span class="p">]:</span>
+</span><span id="line-170"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-171"><span class="sd">        Return the value for the attribute from class instance.</span>
+</span><span id="line-172">
+</span><span id="line-173"><span class="sd">        :returns: Value for the attribute from class instance.</span>
+</span><span id="line-174"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-175">
+</span><span id="line-176">        <span class="k">return</span> <span class="s1">&#39;desire&#39;</span>
+</span><span id="line-177">
 </span><span id="line-178">
-</span><span id="line-179">
-</span><span id="line-180">    <span class="nd">@property</span>
-</span><span id="line-181">    <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span>
-</span><span id="line-182">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-183">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieDesireParams&#39;</span><span class="p">:</span>
-</span><span id="line-184"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-185"><span class="sd">        Return the Pydantic model containing the configuration.</span>
-</span><span id="line-186">
-</span><span id="line-187"><span class="sd">        :returns: Pydantic model containing the configuration.</span>
-</span><span id="line-188"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-189">
-</span><span id="line-190">        <span class="n">model</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-191">            <span class="n">HomieModels</span>
-</span><span id="line-192">            <span class="o">.</span><span class="n">desire</span><span class="p">())</span>
-</span><span id="line-193">
-</span><span id="line-194">        <span class="n">params</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">params</span>
-</span><span id="line-195">
-</span><span id="line-196">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
-</span><span id="line-197">            <span class="n">params</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
-</span><span id="line-198">
-</span><span id="line-199">        <span class="k">return</span> <span class="n">params</span>
+</span><span id="line-179">    <span class="nd">@property</span>
+</span><span id="line-180">    <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span>
+</span><span id="line-181">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-182">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieDesireParams&#39;</span><span class="p">:</span>
+</span><span id="line-183"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-184"><span class="sd">        Return the Pydantic model containing the configuration.</span>
+</span><span id="line-185">
+</span><span id="line-186"><span class="sd">        :returns: Pydantic model containing the configuration.</span>
+</span><span id="line-187"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-188">
+</span><span id="line-189">        <span class="n">model</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-190">            <span class="n">HomieModels</span>
+</span><span id="line-191">            <span class="o">.</span><span class="n">desire</span><span class="p">())</span>
+</span><span id="line-192">
+</span><span id="line-193">        <span class="n">params</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">params</span>
+</span><span id="line-194">
+</span><span id="line-195">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+</span><span id="line-196">            <span class="n">params</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+</span><span id="line-197">
+</span><span id="line-198">        <span class="k">return</span> <span class="n">params</span>
+</span><span id="line-199">
 </span><span id="line-200">
-</span><span id="line-201">
-</span><span id="line-202">    <span class="nd">@property</span>
-</span><span id="line-203">    <span class="k">def</span><span class="w"> </span><span class="nf">weight</span><span class="p">(</span>
-</span><span id="line-204">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-205">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="line-206"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-207"><span class="sd">        Return the value for the attribute from class instance.</span>
-</span><span id="line-208">
-</span><span id="line-209"><span class="sd">        :returns: Value for the attribute from class instance.</span>
-</span><span id="line-210"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-211">
-</span><span id="line-212">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">weight</span>
+</span><span id="line-201">    <span class="nd">@property</span>
+</span><span id="line-202">    <span class="k">def</span><span class="w"> </span><span class="nf">weight</span><span class="p">(</span>
+</span><span id="line-203">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-204">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="line-205"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-206"><span class="sd">        Return the value for the attribute from class instance.</span>
+</span><span id="line-207">
+</span><span id="line-208"><span class="sd">        :returns: Value for the attribute from class instance.</span>
+</span><span id="line-209"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-210">
+</span><span id="line-211">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">weight</span>
+</span><span id="line-212">
 </span><span id="line-213">
-</span><span id="line-214">
-</span><span id="line-215">    <span class="nd">@property</span>
-</span><span id="line-216">    <span class="k">def</span><span class="w"> </span><span class="nf">devices</span><span class="p">(</span>
-</span><span id="line-217">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-218">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;HomieDevice&#39;</span><span class="p">]:</span>
-</span><span id="line-219"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-220"><span class="sd">        Return the value for the attribute from class instance.</span>
-</span><span id="line-221">
-</span><span id="line-222"><span class="sd">        .. note::</span>
-</span><span id="line-223"><span class="sd">           This method is identical to same within HomieAspire.</span>
-</span><span id="line-224">
-</span><span id="line-225"><span class="sd">        :returns: Value for the attribute from class instance.</span>
-</span><span id="line-226"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-227">
-</span><span id="line-228">        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
-</span><span id="line-229">        <span class="n">names</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">devices</span>
-</span><span id="line-230">
-</span><span id="line-231">        <span class="n">devices</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-232">            <span class="bp">self</span><span class="o">.</span><span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
-</span><span id="line-233">            <span class="o">.</span><span class="n">devices</span><span class="p">)</span>
-</span><span id="line-234">
-</span><span id="line-235">        <span class="n">childs</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="s1">&#39;HomieDevice&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-</span><span id="line-236">
-</span><span id="line-237">        <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-238">            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">childs</span><span class="p">)</span>
-</span><span id="line-239">
-</span><span id="line-240">        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-</span><span id="line-241">
-</span><span id="line-242">            <span class="n">child</span> <span class="o">=</span> <span class="n">devices</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-</span><span id="line-243">
-</span><span id="line-244">            <span class="n">childs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
-</span><span id="line-245">
-</span><span id="line-246">        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">childs</span><span class="p">)</span>
+</span><span id="line-214">    <span class="nd">@property</span>
+</span><span id="line-215">    <span class="k">def</span><span class="w"> </span><span class="nf">devices</span><span class="p">(</span>
+</span><span id="line-216">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-217">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;HomieDevice&#39;</span><span class="p">]:</span>
+</span><span id="line-218"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-219"><span class="sd">        Return the value for the attribute from class instance.</span>
+</span><span id="line-220">
+</span><span id="line-221"><span class="sd">        .. note::</span>
+</span><span id="line-222"><span class="sd">           This method is identical to same within HomieAspire.</span>
+</span><span id="line-223">
+</span><span id="line-224"><span class="sd">        :returns: Value for the attribute from class instance.</span>
+</span><span id="line-225"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-226">
+</span><span id="line-227">        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+</span><span id="line-228">        <span class="n">names</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">devices</span>
+</span><span id="line-229">
+</span><span id="line-230">        <span class="n">devices</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-231">            <span class="bp">self</span><span class="o">.</span><span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
+</span><span id="line-232">            <span class="o">.</span><span class="n">devices</span><span class="p">)</span>
+</span><span id="line-233">
+</span><span id="line-234">        <span class="n">childs</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="s1">&#39;HomieDevice&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span><span id="line-235">
+</span><span id="line-236">        <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-237">            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">childs</span><span class="p">)</span>
+</span><span id="line-238">
+</span><span id="line-239">        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+</span><span id="line-240">
+</span><span id="line-241">            <span class="n">child</span> <span class="o">=</span> <span class="n">devices</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+</span><span id="line-242">
+</span><span id="line-243">            <span class="n">childs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+</span><span id="line-244">
+</span><span id="line-245">        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">childs</span><span class="p">)</span>
+</span><span id="line-246">
 </span><span id="line-247">
-</span><span id="line-248">
-</span><span id="line-249">    <span class="nd">@property</span>
-</span><span id="line-250">    <span class="k">def</span><span class="w"> </span><span class="nf">groups</span><span class="p">(</span>
-</span><span id="line-251">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-252">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;HomieGroup&#39;</span><span class="p">]:</span>
-</span><span id="line-253"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-254"><span class="sd">        Return the value for the attribute from class instance.</span>
-</span><span id="line-255">
-</span><span id="line-256"><span class="sd">        .. note::</span>
-</span><span id="line-257"><span class="sd">           This method is identical to same within HomieAspire.</span>
-</span><span id="line-258">
-</span><span id="line-259"><span class="sd">        :returns: Value for the attribute from class instance.</span>
-</span><span id="line-260"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-261">
-</span><span id="line-262">        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
-</span><span id="line-263">        <span class="n">names</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">groups</span>
-</span><span id="line-264">
-</span><span id="line-265">        <span class="n">groups</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-266">            <span class="bp">self</span><span class="o">.</span><span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
-</span><span id="line-267">            <span class="o">.</span><span class="n">groups</span><span class="p">)</span>
-</span><span id="line-268">
-</span><span id="line-269">        <span class="n">childs</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="s1">&#39;HomieGroup&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-</span><span id="line-270">
-</span><span id="line-271">        <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-272">            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">childs</span><span class="p">)</span>
-</span><span id="line-273">
-</span><span id="line-274">        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-</span><span id="line-275">
-</span><span id="line-276">            <span class="n">child</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-</span><span id="line-277">
-</span><span id="line-278">            <span class="n">childs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
-</span><span id="line-279">
-</span><span id="line-280">        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">childs</span><span class="p">)</span>
+</span><span id="line-248">    <span class="nd">@property</span>
+</span><span id="line-249">    <span class="k">def</span><span class="w"> </span><span class="nf">groups</span><span class="p">(</span>
+</span><span id="line-250">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-251">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s1">&#39;HomieGroup&#39;</span><span class="p">]:</span>
+</span><span id="line-252"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-253"><span class="sd">        Return the value for the attribute from class instance.</span>
+</span><span id="line-254">
+</span><span id="line-255"><span class="sd">        .. note::</span>
+</span><span id="line-256"><span class="sd">           This method is identical to same within HomieAspire.</span>
+</span><span id="line-257">
+</span><span id="line-258"><span class="sd">        :returns: Value for the attribute from class instance.</span>
+</span><span id="line-259"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-260">
+</span><span id="line-261">        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+</span><span id="line-262">        <span class="n">names</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">groups</span>
+</span><span id="line-263">
+</span><span id="line-264">        <span class="n">groups</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-265">            <span class="bp">self</span><span class="o">.</span><span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
+</span><span id="line-266">            <span class="o">.</span><span class="n">groups</span><span class="p">)</span>
+</span><span id="line-267">
+</span><span id="line-268">        <span class="n">childs</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="s1">&#39;HomieGroup&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span><span id="line-269">
+</span><span id="line-270">        <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-271">            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">childs</span><span class="p">)</span>
+</span><span id="line-272">
+</span><span id="line-273">        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+</span><span id="line-274">
+</span><span id="line-275">            <span class="n">child</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+</span><span id="line-276">
+</span><span id="line-277">            <span class="n">childs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+</span><span id="line-278">
+</span><span id="line-279">        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">childs</span><span class="p">)</span>
+</span><span id="line-280">
 </span><span id="line-281">
-</span><span id="line-282">
-</span><span id="line-283">    <span class="nd">@property</span>
-</span><span id="line-284">    <span class="k">def</span><span class="w"> </span><span class="nf">wheres</span><span class="p">(</span>
-</span><span id="line-285">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-286">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">HomieWhere</span><span class="p">]:</span>
-</span><span id="line-287"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-288"><span class="sd">        Return the value for the attribute from class instance.</span>
-</span><span id="line-289">
-</span><span id="line-290"><span class="sd">        :returns: Value for the attribute from class instance.</span>
-</span><span id="line-291"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-292">
-</span><span id="line-293">        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wheres</span><span class="p">)</span>
+</span><span id="line-282">    <span class="nd">@property</span>
+</span><span id="line-283">    <span class="k">def</span><span class="w"> </span><span class="nf">wheres</span><span class="p">(</span>
+</span><span id="line-284">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-285">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">HomieWhere</span><span class="p">]:</span>
+</span><span id="line-286"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-287"><span class="sd">        Return the value for the attribute from class instance.</span>
+</span><span id="line-288">
+</span><span id="line-289"><span class="sd">        :returns: Value for the attribute from class instance.</span>
+</span><span id="line-290"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-291">
+</span><span id="line-292">        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wheres</span><span class="p">)</span>
+</span><span id="line-293">
 </span><span id="line-294">
-</span><span id="line-295">
 <div class="viewcode-block" id="HomieDesire.when">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.when">[docs]</a>
-</span><span id="line-296">    <span class="k">def</span><span class="w"> </span><span class="nf">when</span><span class="p">(</span>
-</span><span id="line-297">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-298">        <span class="n">time</span><span class="p">:</span> <span class="n">Time</span><span class="p">,</span>
-</span><span id="line-299">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="line-300"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-301"><span class="sd">        Return the boolean indicating the conditional outcomes.</span>
-</span><span id="line-302">
-</span><span id="line-303"><span class="sd">        .. note::</span>
-</span><span id="line-304"><span class="sd">           Somewhat similar to same method within HomieAspire.</span>
-</span><span id="line-305">
-</span><span id="line-306"><span class="sd">        :param time: Time that will be used in the conditionals.</span>
-</span><span id="line-307"><span class="sd">        :returns: Boolean indicating the conditional outcomes.</span>
-</span><span id="line-308"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-309">
-</span><span id="line-310">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
-</span><span id="line-311">
-</span><span id="line-312">        <span class="k">try</span><span class="p">:</span>
-</span><span id="line-313">
-</span><span id="line-314">            <span class="n">wheres</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-315">                <span class="n">whered</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">))</span>
-</span><span id="line-316">
-</span><span id="line-317">            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">wheres</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-</span><span id="line-318">                <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">wheres</span><span class="p">)</span>
-</span><span id="line-319">
-</span><span id="line-320">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">reason</span><span class="p">:</span>
-</span><span id="line-321">
-</span><span id="line-322">            <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_e</span><span class="p">(</span>
-</span><span id="line-323">                <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-</span><span id="line-324">                <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-</span><span id="line-325">                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;exception&#39;</span><span class="p">,</span>
-</span><span id="line-326">                <span class="n">exc_info</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
-</span><span id="line-327">
-</span><span id="line-328">        <span class="k">return</span> <span class="kc">False</span></div>
+</span><span id="line-295">    <span class="k">def</span><span class="w"> </span><span class="nf">when</span><span class="p">(</span>
+</span><span id="line-296">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-297">        <span class="n">time</span><span class="p">:</span> <span class="n">Time</span><span class="p">,</span>
+</span><span id="line-298">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-299"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-300"><span class="sd">        Return the boolean indicating the conditional outcomes.</span>
+</span><span id="line-301">
+</span><span id="line-302"><span class="sd">        .. note::</span>
+</span><span id="line-303"><span class="sd">           Somewhat similar to same method within HomieAspire.</span>
+</span><span id="line-304">
+</span><span id="line-305"><span class="sd">        :param time: Time that will be used in the conditionals.</span>
+</span><span id="line-306"><span class="sd">        :returns: Boolean indicating the conditional outcomes.</span>
+</span><span id="line-307"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-308">
+</span><span id="line-309">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
+</span><span id="line-310">
+</span><span id="line-311">        <span class="k">try</span><span class="p">:</span>
+</span><span id="line-312">
+</span><span id="line-313">            <span class="n">wheres</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-314">                <span class="n">whered</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">))</span>
+</span><span id="line-315">
+</span><span id="line-316">            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">wheres</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+</span><span id="line-317">                <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">wheres</span><span class="p">)</span>
+</span><span id="line-318">
+</span><span id="line-319">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">reason</span><span class="p">:</span>
+</span><span id="line-320">
+</span><span id="line-321">            <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_e</span><span class="p">(</span>
+</span><span id="line-322">                <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="line-323">                <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+</span><span id="line-324">                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;exception&#39;</span><span class="p">,</span>
+</span><span id="line-325">                <span class="n">exc_info</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
+</span><span id="line-326">
+</span><span id="line-327">        <span class="k">return</span> <span class="kc">False</span></div>
 
+</span><span id="line-328">
 </span><span id="line-329">
-</span><span id="line-330">
 <div class="viewcode-block" id="HomieDesire.paused">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.paused">[docs]</a>
-</span><span id="line-331">    <span class="k">def</span><span class="w"> </span><span class="nf">paused</span><span class="p">(</span>
-</span><span id="line-332">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-333">        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
-</span><span id="line-334">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="line-335"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-336"><span class="sd">        Return the boolean indicating whether operation delayed.</span>
-</span><span id="line-337">
-</span><span id="line-338"><span class="sd">        .. note::</span>
-</span><span id="line-339"><span class="sd">           This method is identical to same within HomieAspire.</span>
-</span><span id="line-340">
-</span><span id="line-341"><span class="sd">        :param target: Device or group that in scope for match.</span>
-</span><span id="line-342"><span class="sd">        :returns: Boolean indicating whether operation delayed.</span>
-</span><span id="line-343"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-344">
-</span><span id="line-345">        <span class="n">timers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timers</span>
-</span><span id="line-346">
-</span><span id="line-347">        <span class="n">name</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
-</span><span id="line-348">        <span class="n">kind</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span>
-</span><span id="line-349">
-</span><span id="line-350">        <span class="n">ready</span> <span class="o">=</span> <span class="n">timers</span><span class="o">.</span><span class="n">ready</span><span class="p">(</span>
-</span><span id="line-351">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-</span><span id="line-352">            <span class="n">update</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="line-353">
-</span><span id="line-354">        <span class="k">return</span> <span class="n">ready</span> <span class="ow">is</span> <span class="kc">False</span></div>
+</span><span id="line-330">    <span class="k">def</span><span class="w"> </span><span class="nf">paused</span><span class="p">(</span>
+</span><span id="line-331">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-332">        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
+</span><span id="line-333">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-334"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-335"><span class="sd">        Return the boolean indicating whether operation delayed.</span>
+</span><span id="line-336">
+</span><span id="line-337"><span class="sd">        .. note::</span>
+</span><span id="line-338"><span class="sd">           This method is identical to same within HomieAspire.</span>
+</span><span id="line-339">
+</span><span id="line-340"><span class="sd">        :param target: Device or group that in scope for match.</span>
+</span><span id="line-341"><span class="sd">        :returns: Boolean indicating whether operation delayed.</span>
+</span><span id="line-342"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-343">
+</span><span id="line-344">        <span class="n">timers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timers</span>
+</span><span id="line-345">
+</span><span id="line-346">        <span class="n">name</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
+</span><span id="line-347">        <span class="n">kind</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span>
+</span><span id="line-348">
+</span><span id="line-349">        <span class="n">ready</span> <span class="o">=</span> <span class="n">timers</span><span class="o">.</span><span class="n">ready</span><span class="p">(</span>
+</span><span id="line-350">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="line-351">            <span class="n">update</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="line-352">
+</span><span id="line-353">        <span class="k">return</span> <span class="n">ready</span> <span class="ow">is</span> <span class="kc">False</span></div>
 
+</span><span id="line-354">
 </span><span id="line-355">
-</span><span id="line-356">
 <div class="viewcode-block" id="HomieDesire.matched">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.matched">[docs]</a>
-</span><span id="line-357">    <span class="k">def</span><span class="w"> </span><span class="nf">matched</span><span class="p">(</span>
-</span><span id="line-358">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-359">        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
-</span><span id="line-360">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-361"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-362"><span class="sd">        Perform operations when this desire is the most desired.</span>
-</span><span id="line-363">
-</span><span id="line-364"><span class="sd">        .. note::</span>
-</span><span id="line-365"><span class="sd">           Somewhat similar to same method within HomieAspire.</span>
-</span><span id="line-366">
-</span><span id="line-367"><span class="sd">        :param target: Device or group that in scope for match.</span>
-</span><span id="line-368"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-369">
-</span><span id="line-370">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
-</span><span id="line-371">        <span class="n">timers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timers</span>
-</span><span id="line-372">
-</span><span id="line-373">        <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
-</span><span id="line-374">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-375">
-</span><span id="line-376">        <span class="n">name</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
-</span><span id="line-377">        <span class="n">kind</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span>
-</span><span id="line-378">
-</span><span id="line-379">        <span class="n">timers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
-</span><span id="line-380">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-</span><span id="line-381">            <span class="n">value</span><span class="o">=</span><span class="s1">&#39;now&#39;</span><span class="p">)</span></div>
+</span><span id="line-356">    <span class="k">def</span><span class="w"> </span><span class="nf">matched</span><span class="p">(</span>
+</span><span id="line-357">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-358">        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
+</span><span id="line-359">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-360"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-361"><span class="sd">        Perform operations when this desire is the most desired.</span>
+</span><span id="line-362">
+</span><span id="line-363"><span class="sd">        .. note::</span>
+</span><span id="line-364"><span class="sd">           Somewhat similar to same method within HomieAspire.</span>
+</span><span id="line-365">
+</span><span id="line-366"><span class="sd">        :param target: Device or group that in scope for match.</span>
+</span><span id="line-367"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-368">
+</span><span id="line-369">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
+</span><span id="line-370">        <span class="n">timers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timers</span>
+</span><span id="line-371">
+</span><span id="line-372">        <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
+</span><span id="line-373">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-374">
+</span><span id="line-375">        <span class="n">name</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
+</span><span id="line-376">        <span class="n">kind</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span>
+</span><span id="line-377">
+</span><span id="line-378">        <span class="n">timers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+</span><span id="line-379">            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="line-380">            <span class="n">value</span><span class="o">=</span><span class="s1">&#39;now&#39;</span><span class="p">)</span></div>
 
+</span><span id="line-381">
 </span><span id="line-382">
-</span><span id="line-383">
 <div class="viewcode-block" id="HomieDesire.omitted">
 <a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.desire.HomieDesire.omitted">[docs]</a>
-</span><span id="line-384">    <span class="k">def</span><span class="w"> </span><span class="nf">omitted</span><span class="p">(</span>
-</span><span id="line-385">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-386">        <span class="n">target</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieActionNode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-387">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-388"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-389"><span class="sd">        Perform operations when this desire is the most desired.</span>
-</span><span id="line-390">
-</span><span id="line-391"><span class="sd">        .. note::</span>
-</span><span id="line-392"><span class="sd">           Somewhat similar to same method within HomieAspire.</span>
-</span><span id="line-393">
-</span><span id="line-394"><span class="sd">        :param target: Device or group that in scope for match.</span>
-</span><span id="line-395"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-396">
-</span><span id="line-397">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
-</span><span id="line-398">        <span class="n">timers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timers</span>
-</span><span id="line-399">        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
-</span><span id="line-400">        <span class="n">delay</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">delay</span>
-</span><span id="line-401">
-</span><span id="line-402">        <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
-</span><span id="line-403">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-404">
-</span><span id="line-405">        <span class="n">update</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-406">            <span class="s1">&#39;now&#39;</span>
-</span><span id="line-407">            <span class="k">if</span> <span class="n">delay</span> <span class="ow">is</span> <span class="kc">True</span>
-</span><span id="line-408">            <span class="k">else</span> <span class="s1">&#39;min&#39;</span><span class="p">)</span>
+</span><span id="line-383">    <span class="k">def</span><span class="w"> </span><span class="nf">omitted</span><span class="p">(</span>
+</span><span id="line-384">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-385">        <span class="n">target</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieActionNode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-386">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-387"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-388"><span class="sd">        Perform operations when this desire is the most desired.</span>
+</span><span id="line-389">
+</span><span id="line-390"><span class="sd">        .. note::</span>
+</span><span id="line-391"><span class="sd">           Somewhat similar to same method within HomieAspire.</span>
+</span><span id="line-392">
+</span><span id="line-393"><span class="sd">        :param target: Device or group that in scope for match.</span>
+</span><span id="line-394"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-395">
+</span><span id="line-396">        <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
+</span><span id="line-397">        <span class="n">timers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timers</span>
+</span><span id="line-398">        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+</span><span id="line-399">        <span class="n">delay</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">delay</span>
+</span><span id="line-400">
+</span><span id="line-401">        <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
+</span><span id="line-402">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-403">
+</span><span id="line-404">        <span class="n">update</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-405">            <span class="s1">&#39;now&#39;</span>
+</span><span id="line-406">            <span class="k">if</span> <span class="n">delay</span> <span class="ow">is</span> <span class="kc">True</span>
+</span><span id="line-407">            <span class="k">else</span> <span class="s1">&#39;min&#39;</span><span class="p">)</span>
+</span><span id="line-408">
 </span><span id="line-409">
-</span><span id="line-410">
-</span><span id="line-411">        <span class="k">if</span> <span class="n">target</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-412">
-</span><span id="line-413">            <span class="n">_timers</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-414">                <span class="n">timers</span><span class="o">.</span><span class="n">children</span>
-</span><span id="line-415">                <span class="o">.</span><span class="n">values</span><span class="p">())</span>
-</span><span id="line-416">
-</span><span id="line-417">            <span class="k">for</span> <span class="n">timer</span> <span class="ow">in</span> <span class="n">_timers</span><span class="p">:</span>
-</span><span id="line-418">                <span class="n">timer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+</span><span id="line-410">        <span class="k">if</span> <span class="n">target</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-411">
+</span><span id="line-412">            <span class="n">_timers</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-413">                <span class="n">timers</span><span class="o">.</span><span class="n">children</span>
+</span><span id="line-414">                <span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</span><span id="line-415">
+</span><span id="line-416">            <span class="k">for</span> <span class="n">timer</span> <span class="ow">in</span> <span class="n">_timers</span><span class="p">:</span>
+</span><span id="line-417">                <span class="n">timer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+</span><span id="line-418">
 </span><span id="line-419">
-</span><span id="line-420">
-</span><span id="line-421">        <span class="k">elif</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-422">
-</span><span id="line-423">            <span class="n">name</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
-</span><span id="line-424">            <span class="n">kind</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span>
-</span><span id="line-425">
-</span><span id="line-426">            <span class="n">timers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
-</span><span id="line-427">                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-</span><span id="line-428">                <span class="n">value</span><span class="o">=</span><span class="n">update</span><span class="p">)</span></div>
+</span><span id="line-420">        <span class="k">elif</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-421">
+</span><span id="line-422">            <span class="n">name</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
+</span><span id="line-423">            <span class="n">kind</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span>
+</span><span id="line-424">
+</span><span id="line-425">            <span class="n">timers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+</span><span id="line-426">                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="line-427">                <span class="n">value</span><span class="o">=</span><span class="n">update</span><span class="p">)</span></div>
 </div>
 
 </span></code></pre></div>
