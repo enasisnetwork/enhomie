@@ -1,5 +1,5 @@
-encommon>=0.22.4
-enconnect>=0.17.10
+encommon>=0.22.7
+enconnect>=0.17.16
 fastapi
 urllib3
 uvicorn
