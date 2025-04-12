@@ -11,7 +11,6 @@ from typing import Optional
 
 from encommon.config import Config
 from encommon.config import Params
-from encommon.parse import Jinja2
 from encommon.types import DictStrAny
 from encommon.utils.common import PATHABLE
 
@@ -276,11 +275,10 @@ class HomieConfig(Config):
         """
 
         merge = self.merge
+        jinja2 = self.jinja2
 
-
-        jinja2 = Jinja2({
-            'source': merge,
-            'config': self})
+        jinja2.set_static(
+            'source', merge)
 
         parse = jinja2.parse
 

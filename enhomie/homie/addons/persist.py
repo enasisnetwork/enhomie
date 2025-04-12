@@ -398,22 +398,6 @@ class HomiePersist:
     ) -> None:
         """
         Insert the value within the persistent key value store.
-
-        .. note::
-           This will replace existing record with primary key.
-
-        :param unique: Parameter value passed to the downstream.
-        :param value: Parameter value passed to the downstream.
-        :param value_unit: Parameter value passed to downstream.
-        :param value_label: Parameter value passed to downstream.
-        :param value_icon: Parameter value passed to downstream.
-        :param expire: Parameter value passed to the downstream.
-        :param about: Parameter value passed to the downstream.
-        :param about_label: Parameter value passed to downstream.
-        :param about_icon: Parameter value passed to downstream.
-        :param level: Parameter value passed to the downstream.
-        :param tags: Parameter value passed to the downstream.
-        :param statics: Additional values available for parsing.
         """
 
         homie = self.__homie

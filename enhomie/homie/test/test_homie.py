@@ -226,7 +226,9 @@ def test_Homie_jinja2(
     :param homie: Primary class instance for Homie Automate.
     """
 
-    parsed = homie.j2parse(
+    j2parse = homie.j2parse
+
+    parsed = j2parse(
         '{{ foo }}',
         {'foo': 'bar'})
 
