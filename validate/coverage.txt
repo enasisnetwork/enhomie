@@ -70,7 +70,7 @@ enhomie/homie/childs/test/test_homie.py            33      0   100%
 enhomie/homie/childs/test/test_origin.py            2      0   100%
 enhomie/homie/childs/test/test_scene.py            34      0   100%
 enhomie/homie/common.py                            22      0   100%
-enhomie/homie/config.py                           127      0   100%
+enhomie/homie/config.py                           128      0   100%
 enhomie/homie/homie.py                            170      0   100%
 enhomie/homie/members/__init__.py                   6      0   100%
 enhomie/homie/members/actions.py                   90      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8088      0   100%
+TOTAL                                            8089      0   100%
