@@ -288,6 +288,8 @@ class HomieConfig(Config):
         assert isinstance(
             params, HomieParams)
 
+        (jinja2
+         .set_static('source'))
 
         self.__params = params
 
