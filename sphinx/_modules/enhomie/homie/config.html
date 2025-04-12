@@ -435,34 +435,36 @@
 </span><span id="line-288">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
 </span><span id="line-289">            <span class="n">params</span><span class="p">,</span> <span class="n">HomieParams</span><span class="p">)</span>
 </span><span id="line-290">
-</span><span id="line-291">
-</span><span id="line-292">        <span class="bp">self</span><span class="o">.</span><span class="n">__params</span> <span class="o">=</span> <span class="n">params</span></div>
-
+</span><span id="line-291">        <span class="p">(</span><span class="n">jinja2</span>
+</span><span id="line-292">         <span class="o">.</span><span class="n">set_static</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">))</span>
 </span><span id="line-293">
-</span><span id="line-294">
-</span><span id="line-295">    <span class="nd">@property</span>
-</span><span id="line-296">    <span class="k">def</span><span class="w"> </span><span class="nf">__params</span><span class="p">(</span>
-</span><span id="line-297">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-298">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Params</span><span class="p">]:</span>
-</span><span id="line-299"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-300"><span class="sd">        Return the Pydantic model containing the configuration.</span>
-</span><span id="line-301">
-</span><span id="line-302"><span class="sd">        :returns: Pydantic model containing the configuration.</span>
-</span><span id="line-303"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-304">
-</span><span id="line-305">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Config__params</span>
+</span><span id="line-294">        <span class="bp">self</span><span class="o">.</span><span class="n">__params</span> <span class="o">=</span> <span class="n">params</span></div>
+
+</span><span id="line-295">
+</span><span id="line-296">
+</span><span id="line-297">    <span class="nd">@property</span>
+</span><span id="line-298">    <span class="k">def</span><span class="w"> </span><span class="nf">__params</span><span class="p">(</span>
+</span><span id="line-299">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-300">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Params</span><span class="p">]:</span>
+</span><span id="line-301"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-302"><span class="sd">        Return the Pydantic model containing the configuration.</span>
+</span><span id="line-303">
+</span><span id="line-304"><span class="sd">        :returns: Pydantic model containing the configuration.</span>
+</span><span id="line-305"><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="line-306">
-</span><span id="line-307">
-</span><span id="line-308">    <span class="nd">@__params</span><span class="o">.</span><span class="n">setter</span>
-</span><span id="line-309">    <span class="k">def</span><span class="w"> </span><span class="nf">__params</span><span class="p">(</span>
-</span><span id="line-310">        <span class="bp">self</span><span class="p">,</span>
-</span><span id="line-311">        <span class="n">value</span><span class="p">:</span> <span class="n">Params</span><span class="p">,</span>
-</span><span id="line-312">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-313"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-314"><span class="sd">        Update the value for the attribute from class instance.</span>
-</span><span id="line-315"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="line-316">
-</span><span id="line-317">        <span class="bp">self</span><span class="o">.</span><span class="n">_Config__params</span> <span class="o">=</span> <span class="n">value</span></div>
+</span><span id="line-307">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Config__params</span>
+</span><span id="line-308">
+</span><span id="line-309">
+</span><span id="line-310">    <span class="nd">@__params</span><span class="o">.</span><span class="n">setter</span>
+</span><span id="line-311">    <span class="k">def</span><span class="w"> </span><span class="nf">__params</span><span class="p">(</span>
+</span><span id="line-312">        <span class="bp">self</span><span class="p">,</span>
+</span><span id="line-313">        <span class="n">value</span><span class="p">:</span> <span class="n">Params</span><span class="p">,</span>
+</span><span id="line-314">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-315"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-316"><span class="sd">        Update the value for the attribute from class instance.</span>
+</span><span id="line-317"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="line-318">
+</span><span id="line-319">        <span class="bp">self</span><span class="o">.</span><span class="n">_Config__params</span> <span class="o">=</span> <span class="n">value</span></div>
 
 </span></code></pre></div>
     </div></div>
