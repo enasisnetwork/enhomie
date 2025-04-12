@@ -116,7 +116,7 @@ enhomie/homie/plugins/where.py                     41      0   100%
 enhomie/homie/service.py                          267      0   100%
 enhomie/homie/test/__init__.py                      2      0   100%
 enhomie/homie/test/test_config.py                  22      0   100%
-enhomie/homie/test/test_homie.py                   69      0   100%
+enhomie/homie/test/test_homie.py                   70      0   100%
 enhomie/homie/test/test_models.py                  28      0   100%
 enhomie/homie/test/test_service.py                 96      0   100%
 enhomie/homie/threads/__init__.py                  12      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8087      0   100%
+TOTAL                                            8088      0   100%
