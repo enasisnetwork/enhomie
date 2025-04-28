@@ -11,6 +11,7 @@ from dataclasses import asdict
 from typing import TYPE_CHECKING
 
 from encommon.types import DictStrAny
+from encommon.types import LDictStrAny
 from encommon.utils import load_sample
 from encommon.utils import prep_sample
 from encommon.utils.sample import ENPYRWS
@@ -106,7 +107,7 @@ def test_PhueStream_samples(
         assert squeue.qsize == 8
 
 
-        output: list[DictStrAny] = []
+        output: LDictStrAny = []
 
         while not squeue.empty:
 

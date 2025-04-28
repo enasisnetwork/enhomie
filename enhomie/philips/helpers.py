@@ -14,6 +14,7 @@ from typing import TYPE_CHECKING
 
 from encommon.colors import Color
 from encommon.types import DictStrAny
+from encommon.types import LDictStrAny
 from encommon.types import NCFalse
 from encommon.types import NCNone
 from encommon.types import getate
@@ -118,7 +119,7 @@ def merge_find(  # noqa: CFQ001,CFQ004
     unique: Optional[str] = None,
     label: Optional[str] = None,
     relate: Optional['HomieActionNode'] = None,
-) -> list[DictStrAny]:
+) -> LDictStrAny:
     """
     Return the content related to the item in parent system.
 
@@ -138,7 +139,7 @@ def merge_find(  # noqa: CFQ001,CFQ004
     if unique is not None:
         unique = strplwr(unique)
 
-    found: list[DictStrAny] = []
+    found: LDictStrAny = []
 
 
     def _match_owner() -> bool:

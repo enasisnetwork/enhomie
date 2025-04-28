@@ -13,6 +13,7 @@ from typing import Optional
 from typing import TYPE_CHECKING
 
 from encommon.types import DictStrAny
+from encommon.types import LDictStrAny
 from encommon.types import NCFalse
 from encommon.types import merge_dicts
 from encommon.types import strplwr
@@ -130,7 +131,7 @@ def merge_find(  # noqa: CFQ004
     kind: Optional['HomieKinds'] = None,
     unique: Optional[str] = None,
     label: Optional[str] = None,
-) -> list[DictStrAny]:
+) -> LDictStrAny:
     """
     Return the content related to the item in parent system.
 
@@ -149,7 +150,7 @@ def merge_find(  # noqa: CFQ004
     if unique is not None:
         unique = strplwr(unique)
 
-    found: list[DictStrAny] = []
+    found: LDictStrAny = []
 
 
     if kind is not None:

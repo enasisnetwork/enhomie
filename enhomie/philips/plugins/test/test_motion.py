@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from encommon.types import DictStrAny
+from encommon.types import LDictStrAny
 from encommon.types import inrepr
 from encommon.types import instr
 from encommon.types import lattrs
@@ -195,7 +196,7 @@ def test_DriverPhueMotion_cover(
 
     planets = bodies.planets
 
-    loaded: list[DictStrAny] = []
+    loaded: LDictStrAny = []
 
     for planet in planets:
 
