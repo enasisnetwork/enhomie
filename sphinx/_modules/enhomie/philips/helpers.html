@@ -157,568 +157,569 @@
 </span><span id="line-14">
 </span><span id="line-15"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">Color</span>
 </span><span id="line-16"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictStrAny</span>
-</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">NCFalse</span>
-</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">NCNone</span>
-</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">getate</span>
-</span><span id="line-20"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">setate</span>
-</span><span id="line-21"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">strplwr</span>
-</span><span id="line-22">
-</span><span id="line-23"><span class="kn">from</span><span class="w"> </span><span class="nn">httpx</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
-</span><span id="line-24">
-</span><span id="line-25"><span class="kn">from</span><span class="w"> </span><span class="nn">.device</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueDevice</span>
-</span><span id="line-26"><span class="kn">from</span><span class="w"> </span><span class="nn">..utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Idempotent</span>
-</span><span id="line-27">
-</span><span id="line-28"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span id="line-29">    <span class="kn">from</span><span class="w"> </span><span class="nn">.origin</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueOrigin</span>
-</span><span id="line-30">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieKinds</span>
-</span><span id="line-31">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieState</span>
-</span><span id="line-32">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieScene</span>
-</span><span id="line-33">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActionNode</span>
-</span><span id="line-34">
+</span><span id="line-17"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">LDictStrAny</span>
+</span><span id="line-18"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">NCFalse</span>
+</span><span id="line-19"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">NCNone</span>
+</span><span id="line-20"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">getate</span>
+</span><span id="line-21"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">setate</span>
+</span><span id="line-22"><span class="kn">from</span><span class="w"> </span><span class="nn">encommon.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">strplwr</span>
+</span><span id="line-23">
+</span><span id="line-24"><span class="kn">from</span><span class="w"> </span><span class="nn">httpx</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+</span><span id="line-25">
+</span><span id="line-26"><span class="kn">from</span><span class="w"> </span><span class="nn">.device</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueDevice</span>
+</span><span id="line-27"><span class="kn">from</span><span class="w"> </span><span class="nn">..utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Idempotent</span>
+</span><span id="line-28">
+</span><span id="line-29"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+</span><span id="line-30">    <span class="kn">from</span><span class="w"> </span><span class="nn">.origin</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueOrigin</span>
+</span><span id="line-31">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieKinds</span>
+</span><span id="line-32">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieState</span>
+</span><span id="line-33">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.childs</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieScene</span>
+</span><span id="line-34">    <span class="kn">from</span><span class="w"> </span><span class="nn">..homie.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActionNode</span>
 </span><span id="line-35">
 </span><span id="line-36">
-</span><span id="line-37"><span class="n">PhueFetch</span> <span class="o">=</span> <span class="n">DictStrAny</span>
-</span><span id="line-38"><span class="n">PhueMerge</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PhueFetch</span><span class="p">]</span>
-</span><span id="line-39">
+</span><span id="line-37">
+</span><span id="line-38"><span class="n">PhueFetch</span> <span class="o">=</span> <span class="n">DictStrAny</span>
+</span><span id="line-39"><span class="n">PhueMerge</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PhueFetch</span><span class="p">]</span>
 </span><span id="line-40">
 </span><span id="line-41">
-</span><span id="line-42"><span class="n">_RESPONSE</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">[</span>
-</span><span id="line-43">    <span class="n">Response</span> <span class="o">|</span> <span class="n">Literal</span><span class="p">[</span><span class="kc">True</span><span class="p">]]</span>
-</span><span id="line-44">
-</span><span id="line-45"><span class="n">_APROPS</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-</span><span id="line-46">    <span class="s1">&#39;state&#39;</span><span class="p">,</span>
-</span><span id="line-47">    <span class="s1">&#39;color&#39;</span><span class="p">,</span>
-</span><span id="line-48">    <span class="s1">&#39;level&#39;</span><span class="p">]</span>
-</span><span id="line-49">
-</span><span id="line-50"><span class="n">_ATYPES</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-</span><span id="line-51">    <span class="s1">&#39;scene&#39;</span><span class="p">,</span>
-</span><span id="line-52">    <span class="s1">&#39;grouped_light&#39;</span><span class="p">,</span>
-</span><span id="line-53">    <span class="s1">&#39;light&#39;</span><span class="p">]</span>
-</span><span id="line-54">
-</span><span id="line-55"><span class="n">_ASTATES</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-</span><span id="line-56">    <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;off&#39;</span><span class="p">,</span>
-</span><span id="line-57">    <span class="s1">&#39;active&#39;</span><span class="p">]</span>
-</span><span id="line-58">
-</span><span id="line-59"><span class="n">_AVALUES</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">[</span>
-</span><span id="line-60">    <span class="n">_ASTATES</span>
-</span><span id="line-61">    <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Color</span><span class="p">]</span>
-</span><span id="line-62">
+</span><span id="line-42">
+</span><span id="line-43"><span class="n">_RESPONSE</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">[</span>
+</span><span id="line-44">    <span class="n">Response</span> <span class="o">|</span> <span class="n">Literal</span><span class="p">[</span><span class="kc">True</span><span class="p">]]</span>
+</span><span id="line-45">
+</span><span id="line-46"><span class="n">_APROPS</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
+</span><span id="line-47">    <span class="s1">&#39;state&#39;</span><span class="p">,</span>
+</span><span id="line-48">    <span class="s1">&#39;color&#39;</span><span class="p">,</span>
+</span><span id="line-49">    <span class="s1">&#39;level&#39;</span><span class="p">]</span>
+</span><span id="line-50">
+</span><span id="line-51"><span class="n">_ATYPES</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
+</span><span id="line-52">    <span class="s1">&#39;scene&#39;</span><span class="p">,</span>
+</span><span id="line-53">    <span class="s1">&#39;grouped_light&#39;</span><span class="p">,</span>
+</span><span id="line-54">    <span class="s1">&#39;light&#39;</span><span class="p">]</span>
+</span><span id="line-55">
+</span><span id="line-56"><span class="n">_ASTATES</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
+</span><span id="line-57">    <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;off&#39;</span><span class="p">,</span>
+</span><span id="line-58">    <span class="s1">&#39;active&#39;</span><span class="p">]</span>
+</span><span id="line-59">
+</span><span id="line-60"><span class="n">_AVALUES</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">[</span>
+</span><span id="line-61">    <span class="n">_ASTATES</span>
+</span><span id="line-62">    <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Color</span><span class="p">]</span>
 </span><span id="line-63">
 </span><span id="line-64">
+</span><span id="line-65">
 <div class="viewcode-block" id="merge_fetch">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.helpers.merge_fetch">[docs]</a>
-</span><span id="line-65"><span class="k">def</span><span class="w"> </span><span class="nf">merge_fetch</span><span class="p">(</span>
-</span><span id="line-66">    <span class="n">fetch</span><span class="p">:</span> <span class="n">PhueFetch</span><span class="p">,</span>
-</span><span id="line-67"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PhueMerge</span><span class="p">:</span>
-</span><span id="line-68"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-69"><span class="sd">    Return the content related to the item in parent system.</span>
-</span><span id="line-70">
-</span><span id="line-71"><span class="sd">    :param fetch: Dictionary from the origin to be updated.</span>
-</span><span id="line-72"><span class="sd">    :returns: Content related to the item in parent system.</span>
-</span><span id="line-73"><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="line-74">
-</span><span id="line-75">    <span class="n">fetch</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">fetch</span><span class="p">)</span>
-</span><span id="line-76">
-</span><span id="line-77">    <span class="n">source</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="line-78">        <span class="n">x</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span>
-</span><span id="line-79">        <span class="ow">in</span> <span class="n">fetch</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]}</span>
-</span><span id="line-80">
-</span><span id="line-81">    <span class="n">origin</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-</span><span id="line-82">
+</span><span id="line-66"><span class="k">def</span><span class="w"> </span><span class="nf">merge_fetch</span><span class="p">(</span>
+</span><span id="line-67">    <span class="n">fetch</span><span class="p">:</span> <span class="n">PhueFetch</span><span class="p">,</span>
+</span><span id="line-68"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PhueMerge</span><span class="p">:</span>
+</span><span id="line-69"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-70"><span class="sd">    Return the content related to the item in parent system.</span>
+</span><span id="line-71">
+</span><span id="line-72"><span class="sd">    :param fetch: Dictionary from the origin to be updated.</span>
+</span><span id="line-73"><span class="sd">    :returns: Content related to the item in parent system.</span>
+</span><span id="line-74"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="line-75">
+</span><span id="line-76">    <span class="n">fetch</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">fetch</span><span class="p">)</span>
+</span><span id="line-77">
+</span><span id="line-78">    <span class="n">source</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="line-79">        <span class="n">x</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span>
+</span><span id="line-80">        <span class="ow">in</span> <span class="n">fetch</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]}</span>
+</span><span id="line-81">
+</span><span id="line-82">    <span class="n">origin</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 </span><span id="line-83">
-</span><span id="line-84">    <span class="k">def</span><span class="w"> </span><span class="nf">_enrichment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-85">
-</span><span id="line-86">        <span class="n">rid</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rid&#39;</span><span class="p">]</span>
-</span><span id="line-87">
-</span><span id="line-88">        <span class="k">if</span> <span class="n">rid</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">origin</span><span class="p">:</span>
-</span><span id="line-89">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-90">
-</span><span id="line-91">        <span class="n">item</span><span class="p">[</span><span class="s1">&#39;_source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-92">            <span class="n">origin</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span>
-</span><span id="line-93">
+</span><span id="line-84">
+</span><span id="line-85">    <span class="k">def</span><span class="w"> </span><span class="nf">_enrichment</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-86">
+</span><span id="line-87">        <span class="n">rid</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rid&#39;</span><span class="p">]</span>
+</span><span id="line-88">
+</span><span id="line-89">        <span class="k">if</span> <span class="n">rid</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">origin</span><span class="p">:</span>
+</span><span id="line-90">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-91">
+</span><span id="line-92">        <span class="n">item</span><span class="p">[</span><span class="s1">&#39;_source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-93">            <span class="n">origin</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span>
 </span><span id="line-94">
-</span><span id="line-95">    <span class="n">items1</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-</span><span id="line-96">
-</span><span id="line-97">    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">items1</span><span class="p">:</span>
-</span><span id="line-98">
-</span><span id="line-99">        <span class="k">if</span> <span class="s1">&#39;services&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-</span><span id="line-100">            <span class="k">continue</span>
-</span><span id="line-101">
-</span><span id="line-102">        <span class="n">items2</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;services&#39;</span><span class="p">]</span>
-</span><span id="line-103">
-</span><span id="line-104">        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items2</span><span class="p">:</span>
-</span><span id="line-105">            <span class="n">_enrichment</span><span class="p">()</span>
-</span><span id="line-106">
+</span><span id="line-95">
+</span><span id="line-96">    <span class="n">items1</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</span><span id="line-97">
+</span><span id="line-98">    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">items1</span><span class="p">:</span>
+</span><span id="line-99">
+</span><span id="line-100">        <span class="k">if</span> <span class="s1">&#39;services&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+</span><span id="line-101">            <span class="k">continue</span>
+</span><span id="line-102">
+</span><span id="line-103">        <span class="n">items2</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;services&#39;</span><span class="p">]</span>
+</span><span id="line-104">
+</span><span id="line-105">        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items2</span><span class="p">:</span>
+</span><span id="line-106">            <span class="n">_enrichment</span><span class="p">()</span>
 </span><span id="line-107">
-</span><span id="line-108">    <span class="n">_source</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
-</span><span id="line-109">        <span class="n">source</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-</span><span id="line-110">
-</span><span id="line-111">    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_source</span><span class="p">)</span></div>
+</span><span id="line-108">
+</span><span id="line-109">    <span class="n">_source</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+</span><span id="line-110">        <span class="n">source</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</span><span id="line-111">
+</span><span id="line-112">    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_source</span><span class="p">)</span></div>
 
-</span><span id="line-112">
 </span><span id="line-113">
 </span><span id="line-114">
+</span><span id="line-115">
 <div class="viewcode-block" id="merge_find">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.helpers.merge_find">[docs]</a>
-</span><span id="line-115"><span class="k">def</span><span class="w"> </span><span class="nf">merge_find</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ004</span>
-</span><span id="line-116">    <span class="n">merge</span><span class="p">:</span> <span class="n">PhueMerge</span><span class="p">,</span>
-</span><span id="line-117">    <span class="n">kind</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieKinds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-118">    <span class="n">unique</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-119">    <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-120">    <span class="n">relate</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieActionNode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-121"><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">DictStrAny</span><span class="p">]:</span>
-</span><span id="line-122"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-123"><span class="sd">    Return the content related to the item in parent system.</span>
-</span><span id="line-124">
-</span><span id="line-125"><span class="sd">    :param merge: Dictionary from the origin to be updated.</span>
-</span><span id="line-126"><span class="sd">    :param kind: Which kind of Homie object will be located.</span>
-</span><span id="line-127"><span class="sd">    :param unique: Unique identifier within parents system.</span>
-</span><span id="line-128"><span class="sd">    :param label: Friendly name or label within the parent.</span>
-</span><span id="line-129"><span class="sd">    :param relate: Child class instance for Homie Automate.</span>
-</span><span id="line-130"><span class="sd">    :returns: Content related to the item in parent system.</span>
-</span><span id="line-131"><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="line-132">
-</span><span id="line-133">    <span class="k">assert</span> <span class="n">unique</span> <span class="ow">or</span> <span class="n">label</span>
-</span><span id="line-134">
-</span><span id="line-135">    <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-136">        <span class="n">label</span> <span class="o">=</span> <span class="n">strplwr</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-</span><span id="line-137">
-</span><span id="line-138">    <span class="k">if</span> <span class="n">unique</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-139">        <span class="n">unique</span> <span class="o">=</span> <span class="n">strplwr</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
-</span><span id="line-140">
-</span><span id="line-141">    <span class="n">found</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">DictStrAny</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="line-142">
+</span><span id="line-116"><span class="k">def</span><span class="w"> </span><span class="nf">merge_find</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ004</span>
+</span><span id="line-117">    <span class="n">merge</span><span class="p">:</span> <span class="n">PhueMerge</span><span class="p">,</span>
+</span><span id="line-118">    <span class="n">kind</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieKinds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-119">    <span class="n">unique</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-120">    <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-121">    <span class="n">relate</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieActionNode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-122"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LDictStrAny</span><span class="p">:</span>
+</span><span id="line-123"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-124"><span class="sd">    Return the content related to the item in parent system.</span>
+</span><span id="line-125">
+</span><span id="line-126"><span class="sd">    :param merge: Dictionary from the origin to be updated.</span>
+</span><span id="line-127"><span class="sd">    :param kind: Which kind of Homie object will be located.</span>
+</span><span id="line-128"><span class="sd">    :param unique: Unique identifier within parents system.</span>
+</span><span id="line-129"><span class="sd">    :param label: Friendly name or label within the parent.</span>
+</span><span id="line-130"><span class="sd">    :param relate: Child class instance for Homie Automate.</span>
+</span><span id="line-131"><span class="sd">    :returns: Content related to the item in parent system.</span>
+</span><span id="line-132"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="line-133">
+</span><span id="line-134">    <span class="k">assert</span> <span class="n">unique</span> <span class="ow">or</span> <span class="n">label</span>
+</span><span id="line-135">
+</span><span id="line-136">    <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-137">        <span class="n">label</span> <span class="o">=</span> <span class="n">strplwr</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+</span><span id="line-138">
+</span><span id="line-139">    <span class="k">if</span> <span class="n">unique</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-140">        <span class="n">unique</span> <span class="o">=</span> <span class="n">strplwr</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
+</span><span id="line-141">
+</span><span id="line-142">    <span class="n">found</span><span class="p">:</span> <span class="n">LDictStrAny</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="line-143">
-</span><span id="line-144">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_owner</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="line-145">
-</span><span id="line-146">        <span class="k">if</span> <span class="n">relate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-147">            <span class="k">return</span> <span class="kc">True</span>
-</span><span id="line-148">
-</span><span id="line-149">        <span class="n">_source</span> <span class="o">=</span> <span class="n">relate</span><span class="o">.</span><span class="n">source</span>
-</span><span id="line-150">
-</span><span id="line-151">        <span class="k">if</span> <span class="n">_source</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-152">            <span class="k">return</span> <span class="n">NCFalse</span>
-</span><span id="line-153">
-</span><span id="line-154">        <span class="n">_relate</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-155">            <span class="n">_source</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
-</span><span id="line-156">            <span class="k">if</span> <span class="n">relate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-</span><span id="line-157">            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
-</span><span id="line-158">
-</span><span id="line-159">        <span class="n">owner</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
-</span><span id="line-160">            <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;owner/rid&#39;</span><span class="p">)</span>
-</span><span id="line-161">
-</span><span id="line-162">        <span class="n">group</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
-</span><span id="line-163">            <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;group/rid&#39;</span><span class="p">)</span>
-</span><span id="line-164">
-</span><span id="line-165">        <span class="n">match</span> <span class="o">=</span> <span class="n">owner</span> <span class="ow">or</span> <span class="n">group</span>
-</span><span id="line-166">
-</span><span id="line-167">        <span class="k">return</span> <span class="p">(</span>
-</span><span id="line-168">            <span class="kc">False</span>  <span class="c1"># noqa: SIM211</span>
-</span><span id="line-169">            <span class="k">if</span> <span class="n">_relate</span> <span class="o">!=</span> <span class="n">match</span>
-</span><span id="line-170">            <span class="k">else</span> <span class="kc">True</span><span class="p">)</span>
-</span><span id="line-171">
+</span><span id="line-144">
+</span><span id="line-145">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_owner</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-146">
+</span><span id="line-147">        <span class="k">if</span> <span class="n">relate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-148">            <span class="k">return</span> <span class="kc">True</span>
+</span><span id="line-149">
+</span><span id="line-150">        <span class="n">_source</span> <span class="o">=</span> <span class="n">relate</span><span class="o">.</span><span class="n">source</span>
+</span><span id="line-151">
+</span><span id="line-152">        <span class="k">if</span> <span class="n">_source</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-153">            <span class="k">return</span> <span class="n">NCFalse</span>
+</span><span id="line-154">
+</span><span id="line-155">        <span class="n">_relate</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-156">            <span class="n">_source</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+</span><span id="line-157">            <span class="k">if</span> <span class="n">relate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="line-158">            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="line-159">
+</span><span id="line-160">        <span class="n">owner</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
+</span><span id="line-161">            <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;owner/rid&#39;</span><span class="p">)</span>
+</span><span id="line-162">
+</span><span id="line-163">        <span class="n">group</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
+</span><span id="line-164">            <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;group/rid&#39;</span><span class="p">)</span>
+</span><span id="line-165">
+</span><span id="line-166">        <span class="n">match</span> <span class="o">=</span> <span class="n">owner</span> <span class="ow">or</span> <span class="n">group</span>
+</span><span id="line-167">
+</span><span id="line-168">        <span class="k">return</span> <span class="p">(</span>
+</span><span id="line-169">            <span class="kc">False</span>  <span class="c1"># noqa: SIM211</span>
+</span><span id="line-170">            <span class="k">if</span> <span class="n">_relate</span> <span class="o">!=</span> <span class="n">match</span>
+</span><span id="line-171">            <span class="k">else</span> <span class="kc">True</span><span class="p">)</span>
 </span><span id="line-172">
-</span><span id="line-173">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_kind</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="line-174">
-</span><span id="line-175">        <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-176">            <span class="k">return</span> <span class="kc">True</span>
-</span><span id="line-177">
-</span><span id="line-178">        <span class="n">_kind</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
-</span><span id="line-179">
-</span><span id="line-180">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_kind</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
-</span><span id="line-181">
-</span><span id="line-182">        <span class="k">if</span> <span class="n">_kind</span> <span class="o">==</span> <span class="s1">&#39;room&#39;</span><span class="p">:</span>
-</span><span id="line-183">            <span class="n">_kind</span> <span class="o">=</span> <span class="s1">&#39;group&#39;</span>
-</span><span id="line-184">
-</span><span id="line-185">        <span class="k">if</span> <span class="n">_kind</span> <span class="o">==</span> <span class="s1">&#39;zone&#39;</span><span class="p">:</span>
-</span><span id="line-186">            <span class="n">_kind</span> <span class="o">=</span> <span class="s1">&#39;group&#39;</span>
-</span><span id="line-187">
-</span><span id="line-188">        <span class="k">return</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">_kind</span>
-</span><span id="line-189">
+</span><span id="line-173">
+</span><span id="line-174">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_kind</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-175">
+</span><span id="line-176">        <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-177">            <span class="k">return</span> <span class="kc">True</span>
+</span><span id="line-178">
+</span><span id="line-179">        <span class="n">_kind</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+</span><span id="line-180">
+</span><span id="line-181">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_kind</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</span><span id="line-182">
+</span><span id="line-183">        <span class="k">if</span> <span class="n">_kind</span> <span class="o">==</span> <span class="s1">&#39;room&#39;</span><span class="p">:</span>
+</span><span id="line-184">            <span class="n">_kind</span> <span class="o">=</span> <span class="s1">&#39;group&#39;</span>
+</span><span id="line-185">
+</span><span id="line-186">        <span class="k">if</span> <span class="n">_kind</span> <span class="o">==</span> <span class="s1">&#39;zone&#39;</span><span class="p">:</span>
+</span><span id="line-187">            <span class="n">_kind</span> <span class="o">=</span> <span class="s1">&#39;group&#39;</span>
+</span><span id="line-188">
+</span><span id="line-189">        <span class="k">return</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">_kind</span>
 </span><span id="line-190">
-</span><span id="line-191">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_unique</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="line-192">
-</span><span id="line-193">        <span class="k">if</span> <span class="n">unique</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-194">            <span class="k">return</span> <span class="kc">True</span>
-</span><span id="line-195">
-</span><span id="line-196">        <span class="n">_unique</span> <span class="o">=</span> <span class="n">strplwr</span><span class="p">(</span>
-</span><span id="line-197">            <span class="n">value</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
-</span><span id="line-198">
-</span><span id="line-199">        <span class="k">return</span> <span class="n">unique</span> <span class="o">==</span> <span class="n">_unique</span>
-</span><span id="line-200">
+</span><span id="line-191">
+</span><span id="line-192">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_unique</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-193">
+</span><span id="line-194">        <span class="k">if</span> <span class="n">unique</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-195">            <span class="k">return</span> <span class="kc">True</span>
+</span><span id="line-196">
+</span><span id="line-197">        <span class="n">_unique</span> <span class="o">=</span> <span class="n">strplwr</span><span class="p">(</span>
+</span><span id="line-198">            <span class="n">value</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+</span><span id="line-199">
+</span><span id="line-200">        <span class="k">return</span> <span class="n">unique</span> <span class="o">==</span> <span class="n">_unique</span>
 </span><span id="line-201">
-</span><span id="line-202">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_label</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="line-203">
-</span><span id="line-204">        <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-205">            <span class="k">return</span> <span class="kc">True</span>
-</span><span id="line-206">
-</span><span id="line-207">        <span class="n">name</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
-</span><span id="line-208">            <span class="n">value</span><span class="p">,</span>
-</span><span id="line-209">            <span class="s1">&#39;metadata/name&#39;</span><span class="p">)</span>
-</span><span id="line-210">
-</span><span id="line-211">        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-212">            <span class="k">return</span> <span class="kc">False</span>
-</span><span id="line-213">
-</span><span id="line-214">        <span class="n">_label</span> <span class="o">=</span> <span class="n">strplwr</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</span><span id="line-215">
-</span><span id="line-216">        <span class="k">return</span> <span class="n">label</span> <span class="o">==</span> <span class="n">_label</span>
-</span><span id="line-217">
+</span><span id="line-202">
+</span><span id="line-203">    <span class="k">def</span><span class="w"> </span><span class="nf">_match_label</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="line-204">
+</span><span id="line-205">        <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-206">            <span class="k">return</span> <span class="kc">True</span>
+</span><span id="line-207">
+</span><span id="line-208">        <span class="n">name</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
+</span><span id="line-209">            <span class="n">value</span><span class="p">,</span>
+</span><span id="line-210">            <span class="s1">&#39;metadata/name&#39;</span><span class="p">)</span>
+</span><span id="line-211">
+</span><span id="line-212">        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-213">            <span class="k">return</span> <span class="kc">False</span>
+</span><span id="line-214">
+</span><span id="line-215">        <span class="n">_label</span> <span class="o">=</span> <span class="n">strplwr</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span><span id="line-216">
+</span><span id="line-217">        <span class="k">return</span> <span class="n">label</span> <span class="o">==</span> <span class="n">_label</span>
 </span><span id="line-218">
-</span><span id="line-219">    <span class="n">values</span> <span class="o">=</span> <span class="n">merge</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-</span><span id="line-220">
-</span><span id="line-221">    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
-</span><span id="line-222">
-</span><span id="line-223">        <span class="k">if</span> <span class="ow">not</span> <span class="n">_match_owner</span><span class="p">():</span>
-</span><span id="line-224">            <span class="k">continue</span>
-</span><span id="line-225">
-</span><span id="line-226">        <span class="k">if</span> <span class="ow">not</span> <span class="n">_match_kind</span><span class="p">():</span>
-</span><span id="line-227">            <span class="k">continue</span>
-</span><span id="line-228">
-</span><span id="line-229">        <span class="k">if</span> <span class="ow">not</span> <span class="n">_match_unique</span><span class="p">():</span>
-</span><span id="line-230">            <span class="k">continue</span>
-</span><span id="line-231">
-</span><span id="line-232">        <span class="k">if</span> <span class="ow">not</span> <span class="n">_match_label</span><span class="p">():</span>
-</span><span id="line-233">            <span class="k">continue</span>
-</span><span id="line-234">
-</span><span id="line-235">        <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</span><span id="line-236">
+</span><span id="line-219">
+</span><span id="line-220">    <span class="n">values</span> <span class="o">=</span> <span class="n">merge</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</span><span id="line-221">
+</span><span id="line-222">    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+</span><span id="line-223">
+</span><span id="line-224">        <span class="k">if</span> <span class="ow">not</span> <span class="n">_match_owner</span><span class="p">():</span>
+</span><span id="line-225">            <span class="k">continue</span>
+</span><span id="line-226">
+</span><span id="line-227">        <span class="k">if</span> <span class="ow">not</span> <span class="n">_match_kind</span><span class="p">():</span>
+</span><span id="line-228">            <span class="k">continue</span>
+</span><span id="line-229">
+</span><span id="line-230">        <span class="k">if</span> <span class="ow">not</span> <span class="n">_match_unique</span><span class="p">():</span>
+</span><span id="line-231">            <span class="k">continue</span>
+</span><span id="line-232">
+</span><span id="line-233">        <span class="k">if</span> <span class="ow">not</span> <span class="n">_match_label</span><span class="p">():</span>
+</span><span id="line-234">            <span class="k">continue</span>
+</span><span id="line-235">
+</span><span id="line-236">        <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </span><span id="line-237">
-</span><span id="line-238">    <span class="k">return</span> <span class="n">found</span></div>
+</span><span id="line-238">
+</span><span id="line-239">    <span class="k">return</span> <span class="n">found</span></div>
 
-</span><span id="line-239">
 </span><span id="line-240">
 </span><span id="line-241">
+</span><span id="line-242">
 <div class="viewcode-block" id="request_action">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.helpers.request_action">[docs]</a>
-</span><span id="line-242"><span class="k">def</span><span class="w"> </span><span class="nf">request_action</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ002,CFQ004</span>
-</span><span id="line-243">    <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;PhueOrigin&#39;</span><span class="p">,</span>
-</span><span id="line-244">    <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
-</span><span id="line-245">    <span class="o">*</span><span class="p">,</span>
-</span><span id="line-246">    <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieState&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-247">    <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-248">    <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-249">    <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieScene&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-250">    <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-</span><span id="line-251">    <span class="n">change</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-</span><span id="line-252">    <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-253"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-254"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-255"><span class="sd">    Perform the provided action with specified Homie target.</span>
-</span><span id="line-256">
-</span><span id="line-257"><span class="sd">    :param origin: Child class instance for Homie Automate.</span>
-</span><span id="line-258"><span class="sd">    :param target: Device or group settings will be updated.</span>
-</span><span id="line-259"><span class="sd">    :param state: Determine the state related to the target.</span>
-</span><span id="line-260"><span class="sd">    :param color: Determine the color related to the target.</span>
-</span><span id="line-261"><span class="sd">    :param level: Determine the level related to the target.</span>
-</span><span id="line-262"><span class="sd">    :param scene: Determine the scene related to the target.</span>
-</span><span id="line-263"><span class="sd">    :param force: Override the default for full idempotency.</span>
-</span><span id="line-264"><span class="sd">    :param change: Determine whether the change is executed.</span>
-</span><span id="line-265"><span class="sd">    :param timeout: Timeout waiting for the server response.</span>
-</span><span id="line-266"><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="line-267">
-</span><span id="line-268">    <span class="n">homie</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">homie</span>
-</span><span id="line-269">    <span class="n">kind</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span>
-</span><span id="line-270">
-</span><span id="line-271">    <span class="n">request</span> <span class="o">=</span> <span class="n">action_request</span>
-</span><span id="line-272">
-</span><span id="line-273">    <span class="n">changed</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-</span><span id="line-274">
-</span><span id="line-275">    <span class="n">source</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">source</span>
-</span><span id="line-276">
+</span><span id="line-243"><span class="k">def</span><span class="w"> </span><span class="nf">request_action</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ002,CFQ004</span>
+</span><span id="line-244">    <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;PhueOrigin&#39;</span><span class="p">,</span>
+</span><span id="line-245">    <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
+</span><span id="line-246">    <span class="o">*</span><span class="p">,</span>
+</span><span id="line-247">    <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieState&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-248">    <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-249">    <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-250">    <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieScene&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-251">    <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="line-252">    <span class="n">change</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+</span><span id="line-253">    <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-254"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-255"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-256"><span class="sd">    Perform the provided action with specified Homie target.</span>
+</span><span id="line-257">
+</span><span id="line-258"><span class="sd">    :param origin: Child class instance for Homie Automate.</span>
+</span><span id="line-259"><span class="sd">    :param target: Device or group settings will be updated.</span>
+</span><span id="line-260"><span class="sd">    :param state: Determine the state related to the target.</span>
+</span><span id="line-261"><span class="sd">    :param color: Determine the color related to the target.</span>
+</span><span id="line-262"><span class="sd">    :param level: Determine the level related to the target.</span>
+</span><span id="line-263"><span class="sd">    :param scene: Determine the scene related to the target.</span>
+</span><span id="line-264"><span class="sd">    :param force: Override the default for full idempotency.</span>
+</span><span id="line-265"><span class="sd">    :param change: Determine whether the change is executed.</span>
+</span><span id="line-266"><span class="sd">    :param timeout: Timeout waiting for the server response.</span>
+</span><span id="line-267"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="line-268">
+</span><span id="line-269">    <span class="n">homie</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">homie</span>
+</span><span id="line-270">    <span class="n">kind</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span>
+</span><span id="line-271">
+</span><span id="line-272">    <span class="n">request</span> <span class="o">=</span> <span class="n">action_request</span>
+</span><span id="line-273">
+</span><span id="line-274">    <span class="n">changed</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span><span id="line-275">
+</span><span id="line-276">    <span class="n">source</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">source</span>
 </span><span id="line-277">
-</span><span id="line-278">    <span class="k">if</span> <span class="p">(</span><span class="n">scene</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-</span><span id="line-279">            <span class="ow">and</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;device&#39;</span><span class="p">):</span>
-</span><span id="line-280">
-</span><span id="line-281">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
-</span><span id="line-282">            <span class="n">target</span><span class="p">,</span> <span class="n">PhueDevice</span><span class="p">)</span>
-</span><span id="line-283">
-</span><span id="line-284">        <span class="n">stage</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-285">            <span class="n">scene</span>
-</span><span id="line-286">            <span class="o">.</span><span class="n">stage</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
-</span><span id="line-287">
-</span><span id="line-288">        <span class="k">if</span> <span class="n">state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-289">            <span class="n">state</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">state</span>
-</span><span id="line-290">
-</span><span id="line-291">        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-292">            <span class="n">color</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">color</span>
-</span><span id="line-293">
-</span><span id="line-294">        <span class="k">if</span> <span class="n">level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-295">            <span class="n">level</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">level</span>
-</span><span id="line-296">
+</span><span id="line-278">
+</span><span id="line-279">    <span class="k">if</span> <span class="p">(</span><span class="n">scene</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="line-280">            <span class="ow">and</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;device&#39;</span><span class="p">):</span>
+</span><span id="line-281">
+</span><span id="line-282">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+</span><span id="line-283">            <span class="n">target</span><span class="p">,</span> <span class="n">PhueDevice</span><span class="p">)</span>
+</span><span id="line-284">
+</span><span id="line-285">        <span class="n">stage</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-286">            <span class="n">scene</span>
+</span><span id="line-287">            <span class="o">.</span><span class="n">stage</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
+</span><span id="line-288">
+</span><span id="line-289">        <span class="k">if</span> <span class="n">state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-290">            <span class="n">state</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">state</span>
+</span><span id="line-291">
+</span><span id="line-292">        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-293">            <span class="n">color</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">color</span>
+</span><span id="line-294">
+</span><span id="line-295">        <span class="k">if</span> <span class="n">level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-296">            <span class="n">level</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">level</span>
 </span><span id="line-297">
-</span><span id="line-298">    <span class="k">elif</span> <span class="p">(</span><span class="n">scene</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-</span><span id="line-299">            <span class="ow">and</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span><span class="p">):</span>
-</span><span id="line-300">
-</span><span id="line-301">        <span class="n">source</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">source</span><span class="p">(</span>
-</span><span id="line-302">            <span class="n">origin</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-</span><span id="line-303">
+</span><span id="line-298">
+</span><span id="line-299">    <span class="k">elif</span> <span class="p">(</span><span class="n">scene</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="line-300">            <span class="ow">and</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span><span class="p">):</span>
+</span><span id="line-301">
+</span><span id="line-302">        <span class="n">source</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">source</span><span class="p">(</span>
+</span><span id="line-303">            <span class="n">origin</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
 </span><span id="line-304">
-</span><span id="line-305">    <span class="k">assert</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-</span><span id="line-306">
+</span><span id="line-305">
+</span><span id="line-306">    <span class="k">assert</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 </span><span id="line-307">
-</span><span id="line-308">    <span class="n">_state</span><span class="p">:</span> <span class="n">_ASTATES</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-309">        <span class="s1">&#39;off&#39;</span>
-</span><span id="line-310">        <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;nopower&#39;</span>
-</span><span id="line-311">        <span class="k">else</span> <span class="s1">&#39;on&#39;</span><span class="p">)</span>
-</span><span id="line-312">
+</span><span id="line-308">
+</span><span id="line-309">    <span class="n">_state</span><span class="p">:</span> <span class="n">_ASTATES</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-310">        <span class="s1">&#39;off&#39;</span>
+</span><span id="line-311">        <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;nopower&#39;</span>
+</span><span id="line-312">        <span class="k">else</span> <span class="s1">&#39;on&#39;</span><span class="p">)</span>
 </span><span id="line-313">
-</span><span id="line-314">    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="line-315">        <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
-</span><span id="line-316">
+</span><span id="line-314">
+</span><span id="line-315">    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="line-316">        <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
 </span><span id="line-317">
-</span><span id="line-318">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_scene</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-319">
-</span><span id="line-320">        <span class="n">unique</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
-</span><span id="line-321">
-</span><span id="line-322">        <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
-</span><span id="line-323">            <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
-</span><span id="line-324">            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;scene&#39;</span><span class="p">,</span>
-</span><span id="line-325">            <span class="n">unique</span><span class="o">=</span><span class="n">unique</span><span class="p">,</span>
-</span><span id="line-326">            <span class="n">state</span><span class="o">=</span><span class="s1">&#39;active&#39;</span><span class="p">,</span>
-</span><span id="line-327">            <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">,</span>
-</span><span id="line-328">            <span class="n">change</span><span class="o">=</span><span class="n">change</span><span class="p">,</span>
-</span><span id="line-329">            <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
-</span><span id="line-330">
-</span><span id="line-331">        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-332">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-333">
-</span><span id="line-334">        <span class="n">changed</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="line-335">
-</span><span id="line-336">        <span class="k">if</span> <span class="n">change</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
-</span><span id="line-337">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-338">
-</span><span id="line-339">        <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
-</span><span id="line-340">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-341">
-</span><span id="line-342">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
-</span><span id="line-343">            <span class="n">response</span><span class="p">,</span> <span class="n">Response</span><span class="p">)</span>
-</span><span id="line-344">
-</span><span id="line-345">        <span class="p">(</span><span class="n">response</span>
-</span><span id="line-346">         <span class="o">.</span><span class="n">raise_for_status</span><span class="p">())</span>
-</span><span id="line-347">
+</span><span id="line-318">
+</span><span id="line-319">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_scene</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-320">
+</span><span id="line-321">        <span class="n">unique</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+</span><span id="line-322">
+</span><span id="line-323">        <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+</span><span id="line-324">            <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
+</span><span id="line-325">            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;scene&#39;</span><span class="p">,</span>
+</span><span id="line-326">            <span class="n">unique</span><span class="o">=</span><span class="n">unique</span><span class="p">,</span>
+</span><span id="line-327">            <span class="n">state</span><span class="o">=</span><span class="s1">&#39;active&#39;</span><span class="p">,</span>
+</span><span id="line-328">            <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">,</span>
+</span><span id="line-329">            <span class="n">change</span><span class="o">=</span><span class="n">change</span><span class="p">,</span>
+</span><span id="line-330">            <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+</span><span id="line-331">
+</span><span id="line-332">        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-333">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-334">
+</span><span id="line-335">        <span class="n">changed</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="line-336">
+</span><span id="line-337">        <span class="k">if</span> <span class="n">change</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+</span><span id="line-338">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-339">
+</span><span id="line-340">        <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
+</span><span id="line-341">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-342">
+</span><span id="line-343">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+</span><span id="line-344">            <span class="n">response</span><span class="p">,</span> <span class="n">Response</span><span class="p">)</span>
+</span><span id="line-345">
+</span><span id="line-346">        <span class="p">(</span><span class="n">response</span>
+</span><span id="line-347">         <span class="o">.</span><span class="n">raise_for_status</span><span class="p">())</span>
 </span><span id="line-348">
-</span><span id="line-349">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_target</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
-</span><span id="line-350">        <span class="n">item</span><span class="p">:</span> <span class="n">DictStrAny</span><span class="p">,</span>
-</span><span id="line-351">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-352">
-</span><span id="line-353">        <span class="n">rtype</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rtype&#39;</span><span class="p">]</span>
-</span><span id="line-354">        <span class="n">rid</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rid&#39;</span><span class="p">]</span>
-</span><span id="line-355">
-</span><span id="line-356">        <span class="n">itype</span><span class="p">:</span> <span class="n">_ATYPES</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-357">            <span class="s1">&#39;grouped_light&#39;</span>
-</span><span id="line-358">            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span>
-</span><span id="line-359">            <span class="k">else</span> <span class="s1">&#39;light&#39;</span><span class="p">)</span>
-</span><span id="line-360">
-</span><span id="line-361">        <span class="k">if</span> <span class="n">rtype</span> <span class="o">!=</span> <span class="n">itype</span><span class="p">:</span>
-</span><span id="line-362">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-363">
-</span><span id="line-364">        <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
-</span><span id="line-365">            <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
-</span><span id="line-366">            <span class="nb">type</span><span class="o">=</span><span class="n">itype</span><span class="p">,</span>
-</span><span id="line-367">            <span class="n">unique</span><span class="o">=</span><span class="n">rid</span><span class="p">,</span>
-</span><span id="line-368">            <span class="n">state</span><span class="o">=</span><span class="p">(</span>
-</span><span id="line-369">                <span class="n">_state</span>
-</span><span id="line-370">                <span class="k">if</span> <span class="n">state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-</span><span id="line-371">                <span class="k">else</span> <span class="kc">None</span><span class="p">),</span>
-</span><span id="line-372">            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
-</span><span id="line-373">            <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
-</span><span id="line-374">            <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">,</span>
-</span><span id="line-375">            <span class="n">change</span><span class="o">=</span><span class="n">change</span><span class="p">,</span>
-</span><span id="line-376">            <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
-</span><span id="line-377">
-</span><span id="line-378">        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-379">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-380">
-</span><span id="line-381">        <span class="n">changed</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="line-382">
-</span><span id="line-383">        <span class="k">if</span> <span class="n">change</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
-</span><span id="line-384">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-385">
-</span><span id="line-386">        <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
-</span><span id="line-387">            <span class="k">return</span> <span class="n">NCNone</span>
-</span><span id="line-388">
-</span><span id="line-389">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
-</span><span id="line-390">            <span class="n">response</span><span class="p">,</span> <span class="n">Response</span><span class="p">)</span>
-</span><span id="line-391">
-</span><span id="line-392">        <span class="p">(</span><span class="n">response</span>
-</span><span id="line-393">         <span class="o">.</span><span class="n">raise_for_status</span><span class="p">())</span>
-</span><span id="line-394">
+</span><span id="line-349">
+</span><span id="line-350">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_target</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
+</span><span id="line-351">        <span class="n">item</span><span class="p">:</span> <span class="n">DictStrAny</span><span class="p">,</span>
+</span><span id="line-352">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-353">
+</span><span id="line-354">        <span class="n">rtype</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rtype&#39;</span><span class="p">]</span>
+</span><span id="line-355">        <span class="n">rid</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rid&#39;</span><span class="p">]</span>
+</span><span id="line-356">
+</span><span id="line-357">        <span class="n">itype</span><span class="p">:</span> <span class="n">_ATYPES</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-358">            <span class="s1">&#39;grouped_light&#39;</span>
+</span><span id="line-359">            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span>
+</span><span id="line-360">            <span class="k">else</span> <span class="s1">&#39;light&#39;</span><span class="p">)</span>
+</span><span id="line-361">
+</span><span id="line-362">        <span class="k">if</span> <span class="n">rtype</span> <span class="o">!=</span> <span class="n">itype</span><span class="p">:</span>
+</span><span id="line-363">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-364">
+</span><span id="line-365">        <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
+</span><span id="line-366">            <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
+</span><span id="line-367">            <span class="nb">type</span><span class="o">=</span><span class="n">itype</span><span class="p">,</span>
+</span><span id="line-368">            <span class="n">unique</span><span class="o">=</span><span class="n">rid</span><span class="p">,</span>
+</span><span id="line-369">            <span class="n">state</span><span class="o">=</span><span class="p">(</span>
+</span><span id="line-370">                <span class="n">_state</span>
+</span><span id="line-371">                <span class="k">if</span> <span class="n">state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="line-372">                <span class="k">else</span> <span class="kc">None</span><span class="p">),</span>
+</span><span id="line-373">            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+</span><span id="line-374">            <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
+</span><span id="line-375">            <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">,</span>
+</span><span id="line-376">            <span class="n">change</span><span class="o">=</span><span class="n">change</span><span class="p">,</span>
+</span><span id="line-377">            <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+</span><span id="line-378">
+</span><span id="line-379">        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-380">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-381">
+</span><span id="line-382">        <span class="n">changed</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="line-383">
+</span><span id="line-384">        <span class="k">if</span> <span class="n">change</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+</span><span id="line-385">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-386">
+</span><span id="line-387">        <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
+</span><span id="line-388">            <span class="k">return</span> <span class="n">NCNone</span>
+</span><span id="line-389">
+</span><span id="line-390">        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+</span><span id="line-391">            <span class="n">response</span><span class="p">,</span> <span class="n">Response</span><span class="p">)</span>
+</span><span id="line-392">
+</span><span id="line-393">        <span class="p">(</span><span class="n">response</span>
+</span><span id="line-394">         <span class="o">.</span><span class="n">raise_for_status</span><span class="p">())</span>
 </span><span id="line-395">
-</span><span id="line-396">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_targets</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-397">
-</span><span id="line-398">        <span class="n">services</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-399">            <span class="n">source</span><span class="p">[</span><span class="s1">&#39;services&#39;</span><span class="p">])</span>
-</span><span id="line-400">
-</span><span id="line-401">        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">services</span><span class="p">:</span>
-</span><span id="line-402">            <span class="n">_set_target</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span><span id="line-403">
+</span><span id="line-396">
+</span><span id="line-397">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_targets</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-398">
+</span><span id="line-399">        <span class="n">services</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-400">            <span class="n">source</span><span class="p">[</span><span class="s1">&#39;services&#39;</span><span class="p">])</span>
+</span><span id="line-401">
+</span><span id="line-402">        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">services</span><span class="p">:</span>
+</span><span id="line-403">            <span class="n">_set_target</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </span><span id="line-404">
-</span><span id="line-405">    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span>
-</span><span id="line-406">        <span class="n">_set_targets</span><span class="p">()</span>
-</span><span id="line-407">
-</span><span id="line-408">    <span class="k">elif</span> <span class="p">(</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span>
-</span><span id="line-409">            <span class="ow">and</span> <span class="n">scene</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-</span><span id="line-410">        <span class="n">_set_targets</span><span class="p">()</span>
-</span><span id="line-411">
-</span><span id="line-412">    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span>
-</span><span id="line-413">        <span class="n">_set_scene</span><span class="p">()</span>
-</span><span id="line-414">
+</span><span id="line-405">
+</span><span id="line-406">    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span>
+</span><span id="line-407">        <span class="n">_set_targets</span><span class="p">()</span>
+</span><span id="line-408">
+</span><span id="line-409">    <span class="k">elif</span> <span class="p">(</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span>
+</span><span id="line-410">            <span class="ow">and</span> <span class="n">scene</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+</span><span id="line-411">        <span class="n">_set_targets</span><span class="p">()</span>
+</span><span id="line-412">
+</span><span id="line-413">    <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span>
+</span><span id="line-414">        <span class="n">_set_scene</span><span class="p">()</span>
 </span><span id="line-415">
-</span><span id="line-416">    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">changed</span><span class="p">):</span>
-</span><span id="line-417">        <span class="k">raise</span> <span class="n">Idempotent</span></div>
+</span><span id="line-416">
+</span><span id="line-417">    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">changed</span><span class="p">):</span>
+</span><span id="line-418">        <span class="k">raise</span> <span class="n">Idempotent</span></div>
 
-</span><span id="line-418">
 </span><span id="line-419">
 </span><span id="line-420">
+</span><span id="line-421">
 <div class="viewcode-block" id="action_request">
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.helpers.action_request">[docs]</a>
-</span><span id="line-421"><span class="k">def</span><span class="w"> </span><span class="nf">action_request</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ002,CFQ004</span>
-</span><span id="line-422">    <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;PhueOrigin&#39;</span><span class="p">,</span>
-</span><span id="line-423">    <span class="nb">type</span><span class="p">:</span> <span class="n">_ATYPES</span><span class="p">,</span>
-</span><span id="line-424">    <span class="n">unique</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="line-425">    <span class="o">*</span><span class="p">,</span>
-</span><span id="line-426">    <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">_ASTATES</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-427">    <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-428">    <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-429">    <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-</span><span id="line-430">    <span class="n">change</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-</span><span id="line-431">    <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span id="line-432"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_RESPONSE</span><span class="p">:</span>
-</span><span id="line-433"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="line-434"><span class="sd">    Request to execute the action on target from the bridge.</span>
-</span><span id="line-435">
-</span><span id="line-436"><span class="sd">    :param origin: Child class instance for Homie Automate.</span>
-</span><span id="line-437"><span class="sd">    :param type: Which type of target to perform the action.</span>
-</span><span id="line-438"><span class="sd">    :param unique: Unique identifier within parents system.</span>
-</span><span id="line-439"><span class="sd">    :param state: Determine the state related to the target.</span>
-</span><span id="line-440"><span class="sd">    :param color: Determine the color related to the target.</span>
-</span><span id="line-441"><span class="sd">    :param level: Determine the level related to the target.</span>
-</span><span id="line-442"><span class="sd">    :param force: Override the default for full idempotency.</span>
-</span><span id="line-443"><span class="sd">    :param change: Determine whether the change is executed.</span>
-</span><span id="line-444"><span class="sd">    :param timeout: Timeout waiting for the server response.</span>
-</span><span id="line-445"><span class="sd">    :returns: Response from upstream request to the server.</span>
-</span><span id="line-446"><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="line-447">
-</span><span id="line-448">    <span class="n">bridge</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">bridge</span>
-</span><span id="line-449">    <span class="n">request</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">request</span>
-</span><span id="line-450">    <span class="n">homie</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">homie</span>
-</span><span id="line-451">
-</span><span id="line-452">    <span class="n">merge</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">source</span><span class="p">(</span>
-</span><span id="line-453">        <span class="n">unique</span><span class="o">=</span><span class="n">unique</span><span class="p">)</span>
-</span><span id="line-454">
-</span><span id="line-455">    <span class="k">assert</span> <span class="n">merge</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-</span><span id="line-456">
+</span><span id="line-422"><span class="k">def</span><span class="w"> </span><span class="nf">action_request</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ002,CFQ004</span>
+</span><span id="line-423">    <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;PhueOrigin&#39;</span><span class="p">,</span>
+</span><span id="line-424">    <span class="nb">type</span><span class="p">:</span> <span class="n">_ATYPES</span><span class="p">,</span>
+</span><span id="line-425">    <span class="n">unique</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="line-426">    <span class="o">*</span><span class="p">,</span>
+</span><span id="line-427">    <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">_ASTATES</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-428">    <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-429">    <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-430">    <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="line-431">    <span class="n">change</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+</span><span id="line-432">    <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="line-433"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_RESPONSE</span><span class="p">:</span>
+</span><span id="line-434"><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="line-435"><span class="sd">    Request to execute the action on target from the bridge.</span>
+</span><span id="line-436">
+</span><span id="line-437"><span class="sd">    :param origin: Child class instance for Homie Automate.</span>
+</span><span id="line-438"><span class="sd">    :param type: Which type of target to perform the action.</span>
+</span><span id="line-439"><span class="sd">    :param unique: Unique identifier within parents system.</span>
+</span><span id="line-440"><span class="sd">    :param state: Determine the state related to the target.</span>
+</span><span id="line-441"><span class="sd">    :param color: Determine the color related to the target.</span>
+</span><span id="line-442"><span class="sd">    :param level: Determine the level related to the target.</span>
+</span><span id="line-443"><span class="sd">    :param force: Override the default for full idempotency.</span>
+</span><span id="line-444"><span class="sd">    :param change: Determine whether the change is executed.</span>
+</span><span id="line-445"><span class="sd">    :param timeout: Timeout waiting for the server response.</span>
+</span><span id="line-446"><span class="sd">    :returns: Response from upstream request to the server.</span>
+</span><span id="line-447"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="line-448">
+</span><span id="line-449">    <span class="n">bridge</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">bridge</span>
+</span><span id="line-450">    <span class="n">request</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">request</span>
+</span><span id="line-451">    <span class="n">homie</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">homie</span>
+</span><span id="line-452">
+</span><span id="line-453">    <span class="n">merge</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">source</span><span class="p">(</span>
+</span><span id="line-454">        <span class="n">unique</span><span class="o">=</span><span class="n">unique</span><span class="p">)</span>
+</span><span id="line-455">
+</span><span id="line-456">    <span class="k">assert</span> <span class="n">merge</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 </span><span id="line-457">
-</span><span id="line-458">    <span class="n">data</span><span class="p">:</span> <span class="n">DictStrAny</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="line-459">
-</span><span id="line-460">    <span class="n">path</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-461">        <span class="sa">f</span><span class="s1">&#39;resource/</span><span class="si">{</span><span class="nb">type</span><span class="si">}</span><span class="s1">&#39;</span>
-</span><span id="line-462">        <span class="sa">f</span><span class="s1">&#39;/</span><span class="si">{</span><span class="n">unique</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</span><span id="line-463">
+</span><span id="line-458">
+</span><span id="line-459">    <span class="n">data</span><span class="p">:</span> <span class="n">DictStrAny</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="line-460">
+</span><span id="line-461">    <span class="n">path</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-462">        <span class="sa">f</span><span class="s1">&#39;resource/</span><span class="si">{</span><span class="nb">type</span><span class="si">}</span><span class="s1">&#39;</span>
+</span><span id="line-463">        <span class="sa">f</span><span class="s1">&#39;/</span><span class="si">{</span><span class="n">unique</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </span><span id="line-464">
-</span><span id="line-465">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_scene</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-466">
-</span><span id="line-467">        <span class="k">if</span> <span class="n">state</span> <span class="o">!=</span> <span class="s1">&#39;active&#39;</span><span class="p">:</span>
-</span><span id="line-468">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-469">
-</span><span id="line-470">        <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;recall/action&#39;</span>
-</span><span id="line-471">        <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;active&#39;</span>
-</span><span id="line-472">
-</span><span id="line-473">        <span class="n">crrnt</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
-</span><span id="line-474">            <span class="n">merge</span><span class="p">,</span> <span class="s1">&#39;status/active&#39;</span><span class="p">)</span>
-</span><span id="line-475">
-</span><span id="line-476">        <span class="k">if</span> <span class="p">(</span><span class="n">crrnt</span> <span class="o">!=</span> <span class="s1">&#39;inactive&#39;</span>
-</span><span id="line-477">                <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">):</span>
-</span><span id="line-478">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-479">
-</span><span id="line-480">        <span class="n">setate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-</span><span id="line-481">
+</span><span id="line-465">
+</span><span id="line-466">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_scene</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-467">
+</span><span id="line-468">        <span class="k">if</span> <span class="n">state</span> <span class="o">!=</span> <span class="s1">&#39;active&#39;</span><span class="p">:</span>
+</span><span id="line-469">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-470">
+</span><span id="line-471">        <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;recall/action&#39;</span>
+</span><span id="line-472">        <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;active&#39;</span>
+</span><span id="line-473">
+</span><span id="line-474">        <span class="n">crrnt</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
+</span><span id="line-475">            <span class="n">merge</span><span class="p">,</span> <span class="s1">&#39;status/active&#39;</span><span class="p">)</span>
+</span><span id="line-476">
+</span><span id="line-477">        <span class="k">if</span> <span class="p">(</span><span class="n">crrnt</span> <span class="o">!=</span> <span class="s1">&#39;inactive&#39;</span>
+</span><span id="line-478">                <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">):</span>
+</span><span id="line-479">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-480">
+</span><span id="line-481">        <span class="n">setate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </span><span id="line-482">
-</span><span id="line-483">    <span class="n">_set_scene</span><span class="p">()</span>
-</span><span id="line-484">
+</span><span id="line-483">
+</span><span id="line-484">    <span class="n">_set_scene</span><span class="p">()</span>
 </span><span id="line-485">
-</span><span id="line-486">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_color</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-487">
-</span><span id="line-488">        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-489">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-490">
-</span><span id="line-491">        <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;color/xy&#39;</span>
-</span><span id="line-492">
-</span><span id="line-493">        <span class="n">value</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="line-494">            <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-</span><span id="line-495">            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span>
-</span><span id="line-496">
-</span><span id="line-497">        <span class="n">crrnt</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span><span class="n">merge</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-</span><span id="line-498">
-</span><span id="line-499">        <span class="k">if</span> <span class="p">(</span><span class="n">crrnt</span> <span class="o">==</span> <span class="n">value</span>
-</span><span id="line-500">                <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">):</span>
-</span><span id="line-501">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-502">
-</span><span id="line-503">        <span class="n">setate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-</span><span id="line-504">
+</span><span id="line-486">
+</span><span id="line-487">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_color</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-488">
+</span><span id="line-489">        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-490">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-491">
+</span><span id="line-492">        <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;color/xy&#39;</span>
+</span><span id="line-493">
+</span><span id="line-494">        <span class="n">value</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="line-495">            <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+</span><span id="line-496">            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span>
+</span><span id="line-497">
+</span><span id="line-498">        <span class="n">crrnt</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span><span class="n">merge</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</span><span id="line-499">
+</span><span id="line-500">        <span class="k">if</span> <span class="p">(</span><span class="n">crrnt</span> <span class="o">==</span> <span class="n">value</span>
+</span><span id="line-501">                <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">):</span>
+</span><span id="line-502">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-503">
+</span><span id="line-504">        <span class="n">setate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </span><span id="line-505">
-</span><span id="line-506">    <span class="n">_set_color</span><span class="p">()</span>
-</span><span id="line-507">
+</span><span id="line-506">
+</span><span id="line-507">    <span class="n">_set_color</span><span class="p">()</span>
 </span><span id="line-508">
-</span><span id="line-509">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_level</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-510">
-</span><span id="line-511">        <span class="k">if</span> <span class="n">level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-512">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-513">
-</span><span id="line-514">        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="line-515">            <span class="s1">&#39;dimming/&#39;</span>
-</span><span id="line-516">            <span class="s1">&#39;brightness&#39;</span><span class="p">)</span>
-</span><span id="line-517">
-</span><span id="line-518">        <span class="n">crrnt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
-</span><span id="line-519">            <span class="n">getate</span><span class="p">(</span><span class="n">merge</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
-</span><span id="line-520">
-</span><span id="line-521">        <span class="k">if</span> <span class="p">(</span><span class="n">crrnt</span> <span class="o">==</span> <span class="n">level</span>
-</span><span id="line-522">                <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">):</span>
-</span><span id="line-523">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-524">
-</span><span id="line-525">        <span class="n">setate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-</span><span id="line-526">
+</span><span id="line-509">
+</span><span id="line-510">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_level</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-511">
+</span><span id="line-512">        <span class="k">if</span> <span class="n">level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-513">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-514">
+</span><span id="line-515">        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="line-516">            <span class="s1">&#39;dimming/&#39;</span>
+</span><span id="line-517">            <span class="s1">&#39;brightness&#39;</span><span class="p">)</span>
+</span><span id="line-518">
+</span><span id="line-519">        <span class="n">crrnt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+</span><span id="line-520">            <span class="n">getate</span><span class="p">(</span><span class="n">merge</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+</span><span id="line-521">
+</span><span id="line-522">        <span class="k">if</span> <span class="p">(</span><span class="n">crrnt</span> <span class="o">==</span> <span class="n">level</span>
+</span><span id="line-523">                <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">):</span>
+</span><span id="line-524">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-525">
+</span><span id="line-526">        <span class="n">setate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
 </span><span id="line-527">
-</span><span id="line-528">    <span class="n">_set_level</span><span class="p">()</span>
-</span><span id="line-529">
+</span><span id="line-528">
+</span><span id="line-529">    <span class="n">_set_level</span><span class="p">()</span>
 </span><span id="line-530">
-</span><span id="line-531">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_state</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="line-532">
-</span><span id="line-533">        <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;off&#39;</span><span class="p">]</span>
-</span><span id="line-534">
-</span><span id="line-535">        <span class="k">if</span> <span class="n">state</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
-</span><span id="line-536">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-537">
-</span><span id="line-538">        <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;on/on&#39;</span>
-</span><span id="line-539">        <span class="n">value</span> <span class="o">=</span> <span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span>
-</span><span id="line-540">
-</span><span id="line-541">        <span class="n">crrnt</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span><span class="n">merge</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-</span><span id="line-542">
-</span><span id="line-543">        <span class="k">if</span> <span class="p">(</span><span class="n">crrnt</span> <span class="o">==</span> <span class="n">value</span>
-</span><span id="line-544">                <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">):</span>
-</span><span id="line-545">            <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-546">
-</span><span id="line-547">        <span class="n">setate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-</span><span id="line-548">
+</span><span id="line-531">
+</span><span id="line-532">    <span class="k">def</span><span class="w"> </span><span class="nf">_set_state</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="line-533">
+</span><span id="line-534">        <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;off&#39;</span><span class="p">]</span>
+</span><span id="line-535">
+</span><span id="line-536">        <span class="k">if</span> <span class="n">state</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
+</span><span id="line-537">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-538">
+</span><span id="line-539">        <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;on/on&#39;</span>
+</span><span id="line-540">        <span class="n">value</span> <span class="o">=</span> <span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;on&#39;</span>
+</span><span id="line-541">
+</span><span id="line-542">        <span class="n">crrnt</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span><span class="n">merge</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</span><span id="line-543">
+</span><span id="line-544">        <span class="k">if</span> <span class="p">(</span><span class="n">crrnt</span> <span class="o">==</span> <span class="n">value</span>
+</span><span id="line-545">                <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">):</span>
+</span><span id="line-546">            <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-547">
+</span><span id="line-548">        <span class="n">setate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </span><span id="line-549">
-</span><span id="line-550">    <span class="n">_set_state</span><span class="p">()</span>
-</span><span id="line-551">
+</span><span id="line-550">
+</span><span id="line-551">    <span class="n">_set_state</span><span class="p">()</span>
 </span><span id="line-552">
-</span><span id="line-553">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="line-554">        <span class="k">return</span> <span class="kc">None</span>
-</span><span id="line-555">
-</span><span id="line-556">    <span class="k">if</span> <span class="n">change</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
-</span><span id="line-557">        <span class="k">return</span> <span class="kc">True</span>
-</span><span id="line-558">
-</span><span id="line-559">    <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
-</span><span id="line-560">        <span class="k">return</span> <span class="kc">True</span>
-</span><span id="line-561">
+</span><span id="line-553">
+</span><span id="line-554">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="line-555">        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="line-556">
+</span><span id="line-557">    <span class="k">if</span> <span class="n">change</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+</span><span id="line-558">        <span class="k">return</span> <span class="kc">True</span>
+</span><span id="line-559">
+</span><span id="line-560">    <span class="k">if</span> <span class="n">homie</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
+</span><span id="line-561">        <span class="k">return</span> <span class="kc">True</span>
 </span><span id="line-562">
-</span><span id="line-563">    <span class="k">return</span> <span class="n">request</span><span class="p">(</span>
-</span><span id="line-564">        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;put&#39;</span><span class="p">,</span>
-</span><span id="line-565">        <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
-</span><span id="line-566">        <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-</span><span id="line-567">        <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span></div>
+</span><span id="line-563">
+</span><span id="line-564">    <span class="k">return</span> <span class="n">request</span><span class="p">(</span>
+</span><span id="line-565">        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;put&#39;</span><span class="p">,</span>
+</span><span id="line-566">        <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+</span><span id="line-567">        <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+</span><span id="line-568">        <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span></div>
 
 </span></code></pre></div>
     </div></div>
