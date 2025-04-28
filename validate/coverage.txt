@@ -132,7 +132,7 @@ enhomie/homie/threads/update.py                    65      0   100%
 enhomie/hubitat/__init__.py                         6      0   100%
 enhomie/hubitat/action.py                          31      0   100%
 enhomie/hubitat/device.py                           6      0   100%
-enhomie/hubitat/helpers.py                        167      0   100%
+enhomie/hubitat/helpers.py                        168      0   100%
 enhomie/hubitat/models.py                          15      0   100%
 enhomie/hubitat/origin.py                         116      0   100%
 enhomie/hubitat/params/__init__.py                  2      0   100%
@@ -148,7 +148,7 @@ enhomie/hubitat/update.py                          14      0   100%
 enhomie/philips/__init__.py                        12      0   100%
 enhomie/philips/action.py                          35      0   100%
 enhomie/philips/device.py                           6      0   100%
-enhomie/philips/helpers.py                        204      0   100%
+enhomie/philips/helpers.py                        205      0   100%
 enhomie/philips/models.py                          61      0   100%
 enhomie/philips/origin.py                         129      0   100%
 enhomie/philips/params/__init__.py                  7      0   100%
@@ -167,12 +167,12 @@ enhomie/philips/plugins/helpers.py                 69      0   100%
 enhomie/philips/plugins/motion.py                  68      0   100%
 enhomie/philips/plugins/scene.py                   67      0   100%
 enhomie/philips/plugins/test/__init__.py            0      0   100%
-enhomie/philips/plugins/test/test_button.py        66      0   100%
+enhomie/philips/plugins/test/test_button.py        67      0   100%
 enhomie/philips/plugins/test/test_change.py        44      0   100%
-enhomie/philips/plugins/test/test_contact.py       66      0   100%
+enhomie/philips/plugins/test/test_contact.py       67      0   100%
 enhomie/philips/plugins/test/test_helpers.py       57      0   100%
-enhomie/philips/plugins/test/test_motion.py        66      0   100%
-enhomie/philips/plugins/test/test_scene.py         66      0   100%
+enhomie/philips/plugins/test/test_motion.py        67      0   100%
+enhomie/philips/plugins/test/test_scene.py         67      0   100%
 enhomie/philips/stream.py                          30      0   100%
 enhomie/philips/surgeon.py                         81      0   100%
 enhomie/philips/test/__init__.py                   28      0   100%
@@ -181,7 +181,7 @@ enhomie/philips/test/test_device.py                25      0   100%
 enhomie/philips/test/test_helpers.py               54      0   100%
 enhomie/philips/test/test_models.py                16      0   100%
 enhomie/philips/test/test_origin.py               132      0   100%
-enhomie/philips/test/test_stream.py                47      0   100%
+enhomie/philips/test/test_stream.py                48      0   100%
 enhomie/philips/test/test_surgeon.py               32      0   100%
 enhomie/philips/test/test_update.py                14      0   100%
 enhomie/philips/update.py                          14      0   100%
@@ -198,7 +198,7 @@ enhomie/restful/test/test_service.py               55      0   100%
 enhomie/restful/test/test_static.py                29      0   100%
 enhomie/ubiquiti/__init__.py                        6      0   100%
 enhomie/ubiquiti/device.py                          6      0   100%
-enhomie/ubiquiti/helpers.py                        71      0   100%
+enhomie/ubiquiti/helpers.py                        72      0   100%
 enhomie/ubiquiti/models.py                         29      0   100%
 enhomie/ubiquiti/origin.py                         92      0   100%
 enhomie/ubiquiti/params/__init__.py                 3      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8089      0   100%
+TOTAL                                            8097      0   100%
