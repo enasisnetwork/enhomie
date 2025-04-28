@@ -11,7 +11,7 @@ from copy import deepcopy
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
-from encommon.types import DictStrAny
+from encommon.types import LDictStrAny
 
 from ..homie.threads import HomieUpdate
 from ..homie.threads import HomieUpdateItem
@@ -27,13 +27,13 @@ class HubiUpdateItem(HomieUpdateItem):
     Contain information for sharing using the Python queue.
     """
 
-    fetch: list[DictStrAny]
+    fetch: LDictStrAny
 
 
     def __init__(
         self,
         origin: 'HomieOrigin',
-        fetch: list[DictStrAny],
+        fetch: LDictStrAny,
     ) -> None:
         """
         Initialize instance for class using provided parameters.

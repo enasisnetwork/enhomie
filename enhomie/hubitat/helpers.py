@@ -16,6 +16,7 @@ from urllib.parse import quote_plus
 
 from encommon.colors import Color
 from encommon.types import DictStrAny
+from encommon.types import LDictStrAny
 from encommon.types import getate
 from encommon.types import strplwr
 
@@ -34,7 +35,7 @@ if TYPE_CHECKING:
 
 
 
-HubiFetch = list[DictStrAny]
+HubiFetch = LDictStrAny
 HubiMerge = dict[str, DictStrAny]
 
 
@@ -84,7 +85,7 @@ def merge_find(  # noqa: CFQ004
     kind: Optional['HomieKinds'] = None,
     unique: Optional[str] = None,
     label: Optional[str] = None,
-) -> list[DictStrAny]:
+) -> LDictStrAny:
     """
     Return the content related to the item in parent system.
 
@@ -103,7 +104,7 @@ def merge_find(  # noqa: CFQ004
     if unique is not None:
         unique = strplwr(unique)
 
-    found: list[DictStrAny] = []
+    found: LDictStrAny = []
 
 
     def _match_kind() -> bool:
