@@ -30,7 +30,7 @@ extensions = [
     'sphinxcontrib.autodoc_pydantic',
     'sphinx_js']
 
-html_theme = 'sphinxawesome_theme'
+html_theme = 'pydata_sphinx_theme'
 
 always_document_param_types = True
 
