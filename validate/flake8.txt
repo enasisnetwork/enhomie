@@ -1,9 +1,20 @@
 >>> make flake8
   ● Executing flake8 in enhomie..
-    DONE
-  ● Executing flake8 in sphinx..
-    DONE
-  ● Executing flake8 on makefile.py..
-    DONE
-  ● Executing flake8 on makebadge.py..
-    DONE
+enhomie/homie/childs/origin.py:33:1: I100 Import statements are in the wrong order. 'from ..threads import HomieStreamItem' should be before 'from ..threads import HomieUpdateItem'
+enhomie/homie/childs/scene.py:26:1: I100 Import statements are in the wrong order. 'from .device import HomieDevice' should be before 'from .origin import HomieOrigin'
+enhomie/homie/childs/scene.py:28:1: I100 Import statements are in the wrong order. 'from ..params import HomieSceneParams' should be before 'from ..threads import HomieActionNode'
+enhomie/homie/childs/test/test_desire.py:26:1: I100 Import statements are in the wrong order. 'from ....utils import TestBodies' should be before 'from ....utils import TestTimes'
+enhomie/homie/common.py:21:1: I100 Import statements are in the wrong order. 'from .addons import HomieAspiredItem' should be before 'from .threads import HomieThreadItem'
+enhomie/homie/homie.py:33:1: I100 Import statements are in the wrong order. 'from .childs import HomieDevice' should be before 'from .common import HomieState'
+enhomie/homie/members/actions.py:23:1: I100 Import statements are in the wrong order. 'from ..childs import HomieOrigin' should be before 'from ..common import HomieState'
+enhomie/homie/models.py:20:1: I100 Import statements are in the wrong order. 'from .params import HomieChildParams' should be before 'from .params import HomiePrinterParams'
+enhomie/homie/models.py:22:1: I100 Import statements are in the wrong order. 'from .params import HomieDeviceParams' should be before 'from .params import HomieOriginParams'
+enhomie/homie/models.py:25:1: I100 Import statements are in the wrong order. 'from .params import HomieAspireParams' should be before 'from .params import HomieSceneParams'
+enhomie/homie/models.py:28:1: I100 Import statements are in the wrong order. 'from .params import HomieOccurParams' should be before 'from .params import HomiePluginParams'
+enhomie/homie/models.py:30:1: I100 Import statements are in the wrong order. 'from .params import HomieServiceParams' should be before 'from .params import HomieWhereParams'
+enhomie/hubitat/helpers.py:33:1: I100 Import statements are in the wrong order. 'from ..homie.childs import HomieScene' should be before 'from ..homie.common import HomieState'
+enhomie/hubitat/origin.py:39:1: I100 Import statements are in the wrong order. 'from ..homie.threads import HomieActionItem' should be before 'from ..homie.threads import HomieActionNode'
+enhomie/philips/helpers.py:33:1: I100 Import statements are in the wrong order. 'from ..homie.childs import HomieScene' should be before 'from ..homie.common import HomieState'
+enhomie/philips/models.py:24:1: I100 Import statements are in the wrong order. 'from .stream import PhueStreamItem' should be before 'from .update import PhueUpdateItem'
+enhomie/philips/origin.py:40:1: I100 Import statements are in the wrong order. 'from ..homie.threads import HomieActionItem' should be before 'from ..homie.threads import HomieActionNode'
+enhomie/ubiquiti/origin.py:33:1: I100 Import statements are in the wrong order. 'from ..homie.threads import HomieUpdateBase' should be before 'from ..homie.threads import HomieUpdateItem'
