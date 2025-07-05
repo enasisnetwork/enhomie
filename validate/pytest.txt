@@ -3,7 +3,7 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.12.11, pytest-8.4.1, pluggy-1.6.0 -- /home/runner/work/enhomie/enhomie/main/.venv-package/bin/python3
 cachedir: .pytest_cache
-Using --randomly-seed=2554132769
+Using --randomly-seed=1782273845
 rootdir: /home/runner/work/enhomie/enhomie/main
 configfile: pyproject.toml
 plugins: mypy-1.0.1, randomly-3.16.0, respx-0.22.0, sphinx-0.6.3, xdist-3.8.0, anyio-4.9.0, clarity-1.0.1, cov-6.2.1
@@ -12,255 +12,257 @@ created: 4/4 workers
 
 scheduling tests via LoadScheduling
 
-enhomie/philips/plugins/test/test_scene.py::test_DriverPhueScene 
-enhomie/builtins/test/test_models.py::test_BltnModels_cover 
-enhomie/philips/plugins/test/test_contact.py::test_DriverPhueContact 
-enhomie/homie/threads/test/test_stream.py::test_HomieStream 
-[gw1] [  0%] PASSED enhomie/builtins/test/test_models.py::test_BltnModels_cover 
-enhomie/ubiquiti/plugins/test/test_helpers.py::test_ubiq_latest 
-[gw2] [  1%] PASSED enhomie/homie/threads/test/test_stream.py::test_HomieStream 
-enhomie/homie/threads/test/test_stream.py::test_HomieStreamItem 
-[gw1] [  2%] PASSED enhomie/ubiquiti/plugins/test/test_helpers.py::test_ubiq_latest 
-enhomie/builtins/test/test_regexp.py::test_DriverBltnRegexp 
-[gw3] [  3%] PASSED enhomie/philips/plugins/test/test_contact.py::test_DriverPhueContact 
-enhomie/homie/plugins/test/test_where.py::test_HomieWhere 
-[gw0] [  4%] PASSED enhomie/philips/plugins/test/test_scene.py::test_DriverPhueScene 
-enhomie/philips/plugins/test/test_scene.py::test_DriverPhueScene_cover 
-[gw2] [  5%] PASSED enhomie/homie/threads/test/test_stream.py::test_HomieStreamItem 
-enhomie/execution/test/test_persist.py::test_arguments 
-[gw2] [  5%] PASSED enhomie/execution/test/test_persist.py::test_arguments 
-enhomie/hubitat/test/test_models.py::test_HubiModels_cover 
-[gw2] [  6%] PASSED enhomie/hubitat/test/test_models.py::test_HubiModels_cover 
-[gw3] [  7%] PASSED enhomie/homie/plugins/test/test_where.py::test_HomieWhere 
-enhomie/execution/test/test_restful.py::test_arguments 
-enhomie/homie/test/test_models.py::test_HomieModels_cover 
-[gw2] [  8%] PASSED enhomie/execution/test/test_restful.py::test_arguments 
-[gw3] [  9%] PASSED enhomie/homie/test/test_models.py::test_HomieModels_cover 
-enhomie/homie/members/test/test_restful.py::test_HomieRestful 
-enhomie/restful/test/test_service.py::test_RestfulService_forbid 
-[gw1] [ 10%] PASSED enhomie/builtins/test/test_regexp.py::test_DriverBltnRegexp 
-enhomie/builtins/test/test_period.py::test_DriverBltnPeriod_cover 
-[gw0] [ 10%] PASSED enhomie/philips/plugins/test/test_scene.py::test_DriverPhueScene_cover 
-enhomie/execution/test/test_action.py::test_arguments 
-[gw0] [ 11%] PASSED enhomie/execution/test/test_action.py::test_arguments 
-enhomie/ubiquiti/test/test_update.py::test_UbiqUpdateItem 
-[gw1] [ 12%] PASSED enhomie/builtins/test/test_period.py::test_DriverBltnPeriod_cover 
-enhomie/builtins/test/test_period.py::test_DriverBltnPeriod 
-[gw0] [ 13%] PASSED enhomie/ubiquiti/test/test_update.py::test_UbiqUpdateItem 
-enhomie/philips/test/test_device.py::test_PhueDevice 
-[gw3] [ 14%] PASSED enhomie/restful/test/test_service.py::test_RestfulService_forbid 
-enhomie/restful/test/test_service.py::test_RestfulService 
-[gw1] [ 15%] PASSED enhomie/builtins/test/test_period.py::test_DriverBltnPeriod 
-enhomie/execution/test/test_desired.py::test_arguments 
-[gw0] [ 15%] PASSED enhomie/philips/test/test_device.py::test_PhueDevice 
-[gw1] [ 16%] PASSED enhomie/execution/test/test_desired.py::test_arguments 
-enhomie/homie/addons/test/test_persist.py::test_HomiePersist 
-enhomie/execution/test/test_service.py::test_arguments 
-[gw1] [ 17%] PASSED enhomie/execution/test/test_service.py::test_arguments 
-enhomie/hubitat/test/test_origin.py::test_HubiOrigin 
-[gw1] [ 18%] PASSED enhomie/hubitat/test/test_origin.py::test_HubiOrigin 
-enhomie/hubitat/test/test_origin.py::test_HubiOrigin_source 
-[gw0] [ 19%] PASSED enhomie/homie/addons/test/test_persist.py::test_HomiePersist 
-enhomie/homie/addons/test/test_persist.py::test_HomiePersist_cover 
-[gw1] [ 20%] PASSED enhomie/hubitat/test/test_origin.py::test_HubiOrigin_source 
-enhomie/execution/test/test_config.py::test_arguments 
-[gw1] [ 20%] PASSED enhomie/execution/test/test_config.py::test_arguments 
-enhomie/homie/test/test_homie.py::test_Homie_printer 
-[gw0] [ 21%] PASSED enhomie/homie/addons/test/test_persist.py::test_HomiePersist_cover 
-enhomie/homie/addons/test/test_aspired.py::test_HomieAspired_cover 
-[gw1] [ 22%] PASSED enhomie/homie/test/test_homie.py::test_Homie_printer 
-enhomie/homie/test/test_homie.py::test_Homie 
-[gw0] [ 23%] PASSED enhomie/homie/addons/test/test_aspired.py::test_HomieAspired_cover 
-enhomie/homie/addons/test/test_aspired.py::test_HomieAspired 
-[gw0] [ 24%] PASSED enhomie/homie/addons/test/test_aspired.py::test_HomieAspired 
-enhomie/homie/addons/test/test_aspired.py::test_HomieAspiredItem 
-[gw1] [ 25%] PASSED enhomie/homie/test/test_homie.py::test_Homie 
-enhomie/homie/test/test_homie.py::test_Homie_cover 
-[gw1] [ 25%] PASSED enhomie/homie/test/test_homie.py::test_Homie_cover 
-enhomie/homie/test/test_homie.py::test_Homie_actions 
-[gw1] [ 26%] PASSED enhomie/homie/test/test_homie.py::test_Homie_actions 
-enhomie/homie/test/test_homie.py::test_Homie_jinja2 
-[gw0] [ 27%] PASSED enhomie/homie/addons/test/test_aspired.py::test_HomieAspiredItem 
-enhomie/ubiquiti/plugins/test/test_client.py::test_DriverUbiqClient 
-[gw1] [ 28%] PASSED enhomie/homie/test/test_homie.py::test_Homie_jinja2 
-enhomie/homie/test/test_service.py::test_HomieService 
-[gw0] [ 29%] PASSED enhomie/ubiquiti/plugins/test/test_client.py::test_DriverUbiqClient 
-enhomie/ubiquiti/plugins/test/test_client.py::test_DriverUbiqClient_cover 
-[gw0] [ 30%] PASSED enhomie/ubiquiti/plugins/test/test_client.py::test_DriverUbiqClient_cover 
-enhomie/homie/test/test_service.py::test_HomieService_cover 
-[gw0] [ 30%] PASSED enhomie/homie/test/test_service.py::test_HomieService_cover 
-enhomie/homie/test/test_service.py::test_HomieService_healths 
-[gw0] [ 31%] PASSED enhomie/homie/test/test_service.py::test_HomieService_healths 
-enhomie/restful/test/test_static.py::test_get_static 
-[gw0] [ 32%] PASSED enhomie/restful/test/test_static.py::test_get_static 
-enhomie/ubiquiti/test/test_device.py::test_UbiqDevice 
-[gw0] [ 33%] PASSED enhomie/ubiquiti/test/test_device.py::test_UbiqDevice 
-enhomie/philips/test/test_stream.py::test_PhueStreamItem 
-[gw0] [ 34%] PASSED enhomie/philips/test/test_stream.py::test_PhueStreamItem 
-enhomie/philips/test/test_stream.py::test_PhueStream_samples 
-[gw0] [ 35%] PASSED enhomie/philips/test/test_stream.py::test_PhueStream_samples 
-enhomie/homie/childs/test/test_aspire.py::test_HomieAspire_cover 
-[gw0] [ 35%] PASSED enhomie/homie/childs/test/test_aspire.py::test_HomieAspire_cover 
-enhomie/homie/childs/test/test_aspire.py::test_HomieAspire 
-[gw0] [ 36%] PASSED enhomie/homie/childs/test/test_aspire.py::test_HomieAspire 
-enhomie/homie/threads/test/test_action.py::test_HomieAction 
-[gw0] [ 37%] PASSED enhomie/homie/threads/test/test_action.py::test_HomieAction 
-enhomie/homie/threads/test/test_action.py::test_HomieActionItem 
-[gw0] [ 38%] PASSED enhomie/homie/threads/test/test_action.py::test_HomieActionItem 
-enhomie/homie/members/test/test_actions.py::test_HomieActions 
-[gw3] [ 39%] PASSED enhomie/restful/test/test_service.py::test_RestfulService 
-enhomie/restful/test/test_service.py::test_RestfulService_cover 
-[gw0] [ 40%] PASSED enhomie/homie/members/test/test_actions.py::test_HomieActions 
-enhomie/homie/childs/test/test_device.py::test_HomieDevice_cover 
-[gw3] [ 40%] PASSED enhomie/restful/test/test_service.py::test_RestfulService_cover 
-enhomie/homie/members/test/test_streams.py::test_HomieStreams 
-[gw0] [ 41%] PASSED enhomie/homie/childs/test/test_device.py::test_HomieDevice_cover 
-enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin_update 
-[gw3] [ 42%] PASSED enhomie/homie/members/test/test_streams.py::test_HomieStreams 
-enhomie/homie/plugins/test/test_occur.py::test_HomieOccur 
-[gw3] [ 43%] PASSED enhomie/homie/plugins/test/test_occur.py::test_HomieOccur 
-enhomie/homie/test/test_config.py::test_HomieConfig_cover 
-[gw3] [ 44%] PASSED enhomie/homie/test/test_config.py::test_HomieConfig_cover 
-enhomie/homie/test/test_config.py::test_HomieConfig 
-[gw0] [ 45%] PASSED enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin_update 
-enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin_source 
-[gw3] [ 45%] PASSED enhomie/homie/test/test_config.py::test_HomieConfig 
-enhomie/homie/plugins/test/test_driver.py::test_HomieDriver_cover 
-[gw0] [ 46%] PASSED enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin_source 
-enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin 
-[gw3] [ 47%] PASSED enhomie/homie/plugins/test/test_driver.py::test_HomieDriver_cover 
-enhomie/hubitat/test/test_origin.py::test_HubiOrigin_action 
-[gw3] [ 48%] PASSED enhomie/hubitat/test/test_origin.py::test_HubiOrigin_action 
-enhomie/hubitat/test/test_origin.py::test_HubiOrigin_update 
-[gw0] [ 49%] PASSED enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin 
 enhomie/philips/test/test_surgeon.py::test_surgeon 
-[gw3] [ 50%] PASSED enhomie/hubitat/test/test_origin.py::test_HubiOrigin_update 
-enhomie/homie/threads/test/test_update.py::test_HomieUpdate 
-[gw0] [ 50%] PASSED enhomie/philips/test/test_surgeon.py::test_surgeon 
-enhomie/homie/threads/test/test_update.py::test_HomieUpdateItem 
-[gw3] [ 51%] PASSED enhomie/homie/threads/test/test_update.py::test_HomieUpdate 
-enhomie/philips/plugins/test/test_helpers.py::test_phue_sensors 
-[gw0] [ 52%] PASSED enhomie/homie/threads/test/test_update.py::test_HomieUpdateItem 
-enhomie/philips/plugins/test/test_motion.py::test_DriverPhueMotion 
-[gw3] [ 53%] PASSED enhomie/philips/plugins/test/test_helpers.py::test_phue_sensors 
-enhomie/philips/plugins/test/test_helpers.py::test_phue_changed 
-[gw0] [ 54%] PASSED enhomie/philips/plugins/test/test_motion.py::test_DriverPhueMotion 
-enhomie/philips/plugins/test/test_motion.py::test_DriverPhueMotion_cover 
-[gw3] [ 55%] PASSED enhomie/philips/plugins/test/test_helpers.py::test_phue_changed 
-enhomie/philips/plugins/test/test_helpers.py::test_phue_current 
-[gw0] [ 55%] PASSED enhomie/philips/plugins/test/test_motion.py::test_DriverPhueMotion_cover 
-enhomie/utils/test/test_child.py::test_InvalidChild_cover 
-[gw3] [ 56%] PASSED enhomie/philips/plugins/test/test_helpers.py::test_phue_current 
 enhomie/utils/test/test_child.py::test_InvalidChild 
-[gw3] [ 57%] PASSED enhomie/utils/test/test_child.py::test_InvalidChild 
-enhomie/hubitat/test/test_helpers.py::test_request_action 
-[gw0] [ 58%] PASSED enhomie/utils/test/test_child.py::test_InvalidChild_cover 
-enhomie/homie/addons/test/test_logger.py::test_HomieLogger_message 
-[gw3] [ 59%] PASSED enhomie/hubitat/test/test_helpers.py::test_request_action 
-enhomie/homie/addons/test/test_logger.py::test_HomieLogger 
-[gw0] [ 60%] PASSED enhomie/homie/addons/test/test_logger.py::test_HomieLogger_message 
-enhomie/homie/addons/test/test_logger.py::test_HomieLogger_cover 
-[gw2] [ 60%] PASSED enhomie/homie/members/test/test_restful.py::test_HomieRestful 
-enhomie/philips/plugins/test/test_contact.py::test_DriverPhueContact_cover 
-[gw0] [ 61%] PASSED enhomie/homie/addons/test/test_logger.py::test_HomieLogger_cover 
-enhomie/homie/addons/test/test_queue.py::test_HomieQueueItem 
-[gw0] [ 62%] PASSED enhomie/homie/addons/test/test_queue.py::test_HomieQueueItem 
-enhomie/homie/childs/test/test_origin.py::test_HomieOrigin_cover 
-[gw3] [ 63%] PASSED enhomie/homie/addons/test/test_logger.py::test_HomieLogger 
-enhomie/homie/addons/test/test_queue.py::test_HomieQueue 
-[gw2] [ 64%] PASSED enhomie/philips/plugins/test/test_contact.py::test_DriverPhueContact_cover 
-enhomie/hubitat/test/test_update.py::test_HubiUpdateItem 
-[gw3] [ 65%] PASSED enhomie/homie/addons/test/test_queue.py::test_HomieQueue 
-enhomie/homie/childs/test/test_scene.py::test_HomieScene 
-[gw0] [ 65%] PASSED enhomie/homie/childs/test/test_origin.py::test_HomieOrigin_cover 
-enhomie/homie/childs/test/test_group.py::test_HomieGroup 
-[gw2] [ 66%] PASSED enhomie/hubitat/test/test_update.py::test_HubiUpdateItem 
-enhomie/utils/test/test_param.py::test_InvalidParam 
-[gw3] [ 67%] PASSED enhomie/homie/childs/test/test_scene.py::test_HomieScene 
-enhomie/homie/childs/test/test_group.py::test_HomieGroup_cover 
-[gw0] [ 68%] PASSED enhomie/homie/childs/test/test_group.py::test_HomieGroup 
-enhomie/philips/test/test_update.py::test_PhueUpdateItem 
-[gw2] [ 69%] PASSED enhomie/utils/test/test_param.py::test_InvalidParam 
-enhomie/philips/test/test_helpers.py::test_request_action 
-[gw3] [ 70%] PASSED enhomie/homie/childs/test/test_group.py::test_HomieGroup_cover 
-enhomie/homie/plugins/test/test_plugin.py::test_HomiePlugin_cover 
-[gw0] [ 70%] PASSED enhomie/philips/test/test_update.py::test_PhueUpdateItem 
-enhomie/hubitat/test/test_action.py::test_HubiAction_cover 
-[gw2] [ 71%] PASSED enhomie/philips/test/test_helpers.py::test_request_action 
-enhomie/execution/test/test_crypts.py::test_arguments 
-[gw2] [ 72%] PASSED enhomie/execution/test/test_crypts.py::test_arguments 
-enhomie/builtins/test/test_store.py::test_DriverBltnStore_cover 
-[gw3] [ 73%] PASSED enhomie/homie/plugins/test/test_plugin.py::test_HomiePlugin_cover 
-enhomie/philips/plugins/test/test_button.py::test_DriverPhueButton 
-[gw0] [ 74%] PASSED enhomie/hubitat/test/test_action.py::test_HubiAction_cover 
-enhomie/philips/plugins/test/test_button.py::test_DriverPhueButton_cover 
-[gw2] [ 75%] PASSED enhomie/builtins/test/test_store.py::test_DriverBltnStore_cover 
-enhomie/builtins/test/test_store.py::test_DriverBltnStore 
-[gw3] [ 75%] PASSED enhomie/philips/plugins/test/test_button.py::test_DriverPhueButton 
-enhomie/homie/childs/test/test_child.py::test_HomieChild_cover 
-[gw0] [ 76%] PASSED enhomie/philips/plugins/test/test_button.py::test_DriverPhueButton_cover 
-enhomie/philips/plugins/test/test_change.py::test_DriverPhueChange_cover 
-[gw2] [ 77%] PASSED enhomie/builtins/test/test_store.py::test_DriverBltnStore 
-enhomie/philips/test/test_action.py::test_PhueAction_cover 
-[gw3] [ 78%] PASSED enhomie/homie/childs/test/test_child.py::test_HomieChild_cover 
-enhomie/philips/plugins/test/test_change.py::test_DriverPhueChange 
-[gw0] [ 79%] PASSED enhomie/philips/plugins/test/test_change.py::test_DriverPhueChange_cover 
+enhomie/philips/plugins/test/test_scene.py::test_DriverPhueScene 
 enhomie/homie/threads/test/test_thread.py::test_HomieThread_cover 
-[gw3] [ 80%] PASSED enhomie/philips/plugins/test/test_change.py::test_DriverPhueChange 
-enhomie/philips/test/test_models.py::test_PhueModels_cover 
-[gw3] [ 80%] PASSED enhomie/philips/test/test_models.py::test_PhueModels_cover 
-enhomie/homie/childs/test/test_homie.py::test_HomieChilds_cover 
-[gw0] [ 81%] PASSED enhomie/homie/threads/test/test_thread.py::test_HomieThread_cover 
-enhomie/homie/childs/test/test_homie.py::test_HomieChilds 
-[gw2] [ 82%] PASSED enhomie/philips/test/test_action.py::test_PhueAction_cover 
+[gw0] [  0%] PASSED enhomie/utils/test/test_child.py::test_InvalidChild 
+enhomie/utils/test/test_child.py::test_InvalidChild_cover 
+[gw0] [  1%] PASSED enhomie/utils/test/test_child.py::test_InvalidChild_cover 
+enhomie/homie/members/test/test_streams.py::test_HomieStreams 
+[gw3] [  2%] PASSED enhomie/homie/threads/test/test_thread.py::test_HomieThread_cover 
+enhomie/hubitat/test/test_origin.py::test_HubiOrigin 
+[gw1] [  3%] PASSED enhomie/philips/plugins/test/test_scene.py::test_DriverPhueScene 
+enhomie/philips/plugins/test/test_scene.py::test_DriverPhueScene_cover 
+[gw2] [  4%] PASSED enhomie/philips/test/test_surgeon.py::test_surgeon 
+enhomie/homie/addons/test/test_logger.py::test_HomieLogger_cover 
+[gw3] [  5%] PASSED enhomie/hubitat/test/test_origin.py::test_HubiOrigin 
+enhomie/hubitat/test/test_origin.py::test_HubiOrigin_update 
+[gw0] [  5%] PASSED enhomie/homie/members/test/test_streams.py::test_HomieStreams 
+enhomie/philips/plugins/test/test_change.py::test_DriverPhueChange_cover 
+[gw2] [  6%] PASSED enhomie/homie/addons/test/test_logger.py::test_HomieLogger_cover 
+enhomie/homie/addons/test/test_logger.py::test_HomieLogger 
+[gw1] [  7%] PASSED enhomie/philips/plugins/test/test_scene.py::test_DriverPhueScene_cover 
+enhomie/homie/childs/test/test_group.py::test_HomieGroup_cover 
+[gw3] [  8%] PASSED enhomie/hubitat/test/test_origin.py::test_HubiOrigin_update 
+enhomie/hubitat/test/test_origin.py::test_HubiOrigin_action 
+[gw0] [  9%] PASSED enhomie/philips/plugins/test/test_change.py::test_DriverPhueChange_cover 
+enhomie/philips/plugins/test/test_change.py::test_DriverPhueChange 
+[gw2] [ 10%] PASSED enhomie/homie/addons/test/test_logger.py::test_HomieLogger 
+enhomie/homie/addons/test/test_logger.py::test_HomieLogger_message 
+[gw1] [ 10%] PASSED enhomie/homie/childs/test/test_group.py::test_HomieGroup_cover 
+enhomie/homie/childs/test/test_group.py::test_HomieGroup 
+[gw3] [ 11%] PASSED enhomie/hubitat/test/test_origin.py::test_HubiOrigin_action 
+enhomie/hubitat/test/test_origin.py::test_HubiOrigin_source 
+[gw2] [ 12%] PASSED enhomie/homie/addons/test/test_logger.py::test_HomieLogger_message 
+enhomie/restful/test/test_static.py::test_get_static 
+[gw0] [ 13%] PASSED enhomie/philips/plugins/test/test_change.py::test_DriverPhueChange 
+enhomie/homie/threads/test/test_action.py::test_HomieActionItem 
+[gw1] [ 14%] PASSED enhomie/homie/childs/test/test_group.py::test_HomieGroup 
 enhomie/restful/test/test_persist.py::test_get_persists 
-[gw3] [ 83%] PASSED enhomie/homie/childs/test/test_homie.py::test_HomieChilds_cover 
-enhomie/homie/childs/test/test_desire.py::test_HomieDesires_cover 
-[gw1] [ 84%] PASSED enhomie/homie/test/test_service.py::test_HomieService 
-enhomie/homie/test/test_service.py::test_HomieService_dryrun 
-[gw0] [ 85%] PASSED enhomie/homie/childs/test/test_homie.py::test_HomieChilds 
-enhomie/homie/childs/test/test_desire.py::test_HomieDesire 
-[gw2] [ 85%] PASSED enhomie/restful/test/test_persist.py::test_get_persists 
-enhomie/ubiquiti/test/test_models.py::test_UbiqModels_cover 
-[gw2] [ 86%] PASSED enhomie/ubiquiti/test/test_models.py::test_UbiqModels_cover 
-enhomie/philips/test/test_origin.py::test_PhueOrigin_update 
-[gw3] [ 87%] PASSED enhomie/homie/childs/test/test_desire.py::test_HomieDesires_cover 
-enhomie/philips/test/test_origin.py::test_PhueOrigin_action 
-[gw0] [ 88%] PASSED enhomie/homie/childs/test/test_desire.py::test_HomieDesire 
-enhomie/philips/test/test_origin.py::test_PhueOrigin 
-[gw2] [ 89%] PASSED enhomie/philips/test/test_origin.py::test_PhueOrigin_update 
-enhomie/philips/test/test_origin.py::test_PhueOrigin_stream 
-[gw3] [ 90%] PASSED enhomie/philips/test/test_origin.py::test_PhueOrigin_action 
-enhomie/philips/test/test_origin.py::test_PhueOrigin_source 
-[gw2] [ 90%] PASSED enhomie/philips/test/test_origin.py::test_PhueOrigin_stream 
-enhomie/homie/members/test/test_updates.py::test_HomieUpdates 
-[gw0] [ 91%] PASSED enhomie/philips/test/test_origin.py::test_PhueOrigin 
-enhomie/hubitat/test/test_device.py::test_HubiDevice 
-[gw3] [ 92%] PASSED enhomie/philips/test/test_origin.py::test_PhueOrigin_source 
-enhomie/execution/test/test_backup.py::test_arguments 
-[gw3] [ 93%] PASSED enhomie/execution/test/test_backup.py::test_arguments 
-[gw2] [ 94%] PASSED enhomie/homie/members/test/test_updates.py::test_HomieUpdates 
-enhomie/homie/members/test/test_member.py::test_HomieMember_cover 
-[gw0] [ 95%] PASSED enhomie/hubitat/test/test_device.py::test_HubiDevice 
-[gw2] [ 95%] PASSED enhomie/homie/members/test/test_member.py::test_HomieMember_cover 
-[gw1] [ 96%] PASSED enhomie/homie/test/test_service.py::test_HomieService_dryrun 
-enhomie/homie/addons/test/test_desired.py::test_HomieDesired 
-[gw1] [ 97%] PASSED enhomie/homie/addons/test/test_desired.py::test_HomieDesired 
-enhomie/homie/addons/test/test_desired.py::test_HomieDesired_cover 
-[gw1] [ 98%] PASSED enhomie/homie/addons/test/test_desired.py::test_HomieDesired_cover 
-enhomie/homie/addons/test/test_desired.py::test_HomieDesiredItem 
-[gw1] [ 99%] PASSED enhomie/homie/addons/test/test_desired.py::test_HomieDesiredItem 
+[gw3] [ 15%] PASSED enhomie/hubitat/test/test_origin.py::test_HubiOrigin_source 
+enhomie/homie/members/test/test_restful.py::test_HomieRestful 
+[gw0] [ 15%] PASSED enhomie/homie/threads/test/test_action.py::test_HomieActionItem 
+enhomie/homie/threads/test/test_action.py::test_HomieAction 
+[gw2] [ 16%] PASSED enhomie/restful/test/test_static.py::test_get_static 
+enhomie/homie/members/test/test_actions.py::test_HomieActions 
+[gw1] [ 17%] PASSED enhomie/restful/test/test_persist.py::test_get_persists 
+enhomie/philips/test/test_helpers.py::test_request_action 
+[gw0] [ 18%] PASSED enhomie/homie/threads/test/test_action.py::test_HomieAction 
 enhomie/execution/test/test_dumped.py::test_arguments 
-[gw1] [100%] PASSED enhomie/execution/test/test_dumped.py::test_arguments 
+[gw0] [ 19%] PASSED enhomie/execution/test/test_dumped.py::test_arguments 
+enhomie/homie/childs/test/test_device.py::test_HomieDevice_cover 
+[gw2] [ 20%] PASSED enhomie/homie/members/test/test_actions.py::test_HomieActions 
+enhomie/ubiquiti/test/test_update.py::test_UbiqUpdateItem 
+[gw1] [ 20%] PASSED enhomie/philips/test/test_helpers.py::test_request_action 
+enhomie/homie/plugins/test/test_plugin.py::test_HomiePlugin_cover 
+[gw0] [ 21%] PASSED enhomie/homie/childs/test/test_device.py::test_HomieDevice_cover 
+enhomie/homie/addons/test/test_desired.py::test_HomieDesired_cover 
+[gw2] [ 22%] PASSED enhomie/ubiquiti/test/test_update.py::test_UbiqUpdateItem 
+enhomie/homie/test/test_homie.py::test_Homie_jinja2 
+[gw1] [ 23%] PASSED enhomie/homie/plugins/test/test_plugin.py::test_HomiePlugin_cover 
+enhomie/homie/threads/test/test_stream.py::test_HomieStreamItem 
+[gw2] [ 24%] PASSED enhomie/homie/test/test_homie.py::test_Homie_jinja2 
+enhomie/homie/test/test_homie.py::test_Homie 
+[gw1] [ 25%] PASSED enhomie/homie/threads/test/test_stream.py::test_HomieStreamItem 
+enhomie/execution/test/test_backup.py::test_arguments 
+[gw1] [ 25%] PASSED enhomie/execution/test/test_backup.py::test_arguments 
+enhomie/homie/members/test/test_member.py::test_HomieMember_cover 
+[gw2] [ 26%] PASSED enhomie/homie/test/test_homie.py::test_Homie 
+enhomie/homie/test/test_homie.py::test_Homie_printer 
+[gw1] [ 27%] PASSED enhomie/homie/members/test/test_member.py::test_HomieMember_cover 
+enhomie/philips/test/test_device.py::test_PhueDevice 
+[gw2] [ 28%] PASSED enhomie/homie/test/test_homie.py::test_Homie_printer 
+enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin 
+[gw1] [ 29%] PASSED enhomie/philips/test/test_device.py::test_PhueDevice 
+enhomie/builtins/test/test_period.py::test_DriverBltnPeriod_cover 
+[gw2] [ 30%] PASSED enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin 
+enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin_source 
+[gw1] [ 30%] PASSED enhomie/builtins/test/test_period.py::test_DriverBltnPeriod_cover 
+enhomie/builtins/test/test_period.py::test_DriverBltnPeriod 
+[gw2] [ 31%] PASSED enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin_source 
+enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin_update 
+[gw1] [ 32%] PASSED enhomie/builtins/test/test_period.py::test_DriverBltnPeriod 
+enhomie/ubiquiti/test/test_device.py::test_UbiqDevice 
+[gw0] [ 33%] PASSED enhomie/homie/addons/test/test_desired.py::test_HomieDesired_cover 
+enhomie/homie/addons/test/test_desired.py::test_HomieDesired 
+[gw2] [ 34%] PASSED enhomie/ubiquiti/test/test_origin.py::test_UbiqOrigin_update 
+enhomie/hubitat/test/test_update.py::test_HubiUpdateItem 
+[gw1] [ 35%] PASSED enhomie/ubiquiti/test/test_device.py::test_UbiqDevice 
+enhomie/homie/plugins/test/test_driver.py::test_HomieDriver_cover 
+[gw1] [ 35%] PASSED enhomie/homie/plugins/test/test_driver.py::test_HomieDriver_cover 
+enhomie/homie/addons/test/test_queue.py::test_HomieQueue 
+[gw2] [ 36%] PASSED enhomie/hubitat/test/test_update.py::test_HubiUpdateItem 
+enhomie/homie/plugins/test/test_where.py::test_HomieWhere 
+[gw1] [ 37%] PASSED enhomie/homie/addons/test/test_queue.py::test_HomieQueue 
+enhomie/homie/addons/test/test_queue.py::test_HomieQueueItem 
+[gw1] [ 38%] PASSED enhomie/homie/addons/test/test_queue.py::test_HomieQueueItem 
+enhomie/ubiquiti/test/test_models.py::test_UbiqModels_cover 
+[gw1] [ 39%] PASSED enhomie/ubiquiti/test/test_models.py::test_UbiqModels_cover 
+enhomie/philips/test/test_update.py::test_PhueUpdateItem 
+[gw2] [ 40%] PASSED enhomie/homie/plugins/test/test_where.py::test_HomieWhere 
+enhomie/homie/threads/test/test_stream.py::test_HomieStream 
+[gw1] [ 40%] PASSED enhomie/philips/test/test_update.py::test_PhueUpdateItem 
+enhomie/philips/test/test_origin.py::test_PhueOrigin_update 
+[gw2] [ 41%] PASSED enhomie/homie/threads/test/test_stream.py::test_HomieStream 
+enhomie/philips/test/test_origin.py::test_PhueOrigin_source 
+[gw1] [ 42%] PASSED enhomie/philips/test/test_origin.py::test_PhueOrigin_update 
+enhomie/philips/test/test_origin.py::test_PhueOrigin 
+[gw2] [ 43%] PASSED enhomie/philips/test/test_origin.py::test_PhueOrigin_source 
+enhomie/philips/test/test_origin.py::test_PhueOrigin_action 
+[gw2] [ 44%] PASSED enhomie/philips/test/test_origin.py::test_PhueOrigin_action 
+enhomie/homie/plugins/test/test_occur.py::test_HomieOccur 
+[gw1] [ 45%] PASSED enhomie/philips/test/test_origin.py::test_PhueOrigin 
+enhomie/philips/test/test_origin.py::test_PhueOrigin_stream 
+[gw0] [ 45%] PASSED enhomie/homie/addons/test/test_desired.py::test_HomieDesired 
+enhomie/homie/addons/test/test_desired.py::test_HomieDesiredItem 
+[gw1] [ 46%] PASSED enhomie/philips/test/test_origin.py::test_PhueOrigin_stream 
+enhomie/execution/test/test_desired.py::test_arguments 
+[gw1] [ 47%] PASSED enhomie/execution/test/test_desired.py::test_arguments 
+enhomie/homie/members/test/test_updates.py::test_HomieUpdates 
+[gw2] [ 48%] PASSED enhomie/homie/plugins/test/test_occur.py::test_HomieOccur 
+enhomie/execution/test/test_config.py::test_arguments 
+[gw2] [ 49%] PASSED enhomie/execution/test/test_config.py::test_arguments 
+enhomie/philips/test/test_stream.py::test_PhueStreamItem 
+[gw0] [ 50%] PASSED enhomie/homie/addons/test/test_desired.py::test_HomieDesiredItem 
+enhomie/hubitat/test/test_helpers.py::test_request_action 
+[gw1] [ 50%] PASSED enhomie/homie/members/test/test_updates.py::test_HomieUpdates 
+enhomie/builtins/test/test_models.py::test_BltnModels_cover 
+[gw1] [ 51%] PASSED enhomie/builtins/test/test_models.py::test_BltnModels_cover 
+enhomie/homie/addons/test/test_persist.py::test_HomiePersist 
+[gw2] [ 52%] PASSED enhomie/philips/test/test_stream.py::test_PhueStreamItem 
+enhomie/philips/test/test_stream.py::test_PhueStream_samples 
+[gw2] [ 53%] PASSED enhomie/philips/test/test_stream.py::test_PhueStream_samples 
+enhomie/homie/test/test_config.py::test_HomieConfig 
+[gw0] [ 54%] PASSED enhomie/hubitat/test/test_helpers.py::test_request_action 
+enhomie/hubitat/test/test_device.py::test_HubiDevice 
+[gw1] [ 55%] PASSED enhomie/homie/addons/test/test_persist.py::test_HomiePersist 
+enhomie/homie/addons/test/test_persist.py::test_HomiePersist_cover 
+[gw2] [ 55%] PASSED enhomie/homie/test/test_config.py::test_HomieConfig 
+enhomie/homie/test/test_config.py::test_HomieConfig_cover 
+[gw2] [ 56%] PASSED enhomie/homie/test/test_config.py::test_HomieConfig_cover 
+enhomie/builtins/test/test_regexp.py::test_DriverBltnRegexp 
+[gw0] [ 57%] PASSED enhomie/hubitat/test/test_device.py::test_HubiDevice 
+enhomie/execution/test/test_service.py::test_arguments 
+[gw0] [ 58%] PASSED enhomie/execution/test/test_service.py::test_arguments 
+enhomie/homie/test/test_homie.py::test_Homie_actions 
+[gw1] [ 59%] PASSED enhomie/homie/addons/test/test_persist.py::test_HomiePersist_cover 
+enhomie/homie/threads/test/test_update.py::test_HomieUpdateItem 
+[gw2] [ 60%] PASSED enhomie/builtins/test/test_regexp.py::test_DriverBltnRegexp 
+enhomie/homie/threads/test/test_update.py::test_HomieUpdate 
+[gw1] [ 60%] PASSED enhomie/homie/threads/test/test_update.py::test_HomieUpdateItem 
+enhomie/homie/childs/test/test_scene.py::test_HomieScene 
+[gw0] [ 61%] PASSED enhomie/homie/test/test_homie.py::test_Homie_actions 
+enhomie/homie/test/test_homie.py::test_Homie_cover 
+[gw0] [ 62%] PASSED enhomie/homie/test/test_homie.py::test_Homie_cover 
+enhomie/homie/test/test_models.py::test_HomieModels_cover 
+[gw0] [ 63%] PASSED enhomie/homie/test/test_models.py::test_HomieModels_cover 
+enhomie/philips/plugins/test/test_helpers.py::test_phue_changed 
+[gw2] [ 64%] PASSED enhomie/homie/threads/test/test_update.py::test_HomieUpdate 
+enhomie/homie/addons/test/test_aspired.py::test_HomieAspired 
+[gw1] [ 65%] PASSED enhomie/homie/childs/test/test_scene.py::test_HomieScene 
+enhomie/homie/addons/test/test_aspired.py::test_HomieAspiredItem 
+[gw1] [ 65%] PASSED enhomie/homie/addons/test/test_aspired.py::test_HomieAspiredItem 
+enhomie/homie/addons/test/test_aspired.py::test_HomieAspired_cover 
+[gw2] [ 66%] PASSED enhomie/homie/addons/test/test_aspired.py::test_HomieAspired 
+enhomie/philips/plugins/test/test_contact.py::test_DriverPhueContact_cover 
+[gw0] [ 67%] PASSED enhomie/philips/plugins/test/test_helpers.py::test_phue_changed 
+enhomie/philips/plugins/test/test_helpers.py::test_phue_sensors 
+[gw2] [ 68%] PASSED enhomie/philips/plugins/test/test_contact.py::test_DriverPhueContact_cover 
+enhomie/philips/plugins/test/test_contact.py::test_DriverPhueContact 
+[gw0] [ 69%] PASSED enhomie/philips/plugins/test/test_helpers.py::test_phue_sensors 
+enhomie/philips/plugins/test/test_button.py::test_DriverPhueButton 
+[gw1] [ 70%] PASSED enhomie/homie/addons/test/test_aspired.py::test_HomieAspired_cover 
+enhomie/philips/plugins/test/test_helpers.py::test_phue_current 
+[gw0] [ 70%] PASSED enhomie/philips/plugins/test/test_button.py::test_DriverPhueButton 
+enhomie/ubiquiti/plugins/test/test_helpers.py::test_ubiq_latest 
+[gw2] [ 71%] PASSED enhomie/philips/plugins/test/test_contact.py::test_DriverPhueContact 
+enhomie/ubiquiti/plugins/test/test_client.py::test_DriverUbiqClient_cover 
+[gw1] [ 72%] PASSED enhomie/philips/plugins/test/test_helpers.py::test_phue_current 
+enhomie/utils/test/test_param.py::test_InvalidParam 
+[gw2] [ 73%] PASSED enhomie/ubiquiti/plugins/test/test_client.py::test_DriverUbiqClient_cover 
+enhomie/ubiquiti/plugins/test/test_client.py::test_DriverUbiqClient 
+[gw0] [ 74%] PASSED enhomie/ubiquiti/plugins/test/test_helpers.py::test_ubiq_latest 
+enhomie/philips/test/test_action.py::test_PhueAction_cover 
+[gw1] [ 75%] PASSED enhomie/utils/test/test_param.py::test_InvalidParam 
+enhomie/philips/plugins/test/test_button.py::test_DriverPhueButton_cover 
+[gw2] [ 75%] PASSED enhomie/ubiquiti/plugins/test/test_client.py::test_DriverUbiqClient 
+enhomie/hubitat/test/test_action.py::test_HubiAction_cover 
+[gw0] [ 76%] PASSED enhomie/philips/test/test_action.py::test_PhueAction_cover 
+enhomie/homie/childs/test/test_child.py::test_HomieChild_cover 
+[gw1] [ 77%] PASSED enhomie/philips/plugins/test/test_button.py::test_DriverPhueButton_cover 
+enhomie/homie/childs/test/test_aspire.py::test_HomieAspire_cover 
+[gw0] [ 78%] PASSED enhomie/homie/childs/test/test_child.py::test_HomieChild_cover 
+enhomie/philips/test/test_models.py::test_PhueModels_cover 
+[gw0] [ 79%] PASSED enhomie/philips/test/test_models.py::test_PhueModels_cover 
+[gw2] [ 80%] PASSED enhomie/hubitat/test/test_action.py::test_HubiAction_cover 
+enhomie/hubitat/test/test_models.py::test_HubiModels_cover 
+enhomie/homie/childs/test/test_aspire.py::test_HomieAspire 
+[gw0] [ 80%] PASSED enhomie/hubitat/test/test_models.py::test_HubiModels_cover 
+enhomie/execution/test/test_crypts.py::test_arguments 
+[gw0] [ 81%] PASSED enhomie/execution/test/test_crypts.py::test_arguments 
+enhomie/philips/plugins/test/test_motion.py::test_DriverPhueMotion_cover 
+[gw1] [ 82%] PASSED enhomie/homie/childs/test/test_aspire.py::test_HomieAspire_cover 
+enhomie/homie/childs/test/test_origin.py::test_HomieOrigin_cover 
+[gw2] [ 83%] PASSED enhomie/homie/childs/test/test_aspire.py::test_HomieAspire 
+enhomie/execution/test/test_action.py::test_arguments 
+[gw2] [ 84%] PASSED enhomie/execution/test/test_action.py::test_arguments 
+enhomie/builtins/test/test_store.py::test_DriverBltnStore 
+[gw0] [ 85%] PASSED enhomie/philips/plugins/test/test_motion.py::test_DriverPhueMotion_cover 
+enhomie/philips/plugins/test/test_motion.py::test_DriverPhueMotion 
+[gw1] [ 85%] PASSED enhomie/homie/childs/test/test_origin.py::test_HomieOrigin_cover 
+enhomie/builtins/test/test_store.py::test_DriverBltnStore_cover 
+[gw0] [ 86%] PASSED enhomie/philips/plugins/test/test_motion.py::test_DriverPhueMotion 
+enhomie/homie/childs/test/test_homie.py::test_HomieChilds 
+[gw2] [ 87%] PASSED enhomie/builtins/test/test_store.py::test_DriverBltnStore 
+enhomie/homie/childs/test/test_homie.py::test_HomieChilds_cover 
+[gw1] [ 88%] PASSED enhomie/builtins/test/test_store.py::test_DriverBltnStore_cover 
+enhomie/execution/test/test_persist.py::test_arguments 
+[gw1] [ 89%] PASSED enhomie/execution/test/test_persist.py::test_arguments 
+enhomie/homie/test/test_service.py::test_HomieService_healths 
+[gw0] [ 90%] PASSED enhomie/homie/childs/test/test_homie.py::test_HomieChilds 
+enhomie/homie/childs/test/test_desire.py::test_HomieDesires_cover 
+[gw2] [ 90%] PASSED enhomie/homie/childs/test/test_homie.py::test_HomieChilds_cover 
+enhomie/homie/childs/test/test_desire.py::test_HomieDesire 
+[gw1] [ 91%] PASSED enhomie/homie/test/test_service.py::test_HomieService_healths 
+enhomie/homie/test/test_service.py::test_HomieService 
+[gw2] [ 92%] PASSED enhomie/homie/childs/test/test_desire.py::test_HomieDesire 
+enhomie/homie/test/test_service.py::test_HomieService_cover 
+[gw0] [ 93%] PASSED enhomie/homie/childs/test/test_desire.py::test_HomieDesires_cover 
+enhomie/homie/test/test_service.py::test_HomieService_dryrun 
+[gw2] [ 94%] PASSED enhomie/homie/test/test_service.py::test_HomieService_cover 
+enhomie/restful/test/test_service.py::test_RestfulService_forbid 
+[gw2] [ 95%] PASSED enhomie/restful/test/test_service.py::test_RestfulService_forbid 
+[gw3] [ 95%] PASSED enhomie/homie/members/test/test_restful.py::test_HomieRestful 
+enhomie/execution/test/test_restful.py::test_arguments 
+[gw3] [ 96%] PASSED enhomie/execution/test/test_restful.py::test_arguments 
+[gw1] [ 97%] PASSED enhomie/homie/test/test_service.py::test_HomieService 
+enhomie/restful/test/test_service.py::test_RestfulService 
+[gw0] [ 98%] PASSED enhomie/homie/test/test_service.py::test_HomieService_dryrun 
+enhomie/restful/test/test_service.py::test_RestfulService_cover 
+[gw0] [ 99%] PASSED enhomie/restful/test/test_service.py::test_RestfulService_cover 
+[gw1] [100%] PASSED enhomie/restful/test/test_service.py::test_RestfulService 
 
 =============================== warnings summary ===============================
-enhomie/restful/test/test_service.py::test_RestfulService
 enhomie/homie/members/test/test_restful.py::test_HomieRestful
+enhomie/restful/test/test_service.py::test_RestfulService_cover
+enhomie/restful/test/test_service.py::test_RestfulService
   /home/runner/work/enhomie/enhomie/main/.venv-package/lib/python3.12/site-packages/websockets/legacy/__init__.py:6: DeprecationWarning: websockets.legacy is deprecated; see https://websockets.readthedocs.io/en/stable/howto/upgrade.html for upgrade instructions
     warnings.warn(  # deprecated in 14.0 - 2024-11-09
 
-enhomie/restful/test/test_service.py::test_RestfulService
 enhomie/homie/members/test/test_restful.py::test_HomieRestful
+enhomie/restful/test/test_service.py::test_RestfulService_cover
+enhomie/restful/test/test_service.py::test_RestfulService
   /home/runner/work/enhomie/enhomie/main/.venv-package/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:17: DeprecationWarning: websockets.server.WebSocketServerProtocol is deprecated
     from websockets.server import WebSocketServerProtocol
 
@@ -497,7 +499,7 @@ enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
 TOTAL                                            8097      0   100%
-======================= 120 passed, 4 warnings in 38.40s =======================
+======================= 120 passed, 6 warnings in 35.12s =======================
     DONE
   ● Write coveragepy output to htmlcov..
     DONE
