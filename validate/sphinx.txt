@@ -37,7 +37,7 @@ highlighting module code... [  1%] enhomie.builtins.modelshighlighting module c
 writing additional pages... search done
 dumping search index in English (code: en)... done
 dumping object inventory... done
-build succeeded, 1824 warnings.
+build succeeded, 1821 warnings.
 
 The HTML pages are in sphinx/html.
     DONE
