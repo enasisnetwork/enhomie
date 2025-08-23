@@ -22,10 +22,10 @@ from ...utils import InvalidParam
 from ...utils import MultipleSource
 
 if TYPE_CHECKING:
-    from .origin import HomieOrigin
     from .device import HomieDevice
-    from ..threads import HomieActionNode
+    from .origin import HomieOrigin
     from ..params import HomieSceneParams
+    from ..threads import HomieActionNode
 
 
 

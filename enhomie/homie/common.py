@@ -17,9 +17,9 @@ from encommon.colors import Color
 from encommon.utils.stdout import ANSIARRAY
 
 if TYPE_CHECKING:
-    from .threads import HomieThreadItem
     from .addons import HomieAspiredItem
     from .addons import HomieDesiredItem
+    from .threads import HomieThreadItem
 
 
 

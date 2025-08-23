@@ -264,7 +264,7 @@ class HomieConfig(Config):
 
         self.__params = params
 
-        return self.__params
+        return params
 
 
     def merge_params(
@@ -310,7 +310,7 @@ class HomieConfig(Config):
     @__params.setter
     def __params(
         self,
-        value: Params,
+        value: Params | None,
     ) -> None:
         """
         Update the value for the attribute from class instance.

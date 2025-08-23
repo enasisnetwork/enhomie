@@ -35,8 +35,8 @@ if TYPE_CHECKING:
     from ..homie.childs import HomieScene
     from ..homie.common import HomieKinds
     from ..homie.common import HomieState
-    from ..homie.threads import HomieActionNode
     from ..homie.threads import HomieActionItem
+    from ..homie.threads import HomieActionNode
     from ..homie.threads import HomieUpdateBase
     from ..homie.threads import HomieUpdateItem
 

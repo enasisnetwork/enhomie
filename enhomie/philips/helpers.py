@@ -28,9 +28,9 @@ from ..utils import Idempotent
 
 if TYPE_CHECKING:
     from .origin import PhueOrigin
+    from ..homie.childs import HomieScene
     from ..homie.common import HomieKinds
     from ..homie.common import HomieState
-    from ..homie.childs import HomieScene
     from ..homie.threads import HomieActionNode
 
 

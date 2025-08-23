@@ -15,19 +15,19 @@ if TYPE_CHECKING:
     from .addons import HomieDesiredItem
     from .addons import HomieQueueItem
     from .common import HomieStage
-    from .params import HomieParams
-    from .params import HomiePrinterParams
+    from .params import HomieAspireParams
     from .params import HomieChildParams
-    from .params import HomieOriginParams
+    from .params import HomieDesireParams
     from .params import HomieDeviceParams
     from .params import HomieGroupParams
-    from .params import HomieSceneParams
-    from .params import HomieAspireParams
-    from .params import HomieDesireParams
-    from .params import HomiePluginParams
     from .params import HomieOccurParams
-    from .params import HomieWhereParams
+    from .params import HomieOriginParams
+    from .params import HomieParams
+    from .params import HomiePluginParams
+    from .params import HomiePrinterParams
+    from .params import HomieSceneParams
     from .params import HomieServiceParams
+    from .params import HomieWhereParams
     from .threads import HomieActionItem
     from .threads import HomieStreamItem
     from .threads import HomieThreadItem
