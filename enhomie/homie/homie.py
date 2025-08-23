@@ -28,11 +28,11 @@ from .childs import HomieChilds
 from .models import HomieModels
 
 if TYPE_CHECKING:
-    from .common import HomiePrint
-    from .common import HomieState
     from .childs import HomieDevice
     from .childs import HomieGroup
     from .childs import HomieScene
+    from .common import HomiePrint
+    from .common import HomieState
     from .config import HomieConfig
     from .params import HomieParams
     from .threads import HomieActionBase

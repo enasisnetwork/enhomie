@@ -20,8 +20,8 @@ if TYPE_CHECKING:
     from .params import DriverPhueMotionParams
     from .params import DriverPhueSceneParams
     from .params import PhueOriginParams
-    from .update import PhueUpdateItem
     from .stream import PhueStreamItem
+    from .update import PhueUpdateItem
 
 
 

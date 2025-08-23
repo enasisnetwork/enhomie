@@ -29,8 +29,8 @@ from ..utils import MultipleSource
 if TYPE_CHECKING:
     from ..homie.common import HomieKinds
     from ..homie.threads import HomieActionNode
-    from ..homie.threads import HomieUpdateItem
     from ..homie.threads import HomieUpdateBase
+    from ..homie.threads import HomieUpdateItem
 
 
 

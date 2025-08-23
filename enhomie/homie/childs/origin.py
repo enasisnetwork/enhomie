@@ -28,9 +28,9 @@ if TYPE_CHECKING:
     from ..params import HomieOriginParams
     from ..threads import HomieActionItem
     from ..threads import HomieActionNode
+    from ..threads import HomieStreamItem
     from ..threads import HomieUpdateBase
     from ..threads import HomieUpdateItem
-    from ..threads import HomieStreamItem
 
 
 

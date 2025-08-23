@@ -19,9 +19,9 @@ from ...hubitat import HubiAction
 from ...philips import PhueAction
 
 if TYPE_CHECKING:
-    from ..common import HomieState
     from ..childs import HomieOrigin
     from ..childs import HomieScene
+    from ..common import HomieState
     from ..threads import HomieActionNode
     from ..threads import HomieThread
 
