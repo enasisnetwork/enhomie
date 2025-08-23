@@ -1,7 +1,9 @@
 >>> make mypy
   ● Executing mypy in enhomie..
-enhomie/homie/config.py:267: error: Incompatible return value type (got "Params | None", expected "HomieParams")  [return-value]
-enhomie/homie/config.py:310: error: Incompatible override of a setter type  [override]
-enhomie/homie/config.py:310: note:  (base class "Config" defined the type as "Params | None",
-enhomie/homie/config.py:310: note:  override has type "Params")
-enhomie/homie/config.py:310: note:  Setter types should behave contravariantly
+    DONE
+  ● Executing mypy in sphinx..
+    DONE
+  ● Executing mypy on makefile.py..
+    DONE
+  ● Executing mypy on makebadge.py..
+    DONE

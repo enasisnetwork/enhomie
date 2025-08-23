@@ -1,8 +1,8 @@
 {
-  "flake8": "failing",
+  "flake8": "passing",
   "pylint": "passing",
   "ruff": "passing",
-  "mypy": "failing",
+  "mypy": "passing",
   "yamllint": "passing",
   "pytest": "passing",
   "coverage": "100",
