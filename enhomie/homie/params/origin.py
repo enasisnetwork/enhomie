@@ -71,4 +71,5 @@ class HomieOriginParams(HomieChildParams, extra='forbid'):
                 item['_parse'] = _parse
 
 
-        super().__init__(**data)
+        super().__init__(
+            _parse, **data)
