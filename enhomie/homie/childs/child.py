@@ -179,6 +179,6 @@ class HomieChild:
 
         return {
             'name': self.name,
-            'family': self.family,
             'kind': self.kind,
+            'family': self.family,
             'params': dumped}
