@@ -24,6 +24,8 @@ if TYPE_CHECKING:
 class HomieLogger:
     """
     Methods for extending use of underlying logging library.
+
+    :param homie: Primary class instance for Homie Automate.
     """
 
     __homie: 'Homie'

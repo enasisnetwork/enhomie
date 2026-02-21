@@ -120,8 +120,8 @@
   "origins": {
     "jupiter_hubitat": {
       "name": "jupiter_hubitat",
-      "family": "hubitat",
       "kind": "origin",
+      "family": "hubitat",
       "params": {
         "hubitat": {
           "bridge": {
@@ -140,8 +140,8 @@
     },
     "neptune_hubitat": {
       "name": "neptune_hubitat",
-      "family": "hubitat",
       "kind": "origin",
+      "family": "hubitat",
       "params": {
         "hubitat": {
           "bridge": {
@@ -160,8 +160,8 @@
     },
     "jupiter_philips": {
       "name": "jupiter_philips",
-      "family": "philips",
       "kind": "origin",
+      "family": "philips",
       "params": {
         "hubitat": null,
         "philips": {
@@ -179,8 +179,8 @@
     },
     "neptune_philips": {
       "name": "neptune_philips",
-      "family": "philips",
       "kind": "origin",
+      "family": "philips",
       "params": {
         "hubitat": null,
         "philips": {
@@ -198,8 +198,8 @@
     },
     "jupiter_ubiquiti": {
       "name": "jupiter_ubiquiti",
-      "family": "ubiquiti",
       "kind": "origin",
+      "family": "ubiquiti",
       "params": {
         "hubitat": null,
         "philips": null,
@@ -219,8 +219,8 @@
     },
     "neptune_ubiquiti": {
       "name": "neptune_ubiquiti",
-      "family": "ubiquiti",
       "kind": "origin",
+      "family": "ubiquiti",
       "params": {
         "hubitat": null,
         "philips": null,
@@ -242,8 +242,8 @@
   "devices": {
     "jupiter_light2": {
       "name": "jupiter_light2",
-      "family": "hubitat",
       "kind": "device",
+      "family": "hubitat",
       "params": {
         "origin": "jupiter_hubitat",
         "label": "Jupiter Light",
@@ -254,8 +254,8 @@
     },
     "jupiter_special": {
       "name": "jupiter_special",
-      "family": "hubitat",
       "kind": "device",
+      "family": "hubitat",
       "params": {
         "origin": "jupiter_hubitat",
         "label": "Jupiter Special",
@@ -266,8 +266,8 @@
     },
     "neptune_light2": {
       "name": "neptune_light2",
-      "family": "hubitat",
       "kind": "device",
+      "family": "hubitat",
       "params": {
         "origin": "neptune_hubitat",
         "label": "Neptune Light",
@@ -278,8 +278,8 @@
     },
     "neptune_special": {
       "name": "neptune_special",
-      "family": "hubitat",
       "kind": "device",
+      "family": "hubitat",
       "params": {
         "origin": "neptune_hubitat",
         "label": "Neptune Special",
@@ -290,8 +290,8 @@
     },
     "jupiter_button": {
       "name": "jupiter_button",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "jupiter_philips",
         "label": "Jupiter Button",
@@ -302,8 +302,8 @@
     },
     "jupiter_motion": {
       "name": "jupiter_motion",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "jupiter_philips",
         "label": "Jupiter Motion",
@@ -314,8 +314,8 @@
     },
     "jupiter_switch": {
       "name": "jupiter_switch",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "jupiter_philips",
         "label": "Jupiter Switch",
@@ -326,8 +326,8 @@
     },
     "jupiter_contact": {
       "name": "jupiter_contact",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "jupiter_philips",
         "label": "Jupiter Contact",
@@ -338,8 +338,8 @@
     },
     "jupiter_plug": {
       "name": "jupiter_plug",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "jupiter_philips",
         "label": "Jupiter Plug",
@@ -350,8 +350,8 @@
     },
     "jupiter_light1": {
       "name": "jupiter_light1",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "jupiter_philips",
         "label": "Jupiter Light",
@@ -362,8 +362,8 @@
     },
     "neptune_button": {
       "name": "neptune_button",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "neptune_philips",
         "label": "Neptune Button",
@@ -374,8 +374,8 @@
     },
     "neptune_motion": {
       "name": "neptune_motion",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "neptune_philips",
         "label": "Neptune Motion",
@@ -386,8 +386,8 @@
     },
     "neptune_switch": {
       "name": "neptune_switch",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "neptune_philips",
         "label": "Neptune Switch",
@@ -398,8 +398,8 @@
     },
     "neptune_contact": {
       "name": "neptune_contact",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "neptune_philips",
         "label": "Neptune Contact",
@@ -410,8 +410,8 @@
     },
     "neptune_plug": {
       "name": "neptune_plug",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "neptune_philips",
         "label": "Neptune Plug",
@@ -422,8 +422,8 @@
     },
     "neptune_light1": {
       "name": "neptune_light1",
-      "family": "philips",
       "kind": "device",
+      "family": "philips",
       "params": {
         "origin": "neptune_philips",
         "label": "Neptune Light",
@@ -434,8 +434,8 @@
     },
     "jupiter_phone": {
       "name": "jupiter_phone",
-      "family": "ubiquiti",
       "kind": "device",
+      "family": "ubiquiti",
       "params": {
         "origin": "jupiter_ubiquiti",
         "label": "Phone",
@@ -446,8 +446,8 @@
     },
     "jupiter_tablet": {
       "name": "jupiter_tablet",
-      "family": "ubiquiti",
       "kind": "device",
+      "family": "ubiquiti",
       "params": {
         "origin": "jupiter_ubiquiti",
         "label": null,
@@ -458,8 +458,8 @@
     },
     "neptune_phone": {
       "name": "neptune_phone",
-      "family": "ubiquiti",
       "kind": "device",
+      "family": "ubiquiti",
       "params": {
         "origin": "neptune_ubiquiti",
         "label": "Phone",
@@ -470,8 +470,8 @@
     },
     "neptune_tablet": {
       "name": "neptune_tablet",
-      "family": "ubiquiti",
       "kind": "device",
+      "family": "ubiquiti",
       "params": {
         "origin": "neptune_ubiquiti",
         "label": null,
@@ -484,8 +484,8 @@
   "groups": {
     "jupiter": {
       "name": "jupiter",
-      "family": "builtins",
       "kind": "group",
+      "family": "builtins",
       "params": {
         "origin": "jupiter_philips",
         "label": "Jupiter",
@@ -496,8 +496,8 @@
     },
     "ganymede": {
       "name": "ganymede",
-      "family": "builtins",
       "kind": "group",
+      "family": "builtins",
       "params": {
         "origin": "jupiter_philips",
         "label": "Ganymede",
@@ -510,8 +510,8 @@
     },
     "neptune": {
       "name": "neptune",
-      "family": "builtins",
       "kind": "group",
+      "family": "builtins",
       "params": {
         "origin": "neptune_philips",
         "label": "Neptune",
@@ -522,8 +522,8 @@
     },
     "halimede": {
       "name": "halimede",
-      "family": "builtins",
       "kind": "group",
+      "family": "builtins",
       "params": {
         "origin": "neptune_philips",
         "label": "Halimede",
@@ -538,8 +538,8 @@
   "scenes": {
     "active": {
       "name": "active",
-      "family": "builtins",
       "kind": "scene",
+      "family": "builtins",
       "params": {
         "label": "Active",
         "stage": {
@@ -552,8 +552,8 @@
     },
     "standby": {
       "name": "standby",
-      "family": "builtins",
       "kind": "scene",
+      "family": "builtins",
       "params": {
         "label": "Standby",
         "stage": {
@@ -577,8 +577,8 @@
     },
     "absent": {
       "name": "absent",
-      "family": "builtins",
       "kind": "scene",
+      "family": "builtins",
       "params": {
         "label": "Absent",
         "stage": {
@@ -593,8 +593,8 @@
   "desires": {
     "jupiter_active": {
       "name": "jupiter_active",
-      "family": "builtins",
       "kind": "desire",
+      "family": "builtins",
       "params": {
         "devices": [
           "jupiter_special"
@@ -702,8 +702,8 @@
     },
     "jupiter_standby": {
       "name": "jupiter_standby",
-      "family": "builtins",
       "kind": "desire",
+      "family": "builtins",
       "params": {
         "devices": [
           "jupiter_special"
@@ -749,8 +749,8 @@
     },
     "jupiter_absent": {
       "name": "jupiter_absent",
-      "family": "builtins",
       "kind": "desire",
+      "family": "builtins",
       "params": {
         "devices": [
           "jupiter_special"
@@ -798,8 +798,8 @@
     },
     "neptune_active": {
       "name": "neptune_active",
-      "family": "builtins",
       "kind": "desire",
+      "family": "builtins",
       "params": {
         "devices": [
           "neptune_special"
@@ -907,8 +907,8 @@
     },
     "neptune_standby": {
       "name": "neptune_standby",
-      "family": "builtins",
       "kind": "desire",
+      "family": "builtins",
       "params": {
         "devices": [
           "neptune_special"
@@ -954,8 +954,8 @@
     },
     "neptune_absent": {
       "name": "neptune_absent",
-      "family": "builtins",
       "kind": "desire",
+      "family": "builtins",
       "params": {
         "devices": [
           "neptune_special"
@@ -1005,8 +1005,8 @@
   "aspires": {
     "jupiter_active": {
       "name": "jupiter_active",
-      "family": "builtins",
       "kind": "aspire",
+      "family": "builtins",
       "params": {
         "devices": [
           "jupiter_special"
@@ -1131,8 +1131,8 @@
     },
     "jupiter_standby": {
       "name": "jupiter_standby",
-      "family": "builtins",
       "kind": "aspire",
+      "family": "builtins",
       "params": {
         "devices": [
           "jupiter_special"
@@ -1204,8 +1204,8 @@
     },
     "neptune_active": {
       "name": "neptune_active",
-      "family": "builtins",
       "kind": "aspire",
+      "family": "builtins",
       "params": {
         "devices": [
           "neptune_special"
@@ -1330,8 +1330,8 @@
     },
     "neptune_standby": {
       "name": "neptune_standby",
-      "family": "builtins",
       "kind": "aspire",
+      "family": "builtins",
       "params": {
         "devices": [
           "neptune_special"
