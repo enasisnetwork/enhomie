@@ -223,6 +223,7 @@ class RestfulServer(UvicornServer):
 
 
     def __log_error(
+        # NOCVR
         self,
         message: str,
         *args: Any,
