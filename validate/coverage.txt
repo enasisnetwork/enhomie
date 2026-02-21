@@ -189,7 +189,7 @@ enhomie/restful/__init__.py                         3      0   100%
 enhomie/restful/conftest.py                        20      0   100%
 enhomie/restful/params.py                          13      0   100%
 enhomie/restful/persist.py                         20      0   100%
-enhomie/restful/server.py                          76      5    93%
+enhomie/restful/server.py                          70      0   100%
 enhomie/restful/service.py                         78      0   100%
 enhomie/restful/static/__init__.py                 54      0   100%
 enhomie/restful/test/__init__.py                    2      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8097      5    99%
+TOTAL                                            8091      0   100%
