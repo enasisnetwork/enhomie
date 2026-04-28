@@ -46,7 +46,7 @@ enhomie/homie/addons/persist.py                   206      0   100%
 enhomie/homie/addons/queue.py                      34      0   100%
 enhomie/homie/addons/test/__init__.py               0      0   100%
 enhomie/homie/addons/test/test_aspired.py          74      0   100%
-enhomie/homie/addons/test/test_desired.py          62      0   100%
+enhomie/homie/addons/test/test_desired.py          62      3    95%
 enhomie/homie/addons/test/test_logger.py           43      0   100%
 enhomie/homie/addons/test/test_persist.py          62      0   100%
 enhomie/homie/addons/test/test_queue.py            27      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   16      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8091      0   100%
+TOTAL                                            8091      3    99%
