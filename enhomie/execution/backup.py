@@ -14,8 +14,8 @@ from typing import Optional
 
 from encommon.types import DictStrAny
 
-from ..homie import Homie
-from ..homie import HomieConfig
+from ..homie.config import HomieConfig
+from ..homie.homie import Homie
 
 
 

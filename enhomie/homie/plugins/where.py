@@ -12,15 +12,15 @@ from typing import TYPE_CHECKING
 from typing import Type
 
 from encommon.times import Time
+from encommon.utils import Unexpected
 
 from .plugin import HomiePlugin
 from ..models import HomieModels
-from ...utils import InvalidParam
-from ...utils import UnexpectedCondition
+from ...utils.param import InvalidParam
 
 if TYPE_CHECKING:
     from .driver import HomieDriver
-    from ..params import HomieWhereParams
+    from ..params.where import HomieWhereParams
 
 
 
@@ -160,4 +160,4 @@ class HomieWhere(HomiePlugin):
         if len(wheres) >= 1:
             return all(wheres)
 
-        raise UnexpectedCondition
+        raise Unexpected

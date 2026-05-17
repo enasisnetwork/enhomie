@@ -24,7 +24,7 @@ from ....conftest import homie_factory
 
 if TYPE_CHECKING:
     from ...homie import Homie
-    from ....utils import TestBodies
+    from ....utils.tests import TestBodies
 
 
 

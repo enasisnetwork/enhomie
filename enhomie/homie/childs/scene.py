@@ -7,25 +7,25 @@ is permitted, for more information consult the project license file.
 
 
 
-from copy import deepcopy
 from typing import Literal
 from typing import Optional
 from typing import TYPE_CHECKING
 
 from encommon.types import DictStrAny
 from encommon.types import merge_dicts
+from encommon.types import prune
 
 from .child import HomieChild
 from ..common import HomieStage
 from ..models import HomieModels
-from ...utils import InvalidParam
-from ...utils import MultipleSource
+from ...utils.param import InvalidParam
+from ...utils.raises import MultipleSource
 
 if TYPE_CHECKING:
     from .device import HomieDevice
     from .origin import HomieOrigin
-    from ..params import HomieSceneParams
-    from ..threads import HomieActionNode
+    from ..params.scene import HomieSceneParams
+    from ..threads.action import HomieActionNode
 
 
 
@@ -163,11 +163,9 @@ class HomieScene(HomieChild):
         stage = params.stage
         devices = params.devices
 
-        pruned = (
-            stage
-            .enpruned)
-
-        pruned = deepcopy(pruned)
+        pruned = prune(
+            stage.model_dump(),
+            paranoid=True)
 
 
         def _override() -> None:
@@ -177,11 +175,9 @@ class HomieScene(HomieChild):
             config = devices[
                 device.name]
 
-            _pruned = (
-                config
-                .enpruned)
-
-            _pruned = deepcopy(_pruned)
+            _pruned = prune(
+                config.model_dump(),
+                paranoid=True)
 
             merge_dicts(
                 dict1=pruned,

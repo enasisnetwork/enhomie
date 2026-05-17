@@ -8,11 +8,11 @@ is permitted, for more information consult the project license file.
 
 
 from .origin import PhueOriginParams
-from .plugins import DriverPhueButtonParams
-from .plugins import DriverPhueChangeParams
-from .plugins import DriverPhueContactParams
-from .plugins import DriverPhueMotionParams
-from .plugins import DriverPhueSceneParams
+from .plugins.button import DriverPhueButtonParams
+from .plugins.change import DriverPhueChangeParams
+from .plugins.contact import DriverPhueContactParams
+from .plugins.motion import DriverPhueMotionParams
+from .plugins.scene import DriverPhueSceneParams
 
 
 

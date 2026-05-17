@@ -19,24 +19,24 @@ from encommon.types import sort_dict
 from encommon.utils import array_ansi
 from encommon.utils import print_ansi
 
-from .addons import HomieAspired
-from .addons import HomieDesired
-from .addons import HomieJinja2
-from .addons import HomieLogger
-from .addons import HomiePersist
-from .childs import HomieChilds
+from .addons.aspired import HomieAspired
+from .addons.desired import HomieDesired
+from .addons.jinja2 import HomieJinja2
+from .addons.logger import HomieLogger
+from .addons.persist import HomiePersist
+from .childs.childs import HomieChilds
 from .models import HomieModels
 
 if TYPE_CHECKING:
-    from .childs import HomieDevice
-    from .childs import HomieGroup
-    from .childs import HomieScene
+    from .childs.device import HomieDevice
+    from .childs.group import HomieGroup
+    from .childs.scene import HomieScene
     from .common import HomiePrint
     from .common import HomieState
     from .config import HomieConfig
-    from .params import HomieParams
-    from .threads import HomieActionBase
-    from .threads import HomieActionNode
+    from .params.homie import HomieParams
+    from .threads.action import HomieActionBase
+    from .threads.action import HomieActionNode
 
 
 
@@ -177,6 +177,32 @@ class Homie:
 
 
     @property
+    def console(
+        self,
+    ) -> bool:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return self.params.console
+
+
+    @property
+    def debug(
+        self,
+    ) -> bool:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return self.params.debug
+
+
+    @property
     def dryrun(
         self,
     ) -> bool:
@@ -190,7 +216,7 @@ class Homie:
 
 
     @property
-    def potent(
+    def forced(
         self,
     ) -> bool:
         """
@@ -199,7 +225,7 @@ class Homie:
         :returns: Value for the attribute from class instance.
         """
 
-        return self.params.potent
+        return self.params.forced
 
 
     @property
@@ -271,7 +297,8 @@ class Homie:
         """
 
         params = deepcopy(
-            self.params.endumped)
+            self.params
+            .model_dump())
 
         childs = deepcopy(
             self.childs.dumped)

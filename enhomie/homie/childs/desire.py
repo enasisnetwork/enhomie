@@ -20,13 +20,13 @@ from encommon.times.params import _TIMERS
 from .child import HomieChild
 from .helpers import whered
 from ..models import HomieModels
-from ..plugins import HomieWhere
+from ..plugins.where import HomieWhere
 
 if TYPE_CHECKING:
     from .device import HomieDevice
     from .group import HomieGroup
-    from ..params import HomieDesireParams
-    from ..threads import HomieActionNode
+    from ..params.desire import HomieDesireParams
+    from ..threads.action import HomieActionNode
 
 
 

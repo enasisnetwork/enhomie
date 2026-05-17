@@ -18,12 +18,12 @@ from .thread import HomieThread
 from .thread import HomieThreadItem
 
 if TYPE_CHECKING:
-    from ..childs import HomieDevice
-    from ..childs import HomieGroup
-    from ..childs import HomieOrigin
-    from ..childs import HomieScene
+    from ..childs.device import HomieDevice
+    from ..childs.group import HomieGroup
+    from ..childs.origin import HomieOrigin
+    from ..childs.scene import HomieScene
     from ..common import HomieState
-    from ..members import HomieActions
+    from ..members.actions import HomieActions
 
 
 

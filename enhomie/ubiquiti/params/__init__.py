@@ -8,7 +8,7 @@ is permitted, for more information consult the project license file.
 
 
 from .origin import UbiqOriginParams
-from .plugins import DriverUbiqClientParams
+from .plugins.client import DriverUbiqClientParams
 
 
 

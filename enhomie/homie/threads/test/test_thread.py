@@ -13,7 +13,7 @@ from encommon.times import Time
 
 if TYPE_CHECKING:
     from ...service import HomieService
-    from ....utils import TestBodies
+    from ....utils.tests import TestBodies
 
 
 

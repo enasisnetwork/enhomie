@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING
 from typing import Union
 
 if TYPE_CHECKING:
-    from ..homie.childs import HomieChild
+    from ..homie.childs.child import HomieChild
 
 
 

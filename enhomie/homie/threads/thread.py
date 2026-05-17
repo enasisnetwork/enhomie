@@ -14,17 +14,17 @@ from typing import TYPE_CHECKING
 
 from encommon.types import clsname
 
-from ..addons import HomieQueue
-from ..addons import HomieQueueItem
+from ..addons.queue import HomieQueue
+from ..addons.queue import HomieQueueItem
 
 if TYPE_CHECKING:
-    from ..childs import HomieOrigin
+    from ..childs.origin import HomieOrigin
     from ..homie import Homie
-    from ..members import HomieMember
+    from ..members.member import HomieMember
     from ..service import HomieService
-    from ..threads import HomieActionItem
-    from ..threads import HomieStreamItem
-    from ..threads import HomieUpdateItem
+    from ..threads.action import HomieActionItem
+    from ..threads.stream import HomieStreamItem
+    from ..threads.update import HomieUpdateItem
 
 
 

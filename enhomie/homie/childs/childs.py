@@ -20,7 +20,7 @@ from .device import HomieDevice
 from .group import HomieGroup
 from .origin import HomieOrigin
 from .scene import HomieScene
-from ...utils import InvalidChild
+from ...utils.child import InvalidChild
 
 if TYPE_CHECKING:
     from ..homie import Homie

@@ -17,9 +17,9 @@ from typing import Optional
 
 from encommon.types import DictStrAny
 
-from ..homie import Homie
-from ..homie import HomieConfig
-from ..restful import RestfulService
+from ..homie.config import HomieConfig
+from ..homie.homie import Homie
+from ..restful.service import RestfulService
 
 
 

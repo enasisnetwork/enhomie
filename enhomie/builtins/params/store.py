@@ -14,7 +14,7 @@ from typing import Optional
 from pydantic import Field
 
 from ..store import BltnStoreOperas
-from ...homie.addons import HomiePersistValue
+from ...homie.addons.persist import HomiePersistValue
 from ...homie.params.common import HomieParamsModel
 
 

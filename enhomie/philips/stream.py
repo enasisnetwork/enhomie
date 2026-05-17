@@ -16,11 +16,11 @@ from encommon.types import DictStrAny
 from httpx import ReadTimeout
 
 from .origin import PhueOrigin
-from ..homie.threads import HomieStream
-from ..homie.threads import HomieStreamItem
+from ..homie.threads.stream import HomieStream
+from ..homie.threads.stream import HomieStreamItem
 
 if TYPE_CHECKING:
-    from ..homie.childs import HomieOrigin
+    from ..homie.childs.origin import HomieOrigin
 
 
 

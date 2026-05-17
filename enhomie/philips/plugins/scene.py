@@ -16,13 +16,13 @@ from encommon.types import getate
 
 from ..models import PhueModels
 from ..stream import PhueStreamItem
-from ...homie.plugins import HomieDriver
-from ...utils import InvalidParam
+from ...homie.plugins.driver import HomieDriver
+from ...utils.param import InvalidParam
 
 if TYPE_CHECKING:
-    from ..params import DriverPhueSceneParams
-    from ...homie.plugins import HomiePluginKinds
-    from ...homie.threads import HomieStreamItem
+    from ..params.plugins.scene import DriverPhueSceneParams
+    from ...homie.plugins.common import HomiePluginKinds
+    from ...homie.threads.stream import HomieStreamItem
 
 
 

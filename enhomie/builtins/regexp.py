@@ -15,13 +15,13 @@ from typing import TYPE_CHECKING
 from encommon.utils import rgxp_match
 
 from .models import BltnModels
-from ..homie.plugins import HomieDriver
-from ..utils import InvalidParam
+from ..homie.plugins.driver import HomieDriver
+from ..utils.param import InvalidParam
 
 if TYPE_CHECKING:
-    from .params import DriverBltnRegexpParams
-    from ..homie.plugins import HomiePluginKinds
-    from ..homie.threads import HomieStreamItem
+    from .params.regexp import DriverBltnRegexpParams
+    from ..homie.plugins.common import HomiePluginKinds
+    from ..homie.threads.stream import HomieStreamItem
 
 
 

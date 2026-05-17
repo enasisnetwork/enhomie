@@ -11,15 +11,15 @@ from typing import Literal
 from typing import TYPE_CHECKING
 
 from encommon.times import Time
+from encommon.utils import Unexpected
 
 from .models import BltnModels
-from ..homie.plugins import HomieDriver
-from ..utils import InvalidParam
-from ..utils import UnexpectedCondition
+from ..homie.plugins.driver import HomieDriver
+from ..utils.param import InvalidParam
 
 if TYPE_CHECKING:
-    from .params import DriverBltnStoreParams
-    from ..homie.plugins import HomiePluginKinds
+    from .params.store import DriverBltnStoreParams
+    from ..homie.plugins.common import HomiePluginKinds
 
 
 
@@ -170,4 +170,4 @@ class DriverBltnStore(HomieDriver):
             return store == value
 
 
-        raise UnexpectedCondition
+        raise Unexpected

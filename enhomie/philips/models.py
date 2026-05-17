@@ -14,12 +14,12 @@ from typing import Type
 
 if TYPE_CHECKING:
     from .action import PhueActionItem
-    from .params import DriverPhueButtonParams
-    from .params import DriverPhueChangeParams
-    from .params import DriverPhueContactParams
-    from .params import DriverPhueMotionParams
-    from .params import DriverPhueSceneParams
-    from .params import PhueOriginParams
+    from .params.origin import PhueOriginParams
+    from .params.plugins.button import DriverPhueButtonParams
+    from .params.plugins.change import DriverPhueChangeParams
+    from .params.plugins.contact import DriverPhueContactParams
+    from .params.plugins.motion import DriverPhueMotionParams
+    from .params.plugins.scene import DriverPhueSceneParams
     from .stream import PhueStreamItem
     from .update import PhueUpdateItem
 

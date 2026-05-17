@@ -15,7 +15,7 @@ from typing import TYPE_CHECKING
 from encommon.types import clsname
 
 if TYPE_CHECKING:
-    from ..homie.childs import HomieChild
+    from ..homie.childs.child import HomieChild
 
 
 
@@ -36,7 +36,7 @@ class InvalidParam(Exception):
 
     :param error: Simple code describing the invalid error.
     :param about: Additional information for the exception.
-    :param child: Child class instance for Homie Automate.
+    :param child: Child class instance related to exception.
     :param param: Name of the parameter which is not valid.
     :param value: Value if any specified for the parameter.
     """

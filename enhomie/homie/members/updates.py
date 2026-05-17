@@ -14,13 +14,13 @@ from typing import Type
 from encommon.types import NCNone
 
 from .member import HomieMember
-from ...hubitat import HubiUpdate
-from ...philips import PhueUpdate
-from ...ubiquiti import UbiqUpdate
+from ...hubitat.update import HubiUpdate
+from ...philips.update import PhueUpdate
+from ...ubiquiti.update import UbiqUpdate
 
 if TYPE_CHECKING:
-    from ..childs import HomieOrigin
-    from ..threads import HomieThread
+    from ..childs.origin import HomieOrigin
+    from ..threads.thread import HomieThread
 
 
 

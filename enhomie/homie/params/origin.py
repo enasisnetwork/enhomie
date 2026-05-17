@@ -15,9 +15,9 @@ from typing import Optional
 from pydantic import Field
 
 from .child import HomieChildParams
-from ...hubitat.params import HubiOriginParams
-from ...philips.params import PhueOriginParams
-from ...ubiquiti.params import UbiqOriginParams
+from ...hubitat.params.origin import HubiOriginParams
+from ...philips.params.origin import PhueOriginParams
+from ...ubiquiti.params.origin import UbiqOriginParams
 
 
 

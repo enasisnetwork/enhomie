@@ -11,11 +11,11 @@ from .action import PhueAction
 from .device import PhueDevice
 from .models import PhueModels
 from .origin import PhueOrigin
-from .plugins import DriverPhueButton
-from .plugins import DriverPhueChange
-from .plugins import DriverPhueContact
-from .plugins import DriverPhueMotion
-from .plugins import DriverPhueScene
+from .plugins.button import DriverPhueButton
+from .plugins.change import DriverPhueChange
+from .plugins.contact import DriverPhueContact
+from .plugins.motion import DriverPhueMotion
+from .plugins.scene import DriverPhueScene
 from .stream import PhueStream
 from .update import PhueUpdate
 

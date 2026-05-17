@@ -13,8 +13,8 @@ from typing import TYPE_CHECKING
 from typing import Type
 
 if TYPE_CHECKING:
-    from .params import DriverUbiqClientParams
-    from .params import UbiqOriginParams
+    from .params.origin import UbiqOriginParams
+    from .params.plugins.client import DriverUbiqClientParams
     from .update import UbiqUpdateItem
 
 

@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from .common import HomiePluginKinds
     from .plugin import HomiePlugin
     from ..common import HomieFamily
-    from ..threads import HomieStreamItem
+    from ..threads.stream import HomieStreamItem
 
 
 

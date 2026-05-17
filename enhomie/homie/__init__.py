@@ -9,6 +9,7 @@ is permitted, for more information consult the project license file.
 
 from .config import HomieConfig
 from .homie import Homie
+from .models import HomieModels
 from .service import HomieService
 
 
@@ -16,4 +17,5 @@ from .service import HomieService
 __all__ = [
     'Homie',
     'HomieConfig',
+    'HomieModels',
     'HomieService']

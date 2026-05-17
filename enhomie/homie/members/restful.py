@@ -13,11 +13,11 @@ from typing import TYPE_CHECKING
 from typing import Type
 
 from .member import HomieMember
-from ...restful import RestfulService
+from ...restful.service import RestfulService
 
 if TYPE_CHECKING:
-    from ..childs import HomieOrigin
-    from ..threads import HomieThread
+    from ..childs.origin import HomieOrigin
+    from ..threads.thread import HomieThread
 
 
 

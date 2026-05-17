@@ -12,7 +12,7 @@ from typing import Type
 
 if TYPE_CHECKING:
     from .action import HubiActionItem
-    from .params import HubiOriginParams
+    from .params.origin import HubiOriginParams
     from .update import HubiUpdateItem
 
 

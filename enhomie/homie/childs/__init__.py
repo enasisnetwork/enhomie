@@ -9,10 +9,10 @@ is permitted, for more information consult the project license file.
 
 from .aspire import HomieAspire
 from .child import HomieChild
+from .childs import HomieChilds
 from .desire import HomieDesire
 from .device import HomieDevice
 from .group import HomieGroup
-from .homie import HomieChilds
 from .origin import HomieOrigin
 from .scene import HomieScene
 

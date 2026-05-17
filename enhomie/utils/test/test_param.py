@@ -16,7 +16,7 @@ from encommon.types import lattrs
 from ..param import InvalidParam
 
 if TYPE_CHECKING:
-    from ...homie import Homie
+    from ...homie.homie import Homie
 
 
 
@@ -34,6 +34,8 @@ def test_InvalidParam(
 
     device = devices[
         'jupiter_motion']
+
+    name = device.name
 
 
     raises = InvalidParam(
@@ -70,6 +72,5 @@ def test_InvalidParam(
         'Error (invalid) '
         'param (param) '
         'value (value) child '
-        '(PhueDevice'
-        '/jupiter_motion)'
+        f'(PhueDevice/{name})'
         ' (about)')

@@ -17,13 +17,13 @@ from encommon.types import getate
 from .helpers import phue_sensors
 from ..models import PhueModels
 from ..stream import PhueStreamItem
-from ...homie.plugins import HomieDriver
-from ...utils import InvalidParam
+from ...homie.plugins.driver import HomieDriver
+from ...utils.param import InvalidParam
 
 if TYPE_CHECKING:
-    from ..params import DriverPhueMotionParams
-    from ...homie.plugins import HomiePluginKinds
-    from ...homie.threads import HomieStreamItem
+    from ..params.plugins.motion import DriverPhueMotionParams
+    from ...homie.plugins.common import HomiePluginKinds
+    from ...homie.threads.stream import HomieStreamItem
 
 
 

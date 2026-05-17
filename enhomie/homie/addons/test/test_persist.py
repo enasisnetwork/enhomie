@@ -66,7 +66,7 @@ def test_HomiePersist(
     record = (
         persist
         .record('jupiter_aspire')
-        .endumped)
+        .model_dump())
 
     assert record == {
         'about': 'Aspire for Jupiter',
@@ -148,7 +148,9 @@ def test_HomiePersist_cover(  # noqa: CFQ001
 
     assert len(records) == 1
 
-    record = records[0].endumped
+    record = (
+        records[0]
+        .model_dump())
 
     assert record == {
         'about': None,

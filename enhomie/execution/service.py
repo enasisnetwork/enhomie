@@ -17,9 +17,9 @@ from typing import Optional
 
 from encommon.types import DictStrAny
 
-from ..homie import Homie
-from ..homie import HomieConfig
-from ..homie import HomieService
+from ..homie.config import HomieConfig
+from ..homie.homie import Homie
+from ..homie.service import HomieService
 
 
 
@@ -67,16 +67,16 @@ def arguments(  # noqa: CFQ001
     parser.add_argument(
         '--dry-run',
         action='store_true',
-        default=False,
+        default=None,
         dest='dryrun',
-        help='do not execute actions')
+        help='prevent any changes')
 
 
     parser.add_argument(
         '--idempotent',
         action='store_false',
         default=None,
-        dest='potent',
+        dest='forced',
         help=(
             'do not make requests '
             'when already applied'))

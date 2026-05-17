@@ -13,10 +13,10 @@ from typing import Optional
 from pydantic import Field
 
 from .plugin import HomiePluginParams
-from ...builtins.params import DriverBltnPeriodParams
-from ...builtins.params import DriverBltnStoreParams
-from ...philips.params import DriverPhueChangeParams
-from ...ubiquiti.params import DriverUbiqClientParams
+from ...builtins.params.period import DriverBltnPeriodParams
+from ...builtins.params.store import DriverBltnStoreParams
+from ...philips.params.plugins.change import DriverPhueChangeParams
+from ...ubiquiti.params.plugins.client import DriverUbiqClientParams
 
 
 

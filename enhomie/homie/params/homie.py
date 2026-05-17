@@ -25,7 +25,7 @@ from .origin import HomieOriginParams
 from .persist import HomiePersistParams
 from .scene import HomieSceneParams
 from .service import HomieServiceParams
-from ...restful import RestfulServiceParams
+from ...restful.params import RestfulServiceParams
 
 
 
@@ -91,15 +91,31 @@ class HomieParams(Params, extra='forbid'):
               description='Database connection string',
               min_length=1)]
 
+    console: Annotated[
+        bool,
+        Field(False,
+              description=(
+                  'Output console information;'
+                  ' parameter is parsed by and'
+                  ' used in low-level config'))]
+
+    debug: Annotated[
+        bool,
+        Field(False,
+              description=(
+                  'Enable logging level debug;'
+                  ' parameter is parsed by and'
+                  ' used in low-level config'))]
+
     dryrun: Annotated[
         bool,
         Field(False,
-              description='Determine if changes applied')]
+              description='Whether to allow changes')]
 
-    potent: Annotated[
+    forced: Annotated[
         bool,
         Field(True,
-              description='Ignore idempotency in change')]
+              description='Ignore present idempotency')]
 
     printer: Annotated[
         HomiePrinterParams,
@@ -201,8 +217,7 @@ class HomieParams(Params, extra='forbid'):
 
             parsable = [
                 'database',
-                'dryrun',
-                'potent',
+                'forced',
                 'printer',
                 'service',
                 'restful',

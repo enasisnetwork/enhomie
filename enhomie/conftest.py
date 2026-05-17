@@ -19,15 +19,15 @@ from respx import MockRouter
 
 from . import EXAMPLES
 from . import PROJECT
-from .homie import Homie
-from .homie import HomieConfig
-from .homie import HomieService
+from .homie.config import HomieConfig
+from .homie.homie import Homie
+from .homie.service import HomieService
 from .hubitat.test import mock_hubi
 from .philips.test import mock_phue
-from .restful import RestfulService
+from .restful.service import RestfulService
 from .ubiquiti.test import mock_ubiq
-from .utils import TestBodies
-from .utils import TestTimes
+from .utils.tests import TestBodies
+from .utils.tests import TestTimes
 
 
 

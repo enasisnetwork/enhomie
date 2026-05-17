@@ -7,13 +7,6 @@ is permitted, for more information consult the project license file.
 
 
 
-class UnexpectedCondition(Exception):
-    """
-    Exception when action was not taken due to idempotency.
-    """
-
-
-
 class Idempotent(Exception):
     """
     Exception when action was not taken due to idempotency.
@@ -23,5 +16,5 @@ class Idempotent(Exception):
 
 class MultipleSource(Exception):
     """
-    Exception when action was not taken due to idempotency.
+    Exception when multiple sources match given parameters.
     """

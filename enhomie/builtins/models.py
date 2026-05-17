@@ -11,9 +11,9 @@ from typing import TYPE_CHECKING
 from typing import Type
 
 if TYPE_CHECKING:
-    from .params import DriverBltnPeriodParams
-    from .params import DriverBltnRegexpParams
-    from .params import DriverBltnStoreParams
+    from .params.period import DriverBltnPeriodParams
+    from .params.regexp import DriverBltnRegexpParams
+    from .params.store import DriverBltnStoreParams
 
 
 

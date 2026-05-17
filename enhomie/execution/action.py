@@ -15,14 +15,14 @@ from typing import get_args
 
 from encommon.types import DictStrAny
 
-from ..homie import Homie
-from ..homie import HomieConfig
 from ..homie.common import HomieState
+from ..homie.config import HomieConfig
+from ..homie.homie import Homie
 
 if TYPE_CHECKING:
-    from ..homie.childs import HomieDevice
-    from ..homie.childs import HomieGroup
-    from ..homie.childs import HomieScene
+    from ..homie.childs.device import HomieDevice
+    from ..homie.childs.group import HomieGroup
+    from ..homie.childs.scene import HomieScene
 
 
 
@@ -70,16 +70,16 @@ def arguments(  # noqa: CFQ001
     parser.add_argument(
         '--dry-run',
         action='store_true',
-        default=False,
+        default=None,
         dest='dryrun',
-        help='do not execute actions')
+        help='prevent any changes')
 
 
     parser.add_argument(
         '--idempotent',
         action='store_false',
         default=None,
-        dest='potent',
+        dest='forced',
         help=(
             'do not make requests '
             'when already applied'))
@@ -171,7 +171,7 @@ def operation(
     devices = childs.devices
     groups = childs.groups
     scenes = childs.scenes
-    potent = homie.potent
+    forced = homie.forced
 
 
     group: Optional['HomieGroup']
@@ -209,7 +209,7 @@ def operation(
 
     homie.set_actions(
         aitems=aitems,
-        force=potent)
+        force=forced)
 
 
 
