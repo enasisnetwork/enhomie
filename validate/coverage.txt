@@ -70,8 +70,8 @@ enhomie/homie/childs/test/test_group.py            41      0   100%
 enhomie/homie/childs/test/test_origin.py            2      0   100%
 enhomie/homie/childs/test/test_scene.py            34      0   100%
 enhomie/homie/common.py                            22      0   100%
-enhomie/homie/config.py                           130      1    99%
-enhomie/homie/homie.py                            176      2    99%
+enhomie/homie/config.py                           128      0   100%
+enhomie/homie/homie.py                            176      0   100%
 enhomie/homie/members/__init__.py                   6      0   100%
 enhomie/homie/members/actions.py                   90      0   100%
 enhomie/homie/members/member.py                   137      0   100%
@@ -116,7 +116,7 @@ enhomie/homie/plugins/where.py                     41      0   100%
 enhomie/homie/service.py                          267      0   100%
 enhomie/homie/test/__init__.py                      2      0   100%
 enhomie/homie/test/test_config.py                  21      0   100%
-enhomie/homie/test/test_homie.py                   70      0   100%
+enhomie/homie/test/test_homie.py                   72      0   100%
 enhomie/homie/test/test_models.py                  28      0   100%
 enhomie/homie/test/test_service.py                 96      0   100%
 enhomie/homie/threads/__init__.py                  12      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   17      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8100      3    99%
+TOTAL                                            8100      0   100%
