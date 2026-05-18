@@ -32,7 +32,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx_js.css" />
-    <link rel="stylesheet" type="text/css" href="/home/runner/work/enhomie/enhomie/main/sphinx/style.css?v=ca093065" />
+    <link rel="stylesheet" type="text/css" href="/home/runner/work/enhomie/enhomie/main/sphinx/style.css?v=0634628b" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -45,6 +45,7 @@
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="_static/icon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -264,7 +265,7 @@ Welcome to the project documentation. Below you will find the most common
 functions and classes within the library, but you may click your way further
 into the project from there. You can also view the source code.</section>
 <section id="module-enhomie.homie">
-<span id="homie-configuration"></span><h2>Homie Configuration<a class="headerlink" href="#module-enhomie.homie" title="Link to this heading">#</a></h2>
+<span id="homie"></span><h2>Homie<a class="headerlink" href="#module-enhomie.homie" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="enhomie.homie.Homie">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.homie.</span></span><span class="sig-name descname"><span class="pre">Homie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#enhomie.homie.HomieConfig" title="enhomie.homie.HomieConfig"><span class="pre">HomieConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/homie/homie.html#Homie"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.homie.Homie" title="Link to this definition">#</a></dt>
@@ -4674,6 +4675,862 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 </dd></dl>
 
 </section>
+<section id="homie-examples">
+<h2>Homie Examples<a class="headerlink" href="#homie-examples" title="Link to this heading">#</a></h2>
+<section id="origins">
+<h3>Origins<a class="headerlink" href="#origins" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">origins/hubitat.yml</span><a class="headerlink" href="#id16" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">origins</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Bridge ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">jupiter_hubitat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">hubitat</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">bridge</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.1.11</span>
+<span class="w">        </span><span class="nt">appid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">69</span>
+<span class="w">        </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX</span>
+<span class="w">        </span><span class="nt">ssl_verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Neptune Bridge ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">neptune_hubitat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">hubitat</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">bridge</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.2.11</span>
+<span class="w">        </span><span class="nt">appid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">69</span>
+<span class="w">        </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX</span>
+<span class="w">        </span><span class="nt">ssl_verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">origins/philips.yml</span><a class="headerlink" href="#id17" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">origins</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Bridge ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">jupiter_philips</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">philips</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">bridge</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.1.10</span>
+<span class="w">        </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX</span>
+<span class="w">        </span><span class="nt">ssl_verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Neptune Bridge ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">neptune_philips</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">philips</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">bridge</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.2.10</span>
+<span class="w">        </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">XxXXXxXxXXxXXXxXXxXXxXXXxXXXxxXxXXX</span>
+<span class="w">        </span><span class="nt">ssl_verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">origins/ubiquiti.yml</span><a class="headerlink" href="#id18" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">origins</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Router ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">jupiter_ubiquiti</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ubiquiti</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">router</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.1.1</span>
+<span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username</span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">XxXXXxXxXXxXXXx</span>
+<span class="w">        </span><span class="nt">site</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">        </span><span class="nt">ssl_verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Neptune Router ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">neptune_ubiquiti</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ubiquiti</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">router</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.2.1</span>
+<span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username</span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">XxXXXxXxXXxXXXx</span>
+<span class="w">        </span><span class="nt">site</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">        </span><span class="nt">ssl_verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="groups">
+<h3>Groups<a class="headerlink" href="#groups" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">groups.yml</span><a class="headerlink" href="#id19" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">groups</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Groups ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">jupiter</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter</span>
+<span class="w">  </span><span class="nt">ganymede</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ganymede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_light2</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Neptune Groups ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">neptune</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune</span>
+<span class="w">  </span><span class="nt">halimede</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Halimede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_light2</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="scenes">
+<h3>Scenes<a class="headerlink" href="#scenes" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">scenes.yml</span><a class="headerlink" href="#id20" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">scenes</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">############</span>
+<span class="w">  </span><span class="c1">## Active ##</span>
+<span class="w">  </span><span class="c1">############</span>
+<span class="w">  </span><span class="nt">active</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Active</span>
+<span class="w">    </span><span class="nt">stage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poweron</span>
+<span class="w">      </span><span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;fff6b0&#39;</span>
+<span class="w">      </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+
+
+<span class="w">  </span><span class="c1">#############</span>
+<span class="w">  </span><span class="c1">## Standby ##</span>
+<span class="w">  </span><span class="c1">#############</span>
+<span class="w">  </span><span class="nt">standby</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standby</span>
+<span class="w">    </span><span class="nt">stage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poweron</span>
+<span class="w">      </span><span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;003333&#39;</span>
+<span class="w">      </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">jupiter_light2</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">      </span><span class="nt">neptune_light2</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+
+
+<span class="w">  </span><span class="c1">############</span>
+<span class="w">  </span><span class="c1">## Absent ##</span>
+<span class="w">  </span><span class="c1">############</span>
+<span class="w">  </span><span class="nt">absent</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Absent</span>
+<span class="w">    </span><span class="nt">stage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poweron</span>
+<span class="w">      </span><span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;99925c&#39;</span>
+<span class="w">      </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="aspires">
+<h3>Aspires<a class="headerlink" href="#aspires" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">aspires/jupiter.yml</span><a class="headerlink" href="#id21" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">aspires</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Active ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">jupiter_active</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ganymede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_special</span>
+
+<span class="w">    </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">    </span><span class="nt">stage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poweron</span>
+<span class="w">      </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+
+<span class="w">    </span><span class="nt">pause</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="w">    </span><span class="nt">store</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_aspire</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">    </span><span class="nt">occurs</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_contact</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_contact</span>
+<span class="w">          </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no_contact</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_button</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_button</span>
+<span class="w">          </span><span class="nt">sensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">button1</span>
+<span class="w">          </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_release</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_button</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_switch</span>
+<span class="w">          </span><span class="nt">sensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">button1</span>
+<span class="w">          </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_release</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_motion</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_motion</span>
+<span class="w">          </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motion</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_scene</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+<span class="w">          </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ganymede</span>
+<span class="w">          </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_regexp</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">patterns</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;\S+foo.+?bar\S+&#39;</span>
+
+<span class="w">    </span><span class="nt">wheres</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_store</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_aspire</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+<span class="w">          </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neq</span>
+
+
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Standby ##</span>
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="nt">jupiter_standby</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ganymede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_special</span>
+
+<span class="w">    </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+
+<span class="w">    </span><span class="nt">pause</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="w">    </span><span class="nt">store</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_aspire</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+
+<span class="w">    </span><span class="nt">occurs</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_button</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_button</span>
+<span class="w">          </span><span class="nt">sensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">button1</span>
+<span class="w">          </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_release</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_button</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_switch</span>
+<span class="w">          </span><span class="nt">sensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">button1</span>
+<span class="w">          </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_release</span>
+
+<span class="w">    </span><span class="nt">wheres</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_store</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_aspire</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+<span class="w">          </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eq</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text">aspires/neptune.yml</span><a class="headerlink" href="#id22" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">aspires</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Neptune Active ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">neptune_active</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">halimede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_special</span>
+
+<span class="w">    </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">    </span><span class="nt">stage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poweron</span>
+<span class="w">      </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+
+<span class="w">    </span><span class="nt">pause</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="w">    </span><span class="nt">store</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_aspire</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">    </span><span class="nt">occurs</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_contact</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_contact</span>
+<span class="w">          </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no_contact</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_button</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_button</span>
+<span class="w">          </span><span class="nt">sensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">button1</span>
+<span class="w">          </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_release</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_button</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_switch</span>
+<span class="w">          </span><span class="nt">sensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">button1</span>
+<span class="w">          </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_release</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_motion</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_motion</span>
+<span class="w">          </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motion</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_scene</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+<span class="w">          </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">halimede</span>
+<span class="w">          </span><span class="nt">states</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_regexp</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">patterns</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;\S+foo.+?bar\S+&#39;</span>
+
+<span class="w">    </span><span class="nt">wheres</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_store</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_aspire</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+<span class="w">          </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neq</span>
+
+
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="c1">## Neptune Standby ##</span>
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="nt">neptune_standby</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">halimede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_special</span>
+
+<span class="w">    </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+
+<span class="w">    </span><span class="nt">pause</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="w">    </span><span class="nt">store</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_aspire</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+
+<span class="w">    </span><span class="nt">occurs</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_button</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_button</span>
+<span class="w">          </span><span class="nt">sensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">button1</span>
+<span class="w">          </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_release</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_button</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_switch</span>
+<span class="w">          </span><span class="nt">sensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">button1</span>
+<span class="w">          </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_release</span>
+
+<span class="w">    </span><span class="nt">wheres</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_store</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_aspire</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+<span class="w">          </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eq</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="desires">
+<h3>Desires<a class="headerlink" href="#desires" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">desires/jupiter.yml</span><a class="headerlink" href="#id23" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">desires</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Active ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">jupiter_active</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ganymede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_special</span>
+
+<span class="w">    </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">    </span><span class="nt">stage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poweron</span>
+<span class="w">      </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+
+<span class="w">    </span><span class="nt">pause</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="w">    </span><span class="nt">store</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_desire</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">    </span><span class="nt">wheres</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_store</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_aspire</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+<span class="w">          </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eq</span>
+<span class="w">        </span><span class="nt">family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_change</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_motion</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_button</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_contact</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_switch</span>
+<span class="w">          </span><span class="nt">sensors</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motion</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temperature</span>
+<span class="w">          </span><span class="nt">since</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+<span class="w">        </span><span class="nt">negate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_store</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_aspire</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+<span class="w">          </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neq</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_period</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;00:00&#39;</span>
+<span class="w">          </span><span class="nt">stop</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;07:00&#39;</span>
+<span class="w">          </span><span class="nt">tzname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US/Central</span>
+<span class="w">        </span><span class="nt">family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schedule</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_period</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;07:00&#39;</span>
+<span class="w">          </span><span class="nt">tzname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US/Central</span>
+<span class="w">        </span><span class="nt">family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schedule</span>
+
+
+
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Standby ##</span>
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="nt">jupiter_standby</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ganymede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_special</span>
+
+<span class="w">    </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+
+<span class="w">    </span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">pause</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="w">    </span><span class="nt">store</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_desire</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+
+<span class="w">    </span><span class="nt">wheres</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_store</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_aspire</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+<span class="w">          </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eq</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Absent ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">jupiter_absent</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ganymede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_special</span>
+
+<span class="w">    </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span>
+
+<span class="w">    </span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">    </span><span class="nt">pause</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="w">    </span><span class="nt">store</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_desire</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span>
+
+<span class="w">    </span><span class="nt">wheres</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ubiquiti_client</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">clients</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_phone</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_tablet</span>
+<span class="w">          </span><span class="nt">since</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-text">desires/neptune.yml</span><a class="headerlink" href="#id24" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">desires</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Neptune Active ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">neptune_active</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">halimede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_special</span>
+
+<span class="w">    </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">    </span><span class="nt">stage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poweron</span>
+<span class="w">      </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+
+<span class="w">    </span><span class="nt">pause</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="w">    </span><span class="nt">store</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_desire</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">    </span><span class="nt">wheres</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_store</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_aspire</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+<span class="w">          </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eq</span>
+<span class="w">        </span><span class="nt">family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">philips_change</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_motion</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_button</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_contact</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_switch</span>
+<span class="w">          </span><span class="nt">sensors</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motion</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">temperature</span>
+<span class="w">          </span><span class="nt">since</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+<span class="w">        </span><span class="nt">negate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_store</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_aspire</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+<span class="w">          </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neq</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_period</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;00:00&#39;</span>
+<span class="w">          </span><span class="nt">stop</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;07:00&#39;</span>
+<span class="w">          </span><span class="nt">tzname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US/Central</span>
+<span class="w">        </span><span class="nt">family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schedule</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_period</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;07:00&#39;</span>
+<span class="w">          </span><span class="nt">tzname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">US/Central</span>
+<span class="w">        </span><span class="nt">family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schedule</span>
+
+
+
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="c1">## Neptune Standby ##</span>
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="nt">neptune_standby</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">halimede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_special</span>
+
+<span class="w">    </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+
+<span class="w">    </span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">pause</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="w">    </span><span class="nt">store</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_desire</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+
+<span class="w">    </span><span class="nt">wheres</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">builtins_store</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_aspire</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standby</span>
+<span class="w">          </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eq</span>
+
+
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="c1">## Neptune Absent ##</span>
+<span class="w">  </span><span class="c1">####################</span>
+<span class="w">  </span><span class="nt">neptune_absent</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">halimede</span>
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_special</span>
+
+<span class="w">    </span><span class="nt">scene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span>
+
+<span class="w">    </span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">    </span><span class="nt">pause</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="w">    </span><span class="nt">store</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_desire</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span>
+
+<span class="w">    </span><span class="nt">wheres</span><span class="p">:</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ubiquiti_client</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">clients</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_phone</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_tablet</span>
+<span class="w">          </span><span class="nt">since</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="devices">
+<h3>Devices<a class="headerlink" href="#devices" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-text">devices/hubitat.yml</span><a class="headerlink" href="#id25" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">devices</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Devices ##</span>
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="nt">jupiter_light2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_hubitat</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter Light</span>
+<span class="w">  </span><span class="nt">jupiter_special</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_hubitat</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter Special</span>
+
+
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="c1">## Neptune Devices ##</span>
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="nt">neptune_light2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_hubitat</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune Light</span>
+<span class="w">  </span><span class="nt">neptune_special</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_hubitat</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune Special</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id26">
+<div class="code-block-caption"><span class="caption-text">devices/philips.yml</span><a class="headerlink" href="#id26" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">devices</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Devices ##</span>
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="nt">jupiter_button</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter Button</span>
+<span class="w">  </span><span class="nt">jupiter_motion</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter Motion</span>
+<span class="w">  </span><span class="nt">jupiter_switch</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter Switch</span>
+<span class="w">  </span><span class="nt">jupiter_contact</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter Contact</span>
+<span class="w">  </span><span class="nt">jupiter_plug</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter Plug</span>
+<span class="w">  </span><span class="nt">jupiter_light1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter Light</span>
+
+
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="c1">## Neptune Devices ##</span>
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="nt">neptune_button</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune Button</span>
+<span class="w">  </span><span class="nt">neptune_motion</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune Motion</span>
+<span class="w">  </span><span class="nt">neptune_switch</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune Switch</span>
+<span class="w">  </span><span class="nt">neptune_contact</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune Contact</span>
+<span class="w">  </span><span class="nt">neptune_plug</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune Plug</span>
+<span class="w">  </span><span class="nt">neptune_light1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_philips</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune Light</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id27">
+<div class="code-block-caption"><span class="caption-text">devices/ubiquiti.yml</span><a class="headerlink" href="#id27" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">devices</span><span class="p">:</span>
+
+
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="c1">## Jupiter Devices ##</span>
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="nt">jupiter_phone</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_ubiquiti</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phone</span>
+<span class="w">  </span><span class="nt">jupiter_tablet</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter_ubiquiti</span>
+<span class="w">    </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1a:01:68:00:11:01</span>
+
+
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="c1">## Neptune Devices ##</span>
+<span class="w">  </span><span class="c1">#####################</span>
+<span class="w">  </span><span class="nt">neptune_phone</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_ubiquiti</span>
+<span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phone</span>
+<span class="w">  </span><span class="nt">neptune_tablet</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">origin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune_ubiquiti</span>
+<span class="w">    </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1a:01:68:00:21:01</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="persists">
+<h3>Persists<a class="headerlink" href="#persists" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id28">
+<div class="code-block-caption"><span class="caption-text">persists.yml</span><a class="headerlink" href="#id28" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">persists</span><span class="p">:</span>
+
+<span class="w">  </span><span class="nt">jupiter_aspire</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">value_unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">status</span>
+<span class="w">    </span><span class="nt">value_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Current Status</span>
+<span class="w">    </span><span class="nt">about</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aspire for Jupiter</span>
+<span class="w">    </span><span class="nt">about_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter Aspire</span>
+<span class="w">    </span><span class="nt">about_icon</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter</span>
+<span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">information</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;jupiter&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;aspire&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="w">  </span><span class="nt">neptune_aspire</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">value_unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">status</span>
+<span class="w">    </span><span class="nt">value_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Current Status</span>
+<span class="w">    </span><span class="nt">about</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aspire for Neptune</span>
+<span class="w">    </span><span class="nt">about_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune Aspire</span>
+<span class="w">    </span><span class="nt">about_icon</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune</span>
+<span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">information</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;neptune&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;aspire&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="w">  </span><span class="nt">jupiter_desire</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">value_unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">status</span>
+<span class="w">    </span><span class="nt">value_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Current Status</span>
+<span class="w">    </span><span class="nt">about</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Desire for Jupiter</span>
+<span class="w">    </span><span class="nt">about_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jupiter Desire</span>
+<span class="w">    </span><span class="nt">about_icon</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupiter</span>
+<span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">information</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;jupiter&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;desire&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="w">  </span><span class="nt">neptune_desire</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">value_unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">status</span>
+<span class="w">    </span><span class="nt">value_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Current Status</span>
+<span class="w">    </span><span class="nt">about</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Desire for Neptune</span>
+<span class="w">    </span><span class="nt">about_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neptune Desire</span>
+<span class="w">    </span><span class="nt">about_icon</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neptune</span>
+<span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">information</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;neptune&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;desire&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="restful">
+<h3>RESTful<a class="headerlink" href="#restful" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id29">
+<div class="code-block-caption"><span class="caption-text">restful.yml</span><a class="headerlink" href="#id29" title="Link to this code">#</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+
+
+<span class="nt">restful</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authenticate</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+<span class="w">      </span><span class="no">{{ config.crypts.decrypt(</span>
+<span class="w">         </span><span class="no">&quot;$ENCRYPT;1.0;enhomie;&quot;</span>
+<span class="w">         </span><span class="no">&quot;gAAAAABnssr4ATnkBC_-0&quot;</span>
+<span class="w">         </span><span class="no">&quot;XFKVpJ26zX1CUdodEkfUe&quot;</span>
+<span class="w">         </span><span class="no">&quot;Xpi_NazvIMuv-xXtbGhhv&quot;</span>
+<span class="w">         </span><span class="no">&quot;YyAj0oTjdpExJbY8_mElD&quot;</span>
+<span class="w">         </span><span class="no">&quot;opl_ySg1sxcQ0w==&quot;) }}</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
 <section id="module-enhomie.hubitat">
 <span id="hubitat-support"></span><h2>Hubitat Support<a class="headerlink" href="#module-enhomie.hubitat" title="Link to this heading">#</a></h2>
 <dl class="py class">
@@ -4924,8 +5781,8 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.hubitat.params.</span></span><span class="sig-name descname"><span class="pre">HubiOriginParams</span></span><a class="reference internal" href="_modules/enhomie/hubitat/params/origin.html#HubiOriginParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.hubitat.params.HubiOriginParams" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieParamsModel</span></code></a></p>
 <p>Process and validate the Homie configuration parameters.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id16">
-<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id16" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id30">
+<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id30" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Field</p></th>
 <th class="head"><p>Type</p></th>
@@ -5549,8 +6406,8 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.philips.params.</span></span><span class="sig-name descname"><span class="pre">PhueOriginParams</span></span><a class="reference internal" href="_modules/enhomie/philips/params/origin.html#PhueOriginParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.params.PhueOriginParams" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieParamsModel</span></code></a></p>
 <p>Process and validate the Homie configuration parameters.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id17">
-<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id17" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id31">
+<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id31" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Field</p></th>
 <th class="head"><p>Type</p></th>
@@ -5579,8 +6436,8 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.philips.params.</span></span><span class="sig-name descname"><span class="pre">DriverPhueButtonParams</span></span><a class="reference internal" href="_modules/enhomie/philips/params/plugins/button.html#DriverPhueButtonParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.params.DriverPhueButtonParams" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieParamsModel</span></code></a></p>
 <p>Process and validate the Homie configuration parameters.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id18">
-<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id18" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id32">
+<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id32" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Field</p></th>
 <th class="head"><p>Type</p></th>
@@ -5633,8 +6490,8 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.philips.params.</span></span><span class="sig-name descname"><span class="pre">DriverPhueContactParams</span></span><a class="reference internal" href="_modules/enhomie/philips/params/plugins/contact.html#DriverPhueContactParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.params.DriverPhueContactParams" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieParamsModel</span></code></a></p>
 <p>Process and validate the Homie configuration parameters.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id19">
-<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id19" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id33">
+<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id33" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Field</p></th>
 <th class="head"><p>Type</p></th>
@@ -5676,8 +6533,8 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.philips.params.</span></span><span class="sig-name descname"><span class="pre">DriverPhueMotionParams</span></span><a class="reference internal" href="_modules/enhomie/philips/params/plugins/motion.html#DriverPhueMotionParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.params.DriverPhueMotionParams" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieParamsModel</span></code></a></p>
 <p>Process and validate the Homie configuration parameters.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id20">
-<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id20" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id34">
+<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id34" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Field</p></th>
 <th class="head"><p>Type</p></th>
@@ -5719,8 +6576,8 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.philips.params.</span></span><span class="sig-name descname"><span class="pre">DriverPhueChangeParams</span></span><a class="reference internal" href="_modules/enhomie/philips/params/plugins/change.html#DriverPhueChangeParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.params.DriverPhueChangeParams" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieParamsModel</span></code></a></p>
 <p>Process and validate the Homie configuration parameters.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id21">
-<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id21" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id35">
+<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id35" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Field</p></th>
 <th class="head"><p>Type</p></th>
@@ -5773,8 +6630,8 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.philips.params.</span></span><span class="sig-name descname"><span class="pre">DriverPhueSceneParams</span></span><a class="reference internal" href="_modules/enhomie/philips/params/plugins/scene.html#DriverPhueSceneParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.philips.params.DriverPhueSceneParams" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieParamsModel</span></code></a></p>
 <p>Process and validate the Homie configuration parameters.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id22">
-<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id22" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id36">
+<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id36" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Field</p></th>
 <th class="head"><p>Type</p></th>
@@ -6071,8 +6928,8 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.params.</span></span><span class="sig-name descname"><span class="pre">UbiqOriginParams</span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/params/origin.html#UbiqOriginParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.params.UbiqOriginParams" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieParamsModel</span></code></a></p>
 <p>Process and validate the Homie configuration parameters.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id23">
-<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id23" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id37">
+<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id37" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Field</p></th>
 <th class="head"><p>Type</p></th>
@@ -6101,8 +6958,8 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.ubiquiti.params.</span></span><span class="sig-name descname"><span class="pre">DriverUbiqClientParams</span></span><a class="reference internal" href="_modules/enhomie/ubiquiti/params/plugins/client.html#DriverUbiqClientParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.ubiquiti.params.DriverUbiqClientParams" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="enhomie.homie.params.html#enhomie.homie.params.common.HomieParamsModel" title="enhomie.homie.params.common.HomieParamsModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HomieParamsModel</span></code></a></p>
 <p>Process and validate the Homie configuration parameters.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id24">
-<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id24" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id38">
+<caption><span class="caption-text">Fields</span><a class="headerlink" href="#id38" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Field</p></th>
 <th class="head"><p>Type</p></th>
@@ -6240,27 +7097,27 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="enhomie.utils.TestTimes">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.utils.</span></span><span class="sig-name descname"><span class="pre">TestTimes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Time('2026-05-11T07:00:00.000000+0000')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">middle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Time('2026-05-17T07:00:00.000000+0000')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Time('2026-05-18T06:00:00.000000+0000')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Time('2026-05-18T07:57:32.212197+0000')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/utils/tests.html#TestTimes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.utils.TestTimes" title="Link to this definition">#</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">enhomie.utils.</span></span><span class="sig-name descname"><span class="pre">TestTimes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Time('2026-05-11T09:00:00.000000+0000')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">middle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Time('2026-05-17T09:00:00.000000+0000')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Time('2026-05-18T08:00:00.000000+0000')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Time('2026-05-18T09:05:29.873054+0000')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enhomie/utils/tests.html#TestTimes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enhomie.utils.TestTimes" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Contain the times used within various tests in project.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="enhomie.utils.TestTimes.start">
-<span class="sig-name descname"><span class="pre">start</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Time('2026-05-11T07:00:00.000000+0000')</span></span><a class="headerlink" href="#enhomie.utils.TestTimes.start" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">start</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Time('2026-05-11T09:00:00.000000+0000')</span></span><a class="headerlink" href="#enhomie.utils.TestTimes.start" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="enhomie.utils.TestTimes.middle">
-<span class="sig-name descname"><span class="pre">middle</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Time('2026-05-17T07:00:00.000000+0000')</span></span><a class="headerlink" href="#enhomie.utils.TestTimes.middle" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">middle</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Time('2026-05-17T09:00:00.000000+0000')</span></span><a class="headerlink" href="#enhomie.utils.TestTimes.middle" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="enhomie.utils.TestTimes.final">
-<span class="sig-name descname"><span class="pre">final</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Time('2026-05-18T06:00:00.000000+0000')</span></span><a class="headerlink" href="#enhomie.utils.TestTimes.final" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">final</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Time('2026-05-18T08:00:00.000000+0000')</span></span><a class="headerlink" href="#enhomie.utils.TestTimes.final" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="enhomie.utils.TestTimes.current">
-<span class="sig-name descname"><span class="pre">current</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Time('2026-05-18T07:57:32.212197+0000')</span></span><a class="headerlink" href="#enhomie.utils.TestTimes.current" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">current</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://enasisnetwork.github.io/encommon/sphinx/encommon.times.html#encommon.times.time.Time" title="(in encommon v0.23.0)"><span class="pre">Time</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Time('2026-05-18T09:05:29.873054+0000')</span></span><a class="headerlink" href="#enhomie.utils.TestTimes.current" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -6315,7 +7172,7 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-welcome">Documentation Welcome</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-enhomie.homie">Homie Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-enhomie.homie">Homie</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enhomie.homie.Homie"><code class="docutils literal notranslate"><span class="pre">Homie</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enhomie.homie.Homie.config"><code class="docutils literal notranslate"><span class="pre">Homie.config</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enhomie.homie.Homie.logger"><code class="docutils literal notranslate"><span class="pre">Homie.logger</span></code></a></li>
@@ -6842,6 +7699,17 @@ for <cite>family</cite>, those will be with an OR relationship.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enhomie.restful.RestfulServiceParams.ssl_mykey"><code class="docutils literal notranslate"><span class="pre">RestfulServiceParams.ssl_mykey</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homie-examples">Homie Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#origins">Origins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groups">Groups</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenes">Scenes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aspires">Aspires</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desires">Desires</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#devices">Devices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persists">Persists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restful">RESTful</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-enhomie.hubitat">Hubitat Support</a><ul class="nav section-nav flex-column">
