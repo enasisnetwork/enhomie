@@ -69,11 +69,15 @@ def test_Homie(
 
     assert homie.jinja2
 
-    assert homie.persist
-
     assert homie.childs
 
+    assert homie.persist
+
     assert homie.params
+
+    assert homie.console
+
+    assert homie.debug
 
     assert not homie.dryrun
 

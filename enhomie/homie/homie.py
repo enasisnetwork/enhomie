@@ -138,19 +138,6 @@ class Homie:
 
 
     @property
-    def persist(
-        self,
-    ) -> HomiePersist:
-        """
-        Return the value for the attribute from class instance.
-
-        :returns: Value for the attribute from class instance.
-        """
-
-        return self.__persist
-
-
-    @property
     def childs(
         self,
     ) -> HomieChilds:
@@ -161,6 +148,19 @@ class Homie:
         """
 
         return self.__childs
+
+
+    @property
+    def persist(
+        self,
+    ) -> HomiePersist:
+        """
+        Return the value for the attribute from class instance.
+
+        :returns: Value for the attribute from class instance.
+        """
+
+        return self.__persist
 
 
     @property
