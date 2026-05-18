@@ -1,176 +1,134 @@
 Enasis Network Homie Automate
 =============================
 
-Configuration Container
------------------------
+Documentation Welcome
+---------------------
 
-.. autoclass:: enhomie.homie.HomieConfig
+.. raw:: html
+
+   Welcome to the project documentation. Below you will find the most common
+   functions and classes within the library, but you may click your way further
+   into the project from there. You can also view the source code.
+
+Homie Configuration
+-------------------
+
+.. automodule:: enhomie.homie
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
+   :exclude-members: HomieModels
 
-Parameters Container
---------------------
+Homie Parameters
+----------------
 
-.. autopydantic_model:: enhomie.homie.params.HomieParams
+.. automodule:: enhomie.homie.params
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
+   :exclude-members: HomieChildParams,
+                     HomieParamsModel
 
 Homie Children
 --------------
 
-.. autopydantic_model:: enhomie.homie.params.HomieOriginParams
+.. automodule:: enhomie.homie.childs
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-.. autopydantic_model:: enhomie.homie.params.HomieDeviceParams
+Homie Add-ons
+-------------
+
+.. automodule:: enhomie.homie.addons
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-.. autopydantic_model:: enhomie.homie.params.HomieGroupParams
+Homie Members
+-------------
+
+.. automodule:: enhomie.homie.members
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-.. autopydantic_model:: enhomie.homie.params.HomieSceneParams
+Homie Threads
+-------------
+
+.. automodule:: enhomie.homie.threads
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-.. autopydantic_model:: enhomie.homie.params.HomieDesireParams
+Homie Plugins
+-------------
+
+.. automodule:: enhomie.homie.plugins
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-.. autopydantic_model:: enhomie.homie.params.HomieAspireParams
+Homie RESTful
+-------------
+
+.. automodule:: enhomie.restful
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-Persistent Defaults
--------------------
-
-.. autopydantic_model:: enhomie.homie.params.HomiePersistParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-Multithread Service
--------------------
-
-.. autopydantic_model:: enhomie.homie.params.HomieServiceParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-Restful Service
+Hubitat Support
 ---------------
 
-.. autopydantic_model:: enhomie.homie.params.RestfulServiceParams
+.. automodule:: enhomie.hubitat
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-Hubitat Origin
---------------
+Hubitat Parameters
+------------------
 
-.. autopydantic_model:: enhomie.hubitat.params.HubiOriginParams
+.. automodule:: enhomie.hubitat.params
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-Philips Origin
---------------
-
-.. autopydantic_model:: enhomie.philips.params.PhueOriginParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-Ubiquiti Origin
+Philips Support
 ---------------
 
-.. autopydantic_model:: enhomie.ubiquiti.params.UbiqOriginParams
+.. automodule:: enhomie.philips
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-Builtin Plugins
----------------
+Philips Parameters
+------------------
 
-.. autopydantic_model:: enhomie.builtins.params.DriverBltnPeriodParams
+.. automodule:: enhomie.philips.params
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-.. autopydantic_model:: enhomie.builtins.params.DriverBltnRegexpParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.builtins.params.DriverBltnStoreParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-Philips Plugins
----------------
-
-.. autopydantic_model:: enhomie.philips.params.DriverPhueButtonParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.philips.params.DriverPhueChangeParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.philips.params.DriverPhueContactParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.philips.params.DriverPhueMotionParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-.. autopydantic_model:: enhomie.philips.params.DriverPhueSceneParams
-   :members:
-   :show-inheritance:
-   :noindex:
-
-Philips Helpers
----------------
-
-.. autofunction:: enhomie.philips.plugins.phue_sensors
-   :noindex:
-
-.. autofunction:: enhomie.philips.plugins.phue_changed
-   :noindex:
-
-.. autofunction:: enhomie.philips.plugins.phue_current
-   :noindex:
-
-Ubiquiti Plugins
+Ubiquiti Support
 ----------------
 
-.. autopydantic_model:: enhomie.ubiquiti.params.DriverUbiqClientParams
+.. automodule:: enhomie.ubiquiti
    :members:
+   :undoc-members:
    :show-inheritance:
-   :noindex:
 
-Ubiquiti Helpers
-----------------
+Ubiquiti Parameters
+-------------------
 
-.. autofunction:: enhomie.ubiquiti.plugins.ubiq_latest
-   :noindex:
+.. automodule:: enhomie.ubiquiti.params
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
-Interface JavaScript
---------------------
+General Utilities
+-----------------
 
-.. js:autofunction:: persist_datagrid
+.. automodule:: enhomie.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

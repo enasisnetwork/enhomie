@@ -1,14 +1,6 @@
 enhomie.utils package
 =====================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   enhomie.utils.test
-
 Submodules
 ----------
 

@@ -12,7 +12,6 @@ Subpackages
    enhomie.homie.members
    enhomie.homie.params
    enhomie.homie.plugins
-   enhomie.homie.test
    enhomie.homie.threads
 
 Submodules

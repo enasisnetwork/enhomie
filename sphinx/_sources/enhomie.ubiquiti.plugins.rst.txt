@@ -1,14 +1,6 @@
 enhomie.ubiquiti.plugins package
 ================================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   enhomie.ubiquiti.plugins.test
-
 Submodules
 ----------
 

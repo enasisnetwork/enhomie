@@ -9,7 +9,6 @@ Subpackages
 
    enhomie.philips.params
    enhomie.philips.plugins
-   enhomie.philips.test
 
 Submodules
 ----------

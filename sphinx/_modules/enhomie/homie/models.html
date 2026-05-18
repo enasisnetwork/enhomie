@@ -26,18 +26,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx_js.css" />
+    <link rel="stylesheet" type="text/css" href="/home/runner/work/enhomie/enhomie/main/sphinx/style.css?v=ca093065" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -48,7 +48,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.13.12" />
+  <meta name="docsearch:version" content="0.14.0" />
   
     
     <script src="../../../_static/searchtools.js"></script>
@@ -66,7 +66,9 @@
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -290,31 +292,31 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Type</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieAspiredItem</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDesiredItem</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieQueueItem</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons.aspired</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieAspiredItem</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons.desired</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDesiredItem</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.addons.queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieQueueItem</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStage</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieAspireParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieChildParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDesireParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDeviceParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieGroupParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOccurParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOriginParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomiePluginParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomiePrinterParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieSceneParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieServiceParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieWhereParams</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActionItem</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStreamItem</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieThreadItem</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieUpdateItem</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">..builtins</span><span class="w"> </span><span class="kn">import</span> <span class="n">BltnModels</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">..hubitat</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubiModels</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">..philips</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueModels</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">..ubiquiti</span><span class="w"> </span><span class="kn">import</span> <span class="n">UbiqModels</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.aspire</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieAspireParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.child</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieChildParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.desire</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDesireParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.device</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieDeviceParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.group</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieGroupParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.homie</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.homie</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomiePrinterParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.occur</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOccurParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.origin</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOriginParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.plugin</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomiePluginParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.scene</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieSceneParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.service</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieServiceParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.params.where</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieWhereParams</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads.action</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieActionItem</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads.stream</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieStreamItem</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads.thread</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieThreadItem</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.threads.update</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieUpdateItem</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..builtins.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">BltnModels</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..hubitat.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubiModels</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..philips.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueModels</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..ubiquiti.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">UbiqModels</span>
 
 
 
@@ -829,8 +831,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -841,7 +843,7 @@
 
   <p class="copyright">
     
-      © Copyright 2024, Enasis Network.
+      © Copyright 2026, Enasis Network.
       <br/>
     
   </p>
@@ -864,7 +866,7 @@
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.1.
 </p></div>
       
     </div>

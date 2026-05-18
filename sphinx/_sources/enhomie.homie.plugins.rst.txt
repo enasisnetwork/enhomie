@@ -1,14 +1,6 @@
 enhomie.homie.plugins package
 =============================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   enhomie.homie.plugins.test
-
 Submodules
 ----------
 

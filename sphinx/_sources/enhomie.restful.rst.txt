@@ -8,7 +8,6 @@ Subpackages
    :maxdepth: 4
 
    enhomie.restful.static
-   enhomie.restful.test
 
 Submodules
 ----------

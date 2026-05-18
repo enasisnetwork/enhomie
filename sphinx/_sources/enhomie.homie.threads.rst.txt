@@ -1,14 +1,6 @@
 enhomie.homie.threads package
 =============================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   enhomie.homie.threads.test
-
 Submodules
 ----------
 

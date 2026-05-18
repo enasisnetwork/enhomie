@@ -1,14 +1,6 @@
 enhomie.homie.members package
 =============================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   enhomie.homie.members.test
-
 Submodules
 ----------
 

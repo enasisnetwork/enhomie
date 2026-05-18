@@ -1,14 +1,6 @@
 enhomie.homie.childs package
 ============================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   enhomie.homie.childs.test
-
 Submodules
 ----------
 
@@ -24,6 +16,14 @@ enhomie.homie.childs.child module
 ---------------------------------
 
 .. automodule:: enhomie.homie.childs.child
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+enhomie.homie.childs.childs module
+----------------------------------
+
+.. automodule:: enhomie.homie.childs.childs
    :members:
    :show-inheritance:
    :undoc-members:
@@ -56,14 +56,6 @@ enhomie.homie.childs.helpers module
 -----------------------------------
 
 .. automodule:: enhomie.homie.childs.helpers
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-enhomie.homie.childs.homie module
----------------------------------
-
-.. automodule:: enhomie.homie.childs.homie
    :members:
    :show-inheritance:
    :undoc-members:

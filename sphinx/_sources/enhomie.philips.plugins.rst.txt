@@ -1,14 +1,6 @@
 enhomie.philips.plugins package
 ===============================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   enhomie.philips.plugins.test
-
 Submodules
 ----------
 

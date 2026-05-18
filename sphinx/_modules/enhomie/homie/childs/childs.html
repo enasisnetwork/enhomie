@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>enhomie.homie.childs.homie &#8212; enhomie  documentation</title>
+    <title>enhomie.homie.childs.childs &#8212; enhomie  documentation</title>
   
   
   
@@ -26,29 +26,29 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx_js.css" />
+    <link rel="stylesheet" type="text/css" href="/home/runner/work/enhomie/enhomie/main/sphinx/style.css?v=ca093065" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/enhomie/homie/childs/homie';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/enhomie/homie/childs/childs';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.13.12" />
+  <meta name="docsearch:version" content="0.14.0" />
   
     
     <script src="../../../../_static/searchtools.js"></script>
@@ -66,7 +66,9 @@
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -259,7 +261,7 @@
     
     <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">enhomie.homie.childs.homie</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">enhomie.homie.childs.childs</span></li>
   </ul>
 </nav>
 </div>
@@ -276,7 +278,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for enhomie.homie.childs.homie</h1><div class="highlight"><pre>
+  <h1>Source code for enhomie.homie.childs.childs</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
@@ -299,7 +301,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">.group</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieGroup</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.origin</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieOrigin</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.scene</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomieScene</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">...utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidChild</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...utils.child</span><span class="w"> </span><span class="kn">import</span> <span class="n">InvalidChild</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">..homie</span><span class="w"> </span><span class="kn">import</span> <span class="n">Homie</span>
@@ -318,7 +320,7 @@
 
 
 <div class="viewcode-block" id="HomieChilds">
-<a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds">[docs]</a>
+<a class="viewcode-back" href="../../../../index.html#enhomie.homie.childs.childs.HomieChilds">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomieChilds</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Contain the object instances for related Homie children.</span>
@@ -369,7 +371,7 @@
 
 
 <div class="viewcode-block" id="HomieChilds.build_objects">
-<a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.build_objects">[docs]</a>
+<a class="viewcode-back" href="../../../../index.html#enhomie.homie.childs.childs.HomieChilds.build_objects">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">build_objects</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -623,7 +625,7 @@
 
 
 <div class="viewcode-block" id="HomieChilds.validate">
-<a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.validate">[docs]</a>
+<a class="viewcode-back" href="../../../../index.html#enhomie.homie.childs.childs.HomieChilds.validate">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -818,7 +820,7 @@
 
 
 <div class="viewcode-block" id="HomieChilds.get_origin">
-<a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.get_origin">[docs]</a>
+<a class="viewcode-back" href="../../../../index.html#enhomie.homie.childs.childs.HomieChilds.get_origin">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_origin</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -864,7 +866,7 @@
 
 
 <div class="viewcode-block" id="HomieChilds.get_device">
-<a class="viewcode-back" href="../../../../enhomie.homie.childs.html#enhomie.homie.childs.homie.HomieChilds.get_device">[docs]</a>
+<a class="viewcode-back" href="../../../../index.html#enhomie.homie.childs.childs.HomieChilds.get_device">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_device</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -938,8 +940,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
-<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -950,7 +952,7 @@
 
   <p class="copyright">
     
-      © Copyright 2024, Enasis Network.
+      © Copyright 2026, Enasis Network.
       <br/>
     
   </p>
@@ -973,7 +975,7 @@
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.1.
 </p></div>
       
     </div>

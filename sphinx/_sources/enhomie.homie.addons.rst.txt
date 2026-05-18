@@ -1,14 +1,6 @@
 enhomie.homie.addons package
 ============================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   enhomie.homie.addons.test
-
 Submodules
 ----------
 

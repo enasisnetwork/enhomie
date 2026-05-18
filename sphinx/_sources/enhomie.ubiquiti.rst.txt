@@ -9,7 +9,6 @@ Subpackages
 
    enhomie.ubiquiti.params
    enhomie.ubiquiti.plugins
-   enhomie.ubiquiti.test
 
 Submodules
 ----------
