@@ -12,6 +12,7 @@ from typing import Optional
 from encommon.config import Config
 from encommon.config import Params
 from encommon.types import DictStrAny
+from encommon.types import NCNone
 from encommon.utils.common import PATHABLE
 
 from .params.homie import HomieParams
@@ -74,7 +75,7 @@ class HomieConfig(Config):
         _forced = (
             sargs.get('forced'))
 
-        if _forced is not None:
+        if _forced is not NCNone:
             cargs['forced'] = _forced
 
 
