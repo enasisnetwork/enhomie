@@ -15,7 +15,7 @@ from encommon.times import Time
 if TYPE_CHECKING:
     from .aspire import HomieAspire
     from .desire import HomieDesire
-    from ..threads import HomieStreamItem
+    from ..threads.stream import HomieStreamItem
 
 
 

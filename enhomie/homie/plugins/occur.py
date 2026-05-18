@@ -11,15 +11,16 @@ from typing import Literal
 from typing import TYPE_CHECKING
 from typing import Type
 
+from encommon.utils import Unexpected
+
 from .plugin import HomiePlugin
 from ..models import HomieModels
-from ...utils import InvalidParam
-from ...utils import UnexpectedCondition
+from ...utils.param import InvalidParam
 
 if TYPE_CHECKING:
     from .driver import HomieDriver
-    from ..params import HomieOccurParams
-    from ..threads import HomieStreamItem
+    from ..params.occur import HomieOccurParams
+    from ..threads.stream import HomieStreamItem
 
 
 
@@ -167,4 +168,4 @@ class HomieOccur(HomiePlugin):
         if len(occurs) >= 1:
             return any(occurs)
 
-        raise UnexpectedCondition
+        raise Unexpected

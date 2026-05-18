@@ -14,11 +14,11 @@ from typing import TYPE_CHECKING
 from encommon.times import Time
 
 if TYPE_CHECKING:
-    from ..childs import HomieDesire
-    from ..childs import HomieScene
+    from ..childs.desire import HomieDesire
+    from ..childs.scene import HomieScene
     from ..common import HomieState
     from ..homie import Homie
-    from ..threads import HomieActionNode
+    from ..threads.action import HomieActionNode
 
 
 
@@ -139,7 +139,7 @@ class HomieDesiredItem:
 
         desire = self.desire
         homie = desire.homie
-        potent = homie.potent
+        forced = homie.forced
 
         target = self.target
         state = self.state
@@ -158,7 +158,7 @@ class HomieDesiredItem:
         return not (
             homie.set_actions(
                 aitems=aitems,
-                force=potent,
+                force=forced,
                 change=False))
 
 
@@ -357,7 +357,7 @@ class HomieDesired:
 
             for value in store:
                 persist.insert(
-                    **value.endumped,
+                    **value.model_dump(),
                     statics=statics)
 
 

@@ -11,9 +11,9 @@ from dataclasses import dataclass
 from typing import Any
 from typing import Optional
 
-from ..homie.threads import HomieAction
-from ..homie.threads import HomieActionItem
-from ..homie.threads import HomieActionNode
+from ..homie.threads.action import HomieAction
+from ..homie.threads.action import HomieActionItem
+from ..homie.threads.action import HomieActionNode
 
 
 
@@ -62,7 +62,7 @@ class HubiAction(HomieAction):
         devices = childs.devices
 
         params = homie.params
-        potent = homie.potent
+        forced = homie.forced
 
         timeout = (
             params.service
@@ -99,5 +99,5 @@ class HubiAction(HomieAction):
         origin.set_action(
             target=target,
             aitem=aitem,
-            force=potent,
+            force=forced,
             timeout=timeout)

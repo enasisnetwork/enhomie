@@ -14,7 +14,7 @@ from encommon.config import Params
 from encommon.types import DictStrAny
 from encommon.utils.common import PATHABLE
 
-from .params import HomieParams
+from .params.homie import HomieParams
 
 
 
@@ -53,9 +53,11 @@ class HomieConfig(Config):
 
         if _console is True:
             cargs[key] = 'info'
+            cargs['console'] = True
 
         if _debug is True:
             cargs[key] = 'debug'
+            cargs['debug'] = True
 
 
         if 'config' in sargs:
@@ -65,14 +67,15 @@ class HomieConfig(Config):
         _dryrun = (
             sargs.get('dryrun'))
 
-        _potent = (
-            sargs.get('potent'))
-
         if _dryrun is not None:
             cargs['dryrun'] = _dryrun
 
-        if _potent is not None:
-            cargs['potent'] = _potent
+
+        _forced = (
+            sargs.get('forced'))
+
+        if _forced is not None:
+            cargs['forced'] = _forced
 
 
         _faspires = (
@@ -209,7 +212,7 @@ class HomieConfig(Config):
             files=files,
             cargs=cargs,
             sargs=sargs,
-            model=HomieParams)
+            valid=HomieParams)
 
         self.merge_params()
 
@@ -256,7 +259,7 @@ class HomieConfig(Config):
             'encrypts': encrypts}
 
         params = (
-            self.model(**basic))
+            self.valid(**basic))
 
         assert isinstance(
             params, HomieParams)
@@ -282,7 +285,7 @@ class HomieConfig(Config):
 
         parse = jinja2.parse
 
-        params = self.model(
+        params = self.valid(
             parse, **merge)
 
         assert isinstance(

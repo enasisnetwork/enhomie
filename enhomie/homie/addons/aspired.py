@@ -12,12 +12,12 @@ from typing import Optional
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from ..childs import HomieAspire
-    from ..childs import HomieScene
+    from ..childs.aspire import HomieAspire
+    from ..childs.scene import HomieScene
     from ..common import HomieState
     from ..homie import Homie
-    from ..threads import HomieActionNode
-    from ..threads import HomieStreamItem
+    from ..threads.action import HomieActionNode
+    from ..threads.stream import HomieStreamItem
 
 
 
@@ -207,7 +207,7 @@ class HomieAspired:
 
             for value in store:
                 persist.insert(
-                    **value.endumped,
+                    **value.model_dump(),
                     statics=statics)
 
 

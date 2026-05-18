@@ -15,14 +15,14 @@ from typing import TYPE_CHECKING
 
 from encommon.times import Timer
 
-from .members import HomieActions
-from .members import HomieRestful
-from .members import HomieStreams
-from .members import HomieUpdates
+from .members.actions import HomieActions
+from .members.restful import HomieRestful
+from .members.streams import HomieStreams
+from .members.updates import HomieUpdates
 
 if TYPE_CHECKING:
     from .homie import Homie
-    from .params import HomieServiceParams
+    from .params.service import HomieServiceParams
 
 
 

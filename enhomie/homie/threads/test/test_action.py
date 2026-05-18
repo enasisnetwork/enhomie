@@ -20,7 +20,7 @@ from ..action import HomieActionItem
 
 if TYPE_CHECKING:
     from ...service import HomieService
-    from ....utils import TestBodies
+    from ....utils.tests import TestBodies
 
 
 

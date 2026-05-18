@@ -20,8 +20,8 @@ from .thread import HomieThreadItem
 
 if TYPE_CHECKING:
     from .stream import HomieStreamItem
-    from ..childs import HomieOrigin
-    from ..members import HomieUpdates
+    from ..childs.origin import HomieOrigin
+    from ..members.updates import HomieUpdates
 
 
 

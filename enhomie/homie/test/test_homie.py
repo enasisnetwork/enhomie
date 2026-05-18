@@ -20,10 +20,10 @@ from encommon.utils.sample import ENPYRWS
 from . import SAMPLES
 from ..config import HomieConfig
 from ..homie import Homie
-from ..threads import HomieThreadItem
+from ..threads.thread import HomieThreadItem
 
 if TYPE_CHECKING:
-    from ...utils import TestBodies
+    from ...utils.tests import TestBodies
 
 
 
@@ -77,7 +77,7 @@ def test_Homie(
 
     assert not homie.dryrun
 
-    assert homie.potent
+    assert homie.forced
 
     assert homie.desired
 

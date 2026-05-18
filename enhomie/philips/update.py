@@ -13,11 +13,11 @@ from typing import TYPE_CHECKING
 
 from encommon.types import DictStrAny
 
-from ..homie.threads import HomieUpdate
-from ..homie.threads import HomieUpdateItem
+from ..homie.threads.update import HomieUpdate
+from ..homie.threads.update import HomieUpdateItem
 
 if TYPE_CHECKING:
-    from ..homie.childs import HomieOrigin
+    from ..homie.childs.origin import HomieOrigin
 
 
 

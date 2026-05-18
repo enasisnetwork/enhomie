@@ -18,7 +18,7 @@ from fastapi import Request
 
 from pydantic import Field
 
-from ..homie.addons import HomiePersistRecord
+from ..homie.addons.persist import HomiePersistRecord
 
 
 

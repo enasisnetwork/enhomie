@@ -10,8 +10,7 @@ is permitted, for more information consult the project license file.
 from typing import TYPE_CHECKING
 
 from encommon.times import Time
-
-from ...utils import UnexpectedCondition
+from encommon.utils import Unexpected
 
 if TYPE_CHECKING:
     from ..helpers import UbiqFetch
@@ -50,4 +49,4 @@ def ubiq_latest(
         return Time(laseen[0])
 
 
-    raise UnexpectedCondition
+    raise Unexpected

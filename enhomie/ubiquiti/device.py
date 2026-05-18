@@ -9,7 +9,7 @@ is permitted, for more information consult the project license file.
 
 from typing import Literal
 
-from ..homie.childs import HomieDevice
+from ..homie.childs.device import HomieDevice
 
 
 

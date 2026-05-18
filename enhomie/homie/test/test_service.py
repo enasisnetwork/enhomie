@@ -19,7 +19,7 @@ from encommon.utils import save_text
 
 from respx import MockRouter
 
-from ..threads import HomieUpdateItem
+from ..threads.update import HomieUpdateItem
 from ...conftest import config_factory
 from ...conftest import homie_factory
 from ...conftest import service_factory

@@ -13,8 +13,8 @@ from ..helpers import ubiq_latest
 from ...origin import UbiqOrigin
 
 if TYPE_CHECKING:
-    from ....homie import Homie
-    from ....utils import TestBodies
+    from ....homie.homie import Homie
+    from ....utils.tests import TestBodies
 
 
 

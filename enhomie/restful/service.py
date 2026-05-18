@@ -23,7 +23,7 @@ from .server import RestfulServer
 
 if TYPE_CHECKING:
     from .params import RestfulServiceParams
-    from ..homie import Homie
+    from ..homie.homie import Homie
 
 
 

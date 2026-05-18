@@ -13,7 +13,7 @@ from fastapi.testclient import TestClient
 
 if TYPE_CHECKING:
     from ..service import RestfulService
-    from ...homie import Homie
+    from ...homie.homie import Homie
 
 
 

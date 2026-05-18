@@ -13,11 +13,11 @@ from pytest import raises
 
 from ..helpers import request_action
 from ..origin import HubiOrigin
-from ...utils import Idempotent
+from ...utils.raises import Idempotent
 
 if TYPE_CHECKING:
-    from ...homie import Homie
-    from ...utils import TestBodies
+    from ...homie.homie import Homie
+    from ...utils.tests import TestBodies
 
 
 

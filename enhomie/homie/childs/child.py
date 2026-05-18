@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from ..common import HomieFamily
     from ..common import HomieKinds
     from ..homie import Homie
-    from ..params import HomieChildParams
+    from ..params.child import HomieChildParams
 
 
 
@@ -175,7 +175,10 @@ class HomieChild:
         """
 
         params = self.__params
-        dumped = params.endumped
+
+        dumped = (
+            params
+            .model_dump())
 
         return {
             'name': self.name,

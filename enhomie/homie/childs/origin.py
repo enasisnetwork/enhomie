@@ -16,21 +16,21 @@ from encommon.colors import Color
 from encommon.types import DictStrAny
 
 from .child import HomieChild
-from ..addons import HomieQueue
+from ..addons.queue import HomieQueue
 from ..models import HomieModels
-from ...utils import InvalidParam
+from ...utils.param import InvalidParam
 
 if TYPE_CHECKING:
     from .scene import HomieScene
     from ..common import HomieFamily
     from ..common import HomieKinds
     from ..common import HomieState
-    from ..params import HomieOriginParams
-    from ..threads import HomieActionItem
-    from ..threads import HomieActionNode
-    from ..threads import HomieStreamItem
-    from ..threads import HomieUpdateBase
-    from ..threads import HomieUpdateItem
+    from ..params.origin import HomieOriginParams
+    from ..threads.action import HomieActionItem
+    from ..threads.action import HomieActionNode
+    from ..threads.stream import HomieStreamItem
+    from ..threads.update import HomieUpdateBase
+    from ..threads.update import HomieUpdateItem
 
 
 

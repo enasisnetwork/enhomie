@@ -18,14 +18,14 @@ from .child import HomieChild
 from .helpers import occurd
 from .helpers import whered
 from ..models import HomieModels
-from ..plugins import HomieOccur
-from ..plugins import HomieWhere
+from ..plugins.occur import HomieOccur
+from ..plugins.where import HomieWhere
 
 if TYPE_CHECKING:
     from .device import HomieDevice
     from .group import HomieGroup
-    from ..params import HomieAspireParams
-    from ..threads import HomieStreamItem
+    from ..params.aspire import HomieAspireParams
+    from ..threads.stream import HomieStreamItem
 
 
 

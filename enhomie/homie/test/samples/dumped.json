@@ -18,8 +18,10 @@
     }
   },
   "database": "sqlite:///_/encommon_sample/TMPPATH/_/db",
+  "console": true,
+  "debug": true,
   "dryrun": false,
-  "potent": true,
+  "forced": true,
   "printer": {
     "action": true,
     "update": true,

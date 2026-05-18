@@ -12,11 +12,11 @@ from typing import TYPE_CHECKING
 from typing import Type
 
 from .member import HomieMember
-from ...philips import PhueStream
+from ...philips.stream import PhueStream
 
 if TYPE_CHECKING:
-    from ..childs import HomieOrigin
-    from ..threads import HomieThread
+    from ..childs.origin import HomieOrigin
+    from ..threads.thread import HomieThread
 
 
 

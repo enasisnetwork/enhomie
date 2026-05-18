@@ -14,12 +14,12 @@ from encommon.times import Time
 
 from .helpers import ubiq_latest
 from ..models import UbiqModels
-from ...homie.plugins import HomieDriver
-from ...utils import InvalidParam
+from ...homie.plugins.driver import HomieDriver
+from ...utils.param import InvalidParam
 
 if TYPE_CHECKING:
-    from ..params import DriverUbiqClientParams
-    from ...homie.plugins import HomiePluginKinds
+    from ..params.plugins.client import DriverUbiqClientParams
+    from ...homie.plugins.common import HomiePluginKinds
 
 
 

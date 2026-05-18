@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from .driver import HomieDriver
     from ..common import HomieFamily
     from ..homie import Homie
-    from ..params import HomiePluginParams
+    from ..params.plugin import HomiePluginParams
 
 
 

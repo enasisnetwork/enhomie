@@ -50,14 +50,14 @@ def test_HomieChilds(
 
 
     assert inrepr(
-        'homie.HomieChilds',
+        'childs.HomieChilds',
         childs)
 
     assert isinstance(
         hash(childs), int)
 
     assert instr(
-        'homie.HomieChilds',
+        'childs.HomieChilds',
         childs)
 
 

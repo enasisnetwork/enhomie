@@ -13,8 +13,8 @@ from ..action import HubiAction
 from ..action import HubiActionItem
 
 if TYPE_CHECKING:
-    from ...homie import HomieService
-    from ...utils import TestBodies
+    from ...homie.service import HomieService
+    from ...utils.tests import TestBodies
 
 
 

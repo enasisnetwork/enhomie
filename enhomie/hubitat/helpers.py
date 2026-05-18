@@ -19,19 +19,19 @@ from encommon.types import DictStrAny
 from encommon.types import LDictStrAny
 from encommon.types import getate
 from encommon.types import strplwr
+from encommon.utils import Unexpected
 
 from httpx import Response
 
 from .device import HubiDevice
-from ..utils import Idempotent
-from ..utils import UnexpectedCondition
+from ..utils.raises import Idempotent
 
 if TYPE_CHECKING:
     from .origin import HubiOrigin
-    from ..homie.childs import HomieScene
+    from ..homie.childs.scene import HomieScene
     from ..homie.common import HomieKinds
     from ..homie.common import HomieState
-    from ..homie.threads import HomieActionNode
+    from ..homie.threads.action import HomieActionNode
 
 
 
@@ -493,4 +493,4 @@ def action_request(  # noqa: CFQ001,CFQ002,CFQ004
         return _set_level()
 
 
-    raise UnexpectedCondition
+    raise Unexpected

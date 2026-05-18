@@ -379,7 +379,9 @@
       "pause": 1
     }
   },
+  "console": true,
   "database": "sqlite:///_/encommon_sample/TMPPATH/_/db",
+  "debug": true,
   "desires": {
     "jupiter_active": {
       "devices": [
@@ -887,6 +889,7 @@
     "aspires": null,
     "desires": null
   },
+  "forced": true,
   "groups": {
     "jupiter": {
       "origin": "jupiter_philips",
@@ -1057,7 +1060,6 @@
       "expire": null
     }
   },
-  "potent": true,
   "printer": {
     "action": true,
     "update": true,

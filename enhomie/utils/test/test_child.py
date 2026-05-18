@@ -16,18 +16,32 @@ from encommon.types import lattrs
 from ..child import InvalidChild
 
 if TYPE_CHECKING:
-    from ...homie import Homie
+    from ...homie.homie import Homie
 
 
 
-def test_InvalidChild() -> None:
+def test_InvalidChild(
+    homie: 'Homie',
+) -> None:
     """
     Perform various tests associated with relevant routines.
+
+    :param homie: Primary class instance for Homie Automate.
     """
 
+    childs = homie.childs
+    devices = childs.devices
+
+    device = devices[
+        'jupiter_motion']
+
+    name = device.name
+
+
     raises = InvalidChild(
-        child='invalid',
-        phase='initial')
+        child=device,
+        phase='runtime',
+        about='about')
 
 
     attrs = lattrs(raises)
@@ -45,41 +59,27 @@ def test_InvalidChild() -> None:
         hash(raises), int)
 
     assert instr(
-        'Child (invalid)',
+        f'Child ({name})',
         raises)
 
-
-    assert str(raises) == (
-        'Child (invalid) '
-        'invalid within '
-        'phase (initial)')
-
-
-
-def test_InvalidChild_cover(
-    homie: 'Homie',
-) -> None:
-    """
-    Perform various tests associated with relevant routines.
-
-    :param homie: Primary class instance for Homie Automate.
-    """
-
-    childs = homie.childs
-    devices = childs.devices
-
-    device = devices[
-        'jupiter_motion']
-
-
-    raises = InvalidChild(
-        child=device,
-        phase='runtime',
-        about='about')
-
-    name = device.name
 
     assert str(raises) == (
         f'Child ({name}) '
         'invalid within phase '
         '(runtime) (about)')
+
+
+
+def test_InvalidChild_cover() -> None:
+    """
+    Perform various tests associated with relevant routines.
+    """
+
+    raises = InvalidChild(
+        child='invalid',
+        phase='initial')
+
+    assert str(raises) == (
+        'Child (invalid) '
+        'invalid within '
+        'phase (initial)')

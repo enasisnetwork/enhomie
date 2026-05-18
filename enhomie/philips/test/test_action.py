@@ -13,8 +13,8 @@ from ..action import PhueAction
 from ..action import PhueActionItem
 
 if TYPE_CHECKING:
-    from ...homie import HomieService
-    from ...utils import TestBodies
+    from ...homie.service import HomieService
+    from ...utils.tests import TestBodies
 
 
 

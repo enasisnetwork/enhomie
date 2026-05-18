@@ -20,7 +20,7 @@ from ..stream import HomieStreamItem
 
 if TYPE_CHECKING:
     from ...service import HomieService
-    from ....utils import TestBodies
+    from ....utils.tests import TestBodies
 
 
 

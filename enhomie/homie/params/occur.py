@@ -13,11 +13,11 @@ from typing import Optional
 from pydantic import Field
 
 from .plugin import HomiePluginParams
-from ...builtins.params import DriverBltnRegexpParams
-from ...philips.params import DriverPhueButtonParams
-from ...philips.params import DriverPhueContactParams
-from ...philips.params import DriverPhueMotionParams
-from ...philips.params import DriverPhueSceneParams
+from ...builtins.params.regexp import DriverBltnRegexpParams
+from ...philips.params.plugins.button import DriverPhueButtonParams
+from ...philips.params.plugins.contact import DriverPhueContactParams
+from ...philips.params.plugins.motion import DriverPhueMotionParams
+from ...philips.params.plugins.scene import DriverPhueSceneParams
 
 
 

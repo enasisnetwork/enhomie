@@ -11,7 +11,6 @@ from .child import InvalidChild
 from .param import InvalidParam
 from .raises import Idempotent
 from .raises import MultipleSource
-from .raises import UnexpectedCondition
 from .tests import TestBodies
 from .tests import TestTimes
 
@@ -20,7 +19,6 @@ from .tests import TestTimes
 __all__ = [
     'InvalidChild',
     'InvalidParam',
-    'UnexpectedCondition',
     'Idempotent',
     'MultipleSource',
     'TestTimes',

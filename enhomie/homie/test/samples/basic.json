@@ -16,8 +16,9 @@
   "enlogger": {
     "stdo_level": "debug"
   },
+  "console": true,
+  "debug": true,
   "dryrun": false,
-  "potent": true,
   "service": {
     "respite": {
       "desire": 1,

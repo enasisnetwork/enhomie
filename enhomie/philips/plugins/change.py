@@ -15,12 +15,12 @@ from encommon.times import Time
 
 from .helpers import phue_changed
 from ..models import PhueModels
-from ...homie.plugins import HomieDriver
-from ...utils import InvalidParam
+from ...homie.plugins.driver import HomieDriver
+from ...utils.param import InvalidParam
 
 if TYPE_CHECKING:
-    from ..params import DriverPhueChangeParams
-    from ...homie.plugins import HomiePluginKinds
+    from ..params.plugins.change import DriverPhueChangeParams
+    from ...homie.plugins.common import HomiePluginKinds
 
 
 

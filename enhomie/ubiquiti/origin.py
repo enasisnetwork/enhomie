@@ -23,14 +23,14 @@ from .helpers import UbiqMerge
 from .helpers import merge_fetch
 from .helpers import merge_find
 from .models import UbiqModels
-from ..homie.childs import HomieOrigin
-from ..utils import MultipleSource
+from ..homie.childs.origin import HomieOrigin
+from ..utils.raises import MultipleSource
 
 if TYPE_CHECKING:
     from ..homie.common import HomieKinds
-    from ..homie.threads import HomieActionNode
-    from ..homie.threads import HomieUpdateBase
-    from ..homie.threads import HomieUpdateItem
+    from ..homie.threads.action import HomieActionNode
+    from ..homie.threads.update import HomieUpdateBase
+    from ..homie.threads.update import HomieUpdateItem
 
 
 

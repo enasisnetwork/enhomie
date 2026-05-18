@@ -11,31 +11,31 @@ from typing import TYPE_CHECKING
 from typing import Type
 
 if TYPE_CHECKING:
-    from .addons import HomieAspiredItem
-    from .addons import HomieDesiredItem
-    from .addons import HomieQueueItem
+    from .addons.aspired import HomieAspiredItem
+    from .addons.desired import HomieDesiredItem
+    from .addons.queue import HomieQueueItem
     from .common import HomieStage
-    from .params import HomieAspireParams
-    from .params import HomieChildParams
-    from .params import HomieDesireParams
-    from .params import HomieDeviceParams
-    from .params import HomieGroupParams
-    from .params import HomieOccurParams
-    from .params import HomieOriginParams
-    from .params import HomieParams
-    from .params import HomiePluginParams
-    from .params import HomiePrinterParams
-    from .params import HomieSceneParams
-    from .params import HomieServiceParams
-    from .params import HomieWhereParams
-    from .threads import HomieActionItem
-    from .threads import HomieStreamItem
-    from .threads import HomieThreadItem
-    from .threads import HomieUpdateItem
-    from ..builtins import BltnModels
-    from ..hubitat import HubiModels
-    from ..philips import PhueModels
-    from ..ubiquiti import UbiqModels
+    from .params.aspire import HomieAspireParams
+    from .params.child import HomieChildParams
+    from .params.desire import HomieDesireParams
+    from .params.device import HomieDeviceParams
+    from .params.group import HomieGroupParams
+    from .params.homie import HomieParams
+    from .params.homie import HomiePrinterParams
+    from .params.occur import HomieOccurParams
+    from .params.origin import HomieOriginParams
+    from .params.plugin import HomiePluginParams
+    from .params.scene import HomieSceneParams
+    from .params.service import HomieServiceParams
+    from .params.where import HomieWhereParams
+    from .threads.action import HomieActionItem
+    from .threads.stream import HomieStreamItem
+    from .threads.thread import HomieThreadItem
+    from .threads.update import HomieUpdateItem
+    from ..builtins.models import BltnModels
+    from ..hubitat.models import HubiModels
+    from ..philips.models import PhueModels
+    from ..ubiquiti.models import UbiqModels
 
 
 

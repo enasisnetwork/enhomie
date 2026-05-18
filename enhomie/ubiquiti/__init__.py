@@ -10,7 +10,7 @@ is permitted, for more information consult the project license file.
 from .device import UbiqDevice
 from .models import UbiqModels
 from .origin import UbiqOrigin
-from .plugins import DriverUbiqClient
+from .plugins.client import DriverUbiqClient
 from .update import UbiqUpdate
 
 

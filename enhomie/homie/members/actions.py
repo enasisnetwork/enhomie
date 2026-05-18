@@ -15,15 +15,15 @@ from encommon.times import Time
 from encommon.times import Timer
 
 from .member import HomieMember
-from ...hubitat import HubiAction
-from ...philips import PhueAction
+from ...hubitat.action import HubiAction
+from ...philips.action import PhueAction
 
 if TYPE_CHECKING:
-    from ..childs import HomieOrigin
-    from ..childs import HomieScene
+    from ..childs.origin import HomieOrigin
+    from ..childs.scene import HomieScene
     from ..common import HomieState
-    from ..threads import HomieActionNode
-    from ..threads import HomieThread
+    from ..threads.action import HomieActionNode
+    from ..threads.thread import HomieThread
 
 
 

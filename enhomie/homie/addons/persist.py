@@ -450,7 +450,7 @@ class HomiePersist:
 
             default = (
                 persists[unique]
-                .endumped)
+                .model_dump())
 
 
         # collect input values
@@ -503,7 +503,9 @@ class HomiePersist:
 
         record = model(**insert)
 
-        insert = record.endumped
+        insert = (
+            record
+            .model_dump())
 
 
         # prepare the values

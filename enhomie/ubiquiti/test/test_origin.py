@@ -20,9 +20,9 @@ from ..origin import UbiqOrigin
 from ..update import UbiqUpdateItem
 
 if TYPE_CHECKING:
-    from ...homie import Homie
-    from ...homie import HomieService
-    from ...utils import TestBodies
+    from ...homie.homie import Homie
+    from ...homie.service import HomieService
+    from ...utils.tests import TestBodies
 
 
 
