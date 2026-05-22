@@ -45,6 +45,3 @@ pydata-sphinx-theme
 sphinx-js
 
 yamllint
-
-weasyprint
-wand
