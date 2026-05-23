@@ -889,7 +889,7 @@
     "aspires": null,
     "desires": null
   },
-  "forced": true,
+  "forced": false,
   "groups": {
     "jupiter": {
       "origin": "jupiter_philips",

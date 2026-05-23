@@ -19,6 +19,7 @@
   "console": true,
   "debug": true,
   "dryrun": false,
+  "forced": false,
   "service": {
     "respite": {
       "desire": 1,
