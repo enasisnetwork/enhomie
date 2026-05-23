@@ -21,7 +21,7 @@
   "console": true,
   "debug": true,
   "dryrun": false,
-  "forced": true,
+  "forced": false,
   "printer": {
     "action": true,
     "update": true,

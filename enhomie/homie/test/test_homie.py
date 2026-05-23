@@ -81,7 +81,7 @@ def test_Homie(
 
     assert not homie.dryrun
 
-    assert homie.forced
+    assert not homie.forced
 
     assert homie.desired
 

@@ -71,7 +71,7 @@ def config_factory(
     sargs = {
         'config': config_path,
         'dryrun': False,
-        'potent': True,
+        'forced': False,
         'console': True,
         'debug': True,
         'idesire': 1,
