@@ -8,9 +8,15 @@
 
 
 PYTHON ?= ../../Execution/python312/bin/python
+NODEJS ?= ../../Execution/nodejs24
 
 VENVP ?= .venv-package
 VENVD ?= .venv-develop
+
+NODEJS_BIN = $(abspath $(NODEJS)/bin)
+PNPM = COREPACK_ENABLE_DOWNLOAD_PROMPT=0 \
+	PATH=$(NODEJS_BIN):$$PATH \
+	$(NODEJS_BIN)/pnpm
 
 
 
@@ -236,15 +242,13 @@ cleanup-sphinx:
 	$(call MAKE_PR3NT,\
 		<c37>Removing <c90>Sphinx<c37> \
 		cache files..<c0>)
-	@find ./sphinx/ -type f \
+	@find ./sphinx/ \
+		-maxdepth 1 \
+		-type f \
 		! -name conf.py \
 		! -name index.rst \
-		! -name icon.png \
-		! -name style.css \
 		-delete 2>/dev/null || true
-	@mkdir ./sphinx/makefiletmp
-	@find ./sphinx/*/ -type d \
-		-exec rm -r {} + 2>/dev/null || true
+	@rm -rf ./sphinx/html
 	$(call MAKE_PR1NT,<cD>DONE<c0>)
 
 
@@ -501,11 +505,31 @@ sphinx: \
 	$(call MAKE_PR3NT,\
 		<c37>Building <c90>Sphinx<c37>\
 		documentation..<c0>)
-	@$(VENVD)/bin/sphinx-apidoc \
+	@PATH=$(NODEJS_BIN):$$PATH \
+		$(VENVD)/bin/sphinx-apidoc \
 		-o sphinx $(PROJECT) \
 		"$(PROJECT)/*/test"
-	@$(VENVD)/bin/sphinx-build \
+	@PATH=$(NODEJS_BIN):$$PATH \
+		$(VENVD)/bin/sphinx-build \
 		-b html sphinx/ sphinx/html
+	$(call MAKE_PR1NT,<cD>DONE<c0>)
+
+
+
+.PHONY: sphinx-jsdoc
+sphinx-jsdoc: \
+	.check-venv-develop \
+	.check-venv-package
+	@## Install the Sphinx parsing dependency
+	@#
+	$(call MAKE_PR2NT,\
+		<cD>make <cL>sphinx<c0>)
+	@#
+	$(call MAKE_PR3NT,\
+		<c37>Installing <c90>jsdoc<c37>\
+		into NodeJS..<c0>)
+	@PNPM_HOME=$(abspath $(NODEJS)) \
+		$(PNPM) add -g jsdoc
 	$(call MAKE_PR1NT,<cD>DONE<c0>)
 
 
