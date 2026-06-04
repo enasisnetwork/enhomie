@@ -1,5 +1,8 @@
 >>> make flake8
   ● Executing flake8 in enhomie..
-    DONE
-  ● Executing flake8 in sphinx..
-    DONE
+enhomie/hubitat/helpers.py:24:1: ASYNC127 Use `httpx2` instead of `httpx`, which is no longer maintained, to get security updates.
+enhomie/hubitat/test/__init__.py:17:1: ASYNC127 Use `httpx2` instead of `httpx`, which is no longer maintained, to get security updates.
+enhomie/philips/helpers.py:24:1: ASYNC127 Use `httpx2` instead of `httpx`, which is no longer maintained, to get security updates.
+enhomie/philips/stream.py:16:1: ASYNC127 Use `httpx2` instead of `httpx`, which is no longer maintained, to get security updates.
+enhomie/philips/test/__init__.py:19:1: ASYNC127 Use `httpx2` instead of `httpx`, which is no longer maintained, to get security updates.
+enhomie/ubiquiti/test/__init__.py:16:1: ASYNC127 Use `httpx2` instead of `httpx`, which is no longer maintained, to get security updates.
