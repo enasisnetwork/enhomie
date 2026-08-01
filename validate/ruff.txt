@@ -6,7 +6,6 @@ I001 [*] Import block is un-sorted or un-formatted
 10 | / from pathlib import Path
 11 | | from sys import flags
    | |_____________________^
-   |
 help: Organize imports
    |
 12 |
@@ -23,7 +22,6 @@ I001 [*] Import block is un-sorted or un-formatted
 12 | | from .regexp import DriverBltnRegexp
 13 | | from .store import DriverBltnStore
    | |__________________________________^
-   |
 help: Organize imports
    |
 14 |
@@ -42,7 +40,6 @@ RUF022 [*] `__all__` is not sorted
 20 | |     'DriverBltnPeriod',
 21 | |     'DriverBltnRegexp']
    | |_______________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 18 |     'BltnModels',
@@ -221,7 +218,6 @@ I001 [*] Import block is un-sorted or un-formatted
 11 | | from .regexp import DriverBltnRegexpParams
 12 | | from .store import DriverBltnStoreParams
    | |________________________________________^
-   |
 help: Organize imports
    |
 13 |
@@ -239,7 +235,6 @@ RUF022 [*] `__all__` is not sorted
 18 | |     'DriverBltnPeriodParams',
 19 | |     'DriverBltnRegexpParams']
    | |_____________________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 16 | __all__ = [
@@ -264,7 +259,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | |
 18 | | from ...homie.params.common import HomieParamsModel
    | |___________________________________________________^
-   |
 help: Organize imports
    |
 10 | from re import compile
@@ -343,7 +337,6 @@ I001 [*] Import block is un-sorted or un-formatted
 14 | |
 15 | | from ...homie.params.common import HomieParamsModel
    | |___________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -371,7 +364,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | | from ...homie.addons.persist import HomiePersistValue
 18 | | from ...homie.params.common import HomieParamsModel
    | |___________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -450,7 +442,6 @@ I001 [*] Import block is un-sorted or un-formatted
 22 | /     from .params.period import DriverBltnPeriodParams
 23 | |     from ..homie.plugins.common import HomiePluginKinds
    | |_______________________________________________________^
-   |
 help: Organize imports
    |
 21 | if TYPE_CHECKING:
@@ -535,7 +526,6 @@ I001 [*] Import block is un-sorted or un-formatted
 23 | |     from ..homie.plugins.common import HomiePluginKinds
 24 | |     from ..homie.threads.stream import HomieStreamItem
    | |______________________________________________________^
-   |
 help: Organize imports
    |
 21 | if TYPE_CHECKING:
@@ -586,7 +576,6 @@ I001 [*] Import block is un-sorted or un-formatted
 21 | /     from .params.store import DriverBltnStoreParams
 22 | |     from ..homie.plugins.common import HomiePluginKinds
    | |_______________________________________________________^
-   |
 help: Organize imports
    |
 20 | if TYPE_CHECKING:
@@ -601,7 +590,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..models import BltnModels
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -718,7 +706,6 @@ I001 [*] Import block is un-sorted or un-formatted
 26 | |     from ...utils.tests import TestBodies
 27 | |     from ...utils.tests import TestTimes
    | |________________________________________^
-   |
 help: Organize imports
    |
 25 |     from ...homie.homie import Homie
@@ -753,7 +740,6 @@ I001 [*] Import block is un-sorted or un-formatted
 29 | | from .utils.tests import TestBodies
 30 | | from .utils.tests import TestTimes
    | |__________________________________^
-   |
 help: Organize imports
    |
 14 | from encommon.utils import save_text
@@ -951,7 +937,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | | from ..homie.config import HomieConfig
 18 | | from ..homie.homie import Homie
    | |_______________________________^
-   |
 help: Organize imports
    |
 20 |
@@ -983,7 +968,6 @@ RUF100 [*] Unused `noqa` directive (non-enabled: `T201`)
 102 |
 103 |     print(dumped)  # noqa: T201
     |                    ^^^^^^^^^^^^
-    |
 help: Remove unused `noqa` directive
     |
 102 |
@@ -1023,7 +1007,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | |
 18 | | from ..homie.config import HomieConfig
    | |______________________________________^
-   |
 help: Organize imports
    |
 14 | from encommon.types import DictStrAny
@@ -1085,7 +1068,6 @@ I001 [*] Import block is un-sorted or un-formatted
 18 | |
 19 | | from ..homie.config import HomieConfig
    | |______________________________________^
-   |
 help: Organize imports
    |
 21 |
@@ -1117,7 +1099,6 @@ UP045 [*] Use `X | None` for type annotations
 105 |
 106 |     value: Optional[str] = None
     |            ^^^^^^^^^^^^^
-    |
 help: Convert to `X | None`
     |
 105 |
@@ -1157,7 +1138,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | | from ..homie.config import HomieConfig
 18 | | from ..homie.homie import Homie
    | |_______________________________^
-   |
 help: Organize imports
    |
 20 |
@@ -1212,7 +1192,6 @@ I001 [*] Import block is un-sorted or un-formatted
 16 | | from ..homie.config import HomieConfig
 17 | | from ..homie.homie import Homie
    | |_______________________________^
-   |
 help: Organize imports
    |
 19 |
@@ -1267,7 +1246,6 @@ I001 [*] Import block is un-sorted or un-formatted
 16 | | from ..homie.config import HomieConfig
 17 | | from ..homie.homie import Homie
    | |_______________________________^
-   |
 help: Organize imports
    |
 19 |
@@ -1327,7 +1305,6 @@ I001 [*] Import block is un-sorted or un-formatted
 21 | | from ..homie.homie import Homie
 22 | | from ..restful.service import RestfulService
    | |____________________________________________^
-   |
 help: Organize imports
    |
 10 | from argparse import ArgumentParser
@@ -1395,7 +1372,6 @@ I001 [*] Import block is un-sorted or un-formatted
 21 | | from ..homie.homie import Homie
 22 | | from ..homie.service import HomieService
    | |________________________________________^
-   |
 help: Organize imports
    |
 10 | from argparse import ArgumentParser
@@ -1451,7 +1427,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..action import arguments
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -1464,7 +1439,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..backup import arguments
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -1477,7 +1451,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..config import arguments
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -1490,7 +1463,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..crypts import arguments
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -1503,7 +1475,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..desired import arguments
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -1516,7 +1487,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..dumped import arguments
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -1529,7 +1499,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..persist import arguments
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -1542,7 +1511,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..restful import arguments
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -1555,7 +1523,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..service import arguments
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -1571,7 +1538,6 @@ I001 [*] Import block is un-sorted or un-formatted
 12 | | from .models import HomieModels
 13 | | from .service import HomieService
    | |_________________________________^
-   |
 help: Organize imports
    |
 14 |
@@ -1595,7 +1561,6 @@ I001 [*] Import block is un-sorted or un-formatted
 19 | | from .queue import HomieQueue
 20 | | from .queue import HomieQueueItem
    | |_________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -1636,7 +1601,6 @@ RUF022 [*] `__all__` is not sorted
 34 | |     'HomiePersistRecord',
 35 | |     'HomiePersistValue']
    | |________________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 24 | __all__ = [
@@ -1806,7 +1770,6 @@ SIM114 [*] Combine `if` branches using logical `or` operator
  99 | |             kwargs['base'] = (
 100 | |                 clsname(base))
     | |______________________________^
-    |
 help: Combine `if` branches
    |
 93 |
@@ -1830,7 +1793,6 @@ SIM114 [*] Combine `if` branches using logical `or` operator
 108 | |             kwargs['item'] = (
 109 | |                 clsname(item))
     | |______________________________^
-    |
 help: Combine `if` branches
     |
 102 |
@@ -2394,7 +2356,6 @@ I001 [*] Import block is un-sorted or un-formatted
 26 | /     from ...homie import Homie
 27 | |     from ....utils.tests import TestBodies
    | |__________________________________________^
-   |
 help: Organize imports
    |
 25 | if TYPE_CHECKING:
@@ -2452,7 +2413,6 @@ I001 [*] Import block is un-sorted or un-formatted
 27 | /     from ...homie import Homie
 28 | |     from ....utils.tests import TestTimes
    | |_________________________________________^
-   |
 help: Organize imports
    |
 26 | if TYPE_CHECKING:
@@ -2551,7 +2511,6 @@ I001 [*] Import block is un-sorted or un-formatted
 16 | | from .origin import HomieOrigin
 17 | | from .scene import HomieScene
    | |_____________________________^
-   |
 help: Organize imports
    |
 18 |
@@ -2574,7 +2533,6 @@ RUF022 [*] `__all__` is not sorted
 28 | |     'HomieAspire',
 29 | |     'HomieDesire']
    | |__________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 21 | __all__ = [
@@ -2644,7 +2602,6 @@ I001 [*] Import block is un-sorted or un-formatted
 27 | |     from ..params.aspire import HomieAspireParams
 28 | |     from ..threads.stream import HomieStreamItem
    | |________________________________________________^
-   |
 help: Organize imports
    |
 24 | if TYPE_CHECKING:
@@ -2764,7 +2721,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | |     from ..homie import Homie
 18 | |     from ..params.child import HomieChildParams
    | |_______________________________________________^
-   |
 help: Organize imports
    |
 14 | if TYPE_CHECKING:
@@ -2830,7 +2786,6 @@ RET501 [*] Do not explicitly `return None` in function if it is the only possibl
 118 |         if origins is None:
 119 |             return None
     |             ^^^^^^^^^^^
-    |
 help: Remove explicit `return None`
     |
 118 |         if origins is None:
@@ -2845,7 +2800,6 @@ RET501 [*] Do not explicitly `return None` in function if it is the only possibl
 151 |         if devices is None:
 152 |             return None
     |             ^^^^^^^^^^^
-    |
 help: Remove explicit `return None`
     |
 151 |         if devices is None:
@@ -3012,7 +2966,6 @@ I001 [*] Import block is un-sorted or un-formatted
 28 | |     from ..params.desire import HomieDesireParams
 29 | |     from ..threads.action import HomieActionNode
    | |________________________________________________^
-   |
 help: Organize imports
    |
 25 | if TYPE_CHECKING:
@@ -3166,7 +3119,6 @@ I001 [*] Import block is un-sorted or un-formatted
 22 | /     from .origin import HomieOrigin
 23 | |     from ..params.device import HomieDeviceParams
    | |_________________________________________________^
-   |
 help: Organize imports
    |
 21 | if TYPE_CHECKING:
@@ -3237,7 +3189,6 @@ I001 [*] Import block is un-sorted or un-formatted
 22 | /     from .origin import HomieOrigin
 23 | |     from ..params.group import HomieGroupParams
    | |_______________________________________________^
-   |
 help: Organize imports
    |
 21 | if TYPE_CHECKING:
@@ -3293,7 +3244,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | |     from .desire import HomieDesire
 18 | |     from ..threads.stream import HomieStreamItem
    | |________________________________________________^
-   |
 help: Organize imports
    |
 15 | if TYPE_CHECKING:
@@ -3359,7 +3309,6 @@ I001 [*] Import block is un-sorted or un-formatted
 32 | |     from ..threads.update import HomieUpdateBase
 33 | |     from ..threads.update import HomieUpdateItem
    | |________________________________________________^
-   |
 help: Organize imports
    |
 23 | if TYPE_CHECKING:
@@ -3631,7 +3580,6 @@ I001 [*] Import block is un-sorted or un-formatted
 27 | |     from ..params.scene import HomieSceneParams
 28 | |     from ..threads.action import HomieActionNode
    | |________________________________________________^
-   |
 help: Organize imports
    |
 24 | if TYPE_CHECKING:
@@ -3705,7 +3653,6 @@ I001 [*] Import block is un-sorted or un-formatted
 24 | /     from ...homie import Homie
 25 | |     from ....utils.tests import TestBodies
    | |__________________________________________^
-   |
 help: Organize imports
    |
 23 | if TYPE_CHECKING:
@@ -3795,7 +3742,6 @@ I001 [*] Import block is un-sorted or un-formatted
 25 | |     from ....utils.tests import TestBodies
 26 | |     from ....utils.tests import TestTimes
    | |_________________________________________^
-   |
 help: Organize imports
    |
 23 | if TYPE_CHECKING:
@@ -3849,7 +3795,6 @@ I001 [*] Import block is un-sorted or un-formatted
 24 | /     from ...homie import Homie
 25 | |     from ....utils.tests import TestBodies
    | |__________________________________________^
-   |
 help: Organize imports
    |
 23 | if TYPE_CHECKING:
@@ -3888,7 +3833,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | /     from ...homie import Homie
 18 | |     from ....utils.tests import TestBodies
    | |__________________________________________^
-   |
 help: Organize imports
    |
 16 | if TYPE_CHECKING:
@@ -3965,7 +3909,6 @@ UP045 [*] Use `X | None` for type annotations
 59 |     color: Optional[Color] = None
 60 |     level: Optional[int] = None
    |            ^^^^^^^^^^^^^
-   |
 help: Convert to `X | None`
    |
 59 |     color: Optional[Color] = None
@@ -4041,7 +3984,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | |
 18 | | from .params.homie import HomieParams
    | |_____________________________________^
-   |
 help: Organize imports
    |
 11 |
@@ -4189,7 +4131,6 @@ I001 [*] Import block is un-sorted or un-formatted
 38 | |     from .threads.action import HomieActionBase
 39 | |     from .threads.action import HomieActionNode
    | |_______________________________________________^
-   |
 help: Organize imports
    |
 33 |     from .childs.scene import HomieScene
@@ -4356,7 +4297,6 @@ I001 [*] Import block is un-sorted or un-formatted
 13 | | from .streams import HomieStreams
 14 | | from .updates import HomieUpdates
    | |_________________________________^
-   |
 help: Organize imports
    |
 15 |
@@ -4376,7 +4316,6 @@ RUF022 [*] `__all__` is not sorted
 22 | |     'HomieStreams',
 23 | |     'HomieRestful']
    | |___________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 18 | __all__ = [
@@ -4483,7 +4422,6 @@ RET501 [*] Do not explicitly `return None` in function if it is the only possibl
 114 |         if vacate.is_set():
 115 |             return None
     |             ^^^^^^^^^^^
-    |
 help: Remove explicit `return None`
     |
 114 |         if vacate.is_set():
@@ -4633,7 +4571,6 @@ UP037 [*] Remove quotes from type annotation
     |
 125 |         threads: 'HomieThreads' = {}
     |                  ^^^^^^^^^^^^^^
-    |
 help: Remove quotes
     |
 124 |
@@ -4868,7 +4805,6 @@ I001 [*] Import block is un-sorted or un-formatted
 23 | | from ....conftest import service_factory
 24 | | from ....restful.conftest import _create_client
    | |_______________________________________________^
-   |
 help: Organize imports
    |
 13 |
@@ -5090,7 +5026,6 @@ I001 [*] Import block is un-sorted or un-formatted
 37 | |     from ..philips.models import PhueModels
 38 | |     from ..ubiquiti.models import UbiqModels
    | |____________________________________________^
-   |
 help: Organize imports
    |
 13 | if TYPE_CHECKING:
@@ -6084,7 +6019,6 @@ I001 [*] Import block is un-sorted or un-formatted
 24 | | from .store import HomieStoreParams
 25 | | from .where import HomieWhereParams
    | |___________________________________^
-   |
 help: Organize imports
    |
 15 | from .group import HomieGroupParams
@@ -6121,7 +6055,6 @@ RUF022 [*] `__all__` is not sorted
 44 | |     'HomieOccurParams',
 45 | |     'HomieWhereParams']
    | |_______________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 29 | __all__ = [
@@ -6169,7 +6102,6 @@ I001 [*] Import block is un-sorted or un-formatted
 19 | | from .store import HomieStoreParams
 20 | | from .where import HomieWhereParams
    | |___________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -6312,7 +6244,6 @@ I001 [*] Import block is un-sorted or un-formatted
 13 | |
 14 | | from .common import HomieParamsModel
    | |____________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -6365,7 +6296,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from encommon.types import BaseModel
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -6387,7 +6317,6 @@ I001 [*] Import block is un-sorted or un-formatted
 18 | | from .store import HomieStoreParams
 19 | | from .where import HomieWhereParams
    | |___________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -6514,7 +6443,6 @@ I001 [*] Import block is un-sorted or un-formatted
 14 | |
 15 | | from .child import HomieChildParams
    | |___________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -6574,7 +6502,6 @@ I001 [*] Import block is un-sorted or un-formatted
 15 | |
 16 | | from .child import HomieChildParams
    | |___________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -6664,7 +6591,6 @@ I001 [*] Import block is un-sorted or un-formatted
 27 | | from .service import HomieServiceParams
 28 | | from ...restful.params import RestfulServiceParams
    | |__________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -6890,7 +6816,6 @@ I001 [*] Import block is un-sorted or un-formatted
 19 | | from ...philips.params.plugins.motion import DriverPhueMotionParams
 20 | | from ...philips.params.plugins.scene import DriverPhueSceneParams
    | |_________________________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -7009,7 +6934,6 @@ I001 [*] Import block is un-sorted or un-formatted
 19 | | from ...philips.params.origin import PhueOriginParams
 20 | | from ...ubiquiti.params.origin import UbiqOriginParams
    | |______________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -7132,7 +7056,6 @@ I001 [*] Import block is un-sorted or un-formatted
 20 | | from ..addons.persist import HomiePersistLevel
 21 | | from ..addons.persist import _PERSIST_ABOUT
    | |___________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -7313,7 +7236,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from .common import HomieParamsModel
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -7332,7 +7254,6 @@ I001 [*] Import block is un-sorted or un-formatted
 15 | | from .child import HomieChildParams
 16 | | from .stage import HomieStageParams
    | |___________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -7389,7 +7310,6 @@ I001 [*] Import block is un-sorted or un-formatted
 13 | |
 14 | | from .common import HomieParamsModel
    | |____________________________________^
-   |
 help: Organize imports
    |
 16 |
@@ -7408,7 +7328,6 @@ I001 [*] Import block is un-sorted or un-formatted
 15 | | from .common import HomieParamsModel
 16 | | from ..common import HomieState
    | |_______________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -7499,7 +7418,6 @@ I001 [*] Import block is un-sorted or un-formatted
 27 | | from ..addons.persist import HomiePersistValue
 28 | | from ..addons.persist import _PERSIST_ABOUT
    | |___________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -7554,7 +7472,6 @@ I001 [*] Import block is un-sorted or un-formatted
 18 | | from ...philips.params.plugins.change import DriverPhueChangeParams
 19 | | from ...ubiquiti.params.plugins.client import DriverUbiqClientParams
    | |____________________________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -7651,7 +7568,6 @@ I001 [*] Import block is un-sorted or un-formatted
 13 | | from .plugin import HomiePlugin
 14 | | from .where import HomieWhere
    | |_____________________________^
-   |
 help: Organize imports
    |
 15 |
@@ -7671,7 +7587,6 @@ RUF022 [*] `__all__` is not sorted
 22 | |     'HomieOccur',
 23 | |     'HomieDriver']
    | |__________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 18 | __all__ = [
@@ -7690,7 +7605,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from typing import Literal
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 11 |
@@ -7708,7 +7622,6 @@ I001 [*] Import block is un-sorted or un-formatted
 19 | |     from ..common import HomieFamily
 20 | |     from ..threads.stream import HomieStreamItem
    | |________________________________________________^
-   |
 help: Organize imports
    |
 16 | if TYPE_CHECKING:
@@ -7774,7 +7687,6 @@ I001 [*] Import block is un-sorted or un-formatted
 22 | |     from ..params.occur import HomieOccurParams
 23 | |     from ..threads.stream import HomieStreamItem
    | |________________________________________________^
-   |
 help: Organize imports
    |
 20 | if TYPE_CHECKING:
@@ -7823,7 +7735,6 @@ I001 [*] Import block is un-sorted or un-formatted
 120 | |         from ...philips import (
 121 | |             DriverPhueScene)
     | |____________________________^
-    |
 help: Organize imports
     |
 107 |
@@ -7888,7 +7799,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | |     from ..homie import Homie
 18 | |     from ..params.plugin import HomiePluginParams
    | |_________________________________________________^
-   |
 help: Organize imports
    |
 13 | if TYPE_CHECKING:
@@ -7907,7 +7817,6 @@ UP037 [*] Remove quotes from type annotation
    |
 65 |         drivers: list['HomieDriver'] = []
    |                       ^^^^^^^^^^^^^
-   |
 help: Remove quotes
    |
 64 |
@@ -7963,7 +7872,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | /     from ...homie import Homie
 18 | |     from ....utils.tests import TestBodies
    | |__________________________________________^
-   |
 help: Organize imports
    |
 16 | if TYPE_CHECKING:
@@ -8002,7 +7910,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | /     from ...homie import Homie
 18 | |     from ....utils.tests import TestBodies
    | |__________________________________________^
-   |
 help: Organize imports
    |
 16 | if TYPE_CHECKING:
@@ -8066,7 +7973,6 @@ I001 [*] Import block is un-sorted or un-formatted
 22 | /     from .driver import HomieDriver
 23 | |     from ..params.where import HomieWhereParams
    | |_______________________________________________^
-   |
 help: Organize imports
    |
 21 | if TYPE_CHECKING:
@@ -8111,7 +8017,6 @@ I001 [*] Import block is un-sorted or un-formatted
 115 | |         from ...ubiquiti import (
 116 | |             DriverUbiqClient)
     | |_____________________________^
-    |
 help: Organize imports
     |
 105 |
@@ -8461,7 +8366,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from pathlib import Path
    | ^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 11 |
@@ -8481,7 +8385,6 @@ I001 [*] Import block is un-sorted or un-formatted
 15 | | from . import SAMPLES
 16 | | from ..config import HomieConfig
    | |________________________________^
-   |
 help: Organize imports
    |
 10 | from encommon.types import DictStrAny
@@ -8544,7 +8447,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..models import HomieModels
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -8609,7 +8511,6 @@ I001 [*] Import block is un-sorted or un-formatted
 19 | | from .update import HomieUpdateBase
 20 | | from .update import HomieUpdateItem
    | |___________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -8650,7 +8551,6 @@ RUF022 [*] `__all__` is not sorted
 34 | |     'HomieUpdateBase',
 35 | |     'HomieUpdateItem']
    | |______________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 24 | __all__ = [
@@ -8775,7 +8675,6 @@ UP045 [*] Use `X | None` for type annotations
 50 |     level: Optional[int] = None
 51 |     scene: Optional[str] = None
    |            ^^^^^^^^^^^^^
-   |
 help: Convert to `X | None`
    |
 50 |     level: Optional[int] = None
@@ -8937,7 +8836,6 @@ I001 [*] Import block is un-sorted or un-formatted
 22 | /     from ...service import HomieService
 23 | |     from ....utils.tests import TestBodies
    | |__________________________________________^
-   |
 help: Organize imports
    |
 21 | if TYPE_CHECKING:
@@ -8983,7 +8881,6 @@ I001 [*] Import block is un-sorted or un-formatted
 22 | /     from ...service import HomieService
 23 | |     from ....utils.tests import TestBodies
    | |__________________________________________^
-   |
 help: Organize imports
    |
 21 | if TYPE_CHECKING:
@@ -9000,7 +8897,6 @@ I001 [*] Import block is un-sorted or un-formatted
 15 | /     from ...service import HomieService
 16 | |     from ....utils.tests import TestBodies
    | |__________________________________________^
-   |
 help: Organize imports
    |
 14 | if TYPE_CHECKING:
@@ -9046,7 +8942,6 @@ I001 [*] Import block is un-sorted or un-formatted
 22 | /     from ...service import HomieService
 23 | |     from ....utils.tests import TestBodies
    | |__________________________________________^
-   |
 help: Organize imports
    |
 21 | if TYPE_CHECKING:
@@ -9140,7 +9035,6 @@ I001 [*] Import block is un-sorted or un-formatted
 23 | |     from ..childs.origin import HomieOrigin
 24 | |     from ..members.updates import HomieUpdates
    | |______________________________________________^
-   |
 help: Organize imports
    |
 21 | if TYPE_CHECKING:
@@ -9180,7 +9074,6 @@ I001 [*] Import block is un-sorted or un-formatted
 13 | | from .origin import HubiOrigin
 14 | | from .update import HubiUpdate
    | |______________________________^
-   |
 help: Organize imports
    |
 15 |
@@ -9200,7 +9093,6 @@ RUF022 [*] `__all__` is not sorted
 22 | |     'HubiUpdate',
 23 | |     'HubiModels']
    | |_________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 18 | __all__ = [
@@ -9226,7 +9118,6 @@ I001 [*] Import block is un-sorted or un-formatted
 15 | | from ..homie.threads.action import HomieActionItem
 16 | | from ..homie.threads.action import HomieActionNode
    | |__________________________________________________^
-   |
 help: Organize imports
    |
 10 | from dataclasses import dataclass
@@ -9268,7 +9159,6 @@ RET501 [*] Do not explicitly `return None` in function if it is the only possibl
 91 |
 92 |             return None
    |             ^^^^^^^^^^^
-   |
 help: Remove explicit `return None`
    |
 91 |
@@ -9284,7 +9174,6 @@ I001 [*] Import block is un-sorted or un-formatted
 11 | |
 12 | | from ..homie.childs.device import HomieDevice
    | |_____________________________________________^
-   |
 help: Organize imports
    |
 14 |
@@ -9352,7 +9241,6 @@ I001 [*] Import block is un-sorted or un-formatted
 33 | |     from ..homie.common import HomieState
 34 | |     from ..homie.threads.action import HomieActionNode
    | |______________________________________________________^
-   |
 help: Organize imports
    |
 29 | if TYPE_CHECKING:
@@ -9388,7 +9276,6 @@ UP045 Use `X | None` for type annotations
 55 | |     _ASTATES
 56 | |     | int | Color]
    | |__________________^
-   |
 help: Convert to `X | None`
 
 UP045 [*] Use `X | None` for type annotations
@@ -9837,7 +9724,6 @@ I001 [*] Import block is un-sorted or un-formatted
 40 | |     from ..homie.threads.update import HomieUpdateBase
 41 | |     from ..homie.threads.update import HomieUpdateItem
    | |______________________________________________________^
-   |
 help: Organize imports
    |
 35 |     from ..homie.childs.scene import HomieScene
@@ -9876,7 +9762,6 @@ UP045 [*] Use `X | None` for type annotations
 52 |     __fetch: Optional[HubiFetch]
 53 |     __merge: Optional[HubiMerge]
    |              ^^^^^^^^^^^^^^^^^^^
-   |
 help: Convert to `X | None`
    |
 52 |     __fetch: Optional[HubiFetch]
@@ -10088,7 +9973,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from .origin import HubiOriginParams
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 11 |
@@ -10111,7 +9995,6 @@ I001 [*] Import block is un-sorted or un-formatted
 18 | |
 19 | | from ...homie.params.common import HomieParamsModel
    | |___________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -10179,7 +10062,6 @@ I001 [*] Import block is un-sorted or un-formatted
 18 | |
 19 | | from respx import MockRouter
    | |____________________________^
-   |
 help: Organize imports
    |
 13 | from encommon.types import DictStrAny
@@ -10244,7 +10126,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..models import HubiModels
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -10327,7 +10208,6 @@ I001 [*] Import block is un-sorted or un-formatted
 19 | | from .stream import PhueStream
 20 | | from .update import PhueUpdate
    | |______________________________^
-   |
 help: Organize imports
    |
 21 |
@@ -10353,7 +10233,6 @@ RUF022 [*] `__all__` is not sorted
 34 | |     'DriverPhueMotion',
 35 | |     'DriverPhueScene']
    | |______________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 24 | __all__ = [
@@ -10389,7 +10268,6 @@ I001 [*] Import block is un-sorted or un-formatted
 15 | | from ..homie.threads.action import HomieActionItem
 16 | | from ..homie.threads.action import HomieActionNode
    | |__________________________________________________^
-   |
 help: Organize imports
    |
 10 | from dataclasses import dataclass
@@ -10431,7 +10309,6 @@ RET501 [*] Do not explicitly `return None` in function if it is the only possibl
 93 |
 94 |             return None
    |             ^^^^^^^^^^^
-   |
 help: Remove explicit `return None`
    |
 93 |
@@ -10465,7 +10342,6 @@ I001 [*] Import block is un-sorted or un-formatted
 11 | |
 12 | | from ..homie.childs.device import HomieDevice
    | |_____________________________________________^
-   |
 help: Organize imports
    |
 14 |
@@ -10542,7 +10418,6 @@ I001 [*] Import block is un-sorted or un-formatted
 33 | |     from ..homie.common import HomieState
 34 | |     from ..homie.threads.action import HomieActionNode
    | |______________________________________________________^
-   |
 help: Organize imports
    |
 29 | if TYPE_CHECKING:
@@ -10578,7 +10453,6 @@ UP045 Use `X | None` for type annotations
 61 | |     _ASTATES
 62 | |     | int | Color]
    | |__________________^
-   |
 help: Convert to `X | None`
 
 RET501 [*] Do not explicitly `return None` in function if it is the only possible return value
@@ -11539,7 +11413,6 @@ I001 [*] Import block is un-sorted or un-formatted
 42 | |     from ..homie.threads.update import HomieUpdateBase
 43 | |     from ..homie.threads.update import HomieUpdateItem
    | |______________________________________________________^
-   |
 help: Organize imports
    |
 36 |     from ..homie.childs.scene import HomieScene
@@ -11579,7 +11452,6 @@ UP045 [*] Use `X | None` for type annotations
 54 |     __fetch: Optional[PhueFetch]
 55 |     __merge: Optional[PhueMerge]
    |              ^^^^^^^^^^^^^^^^^^^
-   |
 help: Convert to `X | None`
    |
 54 |     __fetch: Optional[PhueFetch]
@@ -11796,7 +11668,6 @@ I001 [*] Import block is un-sorted or un-formatted
 14 | | from .plugins.motion import DriverPhueMotionParams
 15 | | from .plugins.scene import DriverPhueSceneParams
    | |________________________________________________^
-   |
 help: Organize imports
    |
 16 |
@@ -11817,7 +11688,6 @@ RUF022 [*] `__all__` is not sorted
 24 | |     'DriverPhueChangeParams',
 25 | |     'DriverPhueSceneParams']
    | |____________________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 19 | __all__ = [
@@ -11847,7 +11717,6 @@ I001 [*] Import block is un-sorted or un-formatted
 18 | |
 19 | | from ...homie.params.common import HomieParamsModel
    | |___________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -11910,7 +11779,6 @@ I001 [*] Import block is un-sorted or un-formatted
 13 | | from .motion import DriverPhueMotionParams
 14 | | from .scene import DriverPhueSceneParams
    | |________________________________________^
-   |
 help: Organize imports
    |
 15 |
@@ -11930,7 +11798,6 @@ RUF022 [*] `__all__` is not sorted
 22 | |     'DriverPhueChangeParams',
 23 | |     'DriverPhueSceneParams']
    | |____________________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 19 |     'DriverPhueButtonParams',
@@ -11956,7 +11823,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | | from ...plugins.button import PhueButtonSensor
 18 | | from ....homie.params.common import HomieParamsModel
    | |____________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -12004,7 +11870,6 @@ I001 [*] Import block is un-sorted or un-formatted
 16 | | from ...plugins.change import PhueChangeSensor
 17 | | from ....homie.params.common import HomieParamsModel
    | |____________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -12051,7 +11916,6 @@ I001 [*] Import block is un-sorted or un-formatted
 16 | | from ...plugins.contact import PhueContactState
 17 | | from ....homie.params.common import HomieParamsModel
    | |____________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -12098,7 +11962,6 @@ I001 [*] Import block is un-sorted or un-formatted
 16 | | from ...plugins.motion import PhueMotionState
 17 | | from ....homie.params.common import HomieParamsModel
    | |____________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -12145,7 +12008,6 @@ I001 [*] Import block is un-sorted or un-formatted
 16 | | from ...plugins.scene import PhueSceneState
 17 | | from ....homie.params.common import HomieParamsModel
    | |____________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -12192,7 +12054,6 @@ I001 [*] Import block is un-sorted or un-formatted
 16 | | from .motion import DriverPhueMotion
 17 | | from .scene import DriverPhueScene
    | |__________________________________^
-   |
 help: Organize imports
    |
 12 | from .contact import DriverPhueContact
@@ -12221,7 +12082,6 @@ RUF022 [*] `__all__` is not sorted
 28 | |     'phue_changed',
 29 | |     'phue_current']
    | |___________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 26 |     'DriverPhueScene',
@@ -12283,7 +12143,6 @@ I001 [*] Import block is un-sorted or un-formatted
 25 | |     from ...homie.plugins.common import HomiePluginKinds
 26 | |     from ...homie.threads.stream import HomieStreamItem
    | |_______________________________________________________^
-   |
 help: Organize imports
    |
 23 | if TYPE_CHECKING:
@@ -12305,7 +12164,6 @@ SIM103 Return the condition `_event in events` directly
 206 | |
 207 | |         return True
     | |___________________^
-    |
 help: Replace with `return _event in events`
 
 I001 [*] Import block is un-sorted or un-formatted
@@ -12351,7 +12209,6 @@ I001 [*] Import block is un-sorted or un-formatted
 22 | /     from ..params.plugins.change import DriverPhueChangeParams
 23 | |     from ...homie.plugins.common import HomiePluginKinds
    | |________________________________________________________^
-   |
 help: Organize imports
    |
 21 | if TYPE_CHECKING:
@@ -12445,7 +12302,6 @@ I001 [*] Import block is un-sorted or un-formatted
 25 | |     from ...homie.plugins.common import HomiePluginKinds
 26 | |     from ...homie.threads.stream import HomieStreamItem
    | |_______________________________________________________^
-   |
 help: Organize imports
    |
 23 | if TYPE_CHECKING:
@@ -12467,7 +12323,6 @@ SIM103 Return the condition `_state in states` directly
 195 | |
 196 | |         return True
     | |___________________^
-    |
 help: Replace with `return _state in states`
 
 I001 [*] Import block is un-sorted or un-formatted
@@ -12597,7 +12452,6 @@ I001 [*] Import block is un-sorted or un-formatted
 25 | |     from ...homie.plugins.common import HomiePluginKinds
 26 | |     from ...homie.threads.stream import HomieStreamItem
    | |_______________________________________________________^
-   |
 help: Organize imports
    |
 23 | if TYPE_CHECKING:
@@ -12655,7 +12509,6 @@ I001 [*] Import block is un-sorted or un-formatted
 24 | |     from ...homie.plugins.common import HomiePluginKinds
 25 | |     from ...homie.threads.stream import HomieStreamItem
    | |_______________________________________________________^
-   |
 help: Organize imports
    |
 22 | if TYPE_CHECKING:
@@ -12763,7 +12616,6 @@ I001 [*] Import block is un-sorted or un-formatted
 26 | |     from ....utils.tests import TestBodies
 27 | |     from ....utils.tests import TestTimes
    | |_________________________________________^
-   |
 help: Organize imports
    |
 25 |     from ....homie.homie import Homie
@@ -13002,7 +12854,6 @@ I001 [*] Import block is un-sorted or un-formatted
 11 | | from encommon.types import getate
 12 | | from encommon.types import setate
    | |_________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -13047,7 +12898,6 @@ I001 [*] Import block is un-sorted or un-formatted
 20 | |
 21 | | from respx import MockRouter
    | |____________________________^
-   |
 help: Organize imports
    |
 13 | from encommon.types import DictStrAny
@@ -13114,7 +12964,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..models import PhueModels
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -13265,7 +13114,6 @@ I001 [*] Import block is un-sorted or un-formatted
 10 | / from .params import RestfulServiceParams
 11 | | from .service import RestfulService
    | |___________________________________^
-   |
 help: Organize imports
    |
 12 |
@@ -13306,7 +13154,6 @@ I001 [*] Import block is un-sorted or un-formatted
 16 | |
 17 | | from ..homie.params.common import HomieParamsModel
    | |__________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -13442,7 +13289,6 @@ I001 [*] Import block is un-sorted or un-formatted
 20 | |
 21 | | from ..homie.addons.persist import HomiePersistRecord
    | |_____________________________________________________^
-   |
 help: Organize imports
    |
 14 | from encommon.types import BaseModel
@@ -13527,7 +13373,6 @@ I001 [*] Import block is un-sorted or un-formatted
 35 | /     from .service import RestfulService
 36 | |     from ..homie.homie import Homie
    | |___________________________________^
-   |
 help: Organize imports
    |
 34 | if TYPE_CHECKING:
@@ -13656,7 +13501,6 @@ B010 [*] Do not call `setattr` with a constant attribute value. It is not any sa
 144 | |                 logger, 'warning',
 145 | |                 self.__log_warning)
     | |___________________________________^
-    |
 help: Replace `setattr` with assignment
     |
 142 |
@@ -13763,7 +13607,6 @@ I001 [*] Import block is un-sorted or un-formatted
 25 | /     from .params import RestfulServiceParams
 26 | |     from ..homie.homie import Homie
    | |___________________________________^
-   |
 help: Organize imports
    |
 24 | if TYPE_CHECKING:
@@ -13859,7 +13702,6 @@ I001 [*] Import block is un-sorted or un-formatted
 21 | | from fastapi import Response
 22 | | from fastapi.responses import FileResponse
    | |__________________________________________^
-   |
 help: Organize imports
    |
 16 | from encommon.webkit import Content
@@ -13916,7 +13758,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from pathlib import Path
    | ^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 11 |
@@ -13932,7 +13773,6 @@ I001 [*] Import block is un-sorted or un-formatted
 15 | /     from ..service import RestfulService
 16 | |     from ...homie.homie import Homie
    | |____________________________________^
-   |
 help: Organize imports
    |
 14 | if TYPE_CHECKING:
@@ -13962,7 +13802,6 @@ I001 [*] Import block is un-sorted or un-formatted
 24 | | from ...conftest import homie_factory
 25 | | from ...conftest import restful_factory
    | |_______________________________________^
-   |
 help: Organize imports
    |
 13 |
@@ -14012,7 +13851,6 @@ I001 [*] Import block is un-sorted or un-formatted
 13 | | from .plugins.client import DriverUbiqClient
 14 | | from .update import UbiqUpdate
    | |______________________________^
-   |
 help: Organize imports
    |
 15 |
@@ -14032,7 +13870,6 @@ RUF022 [*] `__all__` is not sorted
 22 | |     'UbiqModels',
 23 | |     'DriverUbiqClient']
    | |_______________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 18 | __all__ = [
@@ -14054,7 +13891,6 @@ I001 [*] Import block is un-sorted or un-formatted
 11 | |
 12 | | from ..homie.childs.device import HomieDevice
    | |_____________________________________________^
-   |
 help: Organize imports
    |
 14 |
@@ -14412,7 +14248,6 @@ I001 [*] Import block is un-sorted or un-formatted
 32 | |     from ..homie.threads.update import HomieUpdateBase
 33 | |     from ..homie.threads.update import HomieUpdateItem
    | |______________________________________________________^
-   |
 help: Organize imports
    |
 31 |     from ..homie.threads.action import HomieActionNode
@@ -14445,7 +14280,6 @@ UP045 [*] Use `X | None` for type annotations
 44 |     __fetch: Optional[UbiqFetch]
 45 |     __merge: Optional[UbiqMerge]
    |              ^^^^^^^^^^^^^^^^^^^
-   |
 help: Convert to `X | None`
    |
 44 |     __fetch: Optional[UbiqFetch]
@@ -14577,7 +14411,6 @@ I001 [*] Import block is un-sorted or un-formatted
 10 | / from .origin import UbiqOriginParams
 11 | | from .plugins.client import DriverUbiqClientParams
    | |__________________________________________________^
-   |
 help: Organize imports
    |
 12 |
@@ -14594,7 +14427,6 @@ RUF022 [*] `__all__` is not sorted
 16 | |     'UbiqOriginParams',
 17 | |     'DriverUbiqClientParams']
    | |_____________________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 15 | __all__ = [
@@ -14618,7 +14450,6 @@ I001 [*] Import block is un-sorted or un-formatted
 18 | |
 19 | | from ...homie.params.common import HomieParamsModel
    | |___________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -14677,7 +14508,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from .client import DriverUbiqClientParams
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 11 |
@@ -14696,7 +14526,6 @@ I001 [*] Import block is un-sorted or un-formatted
 14 | |
 15 | | from ....homie.params.common import HomieParamsModel
    | |____________________________________________________^
-   |
 help: Organize imports
    |
 9  |
@@ -14717,7 +14546,6 @@ I001 [*] Import block is un-sorted or un-formatted
 10 | / from .client import DriverUbiqClient
 11 | | from .helpers import ubiq_latest
    | |________________________________^
-   |
 help: Organize imports
    |
 12 |
@@ -14767,7 +14595,6 @@ I001 [*] Import block is un-sorted or un-formatted
 21 | /     from ..params.plugins.client import DriverUbiqClientParams
 22 | |     from ...homie.plugins.common import HomiePluginKinds
    | |________________________________________________________^
-   |
 help: Organize imports
    |
 20 | if TYPE_CHECKING:
@@ -14823,7 +14650,6 @@ I001 [*] Import block is un-sorted or un-formatted
 26 | |     from ....utils.tests import TestBodies
 27 | |     from ....utils.tests import TestTimes
    | |_________________________________________^
-   |
 help: Organize imports
    |
 25 |     from ....homie.homie import Homie
@@ -14866,7 +14692,6 @@ I001 [*] Import block is un-sorted or un-formatted
 17 | |
 18 | | from respx import MockRouter
    | |____________________________^
-   |
 help: Organize imports
    |
 12 | from encommon.types import DictStrAny
@@ -14887,7 +14712,6 @@ I001 [*] Import block is un-sorted or un-formatted
    |
 10 | from ..models import UbiqModels
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
 help: Organize imports
    |
 12 |
@@ -14965,7 +14789,6 @@ I001 [*] Import block is un-sorted or un-formatted
 14 | | from .tests import TestBodies
 15 | | from .tests import TestTimes
    | |____________________________^
-   |
 help: Organize imports
    |
 11 | from .param import InvalidParam
@@ -14992,7 +14815,6 @@ RUF022 [*] `__all__` is not sorted
 24 | |     'TestTimes',
 25 | |     'TestBodies']
    | |_________________^
-   |
 help: Apply an isort-style sorting to `__all__`
    |
 19 | __all__ = [
@@ -15036,7 +14858,6 @@ UP045 [*] Use `X | None` for type annotations
 39 |     phase: _PHASE
 40 |     about: Optional[str] = None
    |            ^^^^^^^^^^^^^
-   |
 help: Convert to `X | None`
    |
 39 |     phase: _PHASE
@@ -15128,7 +14949,6 @@ UP045 [*] Use `X | None` for type annotations
 47 |     param: Optional[str] = None
 48 |     value: Optional[Any] = None
    |            ^^^^^^^^^^^^^
-   |
 help: Convert to `X | None`
    |
 47 |     param: Optional[str] = None
@@ -15248,7 +15068,6 @@ I001 [*] Import block is un-sorted or un-formatted
 13 | |
 14 | | from encommon.times import Time
    | |_______________________________^
-   |
 help: Organize imports
    |
 10 | from dataclasses import dataclass
@@ -15300,5 +15119,4 @@ RUF009 Do not perform function call `STARTED.shift` in dataclass defaults
 53 |     final: Time = STARTED.shift('-1h@h')
 54 |     current: Time = STARTED.shift('-1m')
    |                     ^^^^^^^^^^^^^^^^^^^^
-   |
 
