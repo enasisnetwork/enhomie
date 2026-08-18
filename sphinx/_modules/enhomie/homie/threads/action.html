@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.threads.action</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -324,11 +324,11 @@
 
 
 <span class="n">HomieActionBase</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span>
-    <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;HomieActionItem&#39;</span><span class="p">]</span>
+    <span class="s1">'HomieActionNode'</span><span class="p">,</span>
+    <span class="s1">'HomieActionItem'</span><span class="p">]</span>
 
 <span class="n">HomieActionNode</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span>
-    <span class="s1">&#39;HomieGroup&#39;</span><span class="p">,</span> <span class="s1">&#39;HomieDevice&#39;</span><span class="p">]</span>
+    <span class="s1">'HomieGroup'</span><span class="p">,</span> <span class="s1">'HomieDevice'</span><span class="p">]</span>
 
 
 
@@ -336,14 +336,14 @@
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.threads.action.HomieActionItem">[docs]</a>
 <span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomieActionItem</span><span class="p">(</span><span class="n">HomieThreadItem</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Contain information for sharing using the Python queue.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">group</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieState&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieState'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
@@ -351,17 +351,17 @@
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>  <span class="c1"># noqa: CFQ002</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;HomieOrigin&#39;</span><span class="p">,</span>
+        <span class="n">origin</span><span class="p">:</span> <span class="s1">'HomieOrigin'</span><span class="p">,</span>
         <span class="n">target</span><span class="p">:</span> <span class="n">HomieActionNode</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
-        <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieState&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieState'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieScene&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieScene'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
@@ -369,10 +369,10 @@
         <span class="n">name</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span>
         <span class="n">kind</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span>
 
-        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">'group'</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="n">name</span>
 
-        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">'device'</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">name</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
@@ -391,20 +391,20 @@
 <div class="viewcode-block" id="HomieAction">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.threads.action.HomieAction">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomieAction</span><span class="p">(</span><span class="n">HomieThread</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Common methods and routines for Homie Automate threads.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">member</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieActions&#39;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'HomieActions'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="kn">from</span><span class="w"> </span><span class="nn">..members</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
             <span class="n">HomieActions</span><span class="p">)</span>
@@ -422,9 +422,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the operation related to Homie service threads.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="c1"># Where actions executed</span>
 
@@ -464,11 +464,11 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">aitem</span><span class="p">:</span> <span class="n">HomieActionItem</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the operation related to Homie service threads.</span>
 
 <span class="sd">        :param aitem: Item containing information for operation.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 </div>

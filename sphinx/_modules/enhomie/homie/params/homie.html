@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.params.homie</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -327,56 +327,56 @@
 
 <div class="viewcode-block" id="HomiePrinterParams">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.params.homie.HomiePrinterParams">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">HomiePrinterParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HomiePrinterParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'forbid'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Process and validate the Homie configuration parameters.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">action</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the actions to console&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Print the actions to console'</span><span class="p">)]</span>
 
     <span class="n">update</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the updates to console&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Print the updates to console'</span><span class="p">)]</span>
 
     <span class="n">stream</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the streams to console&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Print the streams to console'</span><span class="p">)]</span>
 
     <span class="n">desire</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the aspires to console&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Print the aspires to console'</span><span class="p">)]</span>
 
     <span class="n">aspire</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the aspires to console&#39;</span><span class="p">)]</span></div>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Print the aspires to console'</span><span class="p">)]</span></div>
 
 
 
 
 <div class="viewcode-block" id="HomieFiltersParams">
 <a class="viewcode-back" href="../../../../enhomie.homie.params.html#enhomie.homie.params.homie.HomieFiltersParams">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">HomieFiltersParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HomieFiltersParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'forbid'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Process and validate the Homie configuration parameters.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">aspires</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Patterns the names must match&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Patterns the names must match'</span><span class="p">,</span>
               <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
     <span class="n">desires</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Patterns the names must match&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Patterns the names must match'</span><span class="p">,</span>
               <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span></div>
 
 
@@ -384,103 +384,103 @@
 
 <div class="viewcode-block" id="HomieParams">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.params.homie.HomieParams">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">HomieParams</span><span class="p">(</span><span class="n">Params</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HomieParams</span><span class="p">(</span><span class="n">Params</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'forbid'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Process and validate the core configuration parameters.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">database</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">str</span><span class="p">,</span>
-        <span class="n">Field</span><span class="p">(</span><span class="s1">&#39;sqlite:///:memory:&#39;</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Database connection string&#39;</span><span class="p">,</span>
+        <span class="n">Field</span><span class="p">(</span><span class="s1">'sqlite:///:memory:'</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Database connection string'</span><span class="p">,</span>
               <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
     <span class="n">console</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
               <span class="n">description</span><span class="o">=</span><span class="p">(</span>
-                  <span class="s1">&#39;Output console information;&#39;</span>
-                  <span class="s1">&#39; parameter is parsed by and&#39;</span>
-                  <span class="s1">&#39; used in low-level config&#39;</span><span class="p">))]</span>
+                  <span class="s1">'Output console information;'</span>
+                  <span class="s1">' parameter is parsed by and'</span>
+                  <span class="s1">' used in low-level config'</span><span class="p">))]</span>
 
     <span class="n">debug</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
               <span class="n">description</span><span class="o">=</span><span class="p">(</span>
-                  <span class="s1">&#39;Enable logging level debug;&#39;</span>
-                  <span class="s1">&#39; parameter is parsed by and&#39;</span>
-                  <span class="s1">&#39; used in low-level config&#39;</span><span class="p">))]</span>
+                  <span class="s1">'Enable logging level debug;'</span>
+                  <span class="s1">' parameter is parsed by and'</span>
+                  <span class="s1">' used in low-level config'</span><span class="p">))]</span>
 
     <span class="n">dryrun</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Whether to allow changes&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Whether to allow changes'</span><span class="p">)]</span>
 
     <span class="n">forced</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Ignore present idempotency&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Ignore present idempotency'</span><span class="p">)]</span>
 
     <span class="n">printer</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">HomiePrinterParams</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">HomiePrinterParams</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Print the stream to console&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Print the stream to console'</span><span class="p">)]</span>
 
     <span class="n">service</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">HomieServiceParams</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">HomieServiceParams</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie Service&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Parameters for Homie Service'</span><span class="p">)]</span>
 
     <span class="n">restful</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">RestfulServiceParams</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">RestfulServiceParams</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie RESTful&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Parameters for Homie RESTful'</span><span class="p">)]</span>
 
     <span class="n">persists</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomiePersistParams</span><span class="p">]],</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for common persists&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Parameters for common persists'</span><span class="p">,</span>
               <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
     <span class="n">filters</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">HomieFiltersParams</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">HomieFiltersParams</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Determine object instantiation&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Determine object instantiation'</span><span class="p">)]</span>
 
     <span class="n">origins</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieOriginParams</span><span class="p">]],</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie origins&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Parameters for Homie origins'</span><span class="p">,</span>
               <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
     <span class="n">devices</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieDeviceParams</span><span class="p">]],</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie devices&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Parameters for Homie devices'</span><span class="p">,</span>
               <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
     <span class="n">groups</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieGroupParams</span><span class="p">]],</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie groups&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Parameters for Homie groups'</span><span class="p">,</span>
               <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
     <span class="n">scenes</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieSceneParams</span><span class="p">]],</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie scenes&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Parameters for Homie scenes'</span><span class="p">,</span>
               <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
     <span class="n">desires</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieDesireParams</span><span class="p">]],</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie desires&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Parameters for Homie desires'</span><span class="p">,</span>
               <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
     <span class="n">aspires</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">HomieAspireParams</span><span class="p">]],</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameters for Homie aspires&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Parameters for Homie aspires'</span><span class="p">,</span>
               <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 
@@ -491,20 +491,20 @@
         <span class="n">_parse</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
 
         <span class="k">if</span> <span class="n">_parse</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
             <span class="n">parsable</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="s1">&#39;origins&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;devices&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;groups&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;scenes&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;desires&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;aspires&#39;</span><span class="p">]</span>
+                <span class="s1">'origins'</span><span class="p">,</span>
+                <span class="s1">'devices'</span><span class="p">,</span>
+                <span class="s1">'groups'</span><span class="p">,</span>
+                <span class="s1">'scenes'</span><span class="p">,</span>
+                <span class="s1">'desires'</span><span class="p">,</span>
+                <span class="s1">'aspires'</span><span class="p">]</span>
 
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">parsable</span><span class="p">:</span>
 
@@ -516,16 +516,16 @@
                     <span class="o">.</span><span class="n">values</span><span class="p">())</span>
 
                 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
-                    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;_parse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_parse</span>
+                    <span class="n">item</span><span class="p">[</span><span class="s1">'_parse'</span><span class="p">]</span> <span class="o">=</span> <span class="n">_parse</span>
 
 
             <span class="n">parsable</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="s1">&#39;database&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;forced&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;printer&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;service&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;restful&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;filters&#39;</span><span class="p">]</span>
+                <span class="s1">'database'</span><span class="p">,</span>
+                <span class="s1">'forced'</span><span class="p">,</span>
+                <span class="s1">'printer'</span><span class="p">,</span>
+                <span class="s1">'service'</span><span class="p">,</span>
+                <span class="s1">'restful'</span><span class="p">,</span>
+                <span class="s1">'filters'</span><span class="p">]</span>
 
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">parsable</span><span class="p">:</span>
 

@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.utils.tests</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -311,12 +311,12 @@
 
 
 
-<span class="n">STARTED</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)</span>
+<span class="n">STARTED</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">'now'</span><span class="p">)</span>
 
 
 
 <span class="n">Planets</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-    <span class="s1">&#39;jupiter&#39;</span><span class="p">,</span> <span class="s1">&#39;neptune&#39;</span><span class="p">]</span>
+    <span class="s1">'jupiter'</span><span class="p">,</span> <span class="s1">'neptune'</span><span class="p">]</span>
 
 <span class="n">PLANETS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
     <span class="n">get_args</span><span class="p">(</span><span class="n">Planets</span><span class="p">))</span>
@@ -326,7 +326,7 @@
 
 
 <span class="n">Moons</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-    <span class="s1">&#39;ganymede&#39;</span><span class="p">,</span> <span class="s1">&#39;halimede&#39;</span><span class="p">]</span>
+    <span class="s1">'ganymede'</span><span class="p">,</span> <span class="s1">'halimede'</span><span class="p">]</span>
 
 <span class="n">MOONS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
     <span class="n">get_args</span><span class="p">(</span><span class="n">Moons</span><span class="p">))</span>
@@ -342,14 +342,14 @@
 <a class="viewcode-back" href="../../../index.html#enhomie.utils.tests.TestTimes">[docs]</a>
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">TestTimes</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Contain the times used within various tests in project.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="n">start</span><span class="p">:</span> <span class="n">Time</span> <span class="o">=</span> <span class="n">STARTED</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="s1">&#39;-1w@h&#39;</span><span class="p">)</span>
-    <span class="n">middle</span><span class="p">:</span> <span class="n">Time</span> <span class="o">=</span> <span class="n">STARTED</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="s1">&#39;-1d@h&#39;</span><span class="p">)</span>
-    <span class="n">final</span><span class="p">:</span> <span class="n">Time</span> <span class="o">=</span> <span class="n">STARTED</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="s1">&#39;-1h@h&#39;</span><span class="p">)</span>
-    <span class="n">current</span><span class="p">:</span> <span class="n">Time</span> <span class="o">=</span> <span class="n">STARTED</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="s1">&#39;-1m&#39;</span><span class="p">)</span></div>
+    <span class="n">start</span><span class="p">:</span> <span class="n">Time</span> <span class="o">=</span> <span class="n">STARTED</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="s1">'-1w@h'</span><span class="p">)</span>
+    <span class="n">middle</span><span class="p">:</span> <span class="n">Time</span> <span class="o">=</span> <span class="n">STARTED</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="s1">'-1d@h'</span><span class="p">)</span>
+    <span class="n">final</span><span class="p">:</span> <span class="n">Time</span> <span class="o">=</span> <span class="n">STARTED</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="s1">'-1h@h'</span><span class="p">)</span>
+    <span class="n">current</span><span class="p">:</span> <span class="n">Time</span> <span class="o">=</span> <span class="n">STARTED</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="s1">'-1m'</span><span class="p">)</span></div>
 
 
 
@@ -358,15 +358,15 @@
 <a class="viewcode-back" href="../../../index.html#enhomie.utils.tests.TestBodies">[docs]</a>
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">TestBodies</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Contain the planets used to reference test sample sets.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">planets</span><span class="p">:</span> <span class="n">_PLANETS</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">PLANETS</span><span class="p">)</span>
 
     <span class="n">moons</span><span class="p">:</span> <span class="n">_MOONS</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">(</span><span class="s1">&#39;jupiter&#39;</span><span class="p">,</span> <span class="s1">&#39;ganymede&#39;</span><span class="p">),</span>
-        <span class="p">(</span><span class="s1">&#39;neptune&#39;</span><span class="p">,</span> <span class="s1">&#39;halimede&#39;</span><span class="p">))</span></div>
+        <span class="p">(</span><span class="s1">'jupiter'</span><span class="p">,</span> <span class="s1">'ganymede'</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'neptune'</span><span class="p">,</span> <span class="s1">'halimede'</span><span class="p">))</span></div>
 
 </pre></div>
 

@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.restful.server</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -340,23 +340,23 @@
 <div class="viewcode-block" id="RestfulApp">
 <a class="viewcode-back" href="../../../enhomie.restful.html#enhomie.restful.server.RestfulApp">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">RestfulApp</span><span class="p">(</span><span class="n">FastAPI</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    FastAPI application for the Homie Automate RESTful API.</span>
 
 <span class="sd">    :param restful: Primary class instance for the service.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span>
-    <span class="n">restful</span><span class="p">:</span> <span class="s1">&#39;RestfulService&#39;</span>
+    <span class="n">homie</span><span class="p">:</span> <span class="s1">'Homie'</span>
+    <span class="n">restful</span><span class="p">:</span> <span class="s1">'RestfulService'</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">restful</span><span class="p">:</span> <span class="s1">&#39;RestfulService&#39;</span><span class="p">,</span>
+        <span class="n">restful</span><span class="p">:</span> <span class="s1">'RestfulService'</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">homie</span> <span class="o">=</span> <span class="n">restful</span><span class="o">.</span><span class="n">homie</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">restful</span> <span class="o">=</span> <span class="n">restful</span>
@@ -369,11 +369,11 @@
             <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Homie Automate&#39;</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="s1">'Homie Automate'</span><span class="p">,</span>
             <span class="n">version</span><span class="o">=</span><span class="n">VERSION</span><span class="p">,</span>
-            <span class="n">openapi_url</span><span class="o">=</span><span class="s1">&#39;/api/openapi.json&#39;</span><span class="p">,</span>
-            <span class="n">docs_url</span><span class="o">=</span><span class="s1">&#39;/api/docs&#39;</span><span class="p">,</span>
-            <span class="n">redoc_url</span><span class="o">=</span><span class="s1">&#39;/api/redoc&#39;</span><span class="p">,</span>
+            <span class="n">openapi_url</span><span class="o">=</span><span class="s1">'/api/openapi.json'</span><span class="p">,</span>
+            <span class="n">docs_url</span><span class="o">=</span><span class="s1">'/api/docs'</span><span class="p">,</span>
+            <span class="n">redoc_url</span><span class="o">=</span><span class="s1">'/api/redoc'</span><span class="p">,</span>
             <span class="n">dependencies</span><span class="o">=</span><span class="n">depends</span><span class="p">,</span>
             <span class="n">exception_handlers</span><span class="o">=</span><span class="p">{</span>
                 <span class="n">HTTPException</span><span class="p">:</span> <span class="n">_exception</span><span class="p">,</span>
@@ -389,60 +389,60 @@
 <div class="viewcode-block" id="RestfulServer">
 <a class="viewcode-back" href="../../../enhomie.restful.html#enhomie.restful.server.RestfulServer">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">RestfulServer</span><span class="p">(</span><span class="n">UvicornServer</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Uvicorn server for Homie Automate RESTful API services.</span>
 
 <span class="sd">    :param restful: Primary class instance for the service.</span>
 <span class="sd">    :param config: Configuration for parent Uvicorn server.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="n">__restful</span><span class="p">:</span> <span class="s1">&#39;RestfulService&#39;</span>
+    <span class="n">__restful</span><span class="p">:</span> <span class="s1">'RestfulService'</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">restful</span><span class="p">:</span> <span class="s1">&#39;RestfulService&#39;</span><span class="p">,</span>
+        <span class="n">restful</span><span class="p">:</span> <span class="s1">'RestfulService'</span><span class="p">,</span>
         <span class="n">config</span><span class="p">:</span> <span class="n">UvicornConfig</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
 
 <span class="sd">        .. note::</span>
 <span class="sd">           Somewhat similar to same method in HomieAspiredItem.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span> <span class="o">=</span> <span class="n">restful</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
 
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;access&#39;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'error'</span><span class="p">,</span> <span class="s1">'access'</span><span class="p">]:</span>
 
             <span class="n">logger</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;uvicorn.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s1">'uvicorn.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
             <span class="nb">setattr</span><span class="p">(</span>
-                <span class="n">logger</span><span class="p">,</span> <span class="s1">&#39;critical&#39;</span><span class="p">,</span>
+                <span class="n">logger</span><span class="p">,</span> <span class="s1">'critical'</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__log_critical</span><span class="p">)</span>
 
             <span class="nb">setattr</span><span class="p">(</span>
-                <span class="n">logger</span><span class="p">,</span> <span class="s1">&#39;debug&#39;</span><span class="p">,</span>
+                <span class="n">logger</span><span class="p">,</span> <span class="s1">'debug'</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__log_debug</span><span class="p">)</span>
 
             <span class="nb">setattr</span><span class="p">(</span>
-                <span class="n">logger</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span>
+                <span class="n">logger</span><span class="p">,</span> <span class="s1">'error'</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__log_error</span><span class="p">)</span>
 
             <span class="nb">setattr</span><span class="p">(</span>
-                <span class="n">logger</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">,</span>
+                <span class="n">logger</span><span class="p">,</span> <span class="s1">'info'</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__log_info</span><span class="p">)</span>
 
             <span class="nb">setattr</span><span class="p">(</span>
-                <span class="n">logger</span><span class="p">,</span> <span class="s1">&#39;warn&#39;</span><span class="p">,</span>
+                <span class="n">logger</span><span class="p">,</span> <span class="s1">'warn'</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__log_warning</span><span class="p">)</span>
 
             <span class="nb">setattr</span><span class="p">(</span>
-                <span class="n">logger</span><span class="p">,</span> <span class="s1">&#39;warning&#39;</span><span class="p">,</span>
+                <span class="n">logger</span><span class="p">,</span> <span class="s1">'warning'</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__log_warning</span><span class="p">)</span>
 
 
@@ -452,23 +452,23 @@
         <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Process the logging message and strip color characters.</span>
 
 <span class="sd">        :param message: Message from the Uvicorn server routine.</span>
 <span class="sd">        :param args: Positional arguments used with templating.</span>
 <span class="sd">        :param kwargs: Keyword arguments for populating message.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">%</span> <span class="n">args</span>
 
-        <span class="k">if</span> <span class="s1">&#39;extra&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">'extra'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'extra'</span><span class="p">]</span>
 
         <span class="n">_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;base&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="p">,</span>
-            <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">message</span><span class="p">}</span>
+            <span class="s1">'base'</span><span class="p">:</span> <span class="bp">self</span><span class="p">,</span>
+            <span class="s1">'message'</span><span class="p">:</span> <span class="n">message</span><span class="p">}</span>
 
         <span class="k">return</span> <span class="n">_kwargs</span> <span class="o">|</span> <span class="n">kwargs</span>
 
@@ -480,13 +480,13 @@
         <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Pass the provided logging arguments into logger object.</span>
 
 <span class="sd">        :param message: Message from the Uvicorn server routine.</span>
 <span class="sd">        :param args: Positional arguments used with templating.</span>
 <span class="sd">        :param kwargs: Keyword arguments for populating message.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
         <span class="n">homie</span> <span class="o">=</span> <span class="n">restful</span><span class="o">.</span><span class="n">homie</span>
@@ -505,13 +505,13 @@
         <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Pass the provided logging arguments into logger object.</span>
 
 <span class="sd">        :param message: Message from the Uvicorn server routine.</span>
 <span class="sd">        :param args: Positional arguments used with templating.</span>
 <span class="sd">        :param kwargs: Keyword arguments for populating message.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
         <span class="n">homie</span> <span class="o">=</span> <span class="n">restful</span><span class="o">.</span><span class="n">homie</span>
@@ -530,13 +530,13 @@
         <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Pass the provided logging arguments into logger object.</span>
 
 <span class="sd">        :param message: Message from the Uvicorn server routine.</span>
 <span class="sd">        :param args: Positional arguments used with templating.</span>
 <span class="sd">        :param kwargs: Keyword arguments for populating message.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
         <span class="n">homie</span> <span class="o">=</span> <span class="n">restful</span><span class="o">.</span><span class="n">homie</span>
@@ -554,13 +554,13 @@
         <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Pass the provided logging arguments into logger object.</span>
 
 <span class="sd">        :param message: Message from the Uvicorn server routine.</span>
 <span class="sd">        :param args: Positional arguments used with templating.</span>
 <span class="sd">        :param kwargs: Keyword arguments for populating message.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
         <span class="n">homie</span> <span class="o">=</span> <span class="n">restful</span><span class="o">.</span><span class="n">homie</span>
@@ -579,13 +579,13 @@
         <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Pass the provided logging arguments into logger object.</span>
 
 <span class="sd">        :param message: Message from the Uvicorn server routine.</span>
 <span class="sd">        :param args: Positional arguments used with templating.</span>
 <span class="sd">        :param kwargs: Keyword arguments for populating message.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">restful</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
         <span class="n">homie</span> <span class="o">=</span> <span class="n">restful</span><span class="o">.</span><span class="n">homie</span>
@@ -604,15 +604,15 @@
     <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
     <span class="n">reason</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>  <span class="c1"># noqa: ANN401</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Handle logging the exceptions encountered with FastAPI.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">homie</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">homie</span>
 
     <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_e</span><span class="p">(</span>
         <span class="n">base</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="p">,</span>
-        <span class="n">status</span><span class="o">=</span><span class="s1">&#39;exception&#39;</span><span class="p">,</span>
+        <span class="n">status</span><span class="o">=</span><span class="s1">'exception'</span><span class="p">,</span>
         <span class="n">exc_info</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
 
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -634,9 +634,9 @@
     <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
     <span class="n">submit</span><span class="p">:</span> <span class="n">HTTPBasicCredentials</span> <span class="o">=</span> <span class="n">Security</span><span class="p">(</span><span class="n">_BASIC</span><span class="p">),</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Authenticate the request using the configured tokens.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">restful</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">restful</span>
     <span class="n">params</span> <span class="o">=</span> <span class="n">restful</span><span class="o">.</span><span class="n">params</span>
@@ -648,7 +648,7 @@
     <span class="n">password</span> <span class="o">=</span> <span class="n">submit</span><span class="o">.</span><span class="n">password</span>
 
     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;www-authenticate&#39;</span><span class="p">:</span> <span class="s1">&#39;basic&#39;</span><span class="p">}</span>
+        <span class="s1">'www-authenticate'</span><span class="p">:</span> <span class="s1">'basic'</span><span class="p">}</span>
 
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 

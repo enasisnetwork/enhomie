@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.execution.action</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -327,12 +327,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">arguments</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct arguments which are associated with the file.</span>
 
 <span class="sd">    :param args: Override the source for the main arguments.</span>
 <span class="sd">    :returns: Construct arguments from command line options.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
 
@@ -340,104 +340,104 @@
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--config&#39;</span><span class="p">,</span>
+        <span class="s1">'--config'</span><span class="p">,</span>
         <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;complete or relative &#39;</span>
-            <span class="s1">&#39;path to config file&#39;</span><span class="p">))</span>
+            <span class="s1">'complete or relative '</span>
+            <span class="s1">'path to config file'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--console&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--console'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;write log messages &#39;</span>
-            <span class="s1">&#39;to standard output&#39;</span><span class="p">))</span>
+            <span class="s1">'write log messages '</span>
+            <span class="s1">'to standard output'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--debug&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--debug'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;increase logging level &#39;</span>
-            <span class="s1">&#39;for standard output&#39;</span><span class="p">))</span>
+            <span class="s1">'increase logging level '</span>
+            <span class="s1">'for standard output'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--dry-run&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--dry-run'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;dryrun&#39;</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;prevent any changes&#39;</span><span class="p">)</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'dryrun'</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s1">'prevent any changes'</span><span class="p">)</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--idempotent&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_false&#39;</span><span class="p">,</span>
+        <span class="s1">'--idempotent'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_false'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;forced&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'forced'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;do not make requests &#39;</span>
-            <span class="s1">&#39;when already applied&#39;</span><span class="p">))</span>
+            <span class="s1">'do not make requests '</span>
+            <span class="s1">'when already applied'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--print&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--print'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;paction&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'paction'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;print the submited &#39;</span>
-            <span class="s1">&#39;actions to console&#39;</span><span class="p">))</span>
+            <span class="s1">'print the submited '</span>
+            <span class="s1">'actions to console'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--group&#39;</span><span class="p">,</span>
+        <span class="s1">'--group'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;which group action &#39;</span>
-            <span class="s1">&#39;is performed upon&#39;</span><span class="p">))</span>
+            <span class="s1">'which group action '</span>
+            <span class="s1">'is performed upon'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--device&#39;</span><span class="p">,</span>
+        <span class="s1">'--device'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;which device action &#39;</span>
-            <span class="s1">&#39;is performed upon&#39;</span><span class="p">))</span>
+            <span class="s1">'which device action '</span>
+            <span class="s1">'is performed upon'</span><span class="p">))</span>
 
 
     <span class="n">states</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
         <span class="n">get_args</span><span class="p">(</span><span class="n">HomieState</span><span class="p">))</span>
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--state&#39;</span><span class="p">,</span>
+        <span class="s1">'--state'</span><span class="p">,</span>
         <span class="n">choices</span><span class="o">=</span><span class="n">states</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;which state value the &#39;</span>
-            <span class="s1">&#39;target will changed&#39;</span><span class="p">))</span>
+            <span class="s1">'which state value the '</span>
+            <span class="s1">'target will changed'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--color&#39;</span><span class="p">,</span>
+        <span class="s1">'--color'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;which color value the &#39;</span>
-            <span class="s1">&#39;target will changed&#39;</span><span class="p">))</span>
+            <span class="s1">'which color value the '</span>
+            <span class="s1">'target will changed'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--level&#39;</span><span class="p">,</span>
+        <span class="s1">'--level'</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;which level value the &#39;</span>
-            <span class="s1">&#39;target will changed&#39;</span><span class="p">))</span>
+            <span class="s1">'which level value the '</span>
+            <span class="s1">'target will changed'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--scene&#39;</span><span class="p">,</span>
+        <span class="s1">'--scene'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;which level value the &#39;</span>
-            <span class="s1">&#39;target will changed&#39;</span><span class="p">))</span>
+            <span class="s1">'which level value the '</span>
+            <span class="s1">'target will changed'</span><span class="p">))</span>
 
 
     <span class="k">return</span> <span class="nb">vars</span><span class="p">(</span>
@@ -453,20 +453,20 @@
     <span class="c1"># NOCVR</span>
     <span class="n">homie</span><span class="p">:</span> <span class="n">Homie</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Perform whatever operation is associated with the file.</span>
 
 <span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">assert</span> <span class="n">homie</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 
     <span class="n">config</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">config</span>
     <span class="n">sargs</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">sargs</span>
 
-    <span class="n">_group</span> <span class="o">=</span> <span class="n">sargs</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span>
-    <span class="n">_device</span> <span class="o">=</span> <span class="n">sargs</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span>
-    <span class="n">_scene</span> <span class="o">=</span> <span class="n">sargs</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">]</span>
+    <span class="n">_group</span> <span class="o">=</span> <span class="n">sargs</span><span class="p">[</span><span class="s1">'group'</span><span class="p">]</span>
+    <span class="n">_device</span> <span class="o">=</span> <span class="n">sargs</span><span class="p">[</span><span class="s1">'device'</span><span class="p">]</span>
+    <span class="n">_scene</span> <span class="o">=</span> <span class="n">sargs</span><span class="p">[</span><span class="s1">'scene'</span><span class="p">]</span>
 
     <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
     <span class="n">devices</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">devices</span>
@@ -475,9 +475,9 @@
     <span class="n">forced</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">forced</span>
 
 
-    <span class="n">group</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieGroup&#39;</span><span class="p">]</span>
-    <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieDevice&#39;</span><span class="p">]</span>
-    <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieScene&#39;</span><span class="p">]</span>
+    <span class="n">group</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieGroup'</span><span class="p">]</span>
+    <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieDevice'</span><span class="p">]</span>
+    <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieScene'</span><span class="p">]</span>
 
     <span class="n">group</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">groups</span><span class="p">[</span><span class="n">_group</span><span class="p">]</span>
@@ -503,9 +503,9 @@
     <span class="n">aitems</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">homie</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span>
             <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
-            <span class="n">state</span><span class="o">=</span><span class="n">sargs</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">],</span>
-            <span class="n">color</span><span class="o">=</span><span class="n">sargs</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">],</span>
-            <span class="n">level</span><span class="o">=</span><span class="n">sargs</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span>
+            <span class="n">state</span><span class="o">=</span><span class="n">sargs</span><span class="p">[</span><span class="s1">'state'</span><span class="p">],</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">sargs</span><span class="p">[</span><span class="s1">'color'</span><span class="p">],</span>
+            <span class="n">level</span><span class="o">=</span><span class="n">sargs</span><span class="p">[</span><span class="s1">'level'</span><span class="p">],</span>
             <span class="n">scene</span><span class="o">=</span><span class="n">scene</span><span class="p">))</span>
 
     <span class="n">homie</span><span class="o">.</span><span class="n">set_actions</span><span class="p">(</span>
@@ -521,11 +521,11 @@
     <span class="c1"># NOCVR</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Perform whatever operation is associated with the file.</span>
 
 <span class="sd">    :param args: Override the source for the main arguments.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">config</span> <span class="o">=</span> <span class="n">HomieConfig</span><span class="p">(</span>
         <span class="n">arguments</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
@@ -533,23 +533,23 @@
     <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
     <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-        <span class="n">base</span><span class="o">=</span><span class="s1">&#39;execution/action&#39;</span><span class="p">,</span>
-        <span class="n">status</span><span class="o">=</span><span class="s1">&#39;started&#39;</span><span class="p">)</span>
+        <span class="n">base</span><span class="o">=</span><span class="s1">'execution/action'</span><span class="p">,</span>
+        <span class="n">status</span><span class="o">=</span><span class="s1">'started'</span><span class="p">)</span>
 
     <span class="n">homie</span> <span class="o">=</span> <span class="n">Homie</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
     <span class="n">operation</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span>
 
     <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-        <span class="n">base</span><span class="o">=</span><span class="s1">&#39;execution/action&#39;</span><span class="p">,</span>
-        <span class="n">status</span><span class="o">=</span><span class="s1">&#39;stopped&#39;</span><span class="p">)</span>
+        <span class="n">base</span><span class="o">=</span><span class="s1">'execution/action'</span><span class="p">,</span>
+        <span class="n">status</span><span class="o">=</span><span class="s1">'stopped'</span><span class="p">)</span>
 
     <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span></div>
 
 
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">execution</span><span class="p">()</span>  <span class="c1"># NOCVR</span>
 </pre></div>
 

@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.execution.service</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -324,12 +324,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">arguments</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct arguments which are associated with the file.</span>
 
 <span class="sd">    :param args: Override the source for the main arguments.</span>
 <span class="sd">    :returns: Construct arguments from command line options.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
 
@@ -337,197 +337,197 @@
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--config&#39;</span><span class="p">,</span>
+        <span class="s1">'--config'</span><span class="p">,</span>
         <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;complete or relative &#39;</span>
-            <span class="s1">&#39;path to config file&#39;</span><span class="p">))</span>
+            <span class="s1">'complete or relative '</span>
+            <span class="s1">'path to config file'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--console&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--console'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;write log messages &#39;</span>
-            <span class="s1">&#39;to standard output&#39;</span><span class="p">))</span>
+            <span class="s1">'write log messages '</span>
+            <span class="s1">'to standard output'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--debug&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--debug'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;increase logging level &#39;</span>
-            <span class="s1">&#39;for standard output&#39;</span><span class="p">))</span>
+            <span class="s1">'increase logging level '</span>
+            <span class="s1">'for standard output'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--dry-run&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--dry-run'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;dryrun&#39;</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;prevent any changes&#39;</span><span class="p">)</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'dryrun'</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s1">'prevent any changes'</span><span class="p">)</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--idempotent&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_false&#39;</span><span class="p">,</span>
+        <span class="s1">'--idempotent'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_false'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;forced&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'forced'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;do not make requests &#39;</span>
-            <span class="s1">&#39;when already applied&#39;</span><span class="p">))</span>
+            <span class="s1">'do not make requests '</span>
+            <span class="s1">'when already applied'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--respite_desire&#39;</span><span class="p">,</span>
+        <span class="s1">'--respite_desire'</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;idesire&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'idesire'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;override the interval &#39;</span>
-            <span class="s1">&#39;for desires schedule&#39;</span><span class="p">))</span>
+            <span class="s1">'override the interval '</span>
+            <span class="s1">'for desires schedule'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--respite_update&#39;</span><span class="p">,</span>
+        <span class="s1">'--respite_update'</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;iupdate&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'iupdate'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;override the interval &#39;</span>
-            <span class="s1">&#39;for updates schedule&#39;</span><span class="p">))</span>
+            <span class="s1">'override the interval '</span>
+            <span class="s1">'for updates schedule'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--timeout_action&#39;</span><span class="p">,</span>
+        <span class="s1">'--timeout_action'</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;atimeout&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'atimeout'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;override the time &#39;</span>
-            <span class="s1">&#39;for action request&#39;</span><span class="p">))</span>
+            <span class="s1">'override the time '</span>
+            <span class="s1">'for action request'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--timeout_update&#39;</span><span class="p">,</span>
+        <span class="s1">'--timeout_update'</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;utimeout&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'utimeout'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;override the time &#39;</span>
-            <span class="s1">&#39;for update request&#39;</span><span class="p">))</span>
+            <span class="s1">'override the time '</span>
+            <span class="s1">'for update request'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--timeout_stream&#39;</span><span class="p">,</span>
+        <span class="s1">'--timeout_stream'</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;stimeout&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'stimeout'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;override the timeout &#39;</span>
-            <span class="s1">&#39;for stream request&#39;</span><span class="p">))</span>
+            <span class="s1">'override the timeout '</span>
+            <span class="s1">'for stream request'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--print_action&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--print_action'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;paction&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'paction'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;print the submited &#39;</span>
-            <span class="s1">&#39;actions to console&#39;</span><span class="p">))</span>
+            <span class="s1">'print the submited '</span>
+            <span class="s1">'actions to console'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--print_update&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--print_update'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;pupdate&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'pupdate'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;print the streamed &#39;</span>
-            <span class="s1">&#39;updates to console&#39;</span><span class="p">))</span>
+            <span class="s1">'print the streamed '</span>
+            <span class="s1">'updates to console'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--print_stream&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--print_stream'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;pstream&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'pstream'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;print the streamed &#39;</span>
-            <span class="s1">&#39;events to console&#39;</span><span class="p">))</span>
+            <span class="s1">'print the streamed '</span>
+            <span class="s1">'events to console'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--print_desire&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--print_desire'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;pdesire&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'pdesire'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;print the desired &#39;</span>
-            <span class="s1">&#39;state to console&#39;</span><span class="p">))</span>
+            <span class="s1">'print the desired '</span>
+            <span class="s1">'state to console'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--print_aspire&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--print_aspire'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;paspire&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'paspire'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;print the desired &#39;</span>
-            <span class="s1">&#39;state to console&#39;</span><span class="p">))</span>
+            <span class="s1">'print the desired '</span>
+            <span class="s1">'state to console'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--filter_desires&#39;</span><span class="p">,</span>
-        <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">),</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;fdesires&#39;</span><span class="p">,</span>
+        <span class="s1">'--filter_desires'</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">),</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'fdesires'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;filter which desired &#39;</span>
-            <span class="s1">&#39;objects are created&#39;</span><span class="p">))</span>
+            <span class="s1">'filter which desired '</span>
+            <span class="s1">'objects are created'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--filter_aspires&#39;</span><span class="p">,</span>
-        <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">),</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;faspires&#39;</span><span class="p">,</span>
+        <span class="s1">'--filter_aspires'</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">),</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'faspires'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;filter which aspired &#39;</span>
-            <span class="s1">&#39;objects are created&#39;</span><span class="p">))</span>
+            <span class="s1">'filter which aspired '</span>
+            <span class="s1">'objects are created'</span><span class="p">))</span>
 
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--disable_actions&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--disable_actions'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;dactions&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'dactions'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;override the boolean &#39;</span>
-            <span class="s1">&#39;for enabling member&#39;</span><span class="p">))</span>
+            <span class="s1">'override the boolean '</span>
+            <span class="s1">'for enabling member'</span><span class="p">))</span>
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--disable_updates&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--disable_updates'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;dupdates&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'dupdates'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;override the boolean &#39;</span>
-            <span class="s1">&#39;for enabling member&#39;</span><span class="p">))</span>
+            <span class="s1">'override the boolean '</span>
+            <span class="s1">'for enabling member'</span><span class="p">))</span>
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--disable_streams&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--disable_streams'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;dstreams&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'dstreams'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;override the boolean &#39;</span>
-            <span class="s1">&#39;for enabling member&#39;</span><span class="p">))</span>
+            <span class="s1">'override the boolean '</span>
+            <span class="s1">'for enabling member'</span><span class="p">))</span>
 
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s1">&#39;--enable_restful&#39;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="s1">'--enable_restful'</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;erestful&#39;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s1">'erestful'</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="p">(</span>
-            <span class="s1">&#39;override the boolean &#39;</span>
-            <span class="s1">&#39;for enabling member&#39;</span><span class="p">))</span>
+            <span class="s1">'override the boolean '</span>
+            <span class="s1">'for enabling member'</span><span class="p">))</span>
 
 
     <span class="k">return</span> <span class="nb">vars</span><span class="p">(</span>
@@ -543,11 +543,11 @@
     <span class="c1"># NOCVR</span>
     <span class="n">homie</span><span class="p">:</span> <span class="n">Homie</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Perform whatever operation is associated with the file.</span>
 
 <span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">service</span> <span class="o">=</span> <span class="n">HomieService</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span>
 
@@ -568,11 +568,11 @@
     <span class="c1"># NOCVR</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Perform whatever operation is associated with the file.</span>
 
 <span class="sd">    :param args: Override the source for the main arguments.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">config</span> <span class="o">=</span> <span class="n">HomieConfig</span><span class="p">(</span>
         <span class="n">arguments</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
@@ -580,23 +580,23 @@
     <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
     <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-        <span class="n">base</span><span class="o">=</span><span class="s1">&#39;execution/service&#39;</span><span class="p">,</span>
-        <span class="n">status</span><span class="o">=</span><span class="s1">&#39;started&#39;</span><span class="p">)</span>
+        <span class="n">base</span><span class="o">=</span><span class="s1">'execution/service'</span><span class="p">,</span>
+        <span class="n">status</span><span class="o">=</span><span class="s1">'started'</span><span class="p">)</span>
 
     <span class="n">homie</span> <span class="o">=</span> <span class="n">Homie</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
     <span class="n">operation</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span>
 
     <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
-        <span class="n">base</span><span class="o">=</span><span class="s1">&#39;execution/service&#39;</span><span class="p">,</span>
-        <span class="n">status</span><span class="o">=</span><span class="s1">&#39;stopped&#39;</span><span class="p">)</span>
+        <span class="n">base</span><span class="o">=</span><span class="s1">'execution/service'</span><span class="p">,</span>
+        <span class="n">status</span><span class="o">=</span><span class="s1">'stopped'</span><span class="p">)</span>
 
     <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span></div>
 
 
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">execution</span><span class="p">()</span>  <span class="c1"># NOCVR</span>
 </pre></div>
 

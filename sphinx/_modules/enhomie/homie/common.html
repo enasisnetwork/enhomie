@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.common</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -320,28 +320,28 @@
 
 
 <span class="n">HomieFamily</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-    <span class="s1">&#39;builtins&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;hubitat&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;philips&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;ubiquiti&#39;</span><span class="p">]</span>
+    <span class="s1">'builtins'</span><span class="p">,</span>
+    <span class="s1">'hubitat'</span><span class="p">,</span>
+    <span class="s1">'philips'</span><span class="p">,</span>
+    <span class="s1">'ubiquiti'</span><span class="p">]</span>
 
 <span class="n">HomieKinds</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-    <span class="s1">&#39;origin&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;device&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;group&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;scene&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;aspire&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;desire&#39;</span><span class="p">]</span>
+    <span class="s1">'origin'</span><span class="p">,</span>
+    <span class="s1">'device'</span><span class="p">,</span>
+    <span class="s1">'group'</span><span class="p">,</span>
+    <span class="s1">'scene'</span><span class="p">,</span>
+    <span class="s1">'aspire'</span><span class="p">,</span>
+    <span class="s1">'desire'</span><span class="p">]</span>
 
 <span class="n">HomieState</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-    <span class="s1">&#39;poweron&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;nopower&#39;</span><span class="p">]</span>
+    <span class="s1">'poweron'</span><span class="p">,</span>
+    <span class="s1">'nopower'</span><span class="p">]</span>
 
 <span class="n">HomiePrint</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span>
     <span class="n">ANSIARRAY</span><span class="p">,</span>
-    <span class="s1">&#39;HomieThreadItem&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;HomieDesiredItem&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;HomieAspiredItem&#39;</span><span class="p">]</span>
+    <span class="s1">'HomieThreadItem'</span><span class="p">,</span>
+    <span class="s1">'HomieDesiredItem'</span><span class="p">,</span>
+    <span class="s1">'HomieAspiredItem'</span><span class="p">]</span>
 
 
 
@@ -349,9 +349,9 @@
 <a class="viewcode-back" href="../../../enhomie.homie.html#enhomie.homie.common.HomieStage">[docs]</a>
 <span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomieStage</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Contain information about the parameters for the scene.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomieState</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
@@ -364,9 +364,9 @@
         <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>

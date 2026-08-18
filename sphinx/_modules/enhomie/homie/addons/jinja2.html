@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.addons.jinja2</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -319,26 +319,26 @@
 <div class="viewcode-block" id="HomieJinja2">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.addons.jinja2.HomieJinja2">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomieJinja2</span><span class="p">(</span><span class="n">Jinja2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Parse the provided input and intelligently return value.</span>
 
 <span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
+        <span class="n">homie</span><span class="p">:</span> <span class="s1">'Homie'</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">statics</span><span class="p">:</span> <span class="n">DictStrAny</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;homie&#39;</span><span class="p">:</span> <span class="n">homie</span><span class="p">}</span>
+            <span class="s1">'homie'</span><span class="p">:</span> <span class="n">homie</span><span class="p">}</span>
 
         <span class="n">filters</span><span class="p">:</span> <span class="n">FILTERS</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;average&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span>
+            <span class="s1">'average'</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span>
                 <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))}</span>
 
         <span class="n">models</span> <span class="o">=</span> <span class="n">HomieModels</span>
@@ -352,13 +352,13 @@
             <span class="o">.</span><span class="n">drivers</span><span class="p">()</span><span class="o">.</span><span class="n">helpers</span><span class="p">())</span>
 
         <span class="n">filters</span> <span class="o">|=</span> <span class="p">{</span>
-            <span class="s1">&#39;philips_sensors&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="s1">'philips_sensors'</span><span class="p">:</span> <span class="p">(</span>
                 <span class="n">philips</span><span class="o">.</span><span class="n">sensors</span><span class="p">()),</span>
-            <span class="s1">&#39;philips_changed&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="s1">'philips_changed'</span><span class="p">:</span> <span class="p">(</span>
                 <span class="n">philips</span><span class="o">.</span><span class="n">changed</span><span class="p">()),</span>
-            <span class="s1">&#39;philips_current&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="s1">'philips_current'</span><span class="p">:</span> <span class="p">(</span>
                 <span class="n">philips</span><span class="o">.</span><span class="n">current</span><span class="p">()),</span>
-            <span class="s1">&#39;ubiquiti_latest&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="s1">'ubiquiti_latest'</span><span class="p">:</span> <span class="p">(</span>
                 <span class="n">ubiquiti</span><span class="o">.</span><span class="n">latest</span><span class="p">())}</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>

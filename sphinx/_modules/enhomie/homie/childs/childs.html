@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.childs.childs</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -337,13 +337,13 @@
 <div class="viewcode-block" id="HomieChilds">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.childs.childs.HomieChilds">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomieChilds</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Contain the object instances for related Homie children.</span>
 
 <span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="n">__homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span>
+    <span class="n">__homie</span><span class="p">:</span> <span class="s1">'Homie'</span>
 
     <span class="n">__origins</span><span class="p">:</span> <span class="n">HomieOrigins</span>
     <span class="n">__devices</span><span class="p">:</span> <span class="n">HomieDevices</span>
@@ -357,15 +357,15 @@
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
+        <span class="n">homie</span><span class="p">:</span> <span class="s1">'Homie'</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
             <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;initial&#39;</span><span class="p">)</span>
+            <span class="n">status</span><span class="o">=</span><span class="s1">'initial'</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span> <span class="o">=</span> <span class="n">homie</span>
 
@@ -382,7 +382,7 @@
 
         <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
             <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;created&#39;</span><span class="p">)</span>
+            <span class="n">status</span><span class="o">=</span><span class="s1">'created'</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="HomieChilds.build_objects">
@@ -390,9 +390,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">build_objects</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct instances using the configuration parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__build_origins</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__build_devices</span><span class="p">()</span>
@@ -408,9 +408,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">__build_origins</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct instances using the configuration parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">params</span>
@@ -441,9 +441,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">__build_devices</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct instances using the configuration parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">params</span>
@@ -474,9 +474,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">__build_groups</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct instances using the configuration parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">params</span>
@@ -507,9 +507,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">__build_scenes</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct instances using the configuration parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">params</span>
@@ -540,9 +540,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">__build_desires</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct instances using the configuration parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">params</span>
@@ -591,9 +591,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">__build_aspires</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct instances using the configuration parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">params</span>
@@ -644,9 +644,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform advanced validation on the parameters provided.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
 
         <span class="n">origins</span> <span class="o">=</span> <span class="p">(</span>
@@ -702,11 +702,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">origins</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieOrigins</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">origins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__origins</span>
 
@@ -717,11 +717,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">devices</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieDevices</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">devices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__devices</span>
 
@@ -732,11 +732,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">groups</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieGroups</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__groups</span>
 
@@ -747,11 +747,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">scenes</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieScenes</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">scenes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__scenes</span>
 
@@ -762,11 +762,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">desires</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieDesires</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">desires</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__desires</span>
 
@@ -777,11 +777,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">aspires</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieAspires</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">aspires</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__aspires</span>
 
@@ -792,11 +792,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">dumped</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the facts about the attributes from the instance.</span>
 
 <span class="sd">        :returns: Facts about the attributes from the instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">origins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">origins</span>
         <span class="n">devices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span>
@@ -807,27 +807,27 @@
 
         <span class="n">dumped</span><span class="p">:</span> <span class="n">DictStrAny</span> <span class="o">=</span> <span class="p">{</span>
 
-            <span class="s1">&#39;origins&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">'origins'</span><span class="p">:</span> <span class="p">{</span>
                 <span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">dumped</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
                 <span class="ow">in</span> <span class="n">origins</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
 
-            <span class="s1">&#39;devices&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">'devices'</span><span class="p">:</span> <span class="p">{</span>
                 <span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">dumped</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
                 <span class="ow">in</span> <span class="n">devices</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
 
-            <span class="s1">&#39;groups&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">'groups'</span><span class="p">:</span> <span class="p">{</span>
                 <span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">dumped</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
                 <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
 
-            <span class="s1">&#39;scenes&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">'scenes'</span><span class="p">:</span> <span class="p">{</span>
                 <span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">dumped</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
                 <span class="ow">in</span> <span class="n">scenes</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
 
-            <span class="s1">&#39;desires&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">'desires'</span><span class="p">:</span> <span class="p">{</span>
                 <span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">dumped</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
                 <span class="ow">in</span> <span class="n">desires</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
 
-            <span class="s1">&#39;aspires&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">'aspires'</span><span class="p">:</span> <span class="p">{</span>
                 <span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">dumped</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
                 <span class="ow">in</span> <span class="n">aspires</span><span class="o">.</span><span class="n">items</span><span class="p">()}}</span>
 
@@ -839,13 +839,13 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_origin</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieOrigin&#39;</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">'HomieOrigin'</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the Homie class definition for its instantiation.</span>
 
 <span class="sd">        :param name: Name of the object within the Homie config.</span>
 <span class="sd">        :returns: Homie class definition for its instantiation.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="kn">from</span><span class="w"> </span><span class="nn">...hubitat</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubiOrigin</span>
         <span class="kn">from</span><span class="w"> </span><span class="nn">...philips</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueOrigin</span>
@@ -876,7 +876,7 @@
 
 
         <span class="k">raise</span> <span class="n">InvalidChild</span><span class="p">(</span>
-            <span class="n">name</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="s1">&#39;initial&#39;</span><span class="p">)</span></div>
+            <span class="n">name</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="s1">'initial'</span><span class="p">)</span></div>
 
 
 
@@ -885,13 +885,13 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_device</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieDevice&#39;</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s1">'HomieDevice'</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the Homie class definition for its instantiation.</span>
 
 <span class="sd">        :param name: Name of the object within the Homie config.</span>
 <span class="sd">        :returns: Homie class definition for its instantiation.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="kn">from</span><span class="w"> </span><span class="nn">...hubitat</span><span class="w"> </span><span class="kn">import</span> <span class="n">HubiDevice</span>
         <span class="kn">from</span><span class="w"> </span><span class="nn">...philips</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhueDevice</span>
@@ -912,18 +912,18 @@
 
         <span class="n">family</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">family</span>
 
-        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">&#39;hubitat&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">'hubitat'</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">HubiDevice</span>
 
-        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">&#39;philips&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">'philips'</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">PhueDevice</span>
 
-        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">&#39;ubiquiti&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">'ubiquiti'</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">UbiqDevice</span>
 
 
         <span class="k">raise</span> <span class="n">InvalidChild</span><span class="p">(</span>
-            <span class="n">name</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="s1">&#39;initial&#39;</span><span class="p">)</span></div>
+            <span class="n">name</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="s1">'initial'</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

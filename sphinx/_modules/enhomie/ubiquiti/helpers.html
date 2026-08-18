@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.ubiquiti.helpers</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -323,8 +323,8 @@
 <span class="n">UbiqMerge</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">UbiqFetch</span><span class="p">]</span>
 
 <span class="n">UbiqKinds</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-    <span class="s1">&#39;historic&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;realtime&#39;</span><span class="p">]</span>
+    <span class="s1">'historic'</span><span class="p">,</span>
+    <span class="s1">'realtime'</span><span class="p">]</span>
 
 
 
@@ -333,12 +333,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">merge_fetch</span><span class="p">(</span>
     <span class="n">fetch</span><span class="p">:</span> <span class="n">UbiqFetch</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UbiqMerge</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the content related to the item in parent system.</span>
 
 <span class="sd">    :param fetch: Dictionary from the origin to be updated.</span>
 <span class="sd">    :returns: Content related to the item in parent system.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">fetch</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">fetch</span><span class="p">)</span>
 
@@ -347,32 +347,32 @@
     <span class="n">source</span><span class="p">:</span> <span class="n">UbiqMerge</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="n">historic</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">fetch</span><span class="p">[</span><span class="s1">&#39;historic&#39;</span><span class="p">]</span>
-        <span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+        <span class="n">fetch</span><span class="p">[</span><span class="s1">'historic'</span><span class="p">]</span>
+        <span class="p">[</span><span class="s1">'data'</span><span class="p">])</span>
 
     <span class="n">realtime</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">fetch</span><span class="p">[</span><span class="s1">&#39;realtime&#39;</span><span class="p">]</span>
-        <span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+        <span class="n">fetch</span><span class="p">[</span><span class="s1">'realtime'</span><span class="p">]</span>
+        <span class="p">[</span><span class="s1">'data'</span><span class="p">])</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_fixtimes</span><span class="p">(</span>
         <span class="n">fetch</span><span class="p">:</span> <span class="n">UbiqFetch</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
-        <span class="k">if</span> <span class="s1">&#39;first_seen&#39;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
-            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;first_seen&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;first_seen&#39;</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="s1">'first_seen'</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">'first_seen'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">'first_seen'</span><span class="p">]]</span>
 
-        <span class="k">if</span> <span class="s1">&#39;last_seen&#39;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
-            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;last_seen&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;last_seen&#39;</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="s1">'last_seen'</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">'last_seen'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">'last_seen'</span><span class="p">]]</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_combine</span><span class="p">(</span>
         <span class="n">target</span><span class="p">:</span> <span class="n">UbiqKinds</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
-        <span class="n">unique</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span>
+        <span class="n">unique</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'_id'</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">unique</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">staged</span><span class="p">:</span>
             <span class="n">staged</span><span class="p">[</span><span class="n">unique</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
@@ -388,10 +388,10 @@
 
 
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">historic</span><span class="p">:</span>
-        <span class="n">_combine</span><span class="p">(</span><span class="s1">&#39;historic&#39;</span><span class="p">)</span>
+        <span class="n">_combine</span><span class="p">(</span><span class="s1">'historic'</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">realtime</span><span class="p">:</span>
-        <span class="n">_combine</span><span class="p">(</span><span class="s1">&#39;realtime&#39;</span><span class="p">)</span>
+        <span class="n">_combine</span><span class="p">(</span><span class="s1">'realtime'</span><span class="p">)</span>
 
 
     <span class="n">items</span> <span class="o">=</span> <span class="n">staged</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
@@ -399,11 +399,11 @@
     <span class="k">for</span> <span class="n">unique</span><span class="p">,</span> <span class="n">fetch</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
 
         <span class="n">historic</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span>
-            <span class="n">fetch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;historic&#39;</span><span class="p">)</span>
+            <span class="n">fetch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'historic'</span><span class="p">)</span>
             <span class="ow">or</span> <span class="p">{})</span>
 
         <span class="n">realtime</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span>
-            <span class="n">fetch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;realtime&#39;</span><span class="p">)</span>
+            <span class="n">fetch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'realtime'</span><span class="p">)</span>
             <span class="ow">or</span> <span class="p">{})</span>
 
         <span class="n">merge_dicts</span><span class="p">(</span>
@@ -412,7 +412,7 @@
             <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="n">value</span> <span class="o">=</span> <span class="n">historic</span> <span class="o">|</span> <span class="p">{</span>
-            <span class="s1">&#39;_source&#39;</span><span class="p">:</span> <span class="n">fetch</span><span class="p">}</span>
+            <span class="s1">'_source'</span><span class="p">:</span> <span class="n">fetch</span><span class="p">}</span>
 
         <span class="n">source</span><span class="p">[</span><span class="n">unique</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
@@ -429,11 +429,11 @@
 <a class="viewcode-back" href="../../../enhomie.ubiquiti.html#enhomie.ubiquiti.helpers.merge_find">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">merge_find</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
     <span class="n">merge</span><span class="p">:</span> <span class="n">UbiqMerge</span><span class="p">,</span>
-    <span class="n">kind</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieKinds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieKinds'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">unique</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LDictStrAny</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the content related to the item in parent system.</span>
 
 <span class="sd">    :param merge: Dictionary from the origin to be updated.</span>
@@ -441,7 +441,7 @@
 <span class="sd">    :param unique: Unique identifier within parents system.</span>
 <span class="sd">    :param label: Friendly name or label within the parent.</span>
 <span class="sd">    :returns: Content related to the item in parent system.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">assert</span> <span class="n">unique</span> <span class="ow">or</span> <span class="n">label</span>
 
@@ -455,7 +455,7 @@
 
 
     <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;device&#39;</span>
+        <span class="k">assert</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">'device'</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_match_unique</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -464,9 +464,9 @@
             <span class="k">return</span> <span class="kc">True</span>
 
         <span class="n">uniques</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">),</span>
-            <span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_ip&#39;</span><span class="p">),</span>
-            <span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mac&#39;</span><span class="p">)]</span>
+            <span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'_id'</span><span class="p">),</span>
+            <span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'last_ip'</span><span class="p">),</span>
+            <span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mac'</span><span class="p">)]</span>
 
         <span class="n">uniques</span> <span class="o">=</span> <span class="p">[</span>
             <span class="n">strplwr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -481,11 +481,11 @@
         <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
 
-        <span class="k">if</span> <span class="s1">&#39;name&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">'name'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">NCFalse</span>
 
         <span class="n">_label</span> <span class="o">=</span> <span class="n">strplwr</span><span class="p">(</span>
-            <span class="n">value</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+            <span class="n">value</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])</span>
 
         <span class="k">return</span> <span class="n">label</span> <span class="o">==</span> <span class="n">_label</span>
 

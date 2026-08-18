@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.params.service</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -313,27 +313,27 @@
 
 <div class="viewcode-block" id="HomieServiceTimeoutParams">
 <a class="viewcode-back" href="../../../../enhomie.homie.params.html#enhomie.homie.params.service.HomieServiceTimeoutParams">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">HomieServiceTimeoutParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HomieServiceTimeoutParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'forbid'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Process and validate the Homie configuration parameters.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">action</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">int</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Override the actions timeout&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Override the actions timeout'</span><span class="p">,</span>
               <span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">30</span><span class="p">)]</span>
 
     <span class="n">update</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">int</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Override the updates timeout&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Override the updates timeout'</span><span class="p">,</span>
               <span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">30</span><span class="p">)]</span>
 
     <span class="n">stream</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">int</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Override the stream timeout&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Override the stream timeout'</span><span class="p">,</span>
               <span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">900</span><span class="p">)]</span></div>
 
 
@@ -341,27 +341,27 @@
 
 <div class="viewcode-block" id="HomieServiceRespiteParams">
 <a class="viewcode-back" href="../../../../enhomie.homie.params.html#enhomie.homie.params.service.HomieServiceRespiteParams">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">HomieServiceRespiteParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HomieServiceRespiteParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'forbid'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Process and validate the Homie configuration parameters.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">desire</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">int</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;How often desires performed&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'How often desires performed'</span><span class="p">,</span>
               <span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">900</span><span class="p">)]</span>
 
     <span class="n">update</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">int</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;How often updates performed&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'How often updates performed'</span><span class="p">,</span>
               <span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">900</span><span class="p">)]</span>
 
     <span class="n">health</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">int</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;How often health is checked&#39;</span><span class="p">,</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'How often health is checked'</span><span class="p">,</span>
               <span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">15</span><span class="p">)]</span></div>
 
 
@@ -369,30 +369,30 @@
 
 <div class="viewcode-block" id="HomieServiceMembersParams">
 <a class="viewcode-back" href="../../../../enhomie.homie.params.html#enhomie.homie.params.service.HomieServiceMembersParams">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">HomieServiceMembersParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HomieServiceMembersParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'forbid'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Process and validate the Homie configuration parameters.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">actions</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Determine whether created&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Determine whether created'</span><span class="p">)]</span>
 
     <span class="n">streams</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Determine whether created&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Determine whether created'</span><span class="p">)]</span>
 
     <span class="n">updates</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Determine whether created&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Determine whether created'</span><span class="p">)]</span>
 
     <span class="n">restful</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Determine whether created&#39;</span><span class="p">)]</span></div>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Determine whether created'</span><span class="p">)]</span></div>
 
 
 
@@ -400,25 +400,25 @@
 
 <div class="viewcode-block" id="HomieServiceParams">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.params.service.HomieServiceParams">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">HomieServiceParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HomieServiceParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'forbid'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Process and validate the Homie configuration parameters.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">respite</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">HomieServiceRespiteParams</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">HomieServiceRespiteParams</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;When operates are performed&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'When operates are performed'</span><span class="p">)]</span>
 
     <span class="n">timeout</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">HomieServiceTimeoutParams</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">HomieServiceTimeoutParams</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Override source or defaults&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Override source or defaults'</span><span class="p">)]</span>
 
     <span class="n">members</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="n">HomieServiceMembersParams</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">HomieServiceMembersParams</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Which members are created&#39;</span><span class="p">)]</span></div>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Which members are created'</span><span class="p">)]</span></div>
 
 </pre></div>
 

@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.conftest</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -332,15 +332,15 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">config_factory</span><span class="p">(</span>
     <span class="n">tmp_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieConfig</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param tmp_path: pytest object for temporal filesystem.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">content</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="sa">f</span><span class="s2">"""</span>
 
 <span class="s2">        enconfig:</span>
 <span class="s2">          paths:</span>
@@ -358,31 +358,31 @@
 <span class="s2">        database: &gt;-</span>
 <span class="s2">          sqlite:///</span><span class="si">{</span><span class="n">tmp_path</span><span class="si">}</span><span class="s2">/db</span>
 
-<span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="s2">        """</span><span class="p">)</span>
 
     <span class="n">config_path</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">tmp_path</span> <span class="o">/</span> <span class="s1">&#39;config.yml&#39;</span><span class="p">)</span>
+        <span class="n">tmp_path</span> <span class="o">/</span> <span class="s1">'config.yml'</span><span class="p">)</span>
 
     <span class="n">save_text</span><span class="p">(</span>
         <span class="n">config_path</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
 
     <span class="n">sargs</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="n">config_path</span><span class="p">,</span>
-        <span class="s1">&#39;dryrun&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="s1">&#39;forced&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="s1">&#39;console&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="s1">&#39;debug&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="s1">&#39;idesire&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s1">&#39;iupdate&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s1">&#39;ihealth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s1">&#39;atimeout&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s1">&#39;utimeout&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s1">&#39;stimeout&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s1">&#39;paction&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="s1">&#39;pupdate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="s1">&#39;pstream&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="s1">&#39;paspire&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="s1">&#39;pdesire&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+        <span class="s1">'config'</span><span class="p">:</span> <span class="n">config_path</span><span class="p">,</span>
+        <span class="s1">'dryrun'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">'forced'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">'console'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">'debug'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">'idesire'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">'iupdate'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">'ihealth'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">'atimeout'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">'utimeout'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">'stimeout'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">'paction'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">'pupdate'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">'pstream'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">'paspire'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">'pdesire'</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
 
     <span class="k">return</span> <span class="n">HomieConfig</span><span class="p">(</span><span class="n">sargs</span><span class="p">)</span></div>
 
@@ -395,12 +395,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">config</span><span class="p">(</span>
     <span class="n">tmp_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieConfig</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param tmp_path: pytest object for temporal filesystem.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">config_factory</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">)</span></div>
 
@@ -411,11 +411,11 @@
 <a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.times">[docs]</a>
 <span class="nd">@fixture</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">times</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">TestTimes</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the simple mapping of what to replace in sample.</span>
 
 <span class="sd">    :returns: Simple mapping of what to replace in sample.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">TestTimes</span><span class="p">()</span></div>
 
@@ -426,11 +426,11 @@
 <a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.bodies">[docs]</a>
 <span class="nd">@fixture</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">bodies</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">TestBodies</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the simple mapping of what to replace in sample.</span>
 
 <span class="sd">    :returns: Simple mapping of what to replace in sample.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">TestBodies</span><span class="p">()</span></div>
 
@@ -440,38 +440,38 @@
 <div class="viewcode-block" id="replaces_factory">
 <a class="viewcode-back" href="../../enhomie.html#enhomie.conftest.replaces_factory">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">replaces_factory</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the complete mapping of what to replace in sample.</span>
 
 <span class="sd">    :returns: Complete mapping of what to replace in sample.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">times</span> <span class="o">=</span> <span class="n">TestTimes</span><span class="p">()</span>
 
     <span class="n">replaces</span> <span class="o">=</span> <span class="p">{</span>
 
-        <span class="s1">&#39;__TIMESTAMP_START__&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">'__TIMESTAMP_START__'</span><span class="p">:</span> <span class="p">(</span>
             <span class="n">times</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">simple</span><span class="p">),</span>
 
-        <span class="s1">&#39;__TIMESTAMP_MIDDLE__&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">'__TIMESTAMP_MIDDLE__'</span><span class="p">:</span> <span class="p">(</span>
             <span class="n">times</span><span class="o">.</span><span class="n">middle</span><span class="o">.</span><span class="n">simple</span><span class="p">),</span>
 
-        <span class="s1">&#39;__TIMESTAMP_FINAL__&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">'__TIMESTAMP_FINAL__'</span><span class="p">:</span> <span class="p">(</span>
             <span class="n">times</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">simple</span><span class="p">),</span>
 
-        <span class="s1">&#39;__TIMESTAMP_CRRNT__&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">'__TIMESTAMP_CRRNT__'</span><span class="p">:</span> <span class="p">(</span>
             <span class="n">times</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">simple</span><span class="p">),</span>
 
-        <span class="s1">&#39;__UNIXEPOCH_START__&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">'__UNIXEPOCH_START__'</span><span class="p">:</span> <span class="p">(</span>
             <span class="n">times</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">spoch</span><span class="p">),</span>
 
-        <span class="s1">&#39;__UNIXEPOCH_MIDDLE__&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">'__UNIXEPOCH_MIDDLE__'</span><span class="p">:</span> <span class="p">(</span>
             <span class="n">times</span><span class="o">.</span><span class="n">middle</span><span class="o">.</span><span class="n">spoch</span><span class="p">),</span>
 
-        <span class="s1">&#39;__UNIXEPOCH_FINAL__&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">'__UNIXEPOCH_FINAL__'</span><span class="p">:</span> <span class="p">(</span>
             <span class="n">times</span><span class="o">.</span><span class="n">final</span><span class="o">.</span><span class="n">spoch</span><span class="p">),</span>
 
-        <span class="s1">&#39;__UNIXEPOCH_CRRNT__&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">'__UNIXEPOCH_CRRNT__'</span><span class="p">:</span> <span class="p">(</span>
             <span class="n">times</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">spoch</span><span class="p">)}</span>
 
     <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">replaces</span><span class="p">)</span></div>
@@ -485,18 +485,18 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">replaces</span><span class="p">(</span>
     <span class="n">tmp_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the complete mapping of what replaced in sample.</span>
 
 <span class="sd">    :param tmp_path: pytest object for temporal filesystem.</span>
 <span class="sd">    :returns: Complete mapping of what replaced in sample.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">replaces</span> <span class="o">=</span> <span class="n">replaces_factory</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">replaces</span> <span class="o">|</span> <span class="p">{</span>
-        <span class="s1">&#39;PROJECT&#39;</span><span class="p">:</span> <span class="n">PROJECT</span><span class="p">,</span>
-        <span class="s1">&#39;TMPPATH&#39;</span><span class="p">:</span> <span class="n">tmp_path</span><span class="p">}</span></div>
+        <span class="s1">'PROJECT'</span><span class="p">:</span> <span class="n">PROJECT</span><span class="p">,</span>
+        <span class="s1">'TMPPATH'</span><span class="p">:</span> <span class="n">tmp_path</span><span class="p">}</span></div>
 
 
 
@@ -507,13 +507,13 @@
     <span class="n">config</span><span class="p">:</span> <span class="n">HomieConfig</span><span class="p">,</span>
     <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Homie</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param config: Primary class instance for configuration.</span>
 <span class="sd">    :param respx_mock: Object for mocking request operation.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">replaces</span> <span class="o">=</span> <span class="n">replaces_factory</span><span class="p">()</span>
 
@@ -533,13 +533,13 @@
     <span class="n">config</span><span class="p">:</span> <span class="n">HomieConfig</span><span class="p">,</span>
     <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Homie</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param config: Primary class instance for configuration.</span>
 <span class="sd">    :param respx_mock: Object for mocking request operation.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">homie_factory</span><span class="p">(</span>
         <span class="n">config</span><span class="p">,</span> <span class="n">respx_mock</span><span class="p">)</span></div>
@@ -553,13 +553,13 @@
     <span class="n">homie</span><span class="p">:</span> <span class="n">Homie</span><span class="p">,</span>
     <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieService</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
 <span class="sd">    :param respx_mock: Object for mocking request operation.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">HomieService</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span></div>
 
@@ -573,13 +573,13 @@
     <span class="n">homie</span><span class="p">:</span> <span class="n">Homie</span><span class="p">,</span>
     <span class="n">respx_mock</span><span class="p">:</span> <span class="n">MockRouter</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieService</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
 <span class="sd">    :param respx_mock: Object for mocking request operation.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">service_factory</span><span class="p">(</span>
         <span class="n">homie</span><span class="p">,</span> <span class="n">respx_mock</span><span class="p">)</span></div>
@@ -592,12 +592,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">restful_factory</span><span class="p">(</span>
     <span class="n">homie</span><span class="p">:</span> <span class="n">Homie</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RestfulService</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">RestfulService</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span></div>
 
@@ -610,12 +610,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">restful</span><span class="p">(</span>
     <span class="n">homie</span><span class="p">:</span> <span class="n">Homie</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RestfulService</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">restful_factory</span><span class="p">(</span><span class="n">homie</span><span class="p">)</span></div>
 

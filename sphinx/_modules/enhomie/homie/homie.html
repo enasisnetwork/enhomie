@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.homie</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -339,13 +339,13 @@
 <div class="viewcode-block" id="Homie">
 <a class="viewcode-back" href="../../../index.html#enhomie.homie.homie.Homie">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Homie</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Interact with supported devices to ensure desired state.</span>
 
 <span class="sd">    :param config: Primary class instance for configuration.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="n">__config</span><span class="p">:</span> <span class="s1">&#39;HomieConfig&#39;</span>
+    <span class="n">__config</span><span class="p">:</span> <span class="s1">'HomieConfig'</span>
 
     <span class="n">__logger</span><span class="p">:</span> <span class="n">HomieLogger</span>
     <span class="n">__jinja2</span><span class="p">:</span> <span class="n">HomieJinja2</span>
@@ -359,15 +359,15 @@
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">config</span><span class="p">:</span> <span class="s1">&#39;HomieConfig&#39;</span><span class="p">,</span>
+        <span class="n">config</span><span class="p">:</span> <span class="s1">'HomieConfig'</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
             <span class="n">base</span><span class="o">=</span><span class="n">clsname</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span>
-            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;initial&#39;</span><span class="p">)</span>
+            <span class="n">status</span><span class="o">=</span><span class="s1">'initial'</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__config</span> <span class="o">=</span> <span class="n">config</span>
 
@@ -393,18 +393,18 @@
 
         <span class="n">config</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
             <span class="n">base</span><span class="o">=</span><span class="n">clsname</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span>
-            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;created&#39;</span><span class="p">)</span>
+            <span class="n">status</span><span class="o">=</span><span class="s1">'created'</span><span class="p">)</span>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">config</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieConfig&#39;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'HomieConfig'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the Config instance containing the configuration.</span>
 
 <span class="sd">        :returns: Config instance containing the configuration.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__config</span>
 
@@ -413,11 +413,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">logger</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieLogger</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__logger</span>
 
@@ -426,11 +426,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">jinja2</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieJinja2</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__jinja2</span>
 
@@ -439,11 +439,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">childs</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieChilds</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__childs</span>
 
@@ -452,11 +452,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">persist</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomiePersist</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__persist</span>
 
@@ -464,12 +464,12 @@
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieParams&#39;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'HomieParams'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the Pydantic model containing the configuration.</span>
 
 <span class="sd">        :returns: Pydantic model containing the configuration.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">params</span>
 
@@ -478,11 +478,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">console</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">console</span>
 
@@ -491,11 +491,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">debug</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">debug</span>
 
@@ -504,11 +504,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">dryrun</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">dryrun</span>
 
@@ -517,11 +517,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">forced</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">forced</span>
 
@@ -530,11 +530,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">desired</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieDesired</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the related actions matching the provided event.</span>
 
 <span class="sd">        :returns: Related actions matching the provided event.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__desired</span>
 
@@ -543,11 +543,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">aspired</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieAspired</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the related desired state for the desired groups.</span>
 
 <span class="sd">        :returns: Related desired state for the desired groups.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__aspired</span>
 
@@ -558,12 +558,12 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Refresh the cached information for the remote upstream.</span>
 
 <span class="sd">        :param timeout: Timeout waiting for the server response.</span>
 <span class="sd">        :returns: Boolean indicating the success of the refresh.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">childs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">childs</span>
 
@@ -591,11 +591,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">dumped</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DictStrAny</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the facts about the attributes from the instance.</span>
 
 <span class="sd">        :returns: Facts about the attributes from the instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">params</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
@@ -616,15 +616,15 @@
 <a class="viewcode-back" href="../../../index.html#enhomie.homie.homie.Homie.printer">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">printer</span><span class="p">(</span>  <span class="c1"># noqa: CFQ001,CFQ004</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">source</span><span class="p">:</span> <span class="s1">&#39;HomiePrint&#39;</span><span class="p">,</span>
+        <span class="n">source</span><span class="p">:</span> <span class="s1">'HomiePrint'</span><span class="p">,</span>
         <span class="n">color</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Print the contents for the object within Homie instance.</span>
 
 <span class="sd">        :param source: Content which will be shown after header.</span>
 <span class="sd">        :param color: Override the color used for box character.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
         <span class="n">printer</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">printer</span>
@@ -689,9 +689,9 @@
             <span class="n">source</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
                 <span class="n">source</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 
-            <span class="n">_target</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
-            <span class="n">_desire</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;desire&#39;</span><span class="p">]</span>
-            <span class="n">_scene</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">]</span>
+            <span class="n">_target</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">'target'</span><span class="p">]</span>
+            <span class="n">_desire</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">'desire'</span><span class="p">]</span>
+            <span class="n">_scene</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">'scene'</span><span class="p">]</span>
 
             <span class="n">target</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">_target</span><span class="o">.</span><span class="n">name</span>
@@ -709,9 +709,9 @@
                 <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
 
             <span class="n">source</span> <span class="o">|=</span> <span class="p">{</span>
-                <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
-                <span class="s1">&#39;desire&#39;</span><span class="p">:</span> <span class="n">desire</span><span class="p">,</span>
-                <span class="s1">&#39;scene&#39;</span><span class="p">:</span> <span class="n">scene</span><span class="p">}</span>
+                <span class="s1">'target'</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
+                <span class="s1">'desire'</span><span class="p">:</span> <span class="n">desire</span><span class="p">,</span>
+                <span class="s1">'scene'</span><span class="p">:</span> <span class="n">scene</span><span class="p">}</span>
 
 
         <span class="n">aspired</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span>
@@ -725,9 +725,9 @@
             <span class="n">source</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
                 <span class="n">source</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 
-            <span class="n">_target</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
-            <span class="n">_aspire</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;aspire&#39;</span><span class="p">]</span>
-            <span class="n">_scene</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">]</span>
+            <span class="n">_target</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">'target'</span><span class="p">]</span>
+            <span class="n">_aspire</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">'aspire'</span><span class="p">]</span>
+            <span class="n">_scene</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="s1">'scene'</span><span class="p">]</span>
 
             <span class="n">target</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">_target</span><span class="o">.</span><span class="n">name</span>
@@ -745,26 +745,26 @@
                 <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
 
             <span class="n">source</span> <span class="o">|=</span> <span class="p">{</span>
-                <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
-                <span class="s1">&#39;aspire&#39;</span><span class="p">:</span> <span class="n">aspire</span><span class="p">,</span>
-                <span class="s1">&#39;scene&#39;</span><span class="p">:</span> <span class="n">scene</span><span class="p">}</span>
+                <span class="s1">'target'</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
+                <span class="s1">'aspire'</span><span class="p">:</span> <span class="n">aspire</span><span class="p">,</span>
+                <span class="s1">'scene'</span><span class="p">:</span> <span class="n">scene</span><span class="p">}</span>
 
 
-        <span class="n">line</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;━&#39;</span>
+        <span class="n">line</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'━'</span>
 
         <span class="n">print_ansi</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&lt;c9</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s1">&gt;┍&#39;</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">line</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">63</span><span class="si">}</span><span class="s1">&lt;c0&gt;&#39;</span><span class="p">)</span>
+            <span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="s1">&lt;c9</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s1">&gt;┍'</span>
+            <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">line</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">63</span><span class="si">}</span><span class="s1">&lt;c0&gt;'</span><span class="p">)</span>
 
         <span class="n">dumped</span> <span class="o">=</span> <span class="n">array_ansi</span><span class="p">(</span>
             <span class="n">source</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
         <span class="nb">print</span><span class="p">(</span>  <span class="c1"># noqa: T201</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{</span><span class="n">dumped</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="si">{</span><span class="n">dumped</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
         <span class="n">print_ansi</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&lt;c9</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s1">&gt;┕&#39;</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">line</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">63</span><span class="si">}</span><span class="s1">&lt;c0&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+            <span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="s1">&lt;c9</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s1">&gt;┕'</span>
+            <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">line</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">63</span><span class="si">}</span><span class="s1">&lt;c0&gt;</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span></div>
 
 
 
@@ -772,16 +772,16 @@
 <a class="viewcode-back" href="../../../index.html#enhomie.homie.homie.Homie.get_actions">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_actions</span><span class="p">(</span>  <span class="c1"># noqa: CFQ002</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
+        <span class="n">target</span><span class="p">:</span> <span class="s1">'HomieActionNode'</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
-        <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieState&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieState'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieScene&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieScene'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">change</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieActionBase&#39;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'HomieActionBase'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Insert the new item containing information for operation.</span>
 
 <span class="sd">        :param target: Device or group settings will be updated.</span>
@@ -791,12 +791,12 @@
 <span class="sd">        :param scene: Determine the scene related to the target.</span>
 <span class="sd">        :param force: Override the default for full idempotency.</span>
 <span class="sd">        :param change: Determine whether the change is executed.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">childs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">childs</span>
         <span class="n">devices</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">devices</span>
 
-        <span class="n">aitems</span><span class="p">:</span> <span class="s1">&#39;HomieActionBase&#39;</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">aitems</span><span class="p">:</span> <span class="s1">'HomieActionBase'</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="n">something</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span>
             <span class="n">state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
@@ -809,7 +809,7 @@
 
 
         <span class="k">def</span><span class="w"> </span><span class="nf">_add_group</span><span class="p">(</span>
-            <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieGroup&#39;</span><span class="p">,</span>
+            <span class="n">target</span><span class="p">:</span> <span class="s1">'HomieGroup'</span><span class="p">,</span>
         <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
             <span class="n">origin</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">origin</span>
@@ -828,7 +828,7 @@
 
 
         <span class="k">def</span><span class="w"> </span><span class="nf">_add_devices</span><span class="p">(</span>
-            <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieGroup&#39;</span><span class="p">,</span>
+            <span class="n">target</span><span class="p">:</span> <span class="s1">'HomieGroup'</span><span class="p">,</span>
         <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
             <span class="n">params</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">params</span>
@@ -844,7 +844,7 @@
 
 
         <span class="k">def</span><span class="w"> </span><span class="nf">_add_device</span><span class="p">(</span>
-            <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieDevice&#39;</span><span class="p">,</span>
+            <span class="n">target</span><span class="p">:</span> <span class="s1">'HomieDevice'</span><span class="p">,</span>
         <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
             <span class="n">origin</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">origin</span>
@@ -860,7 +860,7 @@
             <span class="n">aitems</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="n">aitem</span>
 
 
-        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">'group'</span><span class="p">:</span>
 
             <span class="n">params</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">params</span>
 
@@ -871,7 +871,7 @@
                 <span class="n">_add_group</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
 
 
-        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">'device'</span><span class="p">:</span>
             <span class="n">_add_device</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
 
 
@@ -883,18 +883,18 @@
 <a class="viewcode-back" href="../../../index.html#enhomie.homie.homie.Homie.set_actions">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_actions</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">aitems</span><span class="p">:</span> <span class="s1">&#39;HomieActionBase&#39;</span><span class="p">,</span>
+        <span class="n">aitems</span><span class="p">:</span> <span class="s1">'HomieActionBase'</span><span class="p">,</span>
         <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">change</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Insert the new item containing information for operation.</span>
 
 <span class="sd">        :param aitems: Constructed action objects for operation.</span>
 <span class="sd">        :param force: Override the default for full idempotency.</span>
 <span class="sd">        :param change: Determine whether the change is executed.</span>
 <span class="sd">        :returns: Boolean indicating whether or not was changed.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">changed</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
@@ -927,14 +927,14 @@
         <span class="n">statics</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DictStrAny</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">literal</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>  <span class="c1"># noqa: ANN401</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the provided input using the Jinja2 environment.</span>
 
 <span class="sd">        :param value: Input that will be processed and returned.</span>
 <span class="sd">        :param statics: Additional values available for parsing.</span>
 <span class="sd">        :param literal: Determine if Python objects are evaled.</span>
 <span class="sd">        :returns: Provided input using the Jinja2 environment.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__jinja2</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
             <span class="n">value</span><span class="p">,</span> <span class="n">statics</span><span class="p">,</span> <span class="n">literal</span><span class="p">)</span></div>

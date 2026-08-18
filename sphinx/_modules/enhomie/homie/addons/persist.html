@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.addons.persist</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -342,32 +342,32 @@
     <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
 
 <span class="n">HomiePersistLevel</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-    <span class="s1">&#39;failure&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;information&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;success&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;warning&#39;</span><span class="p">]</span>
+    <span class="s1">'failure'</span><span class="p">,</span>
+    <span class="s1">'information'</span><span class="p">,</span>
+    <span class="s1">'success'</span><span class="p">,</span>
+    <span class="s1">'warning'</span><span class="p">]</span>
 
 <span class="n">_PERSIST_ABOUT</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;unique&#39;</span><span class="p">:</span> <span class="s1">&#39;Unique key for the value&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;Value stored at unique&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;value_unit&#39;</span><span class="p">:</span> <span class="s1">&#39;Unit for persist value&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;value_label&#39;</span><span class="p">:</span> <span class="s1">&#39;Label for persist value&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;value_icon&#39;</span><span class="p">:</span> <span class="s1">&#39;Icon for persist value&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;about&#39;</span><span class="p">:</span> <span class="s1">&#39;About the persist entry&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;about_label&#39;</span><span class="p">:</span> <span class="s1">&#39;Label for persist entry&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;about_icon&#39;</span><span class="p">:</span> <span class="s1">&#39;Icon for persist entry&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;Severity of persist entry&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="s1">&#39;Tags for persist entry&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;expire&#39;</span><span class="p">:</span> <span class="s1">&#39;After when the key expires&#39;</span><span class="p">}</span>
+    <span class="s1">'unique'</span><span class="p">:</span> <span class="s1">'Unique key for the value'</span><span class="p">,</span>
+    <span class="s1">'value'</span><span class="p">:</span> <span class="s1">'Value stored at unique'</span><span class="p">,</span>
+    <span class="s1">'value_unit'</span><span class="p">:</span> <span class="s1">'Unit for persist value'</span><span class="p">,</span>
+    <span class="s1">'value_label'</span><span class="p">:</span> <span class="s1">'Label for persist value'</span><span class="p">,</span>
+    <span class="s1">'value_icon'</span><span class="p">:</span> <span class="s1">'Icon for persist value'</span><span class="p">,</span>
+    <span class="s1">'about'</span><span class="p">:</span> <span class="s1">'About the persist entry'</span><span class="p">,</span>
+    <span class="s1">'about_label'</span><span class="p">:</span> <span class="s1">'Label for persist entry'</span><span class="p">,</span>
+    <span class="s1">'about_icon'</span><span class="p">:</span> <span class="s1">'Icon for persist entry'</span><span class="p">,</span>
+    <span class="s1">'level'</span><span class="p">:</span> <span class="s1">'Severity of persist entry'</span><span class="p">,</span>
+    <span class="s1">'tags'</span><span class="p">:</span> <span class="s1">'Tags for persist entry'</span><span class="p">,</span>
+    <span class="s1">'expire'</span><span class="p">:</span> <span class="s1">'After when the key expires'</span><span class="p">}</span>
 
 
 
 <div class="viewcode-block" id="SQLBase">
 <a class="viewcode-back" href="../../../../enhomie.homie.addons.html#enhomie.homie.addons.persist.SQLBase">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SQLBase</span><span class="p">(</span><span class="n">DeclarativeBase</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Some additional class that SQLAlchemy requires to work.</span>
-<span class="sd">    &quot;&quot;&quot;</span></div>
+<span class="sd">    """</span></div>
 
 
 
@@ -375,12 +375,12 @@
 <div class="viewcode-block" id="HomiePersistTable">
 <a class="viewcode-back" href="../../../../enhomie.homie.addons.html#enhomie.homie.addons.persist.HomiePersistTable">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomiePersistTable</span><span class="p">(</span><span class="n">SQLBase</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Schematic for the database operations using SQLAlchemy.</span>
 
 <span class="sd">    .. note::</span>
 <span class="sd">       Fields are not completely documented for this model.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">unique</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span>
         <span class="n">String</span><span class="p">,</span>
@@ -431,7 +431,7 @@
         <span class="n">Float</span><span class="p">,</span>
         <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;persist&#39;</span></div>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">'persist'</span></div>
 
 
 
@@ -439,73 +439,73 @@
 <span class="n">_FIELD_UNIQUE</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="nb">str</span><span class="p">,</span>
     <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;unique&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'unique'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_FIELD_VALUE</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">HomiePersistValue</span><span class="p">,</span>
     <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])]</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'value'</span><span class="p">])]</span>
 
 <span class="n">_FIELD_VALUE_UNIT</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;value_unit&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'value_unit'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_FIELD_VALUE_LABEL</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;value_label&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'value_label'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_FIELD_VALUE_ICON</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;value_icon&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'value_icon'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_FIELD_ABOUT</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;about&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'about'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_FIELD_ABOUT_LABEL</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;about_label&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'about_label'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_FIELD_ABOUT_ICON</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;about_icon&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'about_icon'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_FIELD_LEVEL</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="n">HomiePersistLevel</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'level'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_FIELD_TAGS</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'tags'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_FIELD_EXPIRE</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="s1">&#39;After when the key expires&#39;</span><span class="p">,</span>
+          <span class="n">description</span><span class="o">=</span><span class="s1">'After when the key expires'</span><span class="p">,</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
           <span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)]</span>
 
 <span class="n">_FIELD_UPDATE</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="nb">str</span><span class="p">,</span>
     <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="s1">&#39;When the value was updated&#39;</span><span class="p">,</span>
+          <span class="n">description</span><span class="o">=</span><span class="s1">'When the value was updated'</span><span class="p">,</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
           <span class="n">max_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)]</span>
 
@@ -513,13 +513,13 @@
 
 <div class="viewcode-block" id="HomiePersistRecord">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.addons.persist.HomiePersistRecord">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">HomiePersistRecord</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HomiePersistRecord</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'forbid'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Contain the information regarding the persistent value.</span>
 
 <span class="sd">    :param record: Record from the SQLAlchemy query routine.</span>
 <span class="sd">    :param kwargs: Keyword arguments passed for downstream.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">unique</span><span class="p">:</span> <span class="n">_FIELD_UNIQUE</span>
 
@@ -551,25 +551,25 @@
         <span class="n">record</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">HomiePersistTable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">params</span><span class="p">:</span> <span class="n">DictStrAny</span>
 
         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s1">&#39;unique&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;value&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;value_unit&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;value_label&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;value_icon&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;about&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;about_label&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;about_icon&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;level&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;tags&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;expire&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;update&#39;</span><span class="p">]</span>
+            <span class="s1">'unique'</span><span class="p">,</span>
+            <span class="s1">'value'</span><span class="p">,</span>
+            <span class="s1">'value_unit'</span><span class="p">,</span>
+            <span class="s1">'value_label'</span><span class="p">,</span>
+            <span class="s1">'value_icon'</span><span class="p">,</span>
+            <span class="s1">'about'</span><span class="p">,</span>
+            <span class="s1">'about_label'</span><span class="p">,</span>
+            <span class="s1">'about_icon'</span><span class="p">,</span>
+            <span class="s1">'level'</span><span class="p">,</span>
+            <span class="s1">'tags'</span><span class="p">,</span>
+            <span class="s1">'expire'</span><span class="p">,</span>
+            <span class="s1">'update'</span><span class="p">]</span>
 
 
         <span class="k">if</span> <span class="n">record</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -586,7 +586,7 @@
                 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
                     <span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
 
-                <span class="n">params</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">params</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                     <span class="n">loads</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
             <span class="k">if</span> <span class="n">tags</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -594,7 +594,7 @@
                 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
                     <span class="n">tags</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
 
-                <span class="n">params</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">params</span><span class="p">[</span><span class="s1">'tags'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                     <span class="n">loads</span><span class="p">(</span><span class="n">tags</span><span class="p">))</span>
 
 
@@ -606,18 +606,18 @@
 
 
         <span class="k">else</span><span class="p">:</span>  <span class="c1"># NOCVR</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;record&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'record'</span><span class="p">)</span>
 
 
-        <span class="n">expire</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;expire&#39;</span><span class="p">]</span>
-        <span class="n">update</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;update&#39;</span><span class="p">]</span>
+        <span class="n">expire</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'expire'</span><span class="p">]</span>
+        <span class="n">update</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'update'</span><span class="p">]</span>
 
-        <span class="n">params</span><span class="p">[</span><span class="s1">&#39;expire&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">params</span><span class="p">[</span><span class="s1">'expire'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
             <span class="nb">str</span><span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="n">expire</span><span class="p">))</span>
             <span class="k">if</span> <span class="n">expire</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
             <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
 
-        <span class="n">params</span><span class="p">[</span><span class="s1">&#39;update&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">params</span><span class="p">[</span><span class="s1">'update'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
             <span class="nb">str</span><span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="n">update</span><span class="p">)))</span>
 
 
@@ -629,13 +629,13 @@
 <div class="viewcode-block" id="HomiePersist">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.addons.persist.HomiePersist">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomiePersist</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Store the persistent information in the key value store.</span>
 
 <span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="n">__homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span>
+    <span class="n">__homie</span><span class="p">:</span> <span class="s1">'Homie'</span>
 
     <span class="n">__connect</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">__locker</span><span class="p">:</span> <span class="n">Lock</span>
@@ -648,11 +648,11 @@
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">homie</span><span class="p">:</span> <span class="s1">&#39;Homie&#39;</span><span class="p">,</span>
+        <span class="n">homie</span><span class="p">:</span> <span class="s1">'Homie'</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span> <span class="o">=</span> <span class="n">homie</span>
 
@@ -669,9 +669,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">__build_engine</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct instances using the configuration parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">sengine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__connect</span><span class="p">,</span>
@@ -705,9 +705,9 @@
         <span class="n">tags</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">statics</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DictStrAny</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Insert the value within the persistent key value store.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__homie</span>
 
@@ -765,16 +765,16 @@
         <span class="c1"># collect input values</span>
 
         <span class="n">inputs</span><span class="p">:</span> <span class="n">DictStrAny</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;unique&#39;</span><span class="p">:</span> <span class="n">unique</span><span class="p">,</span>
-            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
-            <span class="s1">&#39;value_unit&#39;</span><span class="p">:</span> <span class="n">value_unit</span><span class="p">,</span>
-            <span class="s1">&#39;value_label&#39;</span><span class="p">:</span> <span class="n">value_label</span><span class="p">,</span>
-            <span class="s1">&#39;value_icon&#39;</span><span class="p">:</span> <span class="n">value_icon</span><span class="p">,</span>
-            <span class="s1">&#39;about&#39;</span><span class="p">:</span> <span class="n">about</span><span class="p">,</span>
-            <span class="s1">&#39;about_label&#39;</span><span class="p">:</span> <span class="n">about_label</span><span class="p">,</span>
-            <span class="s1">&#39;about_icon&#39;</span><span class="p">:</span> <span class="n">about_icon</span><span class="p">,</span>
-            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">level</span><span class="p">,</span>
-            <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="n">tags</span><span class="p">}</span>
+            <span class="s1">'unique'</span><span class="p">:</span> <span class="n">unique</span><span class="p">,</span>
+            <span class="s1">'value'</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+            <span class="s1">'value_unit'</span><span class="p">:</span> <span class="n">value_unit</span><span class="p">,</span>
+            <span class="s1">'value_label'</span><span class="p">:</span> <span class="n">value_label</span><span class="p">,</span>
+            <span class="s1">'value_icon'</span><span class="p">:</span> <span class="n">value_icon</span><span class="p">,</span>
+            <span class="s1">'about'</span><span class="p">:</span> <span class="n">about</span><span class="p">,</span>
+            <span class="s1">'about_label'</span><span class="p">:</span> <span class="n">about_label</span><span class="p">,</span>
+            <span class="s1">'about_icon'</span><span class="p">:</span> <span class="n">about_icon</span><span class="p">,</span>
+            <span class="s1">'level'</span><span class="p">:</span> <span class="n">level</span><span class="p">,</span>
+            <span class="s1">'tags'</span><span class="p">:</span> <span class="n">tags</span><span class="p">}</span>
 
         <span class="n">inputs</span> <span class="o">=</span> <span class="p">{</span>
             <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
@@ -793,18 +793,18 @@
                 <span class="n">paranoid</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 
         <span class="n">insert</span> <span class="o">|=</span> <span class="p">{</span>
-            <span class="s1">&#39;expire&#39;</span><span class="p">:</span> <span class="n">expire</span><span class="p">,</span>
-            <span class="s1">&#39;update&#39;</span><span class="p">:</span> <span class="n">update</span><span class="p">}</span>
+            <span class="s1">'expire'</span><span class="p">:</span> <span class="n">expire</span><span class="p">,</span>
+            <span class="s1">'update'</span><span class="p">:</span> <span class="n">update</span><span class="p">}</span>
 
         <span class="n">statics</span> <span class="o">|=</span> <span class="p">{</span>
-            <span class="s1">&#39;record&#39;</span><span class="p">:</span> <span class="n">insert</span><span class="p">}</span>
+            <span class="s1">'record'</span><span class="p">:</span> <span class="n">insert</span><span class="p">}</span>
 
         <span class="n">parsed</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">homie</span><span class="o">.</span><span class="n">j2parse</span><span class="p">(</span>
                 <span class="n">value</span><span class="p">,</span> <span class="n">statics</span><span class="p">))</span>
 
         <span class="n">statics</span> <span class="o">|=</span> <span class="p">{</span>
-            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">parsed</span><span class="p">}</span>
+            <span class="s1">'value'</span><span class="p">:</span> <span class="n">parsed</span><span class="p">}</span>
 
         <span class="n">insert</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">homie</span><span class="o">.</span><span class="n">j2parse</span><span class="p">(</span>
@@ -819,24 +819,24 @@
 
         <span class="c1"># prepare the values</span>
 
-        <span class="n">value</span> <span class="o">=</span> <span class="n">insert</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
-        <span class="n">tags</span> <span class="o">=</span> <span class="n">insert</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span>
-        <span class="n">expire</span> <span class="o">=</span> <span class="n">insert</span><span class="p">[</span><span class="s1">&#39;expire&#39;</span><span class="p">]</span>
-        <span class="n">update</span> <span class="o">=</span> <span class="n">insert</span><span class="p">[</span><span class="s1">&#39;update&#39;</span><span class="p">]</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">insert</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="n">insert</span><span class="p">[</span><span class="s1">'tags'</span><span class="p">]</span>
+        <span class="n">expire</span> <span class="o">=</span> <span class="n">insert</span><span class="p">[</span><span class="s1">'expire'</span><span class="p">]</span>
+        <span class="n">update</span> <span class="o">=</span> <span class="n">insert</span><span class="p">[</span><span class="s1">'update'</span><span class="p">]</span>
 
-        <span class="n">insert</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">insert</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]</span> <span class="o">=</span> <span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-        <span class="n">insert</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">insert</span><span class="p">[</span><span class="s1">'tags'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">dumps</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">tags</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
             <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
 
-        <span class="n">insert</span><span class="p">[</span><span class="s1">&#39;expire&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">insert</span><span class="p">[</span><span class="s1">'expire'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
             <span class="nb">float</span><span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="n">expire</span><span class="p">))</span>
             <span class="k">if</span> <span class="n">expire</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
             <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
 
-        <span class="n">insert</span><span class="p">[</span><span class="s1">&#39;update&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">insert</span><span class="p">[</span><span class="s1">'update'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
             <span class="nb">float</span><span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="n">update</span><span class="p">)))</span>
 
 
@@ -857,12 +857,12 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">unique</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomiePersistValue</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value from within persistent key value store.</span>
 
 <span class="sd">        :param unique: Unique identifier from within the table.</span>
 <span class="sd">        :returns: Value from within persistent key value store.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">sess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__session</span><span class="p">()</span>
         <span class="n">lock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__locker</span>
@@ -901,11 +901,11 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">unique</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Delete the value within the persistent key value store.</span>
 
 <span class="sd">        :param unique: Unique identifier from within the table.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">sess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__session</span><span class="p">()</span>
         <span class="n">lock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__locker</span>
@@ -936,9 +936,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">expire</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Remove the expired persistent key values from the table.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">sess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__session</span><span class="p">()</span>
         <span class="n">lock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__locker</span>
@@ -965,12 +965,12 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">unique</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomiePersistRecord</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the record within the persistent key value store.</span>
 
 <span class="sd">        :param unique: Unique identifier from within the table.</span>
 <span class="sd">        :returns: Record within the persistent key value store.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">sess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__session</span><span class="p">()</span>
         <span class="n">lock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__locker</span>
@@ -1001,11 +1001,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">records</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">HomiePersistRecord</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return all records within the persistent key value store.</span>
 
 <span class="sd">        :returns: Records within the persistent key value store.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">sess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__session</span><span class="p">()</span>
         <span class="n">lock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__locker</span>

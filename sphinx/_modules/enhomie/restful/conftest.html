@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.restful.conftest</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -319,18 +319,18 @@
 <a class="viewcode-back" href="../../../enhomie.restful.html#enhomie.restful.conftest.client">[docs]</a>
 <span class="nd">@fixture</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">client</span><span class="p">(</span>
-    <span class="n">restful</span><span class="p">:</span> <span class="s1">&#39;RestfulService&#39;</span><span class="p">,</span>
+    <span class="n">restful</span><span class="p">:</span> <span class="s1">'RestfulService'</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TestClient</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param restful: Ancilary Homie Automate class instance.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">_create_client</span><span class="p">(</span>
         <span class="n">restful</span><span class="p">,</span>
-        <span class="s1">&#39;username:password&#39;</span><span class="p">)</span></div>
+        <span class="s1">'username:password'</span><span class="p">)</span></div>
 
 
 
@@ -339,18 +339,18 @@
 <a class="viewcode-back" href="../../../enhomie.restful.html#enhomie.restful.conftest.mismatch">[docs]</a>
 <span class="nd">@fixture</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">mismatch</span><span class="p">(</span>
-    <span class="n">restful</span><span class="p">:</span> <span class="s1">&#39;RestfulService&#39;</span><span class="p">,</span>
+    <span class="n">restful</span><span class="p">:</span> <span class="s1">'RestfulService'</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TestClient</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param restful: Ancilary Homie Automate class instance.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">_create_client</span><span class="p">(</span>
         <span class="n">restful</span><span class="p">,</span>
-        <span class="s1">&#39;username:incorrect&#39;</span><span class="p">)</span></div>
+        <span class="s1">'username:incorrect'</span><span class="p">)</span></div>
 
 
 
@@ -359,44 +359,44 @@
 <a class="viewcode-back" href="../../../enhomie.restful.html#enhomie.restful.conftest.invalid">[docs]</a>
 <span class="nd">@fixture</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">invalid</span><span class="p">(</span>
-    <span class="n">restful</span><span class="p">:</span> <span class="s1">&#39;RestfulService&#39;</span><span class="p">,</span>
+    <span class="n">restful</span><span class="p">:</span> <span class="s1">'RestfulService'</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TestClient</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param restful: Ancilary Homie Automate class instance.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">_create_client</span><span class="p">(</span>
         <span class="n">restful</span><span class="p">,</span>
-        <span class="s1">&#39;userdoes:notexist&#39;</span><span class="p">)</span></div>
+        <span class="s1">'userdoes:notexist'</span><span class="p">)</span></div>
 
 
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_create_client</span><span class="p">(</span>
-    <span class="n">restful</span><span class="p">:</span> <span class="s1">&#39;RestfulService&#39;</span><span class="p">,</span>
+    <span class="n">restful</span><span class="p">:</span> <span class="s1">'RestfulService'</span><span class="p">,</span>
     <span class="n">seed</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TestClient</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Construct the instance for use in the downstream tests.</span>
 
 <span class="sd">    :param restful: Ancilary Homie Automate class instance.</span>
 <span class="sd">    :param seed: Value that will be used in creating hash.</span>
 <span class="sd">    :returns: Newly constructed instance of related class.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">bseed</span> <span class="o">=</span> <span class="n">seed</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 
     <span class="n">token</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">b64encode</span><span class="p">(</span><span class="n">bseed</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span>
 
     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Basic </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}</span>
+        <span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Basic </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">}</span>
 
-    <span class="n">client</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;::1&#39;</span><span class="p">,</span> <span class="mi">8429</span><span class="p">)</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'::1'</span><span class="p">,</span> <span class="mi">8429</span><span class="p">)</span>
 
     <span class="k">assert</span> <span class="n">restful</span><span class="o">.</span><span class="n">fastapi</span>
 

@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.philips.stream</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -324,21 +324,21 @@
 <a class="viewcode-back" href="../../../enhomie.philips.html#enhomie.philips.stream.PhueStreamItem">[docs]</a>
 <span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhueStreamItem</span><span class="p">(</span><span class="n">HomieStreamItem</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Contain information for sharing using the Python queue.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">event</span><span class="p">:</span> <span class="n">DictStrAny</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;HomieOrigin&#39;</span><span class="p">,</span>
+        <span class="n">origin</span><span class="p">:</span> <span class="s1">'HomieOrigin'</span><span class="p">,</span>
         <span class="n">event</span><span class="p">:</span> <span class="n">DictStrAny</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">origin</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span></div>
@@ -349,9 +349,9 @@
 <div class="viewcode-block" id="PhueStream">
 <a class="viewcode-back" href="../../../index.html#enhomie.philips.stream.PhueStream">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhueStream</span><span class="p">(</span><span class="n">HomieStream</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Common methods and routines for Homie Automate threads.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
 
 <div class="viewcode-block" id="PhueStream.operate_streams">
@@ -359,9 +359,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">operate_streams</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the operation related to Homie service threads.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
         <span class="n">member</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">member</span>
@@ -390,7 +390,7 @@
             <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
                 <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">name</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
-                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;reading&#39;</span><span class="p">)</span>
+                <span class="n">status</span><span class="o">=</span><span class="s1">'reading'</span><span class="p">)</span>
 
             <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
 
@@ -403,21 +403,21 @@
             <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
                 <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">name</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
-                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;closed&#39;</span><span class="p">)</span>
+                <span class="n">status</span><span class="o">=</span><span class="s1">'closed'</span><span class="p">)</span>
 
         <span class="k">except</span> <span class="n">ReadTimeout</span><span class="p">:</span>
 
             <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
                 <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">name</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
-                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;timeout&#39;</span><span class="p">)</span>
+                <span class="n">status</span><span class="o">=</span><span class="s1">'timeout'</span><span class="p">)</span>
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">reason</span><span class="p">:</span>
 
             <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_e</span><span class="p">(</span>
                 <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">name</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
-                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;exception&#39;</span><span class="p">,</span>
+                <span class="n">status</span><span class="o">=</span><span class="s1">'exception'</span><span class="p">,</span>
                 <span class="n">exc_info</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
 
             <span class="n">block_sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>

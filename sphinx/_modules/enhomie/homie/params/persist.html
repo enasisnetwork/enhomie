@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.params.persist</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -321,67 +321,67 @@
 <span class="n">_PARAM_VALUE_UNIT</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;value_unit&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'value_unit'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_PARAM_VALUE_LABEL</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;value_label&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'value_label'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_PARAM_VALUE_ICON</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;value_icon&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'value_icon'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_PARAM_ABOUT</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;about&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'about'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_PARAM_ABOUT_LABEL</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;about_label&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'about_label'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_PARAM_ABOUT_ICON</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;about_icon&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'about_icon'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_PARAM_LEVEL</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="n">HomiePersistLevel</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'level'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_PARAM_TAGS</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'tags'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="n">_PARAM_EXPIRE</span> <span class="o">=</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span>
-          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">&#39;expire&#39;</span><span class="p">],</span>
+          <span class="n">description</span><span class="o">=</span><span class="n">_PERSIST_ABOUT</span><span class="p">[</span><span class="s1">'expire'</span><span class="p">],</span>
           <span class="n">pattern</span><span class="o">=</span><span class="n">NOTATE</span><span class="p">,</span>
-          <span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1h&#39;</span><span class="p">,</span> <span class="s1">&#39;1h30m&#39;</span><span class="p">,</span> <span class="s1">&#39;1d&#39;</span><span class="p">],</span>
+          <span class="n">examples</span><span class="o">=</span><span class="p">[</span><span class="s1">'1h'</span><span class="p">,</span> <span class="s1">'1h30m'</span><span class="p">,</span> <span class="s1">'1d'</span><span class="p">],</span>
           <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
 
 
 <div class="viewcode-block" id="HomiePersistParams">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.params.persist.HomiePersistParams">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">HomiePersistParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HomiePersistParams</span><span class="p">(</span><span class="n">HomieParamsModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'forbid'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Process and validate the Homie configuration parameters.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">value_unit</span><span class="p">:</span> <span class="n">_PARAM_VALUE_UNIT</span>
 
@@ -408,15 +408,15 @@
         <span class="o">/</span><span class="p">,</span>
         <span class="o">**</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
-        <span class="n">tags</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">)</span>
-        <span class="n">expire</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;expire&#39;</span><span class="p">)</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'tags'</span><span class="p">)</span>
+        <span class="n">expire</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'expire'</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tags</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">tags</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">'tags'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">tags</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expire</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">expire</span> <span class="o">=</span> <span class="n">unitime</span><span class="p">(</span><span class="n">expire</span><span class="p">)</span>

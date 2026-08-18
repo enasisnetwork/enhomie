@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.hubitat.update</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -321,21 +321,21 @@
 <a class="viewcode-back" href="../../../enhomie.hubitat.html#enhomie.hubitat.update.HubiUpdateItem">[docs]</a>
 <span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">HubiUpdateItem</span><span class="p">(</span><span class="n">HomieUpdateItem</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Contain information for sharing using the Python queue.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">fetch</span><span class="p">:</span> <span class="n">LDictStrAny</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;HomieOrigin&#39;</span><span class="p">,</span>
+        <span class="n">origin</span><span class="p">:</span> <span class="s1">'HomieOrigin'</span><span class="p">,</span>
         <span class="n">fetch</span><span class="p">:</span> <span class="n">LDictStrAny</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">fetch</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">fetch</span><span class="p">)</span>
 
@@ -349,9 +349,9 @@
 <div class="viewcode-block" id="HubiUpdate">
 <a class="viewcode-back" href="../../../index.html#enhomie.hubitat.update.HubiUpdate">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HubiUpdate</span><span class="p">(</span><span class="n">HomieUpdate</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Common methods and routines for Homie Automate threads.</span>
-<span class="sd">    &quot;&quot;&quot;</span></div>
+<span class="sd">    """</span></div>
 
 </pre></div>
 

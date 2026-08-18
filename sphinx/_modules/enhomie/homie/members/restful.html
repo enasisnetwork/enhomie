@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.members.restful</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -320,9 +320,9 @@
 <div class="viewcode-block" id="HomieRestful">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.members.restful.HomieRestful">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomieRestful</span><span class="p">(</span><span class="n">HomieMember</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Common methods and routines for Homie Automate members.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">__restful</span><span class="p">:</span> <span class="n">RestfulService</span>
     <span class="n">__thread</span><span class="p">:</span> <span class="n">Thread</span>
@@ -331,9 +331,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">__post__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
 
@@ -355,11 +355,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">restful</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RestfulService</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__restful</span>
 
@@ -368,17 +368,17 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">running</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the list of threads which are determined running.</span>
 
 <span class="sd">        :returns: List of threads which are determined running.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">thread</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__thread</span>
         <span class="n">running</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">if</span> <span class="n">thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
-            <span class="n">running</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;_restful&#39;</span><span class="p">)</span>
+            <span class="n">running</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'_restful'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">running</span>
 
@@ -387,17 +387,17 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">zombies</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the list of threads which are determined zombies.</span>
 
 <span class="sd">        :returns: List of threads which are determined zombies.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">thread</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__thread</span>
         <span class="n">zombies</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
-            <span class="n">zombies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;_restful&#39;</span><span class="p">)</span>
+            <span class="n">zombies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'_restful'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">zombies</span>
 
@@ -407,9 +407,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the operation related to Homie service members.</span>
-<span class="sd">        &quot;&quot;&quot;</span></div>
+<span class="sd">        """</span></div>
 
 
         <span class="c1"># Nothing to do for member</span>
@@ -420,9 +420,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">operate_updates</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the operation related to Homie service members.</span>
-<span class="sd">        &quot;&quot;&quot;</span></div>
+<span class="sd">        """</span></div>
 
 
         <span class="c1"># Nothing to do for member</span>
@@ -433,9 +433,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">soft</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Stop the various threads within the Homie class object.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">soft</span><span class="p">()</span>
 
@@ -449,9 +449,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Stop the various threads within the Homie class object.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 
@@ -464,14 +464,14 @@
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.members.restful.HomieRestful.get_thread">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_thread</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;HomieOrigin&#39;</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieThread&#39;</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+        <span class="n">origin</span><span class="p">:</span> <span class="s1">'HomieOrigin'</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="s1">'HomieThread'</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the Homie class definition for its instantiation.</span>
 
 <span class="sd">        :param origin: Child class instance for Homie Automate.</span>
 <span class="sd">        :returns: Homie class definition for its instantiation.</span>
-<span class="sd">        &quot;&quot;&quot;</span></div>
+<span class="sd">        """</span></div>
 </div>
 
 

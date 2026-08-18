@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.members.updates</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -323,9 +323,9 @@
 <div class="viewcode-block" id="HomieUpdates">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.members.updates.HomieUpdates">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomieUpdates</span><span class="p">(</span><span class="n">HomieMember</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Common methods and routines for Homie Automate members.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
 
 <div class="viewcode-block" id="HomieUpdates.operate">
@@ -333,9 +333,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the operation related to Homie service members.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">operate_streams</span><span class="p">()</span></div>
 
@@ -346,9 +346,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">operate_streams</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the operation related to Homie service members.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">vacate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vacate</span>
         <span class="n">squeue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">squeue</span>
@@ -387,24 +387,24 @@
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.members.updates.HomieUpdates.get_thread">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_thread</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;HomieOrigin&#39;</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieThread&#39;</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+        <span class="n">origin</span><span class="p">:</span> <span class="s1">'HomieOrigin'</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="s1">'HomieThread'</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the Homie class definition for its instantiation.</span>
 
 <span class="sd">        :param origin: Child class instance for Homie Automate.</span>
 <span class="sd">        :returns: Homie class definition for its instantiation.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">family</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">family</span>
 
-        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">&#39;hubitat&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">'hubitat'</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">HubiUpdate</span>
 
-        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">&#39;philips&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">'philips'</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">PhueUpdate</span>
 
-        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">&#39;ubiquiti&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">family</span> <span class="o">==</span> <span class="s1">'ubiquiti'</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">UbiqUpdate</span>
 
         <span class="k">return</span> <span class="n">NCNone</span></div>

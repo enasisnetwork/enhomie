@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.homie.members.member</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -323,7 +323,7 @@
 
 
 
-<span class="n">HomieThreads</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;HomieThread&#39;</span><span class="p">]</span>
+<span class="n">HomieThreads</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">'HomieThread'</span><span class="p">]</span>
 
 <span class="n">_CONGEST</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span>
 
@@ -332,36 +332,36 @@
 <div class="viewcode-block" id="HomieMember">
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.members.member.HomieMember">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HomieMember</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Common methods and routines for Homie Automate members.</span>
 
 <span class="sd">    :param homie: Primary class instance for Homie Automate.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="n">__service</span><span class="p">:</span> <span class="s1">&#39;HomieService&#39;</span>
+    <span class="n">__service</span><span class="p">:</span> <span class="s1">'HomieService'</span>
 
     <span class="n">__threads</span><span class="p">:</span> <span class="n">HomieThreads</span>
 
-    <span class="n">__aqueue</span><span class="p">:</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">&#39;HomieActionItem&#39;</span><span class="p">]</span>
-    <span class="n">__uqueue</span><span class="p">:</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">&#39;HomieUpdateItem&#39;</span><span class="p">]</span>
-    <span class="n">__squeue</span><span class="p">:</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">&#39;HomieStreamItem&#39;</span><span class="p">]</span>
+    <span class="n">__aqueue</span><span class="p">:</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">'HomieActionItem'</span><span class="p">]</span>
+    <span class="n">__uqueue</span><span class="p">:</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">'HomieUpdateItem'</span><span class="p">]</span>
+    <span class="n">__squeue</span><span class="p">:</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">'HomieStreamItem'</span><span class="p">]</span>
     <span class="n">__vacate</span><span class="p">:</span> <span class="n">Event</span>
     <span class="n">__cancel</span><span class="p">:</span> <span class="n">Event</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">service</span><span class="p">:</span> <span class="s1">&#39;HomieService&#39;</span><span class="p">,</span>
+        <span class="n">service</span><span class="p">:</span> <span class="s1">'HomieService'</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">homie</span>
 
         <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
             <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;initial&#39;</span><span class="p">)</span>
+            <span class="n">status</span><span class="o">=</span><span class="s1">'initial'</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__service</span> <span class="o">=</span> <span class="n">service</span>
 
@@ -373,23 +373,23 @@
 
         <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_i</span><span class="p">(</span>
             <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-            <span class="n">status</span><span class="o">=</span><span class="s1">&#39;created&#39;</span><span class="p">)</span>
+            <span class="n">status</span><span class="o">=</span><span class="s1">'created'</span><span class="p">)</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__post__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__build_objects</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct instances using the configuration parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
 
@@ -411,16 +411,16 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">__build_threads</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct instances using the configuration parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
         <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
         <span class="n">origins</span> <span class="o">=</span> <span class="n">childs</span><span class="o">.</span><span class="n">origins</span>
 
 
-        <span class="n">threads</span><span class="p">:</span> <span class="s1">&#39;HomieThreads&#39;</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">threads</span><span class="p">:</span> <span class="s1">'HomieThreads'</span> <span class="o">=</span> <span class="p">{}</span>
 
 
         <span class="n">items</span> <span class="o">=</span> <span class="n">origins</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
@@ -446,12 +446,12 @@
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">homie</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Homie&#39;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'Homie'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the Homie instance to which the instance belongs.</span>
 
 <span class="sd">        :returns: Homie instance to which the instance belongs.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__service</span><span class="o">.</span><span class="n">homie</span>
 
@@ -459,12 +459,12 @@
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">service</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieService&#39;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'HomieService'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the Homie instance to which the instance belongs.</span>
 
 <span class="sd">        :returns: Homie instance to which the instance belongs.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__service</span>
 
@@ -473,11 +473,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">threads</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieThreads</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">threads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__threads</span>
 
@@ -487,12 +487,12 @@
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">aqueue</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">&#39;HomieActionItem&#39;</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">'HomieActionItem'</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__aqueue</span>
 
@@ -500,12 +500,12 @@
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">uqueue</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">&#39;HomieUpdateItem&#39;</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">'HomieUpdateItem'</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__uqueue</span>
 
@@ -513,12 +513,12 @@
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">squeue</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">&#39;HomieStreamItem&#39;</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomieQueue</span><span class="p">[</span><span class="s1">'HomieStreamItem'</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__squeue</span>
 
@@ -527,11 +527,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">vacate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Event</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span>
 
@@ -540,11 +540,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">cancel</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Event</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cancel</span>
 
@@ -553,11 +553,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">running</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the list of threads which are determined running.</span>
 
 <span class="sd">        :returns: List of threads which are determined running.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">running</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -581,11 +581,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">zombies</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the list of threads which are determined zombies.</span>
 
 <span class="sd">        :returns: List of threads which are determined zombies.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">zombies</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -609,11 +609,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">congest</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CONGEST</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the list of congested threads and members queues.</span>
 
 <span class="sd">        :returns: List of congested threads and members queues.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">congest</span><span class="p">:</span> <span class="n">_CONGEST</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -627,7 +627,7 @@
         <span class="k">if</span> <span class="n">aqueue</span><span class="o">.</span><span class="n">qsize</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
 
             <span class="n">append</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/aqueue&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/aqueue'</span><span class="p">,</span>
                 <span class="n">aqueue</span><span class="o">.</span><span class="n">qsize</span><span class="p">)</span>
 
             <span class="n">congest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">append</span><span class="p">)</span>
@@ -635,7 +635,7 @@
         <span class="k">if</span> <span class="n">uqueue</span><span class="o">.</span><span class="n">qsize</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
 
             <span class="n">append</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/uqueue&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/uqueue'</span><span class="p">,</span>
                 <span class="n">uqueue</span><span class="o">.</span><span class="n">qsize</span><span class="p">)</span>
 
             <span class="n">congest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">append</span><span class="p">)</span>
@@ -643,7 +643,7 @@
         <span class="k">if</span> <span class="n">squeue</span><span class="o">.</span><span class="n">qsize</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
 
             <span class="n">append</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/squeue&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/squeue'</span><span class="p">,</span>
                 <span class="n">squeue</span><span class="o">.</span><span class="n">qsize</span><span class="p">)</span>
 
             <span class="n">congest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">append</span><span class="p">)</span>
@@ -666,11 +666,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">enqueue</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CONGEST</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the list of congested threads and members queues.</span>
 
 <span class="sd">        :returns: List of congested threads and members queues.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">enqueue</span><span class="p">:</span> <span class="n">_CONGEST</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -684,7 +684,7 @@
         <span class="k">if</span> <span class="n">aqueue</span><span class="o">.</span><span class="n">qsize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 
             <span class="n">append</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/aqueue&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/aqueue'</span><span class="p">,</span>
                 <span class="n">aqueue</span><span class="o">.</span><span class="n">qsize</span><span class="p">)</span>
 
             <span class="n">enqueue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">append</span><span class="p">)</span>
@@ -692,7 +692,7 @@
         <span class="k">if</span> <span class="n">uqueue</span><span class="o">.</span><span class="n">qsize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 
             <span class="n">append</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/uqueue&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/uqueue'</span><span class="p">,</span>
                 <span class="n">uqueue</span><span class="o">.</span><span class="n">qsize</span><span class="p">)</span>
 
             <span class="n">enqueue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">append</span><span class="p">)</span>
@@ -700,7 +700,7 @@
         <span class="k">if</span> <span class="n">squeue</span><span class="o">.</span><span class="n">qsize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 
             <span class="n">append</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/squeue&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">/squeue'</span><span class="p">,</span>
                 <span class="n">squeue</span><span class="o">.</span><span class="n">qsize</span><span class="p">)</span>
 
             <span class="n">enqueue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">append</span><span class="p">)</span>
@@ -724,9 +724,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Start the various threads within the Homie class object.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">threads</span> <span class="o">=</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__threads</span>
@@ -742,9 +742,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the operation related to Homie service members.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
@@ -755,9 +755,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">operate_updates</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the operation related to Homie service members.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="c1"># Where the updates spread</span>
 
@@ -793,9 +793,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">soft</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Stop the various threads within the Homie class object.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__vacate</span><span class="o">.</span><span class="n">set</span><span class="p">()</span></div>
 
@@ -806,9 +806,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Stop the various threads within the Homie class object.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__cancel</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 
@@ -825,14 +825,14 @@
 <a class="viewcode-back" href="../../../../index.html#enhomie.homie.members.member.HomieMember.get_thread">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_thread</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">origin</span><span class="p">:</span> <span class="s1">&#39;HomieOrigin&#39;</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="s1">&#39;HomieThread&#39;</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+        <span class="n">origin</span><span class="p">:</span> <span class="s1">'HomieOrigin'</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="s1">'HomieThread'</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the Homie class definition for its instantiation.</span>
 
 <span class="sd">        :param origin: Child class instance for Homie Automate.</span>
 <span class="sd">        :returns: Homie class definition for its instantiation.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 </div>

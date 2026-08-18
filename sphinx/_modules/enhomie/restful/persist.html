@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.restful.persist</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -319,26 +319,26 @@
 
 
 <span class="n">APIROUTER</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">(</span>
-    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Persistent Values&#39;</span><span class="p">])</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'Persistent Values'</span><span class="p">])</span>
 
 
 
 <div class="viewcode-block" id="HomiePersistEntries">
 <a class="viewcode-back" href="../../../enhomie.restful.html#enhomie.restful.persist.HomiePersistEntries">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">HomiePersistEntries</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;forbid&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HomiePersistEntries</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'forbid'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Contain the information regarding the persistent values.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">entries</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">list</span><span class="p">[</span><span class="n">HomiePersistRecord</span><span class="p">],</span>
         <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Entries related to the request&#39;</span><span class="p">)]</span>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Entries related to the request'</span><span class="p">)]</span>
 
     <span class="n">elapsed</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">float</span><span class="p">,</span>
         <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span>
-              <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Seconds elapsed since request&#39;</span><span class="p">)]</span></div>
+              <span class="n">description</span><span class="o">=</span><span class="s1">'Seconds elapsed since request'</span><span class="p">)]</span></div>
 
 
 
@@ -346,16 +346,16 @@
 <div class="viewcode-block" id="get_persists">
 <a class="viewcode-back" href="../../../enhomie.restful.html#enhomie.restful.persist.get_persists">[docs]</a>
 <span class="nd">@APIROUTER</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="s1">&#39;/api/persists&#39;</span><span class="p">,</span>
+    <span class="s1">'/api/persists'</span><span class="p">,</span>
     <span class="n">response_model</span><span class="o">=</span><span class="n">HomiePersistEntries</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_persists</span><span class="p">(</span>
     <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HomiePersistEntries</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Handle the API request and return using response model.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="n">runtime</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)</span>
+    <span class="n">runtime</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">'now'</span><span class="p">)</span>
 
     <span class="n">homie</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">homie</span>
     <span class="n">persist</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">persist</span>

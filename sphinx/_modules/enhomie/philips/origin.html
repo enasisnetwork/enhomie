@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.philips.origin</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -343,9 +343,9 @@
 <div class="viewcode-block" id="PhueOrigin">
 <a class="viewcode-back" href="../../../index.html#enhomie.philips.origin.PhueOrigin">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">PhueOrigin</span><span class="p">(</span><span class="n">HomieOrigin</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Contain the relevant attributes from the related source.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">__bridge</span><span class="p">:</span> <span class="n">Bridge</span>
 
@@ -358,9 +358,9 @@
         <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialize instance for class using provided parameters.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -385,25 +385,25 @@
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">family</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;philips&#39;</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">'philips'</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
-        <span class="k">return</span> <span class="s1">&#39;philips&#39;</span>
+        <span class="k">return</span> <span class="s1">'philips'</span>
 
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">bridge</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bridge</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the value for the attribute from class instance.</span>
 
 <span class="sd">        :returns: Value for the attribute from class instance.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__bridge</span>
 
@@ -412,11 +412,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">PhueFetch</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the content related to the item in parent system.</span>
 
 <span class="sd">        :returns: Content related to the item in parent system.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">fetch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__fetch</span>
 
@@ -427,11 +427,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">PhueMerge</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the content related to the item in parent system.</span>
 
 <span class="sd">        :returns: Content related to the item in parent system.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">fetch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__fetch</span>
         <span class="n">merge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__merge</span>
@@ -456,12 +456,12 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Refresh the cached information for the remote upstream.</span>
 
 <span class="sd">        :param timeout: Timeout waiting for the server response.</span>
 <span class="sd">        :returns: Boolean indicating the success of the refresh.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
         <span class="n">bridge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__bridge</span>
@@ -472,7 +472,7 @@
         <span class="k">try</span><span class="p">:</span>
 
             <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span>
-                <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;resource&#39;</span><span class="p">,</span>
+                <span class="s1">'get'</span><span class="p">,</span> <span class="s1">'resource'</span><span class="p">,</span>
                 <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
 
             <span class="p">(</span><span class="n">response</span>
@@ -492,9 +492,9 @@
             <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
                 <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-                <span class="n">item</span><span class="o">=</span><span class="s1">&#39;refresh&#39;</span><span class="p">,</span>
+                <span class="n">item</span><span class="o">=</span><span class="s1">'refresh'</span><span class="p">,</span>
                 <span class="n">elapsed</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span>
-                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;success&#39;</span><span class="p">)</span>
+                <span class="n">status</span><span class="o">=</span><span class="s1">'success'</span><span class="p">)</span>
 
             <span class="k">return</span> <span class="kc">True</span>
 
@@ -504,9 +504,9 @@
             <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_e</span><span class="p">(</span>
                 <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-                <span class="n">item</span><span class="o">=</span><span class="s1">&#39;refresh&#39;</span><span class="p">,</span>
+                <span class="n">item</span><span class="o">=</span><span class="s1">'refresh'</span><span class="p">,</span>
                 <span class="n">elapsed</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span>
-                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;exception&#39;</span><span class="p">,</span>
+                <span class="n">status</span><span class="o">=</span><span class="s1">'exception'</span><span class="p">,</span>
                 <span class="n">exc_info</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
 
             <span class="k">return</span> <span class="kc">False</span></div>
@@ -517,14 +517,14 @@
 <a class="viewcode-back" href="../../../index.html#enhomie.philips.origin.PhueOrigin.get_action">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_action</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
+        <span class="n">target</span><span class="p">:</span> <span class="s1">'HomieActionNode'</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
-        <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieState&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieState'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">color</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">Color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">level</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;HomieScene&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieActionItem&#39;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+        <span class="n">scene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">'HomieScene'</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'HomieActionItem'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the new item containing information for operation.</span>
 
 <span class="sd">        .. note::</span>
@@ -536,7 +536,7 @@
 <span class="sd">        :param level: Determine the level related to the target.</span>
 <span class="sd">        :param scene: Determine the scene related to the target.</span>
 <span class="sd">        :returns: New item containing information for operation.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
         <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
@@ -565,13 +565,13 @@
 <a class="viewcode-back" href="../../../index.html#enhomie.philips.origin.PhueOrigin.set_action">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_action</span><span class="p">(</span>  <span class="c1"># noqa: CFQ004</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">target</span><span class="p">:</span> <span class="s1">&#39;HomieActionNode&#39;</span><span class="p">,</span>
-        <span class="n">aitem</span><span class="p">:</span> <span class="s1">&#39;HomieActionItem&#39;</span><span class="p">,</span>
+        <span class="n">target</span><span class="p">:</span> <span class="s1">'HomieActionNode'</span><span class="p">,</span>
+        <span class="n">aitem</span><span class="p">:</span> <span class="s1">'HomieActionItem'</span><span class="p">,</span>
         <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">change</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Perform the provided action with specified Homie target.</span>
 
 <span class="sd">        :param target: Device or group settings will be updated.</span>
@@ -580,7 +580,7 @@
 <span class="sd">        :param change: Determine whether the change is executed.</span>
 <span class="sd">        :param timeout: Timeout waiting for the server response.</span>
 <span class="sd">        :returns: Boolean indicating whether or not was changed.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">homie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">homie</span>
         <span class="n">childs</span> <span class="o">=</span> <span class="n">homie</span><span class="o">.</span><span class="n">childs</span>
@@ -620,11 +620,11 @@
             <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
                 <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-                <span class="n">item</span><span class="o">=</span><span class="s1">&#39;action&#39;</span><span class="p">,</span>
+                <span class="n">item</span><span class="o">=</span><span class="s1">'action'</span><span class="p">,</span>
                 <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                 <span class="n">thread</span><span class="o">=</span><span class="n">thread</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                 <span class="n">elapsed</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span>
-                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;nochange&#39;</span><span class="p">)</span>
+                <span class="n">status</span><span class="o">=</span><span class="s1">'nochange'</span><span class="p">)</span>
 
             <span class="k">return</span> <span class="kc">False</span>
 
@@ -634,11 +634,11 @@
             <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_e</span><span class="p">(</span>
                 <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-                <span class="n">item</span><span class="o">=</span><span class="s1">&#39;action&#39;</span><span class="p">,</span>
+                <span class="n">item</span><span class="o">=</span><span class="s1">'action'</span><span class="p">,</span>
                 <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                 <span class="n">thread</span><span class="o">=</span><span class="n">thread</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                 <span class="n">elapsed</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span>
-                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;exception&#39;</span><span class="p">,</span>
+                <span class="n">status</span><span class="o">=</span><span class="s1">'exception'</span><span class="p">,</span>
                 <span class="n">exc_info</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
 
             <span class="k">return</span> <span class="kc">False</span>
@@ -651,11 +651,11 @@
             <span class="n">homie</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log_d</span><span class="p">(</span>
                 <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-                <span class="n">item</span><span class="o">=</span><span class="s1">&#39;action&#39;</span><span class="p">,</span>
+                <span class="n">item</span><span class="o">=</span><span class="s1">'action'</span><span class="p">,</span>
                 <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                 <span class="n">thread</span><span class="o">=</span><span class="n">thread</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                 <span class="n">elapsed</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span>
-                <span class="n">status</span><span class="o">=</span><span class="s1">&#39;success&#39;</span><span class="p">)</span>
+                <span class="n">status</span><span class="o">=</span><span class="s1">'success'</span><span class="p">)</span>
 
             <span class="k">return</span> <span class="kc">True</span></div>
 
@@ -665,12 +665,12 @@
 <a class="viewcode-back" href="../../../index.html#enhomie.philips.origin.PhueOrigin.get_update">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_update</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieUpdateItem&#39;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'HomieUpdateItem'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the new item containing information for operation.</span>
 
 <span class="sd">        :returns: New item containing information for operation.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">model</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">PhueModels</span>
@@ -689,14 +689,14 @@
 <a class="viewcode-back" href="../../../index.html#enhomie.philips.origin.PhueOrigin.set_update">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_update</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">uitem</span><span class="p">:</span> <span class="s1">&#39;HomieUpdateBase&#39;</span><span class="p">,</span>
+        <span class="n">uitem</span><span class="p">:</span> <span class="s1">'HomieUpdateBase'</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Replace or update internal configuration with provided.</span>
 
 <span class="sd">        :param uitem: Item containing information for operation.</span>
 <span class="sd">        :returns: Boolean indicating whether or not was changed.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">_name</span> <span class="o">=</span> <span class="n">uitem</span><span class="o">.</span><span class="n">origin</span>
 
@@ -705,7 +705,7 @@
         <span class="n">changed</span> <span class="o">=</span> <span class="mi">0</span>
 
 
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">uitem</span><span class="p">,</span> <span class="s1">&#39;fetch&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">uitem</span><span class="p">,</span> <span class="s1">'fetch'</span><span class="p">):</span>
 
             <span class="n">fetch</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span>
                 <span class="n">uitem</span><span class="o">.</span><span class="n">fetch</span><span class="p">)</span>
@@ -716,7 +716,7 @@
             <span class="n">changed</span> <span class="o">+=</span> <span class="mi">1</span>
 
 
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">uitem</span><span class="p">,</span> <span class="s1">&#39;event&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">uitem</span><span class="p">,</span> <span class="s1">'event'</span><span class="p">):</span>
 
             <span class="n">fetch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__fetch</span>
             <span class="n">event</span> <span class="o">=</span> <span class="n">uitem</span><span class="o">.</span><span class="n">event</span>
@@ -740,13 +740,13 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_stream</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">event</span><span class="p">:</span> <span class="n">DictStrAny</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;HomieStreamItem&#39;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'HomieStreamItem'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the new item containing information for operation.</span>
 
 <span class="sd">        :param event: Event from the stream for creating object.</span>
 <span class="sd">        :returns: New item containing information for operation.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">model</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">PhueModels</span>
@@ -761,12 +761,12 @@
 <a class="viewcode-back" href="../../../index.html#enhomie.philips.origin.PhueOrigin.source">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">source</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">kind</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieKinds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">kind</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieKinds'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">unique</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">relate</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;HomieActionNode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">relate</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">'HomieActionNode'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DictStrAny</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return the content related to the item in parent system.</span>
 
 <span class="sd">        .. note::</span>
@@ -777,7 +777,7 @@
 <span class="sd">        :param label: Friendly name or label within the parent.</span>
 <span class="sd">        :param relate: Child class instance for Homie Automate.</span>
 <span class="sd">        :returns: Content related to the item in parent system.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">merge</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__merge</span>
 

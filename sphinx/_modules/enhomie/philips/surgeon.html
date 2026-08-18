@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.philips.surgeon</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -315,137 +315,137 @@
     <span class="n">fetch</span><span class="p">:</span> <span class="n">DictStrAny</span><span class="p">,</span>
     <span class="n">event</span><span class="p">:</span> <span class="n">DictStrAny</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Process the stream event updating the origin dictionary.</span>
 
 <span class="sd">    :param fetch: Dictionary from the origin to be updated.</span>
 <span class="sd">    :param event: Event from the stream for updating fetch.</span>
 <span class="sd">    :returns: Boolean indicating whether or not was changed.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">updated</span> <span class="o">=</span> <span class="kc">False</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_update_state</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 
-        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span>
 
         <span class="n">types</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s1">&#39;grouped_light&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;light&#39;</span><span class="p">]</span>
+            <span class="s1">'grouped_light'</span><span class="p">,</span>
+            <span class="s1">'light'</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="n">_update</span><span class="p">(</span><span class="s1">&#39;on/on&#39;</span><span class="p">)</span>
+        <span class="n">_update</span><span class="p">(</span><span class="s1">'on/on'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="kc">True</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_update_color</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 
-        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span>
 
         <span class="n">types</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s1">&#39;grouped_light&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;light&#39;</span><span class="p">]</span>
+            <span class="s1">'grouped_light'</span><span class="p">,</span>
+            <span class="s1">'light'</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="n">_update</span><span class="p">(</span><span class="s1">&#39;color/xy&#39;</span><span class="p">)</span>
+        <span class="n">_update</span><span class="p">(</span><span class="s1">'color/xy'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="kc">True</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_update_level</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 
-        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span>
 
         <span class="n">types</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s1">&#39;grouped_light&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;light&#39;</span><span class="p">]</span>
+            <span class="s1">'grouped_light'</span><span class="p">,</span>
+            <span class="s1">'light'</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="n">_update</span><span class="p">(</span>
-            <span class="s1">&#39;dimming/brightness&#39;</span><span class="p">)</span>
+            <span class="s1">'dimming/brightness'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="kc">True</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_update_scene</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 
-        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">_type</span> <span class="o">!=</span> <span class="s1">&#39;scene&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">_type</span> <span class="o">!=</span> <span class="s1">'scene'</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
 
-        <span class="n">_update</span><span class="p">(</span><span class="s1">&#39;status/active&#39;</span><span class="p">)</span>
+        <span class="n">_update</span><span class="p">(</span><span class="s1">'status/active'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="kc">True</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_update_button</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 
-        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">_type</span> <span class="o">!=</span> <span class="s1">&#39;button&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">_type</span> <span class="o">!=</span> <span class="s1">'button'</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="n">_update</span><span class="p">(</span>
-            <span class="s1">&#39;button/button_&#39;</span>
-            <span class="s1">&#39;report/updated&#39;</span><span class="p">)</span>
+            <span class="s1">'button/button_'</span>
+            <span class="s1">'report/updated'</span><span class="p">)</span>
 
         <span class="n">_update</span><span class="p">(</span>
-            <span class="s1">&#39;button/button_&#39;</span>
-            <span class="s1">&#39;report/event&#39;</span><span class="p">)</span>
+            <span class="s1">'button/button_'</span>
+            <span class="s1">'report/event'</span><span class="p">)</span>
 
         <span class="n">_update</span><span class="p">(</span>
-            <span class="s1">&#39;button/last_event&#39;</span><span class="p">)</span>
+            <span class="s1">'button/last_event'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="kc">True</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_update_contact</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 
-        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">_type</span> <span class="o">!=</span> <span class="s1">&#39;contact&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">_type</span> <span class="o">!=</span> <span class="s1">'contact'</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="n">_update</span><span class="p">(</span>
-            <span class="s1">&#39;contact_report&#39;</span>
-            <span class="s1">&#39;/changed&#39;</span><span class="p">)</span>
+            <span class="s1">'contact_report'</span>
+            <span class="s1">'/changed'</span><span class="p">)</span>
 
         <span class="n">_update</span><span class="p">(</span>
-            <span class="s1">&#39;contact_report&#39;</span>
-            <span class="s1">&#39;/state&#39;</span><span class="p">)</span>
+            <span class="s1">'contact_report'</span>
+            <span class="s1">'/state'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="kc">True</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_update_motion</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 
-        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+        <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">_type</span> <span class="o">!=</span> <span class="s1">&#39;motion&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">_type</span> <span class="o">!=</span> <span class="s1">'motion'</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="n">_update</span><span class="p">(</span>
-            <span class="s1">&#39;motion/motion&#39;</span><span class="p">)</span>
+            <span class="s1">'motion/motion'</span><span class="p">)</span>
 
         <span class="n">_update</span><span class="p">(</span>
-            <span class="s1">&#39;motion/motion_&#39;</span>
-            <span class="s1">&#39;report/changed&#39;</span><span class="p">)</span>
+            <span class="s1">'motion/motion_'</span>
+            <span class="s1">'report/changed'</span><span class="p">)</span>
 
         <span class="n">_update</span><span class="p">(</span>
-            <span class="s1">&#39;motion/motion_&#39;</span>
-            <span class="s1">&#39;report/event&#39;</span><span class="p">)</span>
+            <span class="s1">'motion/motion_'</span>
+            <span class="s1">'report/event'</span><span class="p">)</span>
 
         <span class="n">_update</span><span class="p">(</span>
-            <span class="s1">&#39;motion/motion_valid&#39;</span><span class="p">)</span>
+            <span class="s1">'motion/motion_valid'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="kc">True</span>
 
@@ -462,11 +462,11 @@
         <span class="n">setate</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
 
-    <span class="n">unique</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+    <span class="n">unique</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span>
 
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fetch</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fetch</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]:</span>
 
-        <span class="n">_unique</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">_unique</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">unique</span> <span class="o">!=</span> <span class="n">_unique</span><span class="p">:</span>
             <span class="k">continue</span>

@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.philips.plugins.helpers</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -326,59 +326,59 @@
     <span class="n">Optional</span><span class="p">[</span><span class="n">_CURRENT_VALUE</span><span class="p">]]</span>
 
 <span class="n">_REPORTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;button&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;contact&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;motion&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;temperature&#39;</span><span class="p">]</span>
+    <span class="s1">'button'</span><span class="p">,</span>
+    <span class="s1">'contact'</span><span class="p">,</span>
+    <span class="s1">'motion'</span><span class="p">,</span>
+    <span class="s1">'temperature'</span><span class="p">]</span>
 
 
 
 <div class="viewcode-block" id="phue_changed">
 <a class="viewcode-back" href="../../../../enhomie.philips.plugins.html#enhomie.philips.plugins.helpers.phue_changed">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">phue_changed</span><span class="p">(</span>
-    <span class="n">source</span><span class="p">:</span> <span class="s1">&#39;PhueFetch&#39;</span><span class="p">,</span>
+    <span class="n">source</span><span class="p">:</span> <span class="s1">'PhueFetch'</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CHANGED</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the timestamp for the services that have changed.</span>
 
 <span class="sd">    :param source: Dictionary of parameters from the bridge.</span>
 <span class="sd">    :returns: Timestamp for the services that have changed.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">changed</span><span class="p">:</span> <span class="n">_CHANGED</span> <span class="o">=</span> <span class="p">{}</span>
 
 
     <span class="n">services</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">source</span><span class="p">[</span><span class="s1">&#39;services&#39;</span><span class="p">])</span>
+        <span class="n">source</span><span class="p">[</span><span class="s1">'services'</span><span class="p">])</span>
 
 
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">services</span><span class="p">:</span>
 
-        <span class="n">rtype</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rtype&#39;</span><span class="p">]</span>
+        <span class="n">rtype</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'rtype'</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">rtype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_REPORTS</span><span class="p">:</span>
             <span class="k">continue</span>
 
-        <span class="n">fetch</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;_source&#39;</span><span class="p">]</span>
+        <span class="n">fetch</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'_source'</span><span class="p">]</span>
 
 
-        <span class="n">base</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">rtype</span><span class="si">}</span><span class="s1">_report&#39;</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;changed&#39;</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">rtype</span><span class="si">}</span><span class="s1">_report'</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="s1">'changed'</span>
 
-        <span class="k">if</span> <span class="n">rtype</span> <span class="o">==</span> <span class="s1">&#39;button&#39;</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;updated&#39;</span>
+        <span class="k">if</span> <span class="n">rtype</span> <span class="o">==</span> <span class="s1">'button'</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s1">'updated'</span>
 
 
         <span class="n">time</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
             <span class="p">(</span><span class="n">fetch</span><span class="p">[</span><span class="n">rtype</span><span class="p">]</span>
-             <span class="k">if</span> <span class="n">rtype</span> <span class="o">!=</span> <span class="s1">&#39;contact&#39;</span>
+             <span class="k">if</span> <span class="n">rtype</span> <span class="o">!=</span> <span class="s1">'contact'</span>
              <span class="k">else</span> <span class="n">fetch</span><span class="p">),</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
         <span class="n">index</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
             <span class="n">fetch</span><span class="p">,</span>
-            <span class="s1">&#39;metadata/control_id&#39;</span><span class="p">)</span>
+            <span class="s1">'metadata/control_id'</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">rtype</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
@@ -397,35 +397,35 @@
 <div class="viewcode-block" id="phue_sensors">
 <a class="viewcode-back" href="../../../../enhomie.philips.plugins.html#enhomie.philips.plugins.helpers.phue_sensors">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">phue_sensors</span><span class="p">(</span>
-    <span class="n">source</span><span class="p">:</span> <span class="s1">&#39;PhueFetch&#39;</span><span class="p">,</span>
+    <span class="n">source</span><span class="p">:</span> <span class="s1">'PhueFetch'</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_SENSORS</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the unique identifier for services on the device.</span>
 
 <span class="sd">    :param source: Dictionary of parameters from the bridge.</span>
 <span class="sd">    :returns: Timestamp for the services that have changed.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">sensors</span><span class="p">:</span> <span class="n">_SENSORS</span> <span class="o">=</span> <span class="p">{}</span>
 
 
     <span class="n">services</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">source</span><span class="p">[</span><span class="s1">&#39;services&#39;</span><span class="p">])</span>
+        <span class="n">source</span><span class="p">[</span><span class="s1">'services'</span><span class="p">])</span>
 
 
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">services</span><span class="p">:</span>
 
-        <span class="n">rtype</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rtype&#39;</span><span class="p">]</span>
-        <span class="n">rid</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rid&#39;</span><span class="p">]</span>
+        <span class="n">rtype</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'rtype'</span><span class="p">]</span>
+        <span class="n">rid</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'rid'</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">rtype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_REPORTS</span><span class="p">:</span>
             <span class="k">continue</span>
 
-        <span class="n">fetch</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;_source&#39;</span><span class="p">]</span>
+        <span class="n">fetch</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'_source'</span><span class="p">]</span>
 
         <span class="n">index</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
             <span class="n">fetch</span><span class="p">,</span>
-            <span class="s1">&#39;metadata/control_id&#39;</span><span class="p">)</span>
+            <span class="s1">'metadata/control_id'</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">rtype</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
@@ -441,57 +441,57 @@
 <div class="viewcode-block" id="phue_current">
 <a class="viewcode-back" href="../../../../enhomie.philips.plugins.html#enhomie.philips.plugins.helpers.phue_current">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">phue_current</span><span class="p">(</span>
-    <span class="n">source</span><span class="p">:</span> <span class="s1">&#39;PhueFetch&#39;</span><span class="p">,</span>
+    <span class="n">source</span><span class="p">:</span> <span class="s1">'PhueFetch'</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_CURRENT</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the various values for the services within scope.</span>
 
 <span class="sd">    :param source: Dictionary of parameters from the bridge.</span>
 <span class="sd">    :returns: Various values for the services within scope.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">current</span><span class="p">:</span> <span class="n">_CURRENT</span> <span class="o">=</span> <span class="p">{}</span>
 
 
     <span class="n">services</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">source</span><span class="p">[</span><span class="s1">&#39;services&#39;</span><span class="p">])</span>
+        <span class="n">source</span><span class="p">[</span><span class="s1">'services'</span><span class="p">])</span>
 
 
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">services</span><span class="p">:</span>
 
-        <span class="n">rtype</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rtype&#39;</span><span class="p">]</span>
+        <span class="n">rtype</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'rtype'</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">rtype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_REPORTS</span><span class="p">:</span>
             <span class="k">continue</span>
 
-        <span class="n">fetch</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;_source&#39;</span><span class="p">]</span>
+        <span class="n">fetch</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'_source'</span><span class="p">]</span>
 
 
-        <span class="n">base</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">rtype</span><span class="si">}</span><span class="s1">_report&#39;</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">rtype</span><span class="si">}</span><span class="s1">_report'</span>
 
 
         <span class="n">key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="k">if</span> <span class="n">rtype</span> <span class="o">==</span> <span class="s1">&#39;button&#39;</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;event&#39;</span>
+        <span class="k">if</span> <span class="n">rtype</span> <span class="o">==</span> <span class="s1">'button'</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s1">'event'</span>
 
-        <span class="k">elif</span> <span class="n">rtype</span> <span class="o">==</span> <span class="s1">&#39;contact&#39;</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;state&#39;</span>
+        <span class="k">elif</span> <span class="n">rtype</span> <span class="o">==</span> <span class="s1">'contact'</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s1">'state'</span>
 
-        <span class="k">elif</span> <span class="n">rtype</span> <span class="o">==</span> <span class="s1">&#39;motion&#39;</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;motion&#39;</span>
+        <span class="k">elif</span> <span class="n">rtype</span> <span class="o">==</span> <span class="s1">'motion'</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s1">'motion'</span>
 
-        <span class="k">elif</span> <span class="n">rtype</span> <span class="o">==</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;temperature&#39;</span>
+        <span class="k">elif</span> <span class="n">rtype</span> <span class="o">==</span> <span class="s1">'temperature'</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s1">'temperature'</span>
 
         <span class="k">assert</span> <span class="n">key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
 
         <span class="n">value</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
             <span class="p">(</span><span class="n">fetch</span><span class="p">[</span><span class="n">rtype</span><span class="p">]</span>
-             <span class="k">if</span> <span class="n">rtype</span> <span class="o">!=</span> <span class="s1">&#39;contact&#39;</span>
+             <span class="k">if</span> <span class="n">rtype</span> <span class="o">!=</span> <span class="s1">'contact'</span>
              <span class="k">else</span> <span class="n">fetch</span><span class="p">),</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
         <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -502,7 +502,7 @@
 
         <span class="n">index</span> <span class="o">=</span> <span class="n">getate</span><span class="p">(</span>
             <span class="n">fetch</span><span class="p">,</span>
-            <span class="s1">&#39;metadata/control_id&#39;</span><span class="p">)</span>
+            <span class="s1">'metadata/control_id'</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">rtype</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>

@@ -294,12 +294,12 @@
                 <article class="bd-article">
                   
   <h1>Source code for enhomie.restful.static</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions and routines associated with Enasis Network Homie Automate.</span>
 
 <span class="sd">This file is part of Enasis Network software eco-system. Distribution</span>
 <span class="sd">is permitted, for more information consult the project license file.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 
@@ -320,31 +320,31 @@
 
 
 <span class="n">APIROUTER</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">(</span>
-    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Static Content&#39;</span><span class="p">])</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'Static Content'</span><span class="p">])</span>
 
 <span class="n">_STATIC</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="o">/</span> <span class="s1">&#39;static&#39;</span><span class="p">)</span>
+    <span class="o">/</span> <span class="s1">'static'</span><span class="p">)</span>
 
 
 
 <div class="viewcode-block" id="get_static_images">
 <a class="viewcode-back" href="../../../enhomie.restful.static.html#enhomie.restful.static.get_static_images">[docs]</a>
 <span class="nd">@APIROUTER</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="s1">&#39;/static/images/</span><span class="si">{item}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="s1">'/static/images/</span><span class="si">{item}</span><span class="s1">'</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_static_images</span><span class="p">(</span>
     <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
     <span class="n">item</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Handle the API request and return using response model.</span>
 
 <span class="sd">    :param item: Which item to locate and return contents.</span>
 <span class="sd">    :returns: Response object containing relevant contents.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">local</span> <span class="o">=</span> <span class="n">_static_file</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1">.svg&#39;</span><span class="p">,</span> <span class="s1">&#39;images&#39;</span><span class="p">)</span>
+        <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1">.svg'</span><span class="p">,</span> <span class="s1">'images'</span><span class="p">)</span>
 
     <span class="n">content</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">Content</span><span class="o">.</span><span class="n">images</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
@@ -358,7 +358,7 @@
 
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
         <span class="n">content</span><span class="p">,</span>
-        <span class="n">media_type</span><span class="o">=</span><span class="s1">&#39;image/svg+xml&#39;</span><span class="p">)</span></div>
+        <span class="n">media_type</span><span class="o">=</span><span class="s1">'image/svg+xml'</span><span class="p">)</span></div>
 
 
 
@@ -366,20 +366,20 @@
 <div class="viewcode-block" id="get_static_scripts">
 <a class="viewcode-back" href="../../../enhomie.restful.static.html#enhomie.restful.static.get_static_scripts">[docs]</a>
 <span class="nd">@APIROUTER</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="s1">&#39;/static/scripts/</span><span class="si">{item}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="s1">'/static/scripts/</span><span class="si">{item}</span><span class="s1">'</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_static_scripts</span><span class="p">(</span>
     <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
     <span class="n">item</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Handle the API request and return using response model.</span>
 
 <span class="sd">    :param item: Which item to locate and return contents.</span>
 <span class="sd">    :returns: Response object containing relevant contents.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">local</span> <span class="o">=</span> <span class="n">_static_file</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1">.js&#39;</span><span class="p">,</span> <span class="s1">&#39;scripts&#39;</span><span class="p">)</span>
+        <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1">.js'</span><span class="p">,</span> <span class="s1">'scripts'</span><span class="p">)</span>
 
     <span class="n">content</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">Content</span><span class="o">.</span><span class="n">scripts</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
@@ -387,14 +387,14 @@
 
     <span class="k">if</span> <span class="n">local</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">content</span> <span class="o">+=</span> <span class="p">(</span>
-            <span class="s1">&#39;</span><span class="se">\n\n\n</span><span class="s1">&#39;</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">read_text</span><span class="p">(</span><span class="n">local</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="s1">'</span><span class="se">\n\n\n</span><span class="s1">'</span>
+            <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">read_text</span><span class="p">(</span><span class="n">local</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
         <span class="n">content</span><span class="p">,</span>
-        <span class="n">media_type</span><span class="o">=</span><span class="s1">&#39;application/javascript&#39;</span><span class="p">)</span></div>
+        <span class="n">media_type</span><span class="o">=</span><span class="s1">'application/javascript'</span><span class="p">)</span></div>
 
 
 
@@ -402,20 +402,20 @@
 <div class="viewcode-block" id="get_static_styles">
 <a class="viewcode-back" href="../../../enhomie.restful.static.html#enhomie.restful.static.get_static_styles">[docs]</a>
 <span class="nd">@APIROUTER</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="s1">&#39;/static/styles/</span><span class="si">{item}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="s1">'/static/styles/</span><span class="si">{item}</span><span class="s1">'</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_static_styles</span><span class="p">(</span>
     <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
     <span class="n">item</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Handle the API request and return using response model.</span>
 
 <span class="sd">    :param item: Which item to locate and return contents.</span>
 <span class="sd">    :returns: Response object containing relevant contents.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">local</span> <span class="o">=</span> <span class="n">_static_file</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1">.css&#39;</span><span class="p">,</span> <span class="s1">&#39;styles&#39;</span><span class="p">)</span>
+        <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s1">.css'</span><span class="p">,</span> <span class="s1">'styles'</span><span class="p">)</span>
 
     <span class="n">content</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">Content</span><span class="o">.</span><span class="n">styles</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
@@ -423,14 +423,14 @@
 
     <span class="k">if</span> <span class="n">local</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">content</span> <span class="o">+=</span> <span class="p">(</span>
-            <span class="s1">&#39;</span><span class="se">\n\n\n</span><span class="s1">&#39;</span>
-            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">read_text</span><span class="p">(</span><span class="n">local</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="s1">'</span><span class="se">\n\n\n</span><span class="s1">'</span>
+            <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">read_text</span><span class="p">(</span><span class="n">local</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
         <span class="n">content</span><span class="p">,</span>
-        <span class="n">media_type</span><span class="o">=</span><span class="s1">&#39;text/css&#39;</span><span class="p">)</span></div>
+        <span class="n">media_type</span><span class="o">=</span><span class="s1">'text/css'</span><span class="p">)</span></div>
 
 
 
@@ -438,19 +438,19 @@
 <div class="viewcode-block" id="get_static">
 <a class="viewcode-back" href="../../../enhomie.restful.static.html#enhomie.restful.static.get_static">[docs]</a>
 <span class="nd">@APIROUTER</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="s1">&#39;/static/</span><span class="si">{file}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="s1">'/static/</span><span class="si">{file}</span><span class="s1">'</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_static</span><span class="p">(</span>
     <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
     <span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FileResponse</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Handle the API request and return using response model.</span>
 
 <span class="sd">    :param file: Which file to locate and return contents.</span>
 <span class="sd">    :returns: Response object containing relevant contents.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="k">if</span> <span class="n">file</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">!=</span> <span class="s1">&#39;.html&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">file</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">!=</span> <span class="s1">'.html'</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="mi">403</span><span class="p">)</span>
 
     <span class="n">path</span> <span class="o">=</span> <span class="n">_static_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
@@ -469,13 +469,13 @@
     <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">base</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return the filesystem path object using the parameters.</span>
 
 <span class="sd">    :param path: Complete or relative path for processing.</span>
 <span class="sd">    :param base: Parent directory where the file is located.</span>
 <span class="sd">    :returns: Filesystem path object using the parameters.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="n">static</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_STATIC</span><span class="p">)</span>
 
