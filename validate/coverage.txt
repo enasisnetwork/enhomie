@@ -64,7 +64,7 @@ enhomie/homie/childs/test/__init__.py               0      0   100%
 enhomie/homie/childs/test/test_aspire.py           49      0   100%
 enhomie/homie/childs/test/test_child.py             8      0   100%
 enhomie/homie/childs/test/test_childs.py           33      0   100%
-enhomie/homie/childs/test/test_desire.py           44      1    98%
+enhomie/homie/childs/test/test_desire.py           44      0   100%
 enhomie/homie/childs/test/test_device.py            2      0   100%
 enhomie/homie/childs/test/test_group.py            41      0   100%
 enhomie/homie/childs/test/test_origin.py            2      0   100%
@@ -226,4 +226,4 @@ enhomie/utils/test/test_child.py                   20      0   100%
 enhomie/utils/test/test_param.py                   17      0   100%
 enhomie/utils/tests.py                             22      0   100%
 -------------------------------------------------------------------
-TOTAL                                            8100      1    99%
+TOTAL                                            8100      0   100%
