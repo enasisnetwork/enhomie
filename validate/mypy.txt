@@ -1,5 +1,7 @@
 >>> make mypy
   ● Executing mypy in enhomie..
-    DONE
-  ● Executing mypy in sphinx..
-    DONE
+enhomie/homie/addons/persist.py:559: error: Need type annotation for "field"  [var-annotated]
+enhomie/homie/addons/persist.py:599: error: Need type annotation for "field"  [var-annotated]
+enhomie/homie/addons/persist.py:629: error: Need type annotation for "expire"  [var-annotated]
+enhomie/homie/addons/persist.py:637: error: Argument 1 to "filter" of "Query" has incompatible type "bool"; expected "ColumnElement[bool] | _HasClauseElement[bool] | SQLCoreOperations[bool] | ExpressionElementRole[bool] | TypedColumnsClauseRole[bool] | Callable[[], ColumnElement[bool]] | LambdaElement"  [arg-type]
+enhomie/homie/addons/persist.py:659: error: Need type annotation for "field"  [var-annotated]
